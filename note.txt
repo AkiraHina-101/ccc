@@ -1,17 +1,14 @@
-ApplyTOCPageLinks tocBox, pres, tocLineFirstSlide, tocLineCount, pageWord
-NormalizeTOCTextColor tocBox
-LinkSlideHeadersBackToTOC pres, tocSlideIndex
-EnsureSlideNumbersVisible pres
-pres.Save
+Private Const MASTER_TOTAL_SLIDE_SHAPE_NAME As String = "Slide Number"
 
+Private Sub UpdateMasterTotalSlideCount(pres As Presentation)
+    Dim shp As Shape
 
+    On Error Resume Next
+    Set shp = pres.SlideMaster.Shapes(MASTER_TOTAL_SLIDE_SHAPE_NAME)
+    On Error GoTo 0
 
-Private Sub EnsureSlideNumbersVisible(pres As Presentation)
-    Dim sld As Slide
+    If shp Is Nothing Then Exit Sub
+    If Not shp.HasTextFrame Then Exit Sub
 
-    pres.PageSetup.FirstSlideNumber = 1
-
-    For Each sld In pres.Slides
-        sld.HeadersFooters.SlideNumber.Visible = msoTrue
-    Next sld
+    shp.TextFrame.TextRange.Text = CStr(pres.Slides.Count)
 End Sub
