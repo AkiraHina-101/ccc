@@ -1,14 +1,748 @@
-Private Const MASTER_TOTAL_SLIDE_SHAPE_NAME As String = "Slide Number"
+Option Explicit
 
-Private Sub UpdateMasterTotalSlideCount(pres As Presentation)
-    Dim shp As Shape
+Private mHasPptCellSize As Boolean
+Private mPptRowCount As Long
+Private mPptColCount As Long
+Private mPptRowHeights() As Single
+Private mPptColWidths() As Single
+Private mPptCellCount As Long
+Private mPptCellWidths() As Single
+Private mPptCellHeights() As Single
+Private mPptTotalWidth As Single
+Private mPptTotalHeight As Single
+
+Public Sub PasteExcelClipboardToSelectedPptTableCell()
+    On Error GoTo FailGracefully
+
+    Dim pptTable As Object
+    Dim startRow As Long
+    Dim startCol As Long
+    Set pptTable = GetSelectedPowerPointTable(startRow, startCol)
+    If pptTable Is Nothing Then
+        MsgBox "Hay click/chon o bat dau trong table PowerPoint truoc khi chay macro.", vbExclamation
+        Exit Sub
+    End If
+
+    Dim srcRange As Object
+    Set srcRange = GetExcelSelectedRange()
+    If srcRange Is Nothing Then
+        MsgBox "Khong tim thay vung dang chon trong Excel. Hay mo Excel, chon/copy vung can paste, roi chay macro.", vbExclamation
+        Exit Sub
+    End If
+
+    PasteExcelRangeWithinTableBounds srcRange, pptTable, startRow, startCol
+    Exit Sub
+
+FailGracefully:
+    MsgBox "Paste khong thanh cong: " & Err.Description, vbExclamation
+End Sub
+
+Private Function GetSelectedPowerPointTable(ByRef startRow As Long, ByRef startCol As Long) As Object
+    On Error GoTo CleanFail
+
+    Dim shp As Object
+    Set shp = ActiveWindow.Selection.ShapeRange(1)
+    If Not shp.HasTable Then GoTo CleanFail
+
+    Set GetSelectedPowerPointTable = shp.Table
+    FindSelectedTableCell shp.Table, startRow, startCol
+    Exit Function
+
+CleanFail:
+    startRow = 0
+    startCol = 0
+    Set GetSelectedPowerPointTable = Nothing
+End Function
+
+Private Sub FindSelectedTableCell(ByVal pptTable As Object, ByRef startRow As Long, ByRef startCol As Long)
+    startRow = 1
+    startCol = 1
 
     On Error Resume Next
-    Set shp = pres.SlideMaster.Shapes(MASTER_TOTAL_SLIDE_SHAPE_NAME)
-    On Error GoTo 0
 
-    If shp Is Nothing Then Exit Sub
-    If Not shp.HasTextFrame Then Exit Sub
-
-    shp.TextFrame.TextRange.Text = CStr(pres.Slides.Count)
+    Dim r As Long
+    Dim c As Long
+    For r = 1 To pptTable.Rows.Count
+        For c = 1 To pptTable.Columns.Count
+            If pptTable.cell(r, c).Selected Then
+                startRow = r
+                startCol = c
+                Exit Sub
+            End If
+        Next c
+    Next r
 End Sub
+
+Private Function GetSelectedPowerPointTableRange(ByRef topRow As Long, ByRef leftCol As Long, ByRef bottomRow As Long, ByRef rightCol As Long, ByRef isExplicitRange As Boolean) As Object
+    On Error GoTo CleanFail
+
+    Dim startRow As Long
+    Dim startCol As Long
+    Dim pptTable As Object
+    Set pptTable = GetSelectedPowerPointTable(startRow, startCol)
+    If pptTable Is Nothing Then GoTo CleanFail
+
+    topRow = startRow
+    bottomRow = startRow
+    leftCol = startCol
+    rightCol = startCol
+    isExplicitRange = False
+
+    Dim found As Long
+    Dim r As Long
+    Dim c As Long
+    For r = 1 To pptTable.Rows.Count
+        For c = 1 To pptTable.Columns.Count
+            If pptTable.cell(r, c).Selected Then
+                found = found + 1
+                If found = 1 Then
+                    topRow = r
+                    bottomRow = r
+                    leftCol = c
+                    rightCol = c
+                Else
+                    If r < topRow Then topRow = r
+                    If r > bottomRow Then bottomRow = r
+                    If c < leftCol Then leftCol = c
+                    If c > rightCol Then rightCol = c
+                End If
+            End If
+        Next c
+    Next r
+
+    If found = 0 Then
+        topRow = 1
+        leftCol = 1
+        bottomRow = pptTable.Rows.Count
+        rightCol = pptTable.Columns.Count
+        isExplicitRange = True
+    ElseIf found > 1 Then
+        isExplicitRange = True
+    End If
+    Set GetSelectedPowerPointTableRange = pptTable
+    Exit Function
+
+CleanFail:
+    topRow = 0
+    leftCol = 0
+    bottomRow = 0
+    rightCol = 0
+    isExplicitRange = False
+    Set GetSelectedPowerPointTableRange = Nothing
+End Function
+
+Private Function GetExcelSelectedRange() As Object
+    On Error GoTo CleanFail
+
+    Dim xlApp As Object
+    Set xlApp = GetObject(, "Excel.Application")
+
+    If TypeName(xlApp.Selection) = "Range" Then
+        Set GetExcelSelectedRange = xlApp.Selection
+    Else
+        Set GetExcelSelectedRange = xlApp.ActiveWindow.RangeSelection
+    End If
+    Exit Function
+
+CleanFail:
+    Set GetExcelSelectedRange = Nothing
+End Function
+
+Private Sub PasteExcelRangeWithinTableBounds(ByVal srcRange As Object, ByVal pptTable As Object, ByVal startRow As Long, ByVal startCol As Long)
+    Dim maxRows As Long
+    Dim maxCols As Long
+    maxRows = pptTable.Rows.Count - startRow + 1
+    maxCols = pptTable.Columns.Count - startCol + 1
+
+    If maxRows < 1 Or maxCols < 1 Then Exit Sub
+
+    Dim pasteRows As Long
+    Dim pasteCols As Long
+    pasteRows = MinLong(srcRange.Rows.Count, maxRows)
+    pasteCols = MinLong(srcRange.Columns.Count, maxCols)
+
+    ApplyMergesWithinBounds srcRange, pptTable, startRow, startCol, pasteRows, pasteCols
+    PasteCells srcRange, pptTable, startRow, startCol, pasteRows, pasteCols
+End Sub
+
+Private Sub PasteCells(ByVal srcRange As Object, ByVal pptTable As Object, ByVal startRow As Long, ByVal startCol As Long, ByVal pasteRows As Long, ByVal pasteCols As Long)
+    Dim srcRow As Long
+    Dim srcCol As Long
+
+    For srcRow = 1 To pasteRows
+        For srcCol = 1 To pasteCols
+            Dim srcCell As Object
+            Set srcCell = srcRange.cells(srcRow, srcCol)
+
+            If ShouldPasteSourceCell(srcCell) Then
+                ApplyExcelCellToPptCell srcCell, pptTable.cell(startRow + srcRow - 1, startCol + srcCol - 1)
+            End If
+        Next srcCol
+    Next srcRow
+End Sub
+
+Private Function ShouldPasteSourceCell(ByVal srcCell As Object) As Boolean
+    On Error GoTo UseTrue
+
+    If Not srcCell.MergeCells Then
+        ShouldPasteSourceCell = True
+    Else
+        ShouldPasteSourceCell = (srcCell.Address = srcCell.mergeArea.cells(1, 1).Address)
+    End If
+    Exit Function
+
+UseTrue:
+    ShouldPasteSourceCell = True
+End Function
+
+Private Sub ApplyMergesWithinBounds(ByVal srcRange As Object, ByVal pptTable As Object, ByVal startRow As Long, ByVal startCol As Long, ByVal pasteRows As Long, ByVal pasteCols As Long)
+    On Error Resume Next
+
+    Dim done As Object
+    Set done = CreateObject("Scripting.Dictionary")
+
+    Dim srcRow As Long
+    Dim srcCol As Long
+    For srcRow = 1 To pasteRows
+        For srcCol = 1 To pasteCols
+            Dim srcCell As Object
+            Set srcCell = srcRange.cells(srcRow, srcCol)
+
+            If srcCell.MergeCells Then
+                Dim mergeArea As Object
+                Set mergeArea = srcCell.mergeArea
+
+                Dim key As String
+                key = mergeArea.Address(False, False)
+                If Not done.Exists(key) Then
+                    done(key) = True
+                    MergeOneAreaIfFullyInsidePaste srcRange, pptTable, mergeArea, startRow, startCol, pasteRows, pasteCols
+                End If
+            End If
+        Next srcCol
+    Next srcRow
+End Sub
+
+Private Sub MergeOneAreaIfFullyInsidePaste(ByVal srcRange As Object, ByVal pptTable As Object, ByVal mergeArea As Object, ByVal startRow As Long, ByVal startCol As Long, ByVal pasteRows As Long, ByVal pasteCols As Long)
+    On Error Resume Next
+
+    Dim relTop As Long
+    Dim relLeft As Long
+    Dim relBottom As Long
+    Dim relRight As Long
+
+    relTop = mergeArea.Row - srcRange.Row + 1
+    relLeft = mergeArea.Column - srcRange.Column + 1
+    relBottom = relTop + mergeArea.Rows.Count - 1
+    relRight = relLeft + mergeArea.Columns.Count - 1
+
+    If relTop < 1 Or relLeft < 1 Then Exit Sub
+    If relBottom > pasteRows Or relRight > pasteCols Then Exit Sub
+    If relBottom = relTop And relRight = relLeft Then Exit Sub
+
+    ClearMergeChildrenText pptTable, startRow + relTop - 1, startCol + relLeft - 1, startRow + relBottom - 1, startCol + relRight - 1
+    pptTable.cell(startRow + relTop - 1, startCol + relLeft - 1).Merge _
+        pptTable.cell(startRow + relBottom - 1, startCol + relRight - 1)
+End Sub
+
+Private Sub ClearMergeChildrenText(ByVal pptTable As Object, ByVal topRow As Long, ByVal leftCol As Long, ByVal bottomRow As Long, ByVal rightCol As Long)
+    On Error Resume Next
+
+    Dim r As Long
+    Dim c As Long
+    For r = topRow To bottomRow
+        For c = leftCol To rightCol
+            If Not (r = topRow And c = leftCol) Then
+                pptTable.cell(r, c).Shape.TextFrame.TextRange.Text = ""
+            End If
+        Next c
+    Next r
+End Sub
+
+Private Sub ApplyExcelCellToPptCell(ByVal srcCell As Object, ByVal pptCell As Object)
+    On Error Resume Next
+
+    Dim keepFontName As String
+    Dim keepFontSize As Single
+    keepFontName = pptCell.Shape.TextFrame.TextRange.Font.Name
+    keepFontSize = pptCell.Shape.TextFrame.TextRange.Font.Size
+
+    pptCell.Shape.TextFrame.TextRange.Text = CStr(srcCell.Text)
+
+    With pptCell.Shape.TextFrame.TextRange.Font
+        .Name = keepFontName
+        .Size = keepFontSize
+        .Bold = BoolToMso(srcCell.Font.Bold)
+        .Italic = BoolToMso(srcCell.Font.Italic)
+        .Color.RGB = CLng(srcCell.Font.Color)
+    End With
+
+    pptCell.Shape.Fill.Visible = -1
+    If srcCell.Interior.ColorIndex = -4142 Then
+        pptCell.Shape.Fill.ForeColor.RGB = RGB(255, 255, 255)
+    Else
+        pptCell.Shape.Fill.ForeColor.RGB = CLng(srcCell.Interior.Color)
+    End If
+
+    Select Case CLng(srcCell.HorizontalAlignment)
+        Case -4108
+            pptCell.Shape.TextFrame.TextRange.ParagraphFormat.Alignment = 2
+        Case -4152
+            pptCell.Shape.TextFrame.TextRange.ParagraphFormat.Alignment = 3
+        Case Else
+            pptCell.Shape.TextFrame.TextRange.ParagraphFormat.Alignment = 1
+    End Select
+End Sub
+
+Private Function BoolToMso(ByVal value As Variant) As Long
+    If CBool(value) Then
+        BoolToMso = -1
+    Else
+        BoolToMso = 0
+    End If
+End Function
+
+Private Function MinLong(ByVal value1 As Long, ByVal value2 As Long) As Long
+    If value1 < value2 Then
+        MinLong = value1
+    Else
+        MinLong = value2
+    End If
+End Function
+
+Public Sub CopySelectedPptCellSizeForPaste()
+    On Error GoTo FailGracefully
+
+    Dim pptTable As Object
+    Dim topRow As Long
+    Dim leftCol As Long
+    Dim bottomRow As Long
+    Dim rightCol As Long
+    Dim isExplicitRange As Boolean
+
+    Set pptTable = GetSelectedPowerPointTableRange(topRow, leftCol, bottomRow, rightCol, isExplicitRange)
+    If pptTable Is Nothing Then
+        MsgBox "Hay chon cell nguon trong table PowerPoint truoc.", vbExclamation
+        Exit Sub
+    End If
+
+    mPptRowCount = bottomRow - topRow + 1
+    mPptColCount = rightCol - leftCol + 1
+    mPptCellCount = mPptRowCount * mPptColCount
+    ReDim mPptRowHeights(1 To mPptRowCount)
+    ReDim mPptColWidths(1 To mPptColCount)
+    ReDim mPptCellWidths(1 To mPptCellCount)
+    ReDim mPptCellHeights(1 To mPptCellCount)
+
+    Dim r As Long
+    Dim c As Long
+    Dim seq As Long
+    Dim minLeft As Single
+    Dim minTop As Single
+    Dim maxRight As Single
+    Dim maxBottom As Single
+
+    minLeft = pptTable.cell(topRow, leftCol).Shape.Left
+    minTop = pptTable.cell(topRow, leftCol).Shape.Top
+    maxRight = minLeft
+    maxBottom = minTop
+
+    For r = 1 To mPptRowCount
+        mPptRowHeights(r) = pptTable.Rows(topRow + r - 1).Height
+    Next r
+
+    For c = 1 To mPptColCount
+        mPptColWidths(c) = pptTable.Columns(leftCol + c - 1).Width
+    Next c
+
+    For r = topRow To bottomRow
+        For c = leftCol To rightCol
+            seq = seq + 1
+            mPptCellWidths(seq) = pptTable.cell(r, c).Shape.Width
+            mPptCellHeights(seq) = pptTable.cell(r, c).Shape.Height
+
+            If pptTable.cell(r, c).Shape.Left < minLeft Then minLeft = pptTable.cell(r, c).Shape.Left
+            If pptTable.cell(r, c).Shape.Top < minTop Then minTop = pptTable.cell(r, c).Shape.Top
+            If pptTable.cell(r, c).Shape.Left + pptTable.cell(r, c).Shape.Width > maxRight Then maxRight = pptTable.cell(r, c).Shape.Left + pptTable.cell(r, c).Shape.Width
+            If pptTable.cell(r, c).Shape.Top + pptTable.cell(r, c).Shape.Height > maxBottom Then maxBottom = pptTable.cell(r, c).Shape.Top + pptTable.cell(r, c).Shape.Height
+        Next c
+    Next r
+
+    mPptTotalWidth = maxRight - minLeft
+    mPptTotalHeight = maxBottom - minTop
+
+    mHasPptCellSize = True
+    Exit Sub
+
+FailGracefully:
+    MsgBox "Khong copy duoc size cell PowerPoint: " & Err.Description, vbExclamation
+End Sub
+
+Public Sub PasteCellHeightAndWidth()
+    PasteCellSizeByMode True, True
+End Sub
+
+Public Sub PasteCellHeightOnly()
+    PasteCellSizeByMode True, False
+End Sub
+
+Public Sub PasteCellWidthOnly()
+    PasteCellSizeByMode False, True
+End Sub
+
+Private Sub PasteCellSizeByMode(ByVal pasteHeight As Boolean, ByVal pasteWidth As Boolean)
+    On Error GoTo FailGracefully
+
+    Dim pptTable As Object
+    Dim topRow As Long
+    Dim leftCol As Long
+    Dim bottomRow As Long
+    Dim rightCol As Long
+    Dim isExplicitRange As Boolean
+    Set pptTable = GetSelectedPowerPointTableRange(topRow, leftCol, bottomRow, rightCol, isExplicitRange)
+    If pptTable Is Nothing Then
+        MsgBox "Hay chon cell dich trong table PowerPoint truoc khi paste size.", vbExclamation
+        Exit Sub
+    End If
+
+    Dim srcRange As Object
+    Set srcRange = GetExcelCopiedOrSelectedRange()
+    If Not srcRange Is Nothing Then
+        ApplyExcelRangeSizeToPptTable srcRange, pptTable, topRow, leftCol, bottomRow, rightCol, isExplicitRange, pasteHeight, pasteWidth
+        Exit Sub
+    End If
+
+    If mHasPptCellSize Then
+        ApplyStoredPptCellSizeToPptTable pptTable, topRow, leftCol, bottomRow, rightCol, isExplicitRange, pasteHeight, pasteWidth
+        Exit Sub
+    End If
+
+    MsgBox "Khong tim thay source size. Neu source la Excel, hay copy/chon cell trong Excel. Neu source la PowerPoint, hay chon cell nguon va chay CopySelectedPptCellSizeForPaste truoc.", vbExclamation
+    Exit Sub
+
+FailGracefully:
+    MsgBox "Paste size khong thanh cong: " & Err.Description, vbExclamation
+End Sub
+
+Private Function GetExcelCopiedOrSelectedRange() As Object
+    On Error GoTo CleanFail
+
+    Dim xlApp As Object
+    Set xlApp = GetObject(, "Excel.Application")
+
+    If mHasPptCellSize And xlApp.CutCopyMode = 0 Then GoTo CleanFail
+
+    If TypeName(xlApp.Selection) = "Range" Then
+        Set GetExcelCopiedOrSelectedRange = xlApp.Selection
+    Else
+        Set GetExcelCopiedOrSelectedRange = xlApp.ActiveWindow.RangeSelection
+    End If
+    Exit Function
+
+CleanFail:
+    Set GetExcelCopiedOrSelectedRange = Nothing
+End Function
+
+Private Sub ApplyExcelRangeSizeToPptTable(ByVal srcRange As Object, ByVal pptTable As Object, ByVal topRow As Long, ByVal leftCol As Long, ByVal bottomRow As Long, ByVal rightCol As Long, ByVal isExplicitRange As Boolean, ByVal pasteHeight As Boolean, ByVal pasteWidth As Boolean)
+    On Error Resume Next
+
+    Dim rowHeights() As Single
+    Dim colWidths() As Single
+    Dim cellHeights() As Single
+    Dim cellWidths() As Single
+    Dim r As Long
+    Dim c As Long
+    Dim seq As Long
+
+    ReDim rowHeights(1 To srcRange.Rows.Count)
+    ReDim colWidths(1 To srcRange.Columns.Count)
+    ReDim cellHeights(1 To srcRange.Rows.Count * srcRange.Columns.Count)
+    ReDim cellWidths(1 To srcRange.Rows.Count * srcRange.Columns.Count)
+
+    For r = 1 To srcRange.Rows.Count
+        rowHeights(r) = CSng(srcRange.Rows(r).Height)
+    Next r
+
+    For c = 1 To srcRange.Columns.Count
+        colWidths(c) = CSng(srcRange.Columns(c).Width)
+    Next c
+
+    For r = 1 To srcRange.Rows.Count
+        For c = 1 To srcRange.Columns.Count
+            seq = seq + 1
+            cellHeights(seq) = CSng(srcRange.Rows(r).Height)
+            cellWidths(seq) = CSng(srcRange.Columns(c).Width)
+        Next c
+    Next r
+
+    ApplySizeArraysToPptTableWithCells pptTable, topRow, leftCol, bottomRow, rightCol, isExplicitRange, _
+        srcRange.Rows.Count, srcRange.Columns.Count, rowHeights, colWidths, cellHeights, cellWidths, pasteHeight, pasteWidth
+End Sub
+
+Private Sub ApplyStoredPptCellSizeToPptTable(ByVal pptTable As Object, ByVal topRow As Long, ByVal leftCol As Long, ByVal bottomRow As Long, ByVal rightCol As Long, ByVal isExplicitRange As Boolean, ByVal pasteHeight As Boolean, ByVal pasteWidth As Boolean)
+    On Error Resume Next
+
+    ApplyPptStoredSizeToDestination pptTable, topRow, leftCol, bottomRow, rightCol, isExplicitRange, pasteHeight, pasteWidth
+End Sub
+
+Private Sub ApplyPptStoredSizeToDestination(ByVal pptTable As Object, ByVal topRow As Long, ByVal leftCol As Long, ByVal bottomRow As Long, ByVal rightCol As Long, ByVal isExplicitRange As Boolean, ByVal pasteHeight As Boolean, ByVal pasteWidth As Boolean)
+    On Error Resume Next
+
+    Dim destBottom As Long
+    Dim destRight As Long
+
+    If isExplicitRange Then
+        destBottom = bottomRow
+        destRight = rightCol
+    Else
+        destBottom = MinLong(pptTable.Rows.Count, topRow + mPptRowCount - 1)
+        destRight = MinLong(pptTable.Columns.Count, leftCol + mPptColCount - 1)
+    End If
+
+    Dim destRowCount As Long
+    Dim destColCount As Long
+    Dim destCellCount As Long
+    destRowCount = destBottom - topRow + 1
+    destColCount = destRight - leftCol + 1
+    If destRowCount < 1 Or destColCount < 1 Then Exit Sub
+    destCellCount = destRowCount * destColCount
+
+    If mPptCellCount = 1 Then
+        ApplySingleSourceCellSize pptTable, topRow, leftCol, destRowCount, destColCount, _
+            mPptCellHeights(1), mPptCellWidths(1), pasteHeight, pasteWidth
+        Exit Sub
+    End If
+
+    If destCellCount = mPptCellCount Then
+        ApplyPptCellSequenceSizes pptTable, topRow, leftCol, destRowCount, destColCount, pasteHeight, pasteWidth
+    ElseIf isExplicitRange Then
+        If pasteHeight Then ScaleDestinationRowsToSourceTotal pptTable, topRow, destBottom, mPptTotalHeight
+        If pasteWidth Then ScaleDestinationColumnsToSourceTotal pptTable, leftCol, destRight, mPptTotalWidth
+    Else
+        ApplySizeArraysToPptTable pptTable, topRow, leftCol, destBottom, destRight, False, _
+            mPptRowCount, mPptColCount, mPptRowHeights, mPptColWidths, pasteHeight, pasteWidth
+    End If
+End Sub
+
+Private Sub ApplyPptCellSequenceSizes(ByVal pptTable As Object, ByVal topRow As Long, ByVal leftCol As Long, ByVal destRowCount As Long, ByVal destColCount As Long, ByVal pasteHeight As Boolean, ByVal pasteWidth As Boolean)
+    On Error Resume Next
+
+    Dim seq As Long
+    Dim r As Long
+    Dim c As Long
+    For r = 1 To destRowCount
+        For c = 1 To destColCount
+            seq = seq + 1
+            If pasteHeight Then pptTable.Rows(topRow + r - 1).Height = mPptCellHeights(seq)
+            If pasteWidth Then pptTable.Columns(leftCol + c - 1).Width = mPptCellWidths(seq)
+        Next c
+    Next r
+End Sub
+
+Private Sub ApplySizeArraysToPptTable(ByVal pptTable As Object, ByVal topRow As Long, ByVal leftCol As Long, ByVal bottomRow As Long, ByVal rightCol As Long, ByVal isExplicitRange As Boolean, ByVal srcRowCount As Long, ByVal srcColCount As Long, ByRef srcRowHeights() As Single, ByRef srcColWidths() As Single, ByVal pasteHeight As Boolean, ByVal pasteWidth As Boolean)
+    On Error Resume Next
+
+    Dim destBottom As Long
+    Dim destRight As Long
+
+    If isExplicitRange Then
+        destBottom = bottomRow
+        destRight = rightCol
+    Else
+        destBottom = MinLong(pptTable.Rows.Count, topRow + srcRowCount - 1)
+        destRight = MinLong(pptTable.Columns.Count, leftCol + srcColCount - 1)
+    End If
+
+    Dim destRowCount As Long
+    Dim destColCount As Long
+    destRowCount = destBottom - topRow + 1
+    destColCount = destRight - leftCol + 1
+    If destRowCount < 1 Or destColCount < 1 Then Exit Sub
+
+    If srcRowCount * srcColCount = 1 Then
+        ApplySingleSourceCellSize pptTable, topRow, leftCol, destRowCount, destColCount, _
+            srcRowHeights(1), srcColWidths(1), pasteHeight, pasteWidth
+        Exit Sub
+    End If
+
+    If isExplicitRange Then
+        If srcRowCount * srcColCount = destRowCount * destColCount Then
+            ApplySameCellCountSizes pptTable, topRow, leftCol, destRowCount, destColCount, _
+                srcRowCount, srcColCount, srcRowHeights, srcColWidths, pasteHeight, pasteWidth
+            Exit Sub
+        End If
+    End If
+
+    If pasteHeight Then
+        ApplyRowHeights pptTable, topRow, destBottom, isExplicitRange, srcRowCount, srcRowHeights
+    End If
+
+    If pasteWidth Then
+        ApplyColumnWidths pptTable, leftCol, destRight, isExplicitRange, srcColCount, srcColWidths
+    End If
+End Sub
+
+Private Sub ApplySingleSourceCellSize(ByVal pptTable As Object, ByVal topRow As Long, ByVal leftCol As Long, ByVal destRowCount As Long, ByVal destColCount As Long, ByVal sourceHeight As Single, ByVal sourceWidth As Single, ByVal pasteHeight As Boolean, ByVal pasteWidth As Boolean)
+    On Error Resume Next
+
+    Dim r As Long
+    Dim c As Long
+
+    If pasteHeight Then
+        For r = 1 To destRowCount
+            pptTable.Rows(topRow + r - 1).Height = sourceHeight
+        Next r
+    End If
+
+    If pasteWidth Then
+        For c = 1 To destColCount
+            pptTable.Columns(leftCol + c - 1).Width = sourceWidth
+        Next c
+    End If
+End Sub
+
+Private Sub ApplySizeArraysToPptTableWithCells(ByVal pptTable As Object, ByVal topRow As Long, ByVal leftCol As Long, ByVal bottomRow As Long, ByVal rightCol As Long, ByVal isExplicitRange As Boolean, ByVal srcRowCount As Long, ByVal srcColCount As Long, ByRef srcRowHeights() As Single, ByRef srcColWidths() As Single, ByRef srcCellHeights() As Single, ByRef srcCellWidths() As Single, ByVal pasteHeight As Boolean, ByVal pasteWidth As Boolean)
+    On Error Resume Next
+
+    Dim destBottom As Long
+    Dim destRight As Long
+
+    If isExplicitRange Then
+        destBottom = bottomRow
+        destRight = rightCol
+    Else
+        destBottom = MinLong(pptTable.Rows.Count, topRow + srcRowCount - 1)
+        destRight = MinLong(pptTable.Columns.Count, leftCol + srcColCount - 1)
+    End If
+
+    Dim destRowCount As Long
+    Dim destColCount As Long
+    destRowCount = destBottom - topRow + 1
+    destColCount = destRight - leftCol + 1
+    If destRowCount < 1 Or destColCount < 1 Then Exit Sub
+
+    If isExplicitRange Then
+        If srcRowCount * srcColCount = destRowCount * destColCount Then
+            ApplyCellSequenceSizes pptTable, topRow, leftCol, destRowCount, destColCount, srcCellHeights, srcCellWidths, pasteHeight, pasteWidth
+            Exit Sub
+        End If
+    End If
+
+    ApplySizeArraysToPptTable pptTable, topRow, leftCol, bottomRow, rightCol, isExplicitRange, _
+        srcRowCount, srcColCount, srcRowHeights, srcColWidths, pasteHeight, pasteWidth
+End Sub
+
+Private Sub ApplyCellSequenceSizes(ByVal pptTable As Object, ByVal topRow As Long, ByVal leftCol As Long, ByVal destRowCount As Long, ByVal destColCount As Long, ByRef srcCellHeights() As Single, ByRef srcCellWidths() As Single, ByVal pasteHeight As Boolean, ByVal pasteWidth As Boolean)
+    On Error Resume Next
+
+    Dim seq As Long
+    Dim r As Long
+    Dim c As Long
+    For r = 1 To destRowCount
+        For c = 1 To destColCount
+            seq = seq + 1
+            If pasteHeight Then pptTable.Rows(topRow + r - 1).Height = srcCellHeights(seq)
+            If pasteWidth Then pptTable.Columns(leftCol + c - 1).Width = srcCellWidths(seq)
+        Next c
+    Next r
+End Sub
+
+Private Sub ApplySameCellCountSizes(ByVal pptTable As Object, ByVal topRow As Long, ByVal leftCol As Long, ByVal destRowCount As Long, ByVal destColCount As Long, ByVal srcRowCount As Long, ByVal srcColCount As Long, ByRef srcRowHeights() As Single, ByRef srcColWidths() As Single, ByVal pasteHeight As Boolean, ByVal pasteWidth As Boolean)
+    On Error Resume Next
+
+    Dim destSeq As Long
+    Dim destRowOffset As Long
+    Dim destColOffset As Long
+    Dim srcRowOffset As Long
+    Dim srcColOffset As Long
+
+    For destRowOffset = 1 To destRowCount
+        For destColOffset = 1 To destColCount
+            destSeq = (destRowOffset - 1) * destColCount + destColOffset
+            srcRowOffset = ((destSeq - 1) \ srcColCount) + 1
+            srcColOffset = ((destSeq - 1) Mod srcColCount) + 1
+
+            If pasteHeight Then pptTable.Rows(topRow + destRowOffset - 1).Height = srcRowHeights(srcRowOffset)
+            If pasteWidth Then pptTable.Columns(leftCol + destColOffset - 1).Width = srcColWidths(srcColOffset)
+        Next destColOffset
+    Next destRowOffset
+End Sub
+
+Private Sub ApplyRowHeights(ByVal pptTable As Object, ByVal topRow As Long, ByVal bottomRow As Long, ByVal isExplicitRange As Boolean, ByVal srcRowCount As Long, ByRef srcRowHeights() As Single)
+    On Error Resume Next
+
+    Dim destCount As Long
+    destCount = bottomRow - topRow + 1
+    If destCount < 1 Then Exit Sub
+
+    Dim i As Long
+    If destCount = srcRowCount Then
+        For i = 1 To destCount
+            pptTable.Rows(topRow + i - 1).Height = srcRowHeights(i)
+        Next i
+    ElseIf isExplicitRange Then
+        ScaleDestinationRowsToSourceTotal pptTable, topRow, bottomRow, SumSingles(srcRowHeights, srcRowCount)
+    Else
+        For i = 1 To MinLong(destCount, srcRowCount)
+            pptTable.Rows(topRow + i - 1).Height = srcRowHeights(i)
+        Next i
+    End If
+End Sub
+
+Private Sub ApplyColumnWidths(ByVal pptTable As Object, ByVal leftCol As Long, ByVal rightCol As Long, ByVal isExplicitRange As Boolean, ByVal srcColCount As Long, ByRef srcColWidths() As Single)
+    On Error Resume Next
+
+    Dim destCount As Long
+    destCount = rightCol - leftCol + 1
+    If destCount < 1 Then Exit Sub
+
+    Dim i As Long
+    If destCount = srcColCount Then
+        For i = 1 To destCount
+            pptTable.Columns(leftCol + i - 1).Width = srcColWidths(i)
+        Next i
+    ElseIf isExplicitRange Then
+        ScaleDestinationColumnsToSourceTotal pptTable, leftCol, rightCol, SumSingles(srcColWidths, srcColCount)
+    Else
+        For i = 1 To MinLong(destCount, srcColCount)
+            pptTable.Columns(leftCol + i - 1).Width = srcColWidths(i)
+        Next i
+    End If
+End Sub
+
+Private Sub ScaleDestinationRowsToSourceTotal(ByVal pptTable As Object, ByVal topRow As Long, ByVal bottomRow As Long, ByVal sourceTotal As Single)
+    On Error Resume Next
+
+    Dim currentTotal As Single
+    Dim r As Long
+    For r = topRow To bottomRow
+        currentTotal = currentTotal + pptTable.Rows(r).Height
+    Next r
+    If currentTotal <= 0 Then Exit Sub
+
+    For r = topRow To bottomRow
+        pptTable.Rows(r).Height = pptTable.Rows(r).Height * sourceTotal / currentTotal
+    Next r
+End Sub
+
+Private Sub ScaleDestinationColumnsToSourceTotal(ByVal pptTable As Object, ByVal leftCol As Long, ByVal rightCol As Long, ByVal sourceTotal As Single)
+    On Error Resume Next
+
+    Dim currentTotal As Single
+    Dim c As Long
+    For c = leftCol To rightCol
+        currentTotal = currentTotal + pptTable.Columns(c).Width
+    Next c
+    If currentTotal <= 0 Then Exit Sub
+
+    For c = leftCol To rightCol
+        pptTable.Columns(c).Width = pptTable.Columns(c).Width * sourceTotal / currentTotal
+    Next c
+End Sub
+
+Private Function SumSingles(ByRef values() As Single, ByVal itemCount As Long) As Single
+    Dim i As Long
+    For i = 1 To itemCount
+        SumSingles = SumSingles + values(i)
+    Next i
+End Function
