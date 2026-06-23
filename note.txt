@@ -10,6 +10,14 @@ Private mPptCellWidths() As Single
 Private mPptCellHeights() As Single
 Private mPptTotalWidth As Single
 Private mPptTotalHeight As Single
+Private mHasPptShapeSize As Boolean
+Private mPptShapeWidth As Single
+Private mPptShapeHeight As Single
+Private mPptShapeLineVisible As Long
+Private mPptShapeLineColor As Long
+Private mPptShapeLineWeight As Single
+Private mPptShapeLineDashStyle As Long
+Private mPptShapeLineStyle As Long
 
 Public Sub PasteExcelClipboardToSelectedPptTableCell()
     On Error GoTo FailGracefully
@@ -428,7 +436,8 @@ Public Sub CopySelectedPptCellSizeForPaste()
 
     Set pptTable = GetSelectedPowerPointTableRange(topRow, leftCol, bottomRow, rightCol, isExplicitRange)
     If pptTable Is Nothing Then
-        MsgBox "Hay chon cell nguon trong table PowerPoint truoc.", vbExclamation
+        If CopySelectedShapeSizeForPaste() Then Exit Sub
+        MsgBox "Hay chon cell/table hoac shape nguon trong PowerPoint truoc.", vbExclamation
         Exit Sub
     End If
 
@@ -478,11 +487,35 @@ Public Sub CopySelectedPptCellSizeForPaste()
     mPptTotalHeight = maxBottom - minTop
 
     mHasPptCellSize = True
+    mHasPptShapeSize = False
     Exit Sub
 
 FailGracefully:
     MsgBox "Khong copy duoc size cell PowerPoint: " & Err.Description, vbExclamation
 End Sub
+
+Private Function CopySelectedShapeSizeForPaste() As Boolean
+    On Error GoTo CleanFail
+
+    Dim shp As Object
+    Set shp = ActiveWindow.Selection.ShapeRange(1)
+    If shp.HasTable Then GoTo CleanFail
+
+    mPptShapeWidth = shp.Width
+    mPptShapeHeight = shp.Height
+    mPptShapeLineVisible = shp.Line.Visible
+    mPptShapeLineColor = shp.Line.ForeColor.RGB
+    mPptShapeLineWeight = shp.Line.Weight
+    mPptShapeLineDashStyle = shp.Line.DashStyle
+    mPptShapeLineStyle = shp.Line.Style
+    mHasPptShapeSize = True
+    mHasPptCellSize = False
+    CopySelectedShapeSizeForPaste = True
+    Exit Function
+
+CleanFail:
+    CopySelectedShapeSizeForPaste = False
+End Function
 
 Public Sub PasteCellHeightAndWidth()
     PasteCellSizeByMode True, True
@@ -507,7 +540,8 @@ Private Sub PasteCellSizeByMode(ByVal pasteHeight As Boolean, ByVal pasteWidth A
     Dim isExplicitRange As Boolean
     Set pptTable = GetSelectedPowerPointTableRange(topRow, leftCol, bottomRow, rightCol, isExplicitRange)
     If pptTable Is Nothing Then
-        MsgBox "Hay chon cell dich trong table PowerPoint truoc khi paste size.", vbExclamation
+        If PasteSizeToSelectedShapes(pasteHeight, pasteWidth) Then Exit Sub
+        MsgBox "Hay chon cell/table hoac shape dich trong PowerPoint truoc khi paste size.", vbExclamation
         Exit Sub
     End If
 
@@ -528,6 +562,43 @@ Private Sub PasteCellSizeByMode(ByVal pasteHeight As Boolean, ByVal pasteWidth A
 
 FailGracefully:
     MsgBox "Paste size khong thanh cong: " & Err.Description, vbExclamation
+End Sub
+
+Private Function PasteSizeToSelectedShapes(ByVal pasteHeight As Boolean, ByVal pasteWidth As Boolean) As Boolean
+    On Error GoTo CleanFail
+
+    If Not mHasPptShapeSize Then GoTo CleanFail
+
+    Dim shpRange As Object
+    Set shpRange = ActiveWindow.Selection.ShapeRange
+    If shpRange.Count < 1 Then GoTo CleanFail
+
+    Dim i As Long
+    For i = 1 To shpRange.Count
+        If Not shpRange(i).HasTable Then
+            If pasteWidth Then shpRange(i).Width = mPptShapeWidth
+            If pasteHeight Then shpRange(i).Height = mPptShapeHeight
+            ApplyStoredShapeLine shpRange(i)
+        End If
+    Next i
+
+    PasteSizeToSelectedShapes = True
+    Exit Function
+
+CleanFail:
+    PasteSizeToSelectedShapes = False
+End Function
+
+Private Sub ApplyStoredShapeLine(ByVal shp As Object)
+    On Error Resume Next
+
+    shp.Line.Visible = mPptShapeLineVisible
+    If mPptShapeLineVisible <> 0 Then
+        shp.Line.ForeColor.RGB = mPptShapeLineColor
+        shp.Line.Weight = mPptShapeLineWeight
+        shp.Line.DashStyle = mPptShapeLineDashStyle
+        shp.Line.Style = mPptShapeLineStyle
+    End If
 End Sub
 
 Private Function GetExcelCopiedOrSelectedRange() As Object
