@@ -161,8 +161,114 @@ Private Sub PasteExcelRangeWithinTableBounds(ByVal srcRange As Object, ByVal ppt
     pasteRows = MinLong(srcRange.Rows.Count, maxRows)
     pasteCols = MinLong(srcRange.Columns.Count, maxCols)
 
+    If CanPasteAsLogicalColumns(srcRange) Then
+        PasteExcelRangeAsLogicalColumns srcRange, pptTable, startRow, startCol, maxRows, maxCols
+        Exit Sub
+    End If
+
     ApplyMergesWithinBounds srcRange, pptTable, startRow, startCol, pasteRows, pasteCols
     PasteCells srcRange, pptTable, startRow, startCol, pasteRows, pasteCols
+End Sub
+
+Private Function CanPasteAsLogicalColumns(ByVal srcRange As Object) As Boolean
+    On Error GoTo CleanFail
+
+    Dim srcCol As Long
+    srcCol = 1
+
+    Do While srcCol <= srcRange.Columns.Count
+        Dim span As Long
+        span = UniformLogicalColumnSpan(srcRange, srcCol)
+        If span < 1 Then
+            CanPasteAsLogicalColumns = False
+            Exit Function
+        End If
+        srcCol = srcCol + span
+    Loop
+
+    CanPasteAsLogicalColumns = True
+    Exit Function
+
+CleanFail:
+    CanPasteAsLogicalColumns = False
+End Function
+
+Private Function UniformLogicalColumnSpan(ByVal srcRange As Object, ByVal srcCol As Long) As Long
+    On Error GoTo CleanFail
+
+    Dim firstSpan As Long
+    firstSpan = HorizontalSpanAtColumn(srcRange, 1, srcCol)
+    If firstSpan < 1 Then GoTo CleanFail
+
+    Dim srcRow As Long
+    For srcRow = 2 To srcRange.Rows.Count
+        If HorizontalSpanAtColumn(srcRange, srcRow, srcCol) <> firstSpan Then GoTo CleanFail
+    Next srcRow
+
+    UniformLogicalColumnSpan = firstSpan
+    Exit Function
+
+CleanFail:
+    UniformLogicalColumnSpan = 0
+End Function
+
+Private Function HorizontalSpanAtColumn(ByVal srcRange As Object, ByVal srcRow As Long, ByVal srcCol As Long) As Long
+    On Error GoTo CleanFail
+
+    Dim srcCell As Object
+    Set srcCell = srcRange.cells(srcRow, srcCol)
+
+    If Not srcCell.MergeCells Then
+        HorizontalSpanAtColumn = 1
+        Exit Function
+    End If
+
+    Dim mergeArea As Object
+    Set mergeArea = srcCell.mergeArea
+
+    Dim relTop As Long
+    Dim relLeft As Long
+    Dim relBottom As Long
+    Dim relRight As Long
+    relTop = mergeArea.Row - srcRange.Row + 1
+    relLeft = mergeArea.Column - srcRange.Column + 1
+    relBottom = relTop + mergeArea.Rows.Count - 1
+    relRight = relLeft + mergeArea.Columns.Count - 1
+
+    If relTop <> srcRow Then GoTo CleanFail
+    If relBottom <> srcRow Then GoTo CleanFail
+    If relLeft <> srcCol Then GoTo CleanFail
+    If relRight > srcRange.Columns.Count Then GoTo CleanFail
+
+    HorizontalSpanAtColumn = mergeArea.Columns.Count
+    Exit Function
+
+CleanFail:
+    HorizontalSpanAtColumn = 0
+End Function
+
+Private Sub PasteExcelRangeAsLogicalColumns(ByVal srcRange As Object, ByVal pptTable As Object, ByVal startRow As Long, ByVal startCol As Long, ByVal maxRows As Long, ByVal maxCols As Long)
+    On Error Resume Next
+
+    Dim pasteRows As Long
+    Dim srcCol As Long
+    Dim dstColOffset As Long
+    pasteRows = MinLong(srcRange.Rows.Count, maxRows)
+
+    srcCol = 1
+    Do While srcCol <= srcRange.Columns.Count And dstColOffset < maxCols
+        Dim span As Long
+        span = UniformLogicalColumnSpan(srcRange, srcCol)
+        If span < 1 Then Exit Sub
+
+        Dim srcRow As Long
+        For srcRow = 1 To pasteRows
+            ApplyExcelCellToPptCell srcRange.cells(srcRow, srcCol), pptTable.cell(startRow + srcRow - 1, startCol + dstColOffset)
+        Next srcRow
+
+        dstColOffset = dstColOffset + 1
+        srcCol = srcCol + span
+    Loop
 End Sub
 
 Private Sub PasteCells(ByVal srcRange As Object, ByVal pptTable As Object, ByVal startRow As Long, ByVal startCol As Long, ByVal pasteRows As Long, ByVal pasteCols As Long)
