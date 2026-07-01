@@ -1,6 +1,6 @@
 @echo off
 rem ============================================================================
-rem Enterprise local placeholders
+rem Clean release local placeholders
 rem
 rem Edit this file after copying the release folder to another machine.
 rem Leave a value blank when the launcher should auto-detect it.

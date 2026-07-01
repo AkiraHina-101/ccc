@@ -1,7 +1,7 @@
 ' ============================================================================
 ' run_hidden.vbs - launches the app with no console window.
 '
-' For enterprise deployment, prefer editing paths.bat and launching run.bat.
+' For target-machine deployment, prefer editing paths.bat and launching run.bat.
 ' If this hidden launcher is used directly, edit only the placeholders below.
 ' Leave values blank to use auto-detected portable Python.
 ' ============================================================================

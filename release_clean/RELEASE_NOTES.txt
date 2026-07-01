@@ -1,12 +1,11 @@
-Enterprise release notes
-========================
+Clean release notes
+===================
 
 This folder is intended to be copied as one unit to the target machine.
 Keep the folder structure unchanged:
 
-  02_release_enterprise\
+  release_clean\
     app\
-    libs\
     main.py
     run.bat
     run_debug.bat
@@ -46,7 +45,7 @@ Files to edit on the target machine
    This is the main app configuration file.
    The app also lets users edit most of these values from the Settings screen.
 
-   Values commonly changed per enterprise machine/site:
+   Values commonly changed per target machine/site:
 
      settings.server         SSH / Nastran server host
      settings.user           SSH user
