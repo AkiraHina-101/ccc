@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="NaS app logo">
+  <defs>
+    <filter id="yellowEdgeGlow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5.2"/>
+    </filter>
+  </defs>
+  <rect x="12" y="12" width="232" height="232" rx="42" ry="42" fill="#1C2433"/>
+  <rect x="16" y="16" width="224" height="224" rx="38" ry="38" fill="none" stroke="#F2C94C" stroke-width="9" opacity="0.22" filter="url(#yellowEdgeGlow)"/>
+  <rect x="18" y="18" width="220" height="220" rx="36" ry="36" fill="none" stroke="#F2C94C" stroke-width="5" opacity="0.38" filter="url(#yellowEdgeGlow)"/>
+  <rect x="18" y="18" width="220" height="220" rx="36" ry="36" fill="none" stroke="#F2C94C" stroke-width="2"/>
+  <text x="128" y="151"
+        text-anchor="middle"
+        font-family="Segoe UI, Inter, Arial, sans-serif"
+        font-size="86"
+        font-weight="800"
+        letter-spacing="0"
+        fill="#C75A00">NaS</text>
+</svg>

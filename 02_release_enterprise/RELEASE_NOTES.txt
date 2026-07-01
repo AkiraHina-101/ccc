@@ -1,0 +1,97 @@
+Enterprise release notes
+========================
+
+This folder is intended to be copied as one unit to the target machine.
+Keep the folder structure unchanged:
+
+  02_release_enterprise\
+    app\
+    libs\
+    main.py
+    run.bat
+    run_debug.bat
+    paths.bat
+    nastran_settings.json
+    nastran_presets.json
+
+Portable paths
+--------------
+
+The bundled app libraries are loaded by relative path:
+
+  .\libs
+
+Because of that, the release folder can be moved to another location as long
+as app\, libs\, main.py, and the launcher files stay together.
+
+Files to edit on the target machine
+-----------------------------------
+
+1. paths.bat
+
+   Edit this first if the target machine cannot auto-detect Python.
+
+   Placeholder:
+
+     set "PYTHON_EXE=<TARGET_PYTHON_DIR>\python.exe"
+
+   If extra Python packages are installed outside this release folder, set:
+
+     set "EXTRA_LIBS=<TARGET_EXTRA_PYTHON_LIBS_DIR>"
+
+   Normally EXTRA_LIBS can stay blank because .\libs is added automatically.
+
+2. nastran_settings.json
+
+   This is the main app configuration file.
+   The app also lets users edit most of these values from the Settings screen.
+
+   Values commonly changed per enterprise machine/site:
+
+     settings.server         SSH / Nastran server host
+     settings.user           SSH user
+     settings.password       SSH password, if password auth is used
+     settings.ttmacro_path   TeraTerm macro executable/path, if required
+     settings.win_prefix     Windows path prefix mapping, if required
+     settings.versions       Nastran version list shown in the UI
+     settings.queues         Queue list shown in the UI
+     settings.ssh_buttons    SSH helper buttons/commands
+
+   Current release keeps machine-specific values blank and has cards reset to
+   an empty list so no source-machine job paths are carried over.
+
+3. nastran_presets.json
+
+   Optional preset definitions. Keep as-is unless the target site wants custom
+   default solver/field presets.
+
+Recommended first run
+---------------------
+
+Run run_debug.bat first on the target machine. It prints:
+
+  - current folder
+  - selected Python executable
+  - PYTHONPATH
+  - Python version
+  - PySide2/app import result
+
+If that works, use run.bat for normal launch.
+
+Do not edit
+-----------
+
+Avoid editing these unless developing the app:
+
+  main.py
+  app\
+  libs\
+  run.bat
+  run_debug.bat
+
+Machine-specific data policy
+----------------------------
+
+Do not add personal user-profile paths into code files.
+If a target machine needs an absolute path, put it in paths.bat or configure it
+through nastran_settings.json / the Settings screen.
