@@ -8,89 +8,61 @@ Keep the folder structure unchanged:
     app\
     main.py
     run.bat
-    run_debug.bat
-    paths.bat
+    run_hidden.bat
     nastran_settings.json
     nastran_presets.json
 
-Portable paths
---------------
+Launchers
+---------
 
-The bundled app libraries are loaded by relative path:
+Only Python 3.9 is supported in this release.
 
-  .\libs
+1. run.bat
 
-Because of that, the release folder can be moved to another location as long
-as app\, libs\, main.py, and the launcher files stay together.
+   Normal launcher with console output. Use this first when checking a target
+   machine because it prints Python, PYTHONPATH, and PySide2 import status.
 
-Files to edit on the target machine
------------------------------------
+2. run_hidden.bat
 
-1. paths.bat
+   Quiet launcher. Use this after run.bat works.
 
-   Edit this first if the target machine cannot auto-detect Python.
+Library path
+------------
 
-   Placeholder:
+This release does not include the Python/Qt library folder. The target machine
+must already have the required libraries.
 
-     set "PYTHON_EXE=<TARGET_PYTHON_DIR>\python.exe"
+Edit both run.bat and run_hidden.bat if the target machine needs explicit paths:
 
-   If extra Python packages are installed outside this release folder, set:
+  set "PYTHON_EXE=<TARGET_PYTHON39_DIR>\python.exe"
+  set "EXTRA_LIBS=<TARGET_PYTHON_LIBS_DIR>"
 
-     set "EXTRA_LIBS=<TARGET_EXTRA_PYTHON_LIBS_DIR>"
+For run_hidden.bat, PYTHON_EXE may point to pythonw.exe:
 
-   Normally EXTRA_LIBS can stay blank because .\libs is added automatically.
+  set "PYTHON_EXE=<TARGET_PYTHON39_DIR>\pythonw.exe"
 
-2. nastran_settings.json
+EXTRA_LIBS must point to a folder where Python 3.9 can import PySide2,
+shiboken2, and any SSH-related packages used by this app.
 
-   This is the main app configuration file.
-   The app also lets users edit most of these values from the Settings screen.
+App settings
+------------
 
-   Values commonly changed per target machine/site:
+Edit nastran_settings.json or use the Settings screen in the app.
 
-     settings.server         SSH / Nastran server host
-     settings.user           SSH user
-     settings.password       SSH password, if password auth is used
-     settings.ttmacro_path   TeraTerm macro executable/path, if required
-     settings.win_prefix     Windows path prefix mapping, if required
-     settings.versions       Nastran version list shown in the UI
-     settings.queues         Queue list shown in the UI
-     settings.ssh_buttons    SSH helper buttons/commands
+Values commonly changed per target machine/site:
 
-   Current release keeps machine-specific values blank and has cards reset to
-   an empty list so no source-machine job paths are carried over.
-
-3. nastran_presets.json
-
-   Optional preset definitions. Keep as-is unless the target site wants custom
-   default solver/field presets.
-
-Recommended first run
----------------------
-
-Run run_debug.bat first on the target machine. It prints:
-
-  - current folder
-  - selected Python executable
-  - PYTHONPATH
-  - Python version
-  - PySide2/app import result
-
-If that works, use run.bat for normal launch.
-
-Do not edit
------------
-
-Avoid editing these unless developing the app:
-
-  main.py
-  app\
-  libs\
-  run.bat
-  run_debug.bat
+  settings.server         SSH / Nastran server host
+  settings.user           SSH user
+  settings.password       SSH password, if password auth is used
+  settings.ttmacro_path   TeraTerm macro executable/path, if required
+  settings.win_prefix     Windows path prefix mapping, if required
+  settings.versions       Nastran version list shown in the UI
+  settings.queues         Queue list shown in the UI
+  settings.ssh_buttons    SSH helper buttons/commands
 
 Machine-specific data policy
 ----------------------------
 
-Do not add personal user-profile paths into code files.
-If a target machine needs an absolute path, put it in paths.bat or configure it
+Do not add personal user-profile paths into code files. If a target machine
+needs an absolute path, put it in run.bat, run_hidden.bat, or configure it
 through nastran_settings.json / the Settings screen.
