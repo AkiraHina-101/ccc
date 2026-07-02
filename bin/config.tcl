@@ -1,30 +1,30 @@
 # ═══════════════════════════════════════════════════════════════════════════
-# config.tcl — Chỉnh sửa các đường dẫn ở đây khi copy sang máy mới.
-# Sau khi sửa, mở HM và nạp lại button — KHÔNG cần cài Python package.
+# config.tcl — Edit paths here after copying the tool to a new machine.
+# After editing, open HM and reload the button. No Python package install is required.
 # ═══════════════════════════════════════════════════════════════════════════
 
 namespace eval ::nc::config {}
 
-# ─── 1. Thư mục gốc chứa tool (folder này) ─────────────────────────────────
-# Tự dò từ vị trí file config.tcl — chỉ đổi nếu bạn di chuyển các file rời.
+# ─── 1. Tool root folder (this folder) ──────────────────────────────────────
+# Auto-detected from config.tcl location. Change only if files are split apart.
 set ::nc::config::tool_dir [file normalize [file dirname [info script]]]
 
-# ─── 2. Python 3.5 của HyperMesh (dùng để tạo thumbnail + xuất/nhập xlsx) ──
-# Danh sách candidate — dò thứ tự, cái nào tồn tại thì lấy.
+# ─── 2. HyperMesh Python 3.5 (used for thumbnails and xlsx import/export) ───
+# Candidate list. The first existing path is used.
 set ::nc::config::python_candidates {
     {C:/Program Files/Altair/2022/common/python/python3.5/win64/python.exe}
     {C:/Program Files/Altair/2022.0/common/python/python3.5/win64/python.exe}
     {C:/Program Files/Altair/2023/common/python/python3.5/win64/python.exe}
 }
 
-# ─── 3. Folder chứa Python packages đi kèm (Pillow + openpyxl) ─────────────
-# Trỏ tới vendor/ trong deploy — tool tự thêm vào PYTHONPATH, KHÔNG cần cài.
-# Đặt "" nếu bạn đã cài package thẳng vào Altair Python site-packages.
+# ─── 3. Bundled Python package folder (Pillow + openpyxl) ───────────────────
+# Points to vendor/ in the deploy package. The tool adds it to PYTHONPATH.
+# Set to "" if packages are already installed in Altair Python site-packages.
 set ::nc::config::vendor_site_packages \
     [file join $::nc::config::tool_dir vendor python35_site-packages]
 
 # ═══════════════════════════════════════════════════════════════════════════
-# Bên dưới là logic áp dụng config — KHÔNG cần sửa.
+# The logic below applies the config. No edits are normally needed.
 # ═══════════════════════════════════════════════════════════════════════════
 
 proc ::nc::config::resolve_python {} {
