@@ -202,10 +202,25 @@ proc ::nc::scan::_get_card {etype id} {
 # Private: _get_card_field
 # Best-effort read of a numeric/text card field such as MAT1 GE.
 # Returns "" when the field is absent for the card or the API variant fails.
+#
+# _field_aliases: HyperMesh 2022 does not expose every card field under its
+# literal name (dataname strings are template-defined, not a fixed API).
+# Confirmed via known-working scripts on the target HM 2022 install:
+#   PSHELL T  -> dataname=thickness
+#   MAT1  GE  -> dataname=7 (numeric attribute id)
 # -----------------------------------------------------------------------------
 
+array set ::nc::scan::_field_aliases {
+    props,T thickness
+    mats,GE 7
+}
+
 proc ::nc::scan::_get_card_field {etype id field} {
+    variable _field_aliases
     set names [list $field [string tolower $field] [string totitle [string tolower $field]]]
+    if {[info exists _field_aliases($etype,$field)]} {
+        set names [linsert $names 0 $_field_aliases($etype,$field)]
+    }
     set first_value ""
     foreach name $names {
         foreach script [list \
