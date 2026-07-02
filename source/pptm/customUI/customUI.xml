@@ -1,0 +1,600 @@
+<?xml version='1.0' encoding='utf-8'?>
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" onLoad="OnRibbonLoad">
+  <ribbon>
+    <qat>
+      <documentControls>
+        <button id="qatPasteTable" onAction="OnPasteFromExcel" imageMso="PasteSpecialDialog" screentip="Paste Table (Alt+1)" supertip="Paste the Excel selection as a native editable PowerPoint table." />
+        <button id="qatPasteImage" onAction="OnPastePngReplaceSelected" imageMso="PastePng" screentip="Paste Image (Alt+2)" supertip="Paste clipboard as PNG and fit into the selected frame, or insert new if none selected." />
+        <button id="qatAlignLeft" onAction="OnAlignObjectsLeft" imageMso="ObjectsAlignLeft" screentip="Align Left (Alt+4)" supertip="Align selected objects to the left." />
+        <button id="qatAlignCenter" onAction="OnAlignObjectsCenter" imageMso="ObjectsAlignCenterHorizontal" screentip="Align Center (Alt+5)" supertip="Align selected objects to the horizontal center." />
+        <button id="qatDistributeH" onAction="OnDistributeObjectsHorizontal" imageMso="AlignDistributeHorizontally" screentip="Distribute Horizontally (Alt+6)" supertip="Evenly distribute selected objects horizontally." />
+        <button id="qatSameWidth" onAction="OnSameObjectWidth" imageMso="ColumnWidth" screentip="Same Width (Alt+7)" supertip="Set all selected objects to the width of the first selected object." />
+        <button id="qatSameHeight" onAction="OnSameObjectHeight" imageMso="RowHeight" screentip="Same Height (Alt+8)" supertip="Set all selected objects to the height of the first selected object." />
+        <button id="qatApplyFormat" onAction="OnPasteShape" imageMso="PasteGallery" screentip="Apply Object Format (Alt+9)" supertip="Apply each ticked attribute from the copied source shape to the selected target shape(s)." />
+      </documentControls>
+    </qat>
+    <tabs>
+      <tab id="tabReportTool" label="[Report]">
+        <group id="grpExcelPaste" label="Excel">
+          <box id="bxExcelPasteRun" boxStyle="vertical">
+            <splitButton id="sbPasteFromExcel">
+            <button id="btnPasteFromExcel" getLabel="GetExcelPasteLabel" imageMso="PasteSpecialDialog" getSupertip="GetExcelPasteSupertip" onAction="OnPasteFromExcel" screentip="Paste Excel table" />
+              <menu id="mnuExcelPasteModes" itemSize="normal">
+                <checkBox id="chkExcelPasteNewTable" label="Paste New Table" tag="Create" getPressed="GetExcelPasteTargetFlag" onAction="OnExcelPasteTargetChange" supertip="Set the main button to paste a new editable table. If no target is selected, this is used automatically." />
+                <checkBox id="chkExcelPasteReplace" label="Paste Replace Selection" tag="Replace" getPressed="GetExcelPasteTargetFlag" onAction="OnExcelPasteTargetChange" supertip="Set the main button to paste over the selected object while preserving its bounds." />
+                </menu>
+              </splitButton>
+            <checkBox id="chkExcelExtendRangeInline" tag="Excel|ExtendRange" label="Extend" getPressed="GetQaFlag" onAction="OnQaFlag" supertip="Add rows or columns when the source block is larger than the selected target area." />
+            <checkBox id="chkExcelUnmergeInline" tag="Excel|Unmerge" label="Unmerge" getPressed="GetQaFlag" onAction="OnQaFlag" supertip="Split target merged cells and paste without applying source merge structure." />
+          </box>
+          <box id="bxQaExcelQuickPresetsA" boxStyle="vertical">
+            <button id="btnQaExcelQuickTextOnly" label="Paste Text" tag="Excel|Values" imageMso="TableInsert" showLabel="false" onAction="OnQaQuickPreset" screentip="Paste Text" supertip="Use text values only for Excel paste." />
+            <button id="btnQaExcelQuickTextStyle" label="Paste Text Style" tag="Excel|TextStyle" imageMso="FontDialog" showLabel="false" onAction="OnQaQuickPreset" screentip="Paste Text Style" supertip="Use text plus text appearance except font name for Excel paste." />
+            <button id="btnQaExcelQuickSizeBoth" label="Paste H + W" tag="Excel|SizeBoth" imageMso="SizeToControlHeightAndWidth" showLabel="false" onAction="OnQaQuickPreset" screentip="Paste H + W" supertip="Use row height and column width for Excel paste." />
+          </box>
+          <box id="bxQaExcelQuickPresetsB" boxStyle="vertical">
+            <button id="btnQaExcelQuickHeight" label="Paste Height" tag="Excel|Height" imageMso="RowHeight" showLabel="false" onAction="OnQaQuickPreset" screentip="Paste Height" supertip="Use row height only for Excel paste." />
+            <button id="btnQaExcelQuickWidth" label="Paste Width" tag="Excel|Width" imageMso="ColumnWidth" showLabel="false" onAction="OnQaQuickPreset" screentip="Paste Width" supertip="Use column width only for Excel paste." />
+            <button id="btnQaExcelQuickColor" label="Paste Color + Border" tag="Excel|Color" imageMso="TableBordersMenu" showLabel="false" onAction="OnQaQuickPreset" screentip="Paste Color + Border" supertip="Use cell fill, text color, and borders for Excel paste." />
+          </box>
+        </group>
+        <group id="grpPptPaste" label="PPT">
+          <box id="bxPptPasteRun" boxStyle="vertical">
+            <button id="btnQaPptPaste" label="Paste PPT" imageMso="Paste" onAction="OnQaPptPaste" screentip="Transfer selected table parts" supertip="Copy a PowerPoint table or cells, select the target table or cells, then transfer only the enabled parts." />
+            <checkBox id="chkPptExtendRangeInline" tag="PPT|ExtendRange" label="Extend" getPressed="GetQaFlag" onAction="OnQaFlag" supertip="Add rows or columns when the source block is larger than the selected target area." />
+            <checkBox id="chkPptUnmergeInline" tag="PPT|Unmerge" label="Unmerge" getPressed="GetQaFlag" onAction="OnQaFlag" supertip="Split target merged cells and paste without applying source merge structure." />
+          </box>
+          <box id="bxQaPptQuickPresetsA" boxStyle="vertical">
+            <button id="btnQaPptQuickTextOnly" label="Paste Text" tag="PPT|Values" imageMso="TableInsert" showLabel="false" onAction="OnQaQuickPreset" screentip="Paste Text" supertip="Use text values only for PowerPoint paste." />
+            <button id="btnQaPptQuickTextStyle" label="Paste Text Style" tag="PPT|TextStyle" imageMso="FontDialog" showLabel="false" onAction="OnQaQuickPreset" screentip="Paste Text Style" supertip="Use text plus text appearance except font name for PowerPoint paste." />
+            <button id="btnQaPptQuickSizeBoth" label="Paste H + W" tag="PPT|SizeBoth" imageMso="SizeToControlHeightAndWidth" showLabel="false" onAction="OnQaQuickPreset" screentip="Paste H + W" supertip="Use row height and column width for PowerPoint paste." />
+          </box>
+          <box id="bxQaPptQuickPresetsB" boxStyle="vertical">
+            <button id="btnQaPptQuickHeight" label="Paste Height" tag="PPT|Height" imageMso="RowHeight" showLabel="false" onAction="OnQaQuickPreset" screentip="Paste Height" supertip="Use row height only for PowerPoint paste." />
+            <button id="btnQaPptQuickWidth" label="Paste Width" tag="PPT|Width" imageMso="ColumnWidth" showLabel="false" onAction="OnQaQuickPreset" screentip="Paste Width" supertip="Use column width only for PowerPoint paste." />
+            <button id="btnQaPptQuickColor" label="Paste Color + Border" tag="PPT|Color" imageMso="TableBordersMenu" showLabel="false" onAction="OnQaQuickPreset" screentip="Paste Color + Border" supertip="Use cell fill, text color, and borders for PowerPoint paste." />
+          </box>
+        </group>
+        <group id="grpWorkbookLinks" label="Workbook Links">
+          <box id="bxWorkbookLinksMain" boxStyle="vertical">
+            <button id="btnWorkbookLinksRefreshSmart" getLabel="GetWorkbookRefreshSmartLabel" imageMso="Refresh" onAction="OnWorkbookLinksRefreshSmart" getEnabled="GetWorkbookAnyLinkedEnabled" supertip="Refresh selected linked tables; when none are selected, refresh every linked table in the presentation." />
+            <toggleButton id="tglWorkbookLinksAutoRefresh" label="Auto Refresh" imageMso="RefreshAll" getPressed="GetWorkbookLinksAutoRefresh" onAction="OnWorkbookLinksAutoRefresh" getEnabled="GetWorkbookAnyLinkedEnabled" screentip="Refresh when PowerPoint is activated" supertip="When enabled, refresh linked tables on the current slide after returning to PowerPoint from another application." />
+            <button id="btnWorkbookLinksChooseRange" label="Link Selected Table" imageMso="SelectCurrentRegion" onAction="OnWorkbookLinksRelinkSelected" getEnabled="GetWorkbookSelectedTableEnabled" supertip="Link the selected PowerPoint table(s) to the current Excel range or replace their saved source." />
+          </box>
+          <box id="bxWorkbookLinksManage" boxStyle="vertical">
+            <menu id="mnuWorkbookChangeSource" label="Change Source" imageMso="HyperlinkInsert" itemSize="normal" screentip="Change linked table source">
+              <dynamicMenu id="dmWorkbookLinksSwitchSheet" getLabel="GetWorkbookSwitchSheetLabel" imageMso="SheetMoveOrCopy" getContent="GetWorkbookSwitchSheetContent" getEnabled="GetWorkbookSelectedLinkedEnabled" screentip="Switch linked worksheet" supertip="Choose another sheet in the linked workbook while keeping each saved range address." />
+              <button id="btnWorkbookLinksChangeWorkbook" label="Change Workbook..." imageMso="RefreshAll" onAction="OnWorkbookLinksChangeWorkbook" getEnabled="GetWorkbookSelectedLinkedEnabled" supertip="Change only the workbook file while keeping the saved sheet and range." />
+              <button id="btnWorkbookLinksOpenSource" label="Open Source" imageMso="FileOpen" onAction="OnWorkbookLinksOpenSource" getEnabled="GetWorkbookSingleLinkedEnabled" supertip="Open the linked workbook and select the saved source range." />
+              <button id="btnWorkbookLinksAutoByName" label="Auto Link by Table Name" imageMso="NameManager" onAction="OnWorkbookLinksAutoByName" supertip="Link PowerPoint tables to matching Excel named ranges or tables." />
+            </menu>
+            <button id="btnWorkbookLinksPasteLinked" label="Paste + Link Table" imageMso="PasteSpecialDialog" onAction="OnPasteFromExcelLinked" supertip="Paste the current Excel range as a native PowerPoint table and save its source for refresh." />
+            <menu id="mnuWorkbookRefreshMode" getLabel="GetWorkbookRefreshModeLabel" imageMso="TableStylesGallery" itemSize="normal" screentip="Linked table refresh mode">
+              <button id="btnWorkbookModeValues" label="Values Only" tag="Values" imageMso="TableInsert" onAction="OnWorkbookRefreshMode" />
+              <button id="btnWorkbookModeStyle" label="Values + Style" tag="Style" imageMso="TableStylesGallery" onAction="OnWorkbookRefreshMode" />
+              <button id="btnWorkbookModeFull" label="Full Table" tag="Full" imageMso="SelectAll" onAction="OnWorkbookRefreshMode" />
+            </menu>
+          </box>
+        </group>
+        <group id="grpPasteImage" label="Paste Image">
+          <box id="bxPasteImageBuiltins" boxStyle="horizontal">
+            <box id="bxPasteImageReplace" boxStyle="vertical">
+              <splitButton id="sbPastePng">
+                <button id="btnPastePngReplace" label="PNG Replace" imageMso="PastePng" onAction="OnPastePngReplaceSelected" screentip="Replace selected frame" supertip="Paste clipboard content as PNG, fit it into the selected picture or frame, then remove the old object." />
+                <menu id="mnuPastePng" itemSize="normal">
+                  <button id="btnPastePngInsert" label="Insert PNG" imageMso="PastePng" onAction="OnPastePngInsertNew" supertip="Paste clipboard content as a new PNG image." />
+                  <button id="btnPastePngReplaceMenu" label="Replace selected" imageMso="PictureChange" onAction="OnPastePngReplaceSelected" supertip="Paste clipboard content as PNG and replace the selected picture or frame." />
+                  <button id="btnPasteJpegInsert" label="Insert JPEG" imageMso="PasteJpeg" onAction="OnPasteJpegInsertNew" supertip="Paste clipboard content as a new JPEG image." />
+                  <menuSeparator id="sepImageFit" />
+                  <checkBox id="chkImageFitExact" label="Fit frame" tag="Exact" getPressed="GetImageReplaceFitMode" onAction="OnImageReplaceFitMode" supertip="Stretch the pasted image to the selected frame's exact width and height." />
+                  <checkBox id="chkImageFitWidth" label="Fit width" tag="Width" getPressed="GetImageReplaceFitMode" onAction="OnImageReplaceFitMode" supertip="Keep aspect ratio, match the frame width, and center vertically." />
+                  <checkBox id="chkImageFitHeight" label="Fit height" tag="Height" getPressed="GetImageReplaceFitMode" onAction="OnImageReplaceFitMode" supertip="Keep aspect ratio, match the frame height, and center horizontally." />
+                </menu>
+              </splitButton>
+              <splitButton id="sbScreenClip">
+                <button id="btnScreenClipReplace" label="Clip Replace" imageMso="ScreenClipping" onAction="OnScreenClipReplaceSelected" screentip="Replace selected frame" supertip="Select a picture or frame first. After you choose a screen clipping, the new image is fitted into that selected frame and the old object is removed." />
+                <menu id="mnuScreenClip" itemSize="normal">
+                  <button id="btnScreenClipInsertNew" label="Insert new clipping" imageMso="ScreenClipping" onAction="OnScreenClipInsertNew" supertip="Run PowerPoint Screen Clipping without replacing the selected object." />
+                  <button id="btnScreenClipReplaceMenu" label="Replace selected frame" imageMso="PictureChange" onAction="OnScreenClipReplaceSelected" supertip="Use the selected object as the target frame, then replace it with the screen clipping." />
+                </menu>
+              </splitButton>
+            </box>
+            <box id="bxLinkedChartImageMain" boxStyle="vertical">
+              <button id="btnChartImageRefreshSelected" label="Refresh Selected" imageMso="Refresh" onAction="OnChartImageUpdateSelected" getEnabled="GetChartImageSelectedEnabled" supertip="Refresh selected linked chart image(s)." />
+              <button id="btnChartImageRefreshSlide" label="Refresh This Slide" imageMso="RefreshAll" onAction="OnChartImageUpdateCurrentSlide" getEnabled="GetChartImageSlideEnabled" supertip="Refresh every linked chart image on the current slide." />
+              <button id="btnChartImageRefreshAll" label="Refresh All" imageMso="RefreshAll" onAction="OnChartImageUpdateAll" getEnabled="GetChartImageAnyEnabled" supertip="Refresh every linked chart image in the presentation." />
+              <menu id="mnuChartImageRefreshMode" getLabel="GetChartImageRefreshModeLabel" imageMso="ChartChangeType" itemSize="normal" screentip="Choose chart refresh mode" supertip="Choose exactly one chart refresh mode. Data + Appearance Only refreshes linked chart images for content and style. Full Chart uses the full chart refresh path.">
+                <toggleButton id="tglChartImageModeDataAppearance" label="Data + Appearance Only" tag="DATA_APPEARANCE" getPressed="GetChartImageRefreshModePressed" onAction="OnChartImageRefreshMode" supertip="Refresh linked chart images for data and visual formatting changes only." />
+                <toggleButton id="tglChartImageModeFull" label="Full Chart" tag="FULL" getPressed="GetChartImageRefreshModePressed" onAction="OnChartImageRefreshMode" supertip="Refresh linked chart images using the full source chart." />
+              </menu>
+            </box>
+            <box id="bxLinkedChartImageManage" boxStyle="vertical">
+              <splitButton id="sbChartImagePasteLinked">
+                <button id="btnChartImagePasteLinked" label="Paste + Link Chart" imageMso="ChartInsert" onAction="OnChartImagePasteLinked" supertip="Select one or more embedded Excel charts, then paste them as linked vector pictures." />
+                <menu id="mnuChartImagePasteLinked" itemSize="normal">
+                  <button id="btnChartImageSetSource" label="Link Selected Chart" imageMso="ChartInsert" onAction="OnChartImageSetSource" getEnabled="GetChartImageSelectedEnabled" screentip="Choose an Excel chart source" supertip="Select a linked chart image in PowerPoint, then click one embedded chart in Excel. The tool captures that ChartObject automatically." />
+                </menu>
+              </splitButton>
+              <toggleButton id="tglChartImageAutoRefresh" label="Auto Refresh" imageMso="RefreshAll" getPressed="GetChartImageAutoRefresh" onAction="OnChartImageAutoRefresh" getEnabled="GetChartImageAnyEnabled" screentip="Refresh charts when PowerPoint is activated" supertip="When enabled, refresh linked chart images on the current slide after returning to PowerPoint from another application." />
+              <menu id="mnuChartImageChangeSource" label="Change Source" imageMso="HyperlinkInsert" itemSize="normal" screentip="Change linked chart source">
+                <dynamicMenu id="dmChartImageSwitchSheet" getLabel="GetChartImageSwitchSheetLabel" imageMso="SheetMoveOrCopy" getContent="GetChartImageSwitchSheetContent" getEnabled="GetChartImageSelectedEnabled" screentip="Switch linked chart worksheet" supertip="Choose another sheet in the linked workbook and map selected chart images by chart name or collection order." />
+                <button id="btnChartImageChangeWorkbook" label="Selection" imageMso="SelectObjects" onAction="OnChartImageChangeWorkbook" getEnabled="GetChartImageSelectedEnabled" supertip="Change workbook for selected linked chart image(s)." />
+                <button id="btnChartImageChangeWorkbookSlide" label="This Slide" imageMso="SlideMasterView" onAction="OnChartImageChangeWorkbookSlide" getEnabled="GetChartImageSlideEnabled" supertip="Change workbook for every linked chart image on the current slide." />
+                <button id="btnChartImageChangeWorkbookAll" label="All Slides" imageMso="SlideShowFromBeginning" onAction="OnChartImageChangeWorkbookAll" getEnabled="GetChartImageAnyEnabled" supertip="Change workbook for every linked chart image in the active presentation." />
+              </menu>
+            </box>
+          </box>
+        </group>
+        <group id="grpChartSource" label="Chart Source">
+          <button id="btnChartImageOpenSource" getLabel="GetChartImageWorkbookLabel" imageMso="FileOpen" onAction="OnChartImageOpenSource" getEnabled="GetChartImageSelectedEnabled" getSupertip="GetChartImageWorkbookSupertip" />
+        </group>
+        <group id="grpReportExport" label="Export">
+          <button id="btnExportPptx" label="Export PPTX" imageMso="FileSaveAsPowerPointPptx" size="large" onAction="OnExportPptx" screentip="Export PPTX copy" supertip="Save a clean .pptx copy from the current macro-enabled deck. The working .pptm remains open and unchanged." />
+        </group>
+      </tab>
+      <tab id="tabShapeText" label="[Shape &amp;&amp; Text]">
+        <group id="baseShapesInsert" label="Shape">
+          <menu id="baseShapeInsertMenu" label="Insert Shape" imageMso="ShapesInsertGallery" size="large" itemSize="normal">
+            <button id="baseInsert_ShapesInsertRectangle" label="Rectangle" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertRectangle" />
+            <button id="baseInsert_ShapesInsertRoundedRectangle" label="Rounded Rect" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertRoundedRectangle" />
+            <button id="baseInsert_ShapesInsertOval" label="Oval" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertOval" />
+            <button id="baseInsert_ShapesInsertTriangle" label="Triangle" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertTriangle" />
+            <button id="baseInsert_ShapesInsertRightTriangle" label="Right Triangle" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertRightTriangle" />
+            <button id="baseInsert_ShapesInsertParallelogram" label="Parallelogram" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertParallelogram" />
+            <button id="baseInsert_ShapesInsertTrapezoid" label="Trapezoid" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertTrapezoid" />
+            <button id="baseInsert_ShapesInsertPentagon" label="Pentagon" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertPentagon" />
+            <button id="baseInsert_ShapesInsertHexagon" label="Hexagon" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertHexagon" />
+            <button id="baseInsert_ShapesInsertOctagon" label="Octagon" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertOctagon" />
+            <button id="baseInsert_ShapesInsertStraightLine" label="Line" imageMso="ShapeLine" onAction="OnBase_ShapesInsertStraightLine" />
+            <button id="baseInsert_ShapesInsertStraightArrow" label="Straight Arrow" imageMso="RightArrow2" onAction="OnBase_ShapesInsertStraightArrow" />
+            <button id="baseInsert_ShapesInsertRightArrow" label="Right Arrow" imageMso="RightArrow2" onAction="OnBase_ShapesInsertRightArrow" />
+            <button id="baseInsert_ShapesInsertLeftArrow" label="Left Arrow" imageMso="LeftArrow2" onAction="OnBase_ShapesInsertLeftArrow" />
+            <button id="baseInsert_ShapesInsertUpArrow" label="Up Arrow" imageMso="UpArrow2" onAction="OnBase_ShapesInsertUpArrow" />
+            <button id="baseInsert_ShapesInsertDownArrow" label="Down Arrow" imageMso="DownArrow2" onAction="OnBase_ShapesInsertDownArrow" />
+            <button id="baseInsert_ShapesInsertCurvedRightArrow" label="Curved Arrow" imageMso="RightArrow2" onAction="OnBase_ShapesInsertCurvedRightArrow" />
+            <button id="baseInsert_ShapesInsertBentArrow" label="Bent Arrow" imageMso="RightArrow2" onAction="OnBase_ShapesInsertBentArrow" />
+            <button id="baseInsert_ShapesInsertRoundedRectangularCallout" label="Callout Rounded" imageMso="ReviewNewComment" onAction="OnBase_ShapesInsertRoundedRectangularCallout" />
+            <button id="baseInsert_ShapesInsertCloudCallout" label="Callout Cloud" imageMso="ReviewNewComment" onAction="OnBase_ShapesInsertCloudCallout" />
+            <button id="baseInsert_ShapesInsertOvalCallout" label="Callout Oval" imageMso="ReviewNewComment" onAction="OnBase_ShapesInsertOvalCallout" />
+            <button id="baseInsert_ShapesInsertFlowchartProcess" label="Process" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertFlowchartProcess" />
+            <button id="baseInsert_ShapesInsertFlowchartDecision" label="Decision" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertFlowchartDecision" />
+            <button id="baseInsert_ShapesInsertFlowchartTerminator" label="Terminator" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertFlowchartTerminator" />
+            <button id="baseInsert_ShapesInsertFlowchartConnector" label="Connector" imageMso="ShapeLine" onAction="OnBase_ShapesInsertFlowchartConnector" />
+            <button id="baseInsert_ShapesInsertStar4" label="Star 4" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertStar4" />
+            <button id="baseInsert_ShapesInsertStar5" label="Star 5" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertStar5" />
+            <button id="baseInsert_ShapesInsertStar6" label="Star 6" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertStar6" />
+            <button id="baseInsert_ShapesInsertStar8" label="Star 8" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertStar8" />
+            <button id="baseInsert_ShapesInsertStar16" label="Star 16" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertStar16" />
+            <button id="baseInsert_ShapesInsertWave" label="Wave" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertWave" />
+            <button id="baseInsert_ShapesInsertRightBrace" label="Right Brace" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertRightBrace" />
+            <button id="baseInsert_ShapesInsertLeftBrace" label="Left Brace" imageMso="ShapesInsertGallery" onAction="OnBase_ShapesInsertLeftBrace" />
+          </menu>
+          <menu id="baseShapeSelectMenu" label="Select Same" imageMso="SelectObjects" size="normal" itemSize="normal">
+            <button id="baseSelect_ObjectsSelectBySameType" label="Same Type" imageMso="SelectObjects" onAction="OnBase_ObjectsSelectBySameType" />
+            <button id="baseSelect_ObjectsSelectBySameFillAndLineColor" label="Same Fill+Line" imageMso="SelectObjects" onAction="OnBase_ObjectsSelectBySameFillAndLineColor" />
+            <button id="baseSelect_ObjectsSelectBySameFillColor" label="Same Fill" imageMso="SelectObjects" onAction="OnBase_ObjectsSelectBySameFillColor" />
+            <button id="baseSelect_ObjectsSelectBySameLineColor" label="Same Line" imageMso="SelectObjects" onAction="OnBase_ObjectsSelectBySameLineColor" />
+            <button id="baseSelect_ObjectsSelectBySameWidthAndHeight" label="Same H/W" imageMso="SelectObjects" onAction="OnBase_ObjectsSelectBySameWidthAndHeight" />
+            <button id="baseSelect_ObjectsSelectBySameWidth" label="Same Width" imageMso="SelectObjects" onAction="OnBase_ObjectsSelectBySameWidth" />
+            <button id="baseSelect_ObjectsSelectBySameHeight" label="Same Height" imageMso="SelectObjects" onAction="OnBase_ObjectsSelectBySameHeight" />
+          </menu>
+          <menu id="baseShapeMoreMenu" label="Clone" imageMso="Copy" size="normal" itemSize="normal">
+            <button id="baseMore_ObjectsCloneRight" label="Clone Right" imageMso="Copy" onAction="OnBase_ObjectsCloneRight" />
+            <button id="baseMore_ObjectsCloneDown" label="Clone Down" imageMso="Paste" onAction="OnBase_ObjectsCloneDown" />
+          </menu>
+          <menu id="baseShapeOrderMenu" label="Order" imageMso="ObjectBringForward" size="normal" itemSize="normal">
+            <button id="baseMore_BringForward" label="Bring Forward" imageMso="ObjectBringForward" onAction="OnBase_BringForward" />
+            <button id="baseMore_BringToFront" label="Bring Front" imageMso="ObjectBringToFront" onAction="OnBase_BringToFront" />
+            <button id="baseMore_SendBackward" label="Send Backward" imageMso="ObjectSendBackward" onAction="OnBase_SendBackward" />
+            <button id="baseMore_SendToBack" label="Send Back" imageMso="ObjectSendToBack" onAction="OnBase_SendToBack" />
+          </menu>
+          <menu id="baseShapeFlipRotateMenu" label="Flip / Rotate" imageMso="ObjectRotateRight90" size="normal" itemSize="normal">
+            <button id="baseMore_ObjectsFlipHorizontal" label="Flip H" imageMso="ObjectFlipHorizontal" onAction="OnBase_ObjectsFlipHorizontal" />
+            <button id="baseMore_ObjectsFlipVertical" label="Flip V" imageMso="ObjectFlipVertical" onAction="OnBase_ObjectsFlipVertical" />
+            <button id="baseMore_ObjectsRotateClockwise" label="Rotate CW" imageMso="ObjectRotateRight90" onAction="OnBase_ObjectsRotateClockwise" />
+            <button id="baseMore_ObjectsRotateCounterclockwise" label="Rotate CCW" imageMso="ObjectRotateLeft90" onAction="OnBase_ObjectsRotateCounterclockwise" />
+          </menu>
+          <menu id="baseShapeStyleMenu" label="Shape Style" imageMso="ShapeFillColorPicker" size="normal" itemSize="normal">
+            <button id="baseMore_ObjectsCopyRoundedCorner" label="Rounded Corner" imageMso="ShapeRoundedRectangle" onAction="OnBase_ObjectsCopyRoundedCorner" />
+            <button id="baseMore_ObjectsCopyShapeTypeAndAdjustments" label="Shape Type+Adj" imageMso="ShapesInsertGallery" onAction="OnBase_ObjectsCopyShapeTypeAndAdjustments" />
+            <button id="baseMore_IncreaseShapeTransparency" label="Transparency+" imageMso="ShapeFillColorPicker" onAction="OnBase_IncreaseShapeTransparency" />
+            <button id="baseMore_RectifyLines" label="Rectify Lines" imageMso="ShapeLine" onAction="OnBase_RectifyLines" />
+          </menu>
+          <menu id="baseShapeTableAlignMenu" label="Table Align" imageMso="TableDrawTable" size="normal" itemSize="normal">
+            <button id="baseMore_ObjectsAlignToTable" label="Align to Table" imageMso="TableDrawTable" onAction="OnBase_ObjectsAlignToTable" />
+            <button id="baseMore_ObjectsAlignToTableColumn" label="Align Table Col" imageMso="TableColumnsInsertLeft" onAction="OnBase_ObjectsAlignToTableColumn" />
+            <button id="baseMore_ObjectsAlignToTableRow" label="Align Table Row" imageMso="TableRowsInsertAbove" onAction="OnBase_ObjectsAlignToTableRow" />
+          </menu>
+          <menu id="baseShapeGroupMenu" label="Group" imageMso="ArrangeMenu" size="normal" itemSize="normal">
+            <button id="baseMore_GroupShapesByColumns" label="Group Columns" imageMso="TableColumnsInsertLeft" onAction="OnBase_GroupShapesByColumns" />
+            <button id="baseMore_GroupShapesByRows" label="Group Rows" imageMso="TableRowsInsertAbove" onAction="OnBase_GroupShapesByRows" />
+          </menu>
+          <menu id="baseShapeMasterMenu" label="Master / Connect" imageMso="SlideMasterView" size="normal" itemSize="normal">
+            <button id="baseMaster_MoveSelectedShapeToMaster" label="Move to Master" imageMso="SlideMasterView" onAction="OnBase_MoveSelectedShapeToMaster" />
+            <button id="baseMaster_CopySelectedShapeToMaster" label="Copy to Master" imageMso="SlideMasterView" onAction="OnBase_CopySelectedShapeToMaster" />
+            <button id="baseMaster_MoveSelectedShapeToAllMasters" label="Move to All Masters" imageMso="SlideMasterView" onAction="OnBase_MoveSelectedShapeToAllMasters" />
+            <button id="baseMaster_CopySelectedShapeToAllMasters" label="Copy to All Masters" imageMso="SlideMasterView" onAction="OnBase_CopySelectedShapeToAllMasters" />
+            <button id="baseMaster_MoveSelectedShapeToUsedMasters" label="Move to Used Masters" imageMso="SlideMasterView" onAction="OnBase_MoveSelectedShapeToUsedMasters" />
+            <button id="baseMaster_CopySelectedShapeToUsedMasters" label="Copy to Used Masters" imageMso="SlideMasterView" onAction="OnBase_CopySelectedShapeToUsedMasters" />
+            <button id="baseMaster_ConnectRectangleShapesRightToLeft" label="Connect R-L" imageMso="ShapeLine" onAction="OnBase_ConnectRectangleShapesRightToLeft" />
+            <button id="baseMaster_ConnectRectangleShapesLeftToRight" label="Connect L-R" imageMso="ShapeLine" onAction="OnBase_ConnectRectangleShapesLeftToRight" />
+            <button id="baseMaster_ConnectRectangleShapesBottomToTop" label="Connect B-T" imageMso="ShapeLine" onAction="OnBase_ConnectRectangleShapesBottomToTop" />
+            <button id="baseMaster_ConnectRectangleShapesTopToBottom" label="Connect T-B" imageMso="ShapeLine" onAction="OnBase_ConnectRectangleShapesTopToBottom" />
+          </menu>
+        </group>
+        <group id="grpAlignDistribute" label="Arrange">
+          <menu id="mnuShapeTextAlign" label="Align" imageMso="ObjectsAlignLeft" size="large" itemSize="normal">
+            <button id="btnAlignLeft" label="Align Left" imageMso="ObjectsAlignLeft" onAction="OnAlignObjectsLeft" screentip="Align Left" supertip="Align selected objects to the left. A single selected object aligns to the slide." />
+            <button id="btnAlignCenter" label="Align Center" imageMso="ObjectsAlignCenterHorizontal" onAction="OnAlignObjectsCenter" screentip="Align Center" supertip="Align selected objects to the horizontal center." />
+            <button id="btnAlignRight" label="Align Right" imageMso="ObjectsAlignRight" onAction="OnAlignObjectsRight" screentip="Align Right" supertip="Align selected objects to the right." />
+            <button id="btnAlignTop" label="Align Top" imageMso="ObjectsAlignTop" onAction="OnAlignObjectsTop" screentip="Align Top" supertip="Align selected objects to the top." />
+            <button id="btnAlignMiddle" label="Align Middle" imageMso="ObjectsAlignMiddleVertical" onAction="OnAlignObjectsMiddle" screentip="Align Middle" supertip="Align selected objects to the vertical middle." />
+            <button id="btnAlignBottom" label="Align Bottom" imageMso="ObjectsAlignBottom" onAction="OnAlignObjectsBottom" screentip="Align Bottom" supertip="Align selected objects to the bottom." />
+          </menu>
+          <menu id="mnuShapeTextDistribute" label="Distribute" imageMso="AlignDistributeHorizontally" size="normal" itemSize="normal">
+            <button id="btnDistributeHorizontal" label="Distribute Horizontally" imageMso="AlignDistributeHorizontally" onAction="OnDistributeObjectsHorizontal" screentip="Distribute Horizontally" supertip="Evenly distribute selected objects horizontally." />
+            <button id="btnDistributeVertical" label="Distribute Vertically" imageMso="AlignDistributeVertically" onAction="OnDistributeObjectsVertical" screentip="Distribute Vertically" supertip="Evenly distribute selected objects vertically." />
+          </menu>
+          <menu id="mnuShapeTextOrderRotate" label="Order / Rotate" imageMso="ObjectBringForward" size="normal" itemSize="normal">
+            <button idMso="ObjectBringForward" />
+            <button idMso="ObjectSendBackward" />
+            <button idMso="ObjectBringToFront" />
+            <button idMso="ObjectSendToBack" />
+            <button idMso="ObjectFlipHorizontal" />
+            <button idMso="ObjectFlipVertical" />
+            <button idMso="ObjectRotateLeft90" />
+            <button idMso="ObjectRotateRight90" />
+          </menu>
+          <menu id="mnuShapeTextSameSize" label="Same Size" imageMso="SizeToControlHeightAndWidth" size="normal" itemSize="normal">
+            <button id="btnSameHeight" label="Same Height" imageMso="RowHeight" onAction="OnSameObjectHeight" screentip="Same Height" supertip="Set all selected objects to the height of the first selected object." />
+            <button id="btnSameWidth" label="Same Width" imageMso="ColumnWidth" onAction="OnSameObjectWidth" screentip="Same Width" supertip="Set all selected objects to the width of the first selected object." />
+            <button id="btnSameHeightWidth" label="Same Height and Width" imageMso="SizeToControlHeightAndWidth" onAction="OnSameObjectHeightAndWidth" screentip="Same Height and Width" supertip="Set all selected objects to the height and width of the first selected object." />
+          </menu>
+        </group>
+        <group id="grpShape" label="Object Format">
+          <button id="btnCopyShape" label="Copy format" size="large" imageMso="CopyPicture" onAction="OnCopyShape" screentip="Copy source shape" supertip="Remember the currently selected shape as the copy source." />
+          <splitButton id="sbPasteShape" size="large">
+            <button id="btnPasteShape" label="Apply format" imageMso="PasteGallery" onAction="OnPasteShape" screentip="Apply ticked attributes" supertip="Apply each ticked attribute from the source shape to the selected target shape(s). Click the arrow for more options." />
+            <menu id="mnuPasteOpts" itemSize="normal">
+              <checkBox id="chkIncPos" label="Position" tag="Position" getPressed="GetIncludeFlag" onAction="OnIncludeFlagChange" supertip="Copy Top + Left coordinates." />
+              <checkBox id="chkIncW" label="Width" tag="Width" getPressed="GetIncludeFlag" onAction="OnIncludeFlagChange" supertip="Copy width only." />
+              <checkBox id="chkIncH" label="Height" tag="Height" getPressed="GetIncludeFlag" onAction="OnIncludeFlagChange" supertip="Copy height only." />
+              <checkBox id="chkIncRot" label="Rotation" tag="Rotation" getPressed="GetIncludeFlag" onAction="OnIncludeFlagChange" supertip="Copy rotation angle." />
+              <checkBox id="chkIncLock" label="Lock aspect" tag="LockAspect" getPressed="GetIncludeFlag" onAction="OnIncludeFlagChange" supertip="Copy LockAspectRatio flag." />
+              <menuSeparator id="sepFormat" />
+              <checkBox id="chkIncFill" label="Fill" tag="Fill" getPressed="GetIncludeFlag" onAction="OnIncludeFlagChange" supertip="Copy fill color and transparency." />
+              <checkBox id="chkIncLine" label="Line" tag="Line" getPressed="GetIncludeFlag" onAction="OnIncludeFlagChange" supertip="Copy line color, weight, and dash style." />
+              <checkBox id="chkIncText" label="Text style" tag="TextFormat" getPressed="GetIncludeFlag" onAction="OnIncludeFlagChange" supertip="Copy font name, size, color, bold/italic/underline." />
+              <checkBox id="chkIncShadow" label="Shadow" tag="Shadow" getPressed="GetIncludeFlag" onAction="OnIncludeFlagChange" supertip="Copy shadow type, color, blur, and offset." />
+              <menuSeparator id="sepMeta" />
+              <checkBox id="chkIncLink" label="Hyperlink" tag="Hyperlink" getPressed="GetIncludeFlag" onAction="OnIncludeFlagChange" supertip="Copy click-action hyperlink." />
+              <checkBox id="chkIncAlt" label="Alt text" tag="AltText" getPressed="GetIncludeFlag" onAction="OnIncludeFlagChange" supertip="Copy accessibility title and description." />
+            </menu>
+          </splitButton>
+        </group>
+        <group id="baseShapesAlign" label="Base Arrange">
+          <menu id="baseShapeAlignMenu" label="Base Align" imageMso="ObjectsAlignLeft" size="normal" itemSize="normal">
+            <button id="baseAlign_ObjectsAlignLefts" label="Align Lefts" imageMso="ObjectsAlignLeft" onAction="OnBase_ObjectsAlignLefts" />
+            <button id="baseAlign_ObjectsAlignCenters" label="Align Centers" imageMso="ObjectsAlignCenterHorizontal" onAction="OnBase_ObjectsAlignCenters" />
+            <button id="baseAlign_ObjectsAlignRights" label="Align Rights" imageMso="ObjectsAlignRight" onAction="OnBase_ObjectsAlignRights" />
+            <button id="baseAlign_ObjectsAlignTops" label="Align Tops" imageMso="ObjectsAlignTop" onAction="OnBase_ObjectsAlignTops" />
+            <button id="baseAlign_ObjectsAlignMiddles" label="Align Middles" imageMso="ObjectsAlignMiddleVertical" onAction="OnBase_ObjectsAlignMiddles" />
+            <button id="baseAlign_ObjectsAlignBottoms" label="Align Bottoms" imageMso="ObjectsAlignBottom" onAction="OnBase_ObjectsAlignBottoms" />
+            <button id="baseAlign_ObjectsDistributeHorizontally" label="Distribute H" imageMso="AlignDistributeHorizontally" onAction="OnBase_ObjectsDistributeHorizontally" />
+            <button id="baseAlign_ObjectsDistributeVertically" label="Distribute V" imageMso="AlignDistributeVertically" onAction="OnBase_ObjectsDistributeVertically" />
+          </menu>
+          <menu id="baseShapeGapMenu" label="Gap" imageMso="ObjectsAlignDistributeHorizontally" size="normal" itemSize="normal">
+            <button id="baseAlign_ObjectsRemoveSpacingHorizontal" label="Remove H Gap" imageMso="ObjectsAlignDistributeHorizontally" onAction="OnBase_ObjectsRemoveSpacingHorizontal" />
+            <button id="baseAlign_ObjectsRemoveSpacingHorizontalRight" label="Remove H Gap Right" imageMso="ObjectsAlignDistributeHorizontally" onAction="OnBase_ObjectsRemoveSpacingHorizontalRight" />
+            <button id="baseAlign_ObjectsRemoveSpacingVertical" label="Remove V Gap" imageMso="ObjectsAlignDistributeVertically" onAction="OnBase_ObjectsRemoveSpacingVertical" />
+            <button id="baseAlign_ObjectsRemoveSpacingVerticalDown" label="Remove V Gap Down" imageMso="ObjectsAlignDistributeVertically" onAction="OnBase_ObjectsRemoveSpacingVerticalDown" />
+            <button id="baseAlign_ObjectsIncreaseSpacingHorizontal" label="Increase H Gap" imageMso="RightArrow2" onAction="OnBase_ObjectsIncreaseSpacingHorizontal" />
+            <button id="baseAlign_ObjectsDecreaseSpacingHorizontal" label="Decrease H Gap" imageMso="LeftArrow2" onAction="OnBase_ObjectsDecreaseSpacingHorizontal" />
+            <button id="baseAlign_ObjectsIncreaseSpacingVertical" label="Increase V Gap" imageMso="UpArrow2" onAction="OnBase_ObjectsIncreaseSpacingVertical" />
+            <button id="baseAlign_ObjectsDecreaseSpacingVertical" label="Decrease V Gap" imageMso="DownArrow2" onAction="OnBase_ObjectsDecreaseSpacingVertical" />
+          </menu>
+          <menu id="baseShapeResizeSpaceMenu" label="Resize Space" imageMso="ObjectsAlignDistributeHorizontally" size="normal" itemSize="normal">
+            <button id="baseAlign_ResizeAndSpaceEvenHorizontal" label="Resize Space H" imageMso="ObjectsAlignDistributeHorizontally" onAction="OnBase_ResizeAndSpaceEvenHorizontal" />
+            <button id="baseAlign_ResizeAndSpaceEvenVertical" label="Resize Space V" imageMso="ObjectsAlignDistributeVertically" onAction="OnBase_ResizeAndSpaceEvenVertical" />
+            <button id="baseAdded_ResizeAndSpaceEvenHorizontalPreserveFirst" label="Resize H Preserve First" imageMso="ObjectsAlignDistributeHorizontally" onAction="OnBase_ResizeAndSpaceEvenHorizontalPreserveFirst" />
+            <button id="baseAdded_ResizeAndSpaceEvenHorizontalPreserveLast" label="Resize H Preserve Last" imageMso="ObjectsAlignDistributeHorizontally" onAction="OnBase_ResizeAndSpaceEvenHorizontalPreserveLast" />
+            <button id="baseAdded_ResizeAndSpaceEvenVerticalPreserveFirst" label="Resize V Preserve First" imageMso="ObjectsAlignDistributeVertically" onAction="OnBase_ResizeAndSpaceEvenVerticalPreserveFirst" />
+            <button id="baseAdded_ResizeAndSpaceEvenVerticalPreserveLast" label="Resize V Preserve Last" imageMso="ObjectsAlignDistributeVertically" onAction="OnBase_ResizeAndSpaceEvenVerticalPreserveLast" />
+            <button id="baseAdded_ArrangeShapes" label="Arrange Shapes" imageMso="ArrangeMenu" onAction="OnBase_ArrangeShapes" />
+          </menu>
+          <menu id="baseShapeStretchMenu" label="Stretch" imageMso="ObjectsAlignRight" size="normal" itemSize="normal">
+            <button id="baseAlign_ObjectsStretchTop" label="Stretch Top" imageMso="ObjectsAlignTop" onAction="OnBase_ObjectsStretchTop" />
+            <button id="baseAlign_ObjectsStretchLeft" label="Stretch Left" imageMso="ObjectsAlignLeft" onAction="OnBase_ObjectsStretchLeft" />
+            <button id="baseAlign_ObjectsStretchBottom" label="Stretch Bottom" imageMso="ObjectsAlignBottom" onAction="OnBase_ObjectsStretchBottom" />
+            <button id="baseAlign_ObjectsStretchRight" label="Stretch Right" imageMso="ObjectsAlignRight" onAction="OnBase_ObjectsStretchRight" />
+            <button id="baseAdded_ObjectsStretchTopShapeBottom" label="Stretch Top to Shape" imageMso="ObjectsAlignTop" onAction="OnBase_ObjectsStretchTopShapeBottom" />
+            <button id="baseAdded_ObjectsStretchLeftShapeRight" label="Stretch Left to Shape" imageMso="ObjectsAlignLeft" onAction="OnBase_ObjectsStretchLeftShapeRight" />
+            <button id="baseAdded_ObjectsStretchBottomShapeTop" label="Stretch Bottom to Shape" imageMso="ObjectsAlignBottom" onAction="OnBase_ObjectsStretchBottomShapeTop" />
+            <button id="baseAdded_ObjectsStretchRightShapeLeft" label="Stretch Right to Shape" imageMso="ObjectsAlignRight" onAction="OnBase_ObjectsStretchRightShapeLeft" />
+          </menu>
+          <menu id="baseShapeSizeMenu" label="Size / Position" imageMso="SizeToControlHeightAndWidth" size="normal" itemSize="normal">
+            <button id="baseSize_ObjectsSizeToTallest" label="Tallest" imageMso="SizeToControlHeight" onAction="OnBase_ObjectsSizeToTallest" />
+            <button id="baseSize_ObjectsSizeToShortest" label="Shortest" imageMso="SizeToControlHeight" onAction="OnBase_ObjectsSizeToShortest" />
+            <button id="baseSize_ObjectsSizeToWidest" label="Widest" imageMso="SizeToControlWidth" onAction="OnBase_ObjectsSizeToWidest" />
+            <button id="baseSize_ObjectsSizeToNarrowest" label="Narrowest" imageMso="SizeToControlWidth" onAction="OnBase_ObjectsSizeToNarrowest" />
+            <button id="baseSize_ObjectsSameHeight" label="Same Height" imageMso="RowHeight" onAction="OnBase_ObjectsSameHeight" />
+            <button id="baseSize_ObjectsSameWidth" label="Same Width" imageMso="ColumnWidth" onAction="OnBase_ObjectsSameWidth" />
+            <button id="baseSize_ObjectsSameHeightAndWidth" label="Same H/W" imageMso="SizeToControlHeightAndWidth" onAction="OnBase_ObjectsSameHeightAndWidth" />
+            <button id="baseSize_ObjectsSwapPosition" label="Swap Position" imageMso="ArrangeMenu" onAction="OnBase_ObjectsSwapPosition" />
+            <button id="baseSize_ObjectsSwapPositionCentered" label="Swap Centered" imageMso="ArrangeMenu" onAction="OnBase_ObjectsSwapPositionCentered" />
+            <button id="baseSize_CopyPosition" label="Copy Position" imageMso="Copy" onAction="OnBase_CopyPosition" />
+            <button id="baseSize_PastePosition" label="Paste Position" imageMso="Paste" onAction="OnBase_PastePosition" />
+            <button id="baseSize_PastePositionAndDimensions" label="Paste Pos+Size" imageMso="Paste" onAction="OnBase_PastePositionAndDimensions" />
+          </menu>
+        </group>
+        <group id="baseTextFont" label="Font">
+          <control idMso="Font" />
+          <control idMso="FontSize" />
+          <control idMso="Bold" />
+          <control idMso="Italic" />
+          <control idMso="Underline" />
+          <control idMso="FontColorPicker" />
+        </group>
+        <group id="grpFont" label="Text Style">
+          <button id="btnTextStyleCapture" label="Capture text" size="large" imageMso="FormatPainter" onAction="OnTextStyleCapture" screentip="Capture text style" supertip="Select text, a text box, or a table cell, then capture its font, size, color, and emphasis." />
+          <splitButton id="sbTextStyleApply" size="large">
+            <button id="btnTextStyleApply" getLabel="GetTextStyleApplyLabel" imageMso="FontDialog" onAction="OnTextStyleApplyDefault" screentip="Apply captured style" supertip="Apply the captured style parts to the ticked target in the arrow menu." />
+            <menu id="mnuTextStyleApply" itemSize="normal">
+              <checkBox id="chkTextStyleScopeSelection" label="Apply to selection" tag="Selection" getPressed="GetTextStyleScope" onAction="OnTextStyleScopeChange" supertip="Apply only to selected text or shape(s)." />
+              <checkBox id="chkTextStyleScopeCurrent" label="Apply to current slide" tag="Current" getPressed="GetTextStyleScope" onAction="OnTextStyleScopeChange" supertip="Apply to all text and tables on the active slide." />
+              <checkBox id="chkTextStyleScopeSelected" label="Apply to selected slides" tag="Selected" getPressed="GetTextStyleScope" onAction="OnTextStyleScopeChange" supertip="Apply to slides selected in the slide panel." />
+              <checkBox id="chkTextStyleScopeAll" label="Apply to all slides" tag="All" getPressed="GetTextStyleScope" onAction="OnTextStyleScopeChange" supertip="Apply to every slide in the active presentation." />
+              <menuSeparator id="sepTextStyleParts" />
+              <checkBox id="chkTextFont" label="Use font name" tag="Font" getPressed="GetTextStyleFlag" onAction="OnTextStyleFlagChange" supertip="Apply captured font name." />
+              <checkBox id="chkTextSize" label="Use font size" tag="Size" getPressed="GetTextStyleFlag" onAction="OnTextStyleFlagChange" supertip="Apply captured font size." />
+              <checkBox id="chkTextColor" label="Use text color" tag="Color" getPressed="GetTextStyleFlag" onAction="OnTextStyleFlagChange" supertip="Apply captured font color." />
+              <checkBox id="chkTextEmphasis" label="Use bold/italic/underline" tag="Emphasis" getPressed="GetTextStyleFlag" onAction="OnTextStyleFlagChange" supertip="Apply captured bold, italic, and underline." />
+            </menu>
+          </splitButton>
+        </group>
+        <group id="baseTextTools" label="Text Tools">
+          <menu id="baseTextToolsMenu" label="Auto Fit" imageMso="TextBoxInsert" size="normal" itemSize="normal">
+            <button id="baseText_ObjectsAutoSizeNone" label="Auto Fit None" imageMso="TextBoxInsert" onAction="OnBase_ObjectsAutoSizeNone" />
+            <button id="baseText_ObjectsAutoSizeTextToFitShape" label="Text Fits Shape" imageMso="TextBoxInsert" onAction="OnBase_ObjectsAutoSizeTextToFitShape" />
+            <button id="baseText_ObjectsAutoSizeShapeToFitText" label="Shape Fits Text" imageMso="TextBoxInsert" onAction="OnBase_ObjectsAutoSizeShapeToFitText" />
+            <button id="baseText_ObjectsToggleAutoSize" label="Toggle Auto Fit" imageMso="TextBoxInsert" onAction="OnBase_ObjectsToggleAutoSize" />
+            <button id="baseText_ObjectsTextWordwrapToggle" label="Toggle Wrap" imageMso="WrapText" onAction="OnBase_ObjectsTextWordwrapToggle" />
+          </menu>
+          <menu id="baseTextEditMenu" label="Split / Merge" imageMso="TextBoxInsert" size="normal" itemSize="normal">
+            <button id="baseText_ObjectsTextSplitByParagraph" label="Split Paragraphs" imageMso="TextBoxInsert" onAction="OnBase_ObjectsTextSplitByParagraph" />
+            <button id="baseText_ObjectsTextMerge" label="Merge Text" imageMso="TextBoxInsert" onAction="OnBase_ObjectsTextMerge" />
+            <button id="baseText_MoveSelectedTextToNewElement" label="Move Selected Text" imageMso="RightArrow2" onAction="OnBase_MoveSelectedTextToNewElement" />
+            <button id="baseText_CopySelectedTextToNewElement" label="Copy Selected Text" imageMso="Copy" onAction="OnBase_CopySelectedTextToNewElement" />
+            <button id="baseText_ObjectsRemoveText" label="Remove Text" imageMso="Delete" onAction="OnBase_ObjectsRemoveText" />
+            <button id="baseText_ObjectsSwapText" label="Swap Text" imageMso="ArrangeMenu" onAction="OnBase_ObjectsSwapText" />
+            <button id="baseText_ObjectsSwapTextNoFormatting" label="Swap Text Plain" imageMso="Copy" onAction="OnBase_ObjectsSwapTextNoFormatting" />
+          </menu>
+          <menu id="baseTextCleanMenu" label="Clean Text" imageMso="Clear" size="normal" itemSize="normal">
+            <button id="baseText_ObjectsRemoveHyperlinks" label="Remove Hyperlinks" imageMso="HyperlinkRemove" onAction="OnBase_ObjectsRemoveHyperlinks" />
+            <button id="baseText_ObjectsTextToggleCase" label="Toggle Case" imageMso="ChangeCaseGallery" onAction="OnBase_ObjectsTextToggleCase" />
+            <button id="baseText_ObjectsTextAddPeriods" label="Add Periods" imageMso="TextBoxInsert" onAction="OnBase_ObjectsTextAddPeriods" />
+            <button id="baseText_ObjectsTextRemovePeriods" label="Remove Periods" imageMso="Clear" onAction="OnBase_ObjectsTextRemovePeriods" />
+            <button id="baseText_ObjectsTextDeleteStrikethrough" label="Delete Strike Text" imageMso="Delete" onAction="OnBase_ObjectsTextDeleteStrikethrough" />
+          </menu>
+          <menu id="baseTextColorBulletsMenu" label="Color / Bullets" imageMso="FontColorPicker" size="normal" itemSize="normal">
+            <button id="baseText_ColorBoldTextColorAutomatically" label="Color Bold Auto" imageMso="FontColorPicker" onAction="OnBase_ColorBoldTextColorAutomatically" />
+            <button id="baseText_ColorBoldTextColorPicker" label="Color Bold Pick" imageMso="ShapeFillColorPicker" onAction="OnBase_ColorBoldTextColorPicker" />
+            <button id="baseAdded_TextBulletsTicks" label="Bullets: Ticks" imageMso="SymbolInsert" onAction="OnBase_TextBulletsTicks" />
+            <button id="baseAdded_TextBulletsCrosses" label="Bullets: Crosses" imageMso="SymbolInsert" onAction="OnBase_TextBulletsCrosses" />
+          </menu>
+          <menu id="baseTextSymbolsMenu" label="Symbols / Convert" imageMso="SymbolInsert" size="normal" itemSize="normal">
+            <button id="baseText_TextInsertEuro" label="Euro" imageMso="SymbolInsert" onAction="OnBase_TextInsertEuro" />
+            <button id="baseText_TextInsertCopyright" label="Copyright" imageMso="SymbolInsert" onAction="OnBase_TextInsertCopyright" />
+            <button id="baseText_TextInsertNoBreakSpace" label="No-break Space" imageMso="SymbolInsert" onAction="OnBase_TextInsertNoBreakSpace" />
+            <button id="baseAdded_ConvertTextToShapes" label="Convert Text to Shapes" imageMso="TextBoxInsert" onAction="OnBase_ConvertTextToShapes" />
+          </menu>
+        </group>
+        <group id="baseTextSpacing" label="Spacing">
+          <menu id="baseTextSpacingMenu" label="Line Spacing" imageMso="ParagraphSpacingIncrease" size="normal" itemSize="normal">
+            <button id="baseSpacing_LineSpacingRemove" label="Remove Line Spacing" imageMso="ParagraphSpacingIncrease" onAction="OnBase_LineSpacingRemove" />
+            <button id="baseSpacing_ObjectsIncreaseLineSpacing" label="Increase Line Spacing" imageMso="UpArrow2" onAction="OnBase_ObjectsIncreaseLineSpacing" />
+            <button id="baseSpacing_ObjectsDecreaseLineSpacing" label="Decrease Line Spacing" imageMso="DownArrow2" onAction="OnBase_ObjectsDecreaseLineSpacing" />
+          </menu>
+          <menu id="baseParagraphSpacingMenu" label="Paragraph" imageMso="ParagraphSpacingIncrease" size="normal" itemSize="normal">
+            <button id="baseSpacing_ParagraphSpacingRemove" label="Remove Paragraph Spacing" imageMso="ParagraphSpacingIncrease" onAction="OnBase_ParagraphSpacingRemove" />
+            <button id="baseSpacing_ObjectsIncreaseLineSpacingBeforeAndAfter" label="Increase Before/After" imageMso="UpArrow2" onAction="OnBase_ObjectsIncreaseLineSpacingBeforeAndAfter" />
+            <button id="baseSpacing_ObjectsDecreaseLineSpacingBeforeAndAfter" label="Decrease Before/After" imageMso="DownArrow2" onAction="OnBase_ObjectsDecreaseLineSpacingBeforeAndAfter" />
+          </menu>
+          <menu id="baseListGapMenu" label="List Gap" imageMso="IndentIncrease" size="normal" itemSize="normal">
+            <button id="baseSpacing_ResetHangingIndent" label="Reset List Gap" imageMso="IndentIncrease" onAction="OnBase_ResetHangingIndent" />
+            <button id="baseSpacing_IncreaseHangingIndent" label="Increase List Gap" imageMso="RightArrow2" onAction="OnBase_IncreaseHangingIndent" />
+            <button id="baseSpacing_DecreaseHangingIndent" label="Decrease List Gap" imageMso="LeftArrow2" onAction="OnBase_DecreaseHangingIndent" />
+          </menu>
+          <menu id="baseTextMarginsMenu" label="Margins" imageMso="PageMarginsGallery" size="normal" itemSize="normal">
+            <button id="baseSpacing_ObjectsMarginsToZero" label="Margins Zero" imageMso="PageMarginsGallery" onAction="OnBase_ObjectsMarginsToZero" />
+            <button id="baseSpacing_ObjectsMarginsIncrease" label="Margins Increase" imageMso="UpArrow2" onAction="OnBase_ObjectsMarginsIncrease" />
+            <button id="baseSpacing_ObjectsMarginsDecrease" label="Margins Decrease" imageMso="DownArrow2" onAction="OnBase_ObjectsMarginsDecrease" />
+          </menu>
+        </group>
+        <group id="baseTextStyles" label="Styles">
+          <menu id="baseTextStyleMenu" label="Apply Style" imageMso="StylesPane" size="large" itemSize="normal">
+            <button id="baseStyle_ApplyH1" label="H1" imageMso="StylesPane" onAction="OnBase_ApplyH1" />
+            <button id="baseStyle_ApplyH2" label="H2" imageMso="StylesPane" onAction="OnBase_ApplyH2" />
+            <button id="baseStyle_ApplyH3" label="H3" imageMso="StylesPane" onAction="OnBase_ApplyH3" />
+            <button id="baseStyle_ApplyParagraph" label="Paragraph" imageMso="StyleInspector" onAction="OnBase_ApplyParagraph" />
+            <button id="baseStyle_ApplyQuote" label="Quote" imageMso="ReviewNewComment" onAction="OnBase_ApplyQuote" />
+            <button id="baseStyle_ApplyCustom1" label="Custom 1" imageMso="StylesPane" onAction="OnBase_ApplyCustom1" />
+            <button id="baseStyle_ApplyCustom2" label="Custom 2" imageMso="StylesPane" onAction="OnBase_ApplyCustom2" />
+            <button id="baseStyle_ApplyCustom3" label="Custom 3" imageMso="StylesPane" onAction="OnBase_ApplyCustom3" />
+            <button id="baseStyle_ApplyCustom4" label="Custom 4" imageMso="StylesPane" onAction="OnBase_ApplyCustom4" />
+            <button id="baseStyle_ApplyCustom5" label="Custom 5" imageMso="StylesPane" onAction="OnBase_ApplyCustom5" />
+          </menu>
+        </group>
+        <group id="baseAdvNotes" label="Notes">
+          <menu id="baseNotesMenu" label="Sticky Notes" imageMso="NewNote" size="large" itemSize="normal">
+            <button id="baseNote_GenerateStickyNote" label="New Note" imageMso="NewNote" onAction="OnBase_GenerateStickyNote" />
+            <button id="baseNote_MoveStickyNotesOffSlide" label="Move Off Slide" imageMso="OutlineMoveUp" onAction="OnBase_MoveStickyNotesOffSlide" />
+            <button id="baseNote_MoveStickyNotesOnSlide" label="Move On Slide" imageMso="OutlineMoveDown" onAction="OnBase_MoveStickyNotesOnSlide" />
+            <button id="baseNote_DeleteStickyNotesOnSlide" label="Delete Slide Notes" imageMso="Delete" onAction="OnBase_DeleteStickyNotesOnSlide" />
+            <button id="baseNote_ConvertCommentsToStickyNotes" label="Comments to Notes" imageMso="ReviewShowAllComments" onAction="OnBase_ConvertCommentsToStickyNotes" />
+            <button id="baseNote_MoveStickyNotesOffAllSlides" label="Move Off All" imageMso="OutlineMoveUp" onAction="OnBase_MoveStickyNotesOffAllSlides" />
+            <button id="baseNote_MoveStickyNotesOnAllSlides" label="Move On All" imageMso="OutlineMoveDown" onAction="OnBase_MoveStickyNotesOnAllSlides" />
+            <button id="baseNote_DeleteStickyNotesOnAllSlides" label="Delete All Notes" imageMso="Delete" onAction="OnBase_DeleteStickyNotesOnAllSlides" />
+            <button id="baseNote_ConvertAllCommentsToStickyNotes" label="All Comments to Notes" imageMso="ReviewShowAllComments" onAction="OnBase_ConvertAllCommentsToStickyNotes" />
+          </menu>
+          <menu id="baseStepsMenu" label="Steps" imageMso="NumberStyleGallery" itemSize="normal">
+            <button id="baseStep_GenerateStepsCounter" label="New Steps" imageMso="NumberStyleGallery" onAction="OnBase_GenerateStepsCounter" />
+            <button id="baseStep_GenerateCrossSlideStepsCounter" label="New Cross-slide" imageMso="NumberStyleGallery" onAction="OnBase_GenerateCrossSlideStepsCounter" />
+            <button id="baseStep_SelectAllStepsCounter" label="Select Steps" imageMso="SelectObjects" onAction="OnBase_SelectAllStepsCounter" />
+            <button id="baseStep_SelectAllCrossSlideStepsCounter" label="Select Cross-slide" imageMso="SelectObjects" onAction="OnBase_SelectAllCrossSlideStepsCounter" />
+          </menu>
+          <menu id="baseStampsMenu" label="Stamps" imageMso="SignatureLineInsert" itemSize="normal">
+            <button id="baseAdded_MoveStampsOffSlide" label="Move Off Slide" imageMso="OutlineMoveUp" onAction="OnBase_MoveStampsOffSlide" />
+            <button id="baseAdded_MoveStampsOnSlide" label="Move On Slide" imageMso="OutlineMoveDown" onAction="OnBase_MoveStampsOnSlide" />
+            <button id="baseAdded_DeleteStampsOnSlide" label="Delete Slide Stamps" imageMso="Delete" onAction="OnBase_DeleteStampsOnSlide" />
+            <button id="baseAdded_MoveStampsOffAllSlides" label="Move Off All" imageMso="OutlineMoveUp" onAction="OnBase_MoveStampsOffAllSlides" />
+            <button id="baseAdded_MoveStampsOnAllSlides" label="Move On All" imageMso="OutlineMoveDown" onAction="OnBase_MoveStampsOnAllSlides" />
+            <button id="baseAdded_DeleteStampsOnAllSlides" label="Delete All Stamps" imageMso="Delete" onAction="OnBase_DeleteStampsOnAllSlides" />
+          </menu>
+        </group>
+      </tab>
+      <tab id="tabTables" label="[Tables]">
+        <group id="baseTablesBuiltIn" label="Built-in">
+          <control idMso="TableInsert" />
+          <control idMso="TableRowsInsertAbove" />
+          <control idMso="TableRowsInsertBelow" />
+          <control idMso="TableColumnsInsertLeft" />
+          <control idMso="TableColumnsInsertRight" />
+          <control idMso="TableDeleteRows" />
+          <control idMso="TableDeleteColumns" />
+          <control idMso="TableBordersMenu" />
+        </group>
+        <group id="baseTablesEdit" label="Edit">
+          <button id="baseTable_TableTranspose" label="Transpose" imageMso="TableInsert" onAction="OnBase_TableTranspose" supertip="Swap rows and columns of the selected table." />
+          <button id="baseTable_SplitTableByRow" label="Split Row" imageMso="TableRowsInsertAbove" onAction="OnBase_SplitTableByRow" supertip="Split the selected table into two tables at the selected row." />
+          <button id="baseTable_SplitTableByColumn" label="Split Column" imageMso="TableColumnsInsertLeft" onAction="OnBase_SplitTableByColumn" supertip="Split the selected table into two tables at the selected column." />
+          <button id="baseTable_TableSum" label="Sum Column" imageMso="AutoSum" onAction="OnBase_TableSum" supertip="Sum the values of the selected column into the last cell." />
+          <button id="baseTable_TableRowSum" label="Sum Row" imageMso="AutoSum" onAction="OnBase_TableRowSum" supertip="Sum the values of the selected row into the last cell." />
+          <button id="baseTable_InsertColumnToLeftKeepOtherColumnWidths" label="Insert Col Left" imageMso="TableColumnsInsertLeft" onAction="OnBase_InsertColumnToLeftKeepOtherColumnWidths" supertip="Insert a column to the left while keeping the other column widths." />
+          <button id="baseTable_InsertColumnToRightKeepOtherColumnWidths" label="Insert Col Right" imageMso="TableColumnsInsertRight" onAction="OnBase_InsertColumnToRightKeepOtherColumnWidths" supertip="Insert a column to the right while keeping the other column widths." />
+        </group>
+        <group id="baseTablesMargins" label="Margins">
+          <button id="baseTable_TablesMarginsToZero" label="Margins Zero" imageMso="PageMarginsGallery" onAction="OnBase_TablesMarginsToZero" supertip="Set all cell margins of the selected table to zero." />
+          <button id="baseTable_TablesMarginsIncrease" label="Margins Increase" imageMso="UpArrow2" onAction="OnBase_TablesMarginsIncrease" supertip="Increase all cell margins of the selected table." />
+          <button id="baseTable_TablesMarginsDecrease" label="Margins Decrease" imageMso="DownArrow2" onAction="OnBase_TablesMarginsDecrease" supertip="Decrease all cell margins of the selected table." />
+        </group>
+        <group id="baseTablesGaps" label="Gaps">
+          <button id="baseTableGap_TableDistributeColumnsWithGaps" label="Distribute Cols w/Gaps" imageMso="AlignDistributeHorizontally" onAction="OnBase_TableDistributeColumnsWithGaps" supertip="Distribute table columns evenly while keeping gaps." />
+          <button id="baseTableGap_TableDistributeRowsWithGaps" label="Distribute Rows w/Gaps" imageMso="AlignDistributeVertically" onAction="OnBase_TableDistributeRowsWithGaps" supertip="Distribute table rows evenly while keeping gaps." />
+          <button id="baseTableGap_TableColumnGapsEven" label="Column Gaps Even" imageMso="ObjectsAlignDistributeHorizontally" onAction="OnBase_TableColumnGapsEven" supertip="Make even-indexed column gaps equal." />
+          <button id="baseTableGap_TableColumnGapsOdd" label="Column Gaps Outer" imageMso="ObjectsAlignDistributeHorizontally" onAction="OnBase_TableColumnGapsOdd" supertip="Make outer column gaps equal." />
+          <button id="baseTableGap_TableRowGapsEven" label="Row Gaps Even" imageMso="ObjectsAlignDistributeVertically" onAction="OnBase_TableRowGapsEven" supertip="Make even-indexed row gaps equal." />
+          <button id="baseTableGap_TableRowGapsOdd" label="Row Gaps Outer" imageMso="ObjectsAlignDistributeVertically" onAction="OnBase_TableRowGapsOdd" supertip="Make outer row gaps equal." />
+        </group>
+      </tab>
+      <tab id="tabBalloonCallouts" label="[Balloon]">
+        <group id="grpBalloonCreate" label="Create">
+          <splitButton id="spBalloonDraw" size="large">
+            <toggleButton id="btnBalloonDrawLine" getLabel="GetBalloonDrawLabel" imageMso="ShapeStraightConnector" getPressed="GetBalloonDrawPressed" onAction="OnBalloonDrawLine" screentip="Draw balloon" supertip="Turn on drawing mode, then drag from each part point to its number label position. Click again to exit drawing mode. Use the arrow to choose a Circle or Square number label." />
+            <menu id="mnuBalloonDrawShape" itemSize="normal">
+              <checkBox id="chkBalloonDrawCircle" label="Circle label" tag="Circle" getPressed="GetBalloonDrawShapeMode" onAction="OnBalloonDrawShapeMode" supertip="Draw balloons with a round number label." />
+              <checkBox id="chkBalloonDrawSquare" label="Square label" tag="Square" getPressed="GetBalloonDrawShapeMode" onAction="OnBalloonDrawShapeMode" supertip="Draw balloons with a square number label." />
+            </menu>
+          </splitButton>
+        </group>
+        <group id="grpBalloonPartsList" label="Balloon Table">
+          <box id="bxBalloonTableData" boxStyle="vertical">
+            <splitButton id="spBalloonListCreate">
+              <button id="btnBalloonListOpen" label="Sync from Excel" imageMso="RefreshAll" getEnabled="GetBalloonListHasSource" onAction="OnBalloonListSyncExcel" screentip="Sync part tables from Excel" supertip="Create or update balloon part tables from the saved Excel source. If the row count changed, choose how many tables to rebuild. Use Excel Source &gt; Set Source first." />
+              <menu id="mnuBalloonListCreate" itemSize="normal">
+                <button id="btnBalloonListBuildExisting" label="Reflow Layout" imageMso="TableInsert" getEnabled="GetBalloonListHasPartRows" onAction="OnBalloonListBuildExisting" screentip="Reflow layout" supertip="Redistribute the existing part-table data into a different number of tables without reading the Excel source." />
+              </menu>
+            </splitButton>
+            <menu id="mnuBalloonExcelSource" label="Excel Source" imageMso="RefreshAll" itemSize="normal" screentip="Manage Excel source" supertip="Set or inspect the saved workbook/sheet/range used by the part tables.">
+              <button id="btnBalloonListSetSource" label="Choose Excel Range..." imageMso="SelectCurrentRegion" onAction="OnBalloonListSetSource" screentip="Choose a table source range" supertip="Open the native Excel range picker and save the selected range as the source for this slide and its Balloon Tables." />
+              <button id="btnBalloonListOpenSource" getLabel="GetBalloonListOpenSourceLabel" imageMso="FileOpen" getEnabled="GetBalloonListHasSource" onAction="OnBalloonListOpenSource" screentip="Open linked workbook" getSupertip="GetBalloonListOpenSourceSupertip" />
+              <button id="btnBalloonListSourceDetails" label="Source Details" imageMso="Info" getEnabled="GetBalloonListHasSource" onAction="OnBalloonListSourceDetails" screentip="Show source details" supertip="Show the saved workbook path, sheet, and range." />
+            </menu>
+            <button id="btnBalloonListWriteBack" label="Write to Excel" imageMso="ExportExcel" getEnabled="GetBalloonListCanPushOrder" onAction="OnBalloonListWriteBack" screentip="Write part data back to Excel" supertip="Write Number and Part name from all PPT part tables back to the saved Excel source, in row order (top-left to bottom-right). The workbook is not saved automatically." />
+            <menu id="mnuBalloonLinks" label="Balloons" imageMso="HyperlinkInsert" itemSize="normal" screentip="Link balloons" supertip="Link existing balloons to part rows, sync numbers, or remove balloon links.">
+              <button id="btnBalloonListBindExisting" getLabel="GetBalloonListLinkLabel" imageMso="HyperlinkInsert" getEnabled="GetBalloonListCanLink" onAction="OnBalloonListBindExisting" screentip="Link balloons to part rows" getSupertip="GetBalloonListLinkSupertip" />
+              <button id="btnBalloonListApplyOrder" getLabel="GetBalloonListSyncLabel" imageMso="RefreshAll" getEnabled="GetBalloonListCanUseLinkedTools" onAction="OnBalloonListApplyOrder" screentip="Sync linked balloons" getSupertip="GetBalloonListSyncSupertip" />
+              <button id="btnBalloonListUnlink" getLabel="GetBalloonListUnlinkLabel" imageMso="HyperlinkRemove" getEnabled="GetBalloonListCanUseLinkedTools" onAction="OnBalloonListUnlink" screentip="Unlink balloons" getSupertip="GetBalloonListUnlinkSupertip" />
+            </menu>
+          </box>
+          <box id="bxBalloonRowMove" boxStyle="vertical">
+            <button id="btnBalloonMoveRowUp" label="Move Up" imageMso="OutlineMoveUp" onAction="OnBalloonListMoveRowUp" screentip="Move part row up" supertip="Select a cell in a part table, then move that row up by one." />
+            <button id="btnBalloonMoveRowDown" label="Move Down" imageMso="OutlineMoveDown" onAction="OnBalloonListMoveRowDown" screentip="Move part row down" supertip="Select a cell in a part table, then move that row down by one." />
+          </box>
+        </group>
+        <group id="grpBalloonArrange" label="Arrange Labels">
+          <box id="bxBalloonAlignLabels" boxStyle="horizontal">
+            <button id="btnBalloonAlignLabelsLeft" label="Align label left" imageMso="ObjectsAlignLeft" showLabel="false" onAction="OnBalloonAlignLabelsLeft" screentip="Align Label Left" supertip="Align selected balloon label centers to the leftmost selected label while keeping each part anchor fixed." />
+            <button id="btnBalloonAlignLabelsRight" label="Align label right" imageMso="ObjectsAlignRight" showLabel="false" onAction="OnBalloonAlignLabelsRight" screentip="Align Label Right" supertip="Align selected balloon label centers to the rightmost selected label while keeping each part anchor fixed." />
+            <button id="btnBalloonAlignLabelsTop" label="Align label top" imageMso="ObjectsAlignTop" showLabel="false" onAction="OnBalloonAlignLabelsTop" screentip="Align Label Top" supertip="Align selected balloon label centers to the topmost selected label while keeping each part anchor fixed." />
+            <button id="btnBalloonAlignLabelsBottom" label="Align label bottom" imageMso="ObjectsAlignBottom" showLabel="false" onAction="OnBalloonAlignLabelsBottom" screentip="Align Label Bottom" supertip="Align selected balloon label centers to the bottommost selected label while keeping each part anchor fixed." />
+          </box>
+          <box id="bxBalloonDistributeLabels" boxStyle="horizontal">
+            <button id="btnBalloonDistributeLabelsHorizontal" label="Distribute labels horizontally" imageMso="AlignDistributeHorizontally" showLabel="false" onAction="OnBalloonDistributeLabelsHorizontal" screentip="Distribute Labels Horizontally" supertip="Evenly distribute selected balloon label centers horizontally while keeping part anchors fixed." />
+            <button id="btnBalloonDistributeLabelsVertical" label="Distribute labels vertically" imageMso="AlignDistributeVertically" showLabel="false" onAction="OnBalloonDistributeLabelsVertical" screentip="Distribute Labels Vertically" supertip="Evenly distribute selected balloon label centers vertically while keeping part anchors fixed." />
+          </box>
+          <box id="bxBalloonNudgeLabels" boxStyle="horizontal">
+            <button id="btnBalloonNudgeLabelsLeft" label="Move label left" imageMso="LeftArrow2" showLabel="false" onAction="OnBalloonNudgeLabelsLeft" screentip="Move Label Left" supertip="Move selected balloon number labels left by 3 pt while keeping each part anchor, leader line, and marker connected." />
+            <button id="btnBalloonNudgeLabelsRight" label="Move label right" imageMso="RightArrow2" showLabel="false" onAction="OnBalloonNudgeLabelsRight" screentip="Move Label Right" supertip="Move selected balloon number labels right by 3 pt while keeping each part anchor, leader line, and marker connected." />
+            <button id="btnBalloonNudgeLabelsUp" label="Move label up" imageMso="UpArrow2" showLabel="false" onAction="OnBalloonNudgeLabelsUp" screentip="Move Label Up" supertip="Move selected balloon number labels up by 3 pt while keeping each part anchor, leader line, and marker connected." />
+            <button id="btnBalloonNudgeLabelsDown" label="Move label down" imageMso="DownArrow2" showLabel="false" onAction="OnBalloonNudgeLabelsDown" screentip="Move Label Down" supertip="Move selected balloon number labels down by 3 pt while keeping each part anchor, leader line, and marker connected." />
+          </box>
+        </group>
+        <group id="grpBalloonStyle" label="Style">
+          <splitButton id="spBalloonSetDefault" size="large">
+            <button id="btnBalloonSetDefault" getLabel="GetBalloonSetDefaultLabel" imageMso="FormatPainter" onAction="OnBalloonSetDefault" screentip="Set default style" supertip="Save the selected object's formatting as the default for the current target. Use the arrow to switch the target between Balloon and Table." />
+            <menu id="mnuBalloonSetDefaultTarget" itemSize="normal">
+              <checkBox id="chkBalloonDefTargetBalloon" label="Target: Balloon" tag="Balloon" getPressed="GetBalloonSetDefaultTarget" onAction="OnBalloonSetDefaultTargetChange" supertip="Set Default saves the selected balloon's style (label size, line weight, dash, marker, bold, colors) as the default balloon style." />
+              <checkBox id="chkBalloonDefTargetTable" label="Target: Table" tag="Table" getPressed="GetBalloonSetDefaultTarget" onAction="OnBalloonSetDefaultTargetChange" supertip="Set Default saves the selected part table's formatting (fill, font, borders, margins, column ratio, row heights) as the default table style." />
+            </menu>
+          </splitButton>
+          <menu id="mnuBalloonPresetFormat" label="Presets" imageMso="ShapeStylesGallery" itemSize="normal">
+            <button id="btnBalloonSizeSmall" label="Small label" imageMso="DecreaseFontSize" onAction="OnBalloonSizeSmall" screentip="Small balloon" supertip="Set the default balloon label to 18 pt with 10 pt text, and apply it to selected balloons." />
+            <button id="btnBalloonSizeMedium" label="Medium label" imageMso="FontSizeIncrease" onAction="OnBalloonSizeMedium" screentip="Medium balloon" supertip="Set the default balloon label to 24 pt with 14 pt text, and apply it to selected balloons." />
+            <button id="btnBalloonSizeLarge" label="Large label" imageMso="IncreaseFontSize" onAction="OnBalloonSizeLarge" screentip="Large balloon" supertip="Set the default balloon label to 32 pt with 18 pt text, and apply it to selected balloons." />
+            <menuSeparator id="sepBalloonPresetMarker" />
+            <button id="btnBalloonArrowNone" label="Marker: None" imageMso="ShapeLine" onAction="OnBalloonArrowNone" screentip="No part marker" supertip="Use a plain leader line with no marker at the part anchor, and apply it to selected balloons." />
+            <button id="btnBalloonArrowDot" label="Marker: Dot" imageMso="ShapeOval" onAction="OnBalloonArrowDot" screentip="Dot marker" supertip="Use a dot marker at the part anchor, and apply it to selected balloons." />
+            <button id="btnBalloonArrowHead" label="Marker: Arrow" imageMso="RightArrow2" onAction="OnBalloonArrowHead" screentip="Arrow marker" supertip="Use an arrow marker at the part anchor, and apply it to selected balloons." />
+          </menu>
+          <box id="bxBalloonNumericFormat" boxStyle="vertical">
+            <editBox id="cbBalloonLabelSize" label="Label pt" sizeString="000.0" getText="GetBalloonLabelSizeText" onChange="OnBalloonLabelSizeChange" screentip="Label size" supertip="Default balloon label width and height in points. Applies immediately to selected balloons." />
+            <editBox id="cbBalloonFontSize" label="Font pt" sizeString="000.0" getText="GetBalloonFontSizeText" onChange="OnBalloonFontSizeChange" screentip="Number font size" supertip="Default balloon number font size in points. Applies immediately to selected balloons." />
+            <editBox id="cbBalloonLineWeight" label="Line pt" sizeString="00.00" getText="GetBalloonLineWeightText" onChange="OnBalloonLineWeightChange" screentip="Leader line weight" supertip="Default leader line weight in points. Applies immediately to selected balloons." />
+          </box>
+          <box id="bxBalloonLineFormat" boxStyle="vertical">
+            <dropDown id="ddBalloonDash" label="Dash" getSelectedItemID="GetBalloonDashID" onAction="OnBalloonDashIDChange" screentip="Leader dash style" supertip="Default leader line dash style. Applies immediately to selected balloons.">
+              <item id="dash_solid" label="Solid" imageMso="ShapeLine" />
+              <item id="dash_dash" label="Dash" imageMso="ShapeLine" />
+              <item id="dash_dot" label="Dot" imageMso="ShapeLine" />
+              <item id="dash_dashdot" label="Dash Dot" imageMso="ShapeLine" />
+            </dropDown>
+            <dropDown id="ddBalloonMarker" label="Marker" getSelectedItemID="GetBalloonMarkerID" onAction="OnBalloonMarkerIDChange" screentip="Part marker" supertip="Default marker at the part anchor. Applies immediately to selected balloons.">
+              <item id="marker_none" label="None" imageMso="ShapeLine" />
+              <item id="marker_dot" label="Dot" imageMso="ShapeOval" />
+              <item id="marker_arrow" label="Arrow" imageMso="RightArrow2" />
+              <item id="marker_open" label="Open Arrow" imageMso="RightArrow2" />
+            </dropDown>
+            <toggleButton id="tglBalloonBold" label="Bold" imageMso="Bold" getPressed="GetBalloonBold" onAction="OnBalloonBoldChange" screentip="Bold number" supertip="Toggle bold number text for the default balloon style and selected balloons." />
+          </box>
+          <splitButton id="spBalloonApplyStyle" size="large">
+            <button id="btnBalloonApplyStyle" label="Apply to Selected" imageMso="ShapeStylesGallery" onAction="OnBalloonApplyDefaultStyle" screentip="Apply default style to selected" supertip="Apply the saved default balloon style to the selected balloons." />
+            <menu id="mnuBalloonApply" itemSize="normal">
+              <button id="btnBalloonApplyStyleSlide" label="Apply to Slide" imageMso="ShapeStylesGallery" onAction="OnBalloonApplyDefaultStyleSlide" screentip="Apply default style to slide" supertip="Apply the saved default balloon style to all balloons on the current slide." />
+              <menuSeparator id="sepBalloonStyleReset" />
+              <button id="btnBalloonResetDefault" label="Reset Default" imageMso="ClearFormatting" onAction="OnBalloonResetDefaultStyle" supertip="Restore the built-in defaults: white 24pt circle, Arial 14pt text, black 1pt solid leader." />
+            </menu>
+          </splitButton>
+        </group>
+        <group id="grpBalloonManage" label="Manage">
+          <toggleButton id="tglBalloonClickNumber" label="Click Renumber" size="large" imageMso="Numbering" getPressed="GetBalloonClickNumber" onAction="OnBalloonClickNumber" screentip="Click-order renumber" supertip="Turn on, then click balloons one by one in the order you want. Each click assigns the next number starting at 1. Already-clicked balloons are skipped. Turn off when done." />
+          <box id="bxBalloonManageStack" boxStyle="vertical">
+            <button id="btnBalloonSelectAll" label="Select All" imageMso="SelectObjects" onAction="OnBalloonSelectAll" screentip="Select all balloons" supertip="Select every balloon group created by this tool on the current slide." />
+            <button id="btnBalloonRenumberSelected" label="Renumber Selected" imageMso="Numbering" onAction="OnBalloonRenumberSelected" screentip="Renumber selected balloons" supertip="Renumber selected balloon groups from top to bottom and left to right." />
+            <button id="btnBalloonRenumberSlide" label="Renumber Slide" imageMso="Numbering" onAction="OnBalloonRenumberSlide" screentip="Renumber slide balloons" supertip="Renumber all balloon groups on the current slide from top to bottom and left to right." />
+          </box>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
