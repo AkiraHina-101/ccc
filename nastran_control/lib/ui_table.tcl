@@ -1124,19 +1124,36 @@ proc ::nc::ui_table::_place_companion_window {win {width 360} {height 420}} {
     set sw [winfo screenwidth $parent]
     set sh [winfo screenheight $parent]
     set gap 10
-    set x [expr {$px + $pw + $gap}]
-    if {$x + $width > $sw} {
-        set left_x [expr {$px - $width - $gap}]
-        if {$left_x >= 0} {
-            set x $left_x
+    set min_width 260
+
+    # Prefer whichever side (right or left of the main window) has more free
+    # screen space, and shrink to fit that space instead of overlapping the
+    # main window's own buttons/toolbar when the screen is too narrow.
+    set right_space [expr {$sw - ($px + $pw) - $gap}]
+    set left_space [expr {$px - $gap}]
+    if {$right_space >= $left_space} {
+        set x [expr {$px + $pw + $gap}]
+        set avail $right_space
+    } else {
+        set avail $left_space
+        set x [expr {$px - $width - $gap}]
+    }
+    if {$avail < $width} {
+        set width [expr {$avail > $min_width ? $avail : $min_width}]
+        if {$right_space >= $left_space} {
+            set x [expr {$px + $pw + $gap}]
         } else {
-            set x [expr {$sw - $width - $gap}]
+            set x [expr {$px - $width - $gap}]
         }
     }
-    set y [expr {$py + 48}]
-    if {$y + $height > $sh} { set y [expr {$sh - $height - 48}] }
+    if {$x + $width > $sw} { set x [expr {$sw - $width}] }
     if {$x < 0} { set x 0 }
+
+    set y [expr {$py + 48}]
+    if {$y + $height > $sh} { set height [expr {$sh - $y}] }
+    if {$y + $height > $sh} { set y [expr {$sh - $height}] }
     if {$y < 0} { set y 0 }
+
     catch {wm geometry $win ${width}x${height}+$x+$y}
 }
 
@@ -1391,11 +1408,9 @@ proc ::nc::ui_table::_open_label_palette {{preferred ""} {r ""} {c ""}} {
         button $_label_win.buttons.remove -text "Remove Selected" -command {::nc::ui_table::_label_remove_selected}
         button $_label_win.buttons.clear -text "Clear List" -command {::nc::ui_table::_label_clear_bank}
         button $_label_win.buttons.isolate -text "Isolate" -command {::nc::ui_table::_on_isolate}
-        button $_label_win.buttons.findcomp -text "Find Comp" -command {::nc::ui_table::_on_find_comp}
-        button $_label_win.buttons.resettrans -text "Reset" -command {::nc::ui_table::_on_reset_transparency}
         button $_label_win.buttons.apply -text "Apply Pending" -command {::nc::ui_table::_commit_pending_labels}
         button $_label_win.buttons.cancel -text "Cancel Pending" -command {::nc::ui_table::_cancel_pending_labels}
-        pack $_label_win.buttons.assign $_label_win.buttons.fill $_label_win.buttons.seq $_label_win.buttons.paste $_label_win.buttons.remove $_label_win.buttons.clear $_label_win.buttons.isolate $_label_win.buttons.findcomp $_label_win.buttons.resettrans $_label_win.buttons.apply $_label_win.buttons.cancel -side left -padx 3 -pady 4
+        pack $_label_win.buttons.assign $_label_win.buttons.fill $_label_win.buttons.seq $_label_win.buttons.paste $_label_win.buttons.remove $_label_win.buttons.clear $_label_win.buttons.isolate $_label_win.buttons.apply $_label_win.buttons.cancel -side left -padx 3 -pady 4
         set _label_status [label $_label_win.status -text "" -anchor w -fg "#555555"]
         pack $_label_win.buttons -side top -fill x -padx 4
         pack $_label_win.status -side top -fill x -padx 6 -pady {0 5}
@@ -2894,6 +2909,8 @@ proc ::nc::ui_table::_build_focusbar {parent} {
     set f [_make_group $parent review ""]
     set _review_frame $f
     _add_button $f iso "Isolate" {::nc::ui_table::_on_isolate}
+    _add_button $f findcomp "Find Comp" {::nc::ui_table::_on_find_comp}
+    _add_button $f resettrans "Reset" {::nc::ui_table::_on_reset_transparency}
     _add_button $f val "Validate" {::nc::ui_table::_on_validate}
     pack $f -side left -padx {0 6} -pady {2 4}
 }
@@ -5432,10 +5449,10 @@ proc ::nc::ui_table::_on_find_comp {} {
             *isolateonlyentitybymark 2 1 2
         }
         if {[llength $other_ids] > 0} {
-            catch {*clearmark components 3}
-            *createmark components 3 "by id" {*}$other_ids
+            catch {*clearmark components 1}
+            *createmark components 1 "by id" {*}$other_ids
             *settransparency 1
-            *transparencymark 3
+            *transparencymark 1
         }
     } err]
     if {$rc} {
@@ -5458,10 +5475,10 @@ proc ::nc::ui_table::_on_reset_transparency {} {
         return
     }
     set rc [catch {
-        catch {*clearmark components 3}
-        *createmark components 3 "by id" {*}$all_ids
+        catch {*clearmark components 1}
+        *createmark components 1 "by id" {*}$all_ids
         *settransparency 0
-        *transparencymark 3
+        *transparencymark 1
     } err]
     if {$rc} {
         _set_status "Reset transparency failed: $err" error
