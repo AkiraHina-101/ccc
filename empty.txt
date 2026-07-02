@@ -1,0 +1,1 @@
+=INDEX(Sheet2!$Q$5:$Q$118,MATCH(1,(Sheet2!$E$5:$E$118=E1)*(Sheet2!$G$5:$G$118=F1)*(Sheet2!$I$5:$I$118=G1)*(Sheet2!$K$5:$K$118=H1),0))
