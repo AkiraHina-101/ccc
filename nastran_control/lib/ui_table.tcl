@@ -5445,12 +5445,17 @@ proc ::nc::ui_table::_on_find_comp {} {
         *createstringarray 2 "elements_on" "geometry_on"
         *isolateonlyentitybymark 2 1 2
         catch {*window 0 0 0 0 0}
-        # Restore full visibility the same way ::nc::app::capture_component_images
-        # does after its own isolate step, instead of re-isolating on the full
-        # component set (fewer visible display-state transitions == less flicker).
-        catch {
-            *createmark comps 1 "all"
-            *showentity comps 1
+        # Restore visibility by re-running isolate with every known component
+        # on the mark: isolateonlyentitybymark turns elements_on/geometry_on
+        # ON for marked entities and OFF for the rest, so including everyone
+        # turns it back on for all of them. *showentity alone does not reset
+        # that same elements_on/geometry_on flag, so components stayed hidden
+        # instead of merely transparent - this is the correctness-first path.
+        if {[llength $all_ids] > 0} {
+            catch {*clearmark component 2}
+            *createmark component 2 "by id" {*}$all_ids
+            *createstringarray 2 "elements_on" "geometry_on"
+            *isolateonlyentitybymark 2 1 2
         }
         catch {*startnotehistorystate {Modified FE style of Component}}
         # Always force the target back to normal/mesh display first: a prior
