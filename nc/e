@@ -3676,7 +3676,7 @@ proc ::nc::ui_table::_build_menubar {root} {
     $mf.selectionMenu.menu add command -label "Clear Selection" -command {::nc::ui_table::_clear_selection}
     $mf.selectionMenu.menu add separator
     $mf.selectionMenu.menu add command -label "Isolate" -accelerator "Shift+S" -command {::nc::ui_table::_on_isolate}
-    $mf.selectionMenu.menu add command -label "Select From Viewport" -command {::nc::ui_table::_on_select_from_viewport}
+    $mf.selectionMenu.menu add command -label "Pick From Viewport" -command {::nc::ui_table::_on_select_from_viewport}
     $mf.selectionMenu.menu add command -label "Find Comp" -accelerator "Shift+F" -command {::nc::ui_table::_on_find_comp}
     $mf.selectionMenu.menu add command -label "Highlight Comp" -accelerator "Shift+H" -command {::nc::ui_table::_on_highlight_comp}
     $mf.selectionMenu.menu add command -label "Invert Last Action" -accelerator "Shift+I" -command {::nc::ui_table::_on_invert_last_action}
@@ -3950,7 +3950,7 @@ proc ::nc::ui_table::_build_focusbar {parent} {
     set f [_make_group $parent review "Display"]
     set _review_frame $f
     _add_button $f iso "Isolate" {::nc::ui_table::_on_isolate} info
-    _add_button $f hmselect "HM Sel" {::nc::ui_table::_on_select_from_viewport} info
+    _add_button $f hmselect "HM Pick" {::nc::ui_table::_on_select_from_viewport} info
     _add_button $f findcomp "Find Comp" {::nc::ui_table::_on_find_comp} info
     _add_button $f highlight "Highlight" {::nc::ui_table::_on_highlight_comp} info
     _add_button $f invertlast "Invert" {::nc::ui_table::_on_invert_last_action} info
@@ -7271,51 +7271,18 @@ proc ::nc::ui_table::_unique_positive_ints {values} {
     return $out
 }
 
-proc ::nc::ui_table::_elem_component_id {elem_id} {
-    foreach script [list \
-        [list hm_getvalue elems id=$elem_id dataname=collector.id] \
-        [list hm_getvalue elems id=$elem_id dataname=component.id] \
-        [list hm_getentityvalue elems +$elem_id collector.id 0 -byid] \
-        [list hm_getentityvalue elems $elem_id collector.id 0] \
-        [list hm_getentityvalue elems +$elem_id component.id 0 -byid] \
-        [list hm_getentityvalue elems $elem_id component.id 0]] {
-        if {![catch $script value]} {
-            set value [string trim $value]
-            if {$value ne "" && [string is integer -strict $value] && $value > 0} {
-                return $value
-            }
-        }
-    }
-    return ""
-}
-
 proc ::nc::ui_table::_viewport_selected_comp_ids {} {
     set ids {}
-    foreach etype {components comps component} {
-        foreach mark {1 2} {
-            set mark_ids {}
-            if {![catch {hm_getmark $etype $mark} mark_ids]} {
-                foreach cid $mark_ids { lappend ids $cid }
-            }
+    foreach etype {components comps} {
+        catch {*clearmark $etype 1}
+        if {[catch {*createmarkpanel $etype 1 "Select component(s) to locate in the Nastran Control table"}]} { continue }
+        set panel_ids {}
+        if {![catch {hm_getmark $etype 1} panel_ids]} {
+            set ids [_unique_positive_ints $panel_ids]
+            if {[llength $ids] > 0} { return $ids }
         }
     }
-    set ids [_unique_positive_ints $ids]
-    if {[llength $ids] > 0} { return $ids }
-
-    set elem_ids {}
-    foreach etype {elems elements} {
-        foreach mark {1 2} {
-            set mark_ids {}
-            if {![catch {hm_getmark $etype $mark} mark_ids]} {
-                foreach eid $mark_ids { lappend elem_ids $eid }
-            }
-        }
-    }
-    foreach eid [_unique_positive_ints $elem_ids] {
-        set cid [_elem_component_id $eid]
-        if {$cid ne ""} { lappend ids $cid }
-    }
-    return [_unique_positive_ints $ids]
+    return {}
 }
 
 proc ::nc::ui_table::_select_component_ids_in_table {comp_ids} {
@@ -7376,7 +7343,7 @@ proc ::nc::ui_table::_select_component_ids_in_table {comp_ids} {
 proc ::nc::ui_table::_on_select_from_viewport {} {
     set comp_ids [_viewport_selected_comp_ids]
     if {[llength $comp_ids] == 0} {
-        _set_status "No selected component found in the CAE viewport. Select component(s) in HyperMesh, then press HM Sel." warn
+        _set_status "No component selected from the HyperMesh pick panel." warn
         return
     }
     set count [_select_component_ids_in_table $comp_ids]
