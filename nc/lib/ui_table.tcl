@@ -94,6 +94,11 @@ namespace eval ::nc::ui_table {
     variable _worklist_active 0
     variable _worklist_labels {}
     variable _worklist_ids {}
+    # Raw worklist entries (IDs and labels mixed), deduped, in the exact
+    # order they were typed/pasted - used to sort the filtered display so
+    # results follow worklist order instead of the table's native row
+    # order. _worklist_ids/_worklist_labels above stay split for matching.
+    variable _worklist_items {}
     # Set by _material_id_for_label when a typed/picked Mat Type label
     # matches more than one Materials-tab row - callers that would
     # otherwise stomp the status bar with a generic "Pending ..." message
@@ -4572,6 +4577,7 @@ proc ::nc::ui_table::_rows_for_display {} {
     variable _worklist_active
     variable _worklist_labels
     variable _worklist_ids
+    variable _worklist_items
 
     set src [expr {[info exists _tab_rows($_tab)] ? $_tab_rows($_tab) : {}}]
     set filtered {}
@@ -4591,7 +4597,26 @@ proc ::nc::ui_table::_rows_for_display {} {
     # Sorting is a one-time action applied directly to _tab_rows by
     # _sort_by_column (like Excel's Sort) - display just shows the current
     # row order, it doesn't keep re-sorting on every populate. See
-    # _sort_tab_rows_once.
+    # _sort_tab_rows_once. The one exception is an active worklist: its
+    # matches are re-ordered to follow the order IDs/labels were typed into
+    # the Worklist dialog, not the table's native row order - a stable sort
+    # (lsort's default) keeps rows tied to the same worklist entry (e.g.
+    # several rows sharing one label) in their original relative order.
+    if {$_worklist_active && [llength $_worklist_items] > 0} {
+        set label_key [_worklist_label_key $_tab]
+        set decorated {}
+        foreach row $filtered {
+            set id_val [_dict_get $row [_tab_key_name $_tab]]
+            set label_val [expr {$label_key ne "" ? [_cell_value $_tab $row $label_key] : ""}]
+            set idx [lsearch -exact $_worklist_items $id_val]
+            if {$idx < 0 && $label_val ne ""} { set idx [lsearch -exact $_worklist_items $label_val] }
+            if {$idx < 0} { set idx [llength $_worklist_items] }
+            lappend decorated [list $idx $row]
+        }
+        set decorated [lsort -integer -index 0 $decorated]
+        set filtered {}
+        foreach pair $decorated { lappend filtered [lindex $pair 1] }
+    }
     return $filtered
 }
 
@@ -9125,15 +9150,18 @@ proc ::nc::ui_table::_apply_worklist_dialog {win} {
     variable _worklist_active
     variable _worklist_labels
     variable _worklist_ids
+    variable _worklist_items
     variable _tab
     set noun [_tab_label $_tab]
     set text ""
     catch {set text [$win.t get 1.0 end]}
     set labels {}
     set ids {}
+    set items {}
     foreach line [split $text "\n"] {
         set item [string trim $line]
         if {$item eq ""} { continue }
+        if {[lsearch -exact $items $item] < 0} { lappend items $item }
         if {[string is integer -strict $item]} {
             if {[lsearch -exact $ids $item] < 0} { lappend ids $item }
         } elseif {[lsearch -exact $labels $item] < 0} {
@@ -9146,6 +9174,7 @@ proc ::nc::ui_table::_apply_worklist_dialog {win} {
     }
     set _worklist_labels $labels
     set _worklist_ids $ids
+    set _worklist_items $items
     set _worklist_active 1
     catch {destroy $win}
     _populate_current
@@ -9156,9 +9185,11 @@ proc ::nc::ui_table::_on_worklist_clear {} {
     variable _worklist_active
     variable _worklist_labels
     variable _worklist_ids
+    variable _worklist_items
     set _worklist_active 0
     set _worklist_labels {}
     set _worklist_ids {}
+    set _worklist_items {}
     _populate_current
     _set_status "Worklist cleared." ok
 }
@@ -9170,6 +9201,7 @@ proc ::nc::ui_table::_on_filter_recent_new {} {
     variable _worklist_active
     variable _worklist_labels
     variable _worklist_ids
+    variable _worklist_items
     variable _recent_new_comp_ids
     if {[llength $_recent_new_comp_ids] == 0} {
         _set_status "No new components since the last Reload." warn
@@ -9177,6 +9209,7 @@ proc ::nc::ui_table::_on_filter_recent_new {} {
     }
     set _worklist_labels {}
     set _worklist_ids $_recent_new_comp_ids
+    set _worklist_items $_recent_new_comp_ids
     set _worklist_active 1
     _set_tab component
     _populate_current
