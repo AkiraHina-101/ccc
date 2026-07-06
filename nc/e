@@ -7249,12 +7249,46 @@ proc ::nc::ui_table::_all_known_comp_ids {} {
 # has no live HM session - so callers can tell "HM said nothing is visible"
 # apart from "couldn't ask HM at all" and fall back accordingly.
 proc ::nc::ui_table::_viewport_visible_comp_ids {} {
-    if {[catch {*clearmark comps 1}]} { return "" }
-    if {[catch {*createmark comps 1 "displayed"}]} { return "" }
+    catch {*clearmark components 1}
+    if {[catch {*createmark components 1 "displayed"}]} { return "" }
     set ids ""
-    catch {set ids [hm_getmark comps 1]}
-    catch {*clearmark comps 1}
+    catch {set ids [hm_getmark components 1]}
+    catch {*clearmark components 1}
     return $ids
+}
+
+# One-off diagnostic - type ::nc::ui_table::_debug_viewport_mark (optionally
+# with one known comp_id, e.g. ::nc::ui_table::_debug_viewport_mark 12)
+# straight into the CAE tool's Tcl console to find out which mechanism this
+# the CAE tool version actually supports for "is this component currently
+# shown on screen" - tries every plausible mark keyword/dataname instead of
+# guessing one and hoping. Not wired to any button - console/log only.
+proc ::nc::ui_table::_debug_viewport_mark {{sample_id ""}} {
+    foreach kw {displayed shown visible "on screen"} {
+        catch {*clearmark components 1}
+        set rc [catch {*createmark components 1 $kw} err]
+        if {$rc} {
+            puts "createmark components 1 \"$kw\": FAILED - $err"
+        } else {
+            set ids ""
+            catch {set ids [hm_getmark components 1]}
+            puts "createmark components 1 \"$kw\": OK - [llength $ids] id(s): $ids"
+        }
+    }
+    catch {*clearmark components 1}
+    if {$sample_id ne ""} {
+        foreach dn {display displayed hidden is_hidden visibility show} {
+            set rc [catch {hm_getentityvalue comps $sample_id $dn 0} val]
+            puts "hm_getentityvalue comps $sample_id \"$dn\" 0: rc=$rc val/err=$val"
+        }
+        foreach info_kw {hidden ishidden displayed} {
+            set rc [catch {hm_entityinfo $info_kw comps $sample_id} val]
+            puts "hm_entityinfo $info_kw comps $sample_id: rc=$rc val/err=$val"
+        }
+    } else {
+        puts "(pass a known comp_id as the argument to also probe per-component display/hidden datanames)"
+    }
+    return "done - see console output above"
 }
 
 # The "other components" universe Find Comp/Highlight/Isolate/Reset should
