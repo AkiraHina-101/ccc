@@ -99,6 +99,17 @@ namespace eval ::nc::ui_table {
     # results follow worklist order instead of the table's native row
     # order. _worklist_ids/_worklist_labels above stay split for matching.
     variable _worklist_items {}
+    # Which column to match worklist entries against. "" (default) keeps
+    # the original behavior of checking both the tab's ID column and its
+    # label column at once. Any other value is a column key from
+    # _cols_for_tab - lets the user filter on ANY column (Property Label,
+    # HM Comp. Name, Prop Card, a material property, etc.), just not the
+    # Image column since there's no meaningful text to type/match there.
+    variable _worklist_col ""
+    # Dialog-only scratch state: currently-shown combobox label, and the
+    # label->key lookup built for whatever tab the dialog was opened on.
+    variable _worklist_col_pick ""
+    variable _worklist_dialog_label_to_key {}
     # Set by _material_id_for_label when a typed/picked Mat Type label
     # matches more than one Materials-tab row - callers that would
     # otherwise stomp the status bar with a generic "Pending ..." message
@@ -549,6 +560,17 @@ proc ::nc::ui_table::_worklist_label_key {tab} {
         properties { return "" }
         default { return comp_user_name }
     }
+}
+
+# Every column the Worklist dialog can filter/match on for a tab, excluding
+# the Image column (thumbnails have no text to type/paste against).
+proc ::nc::ui_table::_worklist_columns_for_tab {tab} {
+    set out {}
+    foreach col_def [_cols_for_tab $tab 1] {
+        if {[lindex $col_def 0] eq "image_path"} { continue }
+        lappend out $col_def
+    }
+    return $out
 }
 
 proc ::nc::ui_table::_duplicate_row_key_warnings {tab rows} {
@@ -2523,6 +2545,14 @@ namespace eval ::nc::ui_table {
     variable _folder_pick_result ""
     variable _folder_pick_item_names
     array set _folder_pick_item_names {}
+    # Explorer-style Back/Forward history. _back holds dirs visited before
+    # the current one (top = most recent); _fwd holds dirs undone by Back
+    # (top = next Forward target). Any *fresh* navigation (Up, double-click,
+    # typed path) pushes the old current dir onto _back and clears _fwd -
+    # same rule real Explorer uses.
+    variable _folder_pick_back {}
+    variable _folder_pick_fwd {}
+    variable _folder_pick_rename_entry ""
 }
 
 proc ::nc::ui_table::_folder_pick_icon {} {
@@ -2538,16 +2568,77 @@ proc ::nc::ui_table::_folder_pick_icon {} {
     return $name
 }
 
+# Tries the real Windows Explorer-style folder browser (via a throwaway
+# PowerShell script running System.Windows.Forms.FolderBrowserDialog) so the
+# user gets the same native look/feel as opening a folder anywhere else in
+# Windows, instead of the legacy tree-only Tk dialog below. Returns "" both
+# on user-Cancel and on any failure to launch PowerShell (missing/blocked on
+# this machine, non-Windows, etc.) - caller falls back to the Tk dialog in
+# the latter case, so this must never be the only path.
+proc ::nc::ui_table::_choose_folder_dialog_native {title initial_dir {mustexist 1}} {
+    if {$::tcl_platform(platform) ne "windows"} { return [list 0 ""] }
+    set tmp [file join $::env(TEMP) "nc_folder_pick_[pid].ps1"]
+    set out [file join $::env(TEMP) "nc_folder_pick_[pid].out"]
+    set esc_title [string map {"'" "''"} $title]
+    set esc_init [string map {"'" "''"} [file nativename $initial_dir]]
+    set script [subst -nocommands -novariables {
+Add-Type -AssemblyName System.Windows.Forms | Out-Null
+$dlg = New-Object System.Windows.Forms.FolderBrowserDialog
+$dlg.Description = '${esc_title}'
+$dlg.ShowNewFolderButton = $true
+$dlg.UseDescriptionForTitle = $true
+if ('${esc_init}' -and (Test-Path -LiteralPath '${esc_init}' -PathType Container)) {
+    $dlg.SelectedPath = '${esc_init}'
+}
+if ($dlg.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) {
+    [System.IO.File]::WriteAllText('${out}', $dlg.SelectedPath)
+}
+}]
+    set script [string map [list {${esc_title}} $esc_title {${esc_init}} $esc_init {${out}} [file nativename $out]] $script]
+    catch {file delete -force -- $out}
+    set ok 0
+    set picked ""
+    if {![catch {
+        set fh [open $tmp w]
+        puts $fh $script
+        close $fh
+        exec powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -STA -File $tmp
+        set ok 1
+    }]} {
+        if {[file exists $out]} {
+            set fh [open $out r]
+            set picked [string trim [read $fh]]
+            close $fh
+        }
+    }
+    catch {file delete -force -- $tmp}
+    catch {file delete -force -- $out}
+    return [list $ok $picked]
+}
+
 proc ::nc::ui_table::_choose_folder_dialog {title initial_dir} {
+    if {$initial_dir eq "" || ![file isdirectory $initial_dir]} {
+        set initial_dir [pwd]
+    }
+    lassign [_choose_folder_dialog_native $title $initial_dir] launched picked
+    if {$launched} {
+        if {$picked eq ""} { return "" }
+        return [file normalize $picked]
+    }
+    return [_choose_folder_dialog_tk $title $initial_dir]
+}
+
+proc ::nc::ui_table::_choose_folder_dialog_tk {title initial_dir} {
     variable _win
     variable _folder_pick_win
     variable _folder_pick_current_dir
     variable _folder_pick_result
+    variable _folder_pick_back
+    variable _folder_pick_fwd
 
-    if {$initial_dir eq "" || ![file isdirectory $initial_dir]} {
-        set initial_dir [pwd]
-    }
     set _folder_pick_result ""
+    set _folder_pick_back {}
+    set _folder_pick_fwd {}
 
     set w .nc_folder_pick
     catch {destroy $w}
@@ -2560,9 +2651,13 @@ proc ::nc::ui_table::_choose_folder_dialog {title initial_dir} {
 
     set top [frame $w.top]
     pack $top -side top -fill x -padx 8 -pady {8 4}
+    button $top.back -text "<" -width 2 -command {::nc::ui_table::_folder_pick_back}
+    button $top.fwd -text ">" -width 2 -command {::nc::ui_table::_folder_pick_forward}
+    button $top.up -text "Up" -width 5 -command {::nc::ui_table::_folder_pick_go_up}
     label $top.lbl -text "Path:"
     entry $top.path -textvariable ::nc::ui_table::_folder_pick_current_dir
-    button $top.up -text "Up" -width 5 -command {::nc::ui_table::_folder_pick_go_up}
+    pack $top.back -side left -padx {0 2}
+    pack $top.fwd -side left -padx {0 8}
     pack $top.lbl -side left -padx {0 4}
     pack $top.up -side right
     pack $top.path -side left -fill x -expand 1 -padx {0 6}
@@ -2623,6 +2718,10 @@ proc ::nc::ui_table::_folder_pick_refresh_list {} {
         }
     }
     set names [lsort -dictionary $names]
+    variable _folder_pick_back
+    variable _folder_pick_fwd
+    catch {$w.top.back configure -state [expr {[llength $_folder_pick_back] > 0 ? "normal" : "disabled"}]}
+    catch {$w.top.fwd configure -state [expr {[llength $_folder_pick_fwd] > 0 ? "normal" : "disabled"}]}
     if {[winfo exists $w.listframe.tree]} {
         set tv $w.listframe.tree
         catch {$tv delete [$tv children {}]}
@@ -2641,12 +2740,50 @@ proc ::nc::ui_table::_folder_pick_refresh_list {} {
     }
 }
 
+# Central navigation entry point - every move to a *new* place (Up,
+# double-click into a subfolder, typed/pasted path) goes through here so
+# Back/Forward history stays consistent, mirroring Explorer: navigating
+# fresh always pushes the old location onto Back and wipes Forward.
+proc ::nc::ui_table::_folder_pick_goto {dir} {
+    variable _folder_pick_current_dir
+    variable _folder_pick_back
+    variable _folder_pick_fwd
+    if {$dir eq $_folder_pick_current_dir} { return }
+    lappend _folder_pick_back $_folder_pick_current_dir
+    set _folder_pick_fwd {}
+    set _folder_pick_current_dir $dir
+    _folder_pick_refresh_list
+}
+
+proc ::nc::ui_table::_folder_pick_back {} {
+    variable _folder_pick_current_dir
+    variable _folder_pick_back
+    variable _folder_pick_fwd
+    if {[llength $_folder_pick_back] == 0} { return }
+    set prev [lindex $_folder_pick_back end]
+    set _folder_pick_back [lrange $_folder_pick_back 0 end-1]
+    lappend _folder_pick_fwd $_folder_pick_current_dir
+    set _folder_pick_current_dir $prev
+    _folder_pick_refresh_list
+}
+
+proc ::nc::ui_table::_folder_pick_forward {} {
+    variable _folder_pick_current_dir
+    variable _folder_pick_back
+    variable _folder_pick_fwd
+    if {[llength $_folder_pick_fwd] == 0} { return }
+    set next [lindex $_folder_pick_fwd end]
+    set _folder_pick_fwd [lrange $_folder_pick_fwd 0 end-1]
+    lappend _folder_pick_back $_folder_pick_current_dir
+    set _folder_pick_current_dir $next
+    _folder_pick_refresh_list
+}
+
 proc ::nc::ui_table::_folder_pick_go_up {} {
     variable _folder_pick_current_dir
     set parent [file dirname $_folder_pick_current_dir]
     if {$parent ne $_folder_pick_current_dir} {
-        set _folder_pick_current_dir $parent
-        _folder_pick_refresh_list
+        _folder_pick_goto $parent
     }
 }
 
@@ -2674,35 +2811,130 @@ proc ::nc::ui_table::_folder_pick_enter_selected {} {
     }
     set target [file join $_folder_pick_current_dir $name]
     if {[file isdirectory $target]} {
-        set _folder_pick_current_dir $target
-        _folder_pick_refresh_list
+        _folder_pick_goto $target
     }
 }
 
 proc ::nc::ui_table::_folder_pick_navigate_typed {} {
     variable _folder_pick_current_dir
-    set typed $_folder_pick_current_dir
+    # Windows "Copy as path" wraps the clipboard text in double quotes -
+    # strip them (and surrounding whitespace) so a pasted path resolves
+    # instead of always hitting "Not Found".
+    set typed [string trim [string trim $_folder_pick_current_dir] "\""]
     if {[file isdirectory $typed]} {
-        set _folder_pick_current_dir [file normalize $typed]
-        _folder_pick_refresh_list
+        _folder_pick_goto [file normalize $typed]
     } else {
         catch {_table_message_box -title "Not Found" -icon warning -type ok \
             -message "This folder does not exist yet:\n$typed\n\nUse New Folder to create it."}
     }
 }
 
+# Picks "New folder", "New folder (2)", "New folder (3)"... - whichever
+# doesn't already exist in dir, same naming Explorer uses.
+proc ::nc::ui_table::_folder_pick_unique_name {dir base} {
+    if {![file exists [file join $dir $base]]} { return $base }
+    for {set n 2} {$n < 1000} {incr n} {
+        set candidate "$base ($n)"
+        if {![file exists [file join $dir $candidate]]} { return $candidate }
+    }
+    return "$base ([clock seconds])"
+}
+
+# Creates the folder immediately (no name dialog) then drops an editable
+# text field right on top of the new row in the list, pre-selected, exactly
+# like Explorer's inline rename after "New Folder" - Enter/Tab/click-away
+# commits a rename, Escape keeps the default name.
 proc ::nc::ui_table::_folder_pick_new_folder {} {
     variable _folder_pick_current_dir
-    variable _folder_pick_win
-    set name [_prompt_text "New Folder" "Folder name:" ""]
-    if {$name eq ""} { return }
+    set name [_folder_pick_unique_name $_folder_pick_current_dir "New folder"]
     set target [file join $_folder_pick_current_dir $name]
     if {[catch {file mkdir $target}]} {
         catch {_table_message_box -title "New Folder" -icon error -type ok \
             -message "Could not create folder:\n$target"}
         return
     }
-    set _folder_pick_current_dir $target
+    _folder_pick_refresh_list
+    _folder_pick_begin_rename $name
+}
+
+# Overlays a real Entry widget on top of the given item's row (tree or
+# listbox) so the user can type a name in place, instead of a separate
+# popup dialog. Committing renames the on-disk folder to match.
+proc ::nc::ui_table::_folder_pick_begin_rename {name} {
+    variable _folder_pick_win
+    variable _folder_pick_current_dir
+    variable _folder_pick_item_names
+    variable _folder_pick_rename_entry
+    set w $_folder_pick_win
+    if {$w eq ""} { return }
+    catch {destroy $_folder_pick_rename_entry}
+    set _folder_pick_rename_entry ""
+
+    if {[winfo exists $w.listframe.tree]} {
+        set tv $w.listframe.tree
+        set id ""
+        foreach {iid iname} [array get _folder_pick_item_names] {
+            if {$iname eq $name} { set id $iid; break }
+        }
+        if {$id eq ""} { return }
+        catch {$tv see $id}
+        catch {$tv selection set $id}
+        set bbox [$tv bbox $id]
+        if {$bbox eq ""} { return }
+        lassign $bbox bx by bwidth bheight
+        set ent [entry $w.listframe.rename_entry]
+        place $ent -in $tv -x $bx -y $by -width [expr {max($bwidth, 120)}] -height $bheight
+    } elseif {[winfo exists $w.listframe.list]} {
+        set lb $w.listframe.list
+        set idx [lsearch -exact [$lb get 0 end] $name]
+        if {$idx < 0} { return }
+        catch {$lb selection clear 0 end}
+        catch {$lb selection set $idx}
+        catch {$lb see $idx}
+        set bbox [$lb bbox $idx]
+        if {$bbox eq ""} { return }
+        lassign $bbox bx by bwidth bheight
+        set ent [entry $w.listframe.rename_entry]
+        place $ent -in $lb -x $bx -y [expr {$by - 2}] -width [winfo width $lb] -height [expr {$bheight + 4}]
+    } else {
+        return
+    }
+    set _folder_pick_rename_entry $ent
+    $ent insert 0 $name
+    $ent selection range 0 end
+    focus $ent
+    bind $ent <Return> [list ::nc::ui_table::_folder_pick_commit_rename $name]
+    bind $ent <KP_Enter> [list ::nc::ui_table::_folder_pick_commit_rename $name]
+    bind $ent <Escape> {::nc::ui_table::_folder_pick_cancel_rename}
+    bind $ent <FocusOut> [list ::nc::ui_table::_folder_pick_commit_rename $name]
+}
+
+proc ::nc::ui_table::_folder_pick_cancel_rename {} {
+    variable _folder_pick_rename_entry
+    catch {destroy $_folder_pick_rename_entry}
+    set _folder_pick_rename_entry ""
+}
+
+proc ::nc::ui_table::_folder_pick_commit_rename {old_name} {
+    variable _folder_pick_current_dir
+    variable _folder_pick_rename_entry
+    set ent $_folder_pick_rename_entry
+    if {$ent eq "" || ![winfo exists $ent]} { return }
+    set new_name [string trim [$ent get]]
+    _folder_pick_cancel_rename
+    if {$new_name eq "" || $new_name eq $old_name} { return }
+    set old_path [file join $_folder_pick_current_dir $old_name]
+    set new_path [file join $_folder_pick_current_dir $new_name]
+    if {[file exists $new_path]} {
+        catch {_table_message_box -title "New Folder" -icon warning -type ok \
+            -message "A folder named '$new_name' already exists here."}
+        return
+    }
+    if {[catch {file rename $old_path $new_path}]} {
+        catch {_table_message_box -title "New Folder" -icon error -type ok \
+            -message "Could not rename folder to:\n$new_path"}
+        return
+    }
     _folder_pick_refresh_list
 }
 
@@ -4578,6 +4810,7 @@ proc ::nc::ui_table::_rows_for_display {} {
     variable _worklist_labels
     variable _worklist_ids
     variable _worklist_items
+    variable _worklist_col
 
     set src [expr {[info exists _tab_rows($_tab)] ? $_tab_rows($_tab) : {}}]
     set filtered {}
@@ -4586,10 +4819,15 @@ proc ::nc::ui_table::_rows_for_display {} {
             continue
         }
         if {$_worklist_active} {
-            set id_val [_dict_get $row [_tab_key_name $_tab]]
-            set label_key [_worklist_label_key $_tab]
-            set label_val [expr {$label_key ne "" ? [_cell_value $_tab $row $label_key] : ""}]
-            if {[lsearch -exact $_worklist_labels $label_val] < 0 && [lsearch -exact $_worklist_ids $id_val] < 0} { continue }
+            if {$_worklist_col ne ""} {
+                set match_val [_cell_value $_tab $row $_worklist_col]
+                if {[lsearch -exact $_worklist_items $match_val] < 0} { continue }
+            } else {
+                set id_val [_dict_get $row [_tab_key_name $_tab]]
+                set label_key [_worklist_label_key $_tab]
+                set label_val [expr {$label_key ne "" ? [_cell_value $_tab $row $label_key] : ""}]
+                if {[lsearch -exact $_worklist_labels $label_val] < 0 && [lsearch -exact $_worklist_ids $id_val] < 0} { continue }
+            }
         }
         if {![_row_matches_search $row]} { continue }
         lappend filtered $row
@@ -4598,18 +4836,22 @@ proc ::nc::ui_table::_rows_for_display {} {
     # _sort_by_column (like Excel's Sort) - display just shows the current
     # row order, it doesn't keep re-sorting on every populate. See
     # _sort_tab_rows_once. The one exception is an active worklist: its
-    # matches are re-ordered to follow the order IDs/labels were typed into
+    # matches are re-ordered to follow the order the values were typed into
     # the Worklist dialog, not the table's native row order - a stable sort
     # (lsort's default) keeps rows tied to the same worklist entry (e.g.
-    # several rows sharing one label) in their original relative order.
+    # several rows sharing one value) in their original relative order.
     if {$_worklist_active && [llength $_worklist_items] > 0} {
         set label_key [_worklist_label_key $_tab]
         set decorated {}
         foreach row $filtered {
-            set id_val [_dict_get $row [_tab_key_name $_tab]]
-            set label_val [expr {$label_key ne "" ? [_cell_value $_tab $row $label_key] : ""}]
-            set idx [lsearch -exact $_worklist_items $id_val]
-            if {$idx < 0 && $label_val ne ""} { set idx [lsearch -exact $_worklist_items $label_val] }
+            if {$_worklist_col ne ""} {
+                set idx [lsearch -exact $_worklist_items [_cell_value $_tab $row $_worklist_col]]
+            } else {
+                set id_val [_dict_get $row [_tab_key_name $_tab]]
+                set label_val [expr {$label_key ne "" ? [_cell_value $_tab $row $label_key] : ""}]
+                set idx [lsearch -exact $_worklist_items $id_val]
+                if {$idx < 0 && $label_val ne ""} { set idx [lsearch -exact $_worklist_items $label_val] }
+            }
             if {$idx < 0} { set idx [llength $_worklist_items] }
             lappend decorated [list $idx $row]
         }
@@ -9123,26 +9365,54 @@ proc ::nc::ui_table::_on_search_clear {} {
 
 proc ::nc::ui_table::_on_worklist {} {
     variable _tab
+    variable _worklist_col
+    variable _worklist_col_pick
     set win .nc_worklist
     catch {destroy $win}
     toplevel $win
     set noun [_tab_label $_tab]
     wm title $win "$noun Worklist"
-    if {[_worklist_label_key $_tab] ne ""} {
-        set msg "Paste $noun ID or $noun Label, one per line."
-    } else {
-        set msg "Paste $noun ID, one per line."
+
+    set col_defs [_worklist_columns_for_tab $_tab]
+    set labels [list "Any column ($noun ID or Label)"]
+    array set label_to_key [list [lindex $labels 0] ""]
+    foreach col_def $col_defs {
+        set key [lindex $col_def 0]
+        set clabel [lindex $col_def 1]
+        lappend labels $clabel
+        set label_to_key($clabel) $key
     }
-    label $win.msg -text $msg -anchor w
+    set current_label [lindex $labels 0]
+    if {$_worklist_col ne ""} {
+        foreach col_def $col_defs {
+            if {[lindex $col_def 0] eq $_worklist_col} { set current_label [lindex $col_def 1]; break }
+        }
+    }
+    set ::nc::ui_table::_worklist_col_pick $current_label
+
+    frame $win.colf
+    label $win.colf.lbl -text "Match against:" -anchor w
+    if {[llength [info commands ttk::combobox]] > 0} {
+        ttk::combobox $win.colf.pick -textvariable ::nc::ui_table::_worklist_col_pick \
+            -state readonly -width 28 -values $labels
+    } else {
+        entry $win.colf.pick -textvariable ::nc::ui_table::_worklist_col_pick -width 28
+    }
+    pack $win.colf.lbl -side left -padx {0 4}
+    pack $win.colf.pick -side left -fill x -expand 1
+    pack $win.colf -side top -fill x -padx 8 -pady {8 2}
+
+    label $win.msg -text "Paste one value per line - matched exactly against the column above." -anchor w
     text $win.t -height 12 -width 46
     frame $win.buttons
     button $win.buttons.apply -text "Apply" -command [list ::nc::ui_table::_apply_worklist_dialog $win]
     button $win.buttons.cancel -text "Cancel" -command [list destroy $win]
-    pack $win.msg -side top -fill x -padx 8 -pady {8 2}
+    pack $win.msg -side top -fill x -padx 8 -pady {2 2}
     pack $win.t -side top -fill both -expand 1 -padx 8 -pady 4
     pack $win.buttons.apply $win.buttons.cancel -side left -padx 4 -pady 6
     pack $win.buttons -side top -anchor e -padx 8
-    _place_companion_window $win 420 340
+    set ::nc::ui_table::_worklist_dialog_label_to_key [array get label_to_key]
+    _place_companion_window $win 440 380
     catch {focus $win.t}
 }
 
@@ -9151,8 +9421,15 @@ proc ::nc::ui_table::_apply_worklist_dialog {win} {
     variable _worklist_labels
     variable _worklist_ids
     variable _worklist_items
+    variable _worklist_col
+    variable _worklist_col_pick
+    variable _worklist_dialog_label_to_key
     variable _tab
     set noun [_tab_label $_tab]
+    array set label_to_key $_worklist_dialog_label_to_key
+    set col ""
+    if {[info exists label_to_key($_worklist_col_pick)]} { set col $label_to_key($_worklist_col_pick) }
+
     set text ""
     catch {set text [$win.t get 1.0 end]}
     set labels {}
@@ -9168,17 +9445,19 @@ proc ::nc::ui_table::_apply_worklist_dialog {win} {
             lappend labels $item
         }
     }
-    if {[llength $labels] == 0 && [llength $ids] == 0} {
-        _set_status "Worklist needs at least one $noun ID or $noun Label." warn
+    if {[llength $items] == 0} {
+        _set_status "Worklist needs at least one value to match." warn
         return
     }
     set _worklist_labels $labels
     set _worklist_ids $ids
     set _worklist_items $items
+    set _worklist_col $col
     set _worklist_active 1
     catch {destroy $win}
     _populate_current
-    _set_status "Worklist active on $noun tab: [llength $ids] ID(s), [llength $labels] label(s)." ok
+    set colnote [expr {$col eq "" ? "ID/Label" : $_worklist_col_pick}]
+    _set_status "Worklist active on $noun tab: [llength $items] value(s) matched against $colnote." ok
 }
 
 proc ::nc::ui_table::_on_worklist_clear {} {
@@ -9186,10 +9465,12 @@ proc ::nc::ui_table::_on_worklist_clear {} {
     variable _worklist_labels
     variable _worklist_ids
     variable _worklist_items
+    variable _worklist_col
     set _worklist_active 0
     set _worklist_labels {}
     set _worklist_ids {}
     set _worklist_items {}
+    set _worklist_col ""
     _populate_current
     _set_status "Worklist cleared." ok
 }
@@ -9202,6 +9483,7 @@ proc ::nc::ui_table::_on_filter_recent_new {} {
     variable _worklist_labels
     variable _worklist_ids
     variable _worklist_items
+    variable _worklist_col
     variable _recent_new_comp_ids
     if {[llength $_recent_new_comp_ids] == 0} {
         _set_status "No new components since the last Reload." warn
@@ -9210,6 +9492,7 @@ proc ::nc::ui_table::_on_filter_recent_new {} {
     set _worklist_labels {}
     set _worklist_ids $_recent_new_comp_ids
     set _worklist_items $_recent_new_comp_ids
+    set _worklist_col ""
     set _worklist_active 1
     _set_tab component
     _populate_current
