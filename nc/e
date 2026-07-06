@@ -7292,42 +7292,18 @@ proc ::nc::ui_table::_debug_viewport_mark {{sample_id ""}} {
 }
 
 # The "other components" universe Find Comp/Highlight/Isolate/Reset should
-# act on - restricted to what's actually visible right now, combining two
-# filters: (1) the CAE tool viewport's own "displayed" mark (excludes
-# anything Hide/Isolate already hid), intersected with (2) whatever the
-# table is currently showing (after Search/Worklist/Property View
-# filtering) when the active tab is Component/General. So a component
-# hidden in the 3D view, OR filtered out of the table, is left alone
-# either way - "other" only ever covers what you can see in BOTH places.
-# Falls back to the table-only list if the viewport query fails (no live
-# HM session - e.g. this dev machine), and to the full known universe if
-# neither the viewport nor a Component/General table filter applies.
+# act on - the REAL set of components currently shown in the CAE tool's own
+# 3D viewport right now (via *createmark components 1 "displayed", verified
+# working on a live HM session), not the tool's table/filter state at all.
+# So Hide/Isolate/a previous Find Comp already having hidden something in
+# the viewport is respected even if that component still sits in the
+# table's current filtered rows. Falls back to the full known universe only
+# if the viewport query itself fails (no live HM session - e.g. this dev
+# machine, or the command isn't available for some other reason).
 proc ::nc::ui_table::_displayed_comp_ids_universe {} {
-    variable _tab
-    set table_ids ""
-    if {$_tab in {component general}} {
-        set table_ids {}
-        foreach row [_rows_for_display] {
-            set cid [_dict_get $row comp_id]
-            if {$cid ne "" && [string is integer -strict $cid] && $cid > 0 && [lsearch -exact $table_ids $cid] < 0} {
-                lappend table_ids $cid
-            }
-        }
-    }
     set viewport_ids [_viewport_visible_comp_ids]
-    if {$viewport_ids eq ""} {
-        # HM's "displayed" mark wasn't available/queryable - fall back to
-        # whatever we already know from the table (or the full universe if
-        # even that doesn't apply for this tab).
-        if {$table_ids ne ""} { return $table_ids }
-        return [_all_known_comp_ids]
-    }
-    if {$table_ids eq ""} { return $viewport_ids }
-    set out {}
-    foreach cid $table_ids {
-        if {[lsearch -exact $viewport_ids $cid] >= 0} { lappend out $cid }
-    }
-    return $out
+    if {$viewport_ids eq ""} { return [_all_known_comp_ids] }
+    return $viewport_ids
 }
 
 # Remembers what the last Isolate/Find Comp/Highlight/Show-Hide call did, so
