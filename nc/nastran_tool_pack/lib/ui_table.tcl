@@ -3322,6 +3322,7 @@ proc ::nc::ui_table::_on_close_window {} {
             }
         }
     }
+    _save_main_window_geometry
     catch {destroy $_label_win}
     catch {destroy $_win}
     set _win ""
@@ -3501,6 +3502,52 @@ proc ::nc::ui_table::_centered_geometry {width height} {
     return "${width}x${height}+${x}+${y}"
 }
 
+proc ::nc::ui_table::_main_window_geometry_pref_path {} {
+    set dir ""
+    catch {set dir $::nc::config::tool_dir}
+    if {$dir eq ""} { set dir [pwd] }
+    return [file join $dir nc_main_window_geometry.txt]
+}
+
+proc ::nc::ui_table::_valid_main_window_geometry {geom} {
+    set geom [string trim $geom]
+    if {![regexp {^([0-9]+)x([0-9]+)([+-][0-9]+)([+-][0-9]+)$} $geom -> w h x y]} {
+        return ""
+    }
+    if {$w < 260 || $h < 160} { return "" }
+    return $geom
+}
+
+proc ::nc::ui_table::_load_main_window_geometry {} {
+    set path [_main_window_geometry_pref_path]
+    if {![file exists $path]} { return "" }
+    set geom ""
+    if {[catch {
+        set fp [open $path r]
+        set geom [read $fp]
+        close $fp
+    }]} { return "" }
+    return [_valid_main_window_geometry $geom]
+}
+
+proc ::nc::ui_table::_save_main_window_geometry {} {
+    variable _win
+    if {$_win eq "" || ![winfo exists $_win]} { return }
+    set geom ""
+    catch {
+        update idletasks
+        set geom [wm geometry $_win]
+    }
+    set geom [_valid_main_window_geometry $geom]
+    if {$geom eq ""} { return }
+    set path [_main_window_geometry_pref_path]
+    if {[catch {
+        set fp [open $path w]
+        puts $fp $geom
+        close $fp
+    }]} { return }
+}
+
 proc ::nc::ui_table::_build_window {title} {
     variable _win
     variable _root
@@ -3515,7 +3562,12 @@ proc ::nc::ui_table::_build_window {title} {
     # shrink to literally 0px and vanish/become unreachable. Previously
     # 920x520 which is what actually blocked shrinking the window narrower.
     catch {wm minsize $_win 260 160}
-    catch {wm geometry $_win [_centered_geometry 1120 680]}
+    set saved_geometry [_load_main_window_geometry]
+    if {$saved_geometry ne ""} {
+        catch {wm geometry $_win $saved_geometry}
+    } else {
+        catch {wm geometry $_win [_centered_geometry 1120 680]}
+    }
     # The CAE tool's own window chrome/docking sometimes defaults a toplevel
     # to non-resizable - force both directions on explicitly so the user can
     # always freely drag the tool window wider/narrower (and taller/shorter).
@@ -8190,7 +8242,7 @@ proc ::nc::ui_table::_on_reset_transparency {} {
         set did_transparency 1
         set _findcomp_transparent_ids {}
     }
-    if {[llength $color_ids] > 0 && [_color_api_available] && [llength [info commands *autocolorwithmark]] > 0} {
+    if {[llength $color_ids] > 0 && [llength [info commands *autocolorwithmark]] > 0} {
         set rc2 [catch {
             catch {*startnotehistorystate {ColorMod {Components}}}
             catch {*clearmark components 1}
@@ -8205,6 +8257,7 @@ proc ::nc::ui_table::_on_reset_transparency {} {
         set did_color 1
         set _highlight_active_gray_ids {}
     }
+    catch {*setdisplayattributes 2 0}
     if {!$did_transparency && !$did_color} {
         _set_status "the CAE tool transparency/color commands are not available in this session." warn
         return
