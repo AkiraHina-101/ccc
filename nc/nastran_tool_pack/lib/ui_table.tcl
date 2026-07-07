@@ -8103,11 +8103,9 @@ proc ::nc::ui_table::_apply_findcomp_action {target other} {
             *isolateonlyentitybymark 2 1 2
         }
         catch {*startnotehistorystate {Modified FE style of Component}}
-        # Clear transparency on the target first: a prior Find Comp call may
-        # have left it transparent. Do not force mesh/grid display mode here.
-        catch {*clearmark components 1}
-        *createmark components 1 "by id" {*}$target
-        *setmarkdisplayattributes components 2 0 1
+        # Do not touch the target display attributes here. Clearing the
+        # target's transparency through *setmarkdisplayattributes was observed
+        # to leave the selected component in wireframe/FE display in HM.
         if {[llength $other] > 0} {
             catch {*clearmark components 1}
             *createmark components 1 "by id" {*}$other
