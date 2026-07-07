@@ -8157,6 +8157,7 @@ proc ::nc::ui_table::_on_reset_transparency {} {
     variable _last_view_action
     set trans_ids [lsort -unique -integer $_findcomp_transparent_ids]
     set color_ids [lsort -unique -integer $_highlight_active_gray_ids]
+    set reset_ids [lsort -unique -integer [concat $trans_ids $color_ids]]
     if {[llength $trans_ids] == 0 && [llength $color_ids] == 0} {
         set fallback_ids [_displayed_comp_ids_universe]
         if {[llength $fallback_ids] == 0} { set fallback_ids [_all_known_comp_ids] }
@@ -8167,9 +8168,13 @@ proc ::nc::ui_table::_on_reset_transparency {} {
         }
         set trans_ids $fallback_ids
         set color_ids $fallback_ids
+        set reset_ids $fallback_ids
     }
+    set trans_ids $reset_ids
+    set color_ids $reset_ids
     set did_transparency 0
     set did_color 0
+    catch {*setdisplayattributes 2 0}
     if {[llength $trans_ids] > 0 && [_transparency_api_available]} {
         set rc [catch {
             catch {*startnotehistorystate {Modified FE style of Component}}
