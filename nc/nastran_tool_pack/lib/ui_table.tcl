@@ -3524,7 +3524,7 @@ proc ::nc::ui_table::_load_main_window_geometry {} {
     if {![file exists $path]} { return "" }
     set geom ""
     if {[catch {
-        set fp [open $path r]
+        set fp [::open $path r]
         set geom [read $fp]
         close $fp
     }]} { return "" }
@@ -3537,17 +3537,22 @@ proc ::nc::ui_table::_save_main_window_geometry {} {
     set geom ""
     catch {
         update idletasks
-        set w [winfo width $_win]
-        set h [winfo height $_win]
-        set x [winfo rootx $_win]
-        set y [winfo rooty $_win]
-        set geom "${w}x${h}+${x}+${y}"
+        set geom [wm geometry $_win]
     }
     set geom [_valid_main_window_geometry $geom]
+    if {$geom eq ""} {
+        catch {
+            set w [winfo width $_win]
+            set h [winfo height $_win]
+            set x [winfo rootx $_win]
+            set y [winfo rooty $_win]
+            set geom [_valid_main_window_geometry "${w}x${h}+${x}+${y}"]
+        }
+    }
     if {$geom eq ""} { return }
     set path [_main_window_geometry_pref_path]
     if {[catch {
-        set fp [open $path w]
+        set fp [::open $path w]
         puts $fp $geom
         close $fp
     }]} { return }
@@ -3598,6 +3603,7 @@ proc ::nc::ui_table::_build_window {title} {
         if {![catch {set recess [::hwt::WindowRecess $_win]}] && $recess ne ""} {
             if {![catch {winfo exists $recess} exists] && $exists} {
                 set _root $recess
+                bind $_root <Configure> {::nc::ui_table::_schedule_main_window_geometry_save}
             }
         }
     }
