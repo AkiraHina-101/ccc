@@ -8173,6 +8173,14 @@ proc ::nc::ui_table::_on_reset_transparency {} {
             catch {*clearmark components 1}
             *createmark components 1 "by id" {*}$trans_ids
             *setmarkdisplayattributes components 2 0 1
+            # HM can keep the global transparency state active even after the
+            # per-mark display attribute is cleared. These commands are
+            # transparency-only resets from the local HM render API notes; do
+            # not use components 1 2 1 here because that forces FE/grid style.
+            catch {*setdisplayattributes 3 0}
+            catch {*settransparency 0}
+            catch {*transparencyvalue 0}
+            catch {*setoption mesh_transparency=0}
             catch {*endnotehistorystate {Modified FE style of Component}}
         } err]
         if {$rc} {
