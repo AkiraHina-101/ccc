@@ -1653,6 +1653,7 @@ proc ::nc::ui_table::_place_companion_window {win {width 360} {height 420}} {
     if {$win eq "" || ![winfo exists $win]} { return }
     if {$_win ne "" && [winfo exists $_win]} {
         catch {wm transient $win $_win}
+        _apply_child_dialog_topmost $win
         # Center over the table window's CURRENT on-screen position (not
         # just its launch-time position) - if the user moved/resized it,
         # dialogs should still land inside it, not at some unrelated spot.
@@ -1671,11 +1672,36 @@ proc ::nc::ui_table::_place_companion_window {win {width 360} {height 420}} {
                 set placed 1
             }
         }
-        if {$placed} { return }
+        if {$placed} {
+            _raise_child_dialog $win
+            return
+        }
     }
     # No table window yet (e.g. the very first Session Manager at startup)
     # - fall back to centering over HM's own captured window bounds.
     catch {wm geometry $win [_centered_geometry $width $height]}
+    _apply_child_dialog_topmost $win
+    _raise_child_dialog $win
+}
+
+proc ::nc::ui_table::_apply_child_dialog_topmost {win} {
+    variable _win
+    variable _always_on_top_strict
+    if {$win eq "" || ![winfo exists $win]} { return }
+    if {$_win ne "" && [winfo exists $_win]} {
+        catch {wm transient $win $_win}
+    }
+    if {$_always_on_top_strict} {
+        catch {wm attributes $win -topmost 1}
+    }
+}
+
+proc ::nc::ui_table::_raise_child_dialog {win} {
+    if {$win eq "" || ![winfo exists $win]} { return }
+    catch {wm deiconify $win}
+    catch {raise $win}
+    catch {focus $win}
+    after 50 [list catch [list raise $win]]
 }
 
 proc ::nc::ui_table::_label_paste_list {} {
@@ -2435,11 +2461,18 @@ proc ::nc::ui_table::_leave_current_session_ok {} {
 
 proc ::nc::ui_table::_table_message_box {args} {
     variable _win
+    variable _always_on_top_strict
     if {[llength [info commands winfo]] > 0 && $_win ne "" && [winfo exists $_win] && [lsearch -exact $args -parent] < 0} {
         set args [linsert $args 0 -parent $_win]
     }
     set result ""
+    if {$_always_on_top_strict && $_win ne "" && [winfo exists $_win]} {
+        catch {wm attributes $_win -topmost 0}
+    }
     catch {set result [eval [list tk_messageBox] $args]}
+    if {$_always_on_top_strict && $_win ne "" && [winfo exists $_win]} {
+        catch {wm attributes $_win -topmost 1}
+    }
     _restore_table_window
     return $result
 }
@@ -3094,6 +3127,7 @@ proc ::nc::ui_table::_on_session_new {} {
     set _autosave_enabled 1
     catch {::nc::session::recent_touch $dest}
     populate_all [dict create general {} component {} properties {} materials {}]
+    _load_library_match_settings_for_session $_session_path
     _set_status "New session created: $_session_path (empty table)" ok
     return 1
 }
@@ -3115,6 +3149,7 @@ proc ::nc::ui_table::_on_session_manager {} {
             set _autosave_enabled 1
             catch {::nc::session::recent_touch $dir}
             populate_all [dict create general {} component {} properties {} materials {}]
+            _load_library_match_settings_for_session $_session_path
             _set_status "New session created: $_session_path (empty table)" ok
             return 1
         }
@@ -3161,6 +3196,7 @@ proc ::nc::ui_table::_load_session_into_table {dir} {
         }
     }
     populate_all $rows_by_tab
+    _load_library_match_settings_for_session $_session_path
     _refresh_material_options
     _set_session_dirty 0
     catch {::nc::session::recent_touch $_session_path}
@@ -8340,6 +8376,77 @@ proc ::nc::ui_table::_save_library_snapshot {dir} {
     catch {::nc::session::_xlsx_prewarm_invalidate $path}
 }
 
+proc ::nc::ui_table::_library_match_settings_path {{dir ""}} {
+    if {$dir eq ""} { catch {set dir [::nc::session::dir]} }
+    if {$dir eq ""} { return "" }
+    return [file join $dir library match_settings.csv]
+}
+
+proc ::nc::ui_table::_library_match_global_settings_path {} {
+    set dir ""
+    catch {set dir $::nc::config::tool_dir}
+    if {$dir eq ""} { set dir [pwd] }
+    return [file join $dir nc_library_match_last.csv]
+}
+
+proc ::nc::ui_table::_library_match_write_settings_file {path match_pairs fill_pairs} {
+    if {$path eq ""} { return 0 }
+    set rows {}
+    foreach section {match fill} pairs [list $match_pairs $fill_pairs] {
+        set idx 0
+        foreach pair $pairs {
+            lassign $pair lib_col target
+            lappend rows [list $section $idx $lib_col $target]
+            incr idx
+        }
+    }
+    if {[catch {
+        file mkdir [file dirname $path]
+        ::nc::csv::write_file $path {section idx library_column target_field} $rows
+    }]} { return 0 }
+    return 1
+}
+
+proc ::nc::ui_table::_library_match_read_settings_file {path} {
+    if {$path eq "" || ![file exists $path]} { return [list {} {}] }
+    set match_rows {}
+    set fill_rows {}
+    foreach row [::nc::csv::read_dicts $path] {
+        set section [string trim [_dict_get $row section]]
+        set idx [_dict_get $row idx 0]
+        set lib_col [_dict_get $row library_column]
+        set target [_dict_get $row target_field]
+        if {$lib_col eq "" || $target eq "" || $target eq "-"} { continue }
+        set item [list $idx [list $lib_col $target]]
+        switch -- $section {
+            match { lappend match_rows $item }
+            fill  { lappend fill_rows $item }
+        }
+    }
+    set match_pairs {}
+    foreach item [lsort -integer -index 0 $match_rows] { lappend match_pairs [lindex $item 1] }
+    set fill_pairs {}
+    foreach item [lsort -integer -index 0 $fill_rows] { lappend fill_pairs [lindex $item 1] }
+    return [list $match_pairs $fill_pairs]
+}
+
+proc ::nc::ui_table::_load_library_match_settings_for_session {{dir ""}} {
+    variable _library_match_last_match_pairs
+    variable _library_match_last_fill_pairs
+    lassign [_library_match_read_settings_file [_library_match_settings_path $dir]] match_pairs fill_pairs
+    if {[llength $match_pairs] == 0 && [llength $fill_pairs] == 0} {
+        lassign [_library_match_read_settings_file [_library_match_global_settings_path]] match_pairs fill_pairs
+    }
+    set _library_match_last_match_pairs $match_pairs
+    set _library_match_last_fill_pairs $fill_pairs
+}
+
+proc ::nc::ui_table::_save_library_match_settings {match_pairs fill_pairs} {
+    variable _session_path
+    _library_match_write_settings_file [_library_match_settings_path $_session_path] $match_pairs $fill_pairs
+    _library_match_write_settings_file [_library_match_global_settings_path] $match_pairs $fill_pairs
+}
+
 # Restores the Library tab from its saved snapshot when opening a session
 # that has one; otherwise falls back to the starter skeleton. Deliberately
 # only called on session open, never on Reload/rescan, so a rescan can't
@@ -9009,6 +9116,7 @@ proc ::nc::ui_table::_library_match_apply {win} {
     # Remember picks for next dialog open.
     set _library_match_last_match_pairs $match_pairs
     set _library_match_last_fill_pairs $fill_pairs
+    _save_library_match_settings $match_pairs $fill_pairs
 
     # Pre-Apply confirmation. Post-Apply Undo was removed (2026-07-05) -
     # snapshot state was fragile (any Materials-tab edit invalidated it),
