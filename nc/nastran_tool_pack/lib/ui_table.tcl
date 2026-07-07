@@ -196,6 +196,7 @@ namespace eval ::nc::ui_table {
     variable _capture_resume_comp_ids {}
     variable _toolbar_wrap_after ""
     variable _toolbar_wrapping 0
+    variable _main_geometry_after_id ""
 
     variable tableData
     variable _tab_btns
@@ -3536,7 +3537,11 @@ proc ::nc::ui_table::_save_main_window_geometry {} {
     set geom ""
     catch {
         update idletasks
-        set geom [wm geometry $_win]
+        set w [winfo width $_win]
+        set h [winfo height $_win]
+        set x [winfo rootx $_win]
+        set y [winfo rooty $_win]
+        set geom "${w}x${h}+${x}+${y}"
     }
     set geom [_valid_main_window_geometry $geom]
     if {$geom eq ""} { return }
@@ -3546,6 +3551,19 @@ proc ::nc::ui_table::_save_main_window_geometry {} {
         puts $fp $geom
         close $fp
     }]} { return }
+}
+
+proc ::nc::ui_table::_schedule_main_window_geometry_save {} {
+    variable _win
+    variable _main_geometry_after_id
+    if {$_win eq "" || ![winfo exists $_win]} { return }
+    if {$_main_geometry_after_id ne ""} {
+        catch {after cancel $_main_geometry_after_id}
+    }
+    set _main_geometry_after_id [after 350 {
+        set ::nc::ui_table::_main_geometry_after_id ""
+        ::nc::ui_table::_save_main_window_geometry
+    }]
 }
 
 proc ::nc::ui_table::_build_window {title} {
@@ -3572,6 +3590,7 @@ proc ::nc::ui_table::_build_window {title} {
     # to non-resizable - force both directions on explicitly so the user can
     # always freely drag the tool window wider/narrower (and taller/shorter).
     catch {wm resizable $_win 1 1}
+    bind $_win <Configure> {::nc::ui_table::_schedule_main_window_geometry_save}
     wm protocol $_win WM_DELETE_WINDOW {::nc::ui_table::_on_close_window}
     set _root $_win
     if {[llength [info commands ::hwt::WindowRecess]] > 0} {
