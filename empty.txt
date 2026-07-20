@@ -1,1 +1,1 @@
-=IFERROR(FILTER(CALC_NB!$I$2:INDEX(CALC_NB!$I:$I,dRowsNB+1),(CALC_NB!$C$2:INDEX(CALC_NB!$C:$C,dRowsNB+1)=selRPMValue)*(CALC_NB!$B$2:INDEX(CALC_NB!$B:$B,dRowsNB+1)=selLoadValue)),NA())
+=IFERROR(LET(d,FILTER(selObData,(INDEX(selObData,0,5)=1)*(INDEX(selObData,0,1)=CONFIG!$A$22)*LISTS!$C$2*chkOB),XLOOKUP(obFreqInput,INDEX(d,0,9),INDEX(d,0,12),NA(),0)),NA())
