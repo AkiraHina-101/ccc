@@ -1,0 +1,9 @@
+=FILTER(
+  INDEX(selData,0,7),
+  (INDEX(selData,0,5)=1) *
+  (INDEX(selData,0,1)=CONFIG!$A$22) *
+  LISTS!$C$2 *
+  chkNB
+)
+
+=IFERROR(FILTER(selValue,(INDEX(selData,0,5)=1)*(INDEX(selData,0,1)=CONFIG!$A$22)*LISTS!$C$2*chkNB),NA())
