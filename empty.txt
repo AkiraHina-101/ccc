@@ -1,9 +1,1 @@
-=FILTER(
-  INDEX(selData,0,7),
-  (INDEX(selData,0,5)=1) *
-  (INDEX(selData,0,1)=CONFIG!$A$22) *
-  LISTS!$C$2 *
-  chkNB
-)
-
-=IFERROR(FILTER(selValue,(INDEX(selData,0,5)=1)*(INDEX(selData,0,1)=CONFIG!$A$22)*LISTS!$C$2*chkNB),NA())
+=IFERROR(FILTER(CALC_NB!$I$2:INDEX(CALC_NB!$I:$I,dRowsNB+1),(CALC_NB!$C$2:INDEX(CALC_NB!$C:$C,dRowsNB+1)=selRPMValue)*(CALC_NB!$B$2:INDEX(CALC_NB!$B:$B,dRowsNB+1)=selLoadValue)),NA())
