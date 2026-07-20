@@ -110,7 +110,7 @@ Private Function BuildNbCalc(ByVal wsRaw As Worksheet) As Long
     cModel = HeaderColumn(wsRaw, "Model")
     cLoad = HeaderColumn(wsRaw, "Load")
     cRPM = HeaderColumn(wsRaw, "RPM")
-    cFreq = HeaderColumn(wsRaw, "Frequency [Hz]")
+    cFreq = FrequencyColumn(wsRaw)
     micCount = lastRawCol - cFreq
     If micCount < 1 Then Err.Raise vbObjectError + 310, , "RAW_NB has no microphone columns."
 
@@ -307,6 +307,42 @@ Private Function HeaderColumn(ByVal ws As Worksheet, ByVal headerText As String)
         End If
     Next c
     Err.Raise vbObjectError + 305, , "Missing header '" & headerText & "' on " & ws.Name
+End Function
+
+' Actran exports use several equivalent spellings for the NB frequency column.
+Private Function FrequencyColumn(ByVal ws As Worksheet) As Long
+    Dim c As Long, lastC As Long, key As String
+    lastC = LastHeaderColumn(ws)
+    For c = 1 To lastC
+        key = HeaderKey(CStr(ws.Cells(1, c).Value2))
+        Select Case key
+            Case "frequencyhz", "frequency", "freqhz", "freq", "fhz", "f"
+                FrequencyColumn = c
+                Exit Function
+        End Select
+    Next c
+    modLog.LogMsg "TRACE RAW_NB headers: " & HeaderSummary(ws)
+    Err.Raise vbObjectError + 305, , _
+              "Missing NB frequency header on " & ws.Name & _
+              ". Accepted: Frequency [Hz], Frequency_Hz, Frequency (Hz), Freq [Hz], f_Hz."
+End Function
+
+Private Function HeaderKey(ByVal headerText As String) As String
+    Dim i As Long, ch As String
+    headerText = LCase$(Trim$(headerText))
+    For i = 1 To Len(headerText)
+        ch = Mid$(headerText, i, 1)
+        If ch Like "[a-z0-9]" Then HeaderKey = HeaderKey & ch
+    Next i
+End Function
+
+Private Function HeaderSummary(ByVal ws As Worksheet) As String
+    Dim c As Long, lastC As Long
+    lastC = Application.Min(LastHeaderColumn(ws), 16)
+    For c = 1 To lastC
+        If c > 1 Then HeaderSummary = HeaderSummary & " | "
+        HeaderSummary = HeaderSummary & CStr(ws.Cells(1, c).Value2)
+    Next c
 End Function
 
 Private Function LastHeaderColumn(ByVal ws As Worksheet) As Long
