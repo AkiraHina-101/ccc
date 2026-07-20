@@ -180,7 +180,7 @@ Public Sub ImportAll(Optional ByVal silent As Boolean = False)
     freqWarn = CheckNBFreqConsistency(data, outR)
     stageName = "refresh third-octave analysis": modLog.ReportStage "ImportAll", stageName
     modLog.LogMsg "TRACE ImportAll: call RefreshThirdOctaveModel"
-    modThirdOctave.RefreshThirdOctaveModel silent:=silent
+    modThirdOctave.RefreshThirdOctaveModel silent:=silent, rethrow:=True
     modLog.LogMsg "TRACE ImportAll: RefreshThirdOctaveModel returned"
     If modelCountBefore <> modelCountAfter Then
         stageName = "sync model controls": modLog.ReportStage "ImportAll", stageName
@@ -371,7 +371,7 @@ Private Sub WriteRawSheet(ws As Worksheet, rawData() As Variant, ByVal rawRows A
     If Len(rawHeader) > 0 Then
         h = Split(rawHeader, ",")
         For c = 0 To rawColN - 1
-            ws.Cells(1, c + RAW_META_COLS + 1).Value = Trim$(h(c))
+            ws.Cells(1, c + RAW_META_COLS + 1).Value = CsvCellText(h(c))
         Next c
     End If
     If rawRows > 0 Then ws.Range("A2").Resize(rawRows, rawColN + RAW_META_COLS).Value = rawData
@@ -474,7 +474,7 @@ Private Sub ImportOneCSV(ByVal csvPath As String, ByVal md As String, ByRef bd A
             rawData(rawR, 3) = md: rawData(rawR, 4) = bd
             rawData(rawR, 5) = loadName: rawData(rawR, 6) = rpm
             For c = 0 To rawColN - 1
-                rawVal = Trim$(parts(c))
+                rawVal = CsvCellText(parts(c))
                 If IsNumeric(rawVal) Then
                     rawData(rawR, c + RAW_META_COLS + 1) = CDbl(rawVal)
                 Else
@@ -484,20 +484,30 @@ Private Sub ImportOneCSV(ByVal csvPath As String, ByVal md As String, ByRef bd A
 
             ' Build the tidy CALC rows used by formulas/charts.
             For m = 1 To micN
-                v = CDbl(Trim$(parts(micOfs + m - 1)))
+                v = CDbl(CsvCellText(parts(micOfs + m - 1)))
                 If isOB Then
-                    fLo = CDbl(Trim$(parts(0))): fHi = CDbl(Trim$(parts(1)))
-                    fc = CDbl(Trim$(parts(2)))
+                    fLo = CDbl(CsvCellText(parts(0))): fHi = CDbl(CsvCellText(parts(1)))
+                    fc = CDbl(CsvCellText(parts(2)))
                     PushRow data, outR, md, rpm, bd, m, fLo, v, fc
                     PushRow data, outR, md, rpm, bd, m, fHi, v, fc
                 Else
-                    fq = CDbl(Trim$(parts(0)))
+                    fq = CDbl(CsvCellText(parts(0)))
                     PushRow data, outR, md, rpm, bd, m, fq, v, Empty
                 End If
             Next m
         End If
     Next li
 End Sub
+
+' CSV quote characters delimit fields; they are not part of headers or values.
+Private Function CsvCellText(ByVal rawText As String) As String
+    rawText = Trim$(rawText)
+    If Len(rawText) >= 2 And Left$(rawText, 1) = """" And Right$(rawText, 1) = """" Then
+        rawText = Mid$(rawText, 2, Len(rawText) - 2)
+        rawText = Replace(rawText, """""", """")
+    End If
+    CsvCellText = Trim$(rawText)
+End Function
 
 Private Sub PushRow(data() As Variant, outR As Long, md As String, rpm As Variant, _
                     bd As String, mic As Long, fq As Double, v As Double, fc As Variant)

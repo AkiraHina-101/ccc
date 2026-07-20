@@ -17,7 +17,8 @@ Private mPrevCalc As XlCalculation
 Private mPrevScreen As Boolean
 Private mPrevEvents As Boolean
 
-Public Sub RefreshThirdOctaveModel(ByVal silent As Boolean)
+Public Sub RefreshThirdOctaveModel(ByVal silent As Boolean, _
+                                   Optional ByVal rethrow As Boolean = False)
     Dim stageName As String, failNum As Long, failDesc As String, failMsg As String
     Dim wsRaw As Worksheet, nbRows As Long, bandRows As Long
     On Error GoTo fail
@@ -51,6 +52,7 @@ fail:
     modLog.LogMsg "TRACE RefreshThirdOctaveModel FAILED at " & stageName & _
                   ": " & CStr(failNum) & " - " & failDesc
     failMsg = modLog.ReportError("RefreshThirdOctaveModel", stageName, failNum, failDesc)
+    If rethrow Then Err.Raise failNum, "RefreshThirdOctaveModel", failDesc
     If Not silent Then MsgBox failMsg, vbCritical
 End Sub
 
@@ -299,13 +301,16 @@ Private Function MicTitle(ByVal micNo As Long, ByVal fallbackHeader As String) A
 End Function
 
 Private Function HeaderColumn(ByVal ws As Worksheet, ByVal headerText As String) As Long
-    Dim c As Long, lastC As Long
+    Dim c As Long, lastC As Long, expectedKey As String, actualKey As String
     lastC = LastHeaderColumn(ws)
+    expectedKey = HeaderKey(headerText)
     For c = 1 To lastC
-        If StrComp(Trim$(CStr(ws.Cells(1, c).Value)), headerText, vbTextCompare) = 0 Then
+        actualKey = HeaderKey(CStr(ws.Cells(1, c).Value2))
+        If actualKey = expectedKey Or actualKey = expectedKey & "hz" Then
             HeaderColumn = c: Exit Function
         End If
     Next c
+    modLog.LogMsg "TRACE " & ws.Name & " headers: " & HeaderSummary(ws)
     Err.Raise vbObjectError + 305, , "Missing header '" & headerText & "' on " & ws.Name
 End Function
 
