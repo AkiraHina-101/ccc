@@ -1,1 +1,310 @@
+"""Shared selection memory and element visibility actions for Jupiter 5.0.4."""
+
+import ctypes
+from ctypes import wintypes
+import re
+import sys
+import time
+
+
+_ELEM_CURSOR_PATTERN = re.compile(r"11:(\d+)")
+_STATE_ATTR = "_psj_function_additional_saved_element_ids"
+if not hasattr(sys, _STATE_ATTR):
+    setattr(sys, _STATE_ATTR, {})
+_saved_ids_by_document = getattr(sys, _STATE_ATTR)
+
+_MASK_STATE_ATTR = "_psj_function_additional_masked_element_ids"
+if not hasattr(sys, _MASK_STATE_ATTR):
+    setattr(sys, _MASK_STATE_ATTR, {})
+_masked_ids_by_document = getattr(sys, _MASK_STATE_ATTR)
+
+
+def _make_cursor(element_ids):
+    return "[" + ", ".join(
+        "11:{0}".format(element_id) for element_id in sorted(element_ids)
+    ) + "]"
+
+
+def add_selection_action_controls(dlg, revert_text="Revert"):
+    """Add compact display and selection-memory controls to a JDG dialog."""
+    dlg.add_hlayout(name="LVisibilityActions", layout="Window")
+    dlg.add_button(name="BtnMask", text="Mask",
+                   width=62, height=26, layout="LVisibilityActions")
+    dlg.add_button(name="BtnShow", text="Show",
+                   width=62, height=26, layout="LVisibilityActions")
+    dlg.add_button(name="BtnReverse", text=revert_text,
+                   width=72, height=26, layout="LVisibilityActions")
+
+    dlg.add_hlayout(name="LSelectionMemory", layout="Window")
+    dlg.add_button(name="BtnUnmaskAll", text="Unmask All",
+                   width=88, height=26, layout="LSelectionMemory")
+    dlg.add_button(name="BtnSaveSelection", text="Save",
+                   width=60, height=26, layout="LSelectionMemory")
+    dlg.add_button(name="BtnRetrieveSelection", text="Retrieve",
+                   width=72, height=26, layout="LSelectionMemory")
+
+
+def bind_selection_action_controls(dlg, actions):
+    dlg.on_button_clicked(name="BtnMask", callfunc=actions.mask)
+    dlg.on_button_clicked(name="BtnShow", callfunc=actions.show)
+    dlg.on_button_clicked(name="BtnReverse", callfunc=actions.reverse)
+    dlg.on_button_clicked(name="BtnUnmaskAll", callfunc=actions.unmask_all)
+    dlg.on_button_clicked(name="BtnSaveSelection", callfunc=actions.save)
+    dlg.on_button_clicked(
+        name="BtnRetrieveSelection", callfunc=actions.retrieve)
+
+
+class SelectionVisibilityActions:
+    """Public-API-only visibility operations shared by all three tools."""
+
+    def __init__(self, jpt, log, on_visibility_changed=None):
+        self.jpt = jpt
+        self.log = log
+        self.on_visibility_changed = on_visibility_changed
+
+    def _document_key(self):
+        try:
+            path = str(self.jpt.GetCurrentDocumentPath() or "")
+        except Exception:
+            path = ""
+        return path or "<active-document>"
+
+    def _selected_ids(self):
+        try:
+            cursor = str(self.jpt.GetSelectedElemsCr() or "")
+        except Exception as error:
+            self.log("Cannot read Jupiter selection: {0}".format(error))
+            return set()
+        return {int(value) for value in _ELEM_CURSOR_PATTERN.findall(cursor)}
+
+    def _remembered_mask_ids(self):
+        return set(_masked_ids_by_document.get(self._document_key(), ()))
+
+    def _replace_remembered_mask_ids(self, element_ids):
+        key = self._document_key()
+        element_ids = tuple(element_ids)
+        if element_ids:
+            _masked_ids_by_document[key] = element_ids
+        else:
+            _masked_ids_by_document.pop(key, None)
+
+    def _add_remembered_mask_ids(self, element_ids):
+        remembered = self._remembered_mask_ids()
+        remembered.update(element_ids)
+        self._replace_remembered_mask_ids(sorted(remembered))
+
+    def _remove_remembered_mask_ids(self, element_ids):
+        remembered = self._remembered_mask_ids()
+        remembered.difference_update(element_ids)
+        self._replace_remembered_mask_ids(sorted(remembered))
+
+    def _notify_visibility_changed(self):
+        if self.on_visibility_changed is None:
+            return
+        try:
+            self.on_visibility_changed()
+        except Exception as error:
+            self.log("Visibility changed, but cache reset failed: {0}"
+                     .format(error))
+
+    def _set_animation(self, enabled):
+        try:
+            if enabled:
+                self.jpt.EnableScreenAnimation()
+            else:
+                self.jpt.DisableScreenAnimation()
+        except Exception:
+            pass
+
+    def _native_hide_selected(self):
+        """Invoke Jupiter's own Hide command (the Ctrl+H accelerator)."""
+        user32 = ctypes.windll.user32
+        self._focus_jupiter_main_window(user32)
+        vk_control = 0x11
+        vk_h = 0x48
+        key_up = 0x0002
+        user32.keybd_event(vk_control, 0, 0, 0)
+        try:
+            user32.keybd_event(vk_h, 0, 0, 0)
+            user32.keybd_event(vk_h, 0, key_up, 0)
+        finally:
+            user32.keybd_event(vk_control, 0, key_up, 0)
+
+    def _focus_jupiter_main_window(self, user32):
+        """Move keyboard focus from the small JDG dialog to Jupiter main UI."""
+        process_id = ctypes.windll.kernel32.GetCurrentProcessId()
+        windows = []
+
+        enum_proc_type = ctypes.WINFUNCTYPE(
+            wintypes.BOOL, wintypes.HWND, wintypes.LPARAM)
+
+        def collect(hwnd, _lparam):
+            owner_pid = wintypes.DWORD()
+            user32.GetWindowThreadProcessId(
+                hwnd, ctypes.byref(owner_pid))
+            if owner_pid.value != process_id or not user32.IsWindowVisible(hwnd):
+                return True
+
+            rect = wintypes.RECT()
+            if not user32.GetWindowRect(hwnd, ctypes.byref(rect)):
+                return True
+            width = max(0, rect.right - rect.left)
+            height = max(0, rect.bottom - rect.top)
+            if width and height:
+                windows.append((width * height, hwnd))
+            return True
+
+        callback = enum_proc_type(collect)
+        user32.EnumWindows(callback, 0)
+        if not windows:
+            return False
+
+        # The Jupiter model window is much larger than the small JDG dialog.
+        main_hwnd = max(windows, key=lambda item: item[0])[1]
+        user32.BringWindowToTop(main_hwnd)
+        user32.SetForegroundWindow(main_hwnd)
+        return True
+
+    def _apply_visibility(self, hide_ids=(), show_ids=(), show_all=False):
+        """Apply element display changes with one screen refresh at the end."""
+        hide_ids = tuple(hide_ids)
+        show_ids = tuple(show_ids)
+        completed = 0
+        self._set_animation(False)
+        try:
+            if show_all:
+                self.jpt.ShowHideAllParts(self.jpt.BoolType.TRUE_VAL)
+            for element_id in show_ids:
+                self.jpt.ShowHideEntitiesByID(
+                    self.jpt.DTableType.DTABLE_ELEM, element_id,
+                    self.jpt.BoolType.TRUE_VAL)
+                completed += 1
+            for element_id in hide_ids:
+                self.jpt.ShowHideEntitiesByID(
+                    self.jpt.DTableType.DTABLE_ELEM, element_id,
+                    self.jpt.BoolType.FALSE_VAL)
+                completed += 1
+        finally:
+            self._set_animation(True)
+        return completed
+
+    def mask(self, dlg=None):
+        element_ids = self._selected_ids()
+        if not element_ids:
+            self.log("Mask: select one or more elements first.")
+            return
+        started = time.perf_counter()
+        try:
+            # Do not loop over IDs. Jupiter already provides a native Hide
+            # action for the complete current selection via Ctrl+H.
+            self._native_hide_selected()
+        except Exception as error:
+            self.log("Mask stopped: {0}".format(error))
+            return
+        self._add_remembered_mask_ids(element_ids)
+        self._notify_visibility_changed()
+        self.log("Mask: hid {0}; remembered total {1} / {2:.2f} s."
+                 .format(len(element_ids), len(self._remembered_mask_ids()),
+                         time.perf_counter() - started))
+
+    def _show_ids_with_progress(self, element_ids, chunk=500):
+        """Show elements one ID at a time (the only element-granular path in
+        Jupiter 5.0.4; verified live). No batch element-show macro exists, so
+        this is inherently ~11-17 ms/element. Log progress so a large set does
+        not look like a hang."""
+        total = len(element_ids)
+        self._set_animation(False)
+        try:
+            for index, element_id in enumerate(element_ids, 1):
+                self.jpt.ShowHideEntitiesByID(
+                    self.jpt.DTableType.DTABLE_ELEM, element_id,
+                    self.jpt.BoolType.TRUE_VAL)
+                if total > chunk and index % chunk == 0:
+                    self.log("Show: {0}/{1} ({2:.0f} %)..."
+                             .format(index, total, 100.0 * index / total))
+        finally:
+            self._set_animation(True)
+
+    def show(self, dlg=None):
+        # Hidden elements cannot be picked, and Mask clears the selection, so a
+        # live selection is usually empty right when the user wants them back.
+        # Fall back to the mask IDs this tool already remembers.
+        element_ids = self._selected_ids()
+        source = "selection"
+        if not element_ids:
+            element_ids = self._remembered_mask_ids()
+            source = "remembered mask list"
+        if not element_ids:
+            self.log("Show: no selection and no remembered masked elements. "
+                     "Select/Retrieve elements, or use Unmask All.")
+            return
+        element_ids = sorted(element_ids)
+        started = time.perf_counter()
+        try:
+            self._show_ids_with_progress(element_ids)
+        except Exception as error:
+            self.log("Show stopped: {0}".format(error))
+            self._notify_visibility_changed()
+            return
+        self._remove_remembered_mask_ids(element_ids)
+        self._notify_visibility_changed()
+        self.log("Show: displayed {0} elements from {1} / {2:.2f} s."
+                 .format(len(element_ids), source,
+                         time.perf_counter() - started))
+
+    def reverse(self, dlg=None):
+        """Safe default; individual tools may override Revert explicitly."""
+        self.log("Revert is not configured for this tool.")
+
+    def unmask_all(self, dlg=None):
+        started = time.perf_counter()
+        try:
+            # Show all Parts first. Element-level masks that remain are then
+            # removed explicitly using the documented DTABLE_ELEM path.
+            self._set_animation(False)
+            try:
+                self.jpt.ShowHideAllParts(self.jpt.BoolType.TRUE_VAL)
+                hidden_ids = []
+                for element in self.jpt.GetAllElems():
+                    if self.jpt.CastToDItem(element).isHidden:
+                        hidden_ids.append(int(element.id))
+                for element_id in hidden_ids:
+                    self.jpt.ShowHideEntitiesByID(
+                        self.jpt.DTableType.DTABLE_ELEM, element_id,
+                        self.jpt.BoolType.TRUE_VAL)
+            finally:
+                self._set_animation(True)
+        except Exception as error:
+            self.log("Unmask All stopped: {0}".format(error))
+            self._notify_visibility_changed()
+            return
+        self._replace_remembered_mask_ids(())
+        self._notify_visibility_changed()
+        self.log("Unmask All: restored {0} element masks / {1:.2f} s."
+                 .format(len(hidden_ids), time.perf_counter() - started))
+
+    def save(self, dlg=None):
+        element_ids = self._selected_ids()
+        if not element_ids:
+            self.log("Save: selection is empty; previous saved IDs kept.")
+            return
+        _saved_ids_by_document[self._document_key()] = tuple(
+            sorted(element_ids))
+        self.log("Save: remembered {0} element cursors (type 11 + ID)."
+                 .format(len(element_ids)))
+
+    def retrieve(self, dlg=None):
+        element_ids = _saved_ids_by_document.get(self._document_key(), ())
+        if not element_ids:
+            self.log("Retrieve: no saved element IDs for this document.")
+            return
+        try:
+            result = self.jpt.SelectArrayCursor(_make_cursor(element_ids))
+            if result is False:
+                raise RuntimeError("Jupiter rejected the saved selection")
+        except Exception as error:
+            self.log("Retrieve failed: {0}".format(error))
+            return
+        self.log("Retrieve: selected {0} saved element IDs."
+                 .format(len(element_ids)))
 
