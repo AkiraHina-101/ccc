@@ -1,1 +1,329 @@
+"""Select the visible, node-attached 2D element component in Jupiter 5.0.4."""
 
+from pyjdg import *
+import ctypes
+import importlib
+import os
+import re
+import sys
+import time
+
+
+def _resolve_actions_dir():
+    filename = "selection_visibility_actions_psj.py"
+    candidates = [
+        os.environ.get("PSJ_FUNCTION_ADDITIONAL_ROOT", ""),
+        r"C:\Users\TechnoStar\Downloads\03-Developer\01-PSJ\04-FUNCTION_ADDITIONAL",
+        os.getcwd(),
+    ] + [path for path in sys.path if path]
+    for directory in candidates:
+        if directory and os.path.isfile(os.path.join(directory, filename)):
+            return os.path.abspath(directory)
+    raise RuntimeError("Cannot find " + filename)
+
+
+_TOOL_DIR = _resolve_actions_dir()
+if _TOOL_DIR not in sys.path:
+    sys.path.insert(0, _TOOL_DIR)
+import selection_visibility_actions_psj as _selection_actions
+_selection_actions = importlib.reload(_selection_actions)
+SelectionVisibilityActions = _selection_actions.SelectionVisibilityActions
+add_selection_action_controls = (
+    _selection_actions.add_selection_action_controls)
+bind_selection_action_controls = (
+    _selection_actions.bind_selection_action_controls)
+del _selection_actions
+del _resolve_actions_dir
+
+
+_ELEM_CURSOR_PATTERN = re.compile(r"11:(\d+)")
+_BUILD_LIMIT_SECONDS = 30.0
+_BFS_LIMIT_SECONDS = 10.0
+
+_model_signature = None
+_part_2d_cache = {}
+_topology_cache = {}
+_cached_visible_ids = None
+_cached_element_nodes = None
+_cached_node_elements = None
+_component_by_element = {}
+
+
+def _notify(message):
+    """Log only; never open a modal message box."""
+    print("[ByAttached] " + message)
+
+
+def _make_cursor(element_ids):
+    return "[" + ", ".join(
+        "11:{0}".format(element_id) for element_id in element_ids
+    ) + "]"
+
+
+def _read_selected_single_id():
+    try:
+        cursor = str(JPT.GetSelectedElemsCr() or "")
+    except Exception as error:
+        _notify("Cannot read Jupiter selection: {0}".format(error))
+        return None
+
+    if cursor.count("11:") != 1:
+        return None
+
+    match = _ELEM_CURSOR_PATTERN.search(cursor)
+    return int(match.group(1)) if match else None
+
+
+def _clear_selection(dlg):
+    global _component_by_element
+
+    try:
+        JPT.ClearAllSelection()
+    except Exception as error:
+        _notify("Native Clear All failed: {0}".format(error))
+        return
+    _component_by_element = {}
+    print("[ByAttached] Native Clear All complete.")
+
+
+def _activate_element_selector():
+    """Match Surface Split v2.4: put Jupiter in element-pick mode."""
+    try:
+        ctypes.windll.user32.keybd_event(0x20, 0, 0, 0)
+        ctypes.windll.user32.keybd_event(0x20, 0, 2, 0)
+    except Exception as error:
+        _notify("Could not activate element selection: {0}".format(error))
+
+
+def _read_single_root(dlg=None):
+    seed_id = _read_selected_single_id()
+    if seed_id is not None:
+        return seed_id
+    _notify("Select exactly one visible 2D element first.")
+    return None
+
+
+def _read_model_signature(part_count):
+    try:
+        document_path = JPT.GetCurrentDocumentPath()
+    except Exception:
+        document_path = ""
+    try:
+        undo_count = JPT.GetUndoCount()
+        redo_count = JPT.GetRedoCount()
+    except Exception:
+        undo_count = None
+        redo_count = None
+    try:
+        element_count = JPT.GetCountByType(JPT.DItemType.ELEM)
+    except Exception:
+        element_count = None
+    return (document_path, undo_count, redo_count, part_count,
+            element_count)
+
+
+def _collect_visible_2d_from_parts(parts):
+    """Fast path: enumerate elements only from parts shown on screen."""
+    global _part_2d_cache
+
+    visible_by_id = {}
+    for part in parts:
+        if JPT.CastToDItem(part).isHidden:
+            continue
+        part_key = part.key
+        elements_2d = _part_2d_cache.get(part_key)
+        if elements_2d is None:
+            elements_2d = [
+                element for element in part.elems
+                if element.kind == JPT.ElemKind.ELEMKIND_2D
+            ]
+            _part_2d_cache[part_key] = elements_2d
+        for element in elements_2d:
+            if not JPT.CastToDItem(element).isHidden:
+                visible_by_id[element.id] = element
+    return visible_by_id
+
+
+def _collect_visible_2d_full():
+    """Fallback for documents that do not expose elements through Parts."""
+    visible_by_id = {}
+    for element in JPT.GetElemsByKind(JPT.ElemKind.ELEMKIND_2D):
+        if not JPT.CastToDItem(element).isHidden:
+            visible_by_id[element.id] = element
+    return visible_by_id
+
+
+def _clear_topology_cache():
+    global _part_2d_cache
+    global _topology_cache
+    global _cached_visible_ids, _cached_element_nodes, _cached_node_elements
+    global _component_by_element
+
+    _part_2d_cache = {}
+    _topology_cache = {}
+    _cached_visible_ids = None
+    _cached_element_nodes = None
+    _cached_node_elements = None
+    _component_by_element = {}
+
+
+def _prepare_visible_node_graph():
+    """Return the visible 2D graph, reusing safe topology caches."""
+    global _model_signature
+    global _cached_visible_ids, _cached_element_nodes, _cached_node_elements
+    global _component_by_element
+
+    started = time.perf_counter()
+    parts = JPT.GetAllParts()
+    signature = _read_model_signature(len(parts))
+    if signature != _model_signature:
+        _clear_topology_cache()
+        _model_signature = signature
+
+    visible_by_id = _collect_visible_2d_from_parts(parts)
+    if not parts:
+        visible_by_id = _collect_visible_2d_full()
+    del parts
+    visible_ids = set(visible_by_id)
+
+    if (visible_ids == _cached_visible_ids and
+            _cached_element_nodes is not None and
+            _cached_node_elements is not None):
+        return (_cached_element_nodes, _cached_node_elements, True,
+                len(visible_ids))
+
+    element_nodes = {}
+    node_elements = {}
+
+    for index, element in enumerate(visible_by_id.values()):
+        if index and index % 100000 == 0:
+            if time.perf_counter() - started > _BUILD_LIMIT_SECONDS:
+                del visible_by_id
+                raise RuntimeError(
+                    "visibility graph exceeded the {0:.0f} s safety limit"
+                    .format(_BUILD_LIMIT_SECONDS))
+
+        node_keys = _topology_cache.get(element.id)
+        if node_keys is None:
+            node_keys = tuple(node.key for node in element.nodes)
+            _topology_cache[element.id] = node_keys
+        element_nodes[element.id] = node_keys
+        for node_key in node_keys:
+            node_elements.setdefault(node_key, []).append(element.id)
+
+    del visible_by_id
+    _cached_visible_ids = visible_ids
+    _cached_element_nodes = element_nodes
+    _cached_node_elements = node_elements
+    _component_by_element = {}
+    return element_nodes, node_elements, False, len(visible_ids)
+
+
+def _find_component(root_id, element_nodes, node_elements):
+    """Find the visible component connected to root through shared nodes."""
+    global _component_by_element
+
+    cached = _component_by_element.get(root_id)
+    if cached is not None:
+        return cached, True
+
+    if root_id not in element_nodes:
+        return set(), False
+
+    started = time.perf_counter()
+    component = {root_id}
+    stack = [root_id]
+    expanded_nodes = set()
+
+    while stack:
+        if time.perf_counter() - started > _BFS_LIMIT_SECONDS:
+            raise RuntimeError(
+                "component search exceeded the {0:.0f} s safety limit"
+                .format(_BFS_LIMIT_SECONDS))
+
+        element_id = stack.pop()
+        for node_id in element_nodes[element_id]:
+            if node_id in expanded_nodes:
+                continue
+            expanded_nodes.add(node_id)
+
+            for neighbor_id in node_elements.get(node_id, ()):
+                if neighbor_id not in component:
+                    component.add(neighbor_id)
+                    stack.append(neighbor_id)
+
+    for element_id in component:
+        _component_by_element[element_id] = component
+    return component, False
+
+
+def by_attached(dlg=None):
+    """Select every visible element node-attached to the selected seed."""
+    root_id = _read_single_root(dlg)
+    if root_id is None:
+        return
+
+    started = time.perf_counter()
+    try:
+        build_started = time.perf_counter()
+        (element_nodes, node_elements, graph_reused,
+         visible_count) = _prepare_visible_node_graph()
+        build_seconds = time.perf_counter() - build_started
+
+        bfs_started = time.perf_counter()
+        component_ids, component_reused = _find_component(
+            root_id, element_nodes, node_elements)
+        bfs_seconds = time.perf_counter() - bfs_started
+    except Exception as error:
+        _notify("By Attached stopped safely: {0}. Selection was not changed."
+                .format(error))
+        return
+
+    if not component_ids:
+        _notify("Element {0} is hidden or unavailable.".format(root_id))
+        return
+
+    select_started = time.perf_counter()
+    try:
+        result = JPT.SelectArrayCursor(
+            _make_cursor(sorted(component_ids)))
+        if result is False:
+            raise RuntimeError("Jupiter rejected the selection cursor")
+    except Exception as error:
+        _notify("By Attached selection failed: {0}".format(error))
+        return
+    select_seconds = time.perf_counter() - select_started
+
+    total_seconds = time.perf_counter() - started
+    _notify(
+        "By Attached complete: {0} visible elements / {1:.2f} s "
+        "(visible 2D {2}, graph {3:.2f} s [{4}], search {5:.2f} s "
+        "[{6}], select {7:.2f} s)."
+        .format(len(component_ids), total_seconds, visible_count,
+                build_seconds,
+                "cache" if graph_reused else "new",
+                bfs_seconds,
+                "cache" if component_reused else "new",
+                select_seconds))
+
+
+def main():
+    dlg = JDGCreator(title="By Attached", resizable=False)
+    actions = SelectionVisibilityActions(
+        JPT, _notify, _clear_topology_cache)
+    dlg.add_2delement_selector()
+    dlg.add_button(name="BtnAttached", text="By Attached",
+                   width=180, height=30, layout="Window")
+    add_selection_action_controls(dlg)
+    dlg.add_button(name="BtnFastClear", text="Clear All (Fast)",
+                   width=180, height=26, layout="Window")
+    dlg.on_button_clicked(name="BtnAttached", callfunc=by_attached)
+    bind_selection_action_controls(dlg, actions)
+    dlg.on_button_clicked(name="BtnFastClear", callfunc=_clear_selection)
+    dlg.on_dlg_ok(callfunc=lambda d: None)
+    _activate_element_selector()
+    dlg.generate_window()
+
+
+if __name__ == "__main__":
+    main()
