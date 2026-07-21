@@ -1,1 +1,713 @@
-s
+"""Select a visible 2D mesh face with orientation-independent face angles."""
+
+from pyjdg import *
+import ctypes
+import importlib
+import math
+import os
+import re
+import subprocess
+import sys
+import tempfile
+import time
+
+
+def _resolve_actions_dir():
+    filename = "selection_visibility_actions_psj.py"
+    candidates = [
+        os.environ.get("PSJ_FUNCTION_ADDITIONAL_ROOT", ""),
+        r"C:\Users\TechnoStar\Downloads\03-Developer\01-PSJ\04-FUNCTION_ADDITIONAL",
+        os.getcwd(),
+    ] + [path for path in sys.path if path]
+    for directory in candidates:
+        if directory and os.path.isfile(os.path.join(directory, filename)):
+            return os.path.abspath(directory)
+    raise RuntimeError("Cannot find " + filename)
+
+
+_TOOL_DIR = _resolve_actions_dir()
+if _TOOL_DIR not in sys.path:
+    sys.path.insert(0, _TOOL_DIR)
+import selection_visibility_actions_psj as _selection_actions
+_selection_actions = importlib.reload(_selection_actions)
+SelectionVisibilityActions = _selection_actions.SelectionVisibilityActions
+add_selection_action_controls = (
+    _selection_actions.add_selection_action_controls)
+bind_selection_action_controls = (
+    _selection_actions.bind_selection_action_controls)
+del _selection_actions
+del _resolve_actions_dir
+
+
+_ELEM_CURSOR_PATTERN = re.compile(r"11:(\d+)")
+_DEFAULT_ANGLE_DEG = 30.0
+_BUILD_LIMIT_SECONDS = 30.0
+_BFS_LIMIT_SECONDS = 10.0
+_NORMAL_EPSILON = 1.0e-24
+_COS_EPSILON = 1.0e-12
+_EXTERNAL_PYTHON = os.path.join(
+    os.environ.get("LOCALAPPDATA", ""),
+    "Programs", "Python", "Python313", "python.exe")
+_model_signature = None
+_part_2d_cache = {}
+_topology_cache = {}
+_normal_cache = {}
+_cached_visible_ids = None
+_cached_visible_elements = None
+_cached_element_nodes = None
+_cached_node_elements = None
+
+
+def _log(message):
+    """Write to the Python log only; never open a modal message box."""
+    print("[ByFace] " + message)
+
+
+def _make_cursor(element_ids):
+    return "[" + ", ".join(
+        "11:{0}".format(element_id) for element_id in element_ids
+    ) + "]"
+
+
+def _make_part_cursor(part_ids):
+    return "[" + ", ".join(
+        "3:{0}".format(part_id) for part_id in sorted(part_ids)
+    ) + "]"
+
+
+def _visible_2d_screen_ids():
+    """Use exactly the same visible-2D definition as By Face itself."""
+    parts = JPT.GetAllParts()
+    visible_2d = _collect_visible_2d_from_parts(parts)
+    visible_parts = [
+        part for part in parts if not JPT.CastToDItem(part).isHidden]
+    selected_cursor = str(JPT.GetSelectedElemsCr() or "")
+    selected_ids = {
+        int(value) for value in re.findall(r"11:(\d+)", selected_cursor)
+    }
+    if not visible_2d and selected_ids and visible_parts:
+        all_2d = {}
+        for part in visible_parts:
+            for element in part.elems:
+                if element.kind == JPT.ElemKind.ELEMKIND_2D:
+                    all_2d[int(element.id)] = element
+        if selected_ids.intersection(all_2d):
+            visible_2d = all_2d
+    element_part_ids = {}
+    visible_id_set = set(visible_2d)
+    for part in visible_parts:
+        elements_2d = _part_2d_cache.get(part.key)
+        if elements_2d is None:
+            elements_2d = [
+                element for element in part.elems
+                if element.kind == JPT.ElemKind.ELEMKIND_2D
+            ]
+            _part_2d_cache[part.key] = elements_2d
+        for element in elements_2d:
+            if element.id in visible_id_set:
+                element_part_ids[element.id] = int(part.id)
+    return visible_2d, len(visible_parts), element_part_ids
+
+
+def _part_ids_containing_elements(element_ids):
+    """Return public Part IDs containing any requested 2D element IDs."""
+    remaining = set(element_ids)
+    part_ids = set()
+    for part in JPT.GetAllParts():
+        elements_2d = _part_2d_cache.get(part.key)
+        if elements_2d is None:
+            elements_2d = [
+                element for element in part.elems
+                if element.kind == JPT.ElemKind.ELEMKIND_2D
+            ]
+            _part_2d_cache[part.key] = elements_2d
+        found = remaining.intersection(
+            int(element.id) for element in elements_2d)
+        if found:
+            part_ids.add(int(part.id))
+            remaining.difference_update(found)
+            if not remaining:
+                break
+    return tuple(sorted(part_ids))
+
+
+class ByFaceSelectionVisibilityActions(SelectionVisibilityActions):
+    """Store two groups at Mask time and swap them without UI re-entry."""
+
+    def __init__(self, jpt, log, on_visibility_changed=None):
+        SelectionVisibilityActions.__init__(
+            self, jpt, log, on_visibility_changed)
+        self._revert_show_ids = ()
+        self._revert_hide_ids = ()
+        self._revert_show_probe = None
+        self._revert_hide_probe = None
+        self._revert_show_part_ids = ()
+        self._revert_hide_part_ids = ()
+        self._revert_prepared = False
+        self._revert_started = 0.0
+
+    def _recover_revert_groups_from_display(self):
+        """Recover after an external/native Hide bypassed this Mask callback."""
+        show_ids = tuple(sorted(self._selected_ids()))
+        if not show_ids:
+            return False
+
+        # By Face cached these public DElem objects while they were visible.
+        # Their DItem visibility flag remains live after a native Hide.
+        cached = _cached_visible_elements or {}
+        show_probe = cached.get(show_ids[0])
+        if show_probe is None:
+            try:
+                for entity in self.jpt.GetAllSelected():
+                    if (int(entity.typeID) == 11 and
+                            int(entity.id) == show_ids[0]):
+                        show_probe = entity
+                        break
+            except Exception:
+                show_probe = None
+        if show_probe is None or not self.jpt.CastToDItem(show_probe).isHidden:
+            return False
+
+        visible_by_id, _visible_part_count, element_part_ids = (
+            _visible_2d_screen_ids())
+        hide_ids = tuple(sorted(visible_by_id))
+        if not hide_ids:
+            return False
+
+        show_part_ids = _part_ids_containing_elements(show_ids)
+        hide_part_ids = tuple(sorted({
+            element_part_ids[element_id] for element_id in hide_ids
+            if element_id in element_part_ids
+        }))
+        if not show_part_ids:
+            return False
+
+        self._revert_show_ids = show_ids
+        self._revert_hide_ids = hide_ids
+        self._revert_show_probe = show_probe
+        self._revert_hide_probe = visible_by_id[hide_ids[0]]
+        self._revert_show_part_ids = show_part_ids
+        self._revert_hide_part_ids = hide_part_ids
+        self._replace_remembered_mask_ids(show_ids)
+        _log("Revert recovered groups from display: show={0}, hide={1}."
+             .format(len(show_ids), len(hide_ids)))
+        return True
+
+    def mask(self, dlg=None):
+        """Capture both groups before invoking the proven native Mask."""
+        started = time.perf_counter()
+        show_ids = tuple(sorted(self._selected_ids()))
+        if not show_ids:
+            _log("Mask: select one or more 2D elements first.")
+            return
+
+        try:
+            visible_by_id, visible_part_count, element_part_ids = (
+                _visible_2d_screen_ids())
+            show_set = set(show_ids)
+            hide_ids = tuple(sorted(
+                element_id for element_id in visible_by_id
+                if element_id not in show_set))
+            show_probe = visible_by_id.get(show_ids[0])
+            hide_probe = visible_by_id.get(hide_ids[0]) if hide_ids else None
+            show_part_ids = tuple(sorted({
+                element_part_ids[element_id] for element_id in show_ids
+                if element_id in element_part_ids
+            }))
+            hide_part_ids = tuple(sorted({
+                element_part_ids[element_id] for element_id in hide_ids
+                if element_id in element_part_ids
+            }))
+            self._native_hide_selected()
+        except Exception as error:
+            _log("Mask stopped: {0}".format(error))
+            return
+
+        self._revert_show_ids = show_ids
+        self._revert_hide_ids = hide_ids
+        self._revert_show_probe = show_probe
+        self._revert_hide_probe = hide_probe
+        self._revert_show_part_ids = show_part_ids
+        self._revert_hide_part_ids = hide_part_ids
+        self._replace_remembered_mask_ids(show_ids)
+        self._notify_visibility_changed()
+        _log("Mask: hid {0}; stored Revert groups show={1}, hide={2}, "
+             "visible Parts={3} / {4:.2f} s."
+             .format(len(show_ids), len(show_ids), len(hide_ids),
+                     visible_part_count, time.perf_counter() - started))
+
+    def _finish_revert_native_hide(
+            self, started, show_ids, hide_ids, show_probe, hide_probe,
+            show_part_ids, hide_part_ids):
+        """Hide only after Jupiter confirms the element selection is active."""
+        try:
+            # Do not validate Part Show through the cached DElem probe.
+            # Jupiter does not reliably refresh that wrapper's isHidden flag
+            # after a native Part Show. Live GT proved that the prepared
+            # Element cursor can be saved/retrieved and hidden correctly even
+            # while this stale probe still reports hidden. Selection type and
+            # the exact ID set below are the reliable safety gates.
+            actual_ids = self._selected_ids()
+            expected_ids = set(hide_ids)
+            selected_parts_cursor = str(
+                self.jpt.GetSelectedPartsCr() or "")
+            if re.search(r"(?:^|[\[,])\s*3:", selected_parts_cursor):
+                raise RuntimeError(
+                    "a Part cursor was still selected; Ctrl+H was cancelled")
+            if actual_ids != expected_ids:
+                raise RuntimeError(
+                    "element selection was not active "
+                    "(expected {0}, got {1})"
+                    .format(len(expected_ids), len(actual_ids)))
+
+            self._native_hide_selected()
+            self._revert_show_ids = hide_ids
+            self._revert_hide_ids = show_ids
+            self._revert_show_probe = hide_probe
+            self._revert_hide_probe = show_probe
+            self._revert_show_part_ids = hide_part_ids
+            self._revert_hide_part_ids = show_part_ids
+            self._replace_remembered_mask_ids(hide_ids)
+            self._notify_visibility_changed()
+            _log("Revert: showed {0}, hid {1} remaining 2D IDs / "
+                 "{2:.2f} s."
+                 .format(len(show_ids), len(hide_ids),
+                         time.perf_counter() - started))
+        except Exception as error:
+            _clear_all_caches()
+            _log("Revert stopped safely before Hide: {0}."
+                 .format(error))
+        finally:
+            self._revert_prepared = False
+
+    def reverse(self, dlg=None):
+        started = time.perf_counter()
+        hide_ids = self._revert_hide_ids
+        if not hide_ids:
+            if not self._recover_revert_groups_from_display():
+                _log("Revert: press Mask once, or select a currently hidden "
+                     "By Face group, to establish both 2D groups.")
+                return
+            hide_ids = self._revert_hide_ids
+
+        try:
+            helper_path = os.path.join(
+                _TOOL_DIR, "by_face_revert_helper.py")
+            if not os.path.isfile(helper_path):
+                raise RuntimeError("missing by_face_revert_helper.py")
+            if not os.path.isfile(_EXTERNAL_PYTHON):
+                raise RuntimeError("external Python 3.13 was not found")
+            fd, ids_path = tempfile.mkstemp(
+                prefix="psj_by_face_revert_", suffix=".ids")
+            os.close(fd)
+            try:
+                with open(ids_path, "w") as stream:
+                    stream.write("\n".join(str(element_id)
+                                           for element_id in hide_ids))
+                creation_flags = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+                subprocess.Popen(
+                    [_EXTERNAL_PYTHON, helper_path, ids_path],
+                    creationflags=creation_flags)
+            except Exception:
+                try:
+                    os.remove(ids_path)
+                except OSError:
+                    pass
+                raise
+            self._revert_prepared = False
+            _log("Revert: queued one-pass Show All + Hide for {0} remaining "
+                 "2D element IDs / {1:.2f} s."
+                 .format(len(hide_ids), time.perf_counter() - started))
+        except Exception as error:
+            self._revert_prepared = False
+            _log("Revert could not start: {0}. Visibility was not changed."
+                 .format(error))
+
+def _read_selected_ids():
+    try:
+        cursor = str(JPT.GetSelectedElemsCr() or "")
+    except Exception as error:
+        _log("Cannot read Jupiter selection: {0}".format(error))
+        return set()
+    return {int(value) for value in _ELEM_CURSOR_PATTERN.findall(cursor)}
+
+
+def _clear_selection(dlg):
+    try:
+        JPT.ClearAllSelection()
+    except Exception as error:
+        _log("Native Clear All failed: {0}".format(error))
+        return
+    print("[ByFace] Native Clear All complete.")
+
+
+def _activate_element_selector():
+    """Match Surface Split v2.4: put Jupiter in element-pick mode."""
+    try:
+        ctypes.windll.user32.keybd_event(0x20, 0, 0, 0)
+        ctypes.windll.user32.keybd_event(0x20, 0, 2, 0)
+    except Exception as error:
+        _log("Could not activate element selection: {0}".format(error))
+
+
+def _read_angle(dlg):
+    try:
+        angle = float(dlg.get_item_text("TbAngle"))
+    except Exception:
+        _log("Angle must be a number from 0 to 180 degrees.")
+        return None
+
+    # The folded angle itself is at most 90 degrees. Keeping the familiar
+    # 0..180 input range means values above 90 simply accept every fold angle.
+    if not 0.0 <= angle <= 180.0:
+        _log("Angle must be from 0 to 180 degrees.")
+        return None
+    return angle
+
+
+def _read_model_signature(part_count):
+    try:
+        document_path = JPT.GetCurrentDocumentPath()
+    except Exception:
+        document_path = ""
+    try:
+        undo_count = JPT.GetUndoCount()
+        redo_count = JPT.GetRedoCount()
+    except Exception:
+        undo_count = None
+        redo_count = None
+    try:
+        element_count = JPT.GetCountByType(JPT.DItemType.ELEM)
+    except Exception:
+        element_count = None
+    return (document_path, undo_count, redo_count, part_count, element_count)
+
+
+def _collect_visible_2d_from_parts(parts):
+    global _part_2d_cache
+
+    visible_by_id = {}
+    for part in parts:
+        if JPT.CastToDItem(part).isHidden:
+            continue
+        part_key = part.key
+        elements_2d = _part_2d_cache.get(part_key)
+        if elements_2d is None:
+            elements_2d = [
+                element for element in part.elems
+                if element.kind == JPT.ElemKind.ELEMKIND_2D
+            ]
+            _part_2d_cache[part_key] = elements_2d
+        for element in elements_2d:
+            if not JPT.CastToDItem(element).isHidden:
+                visible_by_id[element.id] = element
+    return visible_by_id
+
+
+def _collect_visible_2d_full():
+    visible_by_id = {}
+    for element in JPT.GetElemsByKind(JPT.ElemKind.ELEMKIND_2D):
+        if not JPT.CastToDItem(element).isHidden:
+            visible_by_id[element.id] = element
+    return visible_by_id
+
+
+def _clear_all_caches():
+    global _part_2d_cache, _topology_cache, _normal_cache
+    global _cached_visible_ids, _cached_visible_elements
+    global _cached_element_nodes, _cached_node_elements
+
+    _part_2d_cache = {}
+    _topology_cache = {}
+    _normal_cache = {}
+    _cached_visible_ids = None
+    _cached_visible_elements = None
+    _cached_element_nodes = None
+    _cached_node_elements = None
+
+
+def _prepare_visible_edge_graph(start_ids=None):
+    """Build the visible 2D shared-node index; reuse safe topology caches."""
+    global _model_signature
+    global _cached_visible_ids, _cached_visible_elements
+    global _cached_element_nodes, _cached_node_elements
+
+    started = time.perf_counter()
+    parts = JPT.GetAllParts()
+    signature = _read_model_signature(len(parts))
+    if signature != _model_signature:
+        _clear_all_caches()
+        _model_signature = signature
+
+    visible_by_id = _collect_visible_2d_from_parts(parts)
+    if not parts:
+        visible_by_id = _collect_visible_2d_full()
+
+    # Jupiter 5.0.4 can visually restore elements through the native GUI while
+    # cached/runtime DElem wrappers continue reporting isHidden=True. If every
+    # element is reported hidden but the containing Part is visible and the
+    # user has a valid element cursor, trust the interactive selection and
+    # rebuild from all 2D elements of visible Parts. Without this narrow
+    # fallback By Face remains unusable after a native Show All.
+    if not visible_by_id and start_ids:
+        visible_parts = [
+            part for part in parts
+            if not JPT.CastToDItem(part).isHidden
+        ]
+        all_2d_by_id = {}
+        for part in visible_parts:
+            for element in part.elems:
+                if element.kind == JPT.ElemKind.ELEMKIND_2D:
+                    all_2d_by_id[int(element.id)] = element
+        if set(start_ids).intersection(all_2d_by_id):
+            visible_by_id = all_2d_by_id
+            _log("Visibility flags were stale; rebuilt from {0} 2D "
+                 "elements in visible Parts."
+                 .format(len(visible_by_id)))
+    del parts
+    visible_ids = set(visible_by_id)
+
+    if (visible_ids == _cached_visible_ids and
+            _cached_visible_elements is not None and
+            _cached_element_nodes is not None and
+            _cached_node_elements is not None):
+        return (_cached_visible_elements, _cached_element_nodes,
+                _cached_node_elements, True, len(visible_ids))
+
+    element_nodes = {}
+    node_elements = {}
+    for index, element in enumerate(visible_by_id.values()):
+        if index and index % 100000 == 0:
+            if time.perf_counter() - started > _BUILD_LIMIT_SECONDS:
+                raise RuntimeError(
+                    "visibility graph exceeded the {0:.0f} s safety limit"
+                    .format(_BUILD_LIMIT_SECONDS))
+
+        node_keys = _topology_cache.get(element.id)
+        if node_keys is None:
+            node_keys = tuple(node.key for node in element.nodes)
+            _topology_cache[element.id] = node_keys
+        element_nodes[element.id] = node_keys
+        for node_key in node_keys:
+            node_elements.setdefault(node_key, []).append(element.id)
+
+    _cached_visible_ids = visible_ids
+    _cached_visible_elements = visible_by_id
+    _cached_element_nodes = element_nodes
+    _cached_node_elements = node_elements
+    return visible_by_id, element_nodes, node_elements, False, len(visible_ids)
+
+
+def _element_normal(element_id, visible_elements):
+    """Return any stable unit normal; its sign is deliberately irrelevant."""
+    cached = _normal_cache.get(element_id)
+    if cached is not None:
+        return cached
+
+    element = visible_elements.get(element_id)
+    if element is None:
+        return None
+    nodes = list(element.nodes)
+    if len(nodes) < 3:
+        return None
+
+    positions = []
+    for node in nodes:
+        position = node.pos
+        positions.append((position.x, position.y, position.z))
+
+    p0 = positions[0]
+    normal = None
+    # This also handles higher-order elements whose first three stored nodes
+    # could be unsuitable: take the first non-degenerate triangle in the face.
+    for i in range(1, len(positions) - 1):
+        ax = positions[i][0] - p0[0]
+        ay = positions[i][1] - p0[1]
+        az = positions[i][2] - p0[2]
+        for j in range(i + 1, len(positions)):
+            bx = positions[j][0] - p0[0]
+            by = positions[j][1] - p0[1]
+            bz = positions[j][2] - p0[2]
+            nx = ay * bz - az * by
+            ny = az * bx - ax * bz
+            nz = ax * by - ay * bx
+            length_squared = nx * nx + ny * ny + nz * nz
+            if length_squared > _NORMAL_EPSILON:
+                inverse_length = 1.0 / math.sqrt(length_squared)
+                normal = (nx * inverse_length, ny * inverse_length,
+                          nz * inverse_length)
+                break
+        if normal is not None:
+            break
+
+    if normal is not None:
+        _normal_cache[element_id] = normal
+    return normal
+
+
+def _within_folded_angle(normal_a, normal_b, cosine_limit):
+    """Treat parallel and anti-parallel normals as the same face direction."""
+    dot = abs(normal_a[0] * normal_b[0] +
+              normal_a[1] * normal_b[1] +
+              normal_a[2] * normal_b[2])
+    return min(1.0, dot) + _COS_EPSILON >= cosine_limit
+
+
+def _edge_neighbors(element_id, element_nodes, node_elements):
+    """Yield visible neighbors sharing an edge, not only a vertex."""
+    shared_counts = {}
+    for node_key in element_nodes[element_id]:
+        for neighbor_id in node_elements.get(node_key, ()):
+            if neighbor_id != element_id:
+                shared_counts[neighbor_id] = (
+                    shared_counts.get(neighbor_id, 0) + 1)
+    return [neighbor_id for neighbor_id, count in shared_counts.items()
+            if count >= 2]
+
+
+def _expand_from_selection(start_ids, angle, visible_elements,
+                           element_nodes, node_elements):
+    """Keep the current selection and flood outward from its boundary."""
+    selected = {element_id for element_id in start_ids
+                if element_id in element_nodes}
+    if not selected:
+        return set(), 0, 0
+
+    started = time.perf_counter()
+    boundary = []
+    for element_id in selected:
+        if time.perf_counter() - started > _BFS_LIMIT_SECONDS:
+            raise RuntimeError(
+                "boundary search exceeded the {0:.0f} s safety limit"
+                .format(_BFS_LIMIT_SECONDS))
+        if any(neighbor_id not in selected for neighbor_id in
+               _edge_neighbors(element_id, element_nodes, node_elements)):
+            boundary.append(element_id)
+
+    cosine_limit = math.cos(math.radians(angle))
+    stack = list(boundary)
+    initial_count = len(selected)
+
+    while stack:
+        if time.perf_counter() - started > _BFS_LIMIT_SECONDS:
+            raise RuntimeError(
+                "face expansion exceeded the {0:.0f} s safety limit"
+                .format(_BFS_LIMIT_SECONDS))
+
+        element_id = stack.pop()
+        normal = _element_normal(element_id, visible_elements)
+        if normal is None:
+            continue
+
+        for neighbor_id in _edge_neighbors(
+                element_id, element_nodes, node_elements):
+            if neighbor_id in selected:
+                continue
+            neighbor_normal = _element_normal(neighbor_id, visible_elements)
+            if (neighbor_normal is not None and
+                    _within_folded_angle(normal, neighbor_normal,
+                                         cosine_limit)):
+                selected.add(neighbor_id)
+                stack.append(neighbor_id)
+
+    return selected, len(boundary), len(selected) - initial_count
+
+
+def by_face(dlg=None):
+    """Grow the current visible selection using a new folded-angle limit."""
+    # Keep this read inline. JDG compiles button callbacks in an isolated
+    # namespace and can omit a small helper function even when it exists in
+    # the source module, producing NameError at click time.
+    try:
+        selected_cursor = str(JPT.GetSelectedElemsCr() or "")
+        start_ids = {
+            int(value) for value in
+            re.findall(r"11:(\d+)", selected_cursor)
+        }
+    except Exception as error:
+        _log("Cannot read Jupiter selection: {0}".format(error))
+        return
+    if not start_ids:
+        _log("Select one or more visible 2D elements first.")
+        return
+    try:
+        angle = float(dlg.get_item_text("TbAngle"))
+    except Exception:
+        _log("Angle must be a number from 0 to 180 degrees.")
+        return
+    if not 0.0 <= angle <= 180.0:
+        _log("Angle must be from 0 to 180 degrees.")
+        return
+
+    started = time.perf_counter()
+    try:
+        build_started = time.perf_counter()
+        (visible_elements, element_nodes, node_elements, graph_reused,
+         visible_count) = _prepare_visible_edge_graph(start_ids)
+        build_seconds = time.perf_counter() - build_started
+        search_started = time.perf_counter()
+        face_ids, boundary_count, added_count = _expand_from_selection(
+            start_ids, angle, visible_elements, element_nodes, node_elements)
+        search_seconds = time.perf_counter() - search_started
+    except Exception as error:
+        _log("By Face stopped safely: {0}. Selection was not changed."
+             .format(error))
+        return
+
+    if not face_ids:
+        _log("Selected elements are hidden or unavailable.")
+        return
+
+    select_seconds = 0.0
+    if face_ids != start_ids:
+        select_started = time.perf_counter()
+        try:
+            result = JPT.SelectArrayCursor(_make_cursor(sorted(face_ids)))
+            if result is False:
+                raise RuntimeError("Jupiter rejected the selection cursor")
+        except Exception as error:
+            _log("By Face selection failed: {0}".format(error))
+            return
+        select_seconds = time.perf_counter() - select_started
+    _log(
+        "Complete: {0} elements (+{1}) / {2:.2f} s (boundary {3}, "
+        "visible {4}, graph {5:.2f} s [{6}], search {7:.2f} s, "
+        "select {8:.2f} s, angle {9:g})."
+        .format(len(face_ids), added_count, time.perf_counter() - started,
+                boundary_count, visible_count,
+                build_seconds, "cache" if graph_reused else "new",
+                search_seconds, select_seconds, angle))
+
+
+def main():
+    dlg = JDGCreator(title="By Face", resizable=False)
+    actions = ByFaceSelectionVisibilityActions(
+        JPT, _log, _clear_all_caches)
+    # This is Jupiter's real Selection list, as used by Surface Split v2.4.
+    # JDG owns its Element/Clear/count/list controls and keeps them synchronized.
+    dlg.add_2delement_selector()
+    dlg.add_hlayout(name="LAngle", layout="Window")
+    dlg.add_label(name="LblAngle", text="Angle (deg):",
+                  width=90, layout="LAngle")
+    dlg.add_textbox(name="TbAngle", text=str(_DEFAULT_ANGLE_DEG),
+                    width=80, type="double", layout="LAngle")
+    dlg.add_button(name="BtnFace", text="By Face",
+                   width=180, height=30, layout="Window")
+    add_selection_action_controls(dlg, revert_text="Revert")
+    # Public JDG has no documented hook that can replace the selector's own
+    # Clear before it runs. This explicit fast path uses Jupiter's native
+    # Delete All Items equivalent. By Face stores no selection seed, so the
+    # next action starts from Jupiter's now-empty selection.
+    dlg.add_button(name="BtnFastClear", text="Clear All (Fast)",
+                   width=180, height=26, layout="Window")
+    dlg.on_button_clicked(name="BtnFace", callfunc=by_face)
+    bind_selection_action_controls(dlg, actions)
+    dlg.on_button_clicked(name="BtnFastClear", callfunc=_clear_selection)
+    dlg.on_dlg_ok(callfunc=lambda d: None)
+    # Keep the same ordering as Surface Split v2.4.
+    _activate_element_selector()
+    dlg.generate_window()
+
+
+if __name__ == "__main__":
+    main()
