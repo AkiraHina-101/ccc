@@ -1,1 +1,221 @@
-=IFERROR(LET(d,FILTER(selObData,(INDEX(selObData,0,5)=1)*(INDEX(selObData,0,1)=CONFIG!$A$22)*LISTS!$C$2*chkOB),XLOOKUP(obFreqInput,INDEX(d,0,9),INDEX(d,0,12),NA(),0)),NA())
+"""One-ring Grow Selection for TechnoStar Jupiter-Pre 5.0.4."""
+
+from pyjdg import *
+import ctypes
+import importlib
+import os
+import re
+import sys
+
+
+def _resolve_actions_dir():
+    filename = "selection_visibility_actions_psj.py"
+    candidates = [
+        os.environ.get("PSJ_FUNCTION_ADDITIONAL_ROOT", ""),
+        r"C:\Users\TechnoStar\Downloads\03-Developer\01-PSJ\04-FUNCTION_ADDITIONAL",
+        os.getcwd(),
+    ] + [path for path in sys.path if path]
+    for directory in candidates:
+        if directory and os.path.isfile(os.path.join(directory, filename)):
+            return os.path.abspath(directory)
+    raise RuntimeError("Cannot find " + filename)
+
+
+_TOOL_DIR = _resolve_actions_dir()
+if _TOOL_DIR not in sys.path:
+    sys.path.insert(0, _TOOL_DIR)
+import selection_visibility_actions_psj as _selection_actions
+_selection_actions = importlib.reload(_selection_actions)
+SelectionVisibilityActions = _selection_actions.SelectionVisibilityActions
+add_selection_action_controls = (
+    _selection_actions.add_selection_action_controls)
+bind_selection_action_controls = (
+    _selection_actions.bind_selection_action_controls)
+del _selection_actions
+del _resolve_actions_dir
+
+
+_selected_ids = set()
+_frontier_ids = set()
+_root_id = None
+_ring = 0
+_exhausted = False
+
+_ELEM_CURSOR_PATTERN = re.compile(r"11:(\d+)")
+
+
+def _notify(message):
+    """Log only; never open a modal message box."""
+    print("[ByAdjacent] " + message)
+
+
+def _read_element_ids(cursor):
+    if cursor is None:
+        return set()
+    return {int(value) for value in _ELEM_CURSOR_PATTERN.findall(str(cursor))}
+
+
+def _make_cursor(element_ids):
+    return "[" + ", ".join(
+        "11:{0}".format(element_id) for element_id in sorted(element_ids)
+    ) + "]"
+
+
+def _clear_cache():
+    global _root_id, _ring, _exhausted
+
+    _selected_ids.clear()
+    _frontier_ids.clear()
+    _root_id = None
+    _ring = 0
+    _exhausted = False
+
+
+def _set_root(root_id):
+    global _root_id, _ring, _exhausted
+
+    _selected_ids.clear()
+    _selected_ids.add(root_id)
+    _frontier_ids.clear()
+    _frontier_ids.add(root_id)
+    _root_id = root_id
+    _ring = 0
+    _exhausted = False
+    print("[ByAdjacent] Root element: {0}".format(root_id))
+
+
+def _read_selected_single_id():
+    try:
+        cursor = str(JPT.GetSelectedElemsCr() or "")
+    except Exception as error:
+        _notify("Cannot read Jupiter selection: {0}".format(error))
+        return None
+    if cursor.count("11:") != 1:
+        return None
+    match = _ELEM_CURSOR_PATTERN.search(cursor)
+    return int(match.group(1)) if match else None
+
+
+def _clear_selection(dlg):
+    try:
+        JPT.ClearAllSelection()
+    except Exception as error:
+        _notify("Native Clear All failed: {0}".format(error))
+        return
+    _clear_cache()
+    print("[ByAdjacent] Native Clear All complete; cache cleared.")
+
+
+def _activate_element_selector():
+    """Match Surface Split v2.4: put Jupiter in element-pick mode."""
+    try:
+        ctypes.windll.user32.keybd_event(0x20, 0, 0, 0)
+        ctypes.windll.user32.keybd_event(0x20, 0, 2, 0)
+    except Exception as error:
+        _notify("Could not activate element selection: {0}".format(error))
+
+
+def _cursor_contains(cursor, element_id):
+    if element_id is None:
+        return False
+    return re.search(r"11:{0}(?!\d)".format(element_id), cursor) is not None
+
+
+def _cache_matches_selection(cursor, live_count):
+    if not _selected_ids or live_count != len(_selected_ids):
+        return False
+    if not _cursor_contains(cursor, _root_id):
+        return False
+    if _frontier_ids and not _cursor_contains(
+            cursor, next(iter(_frontier_ids))):
+        return False
+    return True
+
+
+def _sync_cache_with_selection(dlg=None):
+    """Reset stale state after native Delete All or a manual seed change."""
+    try:
+        cursor = str(JPT.GetSelectedElemsCr() or "")
+    except Exception as error:
+        _notify("Cannot read Jupiter selection: {0}".format(error))
+        return False
+
+    # Count and sentinel searches stay in string operations. This avoids
+    # creating a DElem object for every selected element on every click.
+    live_count = cursor.count("11:")
+    if _cache_matches_selection(cursor, live_count):
+        return True
+
+    had_cache = bool(_selected_ids)
+    _clear_cache()
+    if had_cache:
+        print("[ByAdjacent] Selection changed; cache cleared.")
+
+    if live_count == 1:
+        match = _ELEM_CURSOR_PATTERN.search(cursor)
+        if match:
+            root_id = int(match.group(1))
+            _set_root(root_id)
+            return True
+
+    _notify("Select exactly one 2D element (currently {0}).".format(
+        live_count))
+    return False
+
+
+def by_adjacent(dlg=None):
+    """Add exactly one native adjacency layer to the current selection."""
+    global _frontier_ids, _ring, _exhausted
+
+    if not _sync_cache_with_selection(dlg):
+        return
+
+    if _exhausted:
+        _notify("Fully grown: {0} elements / {1} rings.".format(
+            len(_selected_ids), _ring))
+        return
+
+    command = "Geom_ShowAdjacent_Elements(0, 0, 1, 0, {0}, [])".format(
+        _make_cursor(_frontier_ids))
+
+    try:
+        adjacent_ids = _read_element_ids(JPT.Exec(command))
+        new_ids = adjacent_ids - _selected_ids
+        if new_ids:
+            _selected_ids.update(new_ids)
+            _frontier_ids = new_ids
+            _ring += 1
+    except Exception as error:
+        _notify("By Adjacent failed: {0}".format(error))
+        return
+
+    if not new_ids:
+        _exhausted = True
+        _notify("Fully grown: no adjacent elements remain "
+                "({0} elements / {1} rings).".format(
+                    len(_selected_ids), _ring))
+        return
+
+    print("[ByAdjacent] Ring {0}: +{1}; total={2}".format(
+        _ring, len(new_ids), len(_selected_ids)))
+
+
+def main():
+    dlg = JDGCreator(title="By Adjacent", resizable=False)
+    actions = SelectionVisibilityActions(JPT, _notify, _clear_cache)
+    dlg.add_2delement_selector()
+    dlg.add_button(name="BtnAdjacent", text="By Adjacent",
+                   width=180, height=30, layout="Window")
+    add_selection_action_controls(dlg)
+    dlg.add_button(name="BtnFastClear", text="Clear All (Fast)",
+                   width=180, height=26, layout="Window")
+    dlg.on_button_clicked(name="BtnAdjacent", callfunc=by_adjacent)
+    bind_selection_action_controls(dlg, actions)
+    dlg.on_button_clicked(name="BtnFastClear", callfunc=_clear_selection)
+    dlg.on_dlg_ok(callfunc=lambda d: None)
+    _activate_element_selector()
+    dlg.generate_window()
+
+
+if __name__ == "__main__":
+    main()
