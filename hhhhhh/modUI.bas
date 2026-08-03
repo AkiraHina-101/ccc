@@ -153,12 +153,42 @@ Public Sub RefreshSeriesLineStyles()
     modSPL.RefreshSPLSeriesRanges
     modOverall.RefreshOverallSeriesRanges
     ApplySeriesLineStyles
+    RefreshModelButtonColors
     MsgBox "Series, categories and line styles updated.", _
            vbInformation, "CONFIG"
     Exit Sub
 fail:
     MsgBox Err.Description, vbExclamation, "Set series lines"
 End Sub
+
+' Refreshes every existing Model button from its CONFIG NB color.
+' Cap nhat moi nut Model hien co theo mau NB trong CONFIG.
+Public Sub RefreshModelButtonColors()
+    Dim ws As Worksheet
+    Dim modelIndex As Long, visible As Boolean
+
+    For Each ws In ThisWorkbook.Worksheets(Array("SPL", "OVERALL"))
+        For modelIndex = 1 To MAX_MODEL_COUNT
+            If ShapeExists(ws, "tgModel_" & modelIndex) Then
+                visible = StateIsEnabled(ResultModelStateCell( _
+                          ws, modelIndex).Value2)
+                SetModelButtonColor ws, modelIndex, visible
+            End If
+        Next modelIndex
+    Next ws
+End Sub
+
+' Returns True when one named Shape exists on the worksheet.
+' Tra ve True khi Shape co ten ton tai tren worksheet.
+Private Function ShapeExists(ByVal ws As Worksheet, _
+                             ByVal shapeName As String) As Boolean
+    Dim targetShape As Shape
+
+    On Error Resume Next
+    Set targetShape = ws.Shapes(shapeName)
+    On Error GoTo 0
+    ShapeExists = Not targetShape Is Nothing
+End Function
 
 ' Testable worker without a dialog; the Shape calls the zero-argument entry above.
 Public Sub ApplySeriesLineStyles()
