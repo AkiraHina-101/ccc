@@ -278,7 +278,7 @@ Private Sub ValidateCsvHeader(ByVal headerText As String, _
                               ByVal filePath As String)
     Dim headers() As String
 
-    headers = Split(headerText, ",")
+    headers = SplitDataLine(headerText)
 
     If bandName = "NB" Then
         If UBound(headers) <> 4 Or _
@@ -368,7 +368,7 @@ Private Sub ReadNarrowbandFile(ByVal filePath As String, _
 
     For lineIndex = 1 To UBound(fileLines)
         If Len(Trim$(fileLines(lineIndex))) > 0 Then
-            values = Split(Trim$(fileLines(lineIndex)), ",")
+            values = SplitDataLine(Trim$(fileLines(lineIndex)))
             If UBound(values) <> 4 Then
                 Err.Raise vbObjectError + 111, "ReadNarrowbandFile", _
                           "NB row must contain 5 columns: " & filePath
@@ -400,7 +400,7 @@ Private Sub ReadOctavebandFile(ByVal filePath As String, _
 
     For lineIndex = 1 To UBound(fileLines)
         If Len(Trim$(fileLines(lineIndex))) > 0 Then
-            values = Split(Trim$(fileLines(lineIndex)), ",")
+            values = SplitDataLine(Trim$(fileLines(lineIndex)))
             If UBound(values) <> 6 Then
                 Err.Raise vbObjectError + 112, "ReadOctavebandFile", _
                           "OB row must contain 7 columns: " & filePath
@@ -421,6 +421,19 @@ Private Sub ReadOctavebandFile(ByVal filePath As String, _
         End If
     Next lineIndex
 End Sub
+
+' Splits one data line using the delimiter written by the CSV exporter.
+Private Function SplitDataLine(ByVal lineText As String) As String()
+    If InStr(1, lineText, ",", vbBinaryCompare) > 0 Then
+        SplitDataLine = Split(lineText, ",")
+    ElseIf InStr(1, lineText, vbTab, vbBinaryCompare) > 0 Then
+        SplitDataLine = Split(lineText, vbTab)
+    ElseIf InStr(1, lineText, ";", vbBinaryCompare) > 0 Then
+        SplitDataLine = Split(lineText, ";")
+    Else
+        SplitDataLine = Split(lineText, ",")
+    End If
+End Function
 
 ' Replaces the RAW_NB header and data with the current NB import.
 Private Sub WriteNarrowbandData()
