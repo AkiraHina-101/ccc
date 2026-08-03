@@ -1,0 +1,79 @@
+Option Explicit
+' SPL is fixed to dBA; edits in the small scale block update all chart axes.
+Private Sub Worksheet_Change(ByVal Target As Range)
+    Dim scaleCells As Range, selectionCells As Range
+    On Error GoTo done
+    Set selectionCells = Me.Range("D2:D3")
+    Set scaleCells = Union(Me.Range("axXmin").Resize(4, 1), _
+                           Me.Range("axYmin").Resize(4, 1))
+    If Not Intersect(Target, selectionCells) Is Nothing Then
+        ' Recalculate the SPL result area even when Excel is in Manual
+        ' calculation mode.  D2/D3 drive every NB/OB FILTER formula.
+        Application.EnableEvents = False
+        If Not Intersect(Target, Me.Range("D2")) Is Nothing Then _
+            RefreshRpmForSelectedLoad
+        Me.Range(Me.Cells(SPL_DATA_FIRST_ROW, SPL_DATA_FIRST_COL), _
+                 Me.Cells(SPL_DATA_LAST_ROW, SPL_DATA_FIRST_COL + _
+                          MAX_MODEL_COUNT * SPL_SLOT_WIDTH * 2 + _
+                          SPL_BLOCK_GAP_COLS - 1)).Calculate
+    ElseIf Not Intersect(Target, scaleCells) Is Nothing Then
+        Application.EnableEvents = False
+        ApplyConfiguredAxes
+    End If
+done:
+    Application.EnableEvents = True
+End Sub
+
+' Applies the SPL scale cells to every SPL result chart.
+' Ap dung cac o scale SPL cho cac chart ket qua SPL.
+Private Sub ApplyConfiguredAxes()
+    Dim co As ChartObject
+
+    For Each co In Me.ChartObjects
+        If Left$(co.Name, 6) = "chMic_" Then
+            SetAxis co.Chart.Axes(xlCategory), _
+                    Me.Range("axXmin"), Me.Range("axXmax"), _
+                    Me.Range("axXmajor"), Me.Range("axXminor")
+            SetAxis co.Chart.Axes(xlValue), _
+                    Me.Range("axYmin"), Me.Range("axYmax"), _
+                    Me.Range("axYmajor"), Me.Range("axYminor")
+        End If
+    Next co
+End Sub
+
+' Applies one minimum, maximum, major and minor axis configuration.
+' Ap dung cau hinh min, max, major va minor cho mot truc.
+Private Sub SetAxis(ByVal targetAxis As Axis, ByVal minimumCell As Range, _
+                    ByVal maximumCell As Range, ByVal majorCell As Range, _
+                    ByVal minorCell As Range)
+    On Error Resume Next
+    targetAxis.MinimumScaleIsAuto = True
+    targetAxis.MaximumScaleIsAuto = True
+    targetAxis.MajorUnitIsAuto = True
+    targetAxis.MinorUnitIsAuto = True
+    If IsNumeric(minimumCell.Value2) And Len(minimumCell.Value2 & "") > 0 Then _
+        targetAxis.MinimumScale = minimumCell.Value2
+    If IsNumeric(maximumCell.Value2) And Len(maximumCell.Value2 & "") > 0 Then _
+        targetAxis.MaximumScale = maximumCell.Value2
+    If IsNumeric(majorCell.Value2) And majorCell.Value2 > 0 Then _
+        targetAxis.MajorUnit = majorCell.Value2
+    If IsNumeric(minorCell.Value2) And minorCell.Value2 > 0 Then _
+        targetAxis.MinorUnit = minorCell.Value2
+    On Error GoTo 0
+End Sub
+
+Private Sub RefreshRpmForSelectedLoad()
+    Dim cfg As Worksheet, rpmList As Range, currentRpm As Variant
+
+    Set cfg = ThisWorkbook.Worksheets("CONFIG")
+    currentRpm = Me.Range("D3").Value2
+    ' BB1 is the RPM spill list filtered by the selected SPL Load.
+    cfg.Range("BB1").Calculate
+    Set rpmList = cfg.Range("rpmCurrentList")
+    ' Keep a still-valid RPM; otherwise select the first RPM for the new Load.
+    If IsError(Application.Match(currentRpm, rpmList, 0)) And _
+       Len(Trim$(CStr(rpmList.Cells(1, 1).Value2))) > 0 Then _
+        Me.Range("D3").Value2 = rpmList.Cells(1, 1).Value2
+End Sub
+
+
