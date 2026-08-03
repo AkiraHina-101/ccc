@@ -15,6 +15,8 @@ Private mNbMicHeader1 As String, mNbMicHeader2 As String
 Private mNbMicHeader3 As String, mNbMicHeader4 As String
 Private mObMicHeader1 As String, mObMicHeader2 As String
 Private mObMicHeader3 As String, mObMicHeader4 As String
+Private mAcceptedNbMicHeaders As Object, mAcceptedObMicHeaders As Object
+Private mSilentImport As Boolean
 
 ' Appends the selected CSV files to the FILES list.
 Public Sub SelectCsvFiles()
@@ -80,6 +82,7 @@ Public Sub ImportAll(Optional ByVal silent As Boolean = False)
 
     previousEvents = Application.EnableEvents
     previousScreenUpdating = Application.ScreenUpdating
+    mSilentImport = silent
 
     UpdateFilesStatus "importing", Empty, "Validating CSV files."
 
@@ -170,6 +173,10 @@ Private Sub ValidateFiles()
 
     Set models = CreateObject("Scripting.Dictionary")
     models.CompareMode = vbTextCompare
+    Set mAcceptedNbMicHeaders = CreateObject("Scripting.Dictionary")
+    mAcceptedNbMicHeaders.CompareMode = vbTextCompare
+    Set mAcceptedObMicHeaders = CreateObject("Scripting.Dictionary")
+    mAcceptedObMicHeaders.CompareMode = vbTextCompare
 
     mNbMicHeader1 = "": mNbMicHeader2 = ""
     mNbMicHeader3 = "": mNbMicHeader4 = ""
@@ -334,12 +341,10 @@ Private Sub ValidateCsvHeader(ByVal headerText As String, _
             mNbMicHeader2 = Trim$(headers(2))
             mNbMicHeader3 = Trim$(headers(3))
             mNbMicHeader4 = Trim$(headers(4))
-        ElseIf StrComp(mNbMicHeader1, Trim$(headers(1)), vbTextCompare) <> 0 Or _
-               StrComp(mNbMicHeader2, Trim$(headers(2)), vbTextCompare) <> 0 Or _
-               StrComp(mNbMicHeader3, Trim$(headers(3)), vbTextCompare) <> 0 Or _
-               StrComp(mNbMicHeader4, Trim$(headers(4)), vbTextCompare) <> 0 Then
-            Err.Raise vbObjectError + 114, "ValidateCsvHeader", _
-                      "NB microphone headers do not match: " & filePath
+            mAcceptedNbMicHeaders(MicrophoneHeaderSignature(headers, 1)) = True
+        Else
+            ConfirmMicrophoneMapping bandName, headers, 1, _
+                mNbMicHeader1, mNbMicHeader2, mNbMicHeader3, mNbMicHeader4
         End If
     Else
         If UBound(headers) = 6 Then
@@ -360,15 +365,70 @@ Private Sub ValidateCsvHeader(ByVal headerText As String, _
             mObMicHeader2 = Trim$(headers(4))
             mObMicHeader3 = Trim$(headers(5))
             mObMicHeader4 = Trim$(headers(6))
-        ElseIf StrComp(mObMicHeader1, Trim$(headers(3)), vbTextCompare) <> 0 Or _
-               StrComp(mObMicHeader2, Trim$(headers(4)), vbTextCompare) <> 0 Or _
-               StrComp(mObMicHeader3, Trim$(headers(5)), vbTextCompare) <> 0 Or _
-               StrComp(mObMicHeader4, Trim$(headers(6)), vbTextCompare) <> 0 Then
-            Err.Raise vbObjectError + 114, "ValidateCsvHeader", _
-                      "OB microphone headers do not match: " & filePath
+            mAcceptedObMicHeaders(MicrophoneHeaderSignature(headers, 3)) = True
+        Else
+            ConfirmMicrophoneMapping bandName, headers, 3, _
+                mObMicHeader1, mObMicHeader2, mObMicHeader3, mObMicHeader4
         End If
     End If
 End Sub
+
+' Confirms one new four-channel microphone ID mapping by column position.
+' Xac nhan mot bo ID microphone moi theo dung vi tri bon cot.
+Private Sub ConfirmMicrophoneMapping(ByVal bandName As String, _
+                                     ByRef headers() As String, _
+                                     ByVal firstHeaderIndex As Long, _
+                                     ByVal target1 As String, _
+                                     ByVal target2 As String, _
+                                     ByVal target3 As String, _
+                                     ByVal target4 As String)
+    Dim acceptedMappings As Object
+    Dim signature As String, mappingText As String
+    Dim answer As VbMsgBoxResult
+
+    signature = MicrophoneHeaderSignature(headers, firstHeaderIndex)
+    If bandName = "NB" Then
+        Set acceptedMappings = mAcceptedNbMicHeaders
+    Else
+        Set acceptedMappings = mAcceptedObMicHeaders
+    End If
+    If acceptedMappings.Exists(signature) Then Exit Sub
+
+    mappingText = _
+        Trim$(headers(firstHeaderIndex)) & "  ->  " & target1 & vbCrLf & _
+        Trim$(headers(firstHeaderIndex + 1)) & "  ->  " & target2 & vbCrLf & _
+        Trim$(headers(firstHeaderIndex + 2)) & "  ->  " & target3 & vbCrLf & _
+        Trim$(headers(firstHeaderIndex + 3)) & "  ->  " & target4
+
+    If mSilentImport Then
+        Err.Raise vbObjectError + 114, "ValidateCsvHeader", _
+                  bandName & " microphone IDs require confirmation:" & _
+                  vbCrLf & mappingText
+    End If
+
+    answer = MsgBox(bandName & " microphone IDs are different." & _
+             vbCrLf & vbCrLf & mappingText & vbCrLf & vbCrLf & _
+             "Map these four channels by position and continue import?", _
+             vbYesNo + vbQuestion + vbDefaultButton2, _
+             "Confirm microphone mapping")
+    If answer <> vbYes Then
+        Err.Raise vbObjectError + 115, "ValidateCsvHeader", _
+                  "Import cancelled because the microphone mapping " & _
+                  "was not accepted."
+    End If
+    acceptedMappings(signature) = True
+End Sub
+
+' Builds a case-insensitive key for four adjacent microphone headers.
+' Tao khoa cho bon header microphone lien tiep.
+Private Function MicrophoneHeaderSignature(ByRef headers() As String, _
+                                           ByVal firstHeaderIndex As Long) As String
+    MicrophoneHeaderSignature = _
+        Trim$(headers(firstHeaderIndex)) & vbTab & _
+        Trim$(headers(firstHeaderIndex + 1)) & vbTab & _
+        Trim$(headers(firstHeaderIndex + 2)) & vbTab & _
+        Trim$(headers(firstHeaderIndex + 3))
+End Function
 
 ' Prints safe structural details when a CSV header is rejected.
 Private Sub DebugHeaderFailure(ByVal bandName As String, _
