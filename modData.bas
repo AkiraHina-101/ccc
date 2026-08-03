@@ -1,3 +1,4 @@
+Attribute VB_Name = "modData"
 Option Explicit
 
 ' CSV import and dashboard refresh.
