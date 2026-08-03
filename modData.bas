@@ -472,15 +472,33 @@ End Sub
 
 ' Splits one data line using the delimiter written by the CSV exporter.
 Private Function SplitDataLine(ByVal lineText As String) As String()
+    Dim values() As String
+    Dim valueIndex As Long
+
     If InStr(1, lineText, ",", vbBinaryCompare) > 0 Then
-        SplitDataLine = Split(lineText, ",")
+        values = Split(lineText, ",")
     ElseIf InStr(1, lineText, vbTab, vbBinaryCompare) > 0 Then
-        SplitDataLine = Split(lineText, vbTab)
+        values = Split(lineText, vbTab)
     ElseIf InStr(1, lineText, ";", vbBinaryCompare) > 0 Then
-        SplitDataLine = Split(lineText, ";")
+        values = Split(lineText, ";")
     Else
-        SplitDataLine = Split(lineText, ",")
+        values = Split(lineText, ",")
     End If
+
+    For valueIndex = LBound(values) To UBound(values)
+        values(valueIndex) = Trim$(values(valueIndex))
+        If Len(values(valueIndex)) >= 2 Then
+            If Left$(values(valueIndex), 1) = Chr$(34) And _
+               Right$(values(valueIndex), 1) = Chr$(34) Then
+                values(valueIndex) = _
+                    Mid$(values(valueIndex), 2, Len(values(valueIndex)) - 2)
+                values(valueIndex) = Replace(values(valueIndex), _
+                                             Chr$(34) & Chr$(34), Chr$(34))
+            End If
+        End If
+    Next valueIndex
+
+    SplitDataLine = values
 End Function
 
 ' Replaces the RAW_NB header and data with the current NB import.
