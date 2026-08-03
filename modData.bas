@@ -277,12 +277,18 @@ Private Sub ValidateCsvHeader(ByVal headerText As String, _
                               ByVal bandName As String, _
                               ByVal filePath As String)
     Dim headers() As String
+    Dim validHeader As Boolean
 
     headers = SplitDataLine(headerText)
 
     If bandName = "NB" Then
-        If UBound(headers) <> 4 Or _
-           StrComp(Trim$(headers(0)), "Frequency [Hz]", vbTextCompare) <> 0 Then
+        If UBound(headers) = 4 Then
+            validHeader = _
+                StrComp(Trim$(headers(0)), "Frequency [Hz]", vbTextCompare) = 0
+        End If
+
+        If Not validHeader Then
+            DebugHeaderFailure bandName, headerText, headers
             Err.Raise vbObjectError + 110, "ValidateCsvHeader", _
                       "Unexpected NB header: " & filePath
         End If
@@ -300,10 +306,15 @@ Private Sub ValidateCsvHeader(ByVal headerText As String, _
                       "NB microphone headers do not match: " & filePath
         End If
     Else
-        If UBound(headers) <> 6 Or _
-           StrComp(Trim$(headers(0)), "f_low", vbTextCompare) <> 0 Or _
-           StrComp(Trim$(headers(1)), "f_high", vbTextCompare) <> 0 Or _
-           StrComp(Trim$(headers(2)), "f_center", vbTextCompare) <> 0 Then
+        If UBound(headers) = 6 Then
+            validHeader = _
+                StrComp(Trim$(headers(0)), "f_low", vbTextCompare) = 0 And _
+                StrComp(Trim$(headers(1)), "f_high", vbTextCompare) = 0 And _
+                StrComp(Trim$(headers(2)), "f_center", vbTextCompare) = 0
+        End If
+
+        If Not validHeader Then
+            DebugHeaderFailure bandName, headerText, headers
             Err.Raise vbObjectError + 110, "ValidateCsvHeader", _
                       "Unexpected OB header: " & filePath
         End If
@@ -321,6 +332,43 @@ Private Sub ValidateCsvHeader(ByVal headerText As String, _
                       "OB microphone headers do not match: " & filePath
         End If
     End If
+End Sub
+
+' Prints safe structural details when a CSV header is rejected.
+Private Sub DebugHeaderFailure(ByVal bandName As String, _
+                               ByVal headerText As String, _
+                               ByRef headers() As String)
+    Dim characterCodes As String, delimiterName As String
+    Dim characterIndex As Long, fieldIndex As Long, lastField As Long
+
+    If InStr(1, headerText, ",", vbBinaryCompare) > 0 Then
+        delimiterName = "comma"
+    ElseIf InStr(1, headerText, vbTab, vbBinaryCompare) > 0 Then
+        delimiterName = "tab"
+    ElseIf InStr(1, headerText, ";", vbBinaryCompare) > 0 Then
+        delimiterName = "semicolon"
+    Else
+        delimiterName = "none"
+    End If
+
+    For characterIndex = 1 To WorksheetFunction.Min(20, Len(headerText))
+        If Len(characterCodes) > 0 Then characterCodes = characterCodes & ","
+        characterCodes = characterCodes & _
+                         CStr(AscW(Mid$(headerText, characterIndex, 1)) And &HFFFF&)
+    Next characterIndex
+
+    Debug.Print "CSV HEADER DEBUG"
+    Debug.Print "Band=" & bandName
+    Debug.Print "Length=" & Len(headerText)
+    Debug.Print "Delimiter=" & delimiterName
+    Debug.Print "Column count=" & CStr(UBound(headers) - LBound(headers) + 1)
+    Debug.Print "First character codes=" & characterCodes
+
+    lastField = WorksheetFunction.Min(UBound(headers), 2)
+    For fieldIndex = 0 To lastField
+        Debug.Print "Field " & CStr(fieldIndex + 1) & "=[" & headers(fieldIndex) & "]"
+    Next fieldIndex
+    Debug.Print "END CSV HEADER DEBUG"
 End Sub
 
 ' Reads every validated CSV into the NB and OB arrays in memory.
