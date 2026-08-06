@@ -35,6 +35,20 @@ Public Function ResultModelStateCell(ByVal ws As Worksheet, _
     End If
 End Function
 
+' Returns the cell that displays one Model name beside its toggle button.
+' Tra ve o hien ten Model nam canh nut bat/tat.
+Public Function ResultModelLabelCell(ByVal ws As Worksheet, _
+                                     ByVal modelIndex As Long) As Range
+    If modelIndex < 1 Or modelIndex > MAX_MODEL_COUNT Then _
+        Err.Raise vbObjectError + 834, "ResultModelLabelCell", _
+                  "Unsupported Model index: " & modelIndex
+    If modelIndex <= 5 Then
+        Set ResultModelLabelCell = ws.Cells(modelIndex + 1, "W")
+    Else
+        Set ResultModelLabelCell = ws.Cells(modelIndex - 4, "AG")
+    End If
+End Function
+
 ' Returns True when a stored toggle state is enabled.
 ' Tra ve True khi trang thai toggle dang bat.
 Public Function StateIsEnabled(ByVal stateValue As Variant) As Boolean
@@ -159,6 +173,26 @@ Public Sub SetModelButtonColor(ByVal ws As Worksheet, _
     activeColor = ThisWorkbook.Worksheets("CONFIG").Range("hdrModels").Offset( _
                   modelIndex, 1).Interior.Color
     SetToggleButtonColor ws, "tgModel_" & modelIndex, visible, activeColor
+    SetModelLabelColor ws, modelIndex
+End Sub
+
+' Keeps the nearby Model-name text synchronized with its CONFIG color.
+' Dong bo mau chu ten Model canh nut voi mau trong CONFIG.
+Public Sub SetModelLabelColor(ByVal ws As Worksheet, _
+                              ByVal modelIndex As Long)
+    Dim config As Worksheet
+    Dim modelName As String, labelColor As Long
+
+    Set config = ThisWorkbook.Worksheets("CONFIG")
+    modelName = Trim$(CStr(config.Range("hdrModels").Offset( _
+                modelIndex, 0).Value2))
+    If Len(modelName) > 0 Then
+        labelColor = config.Range("hdrModels").Offset( _
+                     modelIndex, 1).Interior.Color
+    Else
+        labelColor = RGB(160, 166, 172)
+    End If
+    ResultModelLabelCell(ws, modelIndex).Font.Color = labelColor
 End Sub
 
 ' Shows or hides every valid series and changes the button text.
@@ -312,6 +346,8 @@ Public Sub RefreshModelButtonColors()
                 visible = StateIsEnabled(ResultModelStateCell( _
                           ws, modelIndex).Value2)
                 SetModelButtonColor ws, modelIndex, visible
+            Else
+                SetModelLabelColor ws, modelIndex
             End If
         Next modelIndex
     Next ws
@@ -337,6 +373,7 @@ Public Sub ApplySeriesLineStyles()
     Dim config As Worksheet
     Dim seriesIndex As Long, modelIndex As Long, styleOffset As Long
     Dim seriesPerModel As Long, modelOrdinal As Long
+    Dim updateSeriesFill As Boolean
     Dim debugContext As String
 
     On Error GoTo fail
@@ -357,6 +394,9 @@ Public Sub ApplySeriesLineStyles()
         For Each chartName In chartNames
             debugContext = "Sheet=" & ws.Name & "; Chart=" & CStr(chartName)
             Debug.Print "STYLE CHART START", debugContext
+            updateSeriesFill = (ws.Name = "OVERALL" And _
+                                Left$(CStr(chartName), 15) = _
+                                "chOverallSingle")
             Set chartItem = ws.ChartObjects(CStr(chartName)).Chart
             Set seriesList = Nothing
             On Error Resume Next
@@ -393,7 +433,8 @@ Public Sub ApplySeriesLineStyles()
                         seriesItem.Name = modelName
                     End If
                 End If
-                ApplyOneLineStyle seriesItem, modelName, styleOffset
+                ApplyOneLineStyle seriesItem, modelName, styleOffset, _
+                                  updateSeriesFill
             Next seriesItem
             Debug.Print "STYLE CHART SUCCESS", CStr(chartName)
         Next chartName
@@ -429,7 +470,8 @@ End Sub
 ' Finds the Model row and applies Color, Line and Weight only.
 Private Sub ApplyOneLineStyle(ByVal seriesItem As Series, _
                               ByVal modelName As String, _
-                              ByVal styleOffset As Long)
+                              ByVal styleOffset As Long, _
+                              Optional ByVal updateFill As Boolean = False)
     Dim config As Worksheet, modelCell As Range, styleCell As Range
     Dim dashValue As Variant, weightValue As Variant
     Dim currentProperty As String
@@ -476,6 +518,16 @@ Private Sub ApplyOneLineStyle(ByVal seriesItem As Series, _
             .Weight = CSng(weightValue)
         End If
     End With
+    If updateFill And _
+       styleCell.Interior.ColorIndex <> xlColorIndexNone Then
+        currentProperty = "Fill.ForeColor.RGB"
+        Debug.Print "    SET Fill Color", styleCell.Interior.Color
+        With seriesItem.Format.Fill
+            .Visible = msoTrue
+            .Solid
+            .ForeColor.RGB = styleCell.Interior.Color
+        End With
+    End If
     Debug.Print "  STYLE ITEM SUCCESS", modelName
     Exit Sub
 fail:
