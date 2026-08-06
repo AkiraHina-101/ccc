@@ -107,11 +107,13 @@ Private Sub RefreshOneOverallChart(ByVal ws As Worksheet, _
 
         currentProperty = "SeriesHasData"
         hasData = modUI.SeriesHasData(seriesItem)
+        Err.Clear
         currentProperty = "IsFiltered"
         Debug.Print "  OVERALL SET IsFiltered", _
                     "Visible=" & visible, "HasData=" & hasData
         seriesItem.IsFiltered = Not _
             (visible And hasData)
+        Err.Clear
         currentProperty = "Complete"
         Debug.Print "  OVERALL SERIES SUCCESS", debugContext
     Next seriesIndex

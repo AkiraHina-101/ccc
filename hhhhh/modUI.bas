@@ -228,11 +228,30 @@ End Sub
 
 ' Returns False for empty, all-error or zero-placeholder series.
 Public Function SeriesHasData(ByVal targetSeries As Series) As Boolean
-    On Error Resume Next
-    SeriesHasData = Application.Count(targetSeries.Values) > 0 And _
-                    (Application.Max(targetSeries.Values) <> 0 Or _
-                     Application.Min(targetSeries.Values) <> 0)
-    On Error GoTo 0
+    Dim seriesValues As Variant, oneValue As Variant
+
+    On Error GoTo noData
+    seriesValues = targetSeries.Values
+    If IsArray(seriesValues) Then
+        For Each oneValue In seriesValues
+            If Not IsError(oneValue) Then
+                If IsNumeric(oneValue) Then
+                    If CDbl(oneValue) <> 0 Then
+                        SeriesHasData = True
+                        Exit For
+                    End If
+                End If
+            End If
+        Next oneValue
+    ElseIf Not IsError(seriesValues) Then
+        If IsNumeric(seriesValues) Then _
+            SeriesHasData = (CDbl(seriesValues) <> 0)
+    End If
+    Err.Clear
+    Exit Function
+noData:
+    SeriesHasData = False
+    Err.Clear
 End Function
 
 ' Applies only CONFIG line properties to every result series.
