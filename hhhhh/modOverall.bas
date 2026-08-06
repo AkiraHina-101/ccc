@@ -44,7 +44,10 @@ Private Sub RefreshOneOverallChart(ByVal ws As Worksheet, _
     Dim valueColumn As Long, expectedSeriesCount As Long
     Dim modelName As String, visible As Boolean
     Dim seriesItem As Series
-    Dim debugContext As String
+    Dim xRange As Range, valueRange As Range
+    Dim hasData As Boolean
+    Dim debugContext As String, currentProperty As String
+    Dim xAddress As String, valueAddress As String
 
     On Error GoTo fail
     expectedSeriesCount = modUI.ConfiguredModelCount() * _
@@ -73,25 +76,54 @@ Private Sub RefreshOneOverallChart(ByVal ws As Worksheet, _
                       (modelIndex - 1) * 4 + chartIndex
         Set seriesItem = allSeries(seriesIndex)
 
-        If Len(modelName) > 0 Then seriesItem.Name = modelName
-        If singleRpm Then
-            seriesItem.XValues = ws.Range("AR32")
-            seriesItem.Values = ws.Cells(32, valueColumn)
-        Else
-            seriesItem.XValues = ws.Range(ws.Range("AR13"), _
-                                          ws.Cells(lastMultiRow, "AR"))
-            seriesItem.Values = ws.Range(ws.Cells(13, valueColumn), _
-                                         ws.Cells(lastMultiRow, valueColumn))
+        If Len(modelName) > 0 Then
+            currentProperty = "Name"
+            Debug.Print "  OVERALL SET Name", modelName
+            seriesItem.Name = modelName
         End If
+        If singleRpm Then
+            Set xRange = ws.Range("AR32")
+            Set valueRange = ws.Cells(32, valueColumn)
+        Else
+            Set xRange = ws.Range(ws.Range("AR13"), _
+                                  ws.Cells(lastMultiRow, "AR"))
+            Set valueRange = ws.Range(ws.Cells(13, valueColumn), _
+                                      ws.Cells(lastMultiRow, valueColumn))
+        End If
+        xAddress = xRange.Address(False, False)
+        valueAddress = valueRange.Address(False, False)
+
+        currentProperty = "XValues"
+        Debug.Print "  OVERALL SET XValues", _
+                    xAddress, _
+                    "Rows=" & xRange.Rows.Count
+        seriesItem.XValues = xRange
+
+        currentProperty = "Values"
+        Debug.Print "  OVERALL SET Values", _
+                    valueAddress, _
+                    "Rows=" & valueRange.Rows.Count
+        seriesItem.Values = valueRange
+
+        currentProperty = "SeriesHasData"
+        hasData = modUI.SeriesHasData(seriesItem)
+        currentProperty = "IsFiltered"
+        Debug.Print "  OVERALL SET IsFiltered", _
+                    "Visible=" & visible, "HasData=" & hasData
         seriesItem.IsFiltered = Not _
-            (visible And modUI.SeriesHasData(seriesItem))
+            (visible And hasData)
+        currentProperty = "Complete"
+        Debug.Print "  OVERALL SERIES SUCCESS", debugContext
     Next seriesIndex
     Exit Sub
 fail:
     Debug.Print "OVERALL RANGE FAILED", debugContext, _
-                Err.Number, Err.Description
+                "Property=" & currentProperty, Err.Number, Err.Description
     Err.Raise Err.Number, "RefreshOneOverallChart", _
-              debugContext & "; " & Err.Description
+              debugContext & "; Property=" & currentProperty & _
+              "; X=" & xAddress & _
+              "; Y=" & valueAddress & _
+              "; " & Err.Description
 End Sub
 
 ' Returns the last row of one spill, or the anchor row when there is no spill.
