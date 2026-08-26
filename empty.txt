@@ -1,5 +1,1 @@
-{F = window.simulationstep}
-{i1 = strchr(F,'=')+1}
-{i2 = strchr(F,'-')+1}
-{s1 = mid(F,0,i2)}
-{s1} Freq = {convert(mid(F,i1,strlen(F))),%.1f} Hz
+{convert(mid(window.simulationstep,strrchr(window.simulationstep, chr(61))+1,strlen(window.simulationstep))),%.1f} Hz
