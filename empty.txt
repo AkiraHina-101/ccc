@@ -1,24 +1,12 @@
-# File used to remember the last output directory
-set history_file "D:/HyperView_Custom/.last_gif_output_dir.txt"
-
-# Default output directory
-set initial_dir "D:/"
-
-# Load the previously used output directory
-if {[file exists $history_file]} {
-    set f [open $history_file r]
-    set saved_dir [string trim [read $f]]
-    close $f
-
-    if {[file isdirectory $saved_dir]} {
-        set initial_dir $saved_dir
-    }
+# Keep the last output directory during the current HyperView session
+if {![info exists ::HV_LastGifDir] || ![file isdirectory $::HV_LastGifDir]} {
+    set ::HV_LastGifDir [pwd]
 }
 
 # Open the Save dialog at the last used directory
 set outfile [tk_getSaveFile \
     -title "Save HyperView GIF" \
-    -initialdir $initial_dir \
+    -initialdir $::HV_LastGifDir \
     -defaultextension ".gif" \
     -filetypes {{"GIF Animation" {.gif}}}]
 
@@ -27,12 +15,8 @@ if {$outfile eq ""} {
     return
 }
 
-# Save the current output directory for the next run
-set output_dir [file dirname $outfile]
-
-set f [open $history_file w]
-puts $f $output_dir
-close $f
+# Remember the selected directory for the next run
+set ::HV_LastGifDir [file dirname $outfile]
 
 # Capture the full current HyperView content
 hwi OpenStack
