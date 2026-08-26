@@ -1,12 +1,30 @@
-# Keep the last output directory during the current HyperView session
+# Load HyperView post-processing query commands
+package require postquery
+
+# Get the current simulation title
+if {[catch {set simulation_title [::hwp::getCurrentSimulation -type name]}]} {
+    set simulation_title "HyperView_Capture"
+}
+
+# Use a fallback name if no simulation title is available
+if {[string trim $simulation_title] eq ""} {
+    set simulation_title "HyperView_Capture"
+}
+
+# Replace characters that are not valid in Windows file names
+regsub -all {[/\\:*?"<>|]} $simulation_title "_" safe_name
+set safe_name [string trim $safe_name " ."]
+
+# Remember the last output directory during the current HyperView session
 if {![info exists ::HV_LastGifDir] || ![file isdirectory $::HV_LastGifDir]} {
     set ::HV_LastGifDir [pwd]
 }
 
-# Open the Save dialog at the last used directory
+# Open the Save dialog with the simulation title as the default file name
 set outfile [tk_getSaveFile \
     -title "Save HyperView GIF" \
     -initialdir $::HV_LastGifDir \
+    -initialfile "${safe_name}.gif" \
     -defaultextension ".gif" \
     -filetypes {{"GIF Animation" {.gif}}}]
 
