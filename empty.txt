@@ -1,1 +1,1 @@
-{convert(mid(window.simulationstep,strrchr(window.simulationstep, chr(61))+1,strlen(window.simulationstep))),%.1f} Hz
+Frequency = {convert(mid(window.simulationstep,strrchr(window.simulationstep, chr(61))+1,strlen(window.simulationstep))),%.1f} Hz
