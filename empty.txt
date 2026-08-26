@@ -11,9 +11,14 @@ if {$outfile eq ""} {
     return
 }
 
+# Fixed output frame size
+set width 1280
+set height 720
+
+# Keep full current HyperView page/graphics content
 sess CaptureAnimation \
     gif \
     $outfile \
-    pixels 1920 1080
+    pixels $width $height
 
 hwi CloseStack
