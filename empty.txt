@@ -1,10 +1,19 @@
 hwi OpenStack
-
 hwi GetSessionHandle sess
+
+set outfile [tk_getSaveFile \
+    -title "Save HyperView Video" \
+    -defaultextension ".mp4" \
+    -filetypes {{"MP4 Video" {.mp4}}}]
+
+if {$outfile eq ""} {
+    hwi CloseStack
+    return
+}
 
 sess CaptureAnimationByArea \
     mp4 \
-    "D:/HV_Video/result.mp4" \
+    $outfile \
     100 100 1500 900 \
     pixels 1920 1080
 
