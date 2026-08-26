@@ -1,21 +1,47 @@
-hwi OpenStack
-hwi GetSessionHandle sess
+# File used to remember the last output directory
+set history_file "D:/HyperView_Custom/.last_gif_output_dir.txt"
 
+# Default output directory
+set initial_dir "D:/"
+
+# Load the previously used output directory
+if {[file exists $history_file]} {
+    set f [open $history_file r]
+    set saved_dir [string trim [read $f]]
+    close $f
+
+    if {[file isdirectory $saved_dir]} {
+        set initial_dir $saved_dir
+    }
+}
+
+# Open the Save dialog at the last used directory
 set outfile [tk_getSaveFile \
     -title "Save HyperView GIF" \
+    -initialdir $initial_dir \
     -defaultextension ".gif" \
     -filetypes {{"GIF Animation" {.gif}}}]
 
+# Exit if the user cancels
 if {$outfile eq ""} {
-    hwi CloseStack
     return
 }
 
-# Fixed output frame size
+# Save the current output directory for the next run
+set output_dir [file dirname $outfile]
+
+set f [open $history_file w]
+puts $f $output_dir
+close $f
+
+# Capture the full current HyperView content
+hwi OpenStack
+hwi GetSessionHandle sess
+
+# Fixed GIF output size
 set width 1280
 set height 720
 
-# Keep full current HyperView page/graphics content
 sess CaptureAnimation \
     gif \
     $outfile \
