@@ -2,19 +2,18 @@ hwi OpenStack
 hwi GetSessionHandle sess
 
 set outfile [tk_getSaveFile \
-    -title "Save HyperView Video" \
-    -defaultextension ".mp4" \
-    -filetypes {{"MP4 Video" {.mp4}}}]
+    -title "Save HyperView GIF" \
+    -defaultextension ".gif" \
+    -filetypes {{"GIF Animation" {.gif}}}]
 
 if {$outfile eq ""} {
     hwi CloseStack
     return
 }
 
-sess CaptureAnimationByArea \
-    mp4 \
+sess CaptureAnimation \
+    gif \
     $outfile \
-    100 100 1500 900 \
     pixels 1920 1080
 
 hwi CloseStack
