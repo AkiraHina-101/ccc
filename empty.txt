@@ -1,5 +1,38 @@
+package require postquery
+
 # ============================================================
-# SELECT OUTPUT DIRECTORY
+# USER SETTINGS
+# ============================================================
+
+# Enter the exact Saved View names to export
+set views {"View 1" "View 3" "View 4" "View 5"}
+
+# Fixed GIF output size
+set width 1280
+set height 720
+
+
+# ============================================================
+# GET CURRENT SIMULATION TITLE
+# ============================================================
+
+# Get the current simulation title
+if {[catch {set simulation_title [::hwp::getCurrentSimulation -type name]}]} {
+    set simulation_title "HyperView_Capture"
+}
+
+# Use a fallback name if the simulation title is empty
+if {[string trim $simulation_title] eq ""} {
+    set simulation_title "HyperView_Capture"
+}
+
+# Replace characters that are not valid in Windows file names
+regsub -all {[/\\:*?"<>|]} $simulation_title "_" safe_simulation_name
+set safe_simulation_name [string trim $safe_simulation_name " ."]
+
+
+# ============================================================
+# SELECT OUTPUT LOCATION
 # ============================================================
 
 # Remember the last output directory during the current session
@@ -7,7 +40,7 @@ if {![info exists ::HV_LastGifDir] || ![file isdirectory $::HV_LastGifDir]} {
     set ::HV_LastGifDir [pwd]
 }
 
-# Use the standard Save dialog to select the output location
+# Open the standard Save dialog
 set selected_path [tk_getSaveFile \
     -title "Select GIF Output Location" \
     -initialdir $::HV_LastGifDir \
@@ -25,3 +58,64 @@ set output_dir [file dirname $selected_path]
 
 # Remember the selected directory for the next run
 set ::HV_LastGifDir $output_dir
+
+
+# ============================================================
+# GET HYPERVIEW HANDLES
+# ============================================================
+
+hwi OpenStack
+
+hwi GetSessionHandle session_handle
+session_handle GetProjectHandle project_handle
+
+project_handle GetPageHandle page_handle \
+    [project_handle GetActivePage]
+
+page_handle GetWindowHandle window_handle \
+    [page_handle GetActiveWindow]
+
+window_handle GetClientHandle post_handle
+window_handle GetViewControlHandle view_handle
+
+
+# ============================================================
+# EXPORT SAVED VIEWS
+# ============================================================
+
+foreach view_name $views {
+
+    # Activate the Saved View
+    if {[catch {
+        view_handle SetActiveView true $view_name
+    } view_error]} {
+        puts "WARNING: Cannot activate '$view_name'. Skipping."
+        continue
+    }
+
+    # Redraw the window after changing the view
+    post_handle Draw
+    update idletasks
+
+    # Create a Windows-safe view name
+    set safe_view_name $view_name
+    regsub -all {[/\\:*?"<>|]} $safe_view_name "_" safe_view_name
+    set safe_view_name [string trim $safe_view_name " ."]
+
+    # Build the GIF file name automatically
+    set outfile [file join \
+        $output_dir \
+        "${safe_simulation_name}_${safe_view_name}.gif"]
+
+    puts "Exporting: $outfile"
+
+    # Capture the full HyperView content using a fixed output size
+    session_handle CaptureAnimation \
+        gif \
+        $outfile \
+        pixels $width $height
+}
+
+hwi CloseStack
+
+puts "GIF export completed."
