@@ -1,1 +1,616 @@
-a
+Attribute VB_Name = "modData"
+Option Explicit
+
+' CSV import and dashboard refresh.
+'
+' This module supports the current NB and OB CSV structure. It writes RAW,
+' fills the visible CALC formula templates and refreshes both dashboards.
+
+Private Const CALC_TEMPLATE_ROW As Long = 4
+
+Private mNarrowbandRowCount As Long, mOctavebandRowCount As Long
+Private mImportedFiles As Long, mFailedFiles As Long
+
+' Appends all selected paths, even when their names cannot be parsed.
+' Them moi file da chon; loi ten file khong chan file tiep theo.
+Public Sub SelectCsvFiles()
+    Dim picker As FileDialog, filesSheet As Worksheet
+    Dim selectedFile As Variant
+    Dim lastRow As Long
+    Dim modelName As String, bandName As String, loadName As String
+    Dim rpmValue As Double
+
+    Set picker = Application.FileDialog(msoFileDialogFilePicker)
+    picker.Title = "Select CSV files"
+    picker.AllowMultiSelect = True
+    picker.Filters.Clear
+    picker.Filters.Add "CSV files", "*.csv"
+    If picker.Show = 0 Then Exit Sub
+    Set filesSheet = ThisWorkbook.Worksheets("FILES")
+    lastRow = filesSheet.Cells(filesSheet.Rows.Count, "A").End(xlUp).Row
+    If lastRow < 1 Then lastRow = 1
+
+    For Each selectedFile In picker.SelectedItems
+        lastRow = lastRow + 1
+        filesSheet.Cells(lastRow, "A").Value2 = CStr(selectedFile)
+        filesSheet.Cells(lastRow, "B").Value2 = FileNameFromPath(CStr(selectedFile))
+        filesSheet.Range("C" & lastRow & ":H" & lastRow).ClearContents
+        modelName = "": bandName = "": loadName = "": rpmValue = 0
+        On Error Resume Next
+        Err.Clear
+        ParseFileName CStr(selectedFile), modelName, bandName, loadName, rpmValue
+        If Err.Number = 0 Then
+            filesSheet.Cells(lastRow, "C").Value2 = modelName
+            filesSheet.Cells(lastRow, "D").Value2 = bandName
+            filesSheet.Cells(lastRow, "E").Value2 = loadName
+            filesSheet.Cells(lastRow, "F").Value2 = rpmValue
+        End If
+        Err.Clear
+        On Error GoTo 0
+    Next selectedFile
+    UpdateFilesStatus "ready", Empty, _
+        CStr(picker.SelectedItems.Count) & " file(s) appended."
+    filesSheet.Activate
+End Sub
+
+' Clears the file list and its per-file results.
+' Xoa danh sach file va ket qua import tung file.
+Public Sub ClearFileList()
+    With ThisWorkbook.Worksheets("FILES")
+        .Range("A2:H" & .Rows.Count).ClearContents
+        .Activate
+    End With
+    UpdateFilesStatus "ready", Empty, "File list cleared."
+End Sub
+
+' Imports each file independently, then refreshes the imported results.
+' Import tung file doc lap; loi dashboard khong doi trang thai file.
+Public Sub ImportAll(Optional ByVal silent As Boolean = False)
+    Dim previousEvents As Boolean, previousScreenUpdating As Boolean
+    Dim previousCalculation As XlCalculation
+    Dim filesSheet As Worksheet
+    Dim lastRow As Long, fileRow As Long
+    Dim stage As String, summary As String
+    Dim errorNumber As Long, errorDescription As String
+
+    previousEvents = Application.EnableEvents
+    previousScreenUpdating = Application.ScreenUpdating
+    previousCalculation = Application.Calculation
+    On Error GoTo failed
+    Set filesSheet = ThisWorkbook.Worksheets("FILES")
+    lastRow = filesSheet.Cells(filesSheet.Rows.Count, "A").End(xlUp).Row
+    mImportedFiles = 0: mFailedFiles = 0
+    mNarrowbandRowCount = 0: mOctavebandRowCount = 0
+    If lastRow < 2 Then
+        UpdateFilesStatus "ready", Empty, "No files to import."
+        Exit Sub
+    End If
+    filesSheet.Range("G2:H" & lastRow).ClearContents
+    Application.Calculation = xlCalculationManual
+    Application.EnableEvents = False
+    Application.ScreenUpdating = False
+
+    stage = "import files"
+    For fileRow = 2 To lastRow
+        UpdateFilesStatus "importing", Empty, "FILES row " & fileRow
+        ImportOneCsv filesSheet, fileRow
+    Next fileRow
+    summary = "OK: " & mImportedFiles & "; FAIL: " & mFailedFiles & _
+              "; NB rows: " & mNarrowbandRowCount & _
+              "; OB rows: " & mOctavebandRowCount & "."
+    If mImportedFiles > 0 Then
+        stage = "fill CALC_NB": FillNarrowbandFormulas
+        stage = "fill CALC_OB": FillOctavebandFormulas
+        stage = "calculate CALC_NB"
+        ThisWorkbook.Worksheets("CALC_NB").Calculate
+        stage = "calculate CALC_OB"
+        ThisWorkbook.Worksheets("CALC_OB").Calculate
+        stage = "refresh Model slots": RefreshModelSlots
+        stage = "refresh SPL": modSPL.RefreshSPL
+        stage = "refresh OVERALL": modOverall.RefreshOverall
+    Else
+        summary = summary & " Previous RAW data retained."
+    End If
+    UpdateFilesStatus "complete", Empty, summary
+    GoTo finished
+failed:
+    errorNumber = Err.Number
+    errorDescription = Err.Description
+    summary = "OK: " & mImportedFiles & "; FAIL: " & mFailedFiles & _
+              ". " & stage & ": " & errorDescription
+    UpdateFilesStatus "refresh/import operation failed", errorNumber, summary
+finished:
+    Application.Calculation = previousCalculation
+    Application.EnableEvents = previousEvents
+    Application.ScreenUpdating = previousScreenUpdating
+    If Not silent Then MsgBox summary, _
+        IIf(errorNumber = 0, vbInformation, vbExclamation), "Import data"
+    If silent And errorNumber <> 0 Then _
+        Err.Raise errorNumber, "ImportAll", summary
+End Sub
+
+' Reads one file into a temporary array before committing any of its rows.
+' Doc het mot file vao mang; file loi khong ghi du lieu do dang vao RAW.
+Private Sub ImportOneCsv(ByVal filesSheet As Worksheet, ByVal fileRow As Long)
+    Dim filePath As String, modelName As String, bandName As String
+    Dim loadName As String, stage As String
+    Dim rpmValue As Double
+    Dim fileLines() As String, headers() As String, fields() As String
+    Dim data() As Variant, rawHeaders() As Variant
+    Dim lineIndex As Long, columnIndex As Long, rowCount As Long
+    Dim dataRow As Long, fieldCount As Long, firstMic As Long
+    Dim destinationRow As Long
+    Dim rawSheet As Worksheet, clearSheet As Worksheet
+    Dim targetRange As Range
+    Dim errorNumber As Long, errorDescription As String
+    Dim committed As Boolean
+
+    On Error GoTo failed
+    stage = "filename"
+    filePath = CStr(filesSheet.Cells(fileRow, "A").Value2)
+    filesSheet.Range("C" & fileRow & ":F" & fileRow).ClearContents
+    ParseFileName filePath, modelName, bandName, loadName, rpmValue
+    filesSheet.Cells(fileRow, "B").Value2 = FileNameFromPath(filePath)
+    filesSheet.Cells(fileRow, "C").Value2 = modelName
+    filesSheet.Cells(fileRow, "D").Value2 = bandName
+    filesSheet.Cells(fileRow, "E").Value2 = loadName
+    filesSheet.Cells(fileRow, "F").Value2 = rpmValue
+
+    stage = "open/read file"
+    fileLines = Split(NormalizeLineEndings(ReadTextFile(filePath)), vbLf)
+    If bandName = "NB" Then
+        fieldCount = 5: firstMic = 1
+        Set rawSheet = ThisWorkbook.Worksheets("RAW_NB")
+        destinationRow = mNarrowbandRowCount + 2
+    Else
+        fieldCount = 7: firstMic = 3
+        Set rawSheet = ThisWorkbook.Worksheets("RAW_OB")
+        destinationRow = mOctavebandRowCount + 2
+    End If
+    For lineIndex = 1 To UBound(fileLines)
+        If Len(Trim$(fileLines(lineIndex))) > 0 Then rowCount = rowCount + 1
+    Next lineIndex
+    stage = "read data"
+    If rowCount = 0 Then Err.Raise vbObjectError + 109, , "No data rows."
+    ReDim data(1 To rowCount, 1 To fieldCount + 3)
+    For lineIndex = 1 To UBound(fileLines)
+        If Len(Trim$(fileLines(lineIndex))) > 0 Then
+            dataRow = dataRow + 1
+            stage = "CSV line " & lineIndex + 1 & ", split columns"
+            fields = SplitDataLine(fileLines(lineIndex))
+            data(dataRow, 1) = loadName
+            data(dataRow, 2) = rpmValue
+            data(dataRow, 3) = modelName
+            For columnIndex = 0 To fieldCount - 1
+                stage = "CSV line " & lineIndex + 1 & _
+                        ", column " & columnIndex + 1
+                data(dataRow, columnIndex + 4) = CDbl(fields(columnIndex))
+            Next columnIndex
+        End If
+    Next lineIndex
+
+    stage = "header"
+    headers = SplitDataLine(fileLines(0))
+    ReDim rawHeaders(1 To 1, 1 To fieldCount + 3)
+    rawHeaders(1, 1) = "Load": rawHeaders(1, 2) = "RPM"
+    rawHeaders(1, 3) = "Model"
+    If bandName = "NB" Then
+        rawHeaders(1, 4) = "Frequency [Hz]"
+    Else
+        rawHeaders(1, 4) = "f_low_Hz": rawHeaders(1, 5) = "f_high_Hz"
+        rawHeaders(1, 6) = "f_center_Hz"
+    End If
+    For columnIndex = 0 To 3
+        rawHeaders(1, firstMic + columnIndex + 4) = "Mic " & columnIndex + 1
+        If firstMic + columnIndex <= UBound(headers) Then
+            If Len(headers(firstMic + columnIndex)) > 0 Then _
+                rawHeaders(1, firstMic + columnIndex + 4) = _
+                    headers(firstMic + columnIndex)
+        End If
+    Next columnIndex
+
+    stage = "write RAW"
+    If mImportedFiles = 0 Then
+        For Each clearSheet In ThisWorkbook.Worksheets(Array("RAW_NB", "RAW_OB"))
+            If clearSheet.Name = "RAW_NB" Then
+                clearSheet.Range("A2:H" & clearSheet.Rows.Count).ClearContents
+            Else
+                clearSheet.Range("A2:J" & clearSheet.Rows.Count).ClearContents
+            End If
+        Next clearSheet
+    End If
+    Set targetRange = rawSheet.Cells(destinationRow, 1).Resize(rowCount, fieldCount + 3)
+    If destinationRow = 2 Then _
+        rawSheet.Cells(1, 1).Resize(1, fieldCount + 3).Value2 = rawHeaders
+    targetRange.Value2 = data
+    committed = True
+    If bandName = "NB" Then
+        mNarrowbandRowCount = mNarrowbandRowCount + rowCount
+    Else
+        mOctavebandRowCount = mOctavebandRowCount + rowCount
+    End If
+    mImportedFiles = mImportedFiles + 1
+    filesSheet.Cells(fileRow, "G").Value2 = "OK"
+    filesSheet.Cells(fileRow, "H").ClearContents
+    Exit Sub
+failed:
+    errorNumber = Err.Number
+    errorDescription = Err.Description
+    If committed Then Err.Raise errorNumber, "ImportOneCsv status", errorDescription
+    On Error Resume Next
+    If Not targetRange Is Nothing Then targetRange.ClearContents
+    On Error GoTo 0
+    mFailedFiles = mFailedFiles + 1
+    filesSheet.Cells(fileRow, "G").Value2 = "FAIL"
+    filesSheet.Cells(fileRow, "H").Value2 = stage & ": " & _
+        errorDescription & " (" & errorNumber & ")"
+End Sub
+
+' Preserves valid manual Model slots and appends newly imported Models to the
+' first available empty slots without compacting the existing arrangement.
+Public Sub RefreshModelSlots()
+    Dim config As Worksheet, availableRange As Range, slotRange As Range
+    Dim available As Object, assigned As Object
+    Dim sourceCell As Range, slotCell As Range, emptySlot As Range
+    Dim modelName As String
+
+    Set config = ThisWorkbook.Worksheets("CONFIG")
+    EnsureModelSlotSetup config
+    config.Calculate
+    On Error Resume Next
+    Set availableRange = config.Range("BJ1").SpillingToRange
+    On Error GoTo 0
+    If availableRange Is Nothing Then _
+        Err.Raise vbObjectError + 880, "RefreshModelSlots", _
+                  "The imported Model list did not calculate in CONFIG!BJ1."
+
+    Set available = CreateObject("Scripting.Dictionary")
+    available.CompareMode = vbTextCompare
+    For Each sourceCell In availableRange.Cells
+        modelName = Trim$(CStr(sourceCell.Value2))
+        If Len(modelName) > 0 Then available(modelName) = True
+    Next sourceCell
+    If available.Count > MAX_MODEL_COUNT Then _
+        Err.Raise vbObjectError + 881, "RefreshModelSlots", _
+                  "Imported Models exceed the 10 available CONFIG slots."
+
+    Set slotRange = config.Range("A9:A18")
+    Set assigned = CreateObject("Scripting.Dictionary")
+    assigned.CompareMode = vbTextCompare
+    For Each slotCell In slotRange.Cells
+        If slotCell.HasFormula Then slotCell.Value2 = slotCell.Value2
+        modelName = Trim$(CStr(slotCell.Value2))
+        If Len(modelName) > 0 Then
+            If Not available.Exists(modelName) Or assigned.Exists(modelName) Then
+                slotCell.ClearContents
+            Else
+                assigned(modelName) = True
+            End If
+        End If
+    Next slotCell
+
+    For Each sourceCell In availableRange.Cells
+        modelName = Trim$(CStr(sourceCell.Value2))
+        If Len(modelName) > 0 And Not assigned.Exists(modelName) Then
+            Set emptySlot = Nothing
+            For Each slotCell In slotRange.Cells
+                If Len(Trim$(CStr(slotCell.Value2))) = 0 Then
+                    Set emptySlot = slotCell
+                    Exit For
+                End If
+            Next slotCell
+            If emptySlot Is Nothing Then _
+                Err.Raise vbObjectError + 882, "RefreshModelSlots", _
+                          "No empty CONFIG Model slot is available."
+            emptySlot.Value2 = modelName
+            assigned(modelName) = True
+        End If
+    Next sourceCell
+End Sub
+
+' Rejects duplicate/unknown manual slot assignments before UPDATE.
+Public Sub ValidateModelSlots()
+    Dim config As Worksheet, availableRange As Range
+    Dim available As Object, assigned As Object
+    Dim sourceCell As Range, slotCell As Range
+    Dim modelName As String
+
+    Set config = ThisWorkbook.Worksheets("CONFIG")
+    EnsureModelSlotSetup config
+    config.Calculate
+    On Error Resume Next
+    Set availableRange = config.Range("BJ1").SpillingToRange
+    On Error GoTo 0
+    If availableRange Is Nothing Then _
+        Err.Raise vbObjectError + 883, "ValidateModelSlots", _
+                  "CONFIG!BJ1 does not contain the imported Model list."
+
+    Set available = CreateObject("Scripting.Dictionary")
+    available.CompareMode = vbTextCompare
+    For Each sourceCell In availableRange.Cells
+        modelName = Trim$(CStr(sourceCell.Value2))
+        If Len(modelName) > 0 Then available(modelName) = True
+    Next sourceCell
+    Set assigned = CreateObject("Scripting.Dictionary")
+    assigned.CompareMode = vbTextCompare
+    For Each slotCell In config.Range("A9:A18").Cells
+        modelName = Trim$(CStr(slotCell.Value2))
+        If Len(modelName) > 0 Then
+            If Not available.Exists(modelName) Then _
+                Err.Raise vbObjectError + 884, "ValidateModelSlots", _
+                          "Unknown Model in " & slotCell.Address(False, False) & _
+                          ": " & modelName
+            If assigned.Exists(modelName) Then _
+                Err.Raise vbObjectError + 885, "ValidateModelSlots", _
+                          "Duplicate Model slot: " & modelName
+            assigned(modelName) = True
+        End If
+    Next slotCell
+End Sub
+
+' Installs the compatible imported-Model list and slot dropdowns when needed.
+Private Sub EnsureModelSlotSetup(ByVal config As Worksheet)
+    Dim slotCell As Range
+    Dim modelFormula As String
+
+    modelFormula = "=LET(nbCount,ROWS(RAW_NB_ModelRange)," & _
+        "obCount,ROWS(OB_Model),itemNo,SEQUENCE(nbCount+obCount)," & _
+        "allModels,IF(itemNo<=nbCount,INDEX(RAW_NB_ModelRange,itemNo)," & _
+        "INDEX(OB_Model,itemNo-nbCount))," & _
+        "SORT(UNIQUE(FILTER(allModels,allModels<>"""",""""))))"
+    config.Range("BJ1").Formula2 = modelFormula
+    config.Range("BJ:BJ").EntireColumn.Hidden = True
+    On Error Resume Next
+    ThisWorkbook.Names("modelAvailableList").Delete
+    On Error GoTo 0
+    ThisWorkbook.Names.Add Name:="modelAvailableList", _
+        RefersTo:="=CONFIG!$BJ$1#"
+
+    For Each slotCell In config.Range("A9:A18").Cells
+        With slotCell.Validation
+            .Delete
+            .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, _
+                 Operator:=xlBetween, Formula1:="=modelAvailableList"
+            .IgnoreBlank = True
+            .InCellDropdown = True
+            .ShowError = True
+            .ErrorTitle = "Model slot"
+            .ErrorMessage = "Choose a Model from the imported list."
+        End With
+    Next slotCell
+End Sub
+
+' Writes the latest FILES action, error number and description.
+Private Sub UpdateFilesStatus(ByVal stageText As String, _
+                              ByVal errorNumber As Variant, _
+                              ByVal descriptionText As String)
+    Dim filesSheet As Worksheet
+
+    Set filesSheet = ThisWorkbook.Worksheets("FILES")
+    filesSheet.Range("K2").Value2 = stageText
+    If IsEmpty(errorNumber) Or errorNumber = 0 Then
+        filesSheet.Range("K3").ClearContents
+    Else
+        filesSheet.Range("K3").Value2 = errorNumber
+    End If
+    filesSheet.Range("K4").Value2 = descriptionText
+End Sub
+
+' Reads Model, Band, Load and RPM from the current CSV file name.
+Private Sub ParseFileName(ByVal filePath As String, _
+                          ByRef modelName As String, _
+                          ByRef bandName As String, _
+                          ByRef loadName As String, _
+                          ByRef rpmValue As Double)
+    Dim baseName As String, loadAndRpm As String, rpmText As String
+    Dim bandPosition As Long, nbPosition As Long, obPosition As Long
+    Dim rpmSeparator As Long
+
+    baseName = FileNameFromPath(filePath)
+    If LCase$(Right$(baseName, 4)) = ".csv" Then
+        baseName = Left$(baseName, Len(baseName) - 4)
+    End If
+
+    nbPosition = InStrRev(baseName, "_NB_", -1, vbTextCompare)
+    obPosition = InStrRev(baseName, "_OB_", -1, vbTextCompare)
+
+    If nbPosition > obPosition Then
+        bandPosition = nbPosition
+        bandName = "NB"
+    ElseIf obPosition > 0 Then
+        bandPosition = obPosition
+        bandName = "OB"
+    End If
+
+    If bandPosition = 0 Then
+        Err.Raise vbObjectError + 104, "ParseFileName", _
+                  "Band marker _NB_ or _OB_ is missing: " & baseName
+    End If
+
+    modelName = Trim$(Left$(baseName, bandPosition - 1))
+    loadAndRpm = Mid$(baseName, bandPosition + 4)
+    rpmSeparator = InStrRev(loadAndRpm, "_")
+
+    If rpmSeparator = 0 Then
+        Err.Raise vbObjectError + 105, "ParseFileName", _
+                  "Load or RPM is missing: " & baseName
+    End If
+
+    loadName = Trim$(Left$(loadAndRpm, rpmSeparator - 1))
+    rpmText = Trim$(Mid$(loadAndRpm, rpmSeparator + 1))
+    If LCase$(Right$(rpmText, 3)) <> "rpm" Then
+        Err.Raise vbObjectError + 106, "ParseFileName", _
+                  "RPM is missing from file name: " & baseName
+    End If
+
+    rpmText = Left$(rpmText, Len(rpmText) - 3)
+    If Not IsNumeric(rpmText) Then
+        Err.Raise vbObjectError + 107, "ParseFileName", _
+                  "RPM is not numeric: " & baseName
+    End If
+    rpmValue = CDbl(rpmText)
+
+    If Len(modelName) = 0 Or Len(loadName) = 0 Then
+        Err.Raise vbObjectError + 108, "ParseFileName", _
+                  "Model or Load is missing: " & baseName
+    End If
+End Sub
+
+' Splits one data line using the delimiter written by the CSV exporter.
+Private Function SplitDataLine(ByVal lineText As String) As String()
+    Dim values() As String
+    Dim valueIndex As Long
+
+    If InStr(1, lineText, ",", vbBinaryCompare) > 0 Then
+        values = Split(lineText, ",")
+    ElseIf InStr(1, lineText, vbTab, vbBinaryCompare) > 0 Then
+        values = Split(lineText, vbTab)
+    ElseIf InStr(1, lineText, ";", vbBinaryCompare) > 0 Then
+        values = Split(lineText, ";")
+    Else
+        values = Split(lineText, ",")
+    End If
+
+    For valueIndex = LBound(values) To UBound(values)
+        values(valueIndex) = Trim$(values(valueIndex))
+        If Len(values(valueIndex)) >= 2 Then
+            If Left$(values(valueIndex), 1) = Chr$(34) And _
+               Right$(values(valueIndex), 1) = Chr$(34) Then
+                values(valueIndex) = _
+                    Mid$(values(valueIndex), 2, Len(values(valueIndex)) - 2)
+                values(valueIndex) = Replace(values(valueIndex), _
+                                             Chr$(34) & Chr$(34), Chr$(34))
+            End If
+        End If
+    Next valueIndex
+
+    SplitDataLine = values
+End Function
+
+' Fills the CALC_NB formulas down to the last imported NB row.
+Private Sub FillNarrowbandFormulas()
+    Dim calculationSheet As Worksheet
+    Dim lastFormulaRow As Long, previousLastRow As Long
+
+    Set calculationSheet = ThisWorkbook.Worksheets("CALC_NB")
+    lastFormulaRow = mNarrowbandRowCount + CALC_TEMPLATE_ROW - 1
+    previousLastRow = calculationSheet.Cells( _
+        calculationSheet.Rows.Count, "A").End(xlUp).Row
+
+    If previousLastRow > CALC_TEMPLATE_ROW Then
+        calculationSheet.Range("A5:H" & previousLastRow).ClearContents
+        calculationSheet.Range("I5:L" & previousLastRow).ClearContents
+    End If
+
+    If mNarrowbandRowCount = 0 Then Exit Sub
+
+    RequireFormula calculationSheet.Range("A4"), "CALC_NB!A4"
+    RequireFormula calculationSheet.Range("I4"), "CALC_NB!I4"
+
+    If lastFormulaRow = CALC_TEMPLATE_ROW Then Exit Sub
+
+    calculationSheet.Range("A4:H4").AutoFill _
+        Destination:=calculationSheet.Range("A4:H" & lastFormulaRow)
+    calculationSheet.Range("I4:L4").AutoFill _
+        Destination:=calculationSheet.Range("I4:L" & lastFormulaRow)
+End Sub
+
+' Fills the CALC_OB formulas down to the last imported OB row.
+Private Sub FillOctavebandFormulas()
+    Dim calculationSheet As Worksheet
+    Dim lastFormulaRow As Long, previousLastRow As Long
+
+    Set calculationSheet = ThisWorkbook.Worksheets("CALC_OB")
+    lastFormulaRow = mOctavebandRowCount + CALC_TEMPLATE_ROW - 1
+    previousLastRow = calculationSheet.Cells( _
+        calculationSheet.Rows.Count, "A").End(xlUp).Row
+
+    If previousLastRow > CALC_TEMPLATE_ROW Then
+        calculationSheet.Range("A5:J" & previousLastRow).ClearContents
+        calculationSheet.Range("K5:N" & previousLastRow).ClearContents
+        calculationSheet.Range("O5:R" & previousLastRow).ClearContents
+        calculationSheet.Range("S5:V" & previousLastRow).ClearContents
+    End If
+
+    If mOctavebandRowCount = 0 Then Exit Sub
+
+    RequireFormula calculationSheet.Range("A4"), "CALC_OB!A4"
+    RequireFormula calculationSheet.Range("K4"), "CALC_OB!K4"
+    RequireFormula calculationSheet.Range("O4"), "CALC_OB!O4"
+    RequireFormula calculationSheet.Range("S4"), "CALC_OB!S4"
+
+    If lastFormulaRow = CALC_TEMPLATE_ROW Then Exit Sub
+
+    calculationSheet.Range("A4:J4").AutoFill _
+        Destination:=calculationSheet.Range("A4:J" & lastFormulaRow)
+    calculationSheet.Range("K4:N4").AutoFill _
+        Destination:=calculationSheet.Range("K4:N" & lastFormulaRow)
+    calculationSheet.Range("O4:R4").AutoFill _
+        Destination:=calculationSheet.Range("O4:R" & lastFormulaRow)
+    calculationSheet.Range("S4:V4").AutoFill _
+        Destination:=calculationSheet.Range("S4:V" & lastFormulaRow)
+End Sub
+
+' Stops the import when a required row-4 formula template is missing.
+Private Sub RequireFormula(ByVal templateCell As Range, _
+                           ByVal cellDescription As String)
+    If Not templateCell.HasFormula Then
+        Err.Raise vbObjectError + 113, "RequireFormula", _
+                  "Formula template is missing: " & cellDescription
+    End If
+End Sub
+
+' Reads the complete contents of one CSV file as text.
+Private Function ReadTextFile(ByVal filePath As String) As String
+    Dim fileNumber As Integer
+    Dim errorNumber As Long, errorDescription As String
+
+    On Error GoTo fail
+    If Len(Dir$(filePath)) = 0 Then _
+        Err.Raise vbObjectError + 103, "ReadTextFile", "File not found: " & filePath
+    fileNumber = FreeFile
+    Open filePath For Binary Access Read As #fileNumber
+    If LOF(fileNumber) > 0 Then
+        ReadTextFile = Input$(LOF(fileNumber), fileNumber)
+        If Len(ReadTextFile) >= 3 Then
+            If AscW(Mid$(ReadTextFile, 1, 1)) = 239 And _
+               AscW(Mid$(ReadTextFile, 2, 1)) = 187 And _
+               AscW(Mid$(ReadTextFile, 3, 1)) = 191 Then
+                ReadTextFile = Mid$(ReadTextFile, 4)
+            End If
+        End If
+        If Len(ReadTextFile) > 0 Then
+            If (AscW(Left$(ReadTextFile, 1)) And &HFFFF&) = &HFEFF& Then
+                ReadTextFile = Mid$(ReadTextFile, 2)
+            End If
+        End If
+    End If
+    Close #fileNumber
+    Exit Function
+fail:
+    errorNumber = Err.Number
+    errorDescription = Err.Description
+    On Error Resume Next
+    If fileNumber > 0 Then Close #fileNumber
+    On Error GoTo 0
+    Err.Raise errorNumber, "ReadTextFile", errorDescription
+End Function
+
+' Converts Windows and old Mac line endings to one VBA line separator.
+Private Function NormalizeLineEndings(ByVal textValue As String) As String
+    textValue = Replace(textValue, vbCrLf, vbLf)
+    textValue = Replace(textValue, vbCr, vbLf)
+    NormalizeLineEndings = textValue
+End Function
+
+' Returns only the file name from a full Windows path.
+Private Function FileNameFromPath(ByVal filePath As String) As String
+    Dim separatorPosition As Long
+
+    separatorPosition = InStrRev(filePath, "\")
+    If separatorPosition > 0 Then
+        FileNameFromPath = Mid$(filePath, separatorPosition + 1)
+    Else
+        FileNameFromPath = filePath
+    End If
+End Function
