@@ -18,10 +18,6 @@ Private Sub ApplyRangePasteCore(ByVal silent As Boolean)
     Dim cleanedCount As Long
     Dim errorText As String
 
-    If Application.CutCopyMode <> xlCopy Then
-        If Not silent Then MsgBox "Copy a source range with Ctrl+C first.", vbExclamation, "Apply Paste"
-        Exit Sub
-    End If
     If TypeName(Selection) <> "Range" Then
         If Not silent Then _
             MsgBox "Select one destination cell before running Apply Paste.", _
@@ -65,7 +61,10 @@ failed:
     If silent Then
         Err.Raise vbObjectError + 901, "ApplyRangePaste", errorText
     Else
-        MsgBox "Apply Paste failed: " & errorText, vbExclamation, "Apply Paste"
+        MsgBox "Nothing could be pasted from the clipboard. Copy the source range " & _
+               "with Ctrl+C, select one destination cell, and try again." & _
+               IIf(Len(errorText) = 0, "", vbCrLf & vbCrLf & errorText), _
+               vbExclamation, "Apply Paste"
     End If
 End Sub
 
