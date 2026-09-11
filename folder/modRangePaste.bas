@@ -5,6 +5,29 @@ Option Explicit
 ' Excel performs the normal relative-reference shift. External workbook
 ' qualifiers are then removed only from formulas in the pasted range.
 Public Sub ApplyRangePaste()
+    Dim sourceRange As Range, destination As Range
+
+    Set sourceRange = PickPasteRange( _
+        "Step 1 of 2: Select or drag the source range, then click OK.", _
+        "Apply Paste - Source")
+    If sourceRange Is Nothing Then Exit Sub
+    If sourceRange.Areas.Count > 1 Then
+        MsgBox "Select one continuous source range.", vbExclamation, "Apply Paste"
+        Exit Sub
+    End If
+
+    sourceRange.Copy
+    Set destination = PickPasteRange( _
+        "Step 2 of 2: Select the top-left destination cell, then click OK.", _
+        "Apply Paste - Destination")
+    If destination Is Nothing Then
+        Application.CutCopyMode = False
+        Exit Sub
+    End If
+    Set destination = destination.Cells(1, 1)
+    destination.Parent.Parent.Activate
+    destination.Parent.Activate
+    destination.Select
     ApplyRangePasteCore False
 End Sub
 
@@ -67,6 +90,14 @@ failed:
                vbExclamation, "Apply Paste"
     End If
 End Sub
+
+Private Function PickPasteRange(ByVal promptText As String, _
+                                ByVal titleText As String) As Range
+    On Error Resume Next
+    Set PickPasteRange = Application.InputBox( _
+        Prompt:=promptText, Title:=titleText, Type:=8)
+    On Error GoTo 0
+End Function
 
 Private Function RemoveSourceWorkbookLinks(ByVal target As Range) As Long
     Dim formulas As Range, cell As Range
