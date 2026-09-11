@@ -16,7 +16,6 @@ Public Sub ApplyRangePaste()
         Exit Sub
     End If
 
-    sourceRange.Copy
     Set destination = PickPasteRange( _
         "Step 2 of 2: Select the top-left destination cell, then click OK.", _
         "Apply Paste - Destination")
@@ -28,11 +27,62 @@ Public Sub ApplyRangePaste()
     destination.Parent.Parent.Activate
     destination.Parent.Activate
     destination.Select
-    ApplyRangePasteCore False
+    ApplyRangePasteFromRanges sourceRange, destination, False
 End Sub
 
 Public Sub ApplyRangePasteSilent()
     ApplyRangePasteCore True
+End Sub
+
+Public Sub ApplyRangePasteRangesSilent(ByVal sourceRange As Range, _
+                                       ByVal destination As Range)
+    ApplyRangePasteFromRanges sourceRange, destination.Cells(1, 1), True
+End Sub
+
+Private Sub ApplyRangePasteFromRanges(ByVal sourceRange As Range, _
+                                      ByVal destination As Range, _
+                                      ByVal silent As Boolean)
+    Dim pastedRange As Range
+    Dim previousEvents As Boolean, previousScreenUpdating As Boolean
+    Dim cleanedCount As Long, errorText As String
+
+    previousEvents = Application.EnableEvents
+    previousScreenUpdating = Application.ScreenUpdating
+    On Error GoTo failed
+    Application.EnableEvents = False
+    Application.ScreenUpdating = False
+
+    Set pastedRange = destination.Resize(sourceRange.Rows.Count, _
+                                         sourceRange.Columns.Count)
+    sourceRange.Copy Destination:=destination
+    cleanedCount = RemoveSourceWorkbookLinks(pastedRange)
+
+finished:
+    Application.EnableEvents = previousEvents
+    Application.ScreenUpdating = previousScreenUpdating
+    Application.CutCopyMode = False
+    If Not pastedRange Is Nothing Then
+        pastedRange.Parent.Parent.Activate
+        pastedRange.Parent.Activate
+        pastedRange.Select
+    End If
+    If Not silent Then
+        MsgBox "Paste complete. " & cleanedCount & _
+               " pasted formula(s) were converted to internal workbook references.", _
+               vbInformation, "Apply Paste"
+    End If
+    Exit Sub
+
+failed:
+    errorText = Err.Description
+    Application.EnableEvents = previousEvents
+    Application.ScreenUpdating = previousScreenUpdating
+    Application.CutCopyMode = False
+    If silent Then
+        Err.Raise vbObjectError + 902, "ApplyRangePaste", errorText
+    Else
+        MsgBox "Apply Paste failed: " & errorText, vbExclamation, "Apply Paste"
+    End If
 End Sub
 
 Private Sub ApplyRangePasteCore(ByVal silent As Boolean)
