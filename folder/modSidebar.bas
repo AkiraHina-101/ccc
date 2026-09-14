@@ -340,6 +340,18 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
         CopyFill sourceChart.Legend.Format.Fill, targetChart.Legend.Format.Fill
         CopyLine sourceChart.Legend.Format.Line, targetChart.Legend.Format.Line
     End If
+
+    ' First synchronize which series have Data Labels. Labels that are on
+    ' are applied to every point and explicitly show the numeric value.
+    For seriesIndex = 1 To Application.Min( _
+            sourceChart.SeriesCollection.Count, _
+            targetChart.SeriesCollection.Count)
+        SyncSeriesDataLabelState _
+            sourceChart.SeriesCollection(seriesIndex), _
+            targetChart.SeriesCollection(seriesIndex)
+    Next seriesIndex
+
+    ' Only after label state exists, copy the appearance of each label.
     For seriesIndex = 1 To Application.Min( _
             sourceChart.SeriesCollection.Count, _
             targetChart.SeriesCollection.Count)
@@ -412,15 +424,29 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
     On Error GoTo 0
 End Sub
 
+' Mirrors the source series label on/off state before any label formatting.
+' ApplyDataLabels with ShowValue prevents empty bordered labels on targets.
+Private Sub SyncSeriesDataLabelState(ByVal sourceSeries As Series, _
+                                     ByVal targetSeries As Series)
+    On Error Resume Next
+    If sourceSeries.HasDataLabels Then
+        targetSeries.ApplyDataLabels Type:=xlDataLabelsShowValue
+        targetSeries.DataLabels.ShowValue = True
+    ElseIf targetSeries.HasDataLabels Then
+        targetSeries.DataLabels.Delete
+    End If
+    Err.Clear
+    On Error GoTo 0
+End Sub
+
 ' Copies Data Label appearance without copying label text or cell references.
-' If the source series has labels, missing labels are enabled on the target.
 Private Sub SyncSeriesDataLabels(ByVal sourceSeries As Series, _
                                  ByVal targetSeries As Series)
     Dim labelIndex As Long, labelCount As Long
 
     On Error Resume Next
     If Not sourceSeries.HasDataLabels Then Exit Sub
-    If Not targetSeries.HasDataLabels Then targetSeries.ApplyDataLabels
+    If Not targetSeries.HasDataLabels Then Exit Sub
 
     CopyOneDataLabelFormat sourceSeries.DataLabels, targetSeries.DataLabels
     labelCount = Application.Min(sourceSeries.DataLabels.Count, _
