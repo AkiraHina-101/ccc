@@ -16,9 +16,7 @@ Private mImportedFiles As Long, mFailedFiles As Long
 Public Sub SelectCsvFiles()
     Dim picker As FileDialog, filesSheet As Worksheet
     Dim selectedFile As Variant
-    Dim lastRow As Long
-    Dim modelName As String, bandName As String, loadName As String
-    Dim rpmValue As Double
+    Dim lastRow As Long, addedCount As Long
 
     Set picker = Application.FileDialog(msoFileDialogFilePicker)
     picker.Title = "Select CSV files"
@@ -31,26 +29,97 @@ Public Sub SelectCsvFiles()
     If lastRow < 1 Then lastRow = 1
 
     For Each selectedFile In picker.SelectedItems
-        lastRow = lastRow + 1
-        filesSheet.Cells(lastRow, "A").Value2 = CStr(selectedFile)
-        filesSheet.Cells(lastRow, "B").Value2 = FileNameFromPath(CStr(selectedFile))
-        filesSheet.Range("C" & lastRow & ":H" & lastRow).ClearContents
-        modelName = "": bandName = "": loadName = "": rpmValue = 0
-        On Error Resume Next
-        Err.Clear
-        ParseFileName CStr(selectedFile), modelName, bandName, loadName, rpmValue
-        If Err.Number = 0 Then
-            filesSheet.Cells(lastRow, "C").Value2 = modelName
-            filesSheet.Cells(lastRow, "D").Value2 = bandName
-            filesSheet.Cells(lastRow, "E").Value2 = loadName
-            filesSheet.Cells(lastRow, "F").Value2 = rpmValue
-        End If
-        Err.Clear
-        On Error GoTo 0
+        AppendImportFile filesSheet, CStr(selectedFile), lastRow
+        addedCount = addedCount + 1
     Next selectedFile
     UpdateFilesStatus "ready", Empty, _
-        CStr(picker.SelectedItems.Count) & " file(s) appended."
+        CStr(addedCount) & " file(s) appended."
     filesSheet.Activate
+End Sub
+
+' Lets the user select folders one at a time and appends every CSV directly
+' inside them. Excel's folder picker does not support native multi-selection,
+' so the macro asks whether another folder should be added after each choice.
+Public Sub SelectCsvFolders()
+    Dim picker As FileDialog, filesSheet As Worksheet
+    Dim knownPaths As Object
+    Dim selectedFolder As String, fileName As String, filePath As String
+    Dim lastRow As Long, rowIndex As Long
+    Dim folderCount As Long, addedCount As Long, skippedCount As Long
+    Dim chooseAnother As VbMsgBoxResult
+
+    Set filesSheet = ThisWorkbook.Worksheets("FILES")
+    lastRow = filesSheet.Cells(filesSheet.Rows.Count, "A").End(xlUp).Row
+    If lastRow < 1 Then lastRow = 1
+    Set knownPaths = CreateObject("Scripting.Dictionary")
+    knownPaths.CompareMode = vbTextCompare
+    For rowIndex = 2 To lastRow
+        filePath = Trim$(CStr(filesSheet.Cells(rowIndex, "A").Value2))
+        If Len(filePath) > 0 Then knownPaths(filePath) = True
+    Next rowIndex
+
+    Do
+        Set picker = Application.FileDialog(msoFileDialogFolderPicker)
+        picker.Title = "Select a folder containing CSV files"
+        picker.AllowMultiSelect = False
+        If picker.Show = 0 Then Exit Do
+
+        selectedFolder = CStr(picker.SelectedItems(1))
+        If Right$(selectedFolder, 1) <> Application.PathSeparator Then _
+            selectedFolder = selectedFolder & Application.PathSeparator
+        folderCount = folderCount + 1
+
+        fileName = Dir$(selectedFolder & "*.csv", _
+                        vbNormal Or vbReadOnly Or vbHidden Or _
+                        vbSystem Or vbArchive)
+        Do While Len(fileName) > 0
+            filePath = selectedFolder & fileName
+            If knownPaths.Exists(filePath) Then
+                skippedCount = skippedCount + 1
+            Else
+                AppendImportFile filesSheet, filePath, lastRow
+                knownPaths(filePath) = True
+                addedCount = addedCount + 1
+            End If
+            fileName = Dir$()
+        Loop
+
+        chooseAnother = MsgBox( _
+            "Folder scanned: " & selectedFolder & vbCrLf & _
+            "CSV files appended so far: " & addedCount & vbCrLf & vbCrLf & _
+            "Select another folder?", _
+            vbYesNo + vbQuestion, "Select CSV folders")
+    Loop While chooseAnother = vbYes
+
+    UpdateFilesStatus "ready", Empty, _
+        CStr(addedCount) & " CSV file(s) appended from " & _
+        CStr(folderCount) & " folder(s). Duplicate paths skipped: " & _
+        CStr(skippedCount) & "."
+    filesSheet.Activate
+End Sub
+
+' Adds one path to FILES and previews the values parsed from its file name.
+Private Sub AppendImportFile(ByVal filesSheet As Worksheet, _
+                             ByVal filePath As String, _
+                             ByRef lastRow As Long)
+    Dim modelName As String, bandName As String, loadName As String
+    Dim rpmValue As Double
+
+    lastRow = lastRow + 1
+    filesSheet.Cells(lastRow, "A").Value2 = filePath
+    filesSheet.Cells(lastRow, "B").Value2 = FileNameFromPath(filePath)
+    filesSheet.Range("C" & lastRow & ":H" & lastRow).ClearContents
+    On Error Resume Next
+    Err.Clear
+    ParseFileName filePath, modelName, bandName, loadName, rpmValue
+    If Err.Number = 0 Then
+        filesSheet.Cells(lastRow, "C").Value2 = modelName
+        filesSheet.Cells(lastRow, "D").Value2 = bandName
+        filesSheet.Cells(lastRow, "E").Value2 = loadName
+        filesSheet.Cells(lastRow, "F").Value2 = rpmValue
+    End If
+    Err.Clear
+    On Error GoTo 0
 End Sub
 
 ' Clears the file list and its per-file results.
