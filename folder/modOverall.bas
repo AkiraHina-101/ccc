@@ -3,11 +3,77 @@ Option Explicit
 
 ' Recalculates OVERALL and relinks series to the current dynamic data size.
 Public Sub RefreshOverall()
-    ThisWorkbook.Worksheets("CONFIG").Calculate
-    ThisWorkbook.Worksheets(OVERALL_BAND_SHEET).Calculate
-    ThisWorkbook.Worksheets(OVERALL_BROAD_SHEET).Calculate
+    Dim config As Worksheet, bandWs As Worksheet, broadWs As Worksheet
+
+    Set config = ThisWorkbook.Worksheets("CONFIG")
+    Set bandWs = ThisWorkbook.Worksheets(OVERALL_BAND_SHEET)
+    Set broadWs = ThisWorkbook.Worksheets(OVERALL_BROAD_SHEET)
+
+    ' First calculate the new Load lists from the freshly imported RAW/CALC data.
+    config.Calculate
+    RefreshOverallSelections config, bandWs, broadWs
+    ' BE3/AU3 depend on the corrected OVERALL Load selectors.
+    config.Calculate
+    RefreshOverallBandSelections config, bandWs
+
+    bandWs.Calculate
+    broadWs.Calculate
     RebuildBandSingleChartSeries
     RefreshOverallSeriesRanges
+End Sub
+
+' Selects valid Multi/Single Load values before CONFIG calculates Band lists.
+Private Sub RefreshOverallSelections(ByVal config As Worksheet, _
+                                     ByVal bandWs As Worksheet, _
+                                     ByVal broadWs As Worksheet)
+    Dim multiLoads As Range, singleLoads As Range
+
+    Set multiLoads = NamedSpillRange("overallMultiRpmLoads")
+    Set singleLoads = NamedSpillRange("overallSingleRpmLoads")
+
+    If Not multiLoads Is Nothing Then
+        ' OVERALL!D2 may intentionally be linked to TABLES!D2. Preserve that
+        ' formula, but keep the 1/3-octave sheet synchronized to its value.
+        If Not broadWs.Range("D2").HasFormula Then _
+            SelectFirstValidValue broadWs.Range("D2"), multiLoads
+        If Not IsError(Application.Match(broadWs.Range("D2").Value2, _
+                                         multiLoads, 0)) Then _
+            bandWs.Range("D2").Value2 = broadWs.Range("D2").Value2
+    End If
+
+    If Not singleLoads Is Nothing Then
+        SelectFirstValidValue broadWs.Range("D3"), singleLoads
+        bandWs.Range("D3").Value2 = broadWs.Range("D3").Value2
+    End If
+End Sub
+
+' Selects valid Band values after AU3/BE3 have recalculated for the new Loads.
+Private Sub RefreshOverallBandSelections(ByVal config As Worksheet, _
+                                         ByVal bandWs As Worksheet)
+    Dim multiBands As Range, singleBands As Range
+
+    Set multiBands = NamedSpillRange("overallMultiBandList")
+    Set singleBands = NamedSpillRange("overallSingleBandList")
+    If Not multiBands Is Nothing Then _
+        SelectFirstValidValue bandWs.Range("J2"), multiBands
+    If Not singleBands Is Nothing Then _
+        SelectFirstValidValue bandWs.Range("J3"), singleBands
+End Sub
+
+' Returns Nothing when a dynamic named list has no usable spill.
+Private Function NamedSpillRange(ByVal rangeName As String) As Range
+    On Error Resume Next
+    Set NamedSpillRange = ThisWorkbook.Names(rangeName).RefersToRange
+    On Error GoTo 0
+End Function
+
+' Preserves a valid selection; otherwise chooses the first new imported value.
+Private Sub SelectFirstValidValue(ByVal targetCell As Range, _
+                                  ByVal validValues As Range)
+    If validValues Is Nothing Then Exit Sub
+    If IsError(Application.Match(targetCell.Value2, validValues, 0)) Then
+        targetCell.Value2 = validValues.Cells(1, 1).Value2
+    End If
 End Sub
 
 
@@ -254,9 +320,8 @@ Private Sub RefreshOneOverallChart(ByVal ws As Worksheet, _
         currentProperty = "IsFiltered"
         Debug.Print "  OVERALL SET IsFiltered", _
                     "Visible=" & visible, "HasData=" & hasData
-        seriesItem.IsFiltered = Not _
-            (visible And hasData)
-        Err.Clear
+        SetOverallSeriesFilteredSafely seriesItem, _
+            Not (visible And hasData), debugContext
         currentProperty = "Complete"
         Debug.Print "  OVERALL SERIES SUCCESS", debugContext
     Next seriesIndex
@@ -338,8 +403,8 @@ Private Sub RefreshOneBroadbandChart(ByVal ws As Worksheet, _
         hasData = modUI.SeriesHasData(seriesItem)
         Err.Clear
         currentProperty = "Show/hide series"
-        seriesItem.IsFiltered = Not (visible And hasData)
-        Err.Clear
+        SetOverallSeriesFilteredSafely seriesItem, _
+            Not (visible And hasData), debugContext
     Next seriesIndex
     Exit Sub
 fail:
@@ -347,6 +412,29 @@ fail:
               debugContext & "; Action=" & currentProperty & _
               "; X=" & xAddress & "; Y=" & valueAddress & _
               "; " & Err.Description
+End Sub
+
+' Excel can reject Series.IsFiltered with error 1004 for a line series that
+' currently contains only one point. The X/Y binding is still valid, so this
+' optional display-state operation must not abort relinking the other charts.
+Private Sub SetOverallSeriesFilteredSafely(ByVal seriesItem As Series, _
+                                           ByVal shouldFilter As Boolean, _
+                                           ByVal debugContext As String)
+    Dim filterError As Long, filterDescription As String
+
+    On Error Resume Next
+    Err.Clear
+    seriesItem.IsFiltered = shouldFilter
+    filterError = Err.Number
+    filterDescription = Err.Description
+    Err.Clear
+    On Error GoTo 0
+
+    If filterError <> 0 Then
+        Debug.Print "OVERALL FILTER WARNING", debugContext, _
+                    "RequestedFiltered=" & shouldFilter, _
+                    filterError, filterDescription
+    End If
 End Sub
 
 ' Returns the last non-empty RPM row inside a fixed chart-data block.
