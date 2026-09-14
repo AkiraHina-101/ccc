@@ -341,17 +341,6 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
         CopyLine sourceChart.Legend.Format.Line, targetChart.Legend.Format.Line
     End If
 
-    ' First synchronize which series have Data Labels. Labels that are on
-    ' are applied to every point and explicitly show the numeric value.
-    For seriesIndex = 1 To Application.Min( _
-            sourceChart.SeriesCollection.Count, _
-            targetChart.SeriesCollection.Count)
-        SyncSeriesDataLabelState _
-            sourceChart.SeriesCollection(seriesIndex), _
-            targetChart.SeriesCollection(seriesIndex)
-    Next seriesIndex
-
-    ' Only after label state exists, copy the appearance of each label.
     For seriesIndex = 1 To Application.Min( _
             sourceChart.SeriesCollection.Count, _
             targetChart.SeriesCollection.Count)
@@ -370,9 +359,6 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
                      .Format.Fill
             CopyLine sourceChart.SeriesCollection(seriesIndex).Format.Line, _
                      .Format.Line
-            SyncSeriesDataLabels _
-                sourceChart.SeriesCollection(seriesIndex), _
-                targetChart.SeriesCollection(seriesIndex)
         End With
     Next seriesIndex
     On Error GoTo 0
@@ -421,6 +407,26 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
         targetChart.ChartGroups(groupIndex).GapWidth = _
             sourceChart.ChartGroups(groupIndex).GapWidth
     Next groupIndex
+
+    ' Data Labels must be recreated after ChartType and all chart formatting.
+    ' Applying them earlier can leave a visible border with empty label text.
+    targetChart.Activate
+    DoEvents
+    For seriesIndex = 1 To Application.Min( _
+            sourceChart.FullSeriesCollection.Count, _
+            targetChart.FullSeriesCollection.Count)
+        SyncSeriesDataLabelState _
+            sourceChart.FullSeriesCollection(seriesIndex), _
+            targetChart.FullSeriesCollection(seriesIndex)
+    Next seriesIndex
+    DoEvents
+    For seriesIndex = 1 To Application.Min( _
+            sourceChart.FullSeriesCollection.Count, _
+            targetChart.FullSeriesCollection.Count)
+        SyncSeriesDataLabels _
+            sourceChart.FullSeriesCollection(seriesIndex), _
+            targetChart.FullSeriesCollection(seriesIndex)
+    Next seriesIndex
     On Error GoTo 0
 End Sub
 
@@ -430,7 +436,13 @@ Private Sub SyncSeriesDataLabelState(ByVal sourceSeries As Series, _
                                      ByVal targetSeries As Series)
     On Error Resume Next
     If sourceSeries.HasDataLabels Then
-        targetSeries.ApplyDataLabels Type:=xlDataLabelsShowValue
+        ' Recreate the target labels exactly like the chart context-menu
+        ' command Add Data Labels. Reusing an existing blank label can leave
+        ' its border visible while its displayed value remains empty.
+        If targetSeries.HasDataLabels Then targetSeries.DataLabels.Delete
+        Err.Clear
+        targetSeries.ApplyDataLabels Type:=xlDataLabelsShowValue, _
+                                     ShowValue:=True
         targetSeries.DataLabels.ShowValue = True
     ElseIf targetSeries.HasDataLabels Then
         targetSeries.DataLabels.Delete
