@@ -90,9 +90,11 @@ Public Sub RebuildBandSingleChartSeries()
 
     For micIndex = 1 To 4
         Set chartObject = ws.ChartObjects("chOverallSingle_" & micIndex)
-        Do While chartObject.Chart.SeriesCollection.Count > 0
-            chartObject.Chart.SeriesCollection( _
-                chartObject.Chart.SeriesCollection.Count).Delete
+        ' SeriesCollection omits filtered series. Remove those as well so
+        ' the rebuilt series always start at position 1 in Model order.
+        Do While chartObject.Chart.FullSeriesCollection.Count > 0
+            chartObject.Chart.FullSeriesCollection( _
+                chartObject.Chart.FullSeriesCollection.Count).Delete
         Loop
         For modelIndex = 1 To modelCount
             sourceColumn = ws.Range("BC1").Column + _
