@@ -291,6 +291,11 @@ Public Sub SyncChartAppearance()
             SyncOneChart sourceChart, targetChart
         End If
     Next chartObject
+    For Each chartObject In Application.ActiveSheet.ChartObjects
+        If ChartNamePrefix(chartObject.Name) = prefix And _
+           chartObject.Name <> sourceObject.Name Then _
+            RestoreVisibleDataLabels sourceChart, chartObject.Chart
+    Next chartObject
     sourceObject.Activate
     Exit Sub
 fail:
@@ -381,7 +386,7 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
 
     ' Apply chart/marker type last because Excel may reset it while formatting.
     On Error Resume Next
-    targetChart.Activate
+    targetChart.Parent.Activate
     targetChart.ChartType = sourceChartType
     For seriesIndex = 1 To Application.Min( _
             sourceChart.SeriesCollection.Count, _
@@ -410,7 +415,7 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
 
     ' Data Labels must be recreated after ChartType and all chart formatting.
     ' Applying them earlier can leave a visible border with empty label text.
-    targetChart.Activate
+    targetChart.Parent.Activate
     DoEvents
     For seriesIndex = 1 To Application.Min( _
             sourceChart.FullSeriesCollection.Count, _
@@ -430,8 +435,53 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
     On Error GoTo 0
 End Sub
 
+Private Sub RestoreVisibleDataLabels(ByVal sourceChart As Chart, _
+                                     ByVal targetChart As Chart)
+    Dim seriesIndex As Long
+    Dim labelIndex As Long
+    Dim labelCount As Long
+    Dim sourceSeries As Series
+    Dim targetSeries As Series
+
+    For seriesIndex = 1 To Application.Min( _
+            sourceChart.FullSeriesCollection.Count, _
+            targetChart.FullSeriesCollection.Count)
+        Set sourceSeries = sourceChart.FullSeriesCollection(seriesIndex)
+        Set targetSeries = targetChart.FullSeriesCollection(seriesIndex)
+        If sourceSeries.HasDataLabels Then
+            If targetSeries.HasDataLabels Then targetSeries.DataLabels.Delete
+            targetSeries.ApplyDataLabels
+            CopyVisibleDataLabelFormat sourceSeries.DataLabels, _
+                                       targetSeries.DataLabels
+            labelCount = Application.Min(sourceSeries.DataLabels.Count, _
+                                         targetSeries.DataLabels.Count)
+            For labelIndex = 1 To labelCount
+                CopyVisibleDataLabelFormat _
+                    sourceSeries.DataLabels(labelIndex), _
+                    targetSeries.DataLabels(labelIndex)
+            Next labelIndex
+        ElseIf targetSeries.HasDataLabels Then
+            targetSeries.DataLabels.Delete
+        End If
+    Next seriesIndex
+End Sub
+
+' A final Add Data Labels is needed for Excel to populate the text on
+' single-series charts. Copy the visible formatting only after that reset.
+Private Sub CopyVisibleDataLabelFormat(ByVal sourceLabel As Object, _
+                                       ByVal targetLabel As Object)
+    On Error Resume Next
+    CopyFont sourceLabel.Font, targetLabel.Font
+    CopyFill sourceLabel.Format.Fill, targetLabel.Format.Fill
+    CopyLine sourceLabel.Format.Line, targetLabel.Format.Line
+    targetLabel.Position = sourceLabel.Position
+    targetLabel.NumberFormat = sourceLabel.NumberFormat
+    targetLabel.NumberFormatLinked = sourceLabel.NumberFormatLinked
+    On Error GoTo 0
+End Sub
+
 ' Mirrors the source series label on/off state before any label formatting.
-' ApplyDataLabels with ShowValue prevents empty bordered labels on targets.
+' The final pass recreates enabled labels once all chart changes are complete.
 Private Sub SyncSeriesDataLabelState(ByVal sourceSeries As Series, _
                                      ByVal targetSeries As Series)
     On Error Resume Next
@@ -441,8 +491,7 @@ Private Sub SyncSeriesDataLabelState(ByVal sourceSeries As Series, _
         ' its border visible while its displayed value remains empty.
         If targetSeries.HasDataLabels Then targetSeries.DataLabels.Delete
         Err.Clear
-        targetSeries.ApplyDataLabels Type:=xlDataLabelsShowValue, _
-                                     ShowValue:=True
+        targetSeries.ApplyDataLabels
         targetSeries.DataLabels.ShowValue = True
     ElseIf targetSeries.HasDataLabels Then
         targetSeries.DataLabels.Delete
