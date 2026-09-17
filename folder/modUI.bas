@@ -258,6 +258,10 @@ Public Sub ToggleAllResultSeries()
         modSPL.ApplySPLSeriesVisibility ws
     Else
         For Each chartName In chartNames
+            If ws.Name = OVERALL_BAND_SHEET And _
+               InStr(1, CStr(chartName), "Single", vbTextCompare) > 0 Then _
+                modOverall.RestoreSingleChartCategories _
+                    ws.ChartObjects(CStr(chartName)).Chart
             Set allSeries = ws.ChartObjects(CStr(chartName)).Chart.FullSeriesCollection
             For seriesIndex = 1 To allSeries.Count
                 If InStr(1, CStr(chartName), "Single", _

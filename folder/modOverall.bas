@@ -316,17 +316,36 @@ Private Sub RefreshOneOverallChart(ByVal ws As Worksheet, _
                     "Rows=" & valueRange.Rows.Count
         seriesItem.Values = valueRange
 
-        currentProperty = "SeriesHasData"
-        hasData = modUI.SeriesHasData(seriesItem)
-        Err.Clear
-        currentProperty = "IsFiltered"
-        Debug.Print "  OVERALL SET IsFiltered", _
-                    "Visible=" & visible, "HasData=" & hasData
-        SetOverallSeriesFilteredSafely seriesItem, _
-            Not (visible And hasData), debugContext
-        currentProperty = "Complete"
-        Debug.Print "  OVERALL SERIES SUCCESS", debugContext
+        If Not singleRpm Then
+            currentProperty = "SeriesHasData"
+            hasData = modUI.SeriesHasData(seriesItem)
+            Err.Clear
+            currentProperty = "IsFiltered"
+            Debug.Print "  OVERALL SET IsFiltered", _
+                        "Visible=" & visible, "HasData=" & hasData
+            SetOverallSeriesFilteredSafely seriesItem, _
+                Not (visible And hasData), debugContext
+            currentProperty = "Complete"
+            Debug.Print "  OVERALL SERIES SUCCESS", debugContext
+        End If
     Next seriesIndex
+
+    If singleRpm Then
+        currentProperty = "Restore Categories after binding all series"
+        RestoreSingleChartCategories ws.ChartObjects(chartName).Chart
+        For seriesIndex = 1 To allSeries.Count
+            modelIndex = modUI.ModelSlotFromSeriesOrdinal(seriesIndex)
+            If modelIndex = 0 Then Exit For
+            Set seriesItem = allSeries(seriesIndex)
+            visible = modUI.StateIsEnabled( _
+                modUI.ResultModelStateCell(ws, modelIndex).Value2)
+            currentProperty = "Show/hide series after restoring Categories"
+            hasData = modUI.SeriesHasData(seriesItem)
+            SetOverallSeriesFilteredSafely seriesItem, _
+                Not (visible And hasData), _
+                "Chart=" & chartName & "; Series=" & seriesIndex
+        Next seriesIndex
+    End If
     Exit Sub
 fail:
     Debug.Print "OVERALL RANGE FAILED", debugContext, _
@@ -336,6 +355,19 @@ fail:
               "; X=" & xAddress & _
               "; Y=" & valueAddress & _
               "; " & Err.Description
+End Sub
+
+' A filtered single RPM category makes Series.Values appear empty in Excel.
+' Restore the category before SeriesHasData decides which Models to show.
+Public Sub RestoreSingleChartCategories(ByVal targetChart As Chart)
+    Dim categoryIndex As Long, categoryCount As Long
+
+    With targetChart.ChartGroups(1)
+        categoryCount = .FullCategoryCollection.Count
+        For categoryIndex = 1 To categoryCount
+            .FullCategoryCollection(categoryIndex).IsFiltered = False
+        Next categoryIndex
+    End With
 End Sub
 
 ' Relinks one all-band chart to the prepared OVERALL chart-data blocks.
@@ -512,6 +544,8 @@ Private Sub SetOverallModelVisible(ByVal modelIndex As Long, _
     firstSeriesIndex = (modelOrdinal - 1) * _
                        OVERALL_SERIES_PER_MODEL + 1
     For Each chartName In chartNames
+        If InStr(1, CStr(chartName), "Single", vbTextCompare) > 0 Then _
+            RestoreSingleChartCategories ws.ChartObjects(CStr(chartName)).Chart
         Set allSeries = ws.ChartObjects(CStr(chartName)).Chart.FullSeriesCollection
         For seriesOffset = 0 To OVERALL_SERIES_PER_MODEL - 1
             If firstSeriesIndex + seriesOffset <= allSeries.Count Then
