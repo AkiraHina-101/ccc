@@ -324,10 +324,7 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
     Dim axisType As Variant
     Dim groupIndex As Long
     Dim seriesIndex As Long
-    Dim sourceChartType As Long
     Dim pass As Long
-
-    sourceChartType = CLng(sourceChart.ChartType)
 
     CopyFill sourceChart.ChartArea.Format.Fill, targetChart.ChartArea.Format.Fill
     CopyLine sourceChart.ChartArea.Format.Line, targetChart.ChartArea.Format.Line
@@ -384,15 +381,13 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
     On Error GoTo 0
     CenterTitles targetChart
 
-    ' Apply chart/marker type last because Excel may reset it while formatting.
+    ' Keep each chart's own type; SYNC copies appearance only.
     On Error Resume Next
     targetChart.Parent.Activate
-    targetChart.ChartType = sourceChartType
     For seriesIndex = 1 To Application.Min( _
             sourceChart.SeriesCollection.Count, _
             targetChart.SeriesCollection.Count)
         With targetChart.SeriesCollection(seriesIndex)
-            .ChartType = sourceChart.SeriesCollection(seriesIndex).ChartType
             .MarkerStyle = sourceChart.SeriesCollection(seriesIndex).MarkerStyle
             If .MarkerStyle <> xlMarkerStyleNone Then
                 .MarkerSize = sourceChart.SeriesCollection(seriesIndex).MarkerSize
@@ -404,7 +399,7 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
         End With
     Next seriesIndex
 
-    ' Apply column/bar spacing last because ChartType resets Overlap to zero.
+    ' Apply column/bar spacing after other formatting.
     For groupIndex = 1 To Application.Min( _
             sourceChart.ChartGroups.Count, targetChart.ChartGroups.Count)
         targetChart.ChartGroups(groupIndex).Overlap = _
@@ -413,7 +408,7 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
             sourceChart.ChartGroups(groupIndex).GapWidth
     Next groupIndex
 
-    ' Data Labels must be recreated after ChartType and all chart formatting.
+    ' Data Labels must be recreated after all chart formatting.
     ' Applying them earlier can leave a visible border with empty label text.
     targetChart.Parent.Activate
     DoEvents
