@@ -462,14 +462,14 @@ End Sub
 Public Sub RefreshOverallModelHeaders()
     Dim ws As Worksheet, config As Worksheet
     Dim modelIndex As Long, headerRow As Variant
-    Dim firstColumn As Long, modelName As String, headerColor As Long
+    Dim firstColumn As Long, singleColumn As Long
+    Dim modelName As String, headerColor As Long
     Dim headerRange As Range
 
     Set config = ThisWorkbook.Worksheets("CONFIG")
     For Each ws In ThisWorkbook.Worksheets( _
             Array(OVERALL_BAND_SHEET, OVERALL_BROAD_SHEET))
         For modelIndex = 1 To MAX_MODEL_COUNT
-            firstColumn = ws.Range("BC1").Column + (modelIndex - 1) * 4
             modelName = Trim$(CStr(config.Cells(8 + modelIndex, "A").Value2))
             If Len(modelName) > 0 Then
                 headerColor = config.Cells(8 + modelIndex, "B").Interior.Color
@@ -478,6 +478,29 @@ Public Sub RefreshOverallModelHeaders()
             End If
 
             For Each headerRow In Array(10, 29)
+                ' Keep the original per-MIC source header colored.
+                firstColumn = ws.Range("BC1").Column + _
+                              (modelIndex - 1) * 4
+                Set headerRange = ws.Range( _
+                    ws.Cells(CLng(headerRow), firstColumn), _
+                    ws.Cells(CLng(headerRow), firstColumn + 3))
+                If Not headerRange.MergeCells Then headerRange.Merge
+                With headerRange
+                    .HorizontalAlignment = xlCenter
+                    .VerticalAlignment = xlCenter
+                    .Interior.Pattern = xlSolid
+                    .Interior.Color = headerColor
+                    .Font.Color = ContrastingTextColor(headerColor)
+                End With
+
+                ' The octave-band grid shifts left after removing CR.
+                If ws.Name = OVERALL_BAND_SHEET Then
+                    firstColumn = ws.Range("CR1").Column + _
+                                  (modelIndex - 1) * 4
+                Else
+                    firstColumn = ws.Range("CS1").Column + _
+                                  (modelIndex - 1) * 4
+                End If
                 Set headerRange = ws.Range( _
                     ws.Cells(CLng(headerRow), firstColumn), _
                     ws.Cells(CLng(headerRow), firstColumn + 3))
@@ -491,10 +514,14 @@ Public Sub RefreshOverallModelHeaders()
                 End With
             Next headerRow
 
-            ' The 4-MIC tables have one Model-name cell per CONFIG slot.
+            ' The four-MIC summary has one Model-name cell per CONFIG slot.
+            If ws.Name = OVERALL_BAND_SHEET Then
+                singleColumn = ws.Range("EG1").Column + modelIndex - 1
+            Else
+                singleColumn = ws.Range("EH1").Column + modelIndex - 1
+            End If
             For Each headerRow In Array(10, 29)
-                Set headerRange = ws.Cells(CLng(headerRow), _
-                    ws.Range("CR1").Column + modelIndex - 1)
+                Set headerRange = ws.Cells(CLng(headerRow), singleColumn)
                 With headerRange
                     .Interior.Pattern = xlSolid
                     .Interior.Color = headerColor
