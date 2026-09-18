@@ -296,6 +296,15 @@ Public Sub SyncChartAppearance()
            chartObject.Name <> sourceObject.Name Then _
             RestoreVisibleDataLabels sourceChart, chartObject.Chart
     Next chartObject
+    ' Excel may relayout a chart while recreating labels. Apply the source
+    ' plot geometry and X-axis title position after every other change.
+    For Each chartObject In Application.ActiveSheet.ChartObjects
+        If ChartNamePrefix(chartObject.Name) = prefix And _
+           chartObject.Name <> sourceObject.Name Then
+            CopyPlotAreaGeometry sourceChart, chartObject.Chart
+            CopyCategoryTitlePosition sourceChart, chartObject.Chart
+        End If
+    Next chartObject
     sourceObject.Activate
     Exit Sub
 fail:
@@ -324,7 +333,6 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
     Dim axisType As Variant
     Dim groupIndex As Long
     Dim seriesIndex As Long
-    Dim pass As Long
 
     CopyFill sourceChart.ChartArea.Format.Fill, targetChart.ChartArea.Format.Fill
     CopyLine sourceChart.ChartArea.Format.Line, targetChart.ChartArea.Format.Line
@@ -371,14 +379,7 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
             SyncAxis sourceChart.Axes(axisType), targetChart.Axes(axisType)
     Next axisType
 
-    On Error Resume Next
-    For pass = 1 To 4
-        targetChart.PlotArea.InsideLeft = sourceChart.PlotArea.InsideLeft
-        targetChart.PlotArea.InsideTop = sourceChart.PlotArea.InsideTop
-        targetChart.PlotArea.InsideWidth = sourceChart.PlotArea.InsideWidth
-        targetChart.PlotArea.InsideHeight = sourceChart.PlotArea.InsideHeight
-    Next pass
-    On Error GoTo 0
+    CopyPlotAreaGeometry sourceChart, targetChart
     CenterTitles targetChart
 
     ' Keep each chart's own type; SYNC copies appearance only.
@@ -427,6 +428,35 @@ Private Sub SyncOneChart(ByVal sourceChart As Chart, _
             sourceChart.FullSeriesCollection(seriesIndex), _
             targetChart.FullSeriesCollection(seriesIndex)
     Next seriesIndex
+    On Error GoTo 0
+End Sub
+
+Private Sub CopyPlotAreaGeometry(ByVal sourceChart As Chart, _
+                                 ByVal targetChart As Chart)
+    Dim pass As Long
+    On Error Resume Next
+    For pass = 1 To 4
+        targetChart.PlotArea.InsideLeft = sourceChart.PlotArea.InsideLeft
+        targetChart.PlotArea.InsideTop = sourceChart.PlotArea.InsideTop
+        targetChart.PlotArea.InsideWidth = sourceChart.PlotArea.InsideWidth
+        targetChart.PlotArea.InsideHeight = sourceChart.PlotArea.InsideHeight
+    Next pass
+    On Error GoTo 0
+End Sub
+
+Private Sub CopyCategoryTitlePosition(ByVal sourceChart As Chart, _
+                                      ByVal targetChart As Chart)
+    On Error Resume Next
+    If sourceChart.HasAxis(xlCategory, xlPrimary) And _
+       targetChart.HasAxis(xlCategory, xlPrimary) Then
+        If sourceChart.Axes(xlCategory, xlPrimary).HasTitle And _
+           targetChart.Axes(xlCategory, xlPrimary).HasTitle Then
+            targetChart.Axes(xlCategory, xlPrimary).AxisTitle.Left = _
+                sourceChart.Axes(xlCategory, xlPrimary).AxisTitle.Left
+            targetChart.Axes(xlCategory, xlPrimary).AxisTitle.Top = _
+                sourceChart.Axes(xlCategory, xlPrimary).AxisTitle.Top
+        End If
+    End If
     On Error GoTo 0
 End Sub
 
