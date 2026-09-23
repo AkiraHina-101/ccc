@@ -1,17 +1,1 @@
-
-1- These KPI can cover all the error mistakes in your list?
-(KPI có giải quyết được hết tất cả các lỗi trong error list hiện tại chưa. Nếu chưa, các lỗi còn lại sẽ được giải quyết như thế nào)
- 
-- KPI hiện tại đang chỉ giải quyết một số nhóm lỗi hay gặp phải. 
-- Những lỗi đang gặp hiện tại trong các ưu tiên 1-4, đa số những lỗi chưa có giải pháp (Double check and self check) và những lỗi có giải pháp những không phải dùng automation tool, thì em sẽ đưa vào nhóm tạo check list
-- Còn lại, có các lỗi có giải pháp bằng automated tool, hiện chưa có ai assign. -> nên cân nhắc thêm KPI này cho một số người.
- 
- 
-2- How much time (estimate) for each item? Roughly is okay
- 
-- Em sẽ ước lượng lại số giờ cần thiết để làm KPI của mỗi người. 
-- Nếu còn dư thời gian, có thể cân nhắc thêm một số KPI cho mỗi người để cố gắng cover hết các lỗi.
- 
-3- These tool support you (about the double check) and member (doing) a lot?
-- Đa số mọi người đang làm các tool giúp cải thiện hiệu suất, nhưng chưa có phần hỗ trợ check lại liệu tool có hoạt động đúng hay không. 
-Vì vậy có thể sẽ phải thêm chi tiết hơn vào cách mọi người làm tool, để mỗi tool đều có: 1 luồng thực thi, 1 luồng recheck xem kết quả mà tool tạo ra có đúng không.
+s
