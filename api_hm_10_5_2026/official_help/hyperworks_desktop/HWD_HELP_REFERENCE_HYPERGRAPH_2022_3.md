@@ -1,0 +1,7 @@
+# HyperWorks Desktop Help reference — HyperGraph. (2022.3)
+
+1 source pages in the shared Desktop Help Index Terms. This exact source-label group may mix API contracts and user guidance. Open the direct Altair page for full details. [Back to route index](./HWD_OTHER_HELP_CATALOG_2022_3.md).
+
+| Official page | Exact Type / Application | Syntax | Purpose | Key inputs / outputs / returns |
+| --- | --- | --- | --- | --- |
+| [*ContextMenuItem()](https://2022.help.altair.com/2022.3/hwdesktop/hwd/topics/reference/preference/contextmenuitem.htm) | HyperGraph. | `*ContextMenuItem (var_name, label, path to the TCL script file, TCL procedure, entity type)` | Right-click on an entity to create a new, user-defined context menu item that launches a Tcl procedure. | **Inputs:** var_name The variable name of the menu item. label The label displayed in the right-click, context menu. path to the TCL script file Path to the Tcl script that gets sourced when the menu item is selected. TCL procedure Tcl procedure that is executed when a menu item is selected. Five arguments are passed to this procedure. These are only available when you are in the plot window: Page ID Window ID Entity Type Entity ID Point Number Each of these arguments is one-based. For Point Number, the value is 0 unless you pick Curve for the entity type argument. entity type Entity to which the menu is associated. Possible values for the plot window include: Plot Axis Curve Datum Legend Note Title An additional value, animation, is available when you are in the animation window. |

@@ -1,0 +1,7 @@
+# HyperWorks Desktop Help reference — HyperGraph, HyperGraph 3D, and HyperView. (2022.3)
+
+1 source pages in the shared Desktop Help Index Terms. This exact source-label group may mix API contracts and user guidance. Open the direct Altair page for full details. [Back to route index](./HWD_OTHER_HELP_CATALOG_2022_3.md).
+
+| Official page | Exact Type / Application | Syntax | Purpose | Key inputs / outputs / returns |
+| --- | --- | --- | --- | --- |
+| [*RegisterSharedReader()](https://2022.help.altair.com/2022.3/hwdesktop/hwd/topics/reference/preference/registersharedreader.htm) | HyperGraph, HyperGraph 3D, and HyperView. | `*RegisterSharedReader (filename, reader_name, filter, reader_type)` | Registers a reader for HyperGraph or HyperView. | **Inputs:** filename One of two forms are accepted: the fully qualified reader filename including the path and extension OR the filename minus the path and extension. If the path and extension are excluded, then the existing result/model readers directory will be searched for the given reader. reader_name The name/label to use for the reader. filter A file filter used to define the types of files that this reader can process. Multiple file formats can be specified using the ‘;’ character to separate filter values (for example *.abc;*.def). reader_type Optional: Used to define the type of reader. Must be one of the following values: model, result or model_result. The default value is model_result. |

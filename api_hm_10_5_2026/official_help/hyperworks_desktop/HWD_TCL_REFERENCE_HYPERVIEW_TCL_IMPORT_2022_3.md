@@ -1,0 +1,7 @@
+# HyperWorks Desktop Tcl reference — HyperView Tcl Import (Help 2022.3)
+
+1 pages from the shared HWD reference route. This is a page-type grouping, not proof that every row is a callable API. Open the Altair page for its full contract. [Back to route index](./HWD_TCL_REFERENCE_CATALOG_2022_3.md).
+
+| Official page | Exact Type / Application | Syntax | Purpose | Key inputs / outputs / returns |
+| --- | --- | --- | --- | --- |
+| [poIModel SetResult](https://2022.help.altair.com/2022.3/hwdesktop/hwd/topics/reference/tcl/poimodel_setresult.htm) | HyperView Tcl Import | `model_handle SetResult file_name (reader_name)` | This command attaches the given result file to the model. Only one result file can be attached at any given time. The new result file overrides any previously attached one. The first registered reader that recognizes the file format will attempt to load it. If no reader was found to load the file, a proper message is displayed and a warning code is returned. In most cases, you don’t need to specify the reader name as a second argument. However, if you know that the file format can be recognized by more than one reader, you can specify the reader name as a second argument. You can get a list of available readers by using GetResultReaderList command. | **Inputs:** file_name The result file name to be loaded. reader_name (Optional) Fully qualified reader name, for example “LS-DYNA d3plot Result Reader”. |
