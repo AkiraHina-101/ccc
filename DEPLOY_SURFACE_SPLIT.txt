@@ -1,0 +1,69 @@
+Surface Split v2.5 - Jupiter deployment
+==================================
+
+This release is split into two folders because Jupiter scans every folder
+under PSJ_Commands as a tab or group.
+
+Deploy for Jupiter 5.0.4
+------------------------
+
+1. Copy release\PSJ_Commands\SurfaceSplit to:
+
+   %APPDATA%\TechnoStar\JPT5.0.4\PSJ_Commands\SurfaceSplit
+
+   This folder must contain only these two files:
+
+   - SurfaceSplit.py
+   - SurfaceSplit.ico
+
+   The Python launcher and icon must keep the same basename. Do not add data,
+   docs, src, or any child folder here: Jupiter treats them as extra groups.
+
+2. Copy release\SurfaceSplitRuntime to:
+
+   %APPDATA%\TechnoStar\JPT5.0.4\SurfaceSplitRuntime
+
+   Keep the runtime folder intact. It contains the classifier, analyzer,
+   Help EN/VN, and optional labelled-hole data.
+
+3. Restart Jupiter. The SurfaceSplit folder appears as one ribbon tab with
+   one SurfaceSplit command button.
+
+Different Jupiter version
+-------------------------
+
+The launcher contains the versioned AppData location JPT5.0.4. For a different
+version, change that one string in:
+
+  release\PSJ_Commands\SurfaceSplit\SurfaceSplit.py
+
+Then deploy the runtime under the matching versioned folder, for example:
+
+  %APPDATA%\TechnoStar\JPT5.0.5\SurfaceSplitRuntime
+
+Runtime requirements
+--------------------
+
+- v2.5 accepts the normal 8-column Nastran format and the Jupiter variant
+  where a 9-digit element ID overflows the fixed-width EID column.
+- If '$ Part :' names are absent, v2.5 groups elements by PID and maps the
+  analyzer evidence back to the open Jupiter model by Element/Node IDs.
+- Elements before the first '$ Part :' marker also use internal PID groups;
+  they are never assigned to the final named Part by a negative index.
+- The tool launches its analyzer with python.exe beside Jupiter's executable.
+- Analyzer output is written beside the selected BDF, not into this package.
+- Do not use PySide/QFileDialog in Jupiter; use the native BDF/JSON browser.
+- Help files are local and offline.
+
+Updating an existing installation (parser fix 2026-10-06)
+-------------------------------------------------------
+
+Copy the complete SurfaceSplitRuntime folder from this release over:
+
+  %APPDATA%\TechnoStar\JPT5.0.4\SurfaceSplitRuntime
+
+Keep existing data/run files (saved paths, overrides and color settings).
+Close and reopen the Surface Split dialog, then run Analyze again on the BDF.
+The older traceback at find_outer_fast.py line 65, part_names[p], indicates
+an unresolved Part index when writing outer_tri2eid.json. This package handles
+missing Part comments via PID groups and validates indices before writing.
