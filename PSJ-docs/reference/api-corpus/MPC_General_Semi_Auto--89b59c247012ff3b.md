@@ -1,3 +1,0 @@
-# MPC General | Semi Auto
-
-MPC General | Semi Auto MPC General | Semi Auto This command is used to create a one-to-one MPC pair between multiple nodes within an arbitrary tolerance. Semi-Auto Name Specify the name for registration. Parameters Coordinate Specify the reference coordinate system. TX Displacement - TZ Displacement Specify constraints in the translational direction. RX Displacement - RZ Displacement Specify constraints in the rotational direction. Tolerance Create MPCs between nodes within the range of the input value. -&nbspOperating Procedure&nbsp- &nbspSelect the target nodes. &nbspSpecify parameters. &nbspClick the Apply/OK button. -&nbsp操作動画&nbsp- -->

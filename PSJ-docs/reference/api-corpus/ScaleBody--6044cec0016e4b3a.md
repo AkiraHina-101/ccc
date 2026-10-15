@@ -1,3 +1,0 @@
-# ScaleBody
-
-ScaleBody ScaleBody Description Scale Body Syntax ScaleBody(cursor[] taBody, double[3] scaleVector, double[3] scaleCentre, cursor crCoord, bool createNew, bool copyLBC, bool usePartCenter) Inputs Cursor[] Target part cursor([3:Part ID]) Double[3] Scale vector(x, y, z) Double[3] Scale center(x, y, z) Cursor Whether use local coordinate or not True = 27:*, False = 0:0 Bool Create new part bool flag True = 1, False = 0 Bool LBC copy bool flag True = 1, False = 0 Bool Use part center bool flag True = 1, False = 0 Return Code 1 Succeeded 0 Failed Sample Code ScaleBody([3:1], [1, 5, 1], [0, 0, 0], 0:0, 1, 0, 1)

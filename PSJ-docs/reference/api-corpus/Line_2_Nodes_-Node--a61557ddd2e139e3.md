@@ -1,3 +1,0 @@
-# Line(2 Nodes)-Node
-
-Line(2 Nodes)-Node a.no-uline {text-decoration:none} Line(2 Nodes)-Node Measure the distance of a perpendicular line from a node toward the line defined by the two nodes. Output Distance &nbsp;&nbsp;&nbsp;The measurement result is displayed. Input Unit &nbsp;&nbsp;&nbsp;Indicate the unit of distance to be displayed. -&nbsp;Operating Procedure&nbsp;- &nbsp;Select two nodes on the screen. These two nodes define a line segment. &nbsp;Select the third node. &nbsp;The distance shows the shortest distance between the line segment and the node. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

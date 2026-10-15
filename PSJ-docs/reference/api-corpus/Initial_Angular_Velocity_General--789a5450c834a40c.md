@@ -1,3 +1,0 @@
-# Initial Angular Velocity | General
-
-Initial Angular Velocity | General a.no-uline {text-decoration:none} Initial Angular Velocity | General Set the initial angular velocity for motion analysis. Structural Name Enter a name for the initial angular velocity. Initial Angular Velocity Values X, Y, Z Input the initial angular velocity in each axis direction. Input Unit Specify the input unit. Analysis Coordinate Frame Coordinate Specify the coordinate system. Tables Table selection It is defined by Field data . Currently not supported. -&nbsp;Operating Procedure&nbsp;- &nbsp;Select the entity to set the initial angular velocity. &nbsp;Input the initial angular velocity of each axis. &nbsp;Press the Apply or OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

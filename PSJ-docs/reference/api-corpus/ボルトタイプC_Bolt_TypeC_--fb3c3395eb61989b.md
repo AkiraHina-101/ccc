@@ -1,3 +1,0 @@
-# ボルトタイプC(Bolt TypeC)
-
-ボルトタイプC(Bolt TypeC) ボルトタイプC(Bolt TypeC) 自動ボルト接続(Auto Bolt Connection)機能から開く、ボルトタイプCのFEM条件を設定するダイアログです。 自動ボルト接続(Auto Bolt Connection)のヘルプ ボルトタイプCは、ボルト穴にRBE2/RBE3要素を作成し、その中心をばね/RBE2要素で結合します。 上面設定(Top Settings) 接続(Connection) 上側のボルト穴に作成する剛体の種類(RBE2／RBE3)を選択します。 上面設定(Top Settings)及び底面設定(Bottom Settings)は、同じタイプの剛体のみ設定可能です。 底面設定(Bottom Settings) 接続(Connection) 下側のボルト穴に作成する剛体の種類(RBE2／RBE3)を選択します。 上面設定(Top Settings)及び底面設定(Bottom Settings)は、同じタイプの剛体のみ設定可能です。 中心設定(Center Settings) Connection(接続) シャフト中心に作成する剛体の種類を選択します。 None &nbsp;:&nbsp;軸の中心に剛体なし。 Spring &nbsp;:&nbsp;軸の中心にSpringを作成します。 -&nbsp操作手順&nbsp- 各種剛体を選択して、パラメータを入力します。 OKボタンをクリックします。このダイアログが閉じ、自動ボルト接続(Auto Bolt Connection)の、ボルトタイプのボタンがハイライトされます。

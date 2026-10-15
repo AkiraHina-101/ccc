@@ -1,3 +1,0 @@
-# Pretension
-
-Pretension Pretension Description Create pretension Syntax Pretension(string strName, int iDir, double dValue, bool bFixLength, cursor crTable, cursor crCoord, int iLocalUnit, cursor[] taFace, cursor crEdit, bool bIfCreate2ADVCStatic) Inputs String Pretension name Int Pretension direction* *0: UX &ensp;1: UY &ensp;2: UZ Double Pretension force value Bool Bolt FixLength bool flag True = 1, False = 0 Cursor N/A: Table cursor Cursor Whether use local coordinate or not True = 27:*, False = 0:0 Int unit index Cursor[] Target face cursor([6:Face ID]) Cursor N/A: Edit cursor Bool N/A: Create 2 ADVC Static bool flag True = 1, False = 0 Return Code 1 Succeeded 0 Failed Sample Code Pretension("BoltLoad007", 2, 0.05, 1, 0:0, 27:1, 0, [6:180, 6:178], 0:0, 0)

@@ -1,3 +1,0 @@
-# Smoothing-Laplacian-
-
-Smoothing-Laplacian- a.no-uline {text-decoration:none} Smoothing-Laplacian- This command smooths the selected surface element. Smoothing Type Laplacian Move based on surrounding node position. Centroidal Move around the center of surrounding elements. With CAD Follow Place the moving node on the CAD surface. -&nbspFunction Execution Example&nbsp- -&nbspOperating Procedure&nbsp- &nbsp;Select the faces or elements to be smoothed. &nbsp;Select the move method. &nbsp;Choose Check on / off projection to CAD plane. &nbsp;Click the Apply / OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

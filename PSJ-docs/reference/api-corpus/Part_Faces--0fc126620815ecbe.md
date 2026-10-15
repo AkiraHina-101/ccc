@@ -1,3 +1,0 @@
-# Part Faces
-
-Part Faces Part Faces From parts or face, refer the angle or face width for the adjacent surface, to automatically merge with adjacent face. Options Angle If checked, it enables automatic merge due to the angle between adjacent surfaces. Tolerance Angle Merge below the input angle for the adjacent surface. Width When you check, it enables automatic merge by the width of the face. Tolerance Width Merge the adjacent surface below entered width. -&nbspOperating Procedure&nbsp- &nbspSelect the part or faces to merge. &nbspIf necessary, check the Angle check box to enter the tolerance angle. &nbspIf necessary, check the Width check box, enter the tolerance width. &nbspClick Apply / OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

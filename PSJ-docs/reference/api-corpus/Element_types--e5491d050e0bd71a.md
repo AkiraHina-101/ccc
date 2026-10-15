@@ -1,3 +1,0 @@
-# Element types
-
-Element types Element types ElemKindは要素種類の列挙型です。 ElemTypeは要素タイプの列挙型です。 ElemKind 説明 ElemType 説明 ELEMKIND_0D 節点用に準備された要素です。 ELEMTYPE_POINT 頂点用要素 ELEMKIND_1D 1D要素(バー要素)です。 ELEMTYPE_LINE2 1D要素（1次） ELEMTYPE_LINE3 1D要素（2次） ELEMKIND_2D 2D要素（シェル要素）です。 ELEMTYPE_TRI3 三角形1次要素 ELEMTYPE_TRI6 三角形2次要素 ELEMTYPE_QUAD4 四角形1次要素 ELEMTYPE_QUAD8 四角形2次要素 ELEMKIND_3D 3D要素（ソリッド要素）です ELEMTYPE_TET4 テトラ1次要素 ELEMTYPE_TET10 テトラ2次要素 ELEMTYPE_HEX8 ヘキサ1次要素 ELEMTYPE_HEX20 ヘキサ2次要素 ELEMTYPE_PRISM6 ペンタ1次要素 ELEMTYPE_PRISM15 ペンタ2次要素 ELEMTYPE_PYRAMID5 ピラミッド1次要素 ELEMTYPE_PYRAMID13 ピラミッド2次要素 ？ ？ ELEMTYPE_PLOT プロット要素 ？ ？ ELEMTYPE_RBE 剛体要素 ？ ？ ELEMTYPE_MASS 質量要素 -->

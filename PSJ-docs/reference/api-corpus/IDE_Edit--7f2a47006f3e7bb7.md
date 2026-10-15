@@ -1,3 +1,0 @@
-# IDE : Edit
-
-IDE : Edit Editメニュー Edit 名称 説明 ショートカットキー Undo 実行した操作を取り消し、ひとつ前の状態に戻します。 Ctrl + Z Redo 取り消した操作を再実行します。 Ctrl + Y Cut 選択したコードを切り取ります。 Ctrl + X Copy 選択したコードをコピーします。 Ctrl + C Paste Cut/Copyしたコードを貼り付けます。 Ctrl + V Import Macro Log 実行したコマンドのマクロを、PSJ-UtilityのJPT.Exec(マクロコマンド)の形でインポートします。 Ctrl + M Import Python Macro Log 実行したコマンドのPSJ-Commandをインポートします。PSJ-CommandはV5でサポートされます。 Ctrl + J Import Script From Last Run IDEで最後に実行したPythonスクリプトコードをインポートします。 Ctrl + L Find 作成しているコードにおける特定文字を見つけます。 Ctrl + F Comment コメントタグ ”#” を挿入します。 Ctrl + K Toggle Comment コメント ⇔ コメント解除の切り替えを行います Ctrl + T Go To Line 作成しているコードにおける特定行を見つけます。 Ctrl + G Find And Replace 作成しているコードにおける特定文字を見つけ、置き換えます。 Ctrl + H

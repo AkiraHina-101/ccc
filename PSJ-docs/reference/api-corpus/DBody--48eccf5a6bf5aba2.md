@@ -1,3 +1,0 @@
-# DBody
-
-DBody DBody Description パーツアイテムクラスです。 Properties 属性 説明 typeID アイテムの種類のID(=3)です。DItemTypeです。 #EntityのItemTypeの整数値を取得、戻り値 int(DItemw::GetItemTypeInt) key アイテムの内部IDです。各TypeID内での一意のIDです。ユーザーによる変更は不可。 #Entityの内部Key取得、戻り値Id（int) id アイテムの外部IDです。各TypeID内で重複可能ですが、推奨はされません。一部のエンティティIDは、リナンバー機能で変更可能です。 #Entityの外部ID取得、戻り値Id（int) name アイテムの名称です。 faces アイテムに含まれるフェース（FaceVectorクラスの配列）です。 #Partに設定されている、Face情報取得。戻り値DFaceW配列 edges アイテムに含まれるエッジ（EdgeVectorクラスの配列）です。 #Partに設定されている、Edge情報取得。戻り値DEdgeW配列 elems アイテムに含まれる要素（ElemVectorクラスの配列）です。 #Partに設定されている、要素情報取得。戻り値DElemW配列 nodes アイテムに含まれる節点（NodeVectorクラスの配列）です。 #Partに設定されている、節点情報取得。戻り値DNodeW配列 vertexs アイテムに含まれる頂点（VertexVectorクラスの配列）です。 ##Partに設定されている、Vertex情報取得。戻り値DVertexW配列 color アイテムの色情報です。 transparance アイテムの透明度です。

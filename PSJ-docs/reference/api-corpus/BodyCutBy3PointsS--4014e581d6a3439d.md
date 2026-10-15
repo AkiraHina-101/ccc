@@ -1,3 +1,0 @@
-# BodyCutBy3PointsS
-
-BodyCutBy3PointsS BodyCutBy3PointsS Description Body Cut By 3 Points Syntax BodyCutBy3PointsS(cursor crBody, double[] cutPosition, double dOffset , bool bSplit, bool makeSectionFace, bool shareFace) Inputs Cursor Part key cursor(Part ID) Double[] Target points for cutting Double Offset value from cutting plane Bool Whether split face or not True = 1, False = 0 Bool Whether make section face or not True = 1, False = 0 Bool Whether share face or not True = 1, False = 0 Return Code 1 Succeeded 0 Failed Sample Code BodyCutBy3PointsS(3:2, [[0.01, 0.003333333333333333, 0.01], [0.02, 0.003333333333333333, 0.01], [0.02, 0.003333333333333333, 0]], 0.0022, 0, 1, 0)

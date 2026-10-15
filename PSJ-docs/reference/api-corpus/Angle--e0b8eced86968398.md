@@ -1,3 +1,0 @@
-# Angle
-
-Angle Angle Change the selected edge automatically to the adjacent element edge within a specified angle from the selected element edge. While checking the preview, you can change the direction of the automatic selection by selecting an element edge. Options Break Face When this option is checked, the face will split where possible after creating an edge. Angle Specify the angle. Curvature Mode The angle from two elements edge is calculated to automatically select an element edge in a circle. Element Edges Selected element edges will be displayed. -&nbspOperating Procedure&nbsp- &nbspSelect the element edge. &nbspClick Apply / OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

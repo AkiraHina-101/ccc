@@ -1,3 +1,0 @@
-# Point
-
-Point a.no-uline {text-decoration:none} Point Indicate the destination by specifying an arbitrary point, and move the node. Position X &nbsp;&nbsp;&nbsp;Coordinates in the X direction are specified. Y &nbsp;&nbsp;&nbsp;Coordinates in the Y direction are specified. Z &nbsp;&nbsp;&nbsp;Coordinates in the Z direction are specified. -&nbsp;Operating Procedure&nbsp;- &nbsp;Select an arbitrary point button in the selection list. &nbsp;Specify an arbitrary point to move to. &nbsp;Select the node button in the selection list. &nbsp;Select the node to move. &nbsp;Press the Apply or OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

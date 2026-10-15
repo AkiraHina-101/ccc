@@ -1,3 +1,0 @@
-# CreateCube
-
-CreateCube CreateCube Description Create Cube Body Syntax CreateCube(double[3] vdOriginXYZ, double[3] vdLength, int[3] vlNodeCnt, string strBodyName, color colBody, cursor crCoord) Inputs Double[3] Origin coordinate Point([x, y, z]) Double[3] Length along the coordinate axis Length([x_length, y_length, z_length]) int[3] Number of node along the coordinate axis Node([x_node, y_node, z_node]) String Part name Color N/A Part color Cursor Whether use local coordinate or not True = 27:*, False = 0:0 Return Code 1 Succeeded 0 Failed Sample Code CreateCube([0, 0, 0], [0.01, 0.01, 0.01], [10, 10, 10], "Cube_1", 5093709, 0:0)

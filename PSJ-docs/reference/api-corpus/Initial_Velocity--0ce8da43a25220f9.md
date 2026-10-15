@@ -1,3 +1,0 @@
-# Initial Velocity
-
-Initial Velocity a.no-uline {text-decoration:none} Initial Velocity Set the initial velocity for dynamic analysis. Structural Name &nbsp;&nbsp;&nbsp;Enter the initial velocity name. Initial Velocity Values X, Y, Z &nbsp;&nbsp;&nbsp;Enter the initial velocity of each coordinate axis. Input Unit &nbsp;&nbsp;&nbsp;Specify the input unit. Analysis Coordinate Frame Coordinate &nbsp;&nbsp;&nbsp;Specify the coordinate system. Tables Table selection &nbsp;&nbsp;&nbsp;It is defined by Field data . Currently not supported. -&nbsp;Operating Procedure&nbsp;- &nbspSelect the entity to set the initial velocity. &nbspEnter the initial velocity of each axis. &nbspPress the Apply or OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

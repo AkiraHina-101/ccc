@@ -1,3 +1,0 @@
-# Numeric Display
-
-Numeric Display Numeric Display Set up the numeric display format in Jupiter-Pre. Real Type(123.456) Display the numerical values in real number format. Power Type(1.234E-005) Display the numerical values in exponential format. Width Specify the number of digits to display. Precision Specify the number of decimals to display. Auto Display numerical values in optimum format. -&nbspOperating Procedure&nbsp- &nbspActivate the command, specify each option and click Apply or OK button. -&nbsp;窶倪ぎﾂ催ｬ窶慊ｮ窶ｰﾃｦ&nbsp;- &nbspﾂ催・青ｶﾆ畜ﾆ耽ﾆ停�懌�堙ｰ窶ｰﾅｸ窶堋ｷ窶堙・�倪ぎﾂ催ｬ窶慊ｮ窶ｰﾃｦ窶堋ｪﾂ催・青ｶ窶堋ｳ窶堙ｪ窶堙懌�堋ｷﾂ。 -->

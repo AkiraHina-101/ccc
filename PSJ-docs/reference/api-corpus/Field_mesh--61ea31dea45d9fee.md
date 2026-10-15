@@ -1,3 +1,0 @@
-# Field mesh
-
-Field mesh Field mesh Create a field mesh by entering the coordinates of the start and end points. Part Name Part Name &nbsp;&nbsp;&nbsp;Enter the name of the newly created part. First Coordinate X,Y,Z &nbsp;&nbsp;&nbsp;Enter the coordinates of the start point. Last Coordinate X,Y,Z &nbsp;&nbsp;&nbsp;Enter the coordinates of the end point. Number of Elements X,Y,Z &nbsp;&nbsp;&nbsp;Specify the number of divisions of the element for each coordinate axis. Create a plane if either axis is 0. -&nbspOperating procedure&nbsp- &nbsp;Enter the coordinates of the start point. &nbsp;Enter the coordinates of the end point. &nbsp;Specify the number of divisions for each axis. &nbsp;Click the OK button to execute. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

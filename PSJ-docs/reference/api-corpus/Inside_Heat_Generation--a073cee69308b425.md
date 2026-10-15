@@ -1,3 +1,0 @@
-# Inside Heat Generation
-
-Inside Heat Generation Inside Heat Generation Define internal heat generation conditions for the selected part. Thermal Name Set the internal heat generation condition name. Inside Heat Generation Inside Flux Enter the internal calorific value per unit volume. Input Unit Specify the input unit system of internal heat generation. Tables Select Table Select a predefined time history table. -&nbspOperating Procedure&nbsp- &nbspSelect the part that defines the internal heat generation condition. Multiple selections are possible. &nbspEnter the internal heat generation into the internal flux. &nbspChange other parameters as needed. &nbspClick the Apply or OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

@@ -1,3 +1,0 @@
-# IN Boundary｜Limited Boundary｜Cylinder
-
-IN Boundary｜Limited Boundary｜Cylinder IN Boundary｜Limited Boundary｜Cylinder Create a restricted cylindrical surface with an infinite boundary. Cylinder Bottom Center &nbsp;&nbsp;&nbsp;Enter the bottom center coordinates of the cylindrical surface. Top Center &nbsp;&nbsp;&nbsp;Enter the top center coordinates of the cylindrical surface. Radius &nbsp;&nbsp;&nbsp;Enter the radius of the cylindrical surface. -&nbspOperating procedure&nbsp- &nbsp;Select the part of the infinite interface. &nbsp;Enter the bottom center coordinates, top center coordinates, and radius. &nbsp;Press the Apply / OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

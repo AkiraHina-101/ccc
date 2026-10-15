@@ -1,3 +1,0 @@
-# Gravity
-
-Gravity a.no-uline {text-decoration:none} Gravity Define the acceleration load of gravity to the selected Part. Structural Name &nbsp;&nbsp;&nbsp;Set the gravity load name. Value X/Y/Z &nbsp;&nbsp;&nbsp;Define the acceleration value of each direction. Input Unit &nbsp;&nbsp;&nbsp;Specify the input unit system. Analysis Coordinate Frame Coordinate &nbsp;&nbsp;&nbsp;Select the coordinate system in which the load is to defined. -&nbsp;Operating Procedure&nbsp;- &nbsp;Select the parts to apply the gravity load. You can select more than one. &nbsp;Enter the acceleration values in each of X, Y or Z direction. &nbsp;Select and enter the other parameters as required. &nbsp;Click the Apply or OK button. -&nbsp;Operation Video&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

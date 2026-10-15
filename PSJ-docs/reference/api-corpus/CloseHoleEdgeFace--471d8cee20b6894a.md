@@ -1,3 +1,0 @@
-# CloseHoleEdgeFace
-
-CloseHoleEdgeFace CloseHoleEdgeFace Description ACM_CloseHole_EdgeFace Syntax CloseHoleEdgeFace(cursor[] crBody, cursor[] crFace, cursor[] crEdge, bool bSelBelPart, bool SpecPart, bool bNewPart, string strName, bool bRemesh, double dElemSize) Inputs Cursor[] Target body cursor([3:Body ID]) Cursor[] Target face cursor([6:Face ID]) Cursor[] Target edge cursor([5:Edge ID]) Bool Select belong part bool flag True = 1, False = 0 Bool Specified part bool flag True = 1, False = 0 Bool New part bool flag True = 1, False = 0 String New part name Bool Remesh bool flag True = 1, False = 0 Double Element size Return Code 1 Succeeded 0 Failed Sample Code CloseHoleEdgeFace([], [6:62], [5:10000157], 0, 0, 0, "", 1, 0.008)

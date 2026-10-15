@@ -1,3 +1,0 @@
-# Cylinder Face
-
-Cylinder Face a.no-uline {text-decoration:none} Cylinder Face Move such that the two cylindrical surfaces selected each from different parts overlaps Operation Create New Part &nbsp;&nbsp;&nbsp;Copy the part after the parallel move, as a new Part. LBC Copy &nbsp;&nbsp;&nbsp;Also copy load constraints that were added to the existing part to a new part. -&nbspOperating Procedure&nbsp- &nbsp;When you want to create a new part after Part movement, select the Create New Part. &nbsp;Turn on the LBC Copy to copy a load restraint conditions of the existing part to the new part. &nbsp;Press the Face button, to one by one select the cylindrical surface from different Part. &nbsp;Press the Apply or OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

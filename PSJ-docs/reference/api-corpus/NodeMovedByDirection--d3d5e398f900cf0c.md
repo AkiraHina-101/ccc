@@ -1,3 +1,0 @@
-# NodeMovedByDirection
-
-NodeMovedByDirection NodeMovedByDirection Description Move node(s) in a specified direction Syntax NodeMovedByDirection(Cursor[] crNode, Cursor crElem, Cursor crFace, double[3] vctDirection, double dMoveAmount, bool BDestiByFaceOrElem) Inputs Cursor[] Target node cursor([10:Node ID]) Cursor Target element cursor(11:Elem ID) Cursor Target face cursor(6:Face ID) Double[3] Vector direction DX, DY, DZ Double Move amount user input Bool Destination by face or element bool flag True = 1, False = 0 Return Code 1 Succeeded 0 Failed Sample Code NodeMovedByDirection([10:1420], 11:3167, 6:78, [0.196116135138184, 0.98058067569092, 0], 0.005, 1)

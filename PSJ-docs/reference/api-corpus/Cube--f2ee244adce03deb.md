@@ -1,3 +1,0 @@
-# Cube
-
-Cube Cube Create a cuboid. Part Properties Part Name Enter the name of the cuboid to be created. Cube Local Coordinates Select any of the coordinate system. Origin-X,Y,Z Specify the origin coordinates. Length in X,Y,Z Enter each length of the X, Y, Z-axis direction. Number of Nodes in X,Y,Z Enter each number of nodes in the X, Y, Z-axis direction. -&nbspOperating Procedure&nbsp- &nbspEnter the part name in the Parts Name. &nbspSpecify the origin coordinates in Origin-X, Y, Z. &nbspEnter the length of the each axis direction in Length X, Y, Z. &nbspEnter the number of nodes in each axis direction of the X, Y, Z in Number of Nodes. &nbspClick Apply / OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

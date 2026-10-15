@@ -1,3 +1,0 @@
-# Change Topology Element
-
-Change Topology Element Change Topology Element Selected elements will be moved to another part. Options Create New Part When checked, it creates new parts from selected elements. If you do not put a check, element will belong to the selected parts. -&nbspOperating Procedure&nbsp- &nbspSelect the face. &nbspIf you want the elements to belong to a different part, select the parts. (Create New Part check off) &nbspCheck the Create New Part, if you want to create a new part. &nbspClick Apply or OK button for the function to be executed. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

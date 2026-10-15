@@ -1,3 +1,0 @@
-# ElemRelatedInfo_Beam
-
-ElemRelatedInfo_Beam ElemRelatedInfo_Beam Description Set Bar/Beam Parameter Syntax ElemRelatedInfo_Beam(int[] ends, int[] orientVecs, int[] orientationVecsByNode, int[] offsetVecAs, int[] offsetVecBs, int[] pinAs, int[] pinBs, int[] warps) Inputs int[] end node ids parameter int[] orientation vectors parameter int[] orientation vectors by Node parameter int[] offset A vectors parameter int[] offset B vectors parameter int[] pinA flags parameter int[] pinB flags parameter int[] warping flags parameter Return Code 1 Succeeded 0 Failed Sample Code ElemRelatedInfo_Beam([], [[3, 795, 0, 1, 0], [3, 796, 0, 1, 0], [3, 797, 0, 1, 0]], [], [], [], [], [], [])

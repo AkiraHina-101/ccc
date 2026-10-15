@@ -1,3 +1,0 @@
-# Hierarchy Window
-
-Hierarchy Window Hierarchy Window All components in use are displayed in a tree format and you can change the position of the components. Hierarchy Window details Icon Name Description Move upper level Move the selected item to a upper level. Move lower level Move the selected item to a lower level. Move forward Move the selected item up one level to the same level. Move backward Move the selected item down one level to the same level. Copy and insert Duplicate the selected item. Delete Delete the selected item. Import XML Import the XML file. Export XML Export the XML file.

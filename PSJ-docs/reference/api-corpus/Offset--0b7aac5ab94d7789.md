@@ -1,3 +1,0 @@
-# Offset
-
-Offset Offset Translate and copy the selected node or floating point to create a node. If you specify the number of copies, it creates copies at the specified intervals of offset vector. Position X, Y, Z Enter the offset vector of the copied location. Repeat (times) Enter the number of copies. Coordinate Set the reference coordinate system. -&nbspOperating Procedure&nbsp- &nbspSelect the node or floating node to copy. &nbspEnter the offset vector values to X, Y, Z. &nbspEnter the number of copies to Repeat (time). &nbspIf necessary, change the reference coordinate system. &nbspClick Apply / OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

@@ -1,3 +1,0 @@
-# ElemRelatedInfo_Conn
-
-ElemRelatedInfo_Conn ElemRelatedInfo_Conn Description Set Bush/Gap Parameter Syntax ElemRelatedInfo_Conn(ERIConn_Ends[] ends, ERIConn_orientVec[] orientVec, ERIConn_cid[] CID, ERIConn_damperLoc[] damperLocs, ERIConn_ocid[] ocids, ERIConn_damperOffsetVec[] damperOffsetVecs, ERIConn_nodeId[] nodeIds) Inputs ERIConn_Ends[] ERIConn_end list ERIConn_orientVec[] ERIConn_orientVec list ERIConn_cid[] ERIConn_CID list ERIConn_damperLoc[] ERIConn_damperLoc list ERIConn_ocid[] ERIConn_ocid list ERIConn_damperOffsetVec[] ERIConn_damperOffsetVec list ERIConn_nodeId[] ERIConn_nodeId list Return Code 1 Succeeded 0 Failed Sample Code ElemRelatedInfo_Conn([[267, 14, 1]], [[267, 1, 0, 0]], [[267, 1]], [[267, 0.001]], [[267, 1]], [[267, 0, 0, 0.001]])

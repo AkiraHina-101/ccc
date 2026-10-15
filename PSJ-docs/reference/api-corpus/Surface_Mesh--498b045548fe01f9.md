@@ -1,3 +1,0 @@
-# Surface Mesh
-
-Surface Mesh Surface Mesh The shell element order conversions for triangular and quadrilateral shell elements. Convert to Element Type &nbsp;&nbsp;&nbsp; Select the order and element type for the change. Linear(Tri3/Quad4) &nbsp;:&nbsp;Convert to primary element Quadratic(Tri6/Quad8) &nbsp;:&nbsp;Convert to a secondary element Tri3 &nbsp;:&nbsp;Convert the quadrilateral elements and triangular secondary element to the triangular primary element -&nbspOperating Procedure&nbsp- &nbspSpecify the element type after conversion. &nbspSelect the target parts. &nbspClick Apply / OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

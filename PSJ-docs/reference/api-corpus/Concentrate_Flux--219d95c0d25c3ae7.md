@@ -1,3 +1,0 @@
-# Concentrate Flux
-
-Concentrate Flux Concentrate Flux Define a centralized heat flux on the selected node or node on the edge of selected face. Thermal Name Set the centralized heat flux load name. Value Value Enter a centralized heat flux value. Input Unit Specify the input unit system. Tables Select Table &nbsp;&nbsp;&nbsp;Select the table defined in Field data . -&nbspOperating Procedure&nbsp- &nbspSelect a node or an edge of the face to apply the centralized heat flux. You can have multiple selections. &nbspEnter the centralized heat flux value to Value. &nbspChange the other parameters as needed. &nbspClick the Apply or OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

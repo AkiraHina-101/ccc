@@ -1,3 +1,0 @@
-# Correct Model
-
-Correct Model Correct Model Correct model topology errors. Edge Options Divide or combine the edges of the whole model from angle specification. Break Edges If checked, the edge is split. Merge Edges When checked, join the edges. Face Options Merge Planar Faces Check to combine faces in consecutive planes. Vertex Options Remove Extra Vertices If checked, extra vertices (such as vertices on floating nodes) will be removed from the whole model. -&nbspOperating Procedure&nbsp- &nbspSelect a part. &nbspSet the options as required. &nbspClick the Apply or OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

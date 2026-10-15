@@ -1,3 +1,0 @@
-# Prop3DGasket
-
-Prop3DGasket Prop3DGasket Description create property 3d gasket Syntax Prop3DGasket(string strName, cursor crMaterial, double dThickX, double dThickY, double dThickZ, cursor taTarget, cursor crEdit, bool bUniAxial, int FLG) Inputs String Prop3DGasket name Cursor Material cursor(22:Material ID) Double Thickness direction X Double Thickness direction Y Double Thickness direction Z Cursor Target entities cursor Cursor N/A: Edit cursor Bool UniAxial bool flag True = 1, False = 0 Int N/A: FLG Return Code 1 Succeeded 0 Failed Sample Code Prop3DGasket("Gasket Property 1", 22:6, 1, 2, 3, [3:1], 0:0, 1, 1)

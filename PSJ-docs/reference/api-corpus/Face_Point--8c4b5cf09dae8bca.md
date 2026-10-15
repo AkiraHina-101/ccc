@@ -1,3 +1,0 @@
-# Face Point
-
-Face Point a.no-uline {text-decoration:none} Face Point The destination to move the Node was instructed by the specified Point on the Face. Position X &nbsp;&nbsp;&nbsp;X direction for coordinates are specified. Y &nbsp;&nbsp;&nbsp;Y direction for coordinates are specified. Z &nbsp;&nbsp;&nbsp;Z direction for coordinates are specified. -&nbsp;Operating Procedure&nbsp;- &nbsp;Select the Face Point button on the select list. &nbsp;Specify the Point on Face to become a destination. &nbsp;Select the Node button on the select list. &nbsp;Select the Node that you want to move. &nbsp;Click the Apply or OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

@@ -1,3 +1,0 @@
-# InitialDynamic
-
-InitialDynamic InitialDynamic Description Create Initial Condition Syntax InitialDynamic(CString m_strName,int m_Type,double[] fVel,BOOL bSelNodeSet,Cursor crNodeSet,Cursor crTable,Cursor curCoord,Cursor[] m_taTarget,Cursor m_crEdit) Inputs CString Condition name int Condition Type[0-displacement 1-velocity 2-rotation angle 3-angular velocity] double[] Condition value BOOL selected node set Cursor selected node set cursor Cursor selected table cursor Cursor coordinate cursor Cursor[] selected entity Cursor edit mode Return Code 1 Succeeded 0 Failed Sample Code InitialDynamic("InitialAngularVelocity1", 3, [1, 2, 3], 0, 0:0, 0:0, 0:0, [3:1], 0:0)

@@ -1,3 +1,0 @@
-# CadProject_Part
-
-CadProject_Part CadProject_Part Description CadProject_Part Part/Face/Face To Edge Syntax CadProject_Part(int method, cursor taCadBody, cursor meshedBody, bool bForceProject, bool bProjectCornerNodes, bool bProjectMidNodes, bool bIDCheck) Inputs Int N/A: Method = 1 Cursor Target reference CAD body(12:RefPart ID) Cursor Target meshed body(3:Part ID) Bool N/A: Force project = 0 Bool Project corner nodes bool flag True = 1, False = 0 Bool Project mid nodes bool flag True = 1, False = 0 Bool ID check bool flag True = 1, False = 0 Return Code 1 Succeeded 0 Failed Sample Code CadProject_Part(1, 12:1, 3:1, 0, 0, 1, 1)

@@ -1,3 +1,0 @@
-# Adjust Orientation
-
-Adjust Orientation Adjust Orientation Adjust the orientation of the selected part or face element relative to the selected element. Adjust Orientation Entity Part: Modify the element orientation on a part-by-part basis. Face: Modify the element's orientation on a face-by-face basis. ※It is also possible to modify multiple entities (parts or faces) at once. In this case, select elements contained in the selected entity one by one as elements of the criteria. -&nbspOperating Procedure&nbsp- &nbspSelect the part or face to be modified. &nbspSelect a reference element &nbspThe function is executed with the Apply or OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

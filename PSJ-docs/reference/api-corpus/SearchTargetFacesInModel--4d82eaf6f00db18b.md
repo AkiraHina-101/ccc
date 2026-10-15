@@ -1,3 +1,0 @@
-# SearchTargetFacesInModel
-
-SearchTargetFacesInModel SearchTargetFacesInModel Description Search target faces in model Syntax SearchTargetFacesInModel(int BodyType, double[3] OriginPoint, double[3] LengthXYZ, double[3] CenterPoint, double[3] MajorPoint, double[3] MinorPoint, bool Enclosed) Inputs Int Body Type* *0: Cube &ensp;1: Spheroid Double[3] Origin Point Double[3] Length X, Y, Z Double[3] Center point Double[3] Major point Double[3] Minor point Bool Enclosed bool flag 0: False, 1: True Return Code 1 Succeeded 0 Failed Sample Code SearchTargetFacesInModel(0, [0, 0, 0], [0.01, 0.01, 0.01], [0, 0, 0], [0, 0, 0.01], [0.005, 0, 0], 0)

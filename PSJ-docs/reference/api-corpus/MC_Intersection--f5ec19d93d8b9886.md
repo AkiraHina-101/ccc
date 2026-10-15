@@ -1,3 +1,0 @@
-# MC_Intersection
-
-MC_Intersection MC_Intersection Description Intersection Syntax MC_Intersection(cursor[] crBody, double dTol, int iDispType, int iNoLayer, bool bErrText) Inputs Cursor[] Target body cursor([3:Part ID]) Double Number of edges tolerance Int Display intersection type* *0: Body intersection only &ensp;1: All intersection &ensp;2: Between bodies intersection Int Number of intersection layer Bool Error text bool flag True = 1, False = 0 Return Code It returns a string separated by commas contains 2 values. Succeeded:1 Failed: 0 Number of intersection elements Sample Code MC_Intersection([3:1], 0, 0, 1, 0)

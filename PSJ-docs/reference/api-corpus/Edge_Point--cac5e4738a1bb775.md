@@ -1,3 +1,0 @@
-# Edge Point
-
-Edge Point Edge Point Create a node or floating node with reference to the coordinates of any node on the edge (Edge Point). Property Node ID Display the ID of the node that is created. X, Y, Z Display the coordinates of the node to be created. Coordinates of an arbitrary point on the selected edge is entered. Imprint In case it is checked on, a node is created on the face. In case it is checked off, it creates a floating node. -&nbspOperating Procedure&nbsp- &nbspSelect the Edge Point. &nbspIf necessary, set the Imprint. &nbspClick Apply / OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

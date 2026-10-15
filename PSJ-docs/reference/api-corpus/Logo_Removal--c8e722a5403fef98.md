@@ -1,3 +1,0 @@
-# Logo Removal
-
-Logo Removal Logo Removal This function is used to automatically remove faces that configure logos or bolts. Logo Removal Logo or Bolt Hole Face(s) Select the face(s) of the logo or bolt to be removed. Stop Face(s) Select the face(s) adjacent to the geomery to be removed. Merge Faces Select this checkbox to connect adjacent faces after removing logos or bolts. Removal Depth (Layers) Specify the number of layers in the depth direction of the target face(s) when removing bolts. -&nbspOperating Procedure&nbsp- &nbspSelect the Start Face. &nbspSelect the Stop Face. &nbspDefine other parameters. &nbspClick the Apply/OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

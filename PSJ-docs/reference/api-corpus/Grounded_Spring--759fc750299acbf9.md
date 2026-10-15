@@ -1,3 +1,0 @@
-# Grounded Spring
-
-Grounded Spring Grounded Spring It is a function to create a grounded spring element. A grounded spring is defined at the node on the specified entity. Connection Name Enter the name to be registered. Spring グラウンド 接地バネのオプションを指定します。 --> X Stiffness - Z Stiffness, RX Stiffness - RZ Stiffness Enter the spring stiffness. Damping Coef (for Nastran) Enter the damping coefficient. Stress Coef (for Nastran) Enter the stress coefficient. Analysis Coordinate Frame Coordinate Select a reference coordinate system. -&nbspOperating Procedure&nbsp- &nbspSelect multiple nodes from the main window. &nbspEnter the spring stiffness. &nbspSet other parameters. &nbspClick the Apply / OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

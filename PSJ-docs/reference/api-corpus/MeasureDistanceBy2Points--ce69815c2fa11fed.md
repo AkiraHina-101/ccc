@@ -1,3 +1,0 @@
-# MeasureDistanceBy2Points
-
-MeasureDistanceBy2Points MeasureDistanceBy2Points Description Measure the distance between two points Syntax MeasureDistanceBy2Points(Point[] xyz,String Target,Integer N) Inputs Points[] Point xyz Coordinate([[x1,y1,z1],[x2,y2,z2]]) String Target(Dist or X or Y or Z or ALL) Integer N specify the number of decimal places (0 Return Code distance (Input = Dist,X,Y,Z) [Dist,X,Y,Z](Input = All) Succeeded FAILED Failed Sample Code MeasureDistanceBy2Points([[0.0066666,0.00333333,0.01],[0.004444440.0077777,0.01]],"X",6) or MeasureDistanceBy2Points([[0.0066666,0.00333333,0.01],[0.004444440.0077777,0.01]],"Dist",6)

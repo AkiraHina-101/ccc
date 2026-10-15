@@ -1,3 +1,0 @@
-# Import Marc Mesh File
-
-Import Marc Mesh File Import Marc Mesh File This command is used to import Marc files（.dat）. Angle Face Angle &nbsp;&nbsp;&nbsp; Specify the tolerance angle in order to determine the face division. Define a face by creating an edge between adjacent elements with an angle smaller than the specified value. Edge Angle &nbsp;&nbsp;&nbsp; Specify the tolerance angle in order to determine the edge division. Divide an edge by creating a vertex on adjacent edge elements with an angle smaller than the specified value. -&nbspOperating Procedure&nbsp- &nbsp;Launch the command, specify each option and click the OK button. &nbsp;Select the target data in the dialog and click the Open button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

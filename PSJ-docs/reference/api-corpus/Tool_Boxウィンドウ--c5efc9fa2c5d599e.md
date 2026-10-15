@@ -1,3 +1,0 @@
-# Tool Boxウィンドウ
-
-Tool Boxウィンドウ Tool Boxウィンドウ ダイアログやウィザードの作成に使用するコンポーネントが集約されています。 Tool Box ウィンドウ詳細 アイコン 名称 説明 Layout コンポーネントのレイアウトを作成します。 Group Box グループボックスを作成します。 Tab Control タブコンテナ―を作成します。 Tab Item タブコンテナー内にタブを作成します。 Label ラベルを作成します。 Text Box テキストボックスを作成します。 Rich Edit Control さまざまなデータ形式と複数行で入力できるテキストボックスを作成します。 Combo Box コンボボックスを作成します。 List Box リストボックスを作成します。 Check box チェックボックスを作成します。 Radio Button ラジオボタンを作成します。 Button ボタンを作成します。 Image Control 画像を挿入します。 Spin スピンボタンを作成します。 Slider Bar スライドバーを作成します。 Separator 区切り線を作成します。 Open File/Folderr ファイル/フォルダオープンダイアログを作成します。 Table テーブルを作成します。 Page Control ページコンテナーを作成します。（ウィザードで使用） Page Item ページコンテナー内にページを作成します。（ウィザードで使用）

@@ -1,3 +1,0 @@
-# SplitElement
-
-SplitElement SplitElement Description Split Element Syntax SplitElement(cursor[] taElems, cursor datum0, cursor datum1, int iMethod, bool bAutoExecute, bool AutoTransition, bool bCADProject, bool bMergeNodes) Inputs Cursor[] Target element cursor([11:Element ID]) Cursor N/A: datum0 = 0:0 Cursor N/A: datum1 = 0:0 Int N/A: Method = 0 Bool Auto execution bool flag True = 1, False = 0 Bool Auto transition bool flag True = 1, False = 0 Bool CAD Projection bool flag True = 1, False = 0 Bool Merge Nodes bool flag True = 1, False = 0 Return Code 1 Succeeded 0 Failed Sample Code SplitElement([11:1090], 0:0, 0:0, 0, 1, 0, 0, 1)

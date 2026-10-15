@@ -1,3 +1,0 @@
-# Area [Element]
-
-Area [Element] a.no-uline {text-decoration:none} Area [Element] Measures the area of the element. Output Area &nbsp;&nbsp;&nbsp;Measurement result (Area of the Part) is displayed. Total Value &nbsp;&nbsp;&nbsp;Measurement result (Total area of the Part) is displayed. Input Unit &nbsp;&nbsp;&nbsp;Set the preferred unit system . -&nbsp;Operating Procedure&nbsp;- &nbsp;Select the element. &nbsp;Area of the last selected element will be displayed in the area, while area of the selected elements will be displayed in the total value. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

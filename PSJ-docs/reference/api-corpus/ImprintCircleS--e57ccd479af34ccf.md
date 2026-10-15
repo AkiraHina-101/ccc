@@ -1,3 +1,0 @@
-# ImprintCircleS
-
-ImprintCircleS ImprintCircleS Description Create imprint circle line Syntax ImprintCircleS(double[] taPositions, cursor[] taTargetFace, double dInRadius, double dOutRadius, int iNoofLayer, int iNoOfDiv, bool bBreakFace) Inputs Double[] Target points for imprinting -> Point_n([xi, yi, zi]) Cursor[] Target faces cursor([6:Face ID]) Double Inner radius Double Outer radius Int Number of layers Int Number of divisions Bool Whether break face or not True = 1, False = 0 Return Code 1 Succeeded 0 Failed Sample Code ImprintCircleS([[0.007777777777777778, 0.006666666666666666, 0.01]], [6:26], 0.001, 0.002, 1, 30, 1)

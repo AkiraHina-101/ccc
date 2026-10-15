@@ -1,3 +1,0 @@
-# Total&nbsp;Load&nbsp;[LBC]
-
-Total&nbsp;Load&nbsp;[LBC] a.no-uline {text-decoration:none} Total&nbsp;Load&nbsp;[LBC] Display the total value of force or pressure defined on the selected LBC. Measure Method &nbsp;&nbsp;&nbsp;Measurement object for load. Coordinate System &nbsp;&nbsp;&nbsp;Reference coordinate system. Output :&nbsp;Display the measurement value X &nbsp;&nbsp;&nbsp;Load in the X direction. Y &nbsp;&nbsp;&nbsp;Load in the Y direction. Z &nbsp;&nbsp;&nbsp;Load in the Z direction. Total &nbsp;&nbsp;&nbsp;The absolute value of the total load. -&nbsp;Operating Procedure&nbsp;- &nbsp;Select the LBC for measurement. &nbsp;The total value for the applied load on the selected LBC appears in the Output. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

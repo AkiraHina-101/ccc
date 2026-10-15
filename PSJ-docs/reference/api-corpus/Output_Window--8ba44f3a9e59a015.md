@@ -1,3 +1,0 @@
-# Output Window
-
-Output Window Output Window This window is used to display text information such as log messages. During entity selection: Displays the ID, type, values of the selected entity. During command execution: Displays execution/error information, etc. Mouse Operation The following list shows the mouse operations available in the Output window. Mouse Operation Function Left mouse click Highlight the line. Press the Ctrl/Shift keys to perform a range selection. Mouse wheel Scroll the window. Shortcut Menu Each command can be used from the menu displayed by right-clicking the tree item. Command Content Select All Highlight all contents in the macro window. Copy Copy the highlighted macro lines to the clipboard. Clear Delete all contents in the macro window.

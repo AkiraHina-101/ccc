@@ -1,3 +1,0 @@
-# Template Copy
-
-Template Copy Template Copy Form the shape, copy the local setting of same entity and topology, to the same entity. Copy Settings Method &nbsp;Specify how to copy. By Shape &nbsp;:&nbsp;Copy based on the shape. By Topology &nbsp;:&nbsp;Copy based on the topology. Include Sub Entity &nbsp;Copy all of the local settings that are included in the reference source entity. Tolerance &nbsp;Set the tolerance of the shape error. -&nbspOperating Procedure&nbsp- &nbsp;Select the Master button in the Selection List. &nbsp;Select the reference source of the face for the local setting. &nbsp;Select the Slave button in the Selection List. &nbsp;Select the destination of the face. &nbsp;Click Apply / OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

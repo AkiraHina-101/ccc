@@ -1,3 +1,0 @@
-# GetAllFaces
-
-GetAllFaces GetAllFaces Description Get information of faces Syntax GetAllFaces() Inputs None No input value Return Code Python Output FaceVector Face information (id, key, typeID) Sample Code Input: faces = JPT.GetAllFaces() for f in faces: print(str(f.id)+' '+str(f.key)+' '+str(f.typeID)) Output: > 21 21 6 > 22 22 6 > 23 23 6 > 24 24 6 > 25 25 6 > ...

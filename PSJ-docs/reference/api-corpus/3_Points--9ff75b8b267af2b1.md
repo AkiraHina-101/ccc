@@ -1,3 +1,0 @@
-# 3 Points
-
-3 Points 3 Points Create an arc Edge through selecting three points and create Bar Part, including the newly created. Body Name Name &nbsp;&nbsp;&nbsp;If you want to create a new Bar Part, enter the name of Part. -&nbsp;Operating Procedure (Create an arc Edge to an existing Part)&nbsp;- &nbsp;Select the three nodes. &nbsp;Click the Apply/OK button. &nbsp;Create a circular Edge passing through the selected 3 Nodes, belonging to the selected part. -&nbsp;Operating Procedure (Create an arc Edge and Bar Part)&nbsp;- &nbsp;Select the three nodes. &nbsp;Enter the Part name in Name. &nbsp;Click Apply/OK button. &nbsp;Create a new Bar Part. Create an arc Edge through the three selected nodes. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

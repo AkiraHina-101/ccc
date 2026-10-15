@@ -1,3 +1,0 @@
-# ImportBdf
-
-ImportBdf ImportVDB Description Import TSV VDB file Syntax ImportVDB(string SourceFilePath, string SaveFolderPath) Inputs String Path of file to ready String Path directory to save* *If this parameter is not indicated, converted files are saved under Temp folder. Return Code 1 Succeeded The files below are also saved in the exported folder: Filename .txt : Summary of read .vdb file Filename .unit : Unit information of .vdb file. Filename .mode : Model information in .vdb file. 0 Failed Sample Code ImportVDB("C:/MyFolder/MyFile_Source.vdb","C:/MyFolder/ConvertedMyFile/") ImportVDB("C:/MyFolder/MyFile_Source.vdb") Sample Code (Python API)
