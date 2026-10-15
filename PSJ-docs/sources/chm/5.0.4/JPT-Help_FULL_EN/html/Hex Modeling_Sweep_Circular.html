@@ -1,0 +1,105 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Sweep</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Circular</h2>
+	<div class="contents">
+	<p>
+	Create an axis specified solid meshing from surface meshes (Tri and Quad mesh) by sweeping in axial symmetry. </br>
+	</p>
+
+	<img src="./Media/CommandDlg/Hex%20Modeling_Sweep_Circular.PNG">
+
+	<h4>Circular Parameters</h4>
+	<li>Angle
+	<p>Enter the angle of sweep.</p>
+	</li>
+	<li>No. of Layers
+	<p>Enter the number of layers.</p>
+	</li>
+	<li>Center Type
+	<p>Select the setting of the center of rotation from the pull-down.</br>
+	Edge Center ：Center of the selected edge</br>
+	Node ：The selected node</br>
+	Arbitrary ：Arbitrary direction of the vector you entered</br>
+	Local Co-ord ：Specify the direction of Local Co-ord.</br>
+	Center X,Y,Z ：Center position X, Y, Z component
+	</p>
+	</li>
+	<li>Axis Type
+	<p>Select the setting of rotation axis from the pull-down.</br>
+	Nodes ：Specify two of contacts you have selected</br>
+	Elem Edge ：Specify selected element edge</br>
+	Arbitrary ：Arbitrary direction of the vector you entered</br>
+	Local Co-ord ：Specifies the direction of Local Co-ord</br>
+	Axis X,Y,Z ：Axial vector X, Y, Z component </br>
+	Local Co-ord ：Choose the direction of Local Co-ord</br>
+	</p>
+	</li>
+	<li> Axis Tolerance
+	<p>You can specify a tolerance for axis of rotation. 
+	</p>
+	</li>
+	<h4>Auto Interface Penta5/Tet4</h4>
+	<li>Interface Elems
+	<p>
+	If checked, a penta element to the boundary surface will be created.</br>
+	</p>
+	</li>
+	<h4>Auto Delete Original Parts</h4>
+		<li>Delete Original Parts
+			<p>When checked, the original part is deleted automatically.</p>
+		</li>
+
+	<h4>Total Revolution and Extrusion</h4>
+		<li>Total Revolution and Extrusion
+			<p>Check to enable rotation angle and extrusion distance.</p>
+		</li>
+		<li>Translation Distance
+			<p>Define the extrusion distance.</p>
+		</li>
+
+
+	<img src="./Media/Hex%20Modeling_Sweep_Circular_example.PNG">
+
+	<p>
+* If you select and run an entity that contains 2nd element, a warning will be displayed. <br>
+Convert to primary element and execute. </ br>
+	</p>
+
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+	<li>&nbspSelect the rotation sweep surfaces.</li>
+	<li>&nbspSpecify the angle of rotation sweep.</li>
+	<li>&nbspSpecify the number of layers.</li>
+	<li>&nbspSet the rotation axis and the center.</li>
+	<li>&nbspClick the Apply or OK button.</li>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

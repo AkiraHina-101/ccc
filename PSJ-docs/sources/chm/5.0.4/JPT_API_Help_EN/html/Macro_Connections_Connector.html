@@ -1,0 +1,46 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Connector</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>Connector</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create a connector</p>
+<h4>Syntax</h4>
+<p>Connector(CString nameConnector, int iMethod, int iConnectType, int ReferenceNode, int ElementCS, Cursor LocalCS, Cursor[] Elasticity, Cursor[] Damping, Cursor[] MasterTarget, Cursor[] SlaveTarget, Cursor Edit)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>Cstring<p>name of connector</p></li>
+<li>int<p>Method [1: NODE_TO_NODE;2:EDGE_TO_EDGE;3:FACE_TO_FACE]</p></li>
+<li>int<p>Connection type [0:PARALLEL; 1:TRANSLATION; 2:ROTATION; 3:BUSHING; 4:CYLINDRICAL; 5:JOINT; 6:RIGIDROD; 7:RIGIDBAR]</p></li>
+<li>int<p>Reference node</p></li>
+<li>int<p>Element coordinate system [0-no; 1-yes]</p></li>
+<li>Cursor<p>Local Coordinate System</p></li>
+<li>Cursor[]<p>Elasticity</p></li>
+<li>Cursor[]<p>Damping</p></li>
+<li>Cursor[]<p>Master targets</p></li>
+<li>Cursor[]<p>Slave targets</p></li>
+<li>Cursor<p>Edit cursor</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>Connector("Connector_1", 1, 1, 0, 0, 0:0, [0:0, 0:0, 0:0, 0:0, 0:0, 0:0], [0:0, 0:0, 0:0, 0:0, 0:0, 0:0], [10:1], [10:2], 0:0)</p>
+</div>
+</div>
+</body>
+</html>

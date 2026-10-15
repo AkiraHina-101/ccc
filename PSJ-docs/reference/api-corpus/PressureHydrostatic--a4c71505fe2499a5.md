@@ -1,0 +1,3 @@
+# PressureHydrostatic
+
+PressureHydrostatic PressureHydrostatic Description Create Pressure hydrostatic Syntax PressureHydrostatic(String name, double staticPressure, double density, int densityUnit, double gravity, int gravityUnit, int gravityDir, double waterSurface, int surfaceUnit, int distributionMethod, Cursor[] targets, Cursor crEdit) Inputs String name double static pressure double density int density unit double gravity int gravity unit int gravity direction double water surface int water surface unit int distributionMethod (0: Per selected entity, 1: Per node, 2: Total of select) Cursor[] targets Cursor edit target Return Code 1 Succeeded 0 Failed Sample Code PressureHydrostatic("PressureHydrostatic1", 0, 1000, 0, 0, 0, 0, 0, 0, 0, [6:23], 0:0)

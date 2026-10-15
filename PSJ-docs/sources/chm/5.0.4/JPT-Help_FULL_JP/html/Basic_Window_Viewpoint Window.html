@@ -1,0 +1,138 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>ビューポイントウィンドウ</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>ビューポイントウィンドウ</h2>
+<div class="contents">
+	<p>
+	ビューポイント操作用のウィンドウです。
+	</p>
+
+	<img src="./Media/Basic_Window_Viewpoint.png" >
+ 	<br>
+	<h4>ツールバー</h4>	
+	<p>ビューポイント操作用ツールバーです。</p>
+	<table class="commontable">
+	 <tr><th>アイコン</th><th>名称</th><th>説明</th></tr>
+	 <tr><td><img src="./Media/OtherWindow_icon/DA_031_16.png"></td><td>追加</td><td>現在のビューを新規ビューポイントとしてユーザービューポイントに追加します。</td></tr>
+	 <tr><td><img src="./Media/OtherWindow_icon/DA_032_16.png"></td><td>リネーム</td><td>既存のユーザービューポイントの名称を変更します。</td></tr>
+	 <tr><td><img src="./Media/OtherWindow_icon/DA_033_16.png"></td><td>削除</td><td>ユーザービューポイントを削除します。</td></tr>
+	 <tr><td><img src="./Media/OtherWindow_icon/DA_034_16.png"></td><td>インポート</td><td>ユーザービューポイントファイルを読み込みます。</td></tr>
+	 <tr><td><img src="./Media/OtherWindow_icon/DA_035_16.png"></td><td>エクスポート</td><td>ユーザービューポイントファイルを書き出します。</td></tr>
+	</table>
+	<br>
+	<h4>ビューポイントツリー</h4>
+	<li>ユーザービューポイント</li>
+	<p>アイテムをダブルクリックすることで、プリセットビューポイントにビューを動かします。<br>
+	また、	ユーザービューポイントダブルクリック時に回転・移動・ズームの各パラメータの有効・無効を、マウス右クリックから表示されるチェックボックスで操作可能です。<br></p>
+	<li>ユーザーフレーム</li>
+	<p>ユーザーフレームは、ホームリボン内の範囲選択キャプチャからユーザーフレームコマンドで追加されます。<br>追加されたアイテムをダブルクリックすることで、範囲選択キャプチャフレームがメインウインドウに表示されます。</br>
+	
+	<h4>プリセットビュー</h4>
+	<p>アイコンをクリックし、プリセットビューポイントにビューを動かします。<br></p>
+
+
+	<h4>ビューコントロール</h4>
+	<li>中心 </li>
+	<p>モデルの回転中心を設定します。<br></p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>X,Y,Z</b>&nbsp;:&nbsp;中心座標を入力します。</li>
+		<li><b>セット</b>&nbsp;:&nbsp;指定した座標系に設定します。</li>
+		<li><b>リセット</b>&nbsp;:&nbsp;設定を元に戻します。</li>
+		</span>
+		</ul>
+		
+<br>
+	<li>回転</li>
+	<p>モデルの回転角度を設定します。<br></p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>X,Y,Z,エッジ,法線</b>&nbsp;:&nbsp;回転角度を入力します。</li>
+		<ul>
+		<li>X: X軸中心に回転します。</li>
+		<li>Y: Y軸中心に回転します。</li>
+		<li>Z: Z軸中心に回転します。</li>
+		<li>エッジ: 選択エッジを中心軸として、軸中心に回転します。</li>
+		<li>法線: 画面に対して垂直方向の軸を中心として、軸中心に回転します。</li>
+	</ul>
+		<li><b>回転</b>&nbsp;:&nbsp;指定した角度で各軸まわりに回転します。</li>
+		<li><b>表示</b>&nbsp;:&nbsp;回転矢印を表示/非表示にします。</li>
+		</span>
+		</ul>
+
+<br>
+	<li>パン</li>
+	<p>画面上での移動距離を設定します。<br></p>	
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>左←,右→</b>&nbsp;:&nbsp;指定した距離で水平方向に移動します。</li>
+		<li><b>上↑,下↓</b>&nbsp;:&nbsp;指定した距離で垂直方向に移動します。</li>
+		</span>
+		</ul>
+
+<br>
+	<li>ズーム</li>
+	<p>画面上での拡大率を設定します。<br></p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>ズームイン</b>&nbsp;:&nbsp;指定した値で拡大します。</li>
+		<li><b>ズームアウト</b>&nbsp;:&nbsp;指定した値で縮小します。</li>
+		<li><b>フィット</b>&nbsp;:&nbsp;モデルをウィンドウの最適サイズに設定します。</li>
+		</span>
+		</ul>
+
+	<h3>-&nbsp;操作手順（ユーザービューポイントの追加）&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;メインウィンドウの画面上で、ビューを任意の位置に動かします。</li>
+		<li>&nbsp;ビューポイントウィンドウの「追加」アイコンをクリックします。</li>
+		<li>&nbsp;ユーザービューポイント名ダイアログが表示されますので、任意の名称を入力してOKをクリックします。新規ユーザービューポイントが追加されます。</li>
+		<li>&nbsp;ビューを動かした後、追加されたユーザービューポイントをダブルクリックします。追加した際のビューが復帰します。</li>
+		</ol>
+		※追加したユーザービューポイント右クリックから、PanとZoomのチェックをOFFにすることで、現在のビューのフォーカス位置を保持したままモデルを回転することができます。これにより、任意座標系ビューとして使用することができます。
+
+	
+		<h3>-&nbsp操作手順(中心)&nbsp-</h3>
+		<ol>
+		<li>x/y/zに座標値を入力します。</li>
+		<li>「設定」ボタンをクリックします。</li>
+		</ol>
+		<h3>-&nbsp操作手順(回転)&nbsp-</h3>
+		<ol>
+		<li>x/y/zに回転角度を入力します。</li>
+		<li>「回転」ボタンをクリックします。</li>
+		</ol>
+		<h3>-&nbsp操作手順(パン)&nbsp-</h3>
+		<ol>
+		<li>右/上に移動量を入力します。</li>
+		<li>「パンイン」または「パンアウト」ボタンをクリックします。</li>
+		</ol>
+		<h3>-&nbsp操作手順(ズーム)&nbsp-</h3>
+		<ol>
+		<li>拡大または縮小させる倍率を入力します。</li>
+		<li>「ズームイン」または「ズームアウト」ボタンをクリックします。</li>
+		<li>モデル全体をメインウィンドウのサイズに合わせて表示したい時は「フィット」ボタンをクリックします。</li>
+		</ol>
+
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

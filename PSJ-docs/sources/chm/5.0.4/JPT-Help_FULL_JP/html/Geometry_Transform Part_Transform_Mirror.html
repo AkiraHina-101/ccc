@@ -1,0 +1,80 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>ミラー</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>ミラー</h2>
+<div class="contents">
+	<p>選択されたパーツを鏡面対称移動またはコピーします。</p>
+
+	<img src="./Media/CommandDlg/Geometry_Transform%20Part_Transform_Mirror.png">
+
+	<h4>操作</h4>
+		<li><b>新規作成</b></li>
+			<p>&nbsp;&nbsp;&nbsp;移動後にパーツをコピーし、新規パーツとします。新規パーツの名称は、<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元パーツ名_Mirror<br>
+&nbsp;&nbsp;&nbsp;となります。</p>
+		<li><b>LBCコピー</b></li>
+			<p>&nbsp;&nbsp;&nbsp;新規パーツに既存パーツに付加した荷重境界条件もコピーします。</p>
+		<li><b>プロパティコピー</b></li>
+			<p>&nbsp;&nbsp;&nbsp;新規パーツに既存パーツに付加したプロパティもコピーします。</p>
+		<li><b>リファレンス</b></li>
+			<p>&nbsp;&nbsp;&nbsp;新規パーツに既存パーツに付加したリファレンスもコピーします。</p>
+
+	<h4>ミラー</h4>
+		<li><b>オフセット</b></li>
+			<p>&nbsp;&nbsp;&nbsp;鏡面対称面からのオフセット量を入力します。</p>
+		<li><b>節点をイクイバランス</b></li>
+			<p>&nbsp;&nbsp;&nbsp;チェックすると鏡面対称コピーされたパーツのフェースが、コピー元パーツのフェースと接する場合にその節点を結合します。</p>
+		<li><b>節点をイクイバランストレランス</b></li>
+			<p>&nbsp;&nbsp;&nbsp;節点結合判定のトレランスを入力します。</p>
+		<li><b>重複面を削除</b></li>
+			<p>&nbsp;&nbsp;&nbsp;コピー元パーツと重なるフェースを除去します。また鏡面対称位置の1D要素はコピーされません。</p>
+	<br>
+	
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+		<li>&nbsp;鏡面対称移動後に新しいパーツを作成する場合には、新しいパーツを作るチェックボックスをオンにします。</li>
+		<li>&nbsp;既存パーツの荷重拘束条件を新規パーツにコピーするには境界条件コピーをオンにします。</li>
+		<li>&nbsp;パーツ、バーボタンを押し、画面から鏡面対称移動対象のパーツを選択します。</li>
+		<li>&nbsp;要素または節点ボタンを押し、画面から鏡面対称面になる要素または3つの節点を選択します。</li>
+		<li>&nbsp;オフセットに鏡面対称面からのオフセット量を入力します。</li>
+		<li>&nbsp;コピー後の節点を元のパーツとマージするには、節点マージをオンにし、節点マージトレランスに結合判定許容値を入力します。</li>
+		<li>&nbsp;コピー後のパーツにコピー元のプロパティ情報をコピーするには、プロパティ情報をコピーをオンにします。</li>
+		<li>&nbsp;適用/OKボタンをクリックします。</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

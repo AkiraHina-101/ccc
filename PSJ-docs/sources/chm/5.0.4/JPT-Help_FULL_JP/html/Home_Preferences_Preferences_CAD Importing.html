@@ -1,0 +1,144 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>CADインポート</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>CADインポート</h2>
+<div class="contents">
+	<p>CAD読み込み時のパラメータ設定を行います。</p>
+
+	<img src="./Media/Home_Preferences_CAD%20Importing.png">
+	<li><b>プリセット</b></li>
+		<p>CAD読み込みのパラメータ設定対象リストです。</p>
+
+	<h4>Elysium</h4>
+		<p>Elysium社製モジュールを使用して各種CADを読み込む際のパラメータ設定を行います。</p>
+
+			<li><b>CADタイプ</b><p>設定対象のCADタイプを指定します。</p></li>  
+			<li><b>IGESパラメータ</b></li>
+			<ul type="circle">
+			<span style="font-size:0.95em;">
+			<li><b>曲線プリファレンスの固定</b><p>トリム曲線の計算方法を指定します。</p></li>
+			<li><b>自動ステッチ</b><p>ONにすると、位相のないIGESファイルに対して隙間を繋ぎます。</p></li>
+			<li><b>ステッチトレランス</b><p>隙間を繋ぐトレランスを設定します。</p></li>
+			</span>
+			</ul>
+			<li><b>CATIAパラメータ</b></li>
+			<ul type="circle">
+			<span style="font-size:0.95em;">
+			<li><b>表示されていない要素を変換する</b><p>非表示要素の変換のON/OFFを制御します。</p></li>
+			<li><b>表示されていないインスタンスを変換する</b><p>非表示インスタンスの変換のON/OFFを制御します。</p></li>
+			<li><b>座標軸変換</b><p>座標系の変換のON/OFFを制御します。</p></li>
+			</span>
+			</ul>
+			<li><b>STEPパラメータ</b></li>
+			<ul type="circle">
+			<span style="font-size:0.95em;">
+			<li><b>シーム作成</b><p>アウターループを持たない位相の補正(シーム入れ)を行います。</p></li>
+			<li><b>同一点トレランス</b><p>同一点トレランスを設定します。設定トレランス以下の距離内にある節点は、同じ位置にあるものとして処理されます。（&gt;=0.001　& &lt;= 0.1）</p></li>
+			</span>
+			</ul>
+			<li><b>ACISパラメータ</b></li>
+			<ul type="circle">
+			<span style="font-size:0.95em;">
+			<li><b>以前のバージョンのAcisを修正する</b><p>ヒーリング機能のON/OFFを制御します。</p>
+			</span>
+			</ul>
+			<li><b>JTパラメータ</b></li>
+			<ul type="circle">
+			<span style="font-size:0.95em;">
+			<li><b>ジオメトリータイプ変換</b><p>変換する要素を指定します。</p>
+			<li><b>一般ボディを変換</b><p>一般ボディ（GeneralBody）を変換します。</p>
+			<li><b>座標軸変換</b><p>座標系の変換のON/OFFを制御します。</p>
+			<li><b>中心線を変換</b><p>センターラインを変換します。</p>
+			</span>
+			</ul>
+
+			<li><b>Elysium共通パラメータ</b></li>
+			<ul type="circle">
+			<span style="font-size:0.95em;">
+			<li><b>曲線弦トレランス</b><p>元の曲面をファセット曲面に変換する際の最大乖離距離です。</p></li>
+			<li><b>曲線弦角度（度）</b><p>曲率形状のファセット間の角度が設定角度以上の部分を保持します。</p></li>
+			<li><b>同一点トレランス</b><p>同一点トレランスを設定します。設定トレランス以下の距離内にある節点は、同じ位置にあるものとして処理されます。（&gt;=0.001　& &lt;= 0.1）</p></li>
+			<li><b>独立した曲線を変換</b><p>単独のカーブを変換します。</p></li>
+			<li><b>自己交差ループの修正</b><p>頂点の位置で自己交差するループを検出して修正します。<BR>0:行わない<BR>2:頂点の位置で自己交差するループを検出して修正する<BR>3:自己交差するループを検出して修正する<br><br>
+			※V3.1以前は本パラメータは2の状態で内部的に設定されていました。<br>
+			※モデル読み込み後、もとのCADにはないエッジが出現する場合には、このオプションによる自己交差ループ修正処理が影響している場合がございます。その場合、0を指定してご利用ください。</p></li>
+			<li><b>Volume To Body</b><p>VolumeをBodyに昇格するかどうかを設定します（Volume毎にパーツを作成するかどうかを決定します）。</p></li>
+			<ul type="circle">
+			<span style="font-size:0.95em;">
+			<li>0: VolumeをBodyに昇格しない。</li>
+			<li>4: VolumeをBodyに昇格する。昇格時にBodyの名前が重複した場合は、新しいボディ名には元のBody名の後ろに連番を追加して同名を避ける。</li>
+			<li>5: VolumeをBodyに昇格する。同名の回避処理は行わない。</li>
+			</span>
+			</ul>
+			<li><b>リセット</b><p>設定を初期値に戻します。</p></li>
+			</span>
+			</ul>			
+			
+		<h4>Parasolid</h4>
+		<p>Technostar社製モジュールを使用してParasolidファイルを読み込む際のパラメータ設定を行います。</p>
+			<ul type="circle">
+			<span style="font-size:0.95em;">
+			<li><b>表面トレランス（m）</b><p>元の曲面をファセット平面に変換する際の最大乖離距離です。（&gt;= 0.0）</p></li>
+			<li><b>表面角度（度）</b><p>平面形状のファセット間の角度が設定角度以上の部分を保持します。（&gt;= 0.0 & &lt;90.0）
+</p></li>
+			<li><b>曲線弦トレランス（m）</b><p>元の曲面をファセット曲面に変換する際の最大乖離距離です。（&gt;= 0.0）</p></li>
+			<li><b>曲線弦角度（度）</b><p>曲率形状のファセット間の角度が設定角度以上の部分を保持します。（0.0 & &lt;90.0）
+</p></li>
+			<li><b>最大ファセット幅（m）</b><p>ファセット1辺の最大サイズを指定します。（ &gt;=最小ファセット幅。0と設定した場合には、モジュールの既定値が使用されます。）</p></li>
+			<li><b>最小ファセット幅（m）</b><p>ファセット1辺の最小サイズを指定します。（ &gt;= 0.0。0と設定した場合には、モジュールの既定値が使用されます。）</p></li>
+			<li><b>リセット</b><p>設定を初期値に戻します。</p></li>
+			</span>
+			</ul>
+		<h4>Spatial</h4>
+		<p>Spatial社製モジュールを使用してCADを読み込む際のパラメータ設定を行います。</p>
+			<ul type="circle">
+			<span style="font-size:0.95em;">
+			<li><b>表面トレランス</b><p>CADフェースと分割ファセット表面の距離の調整値（平面）</p></li>
+			<li><b>表面角度（度）</b><p>平面形状のファセット間の角度が設定角度以上の部分を保持します。</p></li>
+			<li><b>最大ファセット幅</b><p>最大ファセット幅(m)</p></li>
+			<li><b>NX マルチボディ</b><p>マルチボディの読み込み設定を行います。
+				<br>ON:　マルチボディを１パーツにまとめて読み込みます。
+				<br>OFF:　マルチボディを各パーツに分離し、サブアセンブリ下に読み込みます。</p></li>
+			<li><b>リセット</b><p>設定を初期値に戻します。</p></li>
+			</span>
+			</ul>
+	<img src="./Media/Home_Preference_CADImporting_1.png" height="400"><img src="./Media/Home_Preference_CADImporting_2.png" height="300">
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+			<li>&nbsp;コマンドを起動し、各オプションを指定して適用もしくはOKボタンをクリックします。</li>
+		</ol>		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

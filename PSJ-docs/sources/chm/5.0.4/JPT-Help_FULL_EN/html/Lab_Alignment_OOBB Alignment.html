@@ -1,0 +1,80 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Lab | Alignment | OOBB Alignment</title>
+</head>
+
+<body>
+<div class="page">
+	<h2>Lab | Alignment | OOBB Alignmen</h2>
+	<div class="contents">
+	<p>	For each part, a bounding box that encloses it with as little margin as possible is defined. The function performs part movement by aligning these bounding boxes with each other.。</p>
+<p>※Note<br>
+If the height, width, and depth of the bounding box are the same, it may fail to align correctly as the direction cannot be determined.</p>
+
+Alignment is performed in the following order:
+	<ol>
+		<li>Create a local coordinate system for the bounding box at the center of each part.</li>
+		<li>Move the preview of the moving part to align the central positions of the local coordinate systems.</li>
+		<li>Move the central position according to the selected Fit position.</li>
+		<li>Rotate around the central position according to the rotation input value.</li>
+		<li>Perform parallel movement according to the input value for parallel movement.</li>
+		</ol>
+<br>
+
+	<img src="./Media/CommandDlg/Lab_Alignment_OOBB.png" width="400">
+	<img src="./Media/CommandDlg/Lab_Alignment_OOBB_List.png" width="185">	
+
+	<h4>Fit Position</h4>
+	<li>Coordinate Value
+	<p>Specify the position that will be the reference for alignment.</p>
+	</li>
+	<h4>Translation</h4>
+		<li><b>X,Y,Z</b></li>
+	<p>Used when you want to move parallelly from the initial alignment position. Enter the step size for the movement amount in the text box on the right side of each axis and adjust the movement amount with the spin control.</p>
+	</li>
+	<h4>Rotation</h4>
+	<li><b>X,Y,Z</b>
+	<p>Used when you want to rotate from the initial alignment position. Enter the step size for the rotation amount in the text box on the right side of each axis and adjust the rotation amount with the spin control. The unit is degrees.
+	<h4>OOBB Display Settings</h4>		
+	<li>Reference Frame
+	<p>Set the visibility, color, and line width of the frame enclosing the reference part.
+	</li>	
+	<li>Moving Frame
+	<p>Set the visibility, color, and line width of the frame enclosing the Moving Part.
+	</li>
+
+	<h3>-&nbspOperation Procedure&nbsp-</h3>
+	<ol>
+	<li>Launch the OOBB alignment function.<br>
+	<img src="./Media/OOBB_1.png" width="500">	</li>
+	<li> Select the part that will be the destination for alignment. In the selection list, the choice will be entered in 'Target Part'. Also, the focus will automatically move to 'Moving Part'.<br>
+	<img src="./Media/OOBB_2.png" width="500">	</li>
+	<li>Select the part to move. In the selection list, the choice will be entered in 'Target Part'.。</li>
+	<li>The bounding box is displayed. Adjust the movement position with the fit position selection and parallel movement/rotation.。<br>
+	<img src="./Media/OOBB_3.png" width="500">	</li>
+	<li>Apply or OK button will execute the function.<br>
+	<img src="./Media/OOBB_4.png" width="500">	</li>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

@@ -1,0 +1,54 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Surface Mapping Algorithm</title>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Surface Mapping Algorithm</h2>
+<div class="contents">
+	<p>
+	Boundary Condition Ribbon pressure, temperature, heat flux, and surface convection surface mappings assume that the shapes of the data points and the shapes to be mapped are approximately equal. Therefore, the value of the data point located closest to the element center or node is mapped as the target data (interpolation between data is not performed).<br>If there are no data points in the vicinity, please use the mapping result at your own discretion.<br>
+	</p>
+
+	<img src="./Media/Appendix_SurfaceMapping_1.png" width="900"></p>
+
+
+	<h3>-&nbspData Search & Mapping Algorithm&nbsp-</h3>
+	<ol>
+		<li>&nbsp;Set up a grid that covers the entire data cloud (fluid data).</li>
+		<li>&nbsp;The grid width is determined from the spread and number of data cloud.</li>
+		<li>&nbsp;Set the search circle around the element center / node of mapping target. The radius of the search circle is the grid width (automatic) or the tolerance value (input (TSV)).</li>
+		<li>&nbsp;Find the indices of a grid that intersects a circle in a 2x2 (3x3) matrix.</li>
+		<li>&nbsp;In the automatic case, if there is no data in the search grid, the search grid is expanded and the search continues.</li>
+		<li>&nbsp;Map the point closest to the target in the detected grid (search grid) as the target data.</li>
+	</ol>
+	<img src="./Media/Appendix_SurfaceMapping_2.png" width="400"><br>
+	Data outside the circle will not be mapped even if it is inside the search grid (if P1 and P2 are not present, P3 will not be mapped).
+
+
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</li></div>
+</div>
+</body>
+
+</html>
+</head></html>

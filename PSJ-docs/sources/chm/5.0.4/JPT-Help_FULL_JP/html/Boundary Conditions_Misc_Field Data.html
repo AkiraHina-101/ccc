@@ -1,0 +1,371 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>フィールドデータ</title>
+
+<style type="text/css">
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>フィールドデータ</h2>
+<div class="contents">
+	<p>このコマンドでは任意のテーブルを作成します。<br>
+	作成したテーブルは荷重、境界条件を設定するときなどに使用できます。</p>
+	
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Misc_Field%20Data.png">
+	<br>
+	</br>
+		<li><b>既存テーブル</b><br>
+			<p>&nbsp;&nbsp;&nbsp;既存のテーブルデータをリスト表示します。
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>名前</b>&nbsp;：&nbsp;テーブルの名前</li>
+					<li><b>タイプ</b>&nbsp;：&nbsp;テーブルタイプ</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+		<br>
+	
+		<li><b>追加</b><br>
+			<p>&nbsp;&nbsp;&nbsp;テーブルを新規追加します。</p>
+		</li>
+
+		<li><b>編集</b><br>
+			<p>&nbsp;&nbsp;&nbsp;リストから選択されたテーブルを編集します。</p>
+		</li>
+
+		<li><b>削除</b><br>
+			<p>&nbsp;&nbsp;&nbsp;リストから選択されたテーブルを削除します。</p>
+		</li>
+
+		<li><b>閉じる</b><br>
+			<p>&nbsp;&nbsp;&nbsp;このダイアログボックスを閉じます。</p>
+		</li>
+	</br>
+		
+	<h4>テーブルの追加/編集ダイアログボックス</h4>
+		<span style="font-size:1.15em;">
+			<p>&nbsp;&nbsp;このダイアログボックスは新規テーブルを作成、または既存テーブルを編集する際に使用します。</p>
+		</span>
+		
+		<img src="./Media/CommandDlg_JP/Boundary%20Conditions_Others_filed_data_add_edit.png" height="350">
+	<br>
+	
+		<li><b>テーブル名</b><br>
+			<p>&nbsp;&nbsp;&nbsp;作成するテーブルの名前を設定します。</p>
+		</li>
+		
+		<li><b>テーブルタイプ</b><br>
+			<p>&nbsp;&nbsp;&nbsp;作成するテーブルのタイプの選択します。<br>
+			&nbsp;&nbsp;&nbsp;テーブルタイプの詳細は後述します。</p>
+		</li>
+		
+		<li><b>インポートボタン</b><br>
+			<p>&nbsp;&nbsp;&nbsp;テーブルデータをcsvファイルから読み込みます。</br>
+
+			<p>
+		</li>
+		
+		<li><b>挿入ボタン</b><br>
+			<p>&nbsp;&nbsp;&nbsp;テーブルの行を追加します。</p>
+		</li>
+		
+		<li><b>削除ボタン</b><br>
+			<p>&nbsp;&nbsp;&nbsp;テーブルの行を削除します。</p>
+		</li>
+		
+		<li><b>OKボタン</b><br>
+			<p>&nbsp;&nbsp;&nbsp;テーブルを作成します。</p>
+		</li>
+		
+		<li><b>キャンセルボタン</b><br>
+			<p>&nbsp;&nbsp;&nbsp;テーブルを保存せずにダイアログボックスを終了します。</p>
+		</li>
+		
+		<li><b>チャートウインドウ</b><br>
+			<p>&nbsp;&nbsp;&nbsp;編集中のテーブルの内容をXYプロット表示します。</p>
+		</li>
+		
+		<li><b>OKボタン</b><br>
+			<p>&nbsp;&nbsp;&nbsp;テーブルを作成します。</p>
+		</li>
+		
+		<li><b>X</b><br>
+			<p>&nbsp;&nbsp;&nbsp;XYプロット表示するX軸の変数を選択します。</p>
+		</li>
+		
+		<li><b>Y</b><br>
+			<p>&nbsp;&nbsp;&nbsp;XYプロット表示するY軸の変数を選択します。</p>
+		</li>
+		
+		<li><b>Z</b><br>
+			<p>&nbsp;&nbsp;&nbsp;XYプロット表示にラベル表示する変数を選択します。</br>
+			&nbsp;&nbsp;&nbsp;オプションのため、使用するときにチェックボックスを選択します。<p>
+		</li>
+		
+		<li><b>XYZ描画</b><br>
+			<p>&nbsp;&nbsp;&nbsp;XYプロットを作画します。</p>
+		</li>
+		<li><b>Abaqus Amp</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Abaqus 出力時に smooth step カードを出力します。</p>
+		</li>
+
+	</br>
+		
+	<h4>テーブルタイプ詳細</h4>
+		<li><b>XYZ</b><br>
+			<p>&nbsp;&nbsp;&nbsp;XYZ座標値依存データテーブル
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>X, Y, Z</b>&nbsp;：&nbsp;座標値</li>
+					<li><b>値</b>&nbsp;：&nbsp;値</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+	
+		<li><b>TIME</b><br>
+			<p>&nbsp;&nbsp;&nbsp;時間歴データテーブル
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>時間</b>&nbsp;：&nbsp;時間</li>
+					<li><b>値</b>&nbsp;：&nbsp;値</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+		
+		<li><b>STRAIN</b><br>
+			<p>&nbsp;&nbsp;&nbsp;ひずみ依存データテーブル
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>ひずみ</b>&nbsp;：&nbsp;ひずみ</li>
+					<li><b>値</b>&nbsp;：&nbsp;値</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+			
+		<li><b>FREQUENCY</b><br>
+			<p>&nbsp;&nbsp;&nbsp;周波数依存データテーブル
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>周波数</b>&nbsp;：&nbsp;周波数</li>
+					<li><b>値</b>&nbsp;：&nbsp;値</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+		
+		<li><b>FREQUENCY-LOAD(REAL-IMAG)</b><br>
+			<p>&nbsp;&nbsp;&nbsp;NastranおよびDynamisの周波数依存荷重RLOAD1で使用するテーブル係数C,Dを一度に定義します。
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>周波数</b>&nbsp;：&nbsp;周波数，f</li>
+					<li><b>実部</b>&nbsp;：&nbsp;実部，C(f)</li>
+					<li><b>虚部</b>&nbsp;：&nbsp;虚部，D(f)</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+		
+		<li><b>FREQUENCY-LOAD(AMP-PHASE)</b><br>
+			<p>&nbsp;&nbsp;&nbsp;NastranおよびDynamisの周波数依存荷重RLOAD2で使用する係数テーブルB，fを一度に定義します。
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>周波数</b>&nbsp;：&nbsp;周波数，f</li>
+					<li><b>振幅</b>&nbsp;：&nbsp;振幅，B(f)</li>
+					<li><b>フェーズ</b>&nbsp;：&nbsp;位相，f(f)</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+
+		<li><b>TEMPERATURE</b><br>
+			<p>&nbsp;&nbsp;&nbsp;温度依存性データテーブル
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>温度</b>&nbsp;：&nbsp;温度</li>
+					<li><b>値</b>&nbsp;：&nbsp;値</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+		
+		<li><b>STRESS_STRAIN_TEMP</b><br>
+			<p>&nbsp;&nbsp;&nbsp;温度依存性応力-ひずみ曲線
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>応力</b>&nbsp;：&nbsp;応力</li>
+					<li><b>ひずみ</b>&nbsp;：&nbsp;ひずみ</li>
+					<li><b>温度</b>&nbsp;：&nbsp;温度</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+		
+		<li><b>Displacement_Force</b><br>
+			<p>&nbsp;&nbsp;&nbsp;変位-力曲線
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>変位</b>&nbsp;：&nbsp;変位</li>
+					<li><b>力</b>&nbsp;：&nbsp;力</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+
+		<li><b>Displacement_Force_Temp</b><br>
+			<p>&nbsp;&nbsp;&nbsp;温度依存性変位-力曲線
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>変位</b>&nbsp;：&nbsp;変位</li>
+					<li><b>力</b>&nbsp;：&nbsp;力</li>
+					<li><b>温度</b>&nbsp;：&nbsp;温度</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+		
+		<li><b>Velocity_Force</b><br>
+			<p>&nbsp;&nbsp;&nbsp;速度-力曲線
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>速度</b>&nbsp;：&nbsp;速度</li>
+					<li><b>力</b>&nbsp;：&nbsp;力</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+		
+		<li><b>Velocity_Force_Temp</b><br>
+			<p>&nbsp;&nbsp;&nbsp;温度依存性速度-力曲線
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>速度</b>&nbsp;：&nbsp;速度</li>
+					<li><b>力</b>&nbsp;：&nbsp;力</li>
+					<li><b>温度</b>&nbsp;：&nbsp;温度</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+		
+		<li><b>Temperature_ID</b><br>
+			<p>&nbsp;&nbsp;&nbsp;節点温度テーブル
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>節点ID</b>&nbsp;：&nbsp;節点ID</li>
+					<li><b>温度</b>&nbsp;：&nbsp;温度</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+		
+		<li><b>Force XYZ_ID</b><br>
+			<p>&nbsp;&nbsp;&nbsp;節点荷重テーブル
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>節点ID</b>&nbsp;：&nbsp;節点ID</li>
+					<li><b>荷重 X</b>&nbsp;：&nbsp;X方向力荷重</li>
+					<li><b>荷重 Y</b>&nbsp;：&nbsp;Y方向力荷重</li>
+					<li><b>荷重 Z</b>&nbsp;：&nbsp;Z方向力荷重</li>
+					<li><b>モーメント X</b>&nbsp;：&nbsp;X方向モーメント荷重</li>
+					<li><b>モーメント Y</b>&nbsp;：&nbsp;Y方向モーメント荷重</li>
+					<li><b>モーメント Z</b>&nbsp;：&nbsp;Z方向モーメント荷重</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+		
+		<li><b>Pressure_ID</b><br>
+			<p>&nbsp;&nbsp;&nbsp;要素圧力テーブル
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>要素ID</b>&nbsp;：&nbsp;要素ID</li>
+					<li><b>圧力</b>&nbsp;：&nbsp;圧力</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+		
+		<li><b>ConstraintXYZ_ID</b><br>
+			<p>&nbsp;&nbsp;&nbsp;節点拘束強制変位テーブル
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>節点ID</b>&nbsp;：&nbsp;節点ID</li>
+					<li><b>並進X</b>&nbsp;：&nbsp;X方向並進強制変位量</li>
+					<li><b>並進Y</b>&nbsp;：&nbsp;Y方向並進強制変位量</li>
+					<li><b>並進Z</b>&nbsp;：&nbsp;Z方向並進強制変位量</li>
+					<li><b>回転X</b>&nbsp;：&nbsp;X方向回転強制変位量</li>
+					<li><b>回転Y</b>&nbsp;：&nbsp;Y方向回転強制変位量</li>
+					<li><b>回転Z</b>&nbsp;：&nbsp;Z方向回転強制変位量</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+		<li><b>ConcentrateHeatFlux_ID</b><br>
+			<p>&nbsp;&nbsp;&nbsp;節点集中熱流束テーブル
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>節点ID</b>&nbsp;：&nbsp;節点ID</li>
+					<li><b>集中熱流束</b>&nbsp;：&nbsp;集中熱流束量</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+				<li><b>SurfaceHeatFlux_ID</b><br>
+			<p>&nbsp;&nbsp;&nbsp;要素表面熱流束テーブル
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>要素ID</b>&nbsp;：&nbsp;要素ID</li>
+					<li><b>表面熱流束</b>&nbsp;：&nbsp;表面熱流束量</li>
+				</span>
+				</ul>
+			</p>
+		</li>
+	<br>
+	
+	<h3>-&nbsp;操作手順&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;新規にデータテーブルを作成する場合には、追加ボタンを押します。<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;また、既存のデータを編集する場合には、アイテムをリストから選択し、編集ボタンを押します。テーブルの追加/編集ダイアログボックスが開きます。</li>
+		<li>&nbsp;テーブル名に作成するデータテーブルの名前を入力します。</li>
+		<li>&nbsp;テーブルタイプから作成するデータテーブルのタイプを選択します。</li>
+		<li>&nbsp;選択したデータタイプの内容に従ってデータを入力します。データ行を追加するには挿入ボタンを押し、<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;またデータ行を削除するには、該当するデータ行を選択後に削除ボタンを押します。</li>
+		<li>&nbsp;データをCSV形式ファイルから読み込む場合には、インポートボタンを押します。<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;標準ファイル指定ダイアログボックスからcsvファイルを指定します。</li>
+		<li>&nbsp;XYプロットを描くには、ダイアログボックス右端のX,Yプルダウンメニューから軸に表示する変数を選択します。<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;XYZ描画ボタンを押すとXYプロットがチャートウインドウに表示されます。</li>
+		<li>&nbsp;OKボタンを押して、テーブルの追加/編集ダイアログボックスを閉じます。
+		作成、編集したデータテーブルがリストに表示されています。</li>
+		<li>&nbsp;閉じるボタンを押し、ダイアログボックスを閉じます。</li>
+		</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

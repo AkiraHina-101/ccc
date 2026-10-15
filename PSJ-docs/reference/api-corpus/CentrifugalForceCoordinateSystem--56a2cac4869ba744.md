@@ -1,0 +1,3 @@
+# CentrifugalForceCoordinateSystem
+
+CentrifugalForceCoordinateSystem CentrifugalForceCoordinateSystem Description create centrifugal force by coordinate system Syntax CentrifugalForceCoordinateSystem(String m_strName,double fVelocity,double fAcceleration,int iAxisDirection,int iVelocityUnit,int iAccelerationUnit,Cursor curCoord,Cursor[] m_taTarget,Cursor m_crEdit) Inputs String name of centrifugal force double rotational velocity double rotational acceleration int axis[0:X; 1:Y; 2:Z] int unit of velocity int unit of acceleration Cursor coordinate system Cursor[] targets Cursor edit cursor Return Code 1 Succeeded 0 Failed Sample Code CentrifugalForceCoordinateSystem("Test",0.001,0.001,1,1,1,1:11,[1:11,2:12],1:11)

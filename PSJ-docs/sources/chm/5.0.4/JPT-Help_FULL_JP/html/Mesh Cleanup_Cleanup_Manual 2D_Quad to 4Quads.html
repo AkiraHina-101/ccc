@@ -1,0 +1,71 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Quadから4Quads</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Quadから4Quads</h2>
+	<div class="contents">
+	<p>
+	1つの四角形要素を4つの四角形要素に変換します。要素上をマウスオーバーすると分割線をプレビュー表示します。
+	</p>
+
+	<img src="./Media/CommandDlg/Mesh%20Cleanup_Cleanup_Manual_Quad%20to%204Quads.png">
+
+	<h4>設定</h4>
+	<li>自動遷移
+	<p>チェックを入れると、周りのメッシュ分割との整合性を図るため、指定した以外の周りの要素のメッシュ分割を自動で行います。</p>
+	<p>チェックを入れない場合は、指定した以外の周りの要素のメッシュ分割を行わないため、分割後周りのメッシュ分割との整合性は合わなくなります。</p>
+	</li>
+
+	<li>節点マージ
+	<p>チェックを入れると、メッシュ分割をしたことによって作成された節点と指定した以外の周りの要素の節点を自動で結合します。</p>
+	</li>
+
+	<li>CAD投影
+	<p>チェックを入れると、メッシュ分割をしたことによって作成された節点をCAD形状に乗せます。</p>
+	</li>
+
+	<li>自動実行
+	<p>チェックを入れると、要素を選択すると自動で変換します。</p>
+	</li>
+
+	<h3>-&nbsp操作手順（ 周りのメッシュ分割との整合性を図る場合）&nbsp-</h3>
+	<ol>
+	<li>自動遷移のチェックボックスをオンにします。</li>
+	<li>自動実行のチェックボックスをオンにします。</li>
+	<li>変換する四角形要素上をマウスオーバーし、分割線をプレビュー表示したまま選択します。</li>
+	<li>選択と同時に変換します。</li>
+	</ol>
+
+
+	<img src="./Media/ManualCleanup_Cleanup_Manual_SplitElement_Quadto4Quads.PNG">
+
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

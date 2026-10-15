@@ -1,0 +1,69 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>スイープ | 曲線</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>スイープ | 曲線</h2>
+	<div class="contents">
+	<p>
+	指定したフェース内のサーフェスメッシュ(Tri,Quadメッシュ)を、指定したカーブに沿ってスイープしてソリッドメッシュを作成します。</br>
+	</p>
+
+	<img src="./Media/CommandDlg/Hex%20Modeling_Sweep_Curve.PNG">
+
+	<h4>曲線パラメーター</h4>
+	<li>メッシュサイズ
+	<p>作成する要素サイズを指定します。</p>
+	</li>
+	
+	<p>
+	※2次要素が含まれるエンティティを選択し実行した場合は、ワーニングが表示されます。<br>
+    1次要素に変換し実行します。</br>
+	</p>	
+
+	<h3>-&nbsp操作手順（中心パスを指定）&nbsp-</h3>
+	<ol>
+	<li>スイープ元の面を選択します。</li>
+	<li>スイープするパスを選択します。</li>
+	<li>要素サイズを指定します。</li>
+	<li>適用もしくはOKボタンをクリックします。</li>
+	</ol>
+	<img src="./Media/Hex%20Modeling_Sweep_Curve_example_Case-1.PNG"></img><br>
+	
+	<h3>-&nbsp操作手順（サイドのパス２本を指定）&nbsp-</h3>
+	<ol>
+	<li>スイープ元の面を選択します。</li>
+	<li>スイープするパスを選択します。</li>
+	<li>選択リストでReference Edgeをクリックし、スイープの参照パスを選択します。</li>
+	<li>要素サイズを指定します。</li>
+	<li>適用もしくはOKボタンをクリックします。</li>
+	</ol>
+	<img src="./Media/Hex%20Modeling_Sweep_Curve_example_Case-2.PNG"></img><br>
+	</br>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

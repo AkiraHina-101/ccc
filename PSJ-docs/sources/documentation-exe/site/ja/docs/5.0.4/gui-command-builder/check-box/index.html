@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ja" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-5.0.4 docs-doc-page docs-doc-id-gui-command-builder/check-box" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.4.0">
+<title data-rh="true">CheckBox | PSJ</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="http://localhost:7000/ja/docs/5.0.4/gui-command-builder/check-box"><meta data-rh="true" property="og:locale" content="ja"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="ja"><meta data-rh="true" name="docsearch:language" content="ja"><meta data-rh="true" name="docusaurus_version" content="5.0.4"><meta data-rh="true" name="docusaurus_tag" content="docs-default-5.0.4"><meta data-rh="true" name="docsearch:version" content="5.0.4"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-5.0.4"><meta data-rh="true" property="og:title" content="CheckBox | PSJ"><meta data-rh="true" name="description" content="Create a check box."><meta data-rh="true" property="og:description" content="Create a check box."><link data-rh="true" rel="icon" href="/ja/img/favicon.ico"><link data-rh="true" rel="canonical" href="http://localhost:7000/ja/docs/5.0.4/gui-command-builder/check-box"><link data-rh="true" rel="alternate" href="http://localhost:7000/docs/5.0.4/gui-command-builder/check-box" hreflang="en"><link data-rh="true" rel="alternate" href="http://localhost:7000/ja/docs/5.0.4/gui-command-builder/check-box" hreflang="ja"><link data-rh="true" rel="alternate" href="http://localhost:7000/docs/5.0.4/gui-command-builder/check-box" hreflang="x-default"><link rel="icon" href="/ja/img/logo_dark.png">
+<link rel="manifest" href="/ja/manifest.json" crossorigin="use-credentials">
+<meta name="theme-color" content="rgb(255, 255, 255)">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/ja/assets/css/styles.2d47948c.css">
+<script src="/ja/assets/js/runtime~main.2b67b38c.js" defer="defer"></script>
+<script src="/ja/assets/js/main.237708b3.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"dark")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="メインコンテンツまでスキップ"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">メインコンテンツまでスキップ</a></div><nav aria-label="ナビゲーション" class="navbar navbar--fixed-top navbarHideable_jvwV"><style>
+  .dropdown {
+    position: relative;
+  }
+    
+  .navbar__link{
+    font-weight: 500;
+  }
+
+  .dropdown__menu_custom {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 140px;
+    background: white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    z-index: 1000;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  html[data-theme=&quot;dark&quot;] .dropdown__menu_custom {
+    background: rgb(39, 37, 37);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  }
+
+  .dropdown:hover &gt; .dropdown__menu_custom,
+  .dropdown__menu_custom:hover {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .custom {
+    display: block;
+    margin: 6px;
+    color: #333;
+    text-decoration: none;
+  }
+
+  html[data-theme=&quot;dark&quot;] .custom {
+    color: #f5f5f5;
+  }
+
+  .custom:hover {
+    background: #f5f5f5;
+    color: #000;
+  }
+
+  html[data-theme=&quot;dark&quot;] .custom:hover {
+    background: rgb(55, 53, 53);
+    color: #ffffff;
+  }
+
+  .navbar__items--right .dropdown__menu_custom {
+    right: 0;
+    left: auto;
+  }
+
+  .dropend {
+    position: relative;
+  }
+
+  .dropend .dropdown__menu_custom {
+    top: 0;
+    left: 100%;
+    opacity: 0;
+    transform: translateX(-10px);
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .dropend:hover &gt; .dropdown__menu_custom {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+  }
+  .dropend &gt; .custom {
+    position: relative;
+  }
+
+  .trunk &gt; .custom:after {
+    content: &quot;▶&quot;;
+    position: absolute;
+    right: 1rem;
+    font-size: 0.9em;
+  }
+
+  html[data-theme=&quot;dark&quot;] .dropend &gt; .custom:after {
+    color: #f5f5f5;
+  }    
+</style><div class="navbar__inner"><div class="navbar__items"><button aria-label="ナビゲーションバーを開く" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" target="_self" href="/ja/"><div class="navbar__logo"><img src="/ja/img/logo_light.svg" alt="TechnoStar Co. Ltd." class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/ja/img/logo_dark.svg" alt="TechnoStar Co. Ltd." class="themedComponent_mlkZ themedComponent--dark_xIcU"></div></a><div class="navbar__item dropdown dropdown--hoverable"><a class="navbar__link visted" role="button" tabindex="0">5.0.4</a><ul class="dropdown__menu"><li><a class="dropdown__link" href="/ja/docs/5.1.0/gui-command-builder/check-box">5.1.0</a></li><li><a class="dropdown__link" href="/ja/docs/5.0.4/gui-command-builder/check-box">5.0.4</a></li></ul></div><div class="navbar__item dropdown dropdown--hoverable"><a class="navbar__link visted" role="button" tabindex="0">日本語</a><ul class="dropdown__menu"><li><a class="dropdown__link" href="/docs/5.0.4/gui-command-builder/check-box">English</a></li><li><a class="dropdown__link" href="/ja/docs/5.0.4/gui-command-builder/check-box">日本語</a></li></ul></div></div><div class="navbar__items navbar__items--right"><div class="navbar__item navbar__link navbar__link--active"><a class="navbar__link visted" href="/ja/docs/5.0.4/">📝Docs</a></div><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a class="navbar__link visted" role="button" tabindex="0">🛠API</a><ul class="dropdown__menu"><li><a class="dropdown__link visted" href="/ja/docs/5.0.4/data-type/psj-command/built-in-types">Data type</a></li><li><a class="dropdown__link visted" href="/ja/docs/5.0.4/macro/ac-modeling/ACM_ACB_Renumber">Macro</a></li><li><a class="dropdown__link visted" href="/ja/docs/5.0.4/psj-command/analysis/Analysis-ADVC-HeatTransfer">PSJ-Command</a></li><li><a class="dropdown__link visted" href="/ja/docs/5.0.4/psj-utility/JPT-CastDItemToDBody">PSJ-Utility</a></li><li><a class="dropdown__link visted" href="/ja/docs/5.0.4/psj-gui/dlg-on_command">PSJ-GUI</a></li></ul></div><div class="navbar__item dropdown dropdown--right"><a class="navbar__link visted" role="button" tabindex="0">📦Plugin</a><ul class="dropdown__menu_custom"><li><a class="dropdown__link custom visted" href="/ja/docs/5.0.4/customized-shell">Customized shell</a></li><li><a class="dropdown__link custom visted" href="/ja/docs/5.0.4/customized-ide">Customized IDE</a></li><li><a class="dropdown__link custom visted" href="/ja/docs/5.0.4/file-launcher">File launcher</a></li><li><a class="dropdown__link custom visted" href="/ja/docs/5.0.4/gui-command-builder">GUI command builder</a></li><li class="dropend"><a class="dropdown__link custom visted" role="button" tabindex="0" href="/ja/docs/5.0.4/external-ide">External</a></li></ul></div><a class="navbar__item navbar__link visted" href="/ja/showcase">🚀Showcase</a><div class="toggle_vylO colorModeToggle_x44X"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="ダークモードを切り替える(現在はダークモード)" aria-label="ダークモードを切り替える(現在はダークモード)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_dCNk"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="検索" aria-label="Search" class="navbar__search-input searchInput_YFbd"><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="先頭へ戻る" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd sidebarWithHideableNavbar_wUlq"><a tabindex="-1" class="sidebarLogo_isFc" target="_self" href="/ja/"><img src="/ja/img/logo_light.svg" alt="TechnoStar Co. Ltd." class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/ja/img/logo_dark.svg" alt="TechnoStar Co. Ltd." class="themedComponent_mlkZ themedComponent--dark_xIcU"></a><nav aria-label="ドキュメントのサイドバー" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ja/docs/5.0.4/customized-shell">カスタマイズシェル<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ja/docs/5.0.4/customized-ide">カスタマイズIDE<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ja/docs/5.0.4/file-launcher">ファイルランチャー<!-- --></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/ja/docs/5.0.4/gui-command-builder">GUI COMMAND BUILDER</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder">概要<!-- --></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/dialog">UI Components</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/dialog">Dialog<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/layout">Layout<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/group-box">GroupBox<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/tab-window">TabWnd<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/tab-item">TabItem<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/label">Label<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/text-box">TextBox<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/rich-edit-control">RichEditCtrl<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/combo-box">ComboBox<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/list-box">ListBox<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/check-box">CheckBox<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/radio-button">RadioButton<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/button">Button<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/image-control">ImageCtrl<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/spin">Spin<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/slider-bar">Slider Bar<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/separator">Separator<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/browser">Browser<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/table">Table<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/pages-control">PagesCtrl<!-- --></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ja/docs/5.0.4/gui-command-builder/page-item">PageItem<!-- --></a></li></ul></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item external_ide"><a class="menu__link" href="/ja/docs/5.0.4/external-ide">外部IDE<!-- --></a></li></ul></nav><button type="button" title="サイドバーを隠す" aria-label="サイドバーを隠す" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="theme-doc-version-banner alert alert--warning margin-bottom--md" role="alert"><div>これはバージョン<!-- --><b>5.0.4</b>の<!-- -->PSJ<!-- -->のドキュメントで現在はメンテナンスされていません<!-- --></div><div class="margin-top--md">最新のドキュメントは<!-- --><b><a href="/ja/docs/5.1.0/gui-command-builder/check-box">最新バージョン<!-- --></a></b> (<!-- -->5.1.0<!-- -->) を見てください<!-- --></div></div><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="パンくずリストのナビゲーション"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="ホームページ" class="breadcrumbs__link" href="/ja/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">GUI COMMAND BUILDER</span><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">UI Components</span><meta itemprop="position" content="2"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">CheckBox</span><meta itemprop="position" content="3"></li></ul></nav><span class="theme-doc-version-badge badge badge--secondary">バージョン: 5.0.4<!-- --></span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">このページの見出し<!-- --></button></div><div class="theme-doc-markdown markdown"><header><h1>CheckBox</h1></header><p>Create a check box.</p>
+<!-- --><p><img decoding="async" loading="lazy" alt="CheckBox" src="/ja/assets/images/GUI_CommandBuilder_Component-Parameter_CheckBox_V5.0.4-9180f01fe83d251691ae1bfb43edd358.png" width="2998" height="2705" class="img_ev3q"></p>
+<!-- --><p>Preview dialog:</p>
+<!-- --><p><img decoding="async" loading="lazy" alt="CheckBox Preview" src="data:image/png;base64,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" width="202" height="93" class="img_ev3q"></p>
+<!-- --><h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="parameters">Parameters<!-- --><a class="hash-link" aria-label="Parameters への直接リンク" title="Parameters への直接リンク" href="/ja/docs/5.0.4/gui-command-builder/check-box#parameters">​</a></h2>
+<!-- --><h3 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="text"><code>Text</code><a class="hash-link" aria-label="text への直接リンク" title="text への直接リンク" href="/ja/docs/5.0.4/gui-command-builder/check-box#text">​</a></h3>
+<!-- --><p>Enter the text appears next to the check box.</p>
+<!-- --><h3 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="name"><code>Name</code><a class="hash-link" aria-label="name への直接リンク" title="name への直接リンク" href="/ja/docs/5.0.4/gui-command-builder/check-box#name">​</a></h3>
+<!-- --><p>Enter name of the check box.</p>
+<!-- --><h3 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="checked"><code>Checked</code><a class="hash-link" aria-label="checked への直接リンク" title="checked への直接リンク" href="/ja/docs/5.0.4/gui-command-builder/check-box#checked">​</a></h3>
+<!-- --><p>Specify the default status.</p>
+<!-- --><ul>
+<!-- --><li>Check <!-- --><strong>On</strong> : Checked.<!-- --></li>
+<!-- --><li>Check <!-- --><strong>Off</strong> : Not Checked<!-- --></li>
+<!-- --></ul>
+<!-- --><h3 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="size"><code>Size</code><a class="hash-link" aria-label="size への直接リンク" title="size への直接リンク" href="/ja/docs/5.0.4/gui-command-builder/check-box#size">​</a></h3>
+<!-- --><ul>
+<!-- --><li><strong>Width</strong> : Specify the minimum width of the check box. (in pixels)<!-- --></li>
+<!-- --><li><strong>Height</strong> : Specify the minimum height of the check box. (in pixels)<!-- --></li>
+<!-- --></ul>
+<!-- --><h3 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="enable"><code>Enable</code><a class="hash-link" aria-label="enable への直接リンク" title="enable への直接リンク" href="/ja/docs/5.0.4/gui-command-builder/check-box#enable">​</a></h3>
+<!-- --><p>Specify whether to enable it or not.</p>
+<!-- --><ul>
+<!-- --><li>Check <!-- --><strong>On</strong> : Available<!-- --></li>
+<!-- --><li>Check <!-- --><strong>Off</strong> : Unavailable (grayed out)<!-- --></li>
+<!-- --></ul>
+<!-- --><h3 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="left-text"><code>Left text</code><a class="hash-link" aria-label="left-text への直接リンク" title="left-text への直接リンク" href="/ja/docs/5.0.4/gui-command-builder/check-box#left-text">​</a></h3>
+<!-- --><p>Display the text on the left side of the check box.</p>
+<!-- --><ul>
+<!-- --><li>Check <!-- --><strong>On</strong> : Text will be on the left side<!-- --></li>
+<!-- --><li>Check <!-- --><strong>Off</strong> : Text will be on the default (right) side<!-- --></li>
+<!-- --></ul>
+<!-- --><h3 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="visible"><code>Visible</code><a class="hash-link" aria-label="visible への直接リンク" title="visible への直接リンク" href="/ja/docs/5.0.4/gui-command-builder/check-box#visible">​</a></h3>
+<!-- --><p>Specify whether to show/hide the created CheckBox.</p>
+<!-- --><ul>
+<!-- --><li>Check <!-- --><strong>On</strong> : Show<!-- --></li>
+<!-- --><li>Check <!-- --><strong>Off</strong> : Hide<!-- --></li>
+<!-- --></ul>
+<!-- --><h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="api-associated-with">API associated with<!-- --><a class="hash-link" aria-label="API associated with への直接リンク" title="API associated with への直接リンク" href="/ja/docs/5.0.4/gui-command-builder/check-box#api-associated-with">​</a></h2>
+<!-- --><ul>
+<!-- --><li><a href="/ja/docs/5.0.4/psj-gui/dlg.add_checkbox"><code>dlg.add_checkbox</code></a> : Add a CheckBox to the creating dialog.<!-- --></li>
+<!-- --><li><a href="/ja/docs/5.0.4/psj-gui/dlg.set_checkbox_state"><code>dlg.set_checkbox_state</code></a> : Set the state of the CheckBox to checked or unchecked.<!-- --></li>
+<!-- --></ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="ドキュメントページ"><a class="pagination-nav__link pagination-nav__link--prev" href="/ja/docs/5.0.4/gui-command-builder/list-box"><div class="pagination-nav__sublabel">前へ<!-- --></div><div class="pagination-nav__label">ListBox</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ja/docs/5.0.4/gui-command-builder/radio-button"><div class="pagination-nav__sublabel">次へ<!-- --></div><div class="pagination-nav__label">RadioButton</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a class="table-of-contents__link toc-highlight" href="/ja/docs/5.0.4/gui-command-builder/check-box#parameters">Parameters</a><ul><li><a class="table-of-contents__link toc-highlight" href="/ja/docs/5.0.4/gui-command-builder/check-box#text"><code>Text</code></a></li><li><a class="table-of-contents__link toc-highlight" href="/ja/docs/5.0.4/gui-command-builder/check-box#name"><code>Name</code></a></li><li><a class="table-of-contents__link toc-highlight" href="/ja/docs/5.0.4/gui-command-builder/check-box#checked"><code>Checked</code></a></li><li><a class="table-of-contents__link toc-highlight" href="/ja/docs/5.0.4/gui-command-builder/check-box#size"><code>Size</code></a></li><li><a class="table-of-contents__link toc-highlight" href="/ja/docs/5.0.4/gui-command-builder/check-box#enable"><code>Enable</code></a></li><li><a class="table-of-contents__link toc-highlight" href="/ja/docs/5.0.4/gui-command-builder/check-box#left-text"><code>Left text</code></a></li><li><a class="table-of-contents__link toc-highlight" href="/ja/docs/5.0.4/gui-command-builder/check-box#visible"><code>Visible</code></a></li></ul></li><li><a class="table-of-contents__link toc-highlight" href="/ja/docs/5.0.4/gui-command-builder/check-box#api-associated-with">API associated with</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container text--center"><div class="footer__links"><a class="footer__link-item" href="/ja/docs/">Docs</a><span class="footer__link-separator">·</span><a class="footer__link-item" href="/ja/showcase/">Samples</a><span class="footer__link-separator">·</span><a href="http://e-technostar.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">TechnoStar</a><span class="footer__link-separator">·</span><a href="https://www.e-technostar.com/contact/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Contact</a></div><div><div class="copyright-color">Copyright © <!-- -->2025<!-- --> TechnoStar Co. Ltd.<!-- --></div></div></div></footer></div>
+</body>
+</html>

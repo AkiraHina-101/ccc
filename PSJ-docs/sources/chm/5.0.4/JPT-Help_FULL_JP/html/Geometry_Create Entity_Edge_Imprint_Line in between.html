@@ -1,0 +1,78 @@
+<html lang="ja">
+  <head>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+      <head>
+        <meta
+          http-equiv="content-type"
+          content="text/html; charset=shift_jis"
+        />
+        <link href="basic.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="script/util.js"></script>
+        <meta
+          http-equiv="Content-Type"
+          content="text/html; charset=Shift_JIS"
+        />
+      </head>
+
+      <title>2エッジ間ライン</title>
+
+      <style type="text/css">
+        <!--Link下線、非表示-->
+                a.no-uline {
+          text-decoration: none;
+        }
+      </style>
+    </html>
+  </head>
+
+  <body>
+    <div class="page">
+      <h2>2エッジ間ライン</h2>
+      <div class="contents">
+        <p>2本のエッジの間に1本以上のエッジを作成します。</p>
+
+        <img
+          src="./Media/CommandDlg/Geometry_Create%20Entity_Edge_Imprint_Offset%20Line.png"
+        />
+
+        <h4>オプション</h4>
+        <li><b>ライン数</b>（デフォルト：1、0-100の範囲）</li>
+        <p>
+          &nbsp;&nbsp;&nbsp;間にあるインプリンティングラインの数。<br />
+          &nbsp;&nbsp;&nbsp;選択したフェースに等距離でエッジがインプリントされます。
+        </p>
+        <li><b>分割</b>（デフォルト：チェックなし）</li>
+        <p>
+          &nbsp;&nbsp;&nbsp;新しいインプリンティングラインにより、フェースはより小さな領域に分割されます。
+        </p>
+        <li><b>延長</b>（デフォルト：チェックなし）</li>
+        <p>
+          &nbsp;&nbsp;&nbsp;インプリンティングラインを最も近いラインまで延長します。
+        </p>
+        <h3>-操作手順-</h3>
+        <ol>
+          <li>
+            &nbsp;エッジボタンを押して、画面上のいくつかのエッジを選択します。
+            複数のエッジを選択できます。
+          </li>
+          <li>
+            &nbsp;フェースボタンを押して、画面上のいくつかのフェースを選択します。
+            複数のフェースを選択できます。
+          </li>
+          <li>&nbsp;行数を指定します。</li>
+          <li>&nbsp;必要に応じてオプションを設定します。</li>
+          <li>&nbsp;適用/OKボタンをクリックします。</li>
+        </ol>
+        <!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+      </div>
+    </div>
+  </body>
+</html>

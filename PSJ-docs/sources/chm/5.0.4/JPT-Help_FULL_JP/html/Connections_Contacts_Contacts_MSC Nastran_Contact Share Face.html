@@ -1,0 +1,218 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>接触 | 共有面 | MSC Nastran</title>
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>接触 | 共有面 | MSC Nastran</h2>
+<div class="contents">
+	<p>
+	共有面からMSC Nastran用接触設定を定義します。<br>
+	共有面が分離(二重節点状態のフェースが作成)され、そのフェース間に接触対が定義されます。
+	</p>
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_MSC%20Nastran_Contact%20Share%20Face.png">
+      <h4>基本</h4>
+	<li>名前
+	<p>接触対名称の頭に付ける名称を入力します。</p>
+	</li>
+	<li>アルゴリズム
+	<p>接触設定対象エンティティを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;フェース-フェース: フェース対フェース間接触</p>
+	</li>
+	<li>タイプ
+	<p>	接触定義の挙動タイプを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;一般接触: 滑り接触<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;固着: 固着
+	</p>
+	</li>
+	<li>情報
+	<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;情報表示: 選択された共有面に関連するパーツ名が表示されます。<br>
+	<img src="./Media/Connections_Contacts_Contacts_ADVC_Contact%20Share%20Face_1.png"><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;パーツをハイライト: 選択された共有面に関連するパーツがハイライト表示されます。<br>
+	</p>
+	</li>
+ <h4>コンタクトプロパティ | General</h4>
+	<li>接触距離範囲（ERROR）
+	<p>ノードがボディに接触しているとみなされる距離。</p>
+	</li>
+	<li>解離力（FNTOL）
+	<p>ノードがボディから解離する際にかかる解離力または解離応力。</p>
+	</li>
+	<li>摩擦係数（FRIC）
+	<p>摩擦係数の指定。</p>
+	</li>
+	<li>干渉閉鎖距離（CINTERF）
+	<p>接触サーフェスに垂直な干渉閉鎖量。</p>
+	</li>
+	<li>接触探索順序（ISEARCH）
+	<p>変形体接触ボディにおける接触探索順序オプション。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Double&nbsp;:&nbsp（両方向探索）探索順序は、BCBODOYのIDが小さいIDから大きいIDとする。接触が検出されなかった場合は逆の順序で探索する。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Slave to Master&nbsp;:&nbsp（一方向探索）探索順序は、スレーブからマスターへ。<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;Program decision&nbsp;:&nbsp（一方向探索）プログラムが探索順序を判断する。
+	</p>
+	</li>
+	<li>弾性体に接触する節点の座標修正(ICOORD)
+	<p>節点座標の修正オプション<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;None&nbsp;:&nbsp;座標の修正は行われない。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Modify position&nbsp;:&nbsp;無応力初期接触状態を得られるように変形体と接触する節点座標を修正する。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Delay sliding&nbsp;:&nbsp;変形体の鋭角部における接線方向の許容誤差を拡大させて、接触される側のセグメントの滑り出しを遅らせる。<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;Both effect&nbsp;:&nbsp;Modify positionとDelay slidingの両方を有効化する。
+	</li>
+	<li>摩擦応力の限度（FRLIM）
+	<p>摩擦応力の限界。この項目は、摩擦タイプ6（バイリニアモデルを用いたクーロン摩擦）にのみ使用されます。</p>
+	</li>
+	<li>接触許容量のバイアス（BIAS）
+	<p>接触許容値のバイアス係数。ブランク以外の入力は、BCPARAで入力されたBIASを上書きします。</p>
+	</li>
+	<li>接触条件のチェック（ISTYP）
+	<p>接触条件のチェック。変形体のみ有効。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Double Side&nbsp;:&nbsp;対称貫通、両面接触。<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;Optimized&nbsp;:&nbsp;接触拘束式の自動最適化を行う両面接触。
+	</p>
+	</li>
+
+	<li>シェル要素面（スレーブ）
+	<p>シェル要素のフェース（スレーブ）には以下のオプションがあります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm Thk. offset&nbsp;:&nbsp;上面と下面の両方がコンタクトの説明に含まれ、厚みのオフセットも含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/ Thk. offset&nbsp;:&nbsp;コンタクトの説明には、底面のみが表示され、厚みのオフセットは含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/o Thk. offset&nbsp;:&nbsp;シェルの厚さは無視され、底面のみがコンタクトの記述になります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/ Thk. offset&nbsp;:&nbsp;コンタクトの説明にはトップフェースのみが表示され、厚みのオフセットは含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/o Thk. offset&nbsp;:&nbsp;シェルの厚さは無視され、上面のみがコンタクトの記述になります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm w/o Thk. offset&nbsp;:&nbsp;上面と下面の両方が接触の記述になり、シェルの厚さは無視されます。<br>
+	</p>
+	</li>
+	<li>梁・シェル要素エッジ（スレーブ）
+	<p>梁・シェル要素エッジ(スレーブ)には以下のオプションがあります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Beam/Bar Edge only&nbsp;:&nbsp;ビーム/バーのエッジのみがコンタクトの記述に含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Free&Hard Edge only&nbsp;:&nbsp;自由端とハードシェル端のみがコンタクトの説明に含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Both&nbsp;:&nbsp;Beam/Bar Edge　と　Free&Hard Edge　の　両方がコンタクトの記述に含まれます。<br>
+	</p>
+	</li>
+	<li>シェル要素面（マスター）
+	<p>シェル要素面(マスター)には以下のオプションがあります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm Thk. offset&nbsp;:&nbsp;上面と下面の両方がコンタクトの説明に含まれ、厚みのオフセットも含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/ Thk. offset&nbsp;:&nbsp;コンタクトの説明には、底面のみが表示され、厚みのオフセットは含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/o Thk. offset&nbsp;:&nbsp;シェルの厚さは無視され、底面のみがコンタクトの記述になります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/ Thk. offset&nbsp;:&nbsp;コンタクトの説明にはトップフェースのみが表示され、厚みのオフセットは含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/o Thk. offset&nbsp;:&nbsp;シェルの厚さは無視され、上面のみがコンタクトの記述になります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm w/o Thk. offset&nbsp;:&nbsp;上面と下面の両方が接触の記述になり、シェルの厚さは無視されます。
+	</p>
+	</li>
+	<li>梁・シェル要素エッジ（マスター）
+	<p>梁・シェル要素エッジ(マスター)には以下のオプションがあります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Beam/Bar Edge only&nbsp;:&nbsp;ビーム/バーのエッジのみがコンタクトの記述に含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Free&Hard Edge only&nbsp;:&nbsp;自由端とハードシェル端のみがコンタクトの説明に含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Both&nbsp;:&nbsp;Beam/Bar Edge　と　Free&Hard Edge　の　両方がコンタクトの説明に含まれています。
+	</p>
+　　　</li>
+　　　<h4>コンタクトプロパティ | Tied / Tied & Maintain Gap / Tied  & Full moment / Tied  & Full moment & Maintain Gap</h4>
+
+　　　<li>接触距離範囲(RROR)
+	　<p>ノードがボディに接触しているとみなされる距離。</p>
+　　　</li>
+　　　<li>干渉閉鎖距離(CINTERF)
+	　<p>干渉閉鎖量、接触面の垂直方向。</p>
+　　　</li>
+　　　<li>探索順序(ISEARCH)
+	　<p>変形可能な接触体の場合、スレーブからマスター、またはマスターからスレーブへの接触検索順序のオプション。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Double&nbsp;:&nbsp検索順序は、BCBODOYのIDが小さいものから大きいものへと順に並んでいます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Slave to Master&nbsp;:&nbsp検索順序は、スレーブからマスターへ。<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;Program decision&nbsp;:&nbspどのような検索順序にするかは、プログラムに任せてください。
+	　</p>
+　　　</li>
+　　　<li>節点の座標修正(ICOORD)
+	　<p>座標の修正します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;None&nbsp;:&nbsp;座標の修正しません。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Modify position&nbsp;:&nbsp;変形体と接触する節点の座標を修正して，応力のない初期接触が得られるようにします。．<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Delay sliding&nbsp;:&nbsp;変形体の鋭角部分の接線誤差の許容範囲を拡大し、接触したセグメントからの滑り落ちを遅らせます。<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;Both effect&nbsp;:&nbsp;Modify position　と　Delay sliding　の両方をアクティブにします。
+	　</p>
+　　　</li>
+　　　<li>接触条件のチェック(ISTYP)
+	　<p>接触条件の確認。変形可能なボディの場合<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Double Side&nbsp;:&nbsp;対称的なペネトレーション、両面のコンタクト。<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;Optimized&nbsp;:&nbsp;接触拘束式の自動最適化による両面接触。
+	　</p>
+　　　</li>
+　　　<li>シェル要素面(スレーブ)
+	　<p>シェル要素面(スレーブ)には以下のオプションがあります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm Thk. offset&nbsp;:&nbsp;上面と下面の両方がコンタクトの説明に含まれ、厚みのオフセットも含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/ Thk. offset&nbsp;:&nbsp;コンタクトの説明には、底面のみが表示され、厚みのオフセットは含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/o Thk. offset&nbsp;:&nbsp;シェルの厚さは無視され、底面のみがコンタクトの記述になります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/ Thk. offset&nbsp;:&nbsp;コンタクトの説明にはトップフェースのみが表示され、厚みのオフセットは含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/o Thk. offset&nbsp;:&nbsp;シェルの厚さは無視され、上面のみがコンタクトの記述になります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm w/o Thk. offset&nbsp;:&nbsp;上面と下面の両方が接触の記述になり、シェルの厚さは無視されます。
+	　</p>
+　　　</li>
+　　　<li>梁・シェル要素エッジ(スレーブ)
+　	　<p>には以下のオプションがあります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Beam/Bar Edge only&nbsp;:&nbsp;ビーム/バーのエッジのみがコンタクトの記述に含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Free&Hard Edge only&nbsp;:&nbsp;自由端とハードシェル端のみがコンタクトの説明に含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Both&nbsp;:&nbsp;Beam/Bar Edge と Free&Hard Edge の両方がコンタクトの説明に含まれています。
+	　</p>
+　　　</li>
+　　　<li>シェル要素面(マスター)
+	　<p>シェル要素面(マスター) には以下のオプションがあります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm Thk. offset&nbsp;:&nbsp;上面と下面の両方がコンタクトの説明に含まれ、厚みのオフセットも含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/ Thk. offset&nbsp;:&nbsp;コンタクトの説明には、底面のみが表示され、厚みのオフセットは含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/o Thk. offset&nbsp;:&nbsp;シェルの厚さは無視され、底面のみがコンタクトの記述になります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/ Thk. offset&nbsp;:&nbsp;コンタクトの説明にはトップフェースのみが表示され、厚みのオフセットは含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/o Thk. offset&nbsp;:&nbsp;シェルの厚さは無視され、上面のみがコンタクトの記述になります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm w/o Thk. offset&nbsp;:&nbsp;上面と下面の両方が接触の記述になり、シェルの厚さは無視されます。
+	　</p>
+　　　</li>
+　　　<li>梁・シェル要素エッジ(マスター)
+	　<p>梁・シェル要素エッジ(マスター)には以下のオプションがあります。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Beam/Bar Edge only&nbsp;:&nbsp;ビーム/バーのエッジのみがコンタクトの記述に含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Free&Hard Edge only&nbsp;:&nbsp;自由端とハードシェル端のみがコンタクトの説明に含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Both&nbsp;:&nbsp;Beam/Bar Edge と Free&Hard Edge の両方がコンタクトの説明に含まれています。
+	　</p>
+　　　</li>
+	
+      <h4>色設定</h4>
+
+	<li>接触の色
+	<p>
+	接触対表示マーカー色を定義します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;リセット: デフォルト色に初期化
+	</p>
+	</li>
+
+<h3>-&nbsp;操作手順&nbsp;-</h3>
+      <ol>
+	<li>予めアセンブリ機能により共有面を作成し、共有面を表示しておきます</li>
+	<li>接触を定義したい共有面となるフェースを選択します。</li>
+	<li>必要により接触対に対する詳細設定を定義し、適用（OK）ボタンをクリックして接触対を定義します。</li>
+      </ol>
+	<p>
+	共有面が分離(二重節点状態のフェースが作成)され、そのフェース間に接触対が定義されます。
+	</p>
+<br>
+<br>
+      
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

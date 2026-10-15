@@ -1,0 +1,49 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Geom_ShowAdjacent</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>Geom_ShowAdjacent</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Select face(s) then it results in the Adjacent faces with the given constraints</p>
+<h4>Syntax</h4>
+<p>Geom_ShowAdjacent(double stopAngle,bool IncludeStopFace,int Layer,bool IsPreview,Cursor[] startFaceCursor, Cursor[] stopFaceCursor)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>double<p>Stop Angle value</p></li>
+<li>bool<p>Value of whether stop face has to be included or not</p></li>
+<li>int<p>number of Layers</p></li>
+<li>bool<p>Whether the result is preview or Run</p></li>
+<li>Cursor[]<p>List of Start faces cursor([6:Face ID])</p></li>
+<li>Cursor[]<p>List of Stop faces cursor([6:Face ID])</p></li>
+</ol> 
+<h4>Return Code</h4>
+<ol>
+    <li><p>Succeeded:1 Failed: 0</p></li>
+    <li><p>List of adjacent faces</p></li>
+</ol>
+<h4>Sample Code</h4>
+import re<br>
+result=JPT.Exec('Geom_ShowAdjacent(90, 0, 4, 0, [6:25], [])')<br>
+splitted = re.split(r',\s*(?![^(\[\]]*\])', result)<br>
+if splitted[0]!='0':<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for i in splitted:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(i)<br>
+
+
+</div>
+</div>
+</body>
+</html>

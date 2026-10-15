@@ -1,0 +1,90 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Node to Face</title>
+
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Node to Face</h2>
+<div class="contents">
+	<h4>CAD Projection(Node to Face) Dialog Box</h4>
+	<p>
+	Project mid-node or corner nodes of the mesh parts, to the face of the selected CAD geometry.</p>
+
+	<img src="./Media/CommandDlg/Meshing_CAD%20Projection_CAD%20Projection_Node%20to%20Face.png">
+
+	<h4>Options</h4>
+
+	<li>Direction 
+	<p>
+	Specify the projection direction.
+
+	<ul type="circle">
+	<li>Min
+	<p>Project in the shortest distance direction to the face.
+	</p></li>
+
+	<li>X/Y/Z/-X/-Y/-Z
+	<p>Project the selected CAD edges in the selected positive and negative direction.
+	</p>
+	</li>
+	</ul>
+
+	</p>
+	</li>
+
+	<li>Tolearnce
+		<p>Limits the distance to the projection destination to the distance set by this value or less.</p>
+	</li>
+	<li>Auto
+		<p>Define tolerance by element size.</p>
+	</li>
+	<li>Improve Quality
+	<p>
+	Putting a check will adjust the element after creation, to optimize the quality.<br>
+	Direction is ignored in this case. 
+	</p>
+	</li>
+
+	<li>Nearest 3 Nodes
+		<p>When checked, the projection destination is not on the nearest element, but on the plane defined by the three nearest nodes.</p>
+	</li>
+
+<br>
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+
+	<ol>
+	<li>&nbspPress the CAD Face button on the Selection List, select the face from the screen that becomes a projection target.</li>
+	<li>&nbspPress the Meshed Node button on the Selection List, select the nodes of the mesh part from the screen that becomes the projection target.</li>
+	<li>&nbspIf necessary, change the directions and the options.</li>
+	<li>&nbspClick the Apply or OK button to execute the projection.<br>
+	Nodes on the selected faces will move on the CAD model.</li>
+	</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

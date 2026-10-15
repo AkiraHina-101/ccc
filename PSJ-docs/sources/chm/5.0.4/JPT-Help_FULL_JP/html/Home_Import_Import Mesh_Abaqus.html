@@ -1,0 +1,99 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>AbaqusInpインポート</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>AbaqusInpインポート</h2>
+<div class="contents">
+	<p>このコマンドは、Abaqusファイル（.inp）をインポートするために使用されます。</p>
+	<img src="./Media/CommandDlg/Home_ImportMesh_Abaqus.png">
+
+	<h4>インポートタイプ</h4>
+		<li><b>標準のAbaqusInp</b></li>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;モデルジオメトリのみをインポートします。</p>
+		<li><b>AbaqusInpをプロパティで分けて読み込み</b></li>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;モデルの形状と材料特性をインポートします。 ボディは、材料特性ごとに作成されます。</p>
+	<h4>角度</h4>	
+			<li><b>面角度</b></li>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;面の分割を決定するために、許容角度を指定します。
+			指定した値よりも小さい角度で隣接する要素間にエッジを作成して、面を定義します。</p>
+		<li><b>エッジ角度</b></li>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;エッジ分割を決定するために、許容角度を指定します。
+			指定された値よりも大さい角度で隣接するエッジ要素に頂点を作成して、エッジを分割します。</p>	
+	<h4>オフセット/番号の付け直し</h4>	
+	<img src="./Media/CommandDlg/Home_ImportMesh_Abaqus_01.png"></p>
+			<li><b>ファイル名</b></li>
+			<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;複数のファイルをインポートしてすべてのモデルを配置し、ファイル名をアルファベット順に並べ替えます。</p>
+		<li><b>節点</b></li>
+		<p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">		
+			<li><b>ストラテジー</b>:&nbsp;IDが重複している場合の変更方法をOffsetとRenumberから選択します。</li><br>
+			<li><b>入力</b>:&nbsp;ストラテジーによって入力内容が変わります。</li><br>
+			<li><b>入力-オフセット</b>:&nbsp;入力値ぶんだけIDが増加します。新しいID =古いID +入力値。</li><br>
+			<li><b>入力-番号を付け直します</b>:&nbsp;入力値が開始IDとなります。開始ID =入力値。</li><br>
+			<li><b>開始</b>:&nbsp;開始IDを自動的に取得します。 開始IDは、オフセット/リナンバーを変更すると更新されます。</li><br>
+			<li><b>終了</b>:&nbsp;最後のIDを自動的に取得します。 最後のIDは、オフセット/リナンバーを変更すると更新されます。</li>
+		</span>
+		</ul>		
+		<li><b>要素</b></li>
+		<p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+			<li><b>ストラテジー</b>:&nbsp;IDが重複している場合の変更方法をOffsetとRenumberから選択します。</li><br>
+			<li><b>入力</b>:&nbsp;ストラテジーによって入力内容が変わります。</li><br>
+			<li><b>入力-オフセット</b>:&nbsp;入力値ぶんだけIDが増加します。新しいID =古いID +入力値。</li><br>
+			<li><b>入力-番号を付け直します</b>:&nbsp;入力値が開始IDとなります。開始ID =入力値。</li><br>
+			<li><b>開始</b>:&nbsp;開始IDを自動的に取得します。 開始IDは、オフセット/リナンバーを変更すると更新されます。</li><br>
+			<li><b>終了</b>:&nbsp;最後のIDを自動的に取得します。 最後のIDは、オフセット/リナンバーを変更すると更新されます。</li>
+		</span>
+		</ul>				
+		<li><b>リセット</b></li>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;すべてのパラメータを元の状態に復元します。</p>	
+			
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+			<li>&nbsp;コマンドを起動し、各オプションを指定して、[OK]ボタンをクリックします。</li><p>
+			<li>&nbsp;ユーザーは、ダイアログで1つまたは複数のターゲットデータを選択し、[開く]ボタンをクリックできます。</li><p>
+			<img src="./Media/CommandDlg/Home_ImportMesh_Abaqus_02.png"></p>
+			<li>&nbsp;複数ファイルのインポートには2つのケースがあります。</li><p>
+			&nbsp;最初のケース：インポートプロセスは、開いた後にスムーズに実行されます。 警告ログのみで、IDの重複などの特別なバグはありません。<p>
+			&nbsp;2番目のケース：IDが重複している場合、警告ログが表示されます。 ユーザーは、調整、はい（自動番号変更）、キャンセルなどの3つの方法のいずれかを指定します。<p>
+			<img src="./Media/CommandDlg/Home_ImportMesh_Abaqus_03.png"></p>
+			<li>&nbsp;バグが存在する場合は、いくつか変更を加えます。 次に、インポートプロセスを終了します。</li><p>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>SurfaceFlux</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>SurfaceFlux</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>create surface flux</p>
+<h4>Syntax</h4>
+<p>SurfaceFlux(string strName, double dFlux, int iDistributionMethod, cursor crTable, cursor[] taTarget, cursor crEdit)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>String<p>Surface flux name</p></li>
+<li>Double<p>Surface flux value</p></li>
+<li>Int<p>Input unit type*</p>
+       <p>*0: MW/mm^2</p>
+       <p>&ensp;1: W/m^2</p>
+       <p>&ensp;2:MiuW/mm^2</p>
+       <p>&ensp;3: kcal/mm^2*h</p>
+       <p>&ensp;4: Lbf/ft*s</p>
+       <p>&ensp;5: Lbf/in*s</p></li>
+<li>Cursor<p>Table field data cursor(81:FieldData ID)</p></li>
+<li>Cursor[]<p>Target entities cursor</p></li>
+<li>Cursor<p>N/A: Edit cursor</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>SurfaceFlux("SurfaceHeatFlux1", 1000, 1, 81:4, [6:3, 11:693], 0:0)</p>
+</div>
+</div>
+</body>
+</html>

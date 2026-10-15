@@ -1,0 +1,3 @@
+# MeasureAngleBy2Nodes_Axis
+
+MeasureAngleBy2Nodes_Axis MeasureAngleBy2Nodes_Axis Description Measure the angle created by 2 nodes and Axis. Syntax MeasureAngleBy2Nodes_Axis(cursor node1,cursor node2,Axis xyz,String Target,Integer N) Inputs cursor node cursor(10:*;*=node id) cursor node cursor(10:*;*=node id) Axis unit vector([x,y,z]) String Target (Angle or XY or YZ or ZX or ALL) Integer N specify the number of decimal places (0 Return Code Angle value(Target = Angle,XY,YZ,ZX), [Angle,XY,YZ,ZX] (Target = ALL) Succeeded FAILED Failed Sample Code MeasureAngleBy2Nodes_Axis(10:331,10:323,[0,0,1],"ALL",6) or MeasureAngleBy2Nodes_Axis(10:331,10:323,[0,0,1],"Angle",6)

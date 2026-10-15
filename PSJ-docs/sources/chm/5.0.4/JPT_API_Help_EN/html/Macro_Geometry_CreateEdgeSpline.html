@@ -1,0 +1,41 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>CreateEdgeSpline</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>CreateEdgeSpline</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create Edge Spline</p>
+<h4>Syntax</h4>
+<p>CreateEdgeSpline(Cursor[] node_list, int arc, Cursor body_cursor, String name)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>Cursor[]<p>Target nodes list cursor([10:Node ID])</p></li>
+<li>int<p>Arc type*</p>
+        <p>*0: Spline</p>
+        <p>&ensp;1: Arc (3 Nodes)</p></li>
+<li>Cursor<p>Target body cursor([3:Part ID])</p></li>
+<li>String<p>Bar name</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>CreateEdgeSpline([10:455, 10:462, 10:461, 10:469, 10:468], 0, 0:0, "curve")</p>
+</div>
+</div>
+</body>
+</html>

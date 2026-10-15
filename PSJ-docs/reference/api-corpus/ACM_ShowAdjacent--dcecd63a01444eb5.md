@@ -1,0 +1,3 @@
+# ACM_ShowAdjacent
+
+ACM_ShowAdjacent ACM_ShowAdjacent Description Select face(s) then it results the Adjacent faces with the given constrainsts Syntax ACM_ShowAdjacent(double stopAngle,bool IncludeStopFace,int Layer,bool IsPreview,bool bStopByNonma, bool bShowPartOnly,Cursor[] startFaceCursor, Cursor[] stopFaceCursor) Inputs double Stop Angle value bool Include stop faces bool flag True = 1, False = 0 int Number of Layers bool Whether the result is preview or Run bool Stop by nonmanifold bool flag True = 1, False = 0 bool Show part only bool flag True = 1, False = 0 Cursor[] List of Start face cursor([11:Elem ID]) Cursor[] List of Stop face cursor([11:Elem ID]) Return Code 1 Succeeded 0 Failed Sample Code ACM_ShowAdjacent(0, 0, 100, 0, 0, 0, [6:22], [])

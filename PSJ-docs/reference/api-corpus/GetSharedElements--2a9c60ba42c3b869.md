@@ -1,0 +1,3 @@
+# GetSharedElements
+
+GetSharedElements GetSharedElements Description Get shared element information Syntax GetSharedElements(DItemVector DItems) Inputs DItemVector Vector DItem Return Code Python Output DItemVector Shared element information (type, typeID, id, info, key, masters, slave, targets, children, parent ) Sample Code Input: bodies = JPT.GetAllByType(JPT.DItemType.BODY) share = JPT.GetSharedElements(bodies) for s in share: print(str(s.id)) Output: > 1170 > 1255 > 1202 > ...

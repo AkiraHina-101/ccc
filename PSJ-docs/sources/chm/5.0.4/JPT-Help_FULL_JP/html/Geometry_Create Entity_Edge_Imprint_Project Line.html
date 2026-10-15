@@ -1,0 +1,72 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>ライン投影</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>ライン投影</h2>
+<div class="contents">
+	<p>選択したエッジを選択したフェース上に垂直に投影します。</p>
+
+	<img src="./Media/CommandDlg/Geometry_Create%20Entity_Edge_Imprint_Project%20Line.png">
+
+	<h4>オプション</h4>
+
+		<li><b>面を分割</b></li>
+			<p>&nbsp;&nbsp;&nbsp;フェースを分割します。</p>
+		<li><b>ベクトル方向</b></li>
+			<p>&nbsp;&nbsp;&nbsp;投影方法を指定します。</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>ターゲットフェースの法線</b>：投影先フェースの法線方向に投影します。</li>
+				<li><b>２節点</b>：指定した２節点の方向に投影します。</li>
+				<li><b>最近接方向</b>：選択エッジに最も距離の近いフェース上に投影します。</li>
+				</span>
+			</ul>
+		<li><b>間隙量</b></li>
+			<p>&nbsp;&nbsp;&nbsp;投影距離を入力値までに制限します。</p>
+		<br>
+	</br>
+	
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+		<li>&nbsp;エッジまたはフェースボタンを押し、インプリント元になるエッジとインプリント対象のフェースを画面より選択します。</li>
+		<li>&nbsp;投影先が正しいか、プレビューが表示から確認します。</li>
+		<li>&nbsp;必要に応じて、投影方法や間隙量を設定します。</li>
+		<li>&nbsp;必要に応じて面を分割チェックボックスをオフにします。この場合はインプリント後のフェースが元のフェースから分割されません。</li>
+		<li>&nbsp;適用/OKボタンをクリックします。</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

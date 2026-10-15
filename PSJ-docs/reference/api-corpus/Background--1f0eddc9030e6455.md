@@ -1,0 +1,3 @@
+# Background
+
+Background Background This command is used to define the background color of the Main window. Background Color Define the background color of the Main window. Gradient Color Specify the gradient color. Use Gradient Background Select this checkbox to turn on the gradient color setting. Capturing Background Color Select Current / White / Transparent background to use when capturing an image. Image Output Size Check Fixed size to input width and height of image output. -&nbspOperating Procedure&nbsp- &nbsp; Launch the command, specify options and click the Apply or OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

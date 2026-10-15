@@ -1,0 +1,75 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>Extend Line</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Extend Line</h2>
+<div class="contents">
+	<p>Extend the selected Edge in the same direction or in the same curvature.</p>
+
+	<img src="./Media/CommandDlg/Geometry_Create%20Entity_Edge_Imprint_Extend%20Line.png">
+
+	<h4>Options</h4>
+		<li><b>Method</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Choose a method to extend the Edge.</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>Straight</b>&nbsp;:&nbsp;Extend in a straight line in the Edge direction.</li>
+				<li><b>Same Curvature</b>&nbsp;:&nbsp;Extend while maintaining the curvature of the Edge.</li>
+				</span>
+			</ul>
+		</br>
+		<li><b>Position To Extend</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Select the position to extend the Edge.</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>Nearest Edge</b>&nbsp;:&nbsp;Extend from the Edge end point to the nearest Edge.</li>
+				<li><b>Boundary Edge</b>&nbsp;:&nbsp;Extend the selected Edge to Edge Face boundary.</li>
+				</span>
+			</ul>
+		</br>
+		<li><b>Break Face</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Split the Face.</p>
+		</br>
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+		<ol>
+		<li>&nbsp;Press the button Edge and select the Edge extension target from the screen.</li>
+		<li>&nbsp;Select the method of selecting the Edge from Method.</li>
+		<li>&nbsp;Select the end point of the extended destination from the Position To Extend.</li>
+		<li>&nbsp;Clear the break face check box, if necessary. In this case, the Face after Imprint is not split from the original Face.</li>
+		<li>&nbsp;Click Apply / OK button.</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

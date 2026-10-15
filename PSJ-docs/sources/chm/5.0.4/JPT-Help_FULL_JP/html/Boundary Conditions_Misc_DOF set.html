@@ -1,0 +1,89 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>自由度定義</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>自由度定義</h2>
+<div class="contents">
+	<p>このコマンドではTS-SolverのASETを定義します。</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Condition_Misc_DOF%20set.png"><br><br>
+
+	<h4>構造</h4>
+		<li><b>名前</b>
+		<p>&nbsp;&nbsp;&nbsp;作成する自由度定義の名前を入力します。</p>
+		</li>
+		
+		<li><b>座標系</b>
+		<p>&nbsp;&nbsp;&nbsp;拘束する自由度が参照する既存の座標系をプルダウンメニューから選択します。</p>
+		</li>
+	
+	<h4>自由度成分</h4>
+		<span style="font-size:1.1em;">
+		<p>&nbsp;拘束する自由度の方向をチェックボックスから選択します。</p>
+		</span>
+		<br>
+		
+		<li><b>変位X</b><br>
+			<p>&nbsp;&nbsp;&nbsp;チェックするとX方向の並進移動を拘束します。</p>
+		</li>
+		<li><b>変位Y</b><br>
+			<p>&nbsp;&nbsp;&nbsp;チェックするとY方向の並進移動を拘束します。</p>
+		</li>
+		<li><b>変位Z</b><br>
+			<p>&nbsp;&nbsp;&nbsp;チェックするとZ方向の並進移動を拘束します。</p>
+		</li>		
+		<li><b>回転X</b><br>
+			<p>&nbsp;&nbsp;&nbsp;チェックするとX軸周りの回転移動を拘束します。</p>
+		</li>
+		<li><b>回転Y</b><br>
+			<p>&nbsp;&nbsp;&nbsp;チェックするとY軸周りの回転移動を拘束します。</p>
+		</li>
+		<li><b>回転Z</b><br>
+			<p>&nbsp;&nbsp;&nbsp;チェックするとZ軸周りの回転移動を拘束します。</p>
+		</li>
+	
+	<h3>-&nbsp機能実行画面と出力例&nbsp-</h3>
+	<img src="./Media/Boundary%20Condition_Misc_DOF%20set_example.png">
+	
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+		<li>ASETを設定するフェース、エッジ、もしくは節点を選択します。</li>
+		<li>各方向成分を設定します。</li>
+		<li>&nbsp;適用/OKボタンをクリックします。</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

@@ -1,0 +1,35 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>MeasureAngleBy2ElemEdges</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>MeasureAngleBy2ElemEdges</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Measure the angle created by 2 Elem edges.</p>
+<h4>Syntax</h4>
+<p>MeasureAngleBy2ElemEdges(cursorpair elemedge1,cursorpair elemedge2,String Target,Integer N)</p>
+<h4>Inputs</h4> <ol>
+<li>cursorpair<p>elemedge cursorpair(10:*-10:**;*,**=node id)</p></li>
+<li>cursorpair<p>elemedge cursorpair(10:*-10:**;*,**=node id)</p></li>
+<li>String<p>Target (Angle or XY or YZ or ZX or ALL)</p></li>
+<li>Integer N<p>specify the number of decimal places (0<=N<=30)</p></li>
+</ol> <h4>Return Code</h4>
+<li>Angle value(Target = Angle,XY,YZ,ZX), [Angle,XY,YZ,ZX] (Target = ALL)<p>Succeeded</p></li>
+<li>FAILED<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>MeasureAngleBy2ElemEdges(10:330-10:331,10:331-10:323,"Angle",6) or MeasureAngleBy2ElemEdges(10:330-10:331,10:331-10:323,"ALL",6)</p>
+</div>
+</div>
+</body>
+</html>

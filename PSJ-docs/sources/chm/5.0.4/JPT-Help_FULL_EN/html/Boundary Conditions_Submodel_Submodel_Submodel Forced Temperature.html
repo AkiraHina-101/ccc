@@ -1,0 +1,97 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Save/Load Mesh Setting</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Submodel Forced Temperature</h2>
+<div class="contents">
+	<p>
+	Set the sub-model node Forced temperature.<br>
+	</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Submodel_Submodel_Submodel%20Forced%20Temperature.png">
+
+	<h4>Structure</h4>	
+	<li><b>Name</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the condition name.</p>
+	</li>
+	<li><b>Solver</b>
+	<p>&nbsp;&nbsp;&nbsp;Solver selection.</p>
+	</li>
+
+	<h4>Global</h4>	
+	<li><b>Path</b>
+	<p>&nbsp;&nbsp;&nbsp;ADVC designated global model results folder path on the server.</p>
+	</li>
+	<li><b>Process No.</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the process number in the global model.</p>
+	</li>
+
+	<h4>Options</h4>	
+	<li><b>Refer Type</b>
+	<p>&nbsp;&nbsp;&nbsp;Global model results type.</p>
+	</li>
+	<li><b>extension_range</b>
+	<p>&nbsp;&nbsp;&nbsp;Search tolerance in the entire coordinate system.</p>
+	</li>
+	<li><b>extension_tol</b>
+	<p>&nbsp;&nbsp;&nbsp;Search tolerance of an element coordinate system.</p>
+	</li>
+	<li><b>extension_limit_to</b>
+	<p>&nbsp;&nbsp;&nbsp;Newton-Raphson iteration convergence tolerance.</p>
+	</li>
+	<li><b>global_element_set</b>
+	<p>&nbsp;&nbsp;&nbsp;Global model element group for search target.</p>
+	</li>
+	<li><b>use_bucket</b>
+	<p>&nbsp;&nbsp;&nbsp;Bucket method selection.</p>
+	</li>
+	<li><b>num_bucket_max_x</b>
+	<p>&nbsp;&nbsp;&nbsp;Maximum number of divisions in x direction for Bucket method.</p>
+	</li>
+	<li><b>num_bucket_max_y</b>
+	<p>&nbsp;&nbsp;&nbsp;Maximum number of divisions in y direction for Bucket method.</p>
+	</li>
+	<li><b>num_bucket_max_z</b>
+	<p>&nbsp;&nbsp;&nbsp;Maximum number of divisions in z direction for Bucket method.</p>
+	</li>
+	<li><b>prev_bc</b>
+	<p>&nbsp;&nbsp;&nbsp;Maintain the specified boundary conditions.</p>
+	</li>
+
+      <h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+		<li>&nbsp;Specify the item name in the Name.</li>
+		<li>&nbsp;Specify the path of the results folder on the ADVC compute server to Path.</li>
+		<li>&nbsp;Enter the process number of ADVC calculation results to Process No.</li>
+		<li>&nbsp;Select the face to set the sub-model</li>
+		<li>&nbsp;Click Apply/OK button.</li>
+	</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

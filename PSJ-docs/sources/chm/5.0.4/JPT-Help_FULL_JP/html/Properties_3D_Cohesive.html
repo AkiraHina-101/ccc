@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<style type="text/css">
+		/* Linkの下線非表示 */
+		a.no-uline { text-decoration:none }
+		/* Linkの上にマウスポインタを置くと非表示 */
+		a.noul:hover { text-decoration:none !important }
+		</style>
+		<title>3Dプロパティ | 粘着要素</title>
+	</head>
+	<body>
+		<div class="page">
+			<h2>3Dプロパティ | 粘着要素</h2>
+			
+			<div class="contents">
+				<h3>3Dプロパティ | 粘着要素ダイアログボックス</h3>
+					<p>粘着要素のプロパティデータを入力します。</p>
+					<ul>
+						<p>
+						<li>ソルバー：ABAQUS</li>
+							<img src="./Media/CommandDlg/Properties_3D_Cohesive_Abaqus.png"></img>
+						</p>
+						<p>
+						<li>ソルバー：ADVC</li>
+							<img src="./Media/CommandDlg/Properties_3D_Cohesive_ADVC.png"></img>
+						</p>
+					</ul>
+					
+				<h4>プロパティ</h4>
+					<ul>
+						<li>名前</li>
+							<p>プロパティの名前を指定します。</p>
+						<li>プロパティID</li>
+							<p>プロパティのIDを指定します。プロパティIDはモデル内で重複しないように指定します。</p>
+						<li>色</li>
+							<p>プロパティの色を指定します。</p>
+					</ul>
+				<h4>粘着要素</h4>
+					<p>粘着要素のプロパティデータを入力します。ABAQUSとADVCソルバーのみが対応しています。</p>
+					<ul>
+						<li>ソルバー</li>
+							<p>ソルバーを指定します。
+							<ul type="circle">
+								<li>ABAQUS</li>
+								<li>ADVC</li>
+							</ul>
+							</p>
+						<li>材料</li>
+							<p>あらかじめ定義された粘着要素材料特性を選択します。</p>
+						<li>応答</li>
+							<p>応答特性を入力します。
+							<ul type="circle">
+								<li>力分離</li>
+								<li>連続体</li>
+								<li>ガスケット</li>
+							</ul>
+							</p>
+						<li>初期板厚</li>
+							<p>初期厚さを入力します。
+							<ul type="circle">
+								<li>ジオメトリー</li>
+									<p>節点の座標値から計算します。</p>
+								<li>指定</li>
+									<p>ユーザー入力で指定します。</p>
+							</ul>
+							</p>
+						<li>連続体タイプ</li>
+							<p>面内剛性なし"Continuum"と、面内剛性あり"Continuum2"の2種類を選択できます。
+							<ul type="circle">
+								<li>面内剛性なし</li>
+								<li>面内剛性あり</li>
+							</ul>
+							</p>
+						<li>厚さ方向</li>
+							<p>厚さ方向とする要素座標系の軸方向番号（X軸：0、Y軸：1、Z軸：2）を指定します。
+							<ul type="circle">
+								<li>0/1/2</li>
+							</ul>
+							</p>
+						<li>厚さ</li>
+							<p>要素の厚さを数値で指定します。</p>
+					</ul>					
+				<h3>-&nbsp;操作手順&nbsp;-</h3>
+					<ol>
+						<li>名前にプロパティの名前を入力します。</li>
+						<li>プロパティIDにプロパティIDを入力します。</li>
+						<li>材料プルダウンメニューからすでに登録された粘着材料情報を選択します。</li>
+						<li>必要に応じて他のパラメータも入力します。</li>
+						<li>対象パーツを選択します。</li>
+						<li>適用またはOKボタンをクリックしてプロパティを作成します。</li>
+					</ol>
+			</div>
+		</div>
+	</body>
+</html>

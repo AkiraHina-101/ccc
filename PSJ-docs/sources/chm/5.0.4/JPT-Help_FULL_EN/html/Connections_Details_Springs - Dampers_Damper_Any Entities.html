@@ -1,0 +1,92 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Connection | Damper - All Entities (1 to 1) - same DoFs</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Connection | Damper - All Entities (1 to 1) - same DoFs</h2>
+	<div class="contents">
+	<p>
+	It is a function to create 1:1 damper elements.<br>
+	＊The 1st group node and the 2nd group node can be selected in part units, face units, edge units, element units, and node units.
+	</p>
+	<p>
+	<img src="./Media/Connections_Details_Springs%20-%20Dampers_Damper_Any%20Entities.png">
+	</p>
+	<p>
+	The 1st group node and the closest 2nd group node (within the connection range) are connected.<br>
+	This feature allows you to combine multiple degrees of freedom (the 1st and 2nd group nodes have similar degrees of freedom).
+	</p>
+
+	<h4>Connection</h4>
+	<li>Name
+	<p>
+	Enter the name to be registered.
+	</p>
+	</li>
+
+	<h4>Search</h4>
+	<li>All
+	<p>
+	Specify the connection range as infinite.
+	</p>
+	</li>
+	<li>Tolerance
+	<p>
+	Enter the radius of the connection range.
+	</p>
+	</li>
+
+	<h4>Damper</h4>
+	<li>Grounded
+	<p>
+	Specify the grounding spring option.
+	</p>
+	</li>
+	<li>X Damper - RZ Damper
+	<p>
+	Enter the damping in the degrees of freedom to combine.
+	</p>
+	</li>
+	<h4>Analysis Coordinate Frame</h4>
+	<li>Coordinate
+	<p>
+	Select a reference coordinate system.
+	</p>
+	</li>
+
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+	<li>&nbspSet the connection range.</li>
+	<li>&nbspSelect 1st group node from part, face, edge, element, node.</li>
+	<li>&nbspSelect 2nd group node from part, face, edge, element, node.</li>
+	<li>&nbspEnter the damping in the degrees of freedom to combine.</li>
+	<li>&nbspSet other parameters.</li>
+	<li>&nbspClick the Apply / OK button.</li>
+	</ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

@@ -1,0 +1,3 @@
+# IN Boundary | Limited Boundary | Plane
+
+IN Boundary | Limited Boundary | Plane IN Boundary | Limited Boundary | Plane Create a limited boundary plane. Plane Plane On &nbsp;&nbsp;&nbsp;Specify the coordinate plane of the global coordinate system. Center Point &nbsp;&nbsp;&nbsp;Specify the center point of the plane. Length1 &nbsp;&nbsp;&nbsp;The length of the edge 1 of the plane. Length2 &nbsp;&nbsp;&nbsp;The length of the edge 2 of the plane. -&nbspOperating Procedure&nbsp- &nbsp;Select the infinite boundary surface part. &nbsp;Enter the center point, length 1, and length 2. &nbsp;Click the Apply/OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

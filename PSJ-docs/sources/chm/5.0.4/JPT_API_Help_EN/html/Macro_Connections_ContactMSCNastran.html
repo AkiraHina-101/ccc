@@ -1,0 +1,55 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>ContactMSCNastran</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>ContactMSCNastran</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>create contact for nastran</p>
+<h4>Syntax</h4>
+<p>ContactMSCNastran(String m_strName,int iType,int iAlg,double dRROR,double dFNTOL,double dFRIC,double dCINTERF,int iISEARCH,int iICOORD,double dFRLIM,double dBIAS,int iISTYP,int faceSlave, int faceMaster, int slaveEdge,int masterEdge,Cursor[] m_taTarget,Cursor m_crEdit,int m_Color,int m_iMethod)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>String<p>name of contact</p></li>
+<li>int<p>contact type[0:General; 1:Tied; 2:Tied & Maintain Gap; 3:Tied & Full moment; 4:Tied & Full moment & Maintain Gap]</p></li>
+<li>int<p>algorithm[0:face to face]</p></li>
+<li>double<p>Touching Distance Range</p></li>
+<li>double<p>Separation Force</p></li>
+<li>double<p>Friction Coefficient</p></li>
+<li>double<p>Interference Closure</p></li>
+<li>int<p>Searching Order[0:Double; 1:Slave to Master; 2:Program decision]</p></li>
+<li>int<p>Modify coordinates[0:None; 1:Modify position; 2:Delay sliding; 3:Both effect]</p></li>
+<li>double<p>Friction stress limit</p></li>
+<li>double<p>Tolerance Bias Factor</p></li>
+<li>int<p>Condition check[0:Double Side; 1:Optimized]</p></li>
+<li>int<p>Shell element face Slave[1:Top&Btm Thk. offset; 2:Btm w/ Thk. offset; 3:Btm w/o Thk. offset; 4:Top w/ Thk. offset; 5:Top w/o Thk. Offset; 6:Top&Btm w/o Thk. offset]</p></li>
+<li>int<p>Shell element face Master[1:Top&Btm Thk. offset; 2:Btm w/ Thk. offset; 3:Btm w/o Thk. offset; 4:Top w/ Thk. offset; 5:Top w/o Thk. Offset; 6:Top&Btm w/o Thk. offset]</p></li>
+<li>int<p>Beam/Bar Shell Elem. Edge Slave[1:Beam/Bar Edge only; 10:Free&Hard Edge only; 11:Both]</p></li>
+<li>int<p>Beam/Bar Shell Elem. Edge Master[1:Beam/Bar Edge only; 10:Free&Hard Edge only; 11:Both]</p></li>
+<li>Cursor[]<p>targets</p></li>
+<li>Cursor<p>edit cursor</p></li>
+<li>int<p>contact maker color</p></li>
+<li>int<p>method type[0:MANUAL_FACE; 1:MANUAL_GROUP; 2:BY_GROUP_MATRIX; 3:SHARE_FACE; 4:AUTO_SETTING; 5:METHOD_UNKNOWN]</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>ContactMSCNastran("ContactMSCNastran_1", 0, 0, 0.0005, 1.79769e+308, 1.79769e+308, 1.79769e+308, 2147483647, 2147483647, 1.79769e+308, 1.79769e+308, 2147483647, 0, 0, 0, 0, [79:1-79:2], 0:0, 16711680, 1)</p>
+</div>
+</div>
+</body>
+</html>

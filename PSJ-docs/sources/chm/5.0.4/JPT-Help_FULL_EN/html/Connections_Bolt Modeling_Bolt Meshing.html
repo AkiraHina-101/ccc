@@ -1,0 +1,75 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Bolt Meshing</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>Bolt Meshing</h2>
+<div class="contents">
+	<p>This command is used to divide CAD bolts into upper and lower parts for meshing and defining load and boundary condition for ADVC.</p>
+
+	<img src="./Media/CommandDlg/Connections_Bolt%20Modeing_Bolt%20Meshing.png"/><br><br>
+	
+	<li>Name
+	<p>Enter the capital letter of the load and boundary condition to be created.</p>
+	</li>
+	<li>Cutting
+	<p>Define the surface for dividing the bolts into upper and lower parts. 
+Refer to the <a href="./Geometry_Assembly_BodyCut_XX-YYOn1Point.html">Body Cut command</a> for details.</p>
+	</li>	
+	<li>Surface Meshing
+	<p>Define the mesh settings.
+Refer to the <a href="./Meshing_Meshing_Surface%20Meshing.html">Surface Meshing command</a> for details.</p>
+	</li>
+	<li>PreTension
+	<p>Define load conditions. 
+Refer to the <a href="./Connections_Bolt%20Modeling_PreTension_General.html">PreTension command</a> for details.</p>
+	<p>If "Partition Only" is selected, create <a href="./Connections_Bolt%20Modeling_PreTension_Abaqus.html">Abaqus pretension</a> with setting of cross section and normal direction.
+	</li>
+<br/>
+	<h3>-&nbspExample of function execution&nbsp-</h3>
+	<img src="./Media/Connections_Bolt%20Modeing_Bolt%20Meshing_example.png">
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+		<ol>
+		<li>&nbspSelect the CAD bolt parts.</li>
+		<li>&nbspEnter the capital letter of the load condition of the bolt in the Name field.</li>
+		<li>&nbspDefine the position for dividing the bolts.</li>
+		<li>&nbspDefine the mesh settings for bolts.</li>
+		<li>&nbspDefine the load condition setting of the bolts.</li>
+		<li>&nbsp;Click the Apply/OK button.</li>
+		</ol>
+
+
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+</div>
+</div>
+</body>
+
+
+</html>

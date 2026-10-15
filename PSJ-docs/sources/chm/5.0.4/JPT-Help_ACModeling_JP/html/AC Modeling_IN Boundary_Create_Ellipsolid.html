@@ -1,0 +1,72 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>無限境界｜楕円作成</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>無限境界｜楕円作成</h2>
+<div class="contents">
+	<p>無限境界面の形状（楕円）を作成します。
+</p>
+
+	<img src="./Media/CommandDlg/AC_Modeling_Create_Ellipsolid.png">
+
+	<h4>楕円</h4>
+	<li><b>自動</b></li>
+		<p>&nbsp;&nbsp;&nbsp;自動回転楕円体を作成します。</p>	
+	</li>
+	<li><b>トレランス</b></li>
+	<p>&nbsp;&nbsp;&nbsp;音響境界から楕円体までの最小距離を指定します。</p>	
+	</li>
+	<li><b>中心</b></li>
+		<p>&nbsp;&nbsp;&nbsp;回転楕円体の中心座標。</p>	
+	</li>
+	<li><b>メジャー点</b></li>
+		<p>&nbsp;&nbsp;&nbsp;楕円体の長軸端点座標。</p>	
+	</li>
+	<li><b>マイナー点</b></li>
+		<p>&nbsp;&nbsp;&nbsp;楕円体の短軸端点座標。</p>	
+	</li>
+	
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+			<li>&nbsp;トレランスを入力します。</li>
+			<li>&nbsp;OK/Applyボタンを押します。</li>
+			<li>&nbsp;トレランス分オフセットされた回転楕円が作成されます。</li>
+			<img src="./Media/CommandDlg/AC_Modeling_Create_Ellipsolid_howto.png">
+			<li>&nbsp;出力ウィンドウの出力タブに楕円の座標情報が記載されます。</li>
+			<img src="./Media/CommandDlg/AC_Modeling_Create_Ellipsolid_howto2.png">
+			<li>&nbsp;また、梁要素で表現された軸モデルが作成されます。再度、Jupiterを起動し、楕円体の軸を確認する際は、こちらから座標情報を取得してください。</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

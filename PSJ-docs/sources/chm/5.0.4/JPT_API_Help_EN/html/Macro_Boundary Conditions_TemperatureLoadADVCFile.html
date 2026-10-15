@@ -1,0 +1,40 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>TemperatureLoadADVCFile</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>TemperatureLoadADVCFile</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>create temperature load by advc file</p>
+<h4>Syntax</h4>
+<p>TemperatureLoadADVCFile(string strName, string strFilePathName, cursor crTable, cursor[] taTarget, cursor crEdit)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>String<p>name of temperature load</p></li>
+<li>String<p>file path</p></li>
+<li>Cursor<p>select table</p></li>
+<li>Cursor[]<p>targets</p></li>
+<li>Cursor<p>edit cursor</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>TemperatureLoadGeneral("TemperatureLoadsConstant1", 303.15, 0:0, [6:21], 0:0, 0)</p>
+</div>
+</div>
+</body>
+</html>

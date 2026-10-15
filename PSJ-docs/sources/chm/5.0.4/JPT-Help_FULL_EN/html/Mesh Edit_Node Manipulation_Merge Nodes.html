@@ -1,0 +1,90 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Merge Nodes</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Merge Nodes</h2>
+	<div class="contents">
+	<p>
+	Merge the nodes.
+	</p>
+
+	<img src="./Media/CommandDlg/Mesh%20Edit_Node%20Manipulation_Merge%20Nodes.png">
+
+	<h4>Merge Nodes</h4>
+	<li>Tolerance
+	<p>
+	Enter the tolerance between the merged node.
+	</p>
+	</li>
+	<li>Type
+	<p>
+	Specify the node to remain after the merge.
+		<ul>
+			<li>First Entity
+			<p>Leaves a node on the first selected entity.</p>
+			</li>
+			<li>Second Entity
+			<p>Leaves a node on the entity selected later.</p>
+			</li>
+			<li>Highest Id
+			<p>The node with the highest ID remains.</p>
+			</li>
+			<li>Lowest Id
+			<p>The node with the lowest ID remains.</p>
+			</li>
+		</ul>
+	</p>
+	</li>
+
+	<h4>Options</h4>
+	<li>Create Group
+	<p>
+	When the check is ON, it creates a group from the merged node.
+	</p>
+	<li>Preview
+	<p>
+	By highlighting the node for merge, you can check in advance.
+	</p>
+	</li>
+	<li>Reset
+	<p>
+	Cancel the preview. 
+	</p>
+	</li>
+
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+	<li>&nbspSelect the entity to merge the node. (Part, face, edge, element, node)</li>
+	<li>&nbspIn order to define the merge range, enter the Tolerance.</li>
+	<li>&nbspSpecify the node to remain after the merge, and then select the Type.</li>
+	<li>&nbspIf necessary, turn ON the check for Create Group.</li>
+	<li>&nbspIf you want to check in advance, click the Preview button to highlight the nodes of the merge candidate.<br>Clear highlighting by clicking the Reset button.</li>
+	<li>&nbspClick Apply / OK button.</li>
+	</ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Connection | Spring - Nodes with tolerance - same DoFs</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Connection | Spring - Nodes with tolerance - same DoFs</h2>
+	<div class="contents">
+	<p>
+	This command is used to create 1:1 scalar spring elements.<br>
+	</p>
+	<p>
+	<img src="./Media/Connections_Details_Springs%20-%20Dampers_Spring_Node%20with%20tolerance_One%20to%20one%20(same%20DoFs).png">
+	</p>
+	<p>
+	Spring elements are automatically created between the selected nodes within an specified tolerance. <br>
+	Multiple Dofs can be connected at once using this function.
+	Nodes with younger IDs are defined as the 1st group. 
+	</p>
+	<p>
+	<img src="./Media/Connections_Details_Springs%20-%20Dampers_Spring_One%20to%20one%20(same%20DoFs)_02.png">
+	<img src="./Media/Connections_Details_Springs%20-%20Dampers_Spring_One%20to%20one%20(same%20DoFs)_01.png">
+	</p>
+
+	<h4>Connection</h4>
+	<li>Name
+	<p>
+	Specify the name for registration.
+	</p>
+	</li>
+
+	<h4>Method</h4>
+	<li>Nodes tolerance
+	<p>
+	Specify the search range of the connection point. 
+	</p>
+	</li>
+
+	<h4>Spring</h4>
+	<li>X Stiffness - RZ Stiffness
+	<p>
+	Enter the spring stiffness of the DOF to be connected. 
+	</p>
+	</li>
+	<li>Damping Coef (for Nastran)
+	<p>
+	Specify the damping coefficient. 
+	</p>
+	</li>
+	<li>Stress Coef (for Nastran)
+	<p>
+	Specify the stress coefficient. 
+	</p>
+	</li>
+
+	<h4>Analysis Coordinate Frame</h4>
+	<li>Coordinate 
+	<p>
+	Select the reference coordinate system. 
+	</p>
+	</li>
+
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+	<li>&nbspSpecify the Nodes tolerance.</li>
+	<li>&nbspSelect multiple nodes from the Main window.</li>
+	<li>&nbspEnter the spring stiffness for the nodes to be connected.</li>
+	<li>&nbspDefine other parameters.</li>
+	<li>&nbspClick the Apply/OK button.</li>
+	</ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

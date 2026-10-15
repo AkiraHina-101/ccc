@@ -1,0 +1,326 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+	   <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>形状検索</title>
+
+
+</head>
+
+<body>
+
+<div class="page">
+	<h2>形状検索</h2>
+<div class="contents">
+	<p>
+	選択されたパーツの中から、特定の形状のエッジやフェースを検索して選択することができます。</br>
+	<p>
+	<img src="./Media/CommandDlg/Geometry_Extract_ShapeSearch.png" width="400"> </br>
+	</p>
+	<p>
+	<b>選択リスト</b>
+	</p>
+	<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>バーツ</b>&nbsp;&nbsp;&nbsp;:&nbsp; 特定の形状を検索するためのパーツを表示します。</li>
+		<li><b>フェース</b>&nbsp;:&nbsp; 検索したフェースを表示します。 </li>
+		<li><b>エッジ</b>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp; 同心円を検索するエッジを表示し、検索されたエッジを表示します。</li>
+		</span>
+	</ul>
+	<h3>エッジ</h3>
+	<p>
+	選択されたパーツの中で、選択された形状タイプに対応するエッジを検索して選択します。
+	</p>
+	<li><b>円弧</b>
+	<p>
+	円弧のエッジを検索して選択する。この方法は、半円の円弧だけでなく、エッジで作られた円弧の検索にも対応しています。
+	</p>
+	<ul type="circle">
+		<li><b>すべて </b>&nbsp;:&nbsp;選択したパーツのすべてのアークエッジを検索して選択します。</li>
+		<li><b>最小半径</b>&nbsp;:&nbsp;円弧エッジの最小半径を入力して検索し、選択したパーツで選択します。</li>
+		<li><b>最大半径</b>&nbsp;:&nbsp;円弧エッジの最大半径を入力して検索し、選択したパーツで選択します。</li>
+		オプション すべてがチェックオフされている場合、最大半径/最小半径を使用してターゲットエッジを検索します。
+	</ul>
+	<p>
+	<img src="./Media/Geometry_Extract_ShapeSearch_Arc.png" width="400"></br>
+	</p>
+	</li>
+	<li><b>円/同心円</b>
+	<p>
+	円形のエッジを検索して選択します。この方法は、複数のエッジで作られた円だけでなく、単一のエッジで作られた円の検索にも対応しています。</br>
+	また、このオプションを選択すると、選択されたターゲット円を基準にして同心円が検索され、選択されます。
+	</p>
+		<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>すべて</b>&nbsp;:&nbsp;選択したパーツのすべての円/同心円のエッジを検索して選択します。</li>
+		<li><b>最小半径</b>&nbsp;:&nbsp;選択したパーツの中で、検索して選択する円／同心円エッジの最小半径を入力します。</li>
+		<li><b>最大半径</b>&nbsp;:&nbsp;選択されたパーツで検索して選択する円/同心円エッジの最大半径を入力します。</li>
+		オプション すべてがチェックオフされている場合、最大半径/最小半径を使用してターゲットエッジを検索します。
+		</span>
+		</ul>
+	<p>
+		<ul>
+		<li>円</li>
+		<p>
+			<img src="./Media/Geometry_Extract_ShapeSearch_Circle_Concentric_a.png" width="400"></br>
+		</p>
+		</ul>
+	</p>
+	<p>
+		<ul>
+		<li>同心円</li>
+		<p>
+			<img src="./Media/Geometry_Extract_ShapeSearch_Circle_Concentric_b.png" width="400"></br>
+		</p>
+		</ul>
+	</p>
+
+	</li>
+	<li><b>ループ</b>
+	<p>
+	1本のエッジで作られたループ状のエッジを検索し、選択することができます。
+	</p>
+	<p>
+	<img src="./Media/Geometry_Extract_ShapeSearch_Loop.png" width="400"></br>
+	</p>
+	</li>
+	<h3>フェース</h3>
+	<p>
+	選択されたパーツの中で、選択された形状タイプに対応するフェースを検索して選択します。
+	</p>
+	<li><b>平面</b>
+	<p>
+	平面を検索して選択します。
+	</p>
+	<p>
+	<img src="./Media/Geometry_Extract_ShapeSearch_Planar.png" width="400"></br>
+	</p>
+	</li>
+	<li><b>円錐体</b>
+	<p>
+	この方法では、1つの面で作られた円錐面だけでなく、複数のフェースで作られた円錐面の検索にも対応しています。
+	</p>
+		<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>すべて</b>&nbsp;:&nbsp;選択されたパーツのすべての円錐面を検索し、選択します。</li>
+		<li><b>最小半径</b>&nbsp;:&nbsp;検索する円錐面の最小半径を入力し、選択したパーツの中から選択します。</li>
+		<li><b>最大半径</b>&nbsp;:&nbsp;検索する円錐面の最大半径を入力し、選択したパーツの中から選択します。</li>
+		オプション すべて がチェックオフされている場合、最大半径/最小半径を使用してターゲットフェースを検索します。
+		</span>
+		</ul>
+	<p>
+	<img src="./Media/Geometry_Extract_ShapeSearch_Cone.png" width="400"></br>
+	</p>
+	</li>
+	<li><b>円盤</b>
+	<p>
+	円盤状の面を検索して選択します。この方法では、1つのフェースで作られた円盤状の面だけでなく、複数のフェースで作られた円盤状の面でも、完成した円盤を作ることができれば、検索することができます。</p>
+		<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>すべて</b>&nbsp;:&nbsp;選択されたパーツの中にあるすべての円盤状のフェースを検索し、選択します。</li>
+		<li><b>最小半径</b>&nbsp;:&nbsp;検索する円盤状のフェースの最小半径を入力し、選択したパーツで選択します。</li>
+		<li><b>最大半径</b>&nbsp;:&nbsp;検索する円盤状のフェースの最大半径を入力し、選択したパーツで選択します。</li>
+		オプション すべて がチェックオフされている場合、最大半径/最小半径を使用してターゲットフェースを検索します。
+		</span>
+		</ul>
+	<p>
+	<img src="./Media/Geometry_Extract_ShapeSearch_Disc.png" width="400"></br>
+	</p>
+	</li>
+	<li><b>中空ディスク</b>
+	<p>
+	中空の円盤状のフェースを検索して選択します。この方法は、完全に中空の円盤状のフェースだけでなく、中空の円盤状のフェースの一部を検索することにも対応しています。
+	</p>
+		<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>すべて</b>&nbsp;:&nbsp;選択したパーツの中にある中空の円盤状のフェースをすべて検索して選択します。</li>
+		<li><b>最小半径</b>&nbsp;:&nbsp;中空の円盤状のフェースの最小半径を入力して検索し、選択されたパーツで選択します。</li>
+		<li><b>最大半径</b>&nbsp;:&nbsp;中空の円盤状のフェースの最大半径を入力して検索し、選択したパーツで選択します。</li>
+		オプション すべて がチェックオフされている場合、最大半径/最小半径を使用してターゲットフェースを検索します。
+		</span>
+		</ul>
+	<p>
+	<img src="./Media/Geometry_Extract_ShapeSearch_HollowDisc.png" width="400"></br>
+	</p>
+	</li>
+	<li><b>完全円筒</b>
+	<p>
+	円筒形のフェースを検索して選択する。この方法は、1つのフェースで作られた円筒面だけでなく、複数のフェースで作られた円筒面の検索にも対応しています。
+	</p>
+		<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>すべて</b>&nbsp;:&nbsp;選択されたパーツのすべての円筒面を検索し、選択します。</li>
+		<li><b>最小半径</b>&nbsp;:&nbsp;検索する円筒面の最小半径を入力して、選択したパーツの中から選択します。</li>
+		<li><b>最大半径</b>&nbsp;:&nbsp;検索する円筒面の最大半径を入力し、選択したパーツの中から選択します。</li>
+		オプション すべて がチェックオフされている場合、最大半径/最小半径を使用してターゲットフェースを検索します。
+		</span>
+		</ul>
+	<p>
+	<img src="./Media/Geometry_Extract_ShapeSearch_FullCylinder.png" width="400"></br>
+	</p>
+	</li>
+	<li><b>１フェースの完全円筒</b>
+	<p>
+	1つのフェースで作られた円筒形のフェースを検索して選択します。
+	</p>
+		<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>すべて</b>&nbsp;:&nbsp;選択されたパーツの1つのフェースで作られたすべての円筒面を検索して選択します。</li>
+		<li><b>最小半径</b>&nbsp;:&nbsp;検索する円筒面の最小半径を入力して、選択したパーツの中から選択します。</li>
+		<li><b>最大半径</b>&nbsp;:&nbsp;検索する円筒面の最大半径を入力し、選択したパーツの中から選択します。</li>
+		オプション すべて がチェックオフされている場合、最大半径/最小半径を使用してターゲットフェースを検索します。
+		</span>
+		</ul>
+	<p>
+	<img src="./Media/Geometry_Extract_ShapeSearch_FullCylinderByOneFace.png" width="400"></br>
+	</p>
+		
+	</li>
+	<li><b>部分閉口円筒</b>
+	<p>
+	閉じた部分円筒面を検索して選択する。この方法は、単一のフェースで作られた閉じた部分円筒面だけでなく、複数のフェースで作られた閉じた部分円筒面の検索にも対応しています。
+	</p>
+		<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>すべて</b>&nbsp;:&nbsp;選択されたパーツの閉じた部分円筒面をすべて検索して選択することができます。</li>
+		<li><b>最小半径</b>&nbsp;:&nbsp;閉じた部分円筒面の最小半径を入力して検索し、選択したパーツで選択します。</li>
+		<li><b>最大半径</b>&nbsp;:&nbsp;閉じた部分円筒面の最大半径を入力して検索し、選択したパーツで選択します。</li>
+		オプション すべて がチェックオフされている場合、最大半径/最小半径を使用してターゲットフェースを検索します。
+		</span>
+		</ul>
+	<p>
+	<img src="./Media/Geometry_Extract_ShapeSearch_ClosedPartialCylinder.png" width="750"></br>
+	</p>
+	</li>
+	<li><b>部分開口円筒</b>
+	<p>
+	1つのフェースで作られた、開かれた部分円筒面を検索して選択します。
+	</p>
+		<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>すべて</b>&nbsp;:&nbsp;選択されたパーツの、開いている部分円筒面をすべて検索して選択します。</li>
+		<li><b>最小半径</b>&nbsp;:&nbsp;開いた部分円筒面の最小半径を入力すると、選択したパーツの中から検索して選択することができます。</li>
+		<li><b>最大半径</b>&nbsp;:&nbsp;開いた部分円筒面の最大半径を入力して、選択したパーツの中から検索して選択します。</li>
+		オプション すべて がチェックオフされている場合、最大半径/最小半径を使用してターゲットフェースを検索します。
+		</span>
+		</ul>
+	<p>
+	<img src="./Media/Geometry_Extract_ShapeSearch_OpenedPartialCylinder.png" width="400" ></br>
+	</p>
+	</li>
+	<li><b>フィレット(Rad)</b>
+	<p>
+	円弧半径を入力してフィレット面を検索・選択します。
+	</p>
+		<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>すべて</b>&nbsp;:&nbsp;選択したパーツのすべてのフィレット面を検索して選択します。</li>
+		<li><b>最小半径</b>&nbsp;:&nbsp;検索するフィレット面の最小半径を入力し、選択したパーツで選択します。</li>
+		<li><b>最大半径</b>&nbsp;:&nbsp;検索するフィレット面の最大半径を入力し、選択したパーツで選択します。</li>
+		オプション すべて がチェックオフされている場合、最大半径/最小半径を使用してターゲットフェースを検索します。
+		</span>
+		</ul>
+	<p>
+	<img src="./Media/Geometry_Extract_ShapeSearch_Fillet(Rad).png" width="750"></br>
+	</p>
+	<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>凸面体</b>&nbsp;:&nbsp;凸のフィレット面を検索して選択します。</li>
+		<li><b>凹面</b>&nbsp;:&nbsp;凹のフィレット面を検索して選択します。</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>フィレット（円弧長さ）</b>
+	<p>
+	円弧長を入力してフィレット面を検索・選択します。
+	</p>
+		<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>すべて</b>&nbsp;:&nbsp;選択されたパーツのすべてのフィレット面を検索して選択します。</li>
+		<li><b>最小円弧長さ</b>&nbsp;:&nbsp;検索するフィレット面の最小円弧長を入力し、選択したパーツで選択します。</li>
+		<li><b>最大円弧長さ</b>&nbsp;:&nbsp;検索するフィレット面の最大弧長を入力し、選択したパーツで選択します。</li>
+		オプション すべて がチェックオフされている場合、最大円弧長さ/最小円弧長さを使用してターゲットフェースを検索します。
+		</span>
+		</ul>
+	<p>
+	<img src="./Media/Geometry_Extract_ShapeSearch_Fillet(ArcLen).png" width="750"></br>
+	</p>
+	<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>凸面体</b>&nbsp;:&nbsp;凸のフィレット面を検索して選択します。</li>
+		<li><b>凹面</b>&nbsp;:&nbsp;凹のフィレット面を検索して選択します。</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>微小面</b>
+	<p>
+	微小面を検索して選択します。
+	</p>
+		<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>最小幅</b>&nbsp;:&nbsp;検索したい微小面の最小幅を入力し、選択したパーツで選択します。</li>
+		<li><b>最大幅</b>&nbsp;:&nbsp;検索したい微小面の最大幅を入力し、選択されたパーツで選択します。</li>
+		最大/最小の幅の範囲を満たす、より小さな辺の幅を持つすべての面が検索され、小さな面として選択されます。
+		</span>
+		</ul>
+	<p>
+	<img src="./Media/Geometry_Extract_ShapeSearch_TinyFace.png" width="750"></br>
+	</p>
+	</li>
+	<h3>グループ作成</h3>
+	<p>
+	検索されたフェースとエッジのグループを作成します。
+	</p>
+		<ul type="circle">
+		<span style="font-size:1em;">
+		<li><b>なし</b>&nbsp;:&nbsp;グループを作成しない。</li>
+		<li><b>すべて1つ</b>&nbsp;:&nbsp;選択されたパーツを検索するために、指定されたすべての形状タイプのすべての検索結果（フェース、エッジ）を含むグループを作成します。</li>
+		<li><b>１対１</b>&nbsp;:&nbsp;選択されたパーツを検索するために、指定された形状タイプごとに対応する検索結果（フェース、エッジ）を含む別のグループを作成します。</li>
+		</span>
+		</ul>
+	<li><b>グループ名</b>
+	<p>
+	作成するグループの名前を入力します。</br>
+	</p>
+	グループ作成で</br>
+		<ul type="circle">
+		<span style="font-size:1em;">
+		<li>オプション"すべて1つ"を選択し、グループ名がなしの場合、"FindFeature_Group_数字"というグループが作成されます。</li> 
+		<li>オプション"すべて1つ"を選択したときに、グループ名に文字列（グループ名）を入力すると、その名前でグループが作成されます。</li>
+		<li>オプション"１対１"を選択し、グループ名がなしの場合は、「(Edge / Face)_(検索された形状名)_数字」というグループが作成されます。</li>
+		<li>オプション"１対１"を選択したときに、グループ名に文字列（グループ名）を入力すると、「入力された名前＋（Edge/Face）_（検索された形状名）」という名前のグループが作成されます。</li>
+		</span>
+		</ul>
+	</li>
+
+	<h3>-&nbsp;操作手順(一般)&nbsp;-</h3>
+		<ol>
+		<li>検索したい形状タイプにチェックを入れて選択します。</li>
+		<li>オプション"すべて"にチェックを入れるか、必要な値を入力してください。</li>
+		<li>必要に応じてグループ作成オプションを変更します。</li>
+		<li>対象となるパーツを選択します（複数のパーツの選択に対応します）。</li>
+		<li>適用/OKボタンをクリックします。</li>
+		</ol>
+	<h3>-&nbsp; 操作手順(同心円)&nbsp;-</h3>
+		<ol>
+		<li>円/同心円にチェックを入れます。</li>
+		<li>オプション"すべて"にチェックを入れるか、必要な値を入力してください。</li>
+		<li>必要に応じてグループ作成オプションを変更します。</li>
+		<li>対象となるパーツを選択します（複数のパーツの選択に対応します）。</li>
+		<li>対象となる円（または複数の円）を選択します（検索された円は、この対象となる円と同心円になります）。<br> 1つのエッジで作られた円でも、複数のエッジで作られた円でも、閉じた円であれば選択できます。</li>
+		<li>適用/OKボタンをクリックします。</li>
+		</ol>
+	</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Nastran Punch</title>
+
+
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Nastran Punch</h2>
+<div class="contents">
+	<p>
+	Nastran Punch形式で出力された温度結果を	読み込み、温度荷重として定義します。<br>
+	※伝熱解析モデルと構造解析モデルは一致している必要があります。<br>
+	　また、ソルバーはNastranにのみ対応しております。
+	</p>
+
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Loads_Temperature%20Load_Nastran%20Punch.png">
+
+	<h4>名前</h4>
+ 　　 <li>名前
+	<p>
+	温度荷重名を設定します。
+	</p>
+　　　</li>
+
+	<h4>値</h4>
+ 　　 <li>ブラウズ
+	<p>
+	温度結果ファイルを検索し選択します。
+	</p>
+　　　</li>
+ 　　 <li>材料参照温度として使用
+	<p>
+	チェックをすると、設定した温度情報を温度依存性材料の参照温度して使用します。
+	</p>
+　　　</li>
+ 　　 <li>入力単位系
+	<p>
+	入力単位系を指定します。
+	</p>
+　　　</li>
+
+<h3>-&nbsp操作手順&nbsp-</h3>
+      <ol>
+　　　<li>温度荷重を負荷するパーツを選択します。複数の選択が可能です。</li>
+　　　<li>ブラウズボタンを押して、温度荷重ファイルを検索し、選択します。</li>
+　　　<li>必要に応じてその他のパラメータを変更します。</li>
+　　　<li>適用またはOKボタンをクリックします。</li>
+      </ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

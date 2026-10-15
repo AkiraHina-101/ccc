@@ -1,0 +1,44 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>MirrorBody</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>MirrorBody</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Mirror Body</p>
+<h4>Syntax</h4>
+<p>MirrorBody(cursor[] taBody, double[] scaleVector, double dOffset, bool bCreateNewBody, bool bCopyLBC, bool bCopyProperty, bool bRemoveDupFace, bool bMergeNode, double dTolerance)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>Cursor[]<p>Target part cursor([3:Part ID])</p></li>
+<li>Double[]<p>Mirror plane point ([xi, yi, zi])</p></li>
+<li>Double<p>Mirror offset value</p></li>
+<li>Bool<p>Create new part bool flag True = 1, False = 0</p></li>
+<li>Bool<p>LBC Copy bool flag True = 1, False = 0</p></li>
+<li>Bool<p>Copy property info bool flag True = 1, False = 0</p></li>
+<li>Bool<p>Remove duplicate faces bool flag True = 1, False = 0</p></li>
+<li>Bool<p>Equivalance nodes bool flag True = 1, False = 0</p></li>
+<li>Double<p>Equivalance nodes tolerance value</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>MirrorBody([3:2], [[0, 0.004999999888241291, 0], [0.004999999888241291, 0.004999999888241291, 0], [0, 0, 0]], 0.002, 1, 0, 0, 0, 0, 1e-08)</p>
+</div>
+</div>
+</body>
+</html>

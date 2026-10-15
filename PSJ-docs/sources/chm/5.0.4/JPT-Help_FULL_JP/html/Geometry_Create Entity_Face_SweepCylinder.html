@@ -1,0 +1,91 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>スイープ - 円筒</title>
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+	<h2>スイープ - 円筒</h2>
+<div class="contents">
+	<p>
+	選択した円弧エッジをスイープして、管状フェースを作成します。</br>
+	<img src="./Media/Geometry_Create%20Entity_Face_SweepCylinder_1.png" width="600"></br>
+	</p>
+	<p>
+	<img src="./Media/CommandDlg/Geometry_Create%20Entity_Face_SweepCylinder.PNG"></br>
+	<b>選択リスト</b></br>
+	エッジ：スイープするエッジ</br>
+	</p>
+	</li>
+	<h4>作成タイプ</h4>
+	<p>
+	作成するフェースの2D要素を選択します。
+	</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Tri3</b>&nbsp;:&nbsp;三角要素で作成します。</li>
+		<li><b>Quad4</b>&nbsp;:&nbsp;四辺形要素で作成します。</li>
+		</span>
+		</ul>
+	<li>長さ
+	<p>
+	作成するフェースの長さを入力します。
+	</p>
+	</li>
+	<li>方向
+	<p>
+	作成するフェースの方向を変更します。
+	</p>
+	</li>
+	<li>メッシュサイズ（軸方向）
+	<p>
+	作成するフェースの軸方向のメッシュサイズを入力します。
+	</p>
+	</li>
+	<h4>オプション</h4>
+	<li>新規作成
+	<p>
+	フェースを新規パーツとして作成します。</br>
+	作成された新規パーツは、既存のパーツと選択されたエッジ上の節点で共有節点を持ち、デフォルト名は「Part_(パーツID)」となります。
+	</p>
+	</li>
+	</div>
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>エッジを選択します。</li></br>
+	<img src="./Media/Geometry_Create%20Entity_Face_SweepCylinder_2.png" width="300"></br>
+	<li>長さやメッシュサイズを入力します。</li>
+	<li>メインウィンドウに表示されるプレビューを確認して、必要に応じてスイープ方向を変更します。</li></li></br>
+	<img src="./Media/Geometry_Create%20Entity_Face_SweepCylinder_3.png" width="600"></br>
+	<li>適用/OKボタンをクリックします。</li></br>
+	<img src="./Media/Geometry_Create%20Entity_Face_SweepCylinder_4.png" width="300"></br>
+	</ol>
+	<h3>-&nbsp特記事項&nbsp-</h3>
+	<ol>
+	<li>選択するエッジは、ループしたエッジの一部である必要があります。フェース作成不可の場合は、プレビューが表示されません。</li></br>
+	<img src="./Media/Geometry_Create%20Entity_Face_SweepCylinder_5.png" width="600"></br>
+	<li>複数のフェース作成には対応しておりません。フェース作成不可の場合は、プレビューが表示されません。</li></br>
+	<img src="./Media/Geometry_Create%20Entity_Face_SweepCylinder_6.png" width="600"></br>
+	<li>選択するエッジは、ループしていればきれいな円でなくてもフェース作成が可能です。</li></br>
+	<img src="./Media/Geometry_Create%20Entity_Face_SweepCylinder_7.png" width="600"></br>
+	</ol>
+</div>
+
+</body>
+
+</html>

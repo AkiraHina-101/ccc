@@ -1,0 +1,183 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Shell</title>
+
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Shell</h2>
+<div class="contents">
+	<h4>2D Property Shell Dialog Box</h4>
+	<p>
+	Create a property data of the two-dimensional Shell element.
+	</p>
+
+	<img src="./Media/CommandDlg/Properties_2D_Shell.png"></img>
+
+ 　　 <li>Property ID
+	<p>
+	Enter the ID of the property. Property ID is entered so as not to overlap in the model.
+	</p>
+　　　</li>
+	
+ 　　 <li>Name
+	<p>
+	Set the name of the property.
+	</p>
+　　　</li>
+
+	<h4>Shell</h4>
+ 　　 <li>Membrane Material
+	<p>
+	Select the material for membrane behavior.
+	</p>
+　　　</li>
+
+ 　　 <li>Bending Material
+	<p>
+	Select the material for bending behavior.
+	</p>
+　　　</li>
+
+ 　　 <li>Shear Material
+	<p>
+	Select the material for lateral shear behavior.
+	</p>
+　　　</li>
+
+ 　　 <li>Coupling Material
+	<p>
+	Select the material for coupled film-bending behavior.
+	</p>
+　　　</li>
+
+ 　　 <li>Thickness
+	<p>
+	To enter the thickness of the element.
+	</p>
+　　　</li>
+
+ 　　 <li>Bending Stiffness
+	<p>
+	Enter the ratio of the inertia to the bending.
+	</p>
+　　　</li>
+
+ 　　 <li>Thickness Ratio
+	<p>
+	Enter the thickness ratio of the lateral shear stiffness.
+	</p>
+　　　</li>
+
+ 　　 <li>Non-structural Mass
+	<p>
+	Enter the non-structural mass per unit area.
+	</p>
+　　　</li>
+
+ 　　 <li>Fiber Dist.1/2
+	<p>
+	Enter the stress calculated distance from the reference plane.
+	</p>
+　　　</li>
+
+ <li>Material Orientation By
+	<p>
+	Select the material axis definition method.
+	<ul type="circle">
+	<li>Angle: Specify the angle (degree).</li>
+	<li>Coordinate system: Specify in the coordinate system. The X axis of the coordinate system is projected to the element plane.</li>
+	</ul>
+	</p>
+　　　</li>
+
+ 　　 <li>Plate Offset
+	<p>
+	Enter the offset value.
+	</p>
+　　　</li>
+
+
+<h4>Integration Points Storage</h4>
+ 　　 <li>No.SHELL Integration Points
+	<p>
+	Specify the integral number of shell elements.
+	</p>
+　　　</li>
+<h4>Element Related Information</h4>
+	<li>Element related information
+	  <p>
+	    The property information list of the selected element is displayed and can be edited.<br>
+	    ※This function is used in edit mode.
+	  </p>
+	</li>
+<h4>Equivalent Radiated Power(Nastran)</h4>
+	<img src="./Media/CommandDlg/Properties_2D_Shell_2.png"></img>
+   <li>ERP
+ 　　 <p>Select the checkbox to enable the function.
+ 　 <li>Panel label name
+ 　　 <p>Enter a name for the panel label.
+ 　 <li>Panel label ID
+ 　　 <p>Enter the panel label ID.
+ 	</li>
+<h4>Abaqus</h4>
+	<img src="./Media/CommandDlg/Properties_2D_Shell_3.png"></img>
+ 　　 <li>Temperature variation
+	<p>
+	Enter the temperature change value. (Natural numbers only)
+	</p>
+　　　</li>
+
+<h4>Input Unit</h4>
+
+ 　　 <li>Length
+	<p>
+	Select the unit of length.
+	</p>
+　　　</li>
+
+ 　　 <li>Mass
+	<p>
+	Select the unit of mass.
+	</p>
+　　　</li>
+
+
+<h3>-&nbspOperating Procedure &nbsp-</h3>
+
+      <ol>
+　　　<li>&nbspEnter the name of the property in Name.</li>
+　　　<li>&nbspEnter the property ID to the Property ID.</li>
+　　　<li>&nbspSelect the already registered material from the Membrane Material pull-down menu. <br>
+	The same material as Membrane is set to Bending and Shear automatically,but you can also overwrite changes.</li>
+　　　<li>&nbspEnter the thickness in Thickness.</li>
+　　　<li>&nbspEnter other parameters as needed.</li>
+　　　<li>&nbspClick the Apply or OK button to create a property.</li>
+	</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

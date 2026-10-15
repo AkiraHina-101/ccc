@@ -1,0 +1,3 @@
+# Scale
+
+Scale a.no-uline {text-decoration:none} Scale Scale the selected node group while maintaining the ratio between nodes. Scale Factor &nbsp;&nbsp;&nbsp;Coordinate:&nbsp;Select a coordinate system that defines the direction component to be scaled. &nbsp;&nbsp;&nbsp;DX/DY/DZ：&nbsp;Enter the scale factor of each direction component. &nbsp;&nbsp;&nbsp;Uniform：&nbsp;Check to enter equal proportions for all direction components. -&nbsp;Operating Procedure&nbsp;- &nbsp;Select all nodes in the range to be scaled. &nbsp;Select a node to be scaled. &nbsp;Check the scale factor in each direction or enter one value when uniform. &nbsp;Press the Apply or OK button. -&nbsp;操作動画&nbsp;- -->

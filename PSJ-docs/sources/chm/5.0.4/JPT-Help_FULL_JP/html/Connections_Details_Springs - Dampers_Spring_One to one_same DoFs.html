@@ -1,0 +1,107 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>接続 |  ばね要素　すべてのエンティティ間(1対1) - 同じ自由度</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>接続 |  ばね要素　すべてのエンティティ間(1対1) - 同じ自由度</h2>
+	<div class="contents">
+	<p>
+	一対一のスカラーばね要素を作成する機能です。<br>
+	＊1stグループ節点と2ndグループ節点は、パーツ単位、フェース単位、エッジ単位、要素単位、節点単位での選択が可能です。
+	</p>
+	<p>
+	<img src="./Media/CommandDlg/Connections_Details_Springs%20-%20Dampers_Spring_One%20to%20one%20(same%20DoFs).png">
+	</p>
+	<p>
+	1stグループ節点と（接続範囲内で）一番近い2ndグループ節点が接続されます。<br>
+	この機能では、複数の自由度を纏めて結合できます（1stグループ節点と2ndグループ節点の自由度は同様です）。
+	</p>
+	<p>
+	<img src="./Media/Connections_Details_Springs%20-%20Dampers_Spring_One%20to%20one%20(same%20DoFs)_02.png">
+	<img src="./Media/Connections_Details_Springs%20-%20Dampers_Spring_One%20to%20one%20(same%20DoFs)_01.png">
+	</p>
+
+	<h4>接続</h4>
+	<li>名前
+	<p>
+	登録される名前を入力します。
+	</p>
+	</li>
+
+	<h4>検索範囲</h4>
+	<li>すべて
+	<p>
+	接続範囲を無限として指定します。
+	</p>
+	</li>
+	<li>トレランス
+	<p>
+	接続範囲の半径を入力します。
+	</p>
+	</li>
+
+	<h4>ばね</h4>
+<!--	<li>グラウンド
+	<p>
+	接地バネのオプションを指定します。
+	</p>
+	</li>  -->
+	<li>X剛性 - RZ剛性
+	<p>
+	結合する自由度にばね剛性を入力します。
+	</p>
+	</li>
+	<li>減衰係数(Nastran向け)
+	<p>
+	減衰係数を入力します。
+	</p>
+	</li>
+	<li>応力係数(Nastran向け)
+	<p>
+	応力係数を入力します。
+	</p>
+	</li>
+
+	<h4>解析座標系</h4>
+	<li>座標系
+	<p>
+	参照座標系を選択します。
+	</p>
+	</li>
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>接続範囲を設定します。</li>
+	<li>1stグループの節点を、パーツ、フェース、エッジ、要素、節点から選択します。</li>
+	<li>2ndグループの節点を、パーツ、フェース、エッジ、要素、節点から選択します。</li>
+	<li>結合する自由度にばね剛性を入力します。</li>
+	<li>他のパラメータを設定します。</li>
+	<li>適用/OKボタンをクリックします。</li>
+	</ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

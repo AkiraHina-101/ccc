@@ -1,0 +1,3 @@
+# Total&nbsp;Load&nbsp;[Face]
+
+Total&nbsp;Load&nbsp;[Face] a.no-uline {text-decoration:none} Total&nbsp;Load&nbsp;[Face] Display the total value of force or pressure defined on the selected face. Measure Method &nbsp;&nbsp;&nbsp;Measurement object for load. Coordinate System &nbsp;&nbsp;&nbsp;Reference coordinate system. Output :&nbsp;Display the measurement value X &nbsp;&nbsp;&nbsp;Load in the X direction. Y &nbsp;&nbsp;&nbsp;Load in the Y direction. Z &nbsp;&nbsp;&nbsp;Load in the Z direction. Total &nbsp;&nbsp;&nbsp;The absolute value of the total load. -&nbsp;Operating Procedure&nbsp;- &nbsp;Select the Face for measurement. &nbsp;The total value for the applied load on the selected face appears in the Output. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

@@ -1,0 +1,80 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Equivalence</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Equivalence</h2>
+	<div class="contents">
+	<p>
+	Combine the neighbouring nodes.
+	</p>
+
+	<img src="./Media/CommandDlg/Mesh%20Cleanup_Cleanup_Manual_Equivalence.png"></img>
+
+	<h4>Equivalence</h4>
+	<li>Distance
+	<p>Display the distance between two selected node.</p>
+	</li>
+	<li>Tolerance
+	<p>Set the tolerance within which the command is operable.</p>
+	</li>
+	<li>Merge Towards
+	<p>Choose the node towards which the other node will be merged. There are 3 options: First Node, Second Node and Mid-point.</p>
+	</li>
+	<li>Multiple Node
+	<p>Join the nodes for the case where the multiple selected nodes are within tolerance.</p>
+	</li>
+
+
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<li>Equivalence 1 Pair of Nodes (Multiple Node is off)
+	<ol>
+	<li>&nbspSelect the first node.</li>
+	<li>&nbspSelect the second node.</li>
+	<li>&nbspSelect one of the Merge Towards options: First Node, Second Node or Mid-point.</li>
+	<li>&nbspClick the Apply button.</li>
+	<li>&nbspOne of the two nodes will be merged to the First node/Second Node/Mid-point that you selected.</li>
+	</ol>
+	<img src="./Media/MeshCleanup_Cleanup_Manual_Equivalence.PNG">
+	</li>
+	<br>
+	<li>Equivalence Many Pairs of Nodes (Multiple Node is on)
+	<ol>
+	<li>&nbspSelect the first node of the first node pair.</li>
+	<li>&nbspSelect the second node of the first node pair.</li>
+	<li>&nbspGo on selecting other node pairs.</li>
+	<li>&nbspSelect one of the Merge Towards options: First Node, Second Node or Mid-point.</li>
+	<li>&nbspClick the Apply button.</li>
+	<li>&nbspOne of the two nodes of each pair will be merged to the First node/Second Node/Mid-point that you selected.</li>
+	</ol>
+	<img src="./Media/MeshCleanup_Cleanup_Manual_Equivalence2.PNG">
+	</li>
+
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

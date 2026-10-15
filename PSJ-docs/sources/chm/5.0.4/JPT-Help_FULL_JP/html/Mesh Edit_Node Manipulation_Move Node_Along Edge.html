@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html lang="ja">
+	<head>
+		<!--DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"-->
+		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+			<head>
+				<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+				<link href="basic.css" rel="stylesheet" type="text/css">
+				<script language="javascript" src="script/util.js"></script>
+			</head>
+		</html>
+		<title>節点移動 | エッジに沿って</title>
+		<style type="text/css">
+			<!--Link下線、非表示-->
+			a.no-uline {text-decoration:none}
+		</style>
+		<!--Redmine 9475-->
+		<!--2019.08.21 Hongjae Yoo作成-->
+	</head>
+	<body>
+		<div class="page">
+			<h2>節点移動 | エッジに沿って</h2>
+			<div class="contents">
+				<p>選択したエッジ上の節点を指定した座標へ移動します。
+					<span style="font-size:0.95em;">&#40;複数の節点を同時に実行可能&#41;</span>
+				</p>
+				<img src="./Media/CommandDlg/Mesh%20Edit_Node%20Manipulation_Move%20Node_Along%20Edge.png" />
+			
+				<h4>設定</h4>
+				<ul>
+					<li><b>タイプ</b></br>
+					&nbsp;節点の移動方法を選択します
+						<ul style=circle>
+							<li>再配置なし&nbsp;&#58;&nbsp;指定した節点のみ移動します。</li>
+							<li>再配置&nbsp;&#58;&nbsp;指定した節点を移動後、同エッジ上のほか節点の位置は計算され再配置されます。
+								<span style="font-size:0.95em;">&#40;節点の数で計算される&#41;</span>
+							</li>
+						</ul>
+					</li>
+					<li><b>X/Y/Z</b></br>
+					&nbsp;節点を移動する座標を入力します。
+						<span style="font-size:0.95em;">&#40;最大2つのみ選択可能&#41;</span>
+					</li>
+				</ul>
+				<br>
+				
+				<h3>-&nbsp;操作手順&nbsp;-</h3>
+					<ol>
+						<li>&nbsp;移動する節点を選択します。&#40;複数の節点を同時に選択可能&#41;</li>
+						<li>&nbsp;節点の移動方法を選択します。</li>
+						<li>&nbsp;1つ/2つの座標系を選択し、移動する座標を入力します。</li>
+						<li>&nbsp;プレビューを確認します。</li>
+						<li>&nbsp;適用またはOKボタンを押します。</li>
+					</ol>
+					&nbsp;&nbsp;&nbsp;&#x203B;再配置なしの例</br>
+					&nbsp;&nbsp;&nbsp;<span class="hov-anim-box">
+						<img src="./Media/Video/PlayButton.png" alt="" class="static" />
+						<img src="./Media/Video/Mesh%20Edit_Node%20Manipulation_Move%20Node_Along%20Edge_1.gif" alt="" class="animated" style="width:800px; height:auto;" />
+					</span>
+					</br>
+					&nbsp;&nbsp;&nbsp;&#x203B;再配置の例</br>
+					&nbsp;&nbsp;&nbsp;<span class="hov-anim-box">
+						<img src="./Media/Video/PlayButton.png" alt="" class="static" />
+						<img src="./Media/Video/Mesh%20Edit_Node%20Manipulation_Move%20Node_Along%20Edge_2.gif" alt="" class="animated" style="width:800px; height:auto;" />
+					</span>
+				</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+				<!--
+				<h3>-&nbsp;操作動画&nbsp;-</h3>
+				
+					<p>
+					<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+					&nbsp再生ボタンを押すと操作動画が再生されます。
+					</p>
+				-->
+			</div>
+		</div>
+	</body>
+</html>

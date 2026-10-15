@@ -1,0 +1,43 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>ImprintCircleS</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>ImprintCircleS</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create imprint circle line</p>
+<h4>Syntax</h4>
+<p>ImprintCircleS(double[] taPositions, cursor[] taTargetFace, double dInRadius, double dOutRadius, int iNoofLayer, int iNoOfDiv, bool bBreakFace)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>Double[]<p>Target points for imprinting -> Point_n([xi, yi, zi])</p></li>
+<li>Cursor[]<p>Target faces cursor([6:Face ID])</p></li>
+<li>Double<p>Inner radius</p></li>
+<li>Double<p>Outer radius</p></li>
+<li>Int<p>Number of layers</p></li>
+<li>Int<p>Number of divisions</p></li>
+<li>Bool<p>Whether break face or not True = 1, False = 0</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>ImprintCircleS([[0.007777777777777778, 0.006666666666666666, 0.01]], [6:26], 0.001, 0.002, 1, 30, 1)
+</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>圧力 | 一般</title>
+
+<style type="text/css">
+/* Link下線、非表示 */
+a.no-uline {text-decoration:none}
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>圧力 | 一般</h2>
+<div class="contents">
+	<p>解析モデルに圧力荷重を追加します。</p>
+
+	<img src="./Media/CommandDlg/Connections_Boundary%20Conditions_Loads_Pressure_General.png">
+
+ 　　 <h4>構造</h4>
+		<li><b>名前</b><br>
+			<p>&nbsp;&nbsp;&nbsp;圧力荷重条件の名前を入力します。</p>
+		</li>
+		<li><b>値</b><br>
+			<p>&nbsp;&nbsp;&nbsp;圧力荷重の値を入力します。<a href="Formula.html">関数入力</a>も可能です。</p>
+		</li>
+		<li><b>入力単位系</b><br>
+			<p>&nbsp;&nbsp;&nbsp;単位系を選択します。</p>
+		</li>
+		<li><b>矢印方向</b><br>
+	        <p>&nbsp;&nbsp;&nbsp;マーカー表示の描画位置を設定をします。</p>
+           	&nbsp;&nbsp;&nbsp;節点が始点：節点を始点として、マーカーを表示します。<br>
+	        &nbsp;&nbsp;&nbsp;節点が終点：節点を終点として、マーカーを表示します。
+  　　　</li>
+		
+ 　　 <h4>テーブル</h4>
+		<li><b>テーブル選択</b><br>
+			<p>&nbsp;&nbsp;&nbsp;<a href="./Boundary%20Conditions_Misc_Field%20Data.html">フィールドデータ</a>で入力したテーブルを選択します。</p>
+		</li>
+
+	<h4>フェーズ遅れ (Nastran)</h4>
+		<li><b>フェーズ</b><br>
+			<p>&nbsp;&nbsp;&nbsp;位相を入力します。</p>
+		</li>
+		<li><b>フェーズテーブル</b><br>
+			<p>&nbsp;&nbsp;&nbsp;<a href="./Boundary%20Conditions_Misc_Field%20Data.html">フィールドデータ</a>で入力した位相テーブルを選択します。</p>
+		</li>
+		<li><b>遅れ</b><br>
+			<p>&nbsp;&nbsp;&nbsp;遅れを入力します。</p>
+		</li>
+	
+	<h3>-&nbsp;操作手順&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;選択リストからフェース、要素のいずれかのボタンを選択し、画面上から圧力荷重付加対象を選択します。</li>
+		<li>&nbsp;荷重につける名前を入力します。</li>
+		<li>&nbsp;圧力荷重値を入力します。</li>
+		<li>&nbsp;適用またはOKボタンを押します。</li>
+		</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

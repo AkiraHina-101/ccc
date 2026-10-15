@@ -1,0 +1,50 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>MoveNodeAlongDirection</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>MoveNodeAlongDirection</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Move node(s) in a        specified direction</p>
+<h4>Syntax</h4>
+<p>MoveNodeAlongDirection(double dX, double dY, double dZ, double planept[0][0], double planept[0][1], double planept[0][2], double planept[1][0], double planept[1][1], double planept[1][2], double planept[2][0], double planept[2][1], double planept[2][2], Cursor face, double magnitude, bool facepicked, bool elempicked, int[] node)</p>
+<h4>Inputs</h4>
+<ol>
+<li>double<p>Displacement in X Direction</p></li>
+<li>double<p>Displacement in Y Direction</p></li>
+<li>double<p>Displacement in Z Direction</p></li>
+<li>double<p>1st coordinate of plane point1</p></li>
+<li>double<p>2nd coordinate of plane point1</p></li>
+<li>double<p>3rd coordinate of plane point1</p></li>
+<li>double<p>1st coordinate of plane point2</p></li>
+<li>double<p>2nd coordinate of plane point2</p></li>
+<li>double<p>3rd coordinate of plane point2</p></li>
+<li>double<p>1st coordinate of plane point3</p></li>
+<li>double<p>2nd coordinate of plane point3</p></li>
+<li>double<p>3rd coordinate of plane point3</p></li>
+<li>Cursor<p>selected face cursor</p></li>
+<li>double<p>Magnitude</p></li>
+<li>bool<p>is face picked 0=no,1=yes</p></li>
+<li>bool<p>is element picked 0=no,1=yes</p></li>
+<li>int[]<p>Node List</p></li>
+</ol>
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>MoveNodeAlongDirection(0.00333333, 0, -0.00111111, 0.01, 0, 0, 0.01, 0.00111111, 0, 0.01, 0.00111111, 0.00111111, 6:24, 0.00351364, 1, 0, [443,       437])</p>
+</div>
+</div>
+</body>
+</html>

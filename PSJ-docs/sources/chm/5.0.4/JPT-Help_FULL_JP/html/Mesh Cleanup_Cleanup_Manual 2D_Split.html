@@ -1,0 +1,86 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>スプリット</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>スプリット</h2>
+	<div class="contents">
+	<p>
+	個々の要素のエッジを特定の比率またはノードで2つの要素のエッジに分割します。
+	</p>
+
+	<img src="./Media/CommandDlg/Mesh%20Cleanup_Cleanup_Manual_Split.png">
+
+	<h4>分割</h4>
+	<li>イクイバランス
+		<p>このオプションは、選択したノードと分割ノード（要素のエッジを分割するときに作成される）を1つのノードにマージするために使用します。</br>
+			※選択した要素を分割し、ノードを同時にマージするために使用します。 複数の要素エッジを同時に選択した場合、関数は同等のものを使用できません。
+		</p>
+	</li>
+
+	<li>パラメーター
+		<p>この入力テキストは、分割後の元の要素の長さの比率によって2つの要素の長さを決定するために使用されます。 言い換えると、パラメータが分割ノードの場所を決定するために使用されることを理解することは同じ意味です。<br>
+			※比率範囲は0&lt;x&lt;1で、パラメータ値が範囲外の場合は動作しません。
+		</p>
+	</li>
+
+	<h3>-&nbsp操作手順 (1)&nbsp-</h3>
+	<li>要素のエッジを分割するには</li>
+	<ol>
+	<li>&nbsp分割する要素のエッジを選択します。</li>
+	<li>&nbspパラメータテキストボックスに希望の比率を入力し、プレビューで確認します。</li>
+	<li>&nbsp[適用]ボタンをクリックします。</li>
+	<li>&nbsp選択した要素エッジは、特定の比率で2つの要素エッジに分割されます。</li>
+	</ol>
+
+
+	<img src="./Media/MeshCleanup_Cleanup_Manual_Split.PNG">
+
+
+	<h3>-&nbsp操作手順 (2)&nbsp-</h3>
+	<li>要素エッジが2つのシェル要素間で接続されていない場合（フリーエッジが発生する）、同等の関数は、要素エッジを分割してフリーエッジを解決し、以下の操作のように分割ノードを選択したノードにマージします。</li>
+	<ol>
+	<li>&nbsp同等性オプションをチェックします。</li>
+	<li>&nbsp分割する要素のエッジを選択します。</li>
+	<li>&nbsp目的のノードを選択して、マージされたノードを決定します。</li>
+	<li>&nbsp[適用]ボタンをクリックします。</li>
+	<li>&nbsp選択した要素のエッジが2つの要素のエッジに分割され、分割されたノードが選択したノードにマージされて1つのノードのみになります。 すべてのフリーエッジが削除されると、シェル要素は要素エッジで接続されます。</li>
+	</ol>
+
+
+	<img src="./Media/MeshCleanup_Cleanup_Manual_Split_1.PNG">
+
+	<h3>-&nbsp特記事項&nbsp-</h3>
+	<p>
+	<img src="./Media/MeshCleanup_Cleanup_Manual_Split_2.PNG"></br>
+	メッシュは、互いに対称な2つの要素に対して同じ結果を生成しません。以下は、分割後の結果です。</br>
+	<img src="./Media/MeshCleanup_Cleanup_Manual_Split_3.PNG"></br>
+	対称的なメッシュを取得するには、「QuadTo2Tris」や「2TristoQuad」などの他の関数でメッシュを変更します。
+	</p>
+	
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp・ｽﾄ撰ｿｽ・ｽ{・ｽ^・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾆ托ｿｽ・ｽ・ｮ・ｽ謔ｪ・ｽﾄ撰ｿｽ・ｽ・ｽ・ｽ・ｽﾜゑｿｽ・ｽB
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

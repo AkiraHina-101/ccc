@@ -1,0 +1,3 @@
+# Face
+
+Face Auto Sweep Recognize the shape of the selected part (s), to create a hex mesh of shape which conforms to the conditions. Auto Sweep Mesh Size Enter the size of the hexa element to be created. Layers Layer Mesh If you check this box, it will specify the number of layers. Layers Specify the number of layers. It will specify number of layers in the thin direction in the case of thin plate. -&nbspOperating Procedure&nbsp- &nbspSelect the CAD part. &nbspSpecify the mesh size. &nbspSpecify the a number of layers, if required. &nbspClick the Apply or OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

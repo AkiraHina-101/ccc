@@ -1,0 +1,34 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>MeasureDistanceBy2Nodes</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>MeasureDistanceBy2Nodes</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Measure the distance between two nodes</p>
+<h4>Syntax</h4>
+<p>MeasureDistanceBy2Nodes(cursor[] Cursors,String Target,Integer N)</p>
+<h4>Inputs</h4> <ol>
+<li>cursor[]<p>Nodes Cursor([10:*,10:**]*,** = Node ID)</p></li>
+<li>String<p>Target(Dist or X or Y or Z or ALL)</p></li>
+<li>Integer N<p>specify the number of decimal places (0<=N<=30)</p></li>
+</ol> <h4>Return Code</h4>
+<li>distance (Input = Dist,X,Y,Z) [Dist,X,Y,Z](Input = All)<p>Succeeded</p></li>
+<li>FAILED<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>MeasureDistanceBy2Nodes([10:447,10:468],"X",6) or MeasureDistanceBy2Nodes([10:447,10:468],"Dist",6)</p>
+</div>
+</div>
+</body>
+</html>

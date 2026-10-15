@@ -1,0 +1,83 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>要素交差</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</html></head>
+
+
+<body>
+	<div class="page">
+		<h2>要素交差</h2>
+	<div class="contents">
+		<p>要素交差エラーを検出します。</p>
+
+	<img src="./Media/CommandDlg/Mesh%20Cleanup_Mesh%20Quality_Intersections.png">
+	
+	<h4>エッジ数</h4>
+		<li><b>トレランス</b></li>
+			<p>&nbsp;&nbsp;&nbsp;要素交差部表示のトレランスを設定します。</p>
+		<li><b>要素数</b></li>
+			<p>&nbsp;&nbsp;&nbsp;要素交差部の要素個数を表示します。</p>
+		<li><b>表示タイプ</b></li>
+			<p>&nbsp;&nbsp;&nbsp;要素交差の表示タイプを選択します。</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>各パーツの要素交差</b>&nbsp;:&nbsp;パーツ上の要素交差部を表示します。</li>
+				<li><b>すべての要素交差</b>&nbsp;:&nbsp;パーツ間とパーツ上の要素交差部を表示します。</li>
+				<li><b>パーツ間の要素交差</b>&nbsp;:&nbsp;パーツ間のみ要素交差部を表示します。</li>
+				</span>
+			</ul>
+		<br>
+							
+	<h4>レイヤー</h4>
+		<li><b>レイヤー数</b></li>
+		<p>&nbsp;&nbsp;&nbsp;要素交差部箇所周りの表示メッシュ層数を設定します。
+		<li><b>レイヤー更新</b></li> 
+		<p>&nbsp;&nbsp;&nbsp;表示を設定レイヤー数で更新します。
+	<h4>自動クリーンアップ</h4>
+		<li><b>クリンアップ</b></li>
+		<p>&nbsp;&nbsp;&nbsp;要素交差部分が自動的に修正されます。<br>
+		<li><b>アグレッシブクリーンアップ</b></li>
+		<p>&nbsp;&nbsp;&nbsp;チェックを入れると、形状の再現性よりもメッシュ品質を優先してクリーンアップを行います。<br>
+	<h4><b>出力オプション</b></h4>
+		<li>エラーテキスト</li>
+		<p>&nbsp;&nbsp;&nbsp;チェックを付けると、要素交差の情報を出力ウィンドウとTempフォルダにテキストデータで出力します。
+						
+	<h3>-&nbsp;操作手順&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;チェックするパーツを選択します。</li>
+			<li>&nbsp;必要があればトレランスや表示タイプを変更します。</li>
+			<li>&nbsp;適用またはOKボタンを押します。</li>
+			<li>&nbsp;チェック後、メインウィンドウ内の標準画面に戻すアイコン<img src="./Media/MainWindow_icon/image059.png" align="Bottom">&nbsp;をクリックし、表示を元に戻します。</li>
+     	</ol>
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+	</div>
+</body>
+
+
+
+</html>

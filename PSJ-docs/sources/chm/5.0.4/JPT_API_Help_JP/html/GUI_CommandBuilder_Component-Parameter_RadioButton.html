@@ -1,0 +1,113 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Radio Button</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Radio Button</h2>
+<div class="contents">
+	<p>
+	ラジオボタンを追加します。<br>
+	</p>
+
+	<img src="./Media/GUI_CommandBuilder_Component-Parameter_RadioButton.png">
+	<br><br>
+	
+	<p>&nbsp;&nbsp;&nbsp;作成イメージ図：</p>
+	
+	<img src="./Media/GUI_CommandBuilder_Component-Parameter_RadioButton2.png">
+	<br>
+	<br>
+	
+
+	<li><b>Text</b>
+	<p>&nbsp;&nbsp;&nbsp;ラジオボタンの横に表示されるテキストを入力します。</p>
+	</li>
+	<li><b>Name</b>
+	<p>&nbsp;&nbsp;&nbsp;Radio Buttonコンポーネント名を入力します。</p>
+	</li>
+	<li><b>Checked</b>
+	<p>&nbsp;&nbsp;&nbsp;デフォルト値を指定します。</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>True</b>&nbsp;:&nbsp;チェックオン</li>
+		<li><b>False</b>&nbsp;:&nbsp;チェックオフ</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Width</b>
+	<p>&nbsp;&nbsp;&nbsp;ラジオボタンの最小幅を指定します。（単位：ピクセル）</p>
+	</li>
+	<li><b>Height</b>
+	<p>&nbsp;&nbsp;&nbsp;ラジオボタンの最小高さを指定します。（単位：ピクセル）</p>
+	</li>
+	<li><b>Enable</b>
+	<p>&nbsp;&nbsp;&nbsp;使用の可否を指定します。</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>チェックオン</b>&nbsp;:&nbsp;使用可能。</li>
+		<li><b>チェックオフ</b>&nbsp;:&nbsp;使用不可。（グレーアウトされます）</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Left Text</b>
+	<p>&nbsp;&nbsp;&nbsp;ラジオボタンの左側にテキストを表示させます。</p>
+	</li>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>チェックオン</b>&nbsp;:&nbsp;テキストを左側に表示させます。</li>
+		<li><b>チェックオフ</b>&nbsp;:&nbsp;テキストを右側に表示させます。</li>
+		</span>
+		</ul>
+	
+	
+	
+	<li><b>Group</b>
+	<p>&nbsp;&nbsp;&nbsp;Radio Buttonコンポーネントをグループ化します。</p>
+	</li>
+	<br>
+	
+	<h4>使用コマンド</h4>
+	<table class="commontable">
+		<tr><th>コマンド</th><th>説明</th><th>サンプルコード</th></tr>	
+		<tr>
+			<td>dlg.isbutton_checked("component name")</td>
+			<td>ラジオボタンにチェックが入っているかどうか確認します。<br>
+				ブール値(True/False)を返します。
+			<td>    
+				<p><em>Input:</em></p>
+				<p style = "margin-left: 40px">dlg.isbutton_checked("CheckBoxButton")</p>
+				<p><em>Output:</em></p>
+				<p style = "margin-left: 40px">> True/False</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.set_radiobutton_state("name", Bool)</td>
+			<td>ラジオボタンのステータス（チェックの有無）を指定します。<td>    
+				<p><em>Input:</em></p>
+				<p style = "margin-left: 40px">dlg.set_radiobutton_state("CheckBox1", True)</p>
+			</td>
+		</tr>
+	</table>
+<br>
+
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

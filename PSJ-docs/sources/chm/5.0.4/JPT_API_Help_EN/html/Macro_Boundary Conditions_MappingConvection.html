@@ -1,0 +1,52 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>MappingConvection</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>MappingConvection</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create mapping pressure</p>
+<h4>Syntax</h4>
+<p>MappingConvection(CString name, Cursor[] Target, int Position, int ViewCp, int Cp, int SourceType, int[6] MappedCpIndex, int[6] MappedCpIndex, double RScale, double[3] Offset, double[3] Rotate, double TScale, double seachRange, int HTCunit, int tempUnit, Cstring path, Cursor editMapping)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>Cstring<p>Name of mapping convection</p></li>
+<li>Cursor[]<p>Target list</p></li>
+<li>int<p>mapping position, 0: surface node, 1:solid node, 2:surface element, 3: solid element</p></li>
+<li>int<p>View component (Cp)</p></li>
+<li>int<p>component number, 2 for convection</p></li>
+<li>int<p>source data type, 0: fluent, 1: starCD, 2:text</p></li>
+<li>int[6]<p>Mapped Cp Index List</p></li>
+<li>int[6]<p>Mapped Cp Index List</p></li>
+<li>double<p>Rscale</p></li>
+<li>double[3]<p>Offset List</p></li>
+<li>double[3]<p>Rotate List</p></li>
+<li>double<p>Tscale</p></li>
+<li>double<p>Search range</p></li>
+<li>int<p>HTC Unit</p></li>
+<li>int<p>Temperature unit</p></li>
+<li>Cstring<p>Path</p></li>
+<li>Cursor<p>Edit mapping convection</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>MappingConvection("MappingConvection2", [6:23], 2, 0, 2, 2, 0, 1, 1, [0, 0, 0], [1, 0, 0], 1, 0, 0, 1, "D:/ImportFile/wj-block-cold.csv", 0:0)</p>
+</div>
+</div>
+</body>
+</html>

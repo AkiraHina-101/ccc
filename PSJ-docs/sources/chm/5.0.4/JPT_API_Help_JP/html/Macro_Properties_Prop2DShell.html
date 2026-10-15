@@ -1,0 +1,53 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Prop2DShell</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>Prop2DShell</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>create property 2D shell</p>
+<h4>Syntax</h4>
+<p>Prop2DShell(String m_strName,int m_ulId,Cursor m_crMatMembrane,Cursor m_crMatBend,Cursor m_crMatShear,Cursor m_crMatCoupl,double m_matOrient[0],double m_matOrient[1],double m_matOrient[2],double m_dThickness,double m_dBendStiff,double m_dThickRatio,double m_dNSM,double m_dFiberDist[0],double m_dFiberDist[1],double m_dPlateOff,int m_iItgPts,int m_matOrientType,Cursor m_crLocalCS,Cursor[] taTarget,Cursor crEdit,int duplicateOpt)</p>
+<h4>Inputs</h4> <ol>
+<li>String<p>name of property 2D shell</p></li>
+<li>int<p>key of property 2D shell</p></li>
+<li>Cursor<p>cursor of membrane material</p></li>
+<li>Cursor<p>cursor of bending material</p></li>
+<li>Cursor<p>cursor of shear material</p></li>
+<li>Cursor<p>cursor of coupling material</p></li>
+<li>double<p>theta[degree]</p></li>
+<li>double<p>not used</p></li>
+<li>double<p>not used</p></li>
+<li>double<p>thickness</p></li>
+<li>double<p>Bending stiffness</p></li>
+<li>double<p>thickness ratio</p></li>
+<li>double<p>nonstructural mass</p></li>
+<li>double<p>fiber dist 1</p></li>
+<li>double<p>fiber dist 2</p></li>
+<li>double<p>plate offset</p></li>
+<li>int<p>No SHELL integration points</p></li>
+<li>int<p>material orientation by[0: Theta; 1: coordinate system]</p></li>
+<li>Cursor<p>local coordinate system</p></li>
+<li>Cursor[]<p>targets</p></li>
+<li>Cursor<p>edit cursor</p></li>
+<li>int<p>answer of message box when targets are duplicated[0: targets are not duplicated; 2: cancel; 6: yes; 7: no]</p></li>
+</ol> <h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>Property2DShell("Shell Property 1", 1, 22:2, 22:2, 22:2, 22:2, 1.79769e+308, 1.79769e+308, 1.79769e+308, 0.002, 1.79769e+308, 1.79769e+308, 1.79769e+308, 1.79769e+308, 1.79769e+308, 1.79769e+308, 2147483647, 0, 0:0, [3:2, 6:27], 0:0, 0)</p>
+</div>
+</div>
+</body>
+</html>

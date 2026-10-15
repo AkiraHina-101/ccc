@@ -1,0 +1,3 @@
+# ImprintPerpendicularCylinderLineS
+
+ImprintPerpendicularCylinderLineS ImprintPerpendicularCylinderLineS Description Create imprint PerpendicularCylinder line Syntax ImprintPerpendicularCylinderLineS(cursor[] crNode, cursor[] crFace, int iMethod, double dLength, bool bOpSide, bool bBrFace) Inputs Cursor[] Target node cursor([10:Node ID]) Cursor[] Target face cursor([6:Face ID]) Int Imprint method* *0: Center angle &ensp;1: ArcLength Double Length/ Angle offset Bool Opposite side bool flag True = 1, False = 0 Bool Break face bool flag True = 1, False = 0 Return Code 1 Succeeded 0 Failed Sample Code ImprintPerpendicularCylinderLineS([10:283, 10:281], [6:5], 0, 3, 0, 1)

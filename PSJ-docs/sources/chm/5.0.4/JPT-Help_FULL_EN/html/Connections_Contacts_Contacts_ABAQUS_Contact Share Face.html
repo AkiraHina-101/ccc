@@ -1,0 +1,204 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Contacts | Abaqus - Share Face</title>
+
+</meta>
+</head>
+
+<body>
+<div class="page">
+	<h2>Contacts | Abaqus - Share Face</h2>
+<div class="contents">
+	<p>
+	Define the Abaqus contact settings from the specified face.<br />
+	Shared surfaces are separated (to create a double nodal state) and the contact pairs are defined between its separated face.
+	</p>
+
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_ABAQUS_Contact%20Share%20Face.png"></img>
+
+      <h4>Basic</h4>
+
+　　　<li>Name Prefix
+	<p>
+	Enter the name you want to give the contact pair name.
+	</p>
+　　　</li>
+
+　　　<li>Algorithm
+	<p>
+	Select the contact setting target entity.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Face to Face: Contact between face-to-face<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Node to Face: Contact between the slave face-to-face by the specified node
+		</p>
+　　　</li>
+
+　　　<li>Type
+	<p>
+	Select the behaviour type of contact definition.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;General: Sliding contact<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Tied: Fixed<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;All with self: Automatic contact detection
+	</p>
+　　　</li>
+
+　　　<li>Information
+	<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;Show Information: Part name associated with the selected shared surface is displayed.<br />
+	<img src="./Media/Connections_Contacts_Contacts_ABAQUS_Contact%20Share%20Face_1.png"></img><br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Highlight Body: Part associated with the selected shared surface will be highlighted.<br />
+	</p>
+　　　</li>
+
+
+      <h4>Contact Properties</h4>
+
+
+　　　<li>Adjust
+	<p>
+	Specify the adjustment width of the initial node position.
+	</p>
+　　　</li>
+
+　　　<li>Extension Zone
+	<p>
+	Specify an extended area.
+	</p>
+　　　</li>
+
+　　　<li>TIE
+	<p>
+	The fixed conditions and contact pair<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;On: Fixed specified 
+	</p>
+　　　</li>
+
+　　　<li>Max Penetration
+	<p>
+	Specify the maximum penetration amount.
+	</p>
+　　　</li>
+
+　　　<li>Smooth
+	<p>
+	Specify the smoothing angle.
+	</p>
+　　　</li>
+
+　　　<li>Small Sliding
+	<p>
+	Specify the consideration of small-slip.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Off: Disable<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;On: Enable
+	</p>
+　　　</li>
+
+　　　<li>Formulation
+	<p>
+	Specify the contact formulation type.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Node to Surface: Node - face contact<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Surface to Surface: Surface - surface contact
+	</p>
+　　　</li>
+
+
+      <h4>Friction Properties</h4>
+
+　　　<li>Friction Type
+	<p>
+	Specify the friction characteristics type.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;None: Friction is not considered<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;General: General Contact<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friction Coef.1: Friction coefficient 1<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friction Coef.2: Friction coefficient 2<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shear Stress Limit: Shear stress limit<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Slip Tol.: The maximum allowable elastic slip for surface dimension ratio<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Lagrange: Lagrange multiplier method<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friction Coef.1: Friction coefficient 1<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friction Coef.2: Friction coefficient 2<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shear Stress Limit: Shear stress limit<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Rough: Rough (no slip)<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Static&Kinetic: Specify the static and dynamic friction<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Slip Tol.: The maximum allowable elastic slip for surface dimension ratio<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Static Friction Coef: Coefficient of static friction<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kinetic Friction Coef: Dynamic friction coefficient<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Decay Coef: Reduction factor<br />
+	</p>
+　　　</li>
+
+
+      <h4>Normal Behavior</h4>
+
+　　　<li>Pressure-Overclosure
+	<p>
+	Contact thickness of the contact direction behaviour, to define the penetration characteristics type.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Hard Contact: Rigid contact<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allow Separation: Separation permit<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Exponential: Index<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input Data: Pressure 0: exponential curve for definition of pore volume and pore volume 0: pressure input<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Linear: Linear<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact Stiffness: Rigid contacts<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Tabular: Table form<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input Data: Table input pressure, penetration depth<br />
+	</p>
+　　　</li>
+
+
+      <h4>Thermal Conductance</h4>
+
+　　　<li>Date Type
+	<p>
+	Specify the contact characteristic definition method of heat conduction<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Clearance Dependency: Gap value dependent<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input Data: Pore volume dependent thermal conductivity table input<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Pressure Dependency: Pressure dependence<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input Data: Pressure-dependent thermal conductivity table input<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Clearance and Pressure Dependency: Gap value and pressure dependence<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input Data: Pore volume and pressure-dependent thermal conductivity table input<br />
+	</p>
+　　　</li>
+
+
+      <h4>Color Setting</h4>
+
+　　　<li>Contact Color
+	<p>
+	Define the contact-display marker color.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Reset: Return to the default color.
+	</p>
+　　　</li>
+
+
+
+<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+      <ol>
+　　　<li>&nbsp;Create a shared surface in advance by the assembly function and leave the display on shared surface.</li>
+　　　<li>&nbsp;Select the shared surface that you want to define as a contact.</li>
+　　　<li>&nbsp;Define the advanced settings for the pair of contacts, click the Apply (OK) button to create contact definition.</li>
+      </ol>
+	<p>
+	Shared surfaces are separated (the face to create a double nodal state) and the contact pairs are defined between its faces.
+	</p>
+<br />
+<br />
+      
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

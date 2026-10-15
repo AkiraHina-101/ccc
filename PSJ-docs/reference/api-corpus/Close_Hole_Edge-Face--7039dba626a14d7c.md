@@ -1,0 +1,3 @@
+# Close Hole｜Edge-Face
+
+Close Hole｜Edge-Face Close Hole｜Edge-Face Close bolt holes, etc. with a mesh of triangular linear elements. Select edges and faces to close the bolt holes. Options Remesh &nbsp;&nbsp;&nbsp;Meshing is performed on the closed face. Element Size &nbsp;&nbsp;&nbsp;Specify the mesh size. Select Belong Part &nbsp;&nbsp;&nbsp;User can select the part to which the closed face belongs. Specified Part &nbsp;&nbsp;&nbsp;Specify the part to which the closed face brlongs. New Part &nbsp;&nbsp;&nbsp;Create a new part of the closed face. Part name &nbsp;&nbsp;&nbsp;Specify the name of the new part. -&nbspOperating Procedure&nbsp- &nbsp;Select a face whose one edge of the hole. &nbsp;Click the Apply/OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

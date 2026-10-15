@@ -1,0 +1,191 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Group Window</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Group Window</h2>
+<div class="contents">
+	<p>
+	This window is used to display/edit groups created by the Group command.<br>
+	When the Group mode is turned ON, all entities other than the displayed group will be hidden.
+	</p>
+	<img src="./Media/Base_Window_GroupWindow_1.png" width="300">
+ 	<br>
+ 	<h4>Tree Control Menu</h4>
+	<p>
+	Control the tree display.
+	</p>
+	<table class="commontable">
+	 <tr><th>Icon</th><th>Name</th><th>Description</th></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/034_ClearSelection_16.png"></td><td>Clear Selection</td><td>
+Clear all selections of the tree items.</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DS_026_OpenTree_16.png"></td><td>Expand All</td><td>Expand all sub-trees.</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DS_027_CloseTree_16.png"></td><td>Collapse All</td><td>Collapse all sub-trees.</td></tr>	 
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DA_057_16.png"></td><td>Toggle Sort</td><td>Sort the groups according to the name or ID.</td></tr>
+	 <tr><td><img src="./Media/OtherWindow_icon/121.png"></td><td>Sort Setting</td><td>Launch the Group Sort Settings dialog.</td></tr>
+	</table>
+	<h4>Group Sort Setting Dialog</h4>
+	<p>Change the order of the group tree.</p>
+	<img src="./Media/GroupWindow＿GroupSort.png">
+	<li>Sort type<p>Specify the sorting criteria by selecting the following statements.</p></li>
+
+	<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>By Group Name</b>&nbsp;:&nbsp;Sort groups in ascending/descending alphabetical order of the name.</li>
+		<li><b>By Group ID</b>&nbsp;:&nbsp;Sort groups in ascending/descending numerical order of the ID.</li>
+		<li><b>By Number of Nodes</b>&nbsp;:&nbsp;Sort groups in ascending/descending order of the node number.</li>
+		<li><b>By Number of Elements</b>&nbsp;:&nbsp;Sort groups in ascending/descending order of the element number.</br>
+		</span>
+		</ul>
+	<h4>Tree View</h4>
+	<p>
+	The group settings are displayed in a tree format.
+Each tree item can be highlighted by clicking it with the left mouse button. 
+Double-click each tree item with the left mouse button in order to select all inside entities.</p>
+	<p>
+	※ From V4.0, "Select Group" and "Deselect Selected Entity in Group" by double-click a group have been deleted, and only "Select Entity in Group" has been changed.
+Even if the deselection mode is ON, the entity is selected when using this function.<p>
+ 		<table class="commontable">
+	 <tr><th width="">Icon</th><th>Name</th><th>Description</th></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/AnyGroup_16.png"></td><td>Group / Subgroup</td><td>
+This icon indicates the parent group of multiple groups. 
+It is also displayed when a group includes multiple entities of different types. 
+</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_PartGroup_16.png"></td><td>Part Group</td><td>
+This icon indicates a group including parts only.</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_FaceGroup_16.png"></td><td>Face Group</td><td>
+This icon indicates a group including faces only.</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_NodeGroup_16.png"></td><td>Node Group</td><td>
+This icon indicates a group including nodes only.</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_ElementGroup_16.png"></td><td>Element Group</td><td>
+This icon indicates a group including surface elements only.</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_EdgeGroup_16.png"></td><td>Edge Group</td><td>
+This icon indicates a group including edges only.</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_SolidElementGroup_16.png"></td><td>Solid Element Group</td><td>
+This icon indicates a group including solid elements only.</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_ConnectionGroup.png"></td><td>Connection Element Group</td><td>
+This icon indicates a group including connection elements only.</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_ConditionGroup.png"></td><td>Condition Group</td><td>
+This icon indicates a group including boundary conditions only.</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_1DElementGroup_16.png"></td><td>1D Element Group</td><td>
+This icon indicates a group including 1D elements only.</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_ElementEdgeGroup_16.png"></td><td>Element Edge Group</td><td>
+This icon indicates a group including element edges only.</td></tr>
+	
+	</table>
+	<h4>Shortcut Menu</h4>
+	<p>
+	Each command can be used from the menu displayed by right-clicking the tree item. 
+	</p>
+	・Commands are available when no group is selected:
+	<table class="commontable">
+	 <tr><th>Command</th><th>Function</th></tr>
+	 <tr><td>Enable Group View</td><td>Enable to display in group mode.</td></tr>
+	 <tr><td>Exit Group View</td><td>Return to display in normal mode.</td></tr>
+	</table><br>
+	・Commands are available when a subgroup item is selected:
+	<table class="commontable">
+	 <tr><th>Command</th><th>Function</th></tr>
+	 <tr><td>Select Entities</td><td>
+Select the entities included in the highlighted group.</td></tr>
+	 <tr><td>Select Group</td><td>
+Select the groups included in the highlighted group.</td></tr>	
+	 <tr><td>Add Subgroup</td><td>
+Add an empty subgroup under the group item.</td></tr>	
+	 <tr><td>Copy</td><td>
+Copy the highlighted group between documents. </td></tr>
+	 <tr><td>Create Material Group</td><td>
+Create a group including entities associated with the same material.</td></tr>
+	 <tr><td>Create Property Group</td><td>
+Create a group including entities associated with the same property.</td></tr>
+	 <tr><td>Create Hidden Entities Group</td><td>
+Create a group including faces, elements and parts that are currently hidden.</td></tr>
+	 <tr><td>Create Entity Group</td><td>
+Create a group for each entity.</td></tr>
+	 <tr><td>Create Group - Model Filter</td><td>
+Create groups, filtering by element type and properties.</td></tr>
+	 <tr><td>Import</td><td>
+Read the group information from a CSV format file that is exported in the Export menu.</td></tr>
+	 <tr><td>Export</td><td>
+Export the contents of the highlighted group to a CSV format file.</td></tr>
+	 <tr><td>Paste</td><td>
+Move the cut/copied group to the bottom of the highlighted subgroup.</td></tr>
+	 <tr><td>Delete Group</td><td>
+Delete the highlighted group.
+Pressure, surface load, or contact condition applied on the selected groups are not deleted.</td></tr>
+	 <tr><td>Delete Entity</td><td>
+Delete the highlighted group and all inside entities.</td></tr>
+	</table>
+	<br>
+	・Commands are available when a group item is selected:
+	<table class="commontable">
+	 <tr><th>Command</th><th>Function</th></tr>
+	 <tr><td>Hide</td><td>Hide the highlighted groups.</td></tr>
+	 <tr><td>Hide Only</td><td>
+Hide the highlighted group only and show all other groups.</td></tr>
+	 <tr><td>Show</td><td>Show the highlighted groups.</td></tr>
+	 <tr><td>Show Only</td><td>
+Show the highlighted group only and hide all other groups.</td></tr>
+	 <tr><td>Show All</td><td>Show all groups.</td></tr>
+	 <tr><td>Hide All</td><td>Hide all groups.</td></tr>
+	 <tr><td>Invert Hide/Show</td><td>
+Reverse the display state of groups.</td></tr>
+	 <tr><td>Edit ※</td><td>
+Display a dialog for editing the highlighted group.</td></tr>
+	 <tr><td>Rename</td><td>
+Change the name of the highlighted group.</td></tr>
+	 <tr><td>Associated Pick</td><td>
+Select the entities associated with the highlighted group.</td></tr>
+	 <tr><td>Marker</td><td>
+Change the color of the group marker to a random or specified color.</td></tr>
+	</table>
+<a href="#f3">※The shortcut key [F3] is set to [Edit].</a><br>
+	<br>
+	・Commands are available when multiple group items of the same type are selected:
+	<table class="commontable">
+	 <tr><th>Command</th><th>Function</th></tr>
+	 <tr><td>Boolean +</td><td>
+Create a new group by combining all inside entities the highlighted group into a group.</td></tr>
+	 <tr><td>Boolean -</td><td>
+Create a new group by subtracting overlapping entities in the second selection from entities in the first selection. </td></tr>
+	 <tr><td>Boolean x</td><td>
+Create a new group from the common entities of the highlighted group. </td></tr>
+	</table>
+	<h4>List of Shortcut Keys</h4>
+	When an entity is selected inside the group window, the following shortcut keys are available:
+	<br><li>View Operation</li>
+	<table class="commontable">
+	<tr><th>Shortcut key</th><th>Operation</th></tr>
+	<tr><td>F2</td><td>Highlight a tree item and press the key to rename the item.</td></tr>
+	<tr><td id="f3">F3</td><td>Highlight a tree item and press the key to execute "Edit" in the right-click menu.</td></tr>
+	<tr><td>Up and down arrow keys</td><td>Moves the highlight of the tree item.</td></tr>
+	<tr><td>F</td><td>Zoom the selection to fit the entire window. If no entities are selected, the entire model will be fitted to the screen.</td></tr>
+	<tr><td>E</td><td>Deselect the selected entity.</td></tr>
+	<tr><td>A</td><td>Execute a command when the command dialog is started.</td></tr>
+	<tr><td>Space</td><td>Execute a command when the command dialog is started.</td></tr>
+	<tr><td>Ctrl＋Left-click</td><td>Highlight multiple tree items.</td></tr>
+	<tr><td>Shift＋Left-click</td><td>Highlight multiple consecutive tree items.</td></tr>
+	</table>
+	<br>
+
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

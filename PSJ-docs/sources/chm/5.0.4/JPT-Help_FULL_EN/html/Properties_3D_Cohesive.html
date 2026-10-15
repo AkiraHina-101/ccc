@@ -1,0 +1,107 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>3D Property | Cohesive</title>
+
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>3D Property | Cohesive</h2>
+<div class="contents">
+	<h4>3D Property Cohesive Dialog Box</h4>
+	<p>
+	Enter the property data of the cohesive element.
+	</p>
+
+	<img src="./Media/CommandDlg/Properties_3D_Cohesive.png"></img>
+
+	<h4>Properties</h4>
+ 　　 <li>Name
+	<p>
+	Set the name of the property.
+	</p>
+　　　</li>
+
+ 　　 <li>Property ID
+	<p>
+	Enter the ID of the property. Property ID is entered so as not to overlap in the model.
+	</p>
+　　　</li>
+	
+	<h4>Cohesive</h4>
+	<p>Enter the property data of the cohesive element. Supported for ABAQUS solver only.</p>
+	<li>Material
+	<p>Choose a predefined cohesive material properties.
+        </p>
+	</li>
+
+ 　　 <li>Response
+	<p>
+	Enter the response characteristics.
+	<ul type="circle">
+	<li>Traction Separation
+	<p>Traction Separation</p></li>
+	<li>Continuum
+	<p>Continuum</p></li>
+	<li>Gasket
+	<p>Gasket</p></li>
+	</ul>
+	</p>
+　　　</li>
+
+ 　　 <li>Initial Thickness
+	<p>
+	Enter the initial thickness.
+	<ul type="circle">
+	<li>Geometry
+	<p>
+	Calculated from the coordinate values of the node.
+	</p>
+	</li>
+	<li>Specified
+	<p>
+	Specified by user input.
+	
+	</p>
+	</li>
+	</ul>
+	</p>
+　　　</li>
+
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+
+      <ol>
+　　　<li>&nbspEnter the name of the property in Name.</li>
+　　　<li>&nbspEnter the property ID to the Property ID.</li>
+　　　<li>&nbspSelect a cohesive material information that has already been registered, from the Material pull-down menu.</li>
+　　　<li>&nbspEnter other parameters as needed.</li>
+　　　<li>&nbspChoose the parts.</li>
+　　　<li>&nbspClick the Apply or OK button to create a property.</li>
+	</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

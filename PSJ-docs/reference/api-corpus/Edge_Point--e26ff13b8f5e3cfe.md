@@ -1,0 +1,3 @@
+# Edge Point
+
+Edge Point a.no-uline {text-decoration:none} Edge Point The destination to move the Node was instructed by the specified Point on the Edge. Position X &nbsp;&nbsp;&nbsp;X direction for coordinates are specified. Y &nbsp;&nbsp;&nbsp;Y direction for coordinates are specified. Z &nbsp;&nbsp;&nbsp;Z direction for coordinates are specified. -&nbsp;Operating Procedure&nbsp;- &nbsp;Select the Edge Point button on the select list. &nbsp;Specify the Point on the Edge to become a destination. &nbsp;Select the Node button on the select list. &nbsp;Select the Node that you want to move. &nbsp;Press the Apply or OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

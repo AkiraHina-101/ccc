@@ -1,0 +1,148 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>クレイワーク(Clay Work)</title>
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+	<h2>クレイワーク(Clay Work)</h2>
+<div class="contents">
+	<p>
+	ソリッドメッシュパーツに対して、簡易デザイン変更をする機能です。</br>
+	具体的には、小さな球体を積み重ね、ラッピングした形状をソリッドリメッシュにより、パーツに盛る、もしくは削ります。本機能実行後、そのまま再解析をすることができます。</br>
+	</p>
+	<p>
+	<img src="./Media/Exchange_Design_Clay%20Work_b.png"></br>
+	例）ボルト穴の隣へのリブ追加を検討
+	<ol>
+	<li>球体配置</li>
+	<li>ソリッドメッシュ形状追加（該当箇所のみリメッシュ）</li>
+	</ol>
+	</p>
+	<p>
+	リメッシュされた要素と節点は、「ClayWork」の名前でグループ化されます。
+	</p>
+	<p>
+	<img src="./Media/CommandDlg/Exchange_Design_Clay%20Work_a.png"></br>
+	</p>
+
+	<p>
+	<b>選択リスト(Selection list): プロセス(Process) = 球体配置(Spheres)</b>
+	</p>
+	<p>
+	フェース任意点(Face Point)：球体の中心位置をフェース任意点で選択</br>
+	エッジ任意点(Edge Point)：球体の中心位置をエッジ任意点で選択</br>
+	節点(Node)：球体の中心位置を節点で選択</br>
+	</p>
+
+	<p>
+	<b>選択リスト(Selection list): プロセス(Process) = ブーリアン 和(Boolean +) / ブーリアン 差(Boolean -)</b>
+	</p>
+	<p>
+	パーツ(Part)：ラッピング形状を盛る、もしくは削るパーツ(1つ)</br>
+	</p>
+
+	<h4>操作(Operation)</h4>
+	<li>プロセス(Process)
+	実行するオペレーションを選択します。
+	<ul>
+	<li>球体配置(Spheres)
+	<p>
+	球体を作成します。
+	</p>
+	</li>
+	<li>ブーリアン 和(Boolean +)
+	<p>
+	球体をラッピングして、その形状を選択したパーツに盛ります。
+	</p>
+	</li>
+	<li>ブーリアン 差(Boolean -)
+	<p>
+	球体をラッピングして、その形状を選択したパーツから削ります。
+	</p>
+	</li>
+	</ul>
+	</li>
+
+	<h4>球体配置パラメータ(Spheres Parameter)</h4>
+	<li>半径(Radius)
+	球体の半径パラメータです。プレビュー中に変更できます。
+	</li>
+	</div>
+
+	<h4>ラッピング方法(Wrapping Method)</h4>
+	<li>タイプ(Type)
+	球体をラッピングする方法を選択します。
+	<ul>
+	<li>タイト(Tight)
+	<p>
+	球体全体を囲んで、ラッピング形状を作成します。
+	</p>
+	</li>
+	<li>凸形状(Convex)
+	<p>
+	球体全体を最小の凸形状で囲んで、ラッピング形状を作成します。
+	</p>
+	</li>
+	</ul>
+	</br>
+	</div>
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>プロセス(Process)で、球体配置(Spheres)を選択します。</li></br>
+	<li>フェース任意点(Face Point) / エッジ任意点(Edge Point) / 節点(Node)を選択して、球体の中心位置を指定します。球体のプレビューが表示されます。</li></br>
+	<li>必要に応じて、半径(Radius)を変更します。</li></br>
+	<ul>
+	<li>タイト(Tight) でラッピングする場合：球体で目的の形状を作るように、敷き詰めて配置します。</li></br>
+	<li>凸形状(Convex)でラッピングする場合：目的の形状の凸部位置に、球体を配置します。</li></br>
+	</ul>
+	<li>必要に応じて、不要な球体を削除したり、新しい球体を追加します。</li></br>
+	<li>実行(Apply)ボタンをクリックします。球体パーツが作成されます。</li></br>
+	<ul>
+	<li>球体パーツは、「Temp_Sphere」という名前のサブアセンブリツリーに追加されます。</li></br>
+	</ul>
+	<li>プロセス(Process)で、ブーリアン 和/差(Boolean +/-)を選択します。</li></br>
+	<li>タイプ(Type)を選択します。</li></br>
+	<ul>
+	<li>タイト(Tight) を選択した場合：球体全体を囲んで、ラッピング形状を作成します。</li></br>
+	<li>凸形状(Convex)を選択した場合：球体全体を最小の凸形状で囲んで、ラッピング形状を作成します。</li></br>
+	</ul>
+	<li>パーツ(Part)を選択します。球体のラッピング形状のプレビューが表示されます。</li></br>
+	<li>適用(Apply) / OKボタンをクリックします。</li></br>
+	<ul>
+	<li>ブーリアン 和(Boolean +)を選択した場合：球体をラッピングして、その形状を選択したパーツに盛ります。</li></br>
+	<li>ブーリアン 差(Boolean -)を選択した場合：球体をラッピングして、その形状を選択したパーツから削ります。</li></br>
+	</ul>
+	</ol>
+
+	<h3>-&nbsp注意事項&nbsp-</h3>
+	<ul>
+	<li>リメッシュサイズは、球体周りの選択パーツの平均メッシュサイズです。</li></br>
+	<li>ブーリアン 和/差(Boolean +/-)でメッシングエラーが発生した場合は、下記が考えられます。</li></br>
+	<ul>
+	<li>選択パーツに対して積み重ねた球体のサイズが大きい。</li></br>
+	<li>周囲のメッシュサイズに対して、積み重ねた球体が小さい。</li></br>
+	</ul>
+	<li>タイト(Tight)：任意形状に適用できます。球体を隙間なく配置する必要があります。パーツ選択時のラッピング時間は少し遅いです。リメッシュ時間は同等です。</li></br>
+	<li>凸形状(Convex)：曲面に配置する場合や、長手方向に曲がった配置には適用できません。球体の配置が凸部のみです。パーツ選択時のラッピング時間が早いです。リメッシュ時間は同等です。</li></br>
+	</ul>
+</div>
+
+</body>
+
+</html>

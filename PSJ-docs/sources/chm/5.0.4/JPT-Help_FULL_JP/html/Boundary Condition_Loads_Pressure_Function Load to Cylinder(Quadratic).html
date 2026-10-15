@@ -1,0 +1,102 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>圧力 | 円筒面に負荷(二次)</title>
+
+<style type="text/css">
+/* Link下線、非表示 */
+a.no-uline {text-decoration:none}
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>圧力 | 円筒面に負荷 (二次)</h2>
+<div class="contents">
+	<p>選択したフェースまたは要素面に2次関数分布に基づいた圧力荷重を定義します。</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Loads_Pressure_Function%20Load%20to%20Cylinder(Quadratic).png">
+
+ 　　 <h4>構造</h4>
+		<li><b>名前</b><br>
+			<p>圧力荷重条件の名前を入力します。</p></li>
+
+ 　　 <h4>二次曲線&nbsp;:&nbsp;<span style="font-style:italic; font-weight: bold;">y&#061;ax&sup2;&plus;b</span></h4>
+		<p>&nbsp;二次関数の設定をします。</p>
+		<br>
+		<li><b>a</b><br>
+			<p>2次関数のaを定義します。</p>
+		</li>
+		<li><b>b</b><br>
+			<p>2次関数のbを定義します。</p>
+		</li>
+		<li><b>入力単位系</b><br>
+			<p>入力単位を指定します。</p>
+		</li>
+		<li><b>荷重座標系</b><br>
+			<p>荷重適用範囲の角度を決定する座標系を選択します。</p>
+		</li>
+		<li><b>角度</b><br>
+			<p>荷重適用範囲を指定した座標系XY平面におけるY軸からの角度を入力します。</br>
+			荷重適用範囲は角度0～PIとなり、0°＜角度＜90°の範囲で入力します。<p>
+		</li>
+		<li><b>入力単位系</b><br>
+			<p>入力単位を指定します。</p>
+		</li>
+		<li><b>圧力方向</b><br>
+			<p>圧力荷重方向を指定します。</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>法線</b>&nbsp;：&nbsp;要素面垂直</li>
+				<li><b>ベクトル</b>&nbsp;：&nbsp;指定任意方向</li>
+				</span>
+			</ul>
+		</li>
+		<li><b>方向座標系</b><br>
+			<p>圧力方向が「ベクトル（指定任意方向）」の場合に、参照する座標系を選択します。</p>
+		</li>
+		<li><b>方向</b><br>
+			<p>圧力方向が「ベクトル（指定任意方向）」の場合に、方向ベクトルをX,Y,Zの順にカンマ区切りで入力します。</p>
+		</li>
+		</br>
+	<span style="font-weight:bold;">荷重適用範囲に含まれるサーフェース上に、2次関数を使用した圧力が負荷されます。奥行き方向は一定です。<br>
+	xには指定した座標系における要素中心X座標値を使用します。
+	</span>
+	<br>
+	<img src="./Media/Boundary%20Condition_Loads_Pressure_Function%20Load%20to%20Cylinder(Quadratic)_1.png" width="300" height="200">
+	
+	<h3>-&nbsp;操作手順&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;選択リストから、画面上から圧力荷重の対象となるフェースまたは要素面を選択します。(複数の選択が可能です)</li>
+		<li>&nbsp;荷重につける名前を入力します。</li>
+		<li>&nbsp;2次関数式のaとbの数値を入力します。</li>
+		<li>&nbsp;2次関数の荷重適用範囲の座標系、角度を指定します。</li>
+		<li>&nbsp;圧力方向がベクトルの場合、座標系と方向ベクトルを指定します。</li>
+		<li>&nbsp;適用またはOKボタンを押します。</li>
+		</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

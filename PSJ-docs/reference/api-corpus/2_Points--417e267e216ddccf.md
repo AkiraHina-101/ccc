@@ -1,0 +1,3 @@
+# 2 Points
+
+2 Points a.no-uline {text-decoration:none} 2 Points Measure the distance between two points. Output Distance &nbsp;&nbsp;&nbsp;Measurement result is displayed. Delta X &nbsp;&nbsp;&nbsp;X distance in the basic coordinate system. Delta Y &nbsp;&nbsp;&nbsp;Y distance in the basic coordinate system. Delta Z &nbsp;&nbsp;&nbsp;Z distance in the basic coordinate system. Input Unit &nbsp;&nbsp;&nbsp;Set the preferred unit system . -&nbsp;Operating Procedure&nbsp;- &nbsp;Choose two points from the screen. &nbsp;Distance in value and delta axial distance in the basic co-ordinate system will be displayed. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

@@ -1,0 +1,201 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>フィレットマップメッシング(Fillet Map Meshing)</title>
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+	<h2>フィレットマップメッシング(Fillet Map Meshing)</h2>
+<div class="contents">
+	<p>
+	パーツのフィレット面に対して、全自動マップメッシングを実行します。
+	</p>
+	<p>
+	<img src="./Media/Meshing_Local%20Meshing_Fillet%20Map%20Meshing_b.png" width="800"></br>
+	</p>
+	<p>
+	フィレット面の検索により、「Fillet_Face_*」という名前のフェースグループが作成されます。</br>
+	フィレットマップメッシングの実行により、FilletMapped_*」という名前のフェースグループが作成されます。
+	</p>
+	<p>
+	<img src="./Media/CommandDlg/Meshing_Local%20Meshing_Fillet%20Map%20Meshing_a.png" width="400"></br>
+	</p>
+	
+	<p>
+	<b>選択リスト(Selection list)</b>
+	</p>
+	<p>
+	パーツ(Part)：対象のパーツ</br>
+	フェース(Face)：検索されたフィレット面</br>
+	</p>
+	
+	<h4>検索(Search)</h4>
+	<li>円周の長さ(Arc Length)
+	<p>
+	検索するフィレットの円弧長さ範囲を入力します。</br>
+	</p>
+	</li>
+	<li>円周の半径(Arc Radius)
+	<p>
+	検索するフィレットの半径範囲を入力します。</br>
+	</p>
+	</li>
+	<p>
+	<img src="./Media/Meshing_Local%20Meshing_Fillet%20Map%20Meshing_c.png" width="200"></br>
+	</p>
+	<li>凸面体(Convex)
+	<p>
+	凸面フィレットを検索します。</br>
+	</p>
+	</li>
+	<li>凹面体(Concave)
+	<p>
+	凹面フィレットを検索します。</br>
+	</p>
+	</li>
+	<li>検索(Search)
+	<p>
+	フィレット面の検索を実行します。「Fillet_Face_*」というフェースグループが作成されます。</br>
+	</p>
+	</li>
+
+	<h4>マップメッシング(Map Meshing)</h4>
+	<li>レイヤー分割角度(Layer Angle)
+	<p>
+	レイヤ間角度です。これにより、円弧方向のレイヤ数が定義されます。</br>
+	</p>
+	<p>
+	<img src="./Media/Meshing_Local%20Meshing_Fillet%20Map%20Meshing_d.png" width="200"></br>
+	</p>
+	<p>
+	例）A = 30, B = 10</br>
+	<img src="./Media/Meshing_Local%20Meshing_Fillet%20Map%20Meshing_e.png" width="800"></br>
+	</p>
+	</li>
+	<h4 style="text-indent:2em">軸方向サイズ(Axis Size)</h4>
+	<li style="text-indent:2em">アスペクト比(Aspect Ratio)
+	<p>
+	マップメッシュの目標アスペクト比です。レイヤ数とこの値により、軸方向のメッシュ長が定義されます。
+	</p>
+	<p>
+	例）A = 3.0, B = 1.0</br>
+	<img src="./Media/Meshing_Local%20Meshing_Fillet%20Map%20Meshing_f.png" width="800"></br>
+	</p>
+	</li>
+	<li style="text-indent:2em">最小サイズ(Min Size)
+	<p>
+	軸方向のメッシュ長の最小値を設定するオプションです。
+	</p>
+	</li>
+	<li style="text-indent:2em">最大サイズ(Max Size)
+	<p>
+	軸方向のメッシュ長の最大値を設定するオプションです。
+	</p>
+	<p>
+	例）A = Off, B = On</br>
+	<img src="./Media/Meshing_Local%20Meshing_Fillet%20Map%20Meshing_g.png" width="800"></br>
+	</p>
+	</li>
+	<li style="text-indent:2em">最小メッシュ数(Min Mesh Count)
+	<p>
+	短いフィレットをスキップするオプションです。例えば2を入力すると、軸方向のメッシュ数が1以下になるフィレット面はスキップされます。
+	</p>
+	</li>
+	<li>Tri3 / Quad4(Tri3 / Quad4)
+	<p>
+	メッシュ種類の選択をします。</br>
+	</p>
+	</li>
+	<li>プレビュー(Preview)
+	<p>
+	プレビューを表示します。</br>
+	</p>
+	</li>
+
+	<h4>オプション(Option)</h4>
+	<li>1レイヤー設定_長さ(Single Layer_Length)
+	<p>
+	細いフィレットを1レイヤにするためのオプションです。入力値は円弧長さの閾値です。円弧長さがこの閾値より短いと、1レイヤになります。</br>
+	</p>
+	<li>1レイヤー設定_半径(Single Layer_Radius)
+	<p>
+	細いフィレットを1レイヤにするためのオプションです。入力値は円弧半径の閾値です。円弧半径がこの閾値より小さいと、1レイヤになります。</br>
+	</p>
+	<p>
+	例）A = Off, B = On</br>
+	<img src="./Media/Meshing_Local%20Meshing_Fillet%20Map%20Meshing_h.png" width="800"></br>
+	</p>
+	</li>
+	<li>最小レイヤー設定(Min Num Layers)
+	<p>
+	細最小レイヤ数を設定するオプションです。例えばレイヤ間の角度では1レイヤと計算されても、このオプションに3が入力されている場合、3レイヤになります。</br>
+	</p>
+	<p>
+	例）A = Off, B = On</br>
+	<img src="./Media/Meshing_Local%20Meshing_Fillet%20Map%20Meshing_i.png" width="800"></br>
+	</p>
+	</li>
+	<li>リファレンス設定(Create Reference)
+	<p>
+	元の形状を保存するため、メッシング実行時にリファレンスパーツを作成します。</br>
+	</p>
+	</li>
+	<li>ローカルメッシュ設定を使用する(Use Local Mesh Setting)
+	<p>
+	ローカルメッシュ設定が使用されます。参照される設定は、フェースのメッシュサイズとエッジのメッシュ数、フリーズです。</br>
+	</p>
+	</li>
+	<li>複雑面をスキップ(Skip complex face)
+	<p>
+	複雑なフィレット面をスキップします。</br>
+	</p>
+	</li>
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>パラメータを設定します。</li></br>
+	<li>パーツ(Part)を選択します。</li></br>
+	<li>[スキップ可] 検索(Search)ボタンをクリックします。</br>
+	フィレットフェースが検索されます。「Fillet_Face_*」という名前のフェースグループが作成されます。</li></br>
+	<li>プレビューで事前確認し、必要に応じてパラメータを修正します。</li></br>
+	<li>適用(Apply)/OKボタンをクリックします。</br>
+	フィレットマップメッシングが実行されます。「FilletMapped_*」という名前のフェースグループが作成されます。</li></br>
+	</ol>
+
+	<h3>-&nbsp操作手順(全体メッシングの前処理)&nbsp-</h3>
+	<ol>
+	<li>CADパーツに上記の操作手順を実行し、フェースグループ「FilletMapped_*」をローカル設定でフリーズします。</li></br>
+	<li>サーフェースメッシングを実行します。</li></br>
+	<li>必要に応じて、ローカル設定のフリーズを削除し、メッシュを修正します。</li></br>
+	</ol>
+	
+	<h3>-&nbsp注意事項&nbsp-</h3>
+	<ul>
+	<li>フィレットが曲がっている場合、長手方向をフィレットの軸、短手方向をフィレットの円弧と定義しています。</br>
+	<img src="./Media/Meshing_Local%20Meshing_Fillet%20Map%20Meshing_j.png" width="400"></li></br>
+	<li>フィレット周りのファセットやメッシュが大きい場合、フィレットマップメッシングによって、その範囲の形状が崩れることがあります。</br>CADに実行する場合は、CADインポートパラメータの最大ファセット長を設定することを推奨します。</br>
+	<img src="./Media/Meshing_Local%20Meshing_Fillet%20Map%20Meshing_k.png" width="400"></li></br>
+	<li>フィレット検索能力は、CADモデルに対しての方が、メッシュモデルよりも優れています。</li></br>
+	<li>複雑なフィレット形状はスキップされることがあります。</li></br>
+	</ul>
+
+</div>
+
+</body>
+
+</html>

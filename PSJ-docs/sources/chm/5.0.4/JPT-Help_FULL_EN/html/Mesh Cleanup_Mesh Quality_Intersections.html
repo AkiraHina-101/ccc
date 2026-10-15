@@ -1,0 +1,82 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>Mating Face</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</head>
+
+
+<body>
+	<div class="page">
+		<h2>Intersections</h2>
+	<div class="contents">
+		<p>For Element intersection error detection.</p>
+
+	<img src="./Media/CommandDlg/Mesh%20Cleanup_Mesh%20Quality_Intersections.png">
+	
+	<h4>Number of Edges</h4>
+		<li><b>Tolerance</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Set the Tolerance for element intersection display.</p>
+		<li><b>Number of Element</b></li>
+			<p>&nbsp;&nbsp;&nbsp;It displays the element number of elements intersection.</p>
+		<li><b>Display Type</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Select the type of elements intersection display.</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>Body Intersection Only</b>&nbsp;:&nbsp;It displays the element intersection on the Part.</li>
+				<li><b>All Intersection</b>&nbsp;:&nbsp;The element intersection section between parts and on part is displayed.</li>
+				<li><b>Between Bodies Intersection</b>&nbsp;:&nbsp;It displays the element intersection only between parts. </li>
+				</span>
+			</ul>
+		</br>
+							
+	<h4>Layers</h4>
+		<li><b>Number of Layers</b></li>
+		<p>&nbsp;&nbsp;&nbsp;Set the number of layers for mesh display around the element intersection position.</li>
+		<li><b>Layer Update</b></li> 
+		<p>&nbsp;&nbsp;&nbsp;To update the number of display layer.</li>
+	<h4>Auto Cleanup</h4>
+		<li><b>Cleanup</b></li>
+		<p>&nbsp;&nbsp;&nbsp;Intersecting parts will be automatically corrected.<br>
+		<li><b>Aggressive Cleanup</b></li>
+		<p>When checked, the function will clean up mesh quality over shape reproducibility.<br>
+	<h4><b>Output Options</h4>
+		<li>Error Test</b></li>
+		<p>&nbsp;&nbsp;&nbsp;When it is turned on, the information of intersection is output to the Output window with the Text data and the Temp folder of Install Path.</li>
+						
+	<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;Select the Part to be checked.</li>
+			<li>&nbsp;Change the Tolerance and Display Type, if necessary.</li>
+			<li>&nbsp;Click the Apply or OK button.</li>
+			<li>&nbsp;After checking, click the Reset to Normal Display Mode icon <img src="./Media/MainWindow_icon/image059.png"align="Bottom">&nbsp;in the main window to return to the original display.</li>
+     	</ol>
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+	</div>
+</body>
+
+</html>
+

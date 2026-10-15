@@ -1,0 +1,56 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>MC_Mesh_Quality_Auto_Check_Tri</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>MC_Mesh_Quality_Auto_Check_Tri</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Mesh_Quality_Auto_Check_Tri</p>
+<h4>Syntax</h4>
+<p>MC_Mesh_Quality_Auto_Check_Tri(Cursor[] Part Cursor,Cursor[] Face Cursor,Cursor[] Element Cursor,int nElemType,bool nStretchCheck,bool nAspectRatioCheck,bool nEdgeLengthCheck,bool nAreaCheck,bool nNodeValenceCheck,bool nInteriorAngleCheck,bool nDuplicateElemsCheck,double dStretchLimitValue,double dAspectRatioLimitValue,double dEdgeLengthLimitValue,double dAreaLimitValue,double dNodeValenceLimitValue,double dInteriorAngleLimitValue
+)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>Cursor[]<p>Part Cursor([3:*]*=Part ID)</p></li>
+<li>Cursor[]<p>Face Cursor([6:*]*=Face ID)</p></li>
+<li>Cursor[]<p>Element Cursor([11:*]*=Element ID)</p></li>
+<li>int<p>Elem Type(0-Tri Element)</p></li>
+<li>bool<p>Stretch Check flag,true = 1,false=0</p></li>
+<li>bool<p>AspectRatio Check flag,true = 1,false=0</p></li>
+<li>bool<p>EdgeLength Check flag,true = 1,false=0</p></li>
+<li>bool<p>Area Check flag,true = 1,false=0</p></li>
+<li>bool<p>NodeValence Check flag,true = 1,false=0</p></li>
+<li>bool<p>InteriorAngle Check flag,true = 1,false=0</p></li>
+<li>bool<p>DuplicateElems Check flag,true = 1,false=0</p></li>
+<li>double<p>Stretch limit value</p></li>
+<li>double<p>AspectRatio limit value</p></li>
+<li>double<p>EdgeLength limit value</p></li>
+<li>double<p>Area limit value</p></li>
+<li>double<p>NodeValence limit value</p></li>
+<li>double<p>InteriorAngle limit value</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<p>It returns a string separated by commas contains 2 values.</p>
+<ol>
+<li><p>Succeeded:1 Failed: 0</p></li>
+<li><p>Number of failed elements within selected metrics limit value</p></li>
+</ol>
+<h4>Sample Code</h4>
+<p>MC_Mesh_Quality_Auto_Check_Tri([3:1], [], [], 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 10, 0.0001, 1e-08, 10, 0.174533)</p>
+</div>
+</div>
+</body>
+</html>

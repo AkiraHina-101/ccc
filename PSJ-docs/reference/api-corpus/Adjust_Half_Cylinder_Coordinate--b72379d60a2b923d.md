@@ -1,0 +1,3 @@
+# Adjust Half Cylinder | Coordinate
+
+Adjust Half Cylinder | Coordinate a.no-uline {text-decoration:none} Adjust Half Cylinder | Coordinate This command is used to adjust the split position of the cylinder face for example the bolt or bolt hole. By using this function, unevenly meshing caused by the difference of split positions can be avoided. -&nbspOperating Procedure&nbsp- &nbspSelect the target face for adjusting the split position. &nbspSelect the reference coordinate system from the pull-down list. &nbspSelect the reference coordinate plane for adjustment. &nbspClick the Apply/OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

@@ -1,0 +1,92 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>MPC Equation | Multi-Nodes</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>MPC Equation | Multi-Nodes</h2>
+	<div class="contents">
+	<p>
+	It is a function to create MPC between multiple nodes.
+	</p>
+	<p>
+	<img src="./Media/Connections_Details_MPC_Equation_Multi-Nodes.PNG">
+	</p>
+
+	<h4>Multi-Nodes</h4>
+	<li>Name
+	<p>
+	Enter the name to be registered.
+	</p>
+	</li>
+
+	<h4>Parameters</h4>
+	<li>Coordinate
+	<p>
+	Select a reference coordinate system.
+	</p>
+	</li>
+
+	<h4>Term</h4>
+	<li>Table
+	<p>
+	Display the MPC setting table.
+	</p>
+	<p>
+	<img src="./Media/Connections_Details_MPC_Equation_Multi-Nodes_2.PNG">
+	</p>
+	<h4>Constant term</h4>
+	<p>
+	Specify a constant term in the factor field.
+	</p>
+	<h4>Slave term</h4>
+	<p>
+	Specify the degrees of freedom and coefficients of slave nodes.
+	</p>
+	<h4>Master terms</h4>
+	<p>
+	Specify the degrees of freedom and coefficients of master nodes.</br>
+	Within this table, it is possible to use copy and paste by right clicking on the DOF cell and the coefficient cell.</br>
+	In addition, we also support shortcut keys. Copy: Ctrl + C, Paste (Paste): Ctrl + V
+	</p>
+<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li>Select all<p>Select (check on) the list of all master nodes.</p></li>
+	<li>Deselect all<p>Deselect (check off) the list of all master nodes.</p></li>
+	<li>Selection state switching<p>Switch the selected state (check on / off).</p></li>
+	<li>Make slave node<p>If any node is selected (checked) and you click the button, the selected node will be the slave node.</p></li>
+	<li>Set All<p>Change the degrees of freedom and coefficients of all master nodes collectively.</p></li>
+	</span>
+	</ul>
+	</li>
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+		<ol>
+			<li>&nbsp;Select multiple nodes.</li>
+			<li>&nbsp;Open the table from the table button.</li>
+			<li>&nbsp;Set the constants, slave nodes and master nodes and close the table with the close button.<br>
+			&nbsp;To change the slave node, select the node you want to change in the master terms and press the S button.<br>
+			&nbsp;For example&nbsp;&nbsp; 1 * U1X(Node 1's X) + (-1) * U2X(Node 2's X) = 0.2&nbsp;&nbsp;If you want to set the equation, set as shown below.<br>
+			<img src="./Media/Connections_Details_MPC_Equation_Multi-Nodes_3.PNG"></li>
+						<li>&nbsp;Click the Apply / OK button.</li>
+		</ol>
+
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

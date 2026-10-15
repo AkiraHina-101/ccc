@@ -1,0 +1,3 @@
+# Surface Flux
+
+Surface Flux Surface Flux Define the heat flux to the selected face or element surface. Thermal Name Set the surface heat flux load name. Value Surface Flux Enter the surface heat flux value. Input Unit Specify the input unit system. Tables Select Table &nbsp;&nbsp;&nbsp;Select the table defined in Field data . -&nbspOperating Procedure&nbsp- &nbspSelect a face or element surface to apply the centralized heat flux. You can have multiple selections. &nbspEnter the centralized heat flux value in Surface Flux. &nbspChange the other parameters as needed. &nbspClick the Apply or OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

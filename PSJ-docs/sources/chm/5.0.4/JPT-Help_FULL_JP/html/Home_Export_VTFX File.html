@@ -1,0 +1,126 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>VTFXファイル出力</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>VTFXファイル出力</h2>
+<div class="contents">
+	<p>アクティブになっているドキュメントのジオメトリー情報、もしくはジオメトリー情報と選択した結果情報をWeb Viewer向けフォーマット(*.vtfx)で出力します。</p>
+
+	<img src="./Media/CommandDlg_JP/Home_Export_VTFX%20File_1.png"width=600>
+
+	<h4>パス設定</h4>
+	<li><b>モデル名</b></li>
+		<p>&nbsp;&nbsp;&nbsp;出力するデータのファイル名を入力します。ブランクのまま実行すると、エラーメッセージが表示されて実行がキャンセルされます。
+</p>	
+	</li>
+	<li><b>出力フォルダのパス</b></li>
+		<p>&nbsp;&nbsp;&nbsp;データの出力先を入力します。ブランクのまま実行すると、エラーメッセージが表示されて実行がキャンセルされます。
+</p>	
+	</li>
+		<h4>オプション</h4>
+	<li><b>モデルタイプ</b></li>
+		<p>&nbsp;&nbsp;&nbsp;出力するモデルの種類を選択します。
+</p>	
+	</li>
+	
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li>Pre<p>ジオメトリー情報だけが出力されます。</p></li>
+	<li>Post<p>ジオメトリー情報と、選択した結果情報が出力されます。</p></li>
+	</span>
+	</ul>
+	<li><b>バーパーツを除く</b></li>
+	<p>&nbsp;&nbsp;&nbsp;チェックを入れるとバーパーツを出力しません。
+	</p>
+	<li><b>サーフェース情報のみ出力</b></li>
+	<p>&nbsp;&nbsp;&nbsp;チェックを入れると3D要素および、3D要素の結果を出力しません。
+	</p>
+	<li><b>出力データ位置コントロールボタン</b></li>
+	<p>&nbsp;&nbsp;&nbsp;モデルタイプがPostの時のみ表示されます。ボタンをクリックすると、データ位置コントロールダイアログが開き、2D要素(シェル)の結果表示位置を指定できます。
+	</p>
+	
+	<img src="./Media/Home_Export_VTFX%20File_1.png">
+	
+	<h4>2D要素データ</h4>
+	<li><b>上面 / 下面 / 平均</b></li>
+		<p>&nbsp;&nbsp;&nbsp;2D要素上の結果表示位置を指定します。
+</p>	
+	</li>
+	<li><b>データ位置</b></li>
+		<p>&nbsp;&nbsp;&nbsp;解析結果に選択可能なデータ位置がある場合、プルダウンメニューから選択できます。
+</p>	
+	</li>
+	<h4>結果選択リスト</h4>
+		<p>&nbsp;&nbsp;&nbsp;モデルタイプがPostの時のみ表示されます。ResultウインドウのResult Treeが反映され、チェックを入れた解析結果が出力されます。
+</p>	
+	</li>
+	
+	<img src="./Media/Home_Export_VTFX%20File_2.png"width=800>
+	
+	<p>&nbsp;&nbsp;&nbsp;ツリー上で右クリックをすると、右クリックメニューが2種類表示されます。
+</p>	
+	
+	<li><b>全ステップの結果を選択</b></li>
+		<p>&nbsp;&nbsp;&nbsp;右クリックした結果について、すべてのステップで同じ結果にチェックを入れます。
+</p>	
+	</li>
+	<li><b>全ステップの結果選択を解除</b></li>
+		<p>&nbsp;&nbsp;&nbsp;右クリックした結果について、すべてのステップで同じ結果のチェックを外します。
+</p>	
+	</li>
+	
+	<h3>-&nbsp操作手順(モデルタイプPre)&nbsp-</h3>
+		<ol>
+			<li>&nbsp;モデル名とモデル出力パスを指定します。</li>
+			<li>&nbsp;モデルタイプでPreを選びます。</li>
+			<li>&nbsp;必要に応じてオプションにチェックをいれます。</li>
+			<li>&nbsp;適用またはOKボタンをクリックします。</li>
+		</ol>
+	<h3>-&nbsp操作手順(モデルタイプPost)&nbsp-</h3>
+		<ol>
+			<li>&nbsp;モデル名とモデル出力パスを指定します。</li>
+			<li>&nbsp;モデルタイプでPostを選びます。</li>
+			<li>&nbsp;必要に応じてオプションにチェックをいれます。</li>
+			<li>&nbsp;シェルの結果がある場合、出力データ位置コントロールボタンをクリックして、結果表示位置を指定します。</li>
+			<li>&nbsp;出力したい解析結果にチェックをいれます。</li>
+			<li>&nbsp;適用またはOKボタンをクリックします。</li>
+		</ol>
+	<h3>-&nbsp注意事項&nbsp-</h3>
+		<ol>
+			<li>&nbsp;現在のバージョンでは、Solid Principal Stressは出力しません。Jupiter上では最大主応力と最小主応力のベクトルを同時表示する結果ですが、Web Viewer V1.1では二つのベクトルを同時表示に対応しておりません。Web Viewerでのベクトル表示が対応になり次第、出力対応致します。</li>
+			<li>&nbsp;Solid Trescaは、Preference > Save/Load > Post > Tresca Stressオプションにチェックが入っている場合に出力します。</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

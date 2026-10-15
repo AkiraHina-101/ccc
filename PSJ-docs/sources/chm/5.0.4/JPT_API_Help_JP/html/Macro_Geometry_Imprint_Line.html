@@ -1,0 +1,38 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Imprint_Line</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>Imprint_Line</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create imprint line(Points)</p>
+<h4>Syntax</h4>
+<p>Imprint_Line(double[] Point_xyz,bool BreakFace,Cursor[] BodyCursor)
+</p>
+<h4>Inputs</h4>
+<ol>
+<li>double[]<p>Point xyz [[x1,y1,z1],[x2,y2,z2],[x3,y3,z3]]</p></li>
+<li>bool<p>Flag true = 1,false=0</p></li>
+<li>Cursor[]<p>Body Cursor([3:*]*=Body ID)</p></li>
+</ol>
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>Imprint_Line([[0.00555556, 0.00333333, 0.01], [0.00555556, 0.00666667, 0.01]], 1, [3:1])
+</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>共有面</title>
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>共有面</h2>
+<div class="contents">
+	<p>
+	共有面からNX Nastran用接触設定を定義します。<br>
+	共有面が分離(二重節点状態のフェースが作成)され、そのフェース間に接触対が定義されます。
+	</p>
+
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_NX%20Nastran_Contact%20Share%20Face.png">
+
+      <h4>基本</h4>
+
+　　　<li>名前
+	<p>
+	接触対名称の頭に付ける名称を入力します。
+	</p>
+　　　</li>
+
+　　　<li>アルゴリズム
+	<p>
+	接触設定対象エンティティを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;フェース-フェース: フェース対フェース間接触
+	</p>
+　　　</li>
+
+　　　<li>タイプ
+	<p>
+	接触定義の挙動タイプを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;一般接触: 滑り接触<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;固着: 固着
+	</p>
+　　　</li>
+
+　　　<li>情報表示
+	<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;情報表示: 選択された共有面に関連するパーツ名が表示されます。<br>
+	<img src="./Media/Connections_Contacts_Contacts_NX%20Nastran_Contact%20Share%20Face_1.png"><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;パーツをハイライト: 選択された共有面に関連するパーツがハイライト表示されます。<br>
+	</p>
+　　　</li>
+
+
+      <h4>コンタクトプロパティ｜一般接触</h4>
+
+　　　<li>法線ペナルティ係数
+	<p>
+	法線ペナルティ係数を入力します。
+	</p>
+　　　</li>
+
+　　　<li>接線ペナルティ係数
+	<p>
+	接線ペナルティ係数を入力します。
+	</p>
+　　　</li>
+
+　　　<li>力収束トレランス
+	<p>
+	力の収束許容値を入力します。
+	</p>
+　　　</li>
+
+　　　<li>力の最大反復数
+	<p>
+	力ループの最大反復数を入力します。
+	</p>
+　　　</li>
+
+　　　<li>ステータスの最大反復数
+	<p>
+	ステータスの最大反復数を入力します。<br>
+	</p>
+　　　</li>
+
+　　　<li>番号を変更
+	<p>
+	コンタクトチェンジ許容回数を入力します。<br>
+	</p>
+　　　</li>
+
+　　　<li>最小接触率
+	<p>
+	最小接触率を入力します。
+	</p>
+　　　</li>
+
+　　　<li>シェル板厚
+	<p>
+	シェル板厚を含めるかどうか指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;含める: シェル板厚を含める<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;含めない: シェル板厚を含めない
+	</p>
+　　　</li>
+
+　　　<li>接触ステータス
+	<p>
+	接触の状態を指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;前回: 以前の状態<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;初期: 初期の状態
+	</p>
+　　　</li>
+
+　　　<li>初期ギャップ/貫通量
+	<p>初期開き／貫通の状態を指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;修正なし: モデル通り<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;貫通量をリセット: 貫通のみリセット<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;両方をリセット: 開き／貫通ともにリセット
+	</p>
+　　　</li>
+
+　　　<li>最小検索範囲
+	<p>
+	最小検索範囲を入力します。
+	</p>
+　　　</li>
+
+　　　<li>最大検索範囲
+	<p>
+	最大入力範囲を入力します。
+	</p>
+　　　</li>
+
+　　　<li>摩擦係数
+	<p>
+	摩擦係数を入力します。
+	</p>
+　　　</li>
+
+　　　<li>領域細分化
+	<p>
+	領域の設定を行います。<BR>
+	&nbsp;&nbsp;&nbsp;&nbsp;細分化：改善する。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;細分化なし：改善しない。
+	</p>
+　　　</li>
+　　　
+　　　<li>評価ポイント
+	<p>
+	評価ポイントを指定します。<BR>
+	&nbsp;&nbsp;&nbsp;&nbsp;低：低<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;中：中<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;高：高
+	</p>
+　　　</li>
+
+      <h4>コンタクトプロパティ｜固着</h4>
+
+　　　<li>領域細分化
+	<p>
+	領域の設定を行います。<BR>
+	&nbsp;&nbsp;&nbsp;&nbsp;細分化：改善する。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;細分化なし：改善しない。
+	</p>
+　　　</li>
+　　　
+　　　<li>評価ポイント
+	<p>
+	評価ポイントを指定します。<BR>
+	&nbsp;&nbsp;&nbsp;&nbsp;低：低<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;中：中<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;高：高
+	</p>
+　　　</li>
+
+
+　　　<li>検索範囲
+	<p>
+	接触を検索する範囲を入力します。
+	</p>
+　　　</li>
+
+　　　<li>ペナルティ比例係数
+	<p>
+	ペナルティ比例係数を入力します。
+	</p>
+　　　</li>
+
+
+      <h4>色設定</h4>
+
+　　　<li>接触の色
+	<p>
+	接触対表示マーカー色を定義します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;リセット: デフォルト色に初期化
+	</p>
+　　　</li>
+
+
+
+<h3>-&nbsp;操作手順&nbsp;-</h3>
+      <ol>
+　　　<li>予めアセンブリ機能により共有面を作成し、共有面を表示しておきます</li>
+　　　<li>接触を定義したい共有面となるフェースを選択します。</li>
+　　　<li>必要により接触対に対する詳細設定を定義し、適用（OK）ボタンをクリックして接触対を定義します。</li>
+      </ol>
+	<p>
+	共有面が分離(二重節点状態のフェースが作成)され、そのフェース間に接触対が定義されます。
+	</p>
+<br>
+<br>
+      
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

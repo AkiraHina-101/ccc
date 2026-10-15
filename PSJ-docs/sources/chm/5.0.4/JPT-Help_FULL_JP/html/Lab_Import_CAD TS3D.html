@@ -1,0 +1,72 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>インポートCAD TS3D</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>インポートCAD TS3D</h2>
+<div class="contents">
+	<p>
+	CADデータをJupiterに読み込みます。新しいインポートCAD機能の試用版として提供されます。<br>
+	*以後のバージョンで機能変更もしくは廃止される可能性があります。<br>
+	</p>
+
+	<img src="./Media/CommandDlg/PreRelease_ImportCAD_TS3D.png">
+	
+	<h4>ファイルパス</h4>
+	<p>&nbsp;&nbsp;&nbsp;CADデータファイルを検索し、選択します。</p>
+	</li>
+
+	<h4>テッセレーションレベル</h4>
+	<p>&nbsp;&nbsp;&nbsp;CADデータをインポートする際のパラメーターを設定します。<br>
+    </p>
+	<li><b>中間</b>
+	<p>&nbsp;&nbsp;&nbsp;読み込んだCADモデルのフェースを構成する要素(ファセット)が、中密度になるように分割数を調整します。<br>
+    </p>
+	<li><b>密</b>
+	<p>&nbsp;&nbsp;&nbsp;読み込んだCADモデルのフェースを構成する要素(ファセット)が、高密度になるように分割数を調整します。 <br>	
+    </p>
+	<li><b>超高密</b>
+	<p>&nbsp;&nbsp;&nbsp;読み込んだCADモデルのフェースを構成する要素(ファセット)が、超高密度になるように分割数を調整します。<br>
+    </p>
+	<li><b>Tri要素エッジ最大長さ</b>
+	<p>&nbsp;&nbsp;&nbsp;有効にした場合、 CADモデルのフェースを構成する三角形1次要素の最大要素エッジの長さを指定します。単位はmmです。<br>
+    </p>
+	<li><b>自動ステッチトレランス</b>
+	<p>&nbsp;&nbsp;&nbsp;有効にした場合、自動ステッチのトレランス値を設定します。単位はmmです。<br>
+    </p>
+
+<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+		<li>&nbsp;CADデータファイルを選択します。</li>
+		<li>&nbsp;必要に応じてテッセレーションレベルの設定を変更します。</li>
+		<li>&nbsp;適用/OKボタンをクリックします。</li>
+	</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

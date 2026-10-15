@@ -1,0 +1,151 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>グリッドメッシュ</title>
+
+<style>
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>グリッドメッシュ</h2>
+<div class="contents">
+	<p>このコマンドは単純な四角形形状はもちろん、複雑な形状にも格子状メッシュ（マップトメッシュ）を作成します。</br></br>
+
+	
+	<img src="./Media/CommandDlg/Meshing_Local%20Meshing_GridMesh1.png">
+	<!--<img src="./Media/CommandDlg/Meshing_Local Meshing_Fillet_Mapped3.png">-->
+	
+	<h4>フェース形状</h4>
+		<li><b>操作</b>
+			<p>&nbsp;&nbsp;&nbsp;入力するフェースのタイプを選択します（四角形または三角形またはディスク）</br>&nbsp;&nbsp;&nbsp;※注意：三角形を選択した場合、Quad4をメッシングに使用できません
+</p>
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li>三角形</li>
+	</span>
+	</ul>
+	<img src="./Media/Meshing_Local Meshing_GridMesh2.png">
+
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li>四角形</li>
+	</span>
+	</ul>
+	<img src="./Media/Meshing_Local Meshing_GridMesh2-2.png">
+
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li>ディスク</li>
+	</span>
+	</ul>
+	<img src="./Media/Meshing_Local Meshing_GridMesh2-3.png">
+
+
+	<p>&nbsp;&nbsp;&nbsp;選択したバーテックスを変更する方法：</br>&nbsp;&nbsp;&nbsp;推奨バーテックスを変更したい場合は、ディスプレイ上の赤い点をクリックし、変更先のバーテックスを選択します。 </p></li>
+	<li>自動
+	<p> フェースタイプを自動(頂点数やエッジ数)で判断します。理想のフェースタイプと異なる場合は、手動でフェースタイプを変更してください。</p>
+	</li>
+
+	<h4>要素数</h4>
+		<li><b>X </b>
+		<p>&nbsp;&nbsp;&nbsp;X方向の要素数（Xの長さはYより短い）</p></li>
+		<li><b>Y </b>
+			<p>&nbsp;&nbsp;&nbsp;Y方向の要素数（Xの長さはYより短い）</p>
+			<p>&nbsp;&nbsp;&nbsp;エッジを選択することで、分割数を選択エッジ側に合わせることができます。</p>
+			<p>四角形</p>
+			<img src="./Media/Meshing_Local Meshing_GridMesh_EdgeSelection_Rect1.PNG">
+			<img src="./Media/Meshing_Local Meshing_GridMesh_EdgeSelection_Rect3.PNG">
+			<img src="./Media/Meshing_Local Meshing_GridMesh_EdgeSelection_Rect4.PNG">
+			<p>ディスク</p>
+			<img src="./Media/Meshing_Local Meshing_GridMesh_EdgeSelection_Disk1.PNG">
+			<img src="./Media/Meshing_Local Meshing_GridMesh_EdgeSelection_Disk2.PNG">
+			<img src="./Media/Meshing_Local Meshing_GridMesh_EdgeSelection_Disk3.PNG">
+		</li>
+		<li><b>固定</b>
+			<p>&nbsp;&nbsp;&nbsp;別のフェースを選択するときにXとYの要素数を固定します。</p></li>
+	<img src="./Media/Meshing_Local Meshing_GridMesh3.png">
+			<p>&nbsp;&nbsp;&nbsp;チェックボックスがチェックされていない場合：この機能は、ローカルメッシュ設定または選択したエンティティの形状から分割数を自動的に推奨します。</p></li>
+	<img src="./Media/Meshing_Local Meshing_GridMesh4.png">
+			<p>&nbsp;&nbsp;&nbsp;チェックボックスがチェックされている場合：新しいエンティティを選択した後にも固定した分割数が保持されます。</p></li>
+	<img src="./Media/Meshing_Local Meshing_GridMesh5.png">
+
+
+	<h4>遷移領域</h4>
+		<li><b>隣接フェース</b>
+			<p>&nbsp;&nbsp;&nbsp;周囲のフェースに遷移領域を作成します（選択されたフェースの境界の周りに1層のみの遷移要素があり、この層の位置は選択フェースの境界線の外側にあります）。</p></li>
+		<li><b>ターゲットフェース</b>
+			<p>&nbsp;&nbsp;&nbsp;選択したフェースのメッシュのみを変更します（他のフェースのメッシュを維持する）。</p></li>
+	<img src="./Media/Meshing_Local Meshing_GridMesh6.png">
+
+
+	<h4>グリッドメッシュタイプ</h4>
+		<li><b>三角形</b>
+			<p>&nbsp;&nbsp;&nbsp;三角形要素を生成します（Tri3要素）。</p></li>
+		<li><b>四角形</b>
+			<p>&nbsp;&nbsp;&nbsp;四角形要素を生成します（Quad4要素）。</p></li>
+
+
+	<h4>複数選択</h4>
+		<li><b>独立</b>
+			<p>&nbsp;&nbsp;&nbsp;選択されたフェースに各々のメッシュを生成。</p></li>
+		<li><b>マージ</b>
+			<p>&nbsp;&nbsp;&nbsp;選択したフェースが連続したフェースの場合、フェースは1つのフェースにマージされ、この結合されたフェースのメッシュが生成されます。</br>&nbsp;&nbsp;&nbsp;※注意：マージ後、マージされたフェースには、選択されたフェースのIDの内、最も小さいIDが表示されます</p></li>
+	<img src="./Media/Meshing_Local Meshing_GridMesh7.png">
+
+	<h4>フリップ要素</h4>
+			<p>&nbsp;&nbsp;&nbsp;メッシュの品質をより良くするためにメッシュパターンを変更します。</br>&nbsp;&nbsp;&nbsp;※注意：このオプションは、三角形要素（Tri3）にのみ使用できます。</p>
+		<li><b>なし</b>
+			<p>&nbsp;&nbsp;&nbsp;このオプションを使用しない。</p></li>
+		<li><b>1 レイヤー</b>
+			<p>&nbsp;&nbsp;&nbsp;選択したフェースの境界付近の1層のメッシュを変更します（この層の位置は選択フェースの境界内にあります）
+		<li><b>すべて</b>
+			<p>&nbsp;&nbsp;&nbsp;選択したフェースのすべての要素を変更します。</p>
+	<img src="./Media/Meshing_Local Meshing_GridMesh8.png">
+
+
+	<h4>アドバンストオプション</h4>
+		<li><b>グリッドメッシュグループ追加</b>
+			<p>&nbsp;&nbsp;&nbsp;GridMeshFacesグループにメッシュフェースを追加します。</p></li>
+		<li><b>ローカルメッシュ設定を使用</b>
+			<p>&nbsp;&nbsp;&nbsp;ローカルメッシュ設定を使用</br>&nbsp;&nbsp;&nbsp;※注意：エッジのメッシュ数とフェースのメッシュサイズのみを使用できます（フェースのメッシュサイズを優先します）。</p></li>
+		<li><b>プレビュー</b>
+			<p>&nbsp;&nbsp;&nbsp;プレビューとして一時的な結果を表示します（メッシュの最終結果ではありません）。</p></li>
+		<li><b>CADプロジェクション</b>
+			<p>&nbsp;&nbsp;&nbsp;グリッドメッシュをリファレンスの表面にプロジェクション(投影)します<br>
+			&nbsp;&nbsp;&nbsp;投影先は最もIDが小さい(古い)リファレンスです。ただし、Jupiter機能で中立面を作成したパーツは、投影先のリファレンスは「*_MidPlane」になります。</p></li>
+			&nbsp;&nbsp;&nbsp;リファレンスからマージフェースなどでエッジやフェースの構成が変わっていると、元の構成を追従せず最短距離のみで動きます。エッジ崩れの原因になりますのでご注意ください。</p></li> 
+			
+	<h3>-&nbsp;操作手順&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;操作からフェースの形状タイプを選択します。もしくは自動をONにします。</li>
+		<li>&nbsp;対象となるフェースを一つまたは複数選択します。周りの要素分割状況に合わせて、X,Y方向の要素分割数の推奨値が表示されます。</li>
+		<li>&nbsp;要素数のX,Yに希望する要素分割数を入力します。また、分割数を作業中に固定したい場合には、固定チェックボックスをチェックします</li>
+		<li>&nbsp;必要に応じて、繊維領域、グリッドメッシュタイプ、複数選択、フリップ要素、アドバンストオプションを設定します。</li>
+		<li>&nbsp;適用またはOKボタンをクリックします。</li>
+		</ol>
+
+	<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

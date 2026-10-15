@@ -1,0 +1,52 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Lbc_Bolt_Modeling_Type_B_Edge</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>Lbc_Bolt_Modeling_Type_B_Edge</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create Lbc TypeB Bolt Edge method</p>
+<h4>Syntax</h4>
+<p>Lbc_Bolt_Modeling_Type_B_Edge(Cursor taEdgeCur1,TCursor taEdgeCur2,CString strRbeName,CString strBarName,int nShaftType,Cursor curBarProperty,double dPlaneTol,double dMaxBoltHeight,bool bPretensionLoad,int nSolverType,double dForceValue,int nPreTenDof,Cursor curCoord,int nBoltFixLength,int nTopSlot,double dRBE1,double dRBE2,double dBotDtDia,double dPitch,int nBotRbeConnType, bool IsCreate2ADVCStaticProcessForFixLength)</p>
+<h4>Inputs</h4> <ol>
+<li>Cursor[]<p>circular edges in top side</p></li>
+<li>Cursor[]<p>circular edges in bottom side</p></li>
+<li>String<p>name of Rbe</p></li>
+<li>String<p>name of BarBody</p></li>
+<li>int<p>Connection type, 0: cbar, 1: rbe2</p></li>
+<li>Cursor<p>bar property cursor</p></li>
+<li>double<p>Plane tolerance angle around the selected edge.Used in finding slave nodes around the selected edge</p></li>
+<li>double<p>Maximum distance between top and bottom rbe</p></li>
+<li>bool<p>PretensionLoad flag,0=false,1=true</p></li>
+<li>int<p>Type of pretension Solver,0=All option pretension,1=Abaqus pretension</p></li>
+<li>double<p>force value.Used in pretension connection</p></li>
+<li>int<p>Pretension DoF at target</p></li>
+<li>Cursor<p>referred coordinate system, NULL is global</p></li>
+<li>int<p>BoltFixLength used in Pretension</p></li>
+<li>int<p>top side slot bolt flag,0=false,1=true</p></li>
+<li>double<p>top rbe slave node diameter range</p></li>
+<li>double<p>Always zero.No need to consider here</p></li>
+<li>double<p>bottom bolt hole diameter</p></li>
+<li>double<p>bottom Rbe Pitch distance</p></li>
+<li>int<p>bottom Rbe connection type,0=down,1=up,2=center</p></li>
+<li>bool<p>Option ADVC Static process, 0: No, 1:Yes</p></li>
+</ol> <h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>Lbc_Bolt_Modeling_Type_B_Edge([5:66319], [5:10000031], "RBE", "Bar_2", 0, 0:0, 20, 0.1, 0, 0, 0, 0, 0:0, 0, 0, 0.0081206, 0, 0.0027248, 0.01, 0, 0)</p>
+</div>
+</div>
+</body>
+</html>

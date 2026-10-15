@@ -1,0 +1,73 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Alignment | Best Fit</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Alignment | Best Fit</h2>
+	<div class="contents">
+	<p>
+		Aligns selected parts with each other based on shape features.<br>
+		The ICP (Iterative closest point) method is used. This method finds the corresponding points between two point clouds and iteratively calculates them to minimize the error.
+	</p>
+
+	<img src="./Media/CommandDlg/Lab_Alignment_BestFit.png"><img src="./Media/CommandDlg/Lab_Alignment_BestFit_List.png">
+
+	<h4>Parameters</h4>
+	<li>Error
+	<p>The total difference in distance between nodes. The calculation is repeated until it is within this value.
+	</li>
+	<li>Max cycle
+	<p>The number of matrix calculation iterations. If too large, the calculation will take longer, but if too small, the values will not converge sufficiently and the positioning may be incomplete. Specify 1 or more.
+	</li>
+	<li>Algorighms
+	<p>Only "point to point" can be selected. Define the set of nodes contained in the selected faces/parts and move the part on the Dynamic Targets side so that the shapes calculated from the point sets of the Static and Dynamic targets match each other as closely as possible.
+	</li>
+	</li>
+	<h3>-&nbspOperation (Parts selection)&nbsp-</h3>
+	<ol>
+		<li>Click "Static Targets" in the Selection list. Then select the part to be moved.</li>
+	<img src="./Media/Lab_BestFit_1.png" width="450">	<img src="./Media/Lab_BestFit_1_list.png">	
+	<li>Click "Dynamic Targets" in the Selection list. Then select the part you want to moved.</li>
+	<img src="./Media/Lab_BestFit_2.png" width="450">	<img src="./Media/Lab_BestFit_2_list.png">	
+	<li>The Apply or OK button executes the function. "Dynamic Targets" moves to the nearest location to "Static Targets" along the feature of the shape.</li>
+	<img src="./Media/Lab_BestFit_3.png" width="450">	
+	<br>
+	</ol>
+	<h3>-&nbspOperation（Face Selection）&nbsp-</h3>
+	<ol>
+		<li>Click "Static Targets" in the Selection list. Then select the faces on the part to be moved.</li>
+	<img src="./Media/Lab_BestFit_4.png" width="450">	<img src="./Media/Lab_BestFit_4_list.png">	
+	<li>Click "Dynamic Targets" in the Selection list. Then select the faces on the part you want to moved.</li>
+	<img src="./Media/Lab_BestFit_5.png" width="450">	<img src="./Media/Lab_BestFit_5_list.png">	
+	<li>The Apply or OK button executes the function. "Dynamic Targets" moves to the nearest location to "Static Targets" along the feature of the shape calculated from the nodes in seleted faces.</li>
+
+	<img src="./Media/Lab_BestFit_6.png" width="450">	
+	<br>
+	</ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

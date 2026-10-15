@@ -1,0 +1,162 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Force | General</title>
+
+<style type="text/css">
+<!--/* Link下線、非表示 */-->
+a.no-uline {text-decoration:none}
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Force | General</h2>
+<div class="contents">
+	<p>Add the Force and moment load in the analysis model.</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Loads_Force_General.png">
+	</br>
+
+ 　　 <h4>Structural</h4>
+		<li><b>Name</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the name of the load condition.</p>
+		</li>
+		<li><b>Coordinate</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the global coordinate system or Local coordinate system load conditions references.</p>
+		</li>
+	<li><b>Type</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Specify a coordinate system or vector direction to define the direction of force.</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>Coordinate system</b>&nbsp;：&nbsp;Specify the coordinate system.</li>
+					<li><b>Vector</b>&nbsp;：&nbsp;Specify the vector direction.</li>
+				</span>
+			</ul>
+		</li>		
+	<h4>Force</h4>
+		<li><b>Force X</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the load value of the coordinate system X direction.</p>
+		</li>
+		<li><b>Force Y</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the load value of the coordinate system Y direction.</p>
+		</li>
+		<li><b>Force Z</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the load value of the coordinate system Z direction.</p>
+		</li>
+		<li><b>Input Unit</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the input unit of the load value.</p>
+		</li>
+
+	<h4>Moment</h4>
+		<li><b>Moment X</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the moment value of the coordinate system X direction.</p>
+		</li>
+		<li><b>Moment Y</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the moment value of the coordinate system Y direction.</p>
+		</li>
+		<li><b>Moment Z</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the moment value of the coordinate system Z direction.</p>
+		</li>
+		<li><b>Input Unit</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the input unit of the Moment value.</p>
+		</li>
+		
+	<h4>Options</h4>
+		<li><b>Arrow Direction</b></br>
+			<p>&nbsp;&nbsp;&nbsp;You can adjust the display of the load marker.</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>Start at Node</b>&nbsp;：&nbsp;The marker is displayed starting from a node</li>
+					<li><b>End at Node</b>&nbsp;：&nbsp;The marker is displayed ending at a node</li>
+				</span>
+			</ul>
+		</li>
+		</br>
+		<li><b>Distribution Method</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Determine how to distribute the input load.</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>Per Selected Entity</b>&nbsp;：&nbsp;Apply the load value for each of the selected Entity </li>
+					<li><b>Per Node</b>&nbsp;：&nbsp;Apply equal load value to the node on the selected Entity</li>
+					<li><b>Total of Select</b>&nbsp;：&nbsp;The total value of the load for the selected Entities</li>
+				</span>
+			</ul>
+		</li>
+		
+	<h4>Tables</h4>
+		<li><b>Select Table</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Defined in the <a href="./Boundary%20Conditions_Misc_Field%20Data.html">Field Data</a>. Currently not supported.</p>
+		</li>
+		
+	<h4>Phase Delay</h4>
+		<li><b>Phase</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the phase.</p>
+		</li>
+		<li><b>Phase Table</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Select the phase Table that you entered in the <a href="./Boundary%20Conditions_Misc_Field%20Data.html">Field Data</a>.</p>
+		</li>
+		<li><b>Delay</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the Delay.</p>
+		</li>
+		
+	<h4>Multi-Excitation Load Export</h4>
+		<span style="font-size:1.15em;">
+		<p>&nbsp;:&nbsp;Collectively define the load of each degree of freedom direction. Load will  be created for every degree of freedom you have defined</p>
+		</span>
+		</br>
+		
+		<li><b>Arrow Direction</b></br>
+			<p>&nbsp;&nbsp;&nbsp;You can adjust the display of the load marker.</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>Translation X</b>&nbsp;：&nbsp;Specify the frequency table for the translational X-direction load. Input required for Values-Translation X </li>
+					<li><b>Translation Y</b>&nbsp;：&nbsp;Specify the frequency table for the translational Y-direction load. Input required for Values-Translation Y </li>
+					<li><b>Translation Z</b>&nbsp;：&nbsp;Specify the frequency table for the translational Z-direction load. Input required for Values-Translation Z</li>
+					<li><b>Rotation X</b>&nbsp;：&nbsp;Specify the frequency table for the X-axis rotation direction load. Input required of Values-Rotation X</li>
+					<li><b>Rotation Y</b>&nbsp;：&nbsp;Specify the frequency table for the Y-axis rotation direction load. Input required of Values-Rotation Y</li>
+					<li><b>Rotation Z</b>&nbsp;：&nbsp;Specify the frequency table for the Z-axis rotation direction load. Input required of Values-Rotation Z</li>
+				</span>
+			</ul>
+		</li>
+		<h4>FrontISTR Rotational Torque Load</h4>
+		<li><b>Rotational Torque Center</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Select boundary that contains Rotational Torque Center, normally only one node.</p>
+		</li>	
+		
+	</br>
+			
+	<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;Select one of the Face, Edge and Node button from the selection list and select the load application object from the screen.</li>
+		<li>&nbsp;Enter the name for the load.</li>
+		<li>&nbsp;Select the coordinate system if necessary.</li>
+		<li>&nbsp;Enter the load value and the moment values in each X,Y and Z direction.</li>
+		<li>&nbsp;Change the direction of arrow and distribution direction if necessary.</li>
+		<li>&nbsp;Click the Apply or OK button.</li>
+		</ol>
+
+
+<!--<h3>-&nbspOperation Video&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

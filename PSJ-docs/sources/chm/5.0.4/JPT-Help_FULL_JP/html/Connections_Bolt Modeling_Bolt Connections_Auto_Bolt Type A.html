@@ -1,0 +1,133 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>ボルトタイプA(Bolt TypeA)</title>
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+	<h2>ボルトタイプA(Bolt TypeA)</h2>
+<div class="contents">
+	<p>
+	自動ボルト接続(Auto Bolt Connection)機能から開く、ボルトタイプAのFEM条件を設定するダイアログです。</br>
+	<b><a href="./Connections_Bolt%20Modeling_Bolt%20Connections_Auto.html">自動ボルト接続(Auto Bolt Connection)のヘルプ</a></b></br></br>
+	ボルトタイプAは、ボルト穴の上下座面にRBE2要素／RBE3要素を円形に作成、その中心をバー要素／RBE2要素で結合します。</br>
+	プリテンションオプションで、ボルト締め付け力を追加できます。</br>
+	<p>
+	<img src="./Media/CommandDlg/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_Bolt%20Type%20A.PNG" width="500"></br>
+	</p>
+	
+	<h4>座面設定(Seat Settings)</h4>
+	<li>接続(Connection)
+	<p>
+	ボルト穴の上下座面に作成する剛体の種類(RBE2／RBE3)を選択します。</br>
+	</p>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_Bolt%20Type%20A_a.PNG" width="300"></br>
+	</p>
+	</li>
+	<li>座面直径(節点)(Seat Diameter(Node))
+	<p>
+	入力した直径の範囲内にある節点に、剛体を作成します。</br>
+	</p>
+	</li>
+	<li>座面レイヤー(フェース)(Seat Layer(Face))
+	<p>
+	入力した層数のボルト穴周りのフェース（節点）に、剛体を作成します。</br>
+	</p>
+	</li>
+	<h4>シャフト設定(Shaft Settings)</h4>
+	<li>シャフト(Shaft)
+	<p>
+	ボルト軸に作成する剛体の種類(RBE2／バー(Bar))を選択します。
+	</p>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_Bolt%20Type%20A_b.PNG" width="300"></br>
+	</p>
+	</li>
+	<li>バープロパティ(Bar Property)
+	<p>
+	シャフト(Shaft)でバー(Bar)を選択した場合、Bar要素のプロパティを選択します（アッセンブルツリーにバープロパティがある場合のみ、メニューに表示されます）</br>
+	Noneを選択すると、プロパティなしでBar要素が設定されます。
+	</p>
+	</li>
+	<h4>中心設定(Center Settings)</h4>
+	<li>
+	接続(Connection)
+	<p>
+	シャフト中心に作成する剛体の種類を選択します。</br>
+	座面にRBE3かつシャフトにRBE2を選択した場合は、Springのみ選択可能です。
+	</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>None</b>&nbsp;:&nbsp;軸の中心に剛体なし。</li>
+		<li><b>Spring</b>&nbsp;:&nbsp;軸の中心にSpringを作成します。</li>
+		<li><b>PreTension</b>&nbsp;:&nbsp;軸の中心にPreTensionを作成します。</br>
+		</span>
+		</ul>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_Bolt%20Type%20A_c.PNG" width="400"></br>
+	</p>
+	</li>
+	<h4>プリテンション荷重(Pre Tension Load)</h4>
+	<p>
+	ボルト締め付け力を設定します。
+	</p>
+	<li>
+	ソルバー(Solver)
+	<p>
+	対象のソルバーを選択します。
+	</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>All</b>&nbsp;:&nbsp;全てのソルバーに使用できます。</li>
+		<li><b>Abaqus</b>&nbsp;:&nbsp;Abaqusのプリテンションコマンドで設定します。</br>
+		</span>
+		</ul>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_Bolt%20Type%20A_d.PNG" width="400"></br>
+	</p>
+	<li>
+	値(Value)
+	<p>
+	ボルト締め付け力を入力します。
+	</p>
+	</li>
+	<li>
+	入力単位系(Input Unit)
+	<p>
+	入力単位系を選択します。
+	</p>
+	</li>
+	<li>
+	ボルト固定長(Bolt Fix Length)
+	<p>
+	ボルト締め付け量を保持します。
+	</p>
+	</li>
+	</div>
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>各種剛体を選択して、パラメータを入力します。</li></br>
+	<li>OKボタンをクリックします。このダイアログが閉じ、自動ボルト接続(Auto Bolt Connection)の、ボルトタイプのボタンがハイライトされます。</li></br>
+	</ol>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>ComboBox</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>ComboBox</h2>
+<div class="contents">
+	<p>
+	Add a combo box.<br>
+	</p>
+
+	<img src="./Media/GUI_CommandBuilder_Component-Parameter_ComboBox.png">
+	<br><br>
+	
+	<p>&nbsp;&nbsp;&nbsp;Creation image：</p>
+	
+	<img src="./Media/GUI_CommandBuilder_Component-Parameter_ComboBox3.png">
+	<br>
+	<br>
+	
+
+	<li><b>Name</b>
+	<p>&nbsp;&nbsp;&nbsp;Enter the name of the combo box component.</p>
+	</li>
+	<li><b>Enable</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify whether to use it or not.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Check On</b>&nbsp;:&nbsp;Available</li>
+		<li><b>Check Off</b>&nbsp;:&nbsp;Impossible to use（It will be grayed out）</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Width</b>
+	<p>&nbsp;&nbsp;&nbsp;Specifies the minimum width of the combo box. (Units: pixels)</p>
+	</li>
+	<li><b>Height</b>
+	<p>&nbsp;&nbsp;&nbsp;Specifies the minimum height of the combo box.(Units: pixels)</p>
+	</li>
+	<li><b>Source File</b>
+	<p>&nbsp;&nbsp;&nbsp;Enter options from a text file.</p>
+	<p>&nbsp;&nbsp;&nbsp;Structure of the Source File：</p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;Option1<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Option2<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Option3<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Option4<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Option5<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Input result：</p>
+	</li>
+	
+	<img src="./Media/GUI_CommandBuilder_Component-Parameter_ComboBox2.png">
+	<br><br>
+
+	<li><b>Option Count</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the number of items to be selected.</p>
+	</li>
+	<li><b>Options *</b>
+	<p>&nbsp;&nbsp;&nbsp;Enter the name of the item.</p>
+	</li>
+
+	<h4>Command to use</h4>
+	<table class="commontable">
+		<tr><th>Command</th><th>Description</th><th>Sample Code</th></tr>	
+		<tr>
+			<td>dlg.get_combobox_sel("name")</td>
+			<td>Get the position of the item selected in the combo box.</td>
+			<td>    
+				<p>ComboBox = ["1", "2", "3", "4", "5"]<br>
+				  When "4" is selected<br>
+				<p><em>Input:</em></p>
+				<p style = "margin-left: 40px">a = dlg.get_combobox_sel("ComboBox")</p>
+				<p><em>Output:</em></p>
+				<p style = "margin-left: 40px">> a = 3</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.get_len_combobox("name")</td>
+			<td>Get the length of the combo box.</td>
+			<td>
+				<p>listbox = ["1", "2", "3", "4", "5"]<br>
+					<p><em>Input:</em></p>
+					<p style = "margin-left: 40px">a = dlg.get_len_combobox("ComboBox”)</p>
+					<p><em>Output:</em></p>
+					<p style = "margin-left: 40px">> a = 5</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.set_combobox_sel(“Name”, Index) </td>
+			<td>Switches the value selected in the combo box.</td>
+			<td>
+				<p>ComboBox = [“1”, “2”, “3”, “4”, “5”]<br>
+					<p><em>Input:</em></p>
+					<p style = "margin-left: 40px">dlg.set_combobox_sel(“ComboBox”, 3)</p>
+					<p style = "margin-left: 40px">⇒ Selected value=”4”</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.insert_combobox_option("name", position, "text")</td>
+			<td>A value is added from the position selected in the combo box (1 value once).</td>
+			<td>
+					<p><em>Input:</em></p>
+					<p style = "margin-left: 40px">dlg.insert_combobox_option("name", 1, "text")</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.insert_combobox_options("name", position, [itemlist])</td>
+			<td>A value is added from the position selected in the combo box (multiple values once).</td>
+			<td>
+					<p><em>Input:</em></p>
+					<p style = "margin-left: 40px">dlg.insert_combobox_options("name", 3, [Itemlist])</p>
+			</td>
+		</tr>
+
+	</table>
+<br>
+
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

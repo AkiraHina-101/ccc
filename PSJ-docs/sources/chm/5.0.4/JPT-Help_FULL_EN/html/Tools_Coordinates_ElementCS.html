@@ -1,0 +1,79 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+	<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+	<link href="basic.css" rel="stylesheet" type="text/css" />
+	   <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Element CS</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Element CS</h2>
+<div class="contents">
+	<p>
+	View and modify the element coordinate system.<br>
+	Element coordinate system is a coordinate system defined by the node writing order of the elements.
+	</p>
+	<img src="./Media/CommandDlg/Tools_Coordinates_ElementCS.png">
+	<h4>Operation</h4>
+	<li>Method
+	<p>
+	Choose how to change the element coordinate system<br><br>
+
+	Align Direction：<br>To change the element coordinate system for elements on the selected surface, select the node 2 points in order so that  it coincides with the x-direction for each element.<br><br>
+	Align Connection：<br>Select 2 nodes on the same surface elements in order so that its direction coincides with x-axis for element. Align the x-axis of the connection to surface elements of the previous connection source x-axis, and change the element coordinate system for elements on the selected surface.<br>
+	</p>
+	<h4>Display</h4>
+	<li>Type
+	<p>
+	Select the definition of the element coordinate system to be displayed.<br><br>
+
+	1st Element Edge：<br>Define the x-axis of the element coordinate system so as to coincide with the first node → 2-th node direction.<br><br>
+	Nastran：<br>Use the definition of the element coordinate system on the Nastran.<br>
+	<img src="./Media/Tools_Coordinates_ElementCS_1.png" width=650>
+	</p>
+	</li>
+	<li>x Direction
+	<p>
+	Switch the x-axis direction display for ON / OFF. When switched ON, you will see an arrow indicating the position and orientation of the x-axis on the side to be connected to the 1st node → 2nd node for each element.<br><br>
+	</p>
+	</li>
+	<li>Scale
+	<p>
+	Set in multiples, the size of the arrow display that shows the x-direction.<br><br>
+	</p>
+	</li>
+	</li>
+	<li>Coordinate
+	<p>
+	Switch the ON / OFF for element coordinate system display. When switched ON it displays the element coordinate system symbol in the centre position of each element.<br><br>
+	</p>
+	</li>
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+	  <ol>
+<li>&nbspSelect the Face or surface  element for which you want to change the element coordinate system.</li>
+<li>&nbspSelect and specify the 2 nodes in order of the direction of x-axis.</li>
+<li>&nbspSpecify the Type.</li>
+<li>&nbspChange the element direction by pressing Apply/OK button.</ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

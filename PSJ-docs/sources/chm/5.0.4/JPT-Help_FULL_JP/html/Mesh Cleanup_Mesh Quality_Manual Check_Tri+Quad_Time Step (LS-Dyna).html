@@ -1,0 +1,89 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+			<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+	<title>メッシュ品質&nbsp;-&nbsp;手動チェック&nbsp;- 三角形＋四角形&nbsp;時間間隔 (LS-Dyna)<</title>
+
+</style>
+
+	</head>
+
+	<body>
+		<div class="page">
+			<h2>メッシュ品質&nbsp;-&nbsp;手動チェック&nbsp;- 三角形＋四角形&nbsp;時間間隔 (LS-Dyna)</h2>
+		<div class="contents">
+
+		<img src="./Media/CommandDlg/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Tri+Quad_Time%20Step%20(LS-Dyna).png"></img>
+			<h4>要素品質</h4>
+				<li>Metric　： 確認する要素品質の種類を指定します。</li>
+		LS－DYNAにおけるtimestep（⊿tc）を以下の算式で確認します。<br>
+<p>
+&nbsp;&nbsp;⊿tc＝lc/c&times;<font color="red">TSSFAC</font><br>
+&nbsp;&nbsp;lc = A/MAX(L1,L2,L3,L4,<font color="red">L5<sup>*</sup>,L6<sup>*</sup></font>)	四角形の場合<br>
+&nbsp;&nbsp;lc = A/MAX(L1,L2,L3)	三角形の場合<br>
+&nbsp;&nbsp;c = &radic;(E/(ρ(1-ν&sup2)))</p>
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;要素の代表長さ
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L1-L4&nbsp;&nbsp;:&nbsp;&nbsp;各要素エッジの長さ
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L5, L6&nbsp;&nbsp;:&nbsp;&nbsp;四角形の対角線の長さ
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;要素の面積
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;応力伝播速度
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TSSFAC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;閾値調整用係数。（0&le;TSSFAC&le;1）</p>
+				</span>
+
+※計算は各要素に設定された材料物性値ごとに実施されます。よって、2D材料プロパティが設定されていることが条件です。
+					</font>
+			<h4>カットオフ値 Tri</h4>
+				<li>最小　： 要素品質の最小値が表示されます。</li>
+				<li>最大　： 要素品質の最大値を表示されます。</li>
+				<li>平均　： 要素品質の平均値を表示されます。</li>
+				<li>エンティティ数　： 選択したエンティティの三角形要素数を表されます。</li>
+			<h4>カットオフ値 Quad</h4>
+				<li>最小　： 要素品質の最小値が表示されます。</li>
+				<li>最大　： 要素品質の最大値を表示されます。</li>
+				<li>平均　： 要素品質の平均値を表示されます。</li>
+				<li>エンティティ数　： 選択したエンティティの四角形要素数を表示されます。</li>
+			<h4>Tri表示 </h4>
+				<li>条件　： 下記の閾値に対する不等号を設定します。</li>
+				<li>値　： 要素品質不足とする閾値値を入力します。</li>
+				<li>TSSFAC　： 閾値調整用の係数を入力します。</li>
+				<li>エンティティ数　： 要素品質不足として表示されている要素の個数が表示されます。</li>
+			<h4>Quad表示 </h4>
+				<li>条件　： 下記の閾値に対する不等号を設定します。</li>
+				<li>値　： 要素品質不足とする閾値を入力します。</li>
+				<li>TSSFAC　： 閾値調整用の係数を入力します。</li>
+				<li>対角長さを含める　： チェックすると、最大要素長さをL1-L6までで計算します。非チェックの場合にはL1-L4までで計算します。</li>
+				<li>エンティティ数　： 要素品質不足として表示されている要素の個数が表示されます</li>
+			<h4>応力伝搬速度</h4>
+				<li>材料　： 材料を選択すると、応力進展速度と物性値を確認できます。</li>
+			<h4>自動 クリーンアップ</h4>
+				<li>クリーンアップ　： クリーンアップボタンをクリックすることで要素を自動修正することができます。</li>
+			<h4>リフレッシュ</h4>
+				<li>モデルを表示　： モデルを表示ボタンををクリックすることでモデル表示を元に戻します。</li>
+				
+			<h3>-&nbsp操作手順&nbsp-</h3>
+				<ol>
+					<li> 要素品質確認方法をTime Step (LS-Dyna)に指定します。</li>
+					<li> 対象のエンティティを選択します。</li>
+					<li> 計算対象の材料を選択します。</li>
+					<li> 要素品質不足とする閾値を入力します。</li>
+					<li> 適用ボタンをクリックします。</li>
+					<li> 要素品質の確認結果がコマンドに表示されます。メインウィンドウも要素品質確認モードに切り替わります</li>
+					<li> 自動修正をする場合は、クリーンアップボタンをクリックします。</li>
+					<li> モデル表示を元に戻す場合は、モデルを表示ボタンをクリックします。</li>
+						<p>
+							<font color="red">
+								※クリーンアップ機能は全ての要素を自動で修正することは出来ません。自動修正できない要素がある場合には、手動クリーンアップ機能を使用して手動で要素を修正する必要があります。
+							</font>
+						</p>
+				</ol>
+	</body>
+</html>

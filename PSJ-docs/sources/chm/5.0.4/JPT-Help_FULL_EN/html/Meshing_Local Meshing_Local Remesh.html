@@ -1,0 +1,112 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Local Remesh</title>
+
+<style>
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Local Remesh</h2>
+<div class="contents">
+	<p>After Surface Mesh created, you can remesh the Surface Mesh.</p>
+	
+	<img src="./Media/CommandDlg/Meshing_Local%20Meshing_Local%20Remesh(Tri3).png">
+	<img src="./Media/CommandDlg/Meshing_Local%20Meshing_Local%20Remesh(Quad4).png">
+	
+	<h4>Remesh Type</h4>
+		<li><b>Tri3</b>
+			<p>&nbsp;&nbsp;&nbsp;Remesh the triangular elements.</p>
+		</li>
+		<li><b>Quad4</b>
+			<p>&nbsp;&nbsp;&nbsp;Remesh the quadrilateral element.</p>
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>Quad F-Mesher</b>&nbsp;:&nbsp;Use the high-speed Mesher to create the elements of a adjusted size.</li>
+				</span>
+				</ul>
+		</li>
+
+	<h4>Mesh Size</h4>
+		<li><b>Average</b>
+			<p>&nbsp;&nbsp;&nbsp;Set the average Mesh size.</p>
+		</li>
+		<li><b>Minimum</b>
+			<p>&nbsp;&nbsp;&nbsp;Set the minimum mesh size.</p>
+		</li>
+		<li><b>Maximum</b>
+			<p>&nbsp;&nbsp;&nbsp;Set the maximum Mesh size.</p>
+		</li>
+		<li><b>Mesh Setting</b>
+			<p>&nbsp;&nbsp;&nbsp;Remesh using the Local Mesh configuration.</p>
+		</li>
+		<li><b>Pattern Override</b>
+			<p>&nbsp;&nbsp;&nbsp;Specify the Mesh Pattern.</p>
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>Iso Mesh</b>&nbsp;:&nbsp;Create a IsoMesh on Remesh part. This method can only be applied where Mapped Mesh creation is possible </li>
+					<li><b>Free Mesh</b>&nbsp;:&nbsp;Create a Free Mesh on Remesh part</li>
+				</span>
+				</ul>
+		</li>
+		</br>
+
+		<li><b>Grading</b>
+			<p>&nbsp;&nbsp;&nbsp;Remesh the selected Face and the surrounding faces. When turned off, it will be Remesh the selected Face only.</p>
+		</li>
+		<li><b>Keep Connection</b>
+			<p>&nbsp;&nbsp;&nbsp;Keep the node position of the connecting component parts, such as springs, rigid, beams.</p>
+		</li>
+		<li><b>Project CAD</b>
+			<p>&nbsp;&nbsp;&nbsp;Place Remesh on a CAD geometry.</p>
+		</li>
+
+	<h4>Mesh Gradation</h4>
+		<li><b>Grading Factor</b>
+			<p>&nbsp;&nbsp;&nbsp;Set the degree of the change for Mesh.</p>
+		</li>
+	
+	<h4>Tiny Face Merge</h4>
+		<li><b>Tiny Face Merge</b>
+			<p>&nbsp;&nbsp;&nbsp;Create mesh as well as modify the tiny-face at the same time.</p>
+		</li>
+		<li><b>Min Face Width</b>
+			<p>&nbsp;&nbsp;&nbsp;Specify the minimum width of the target Face.</p>
+		</li>
+		<li><b>Max Face Width</b>
+			<p>&nbsp;&nbsp;&nbsp;Specify the maximum width of the target Face.</p>
+		</li>
+	</br>
+
+	<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;Select the Mesh Type.</li>
+		<li>&nbsp;Select the target entity.</li>
+		<li>&nbsp;Click Apply / OK button.</li>
+		</ol>
+
+	<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>キーバインド設定</title>
+
+<style type="text/css">
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>キーバインド設定</h2>
+	<div class="contents">
+		<p>キーバインド（ショートカットキー）の設定を行います。</p>
+	
+		<img src="./Media/Home_Preference_KeyBind.png">
+		</br>
+		</br>
+		
+		<h4>キーバインドテーブル</h4>
+			<p>キーバインドの設定表です。</br>
+				一般キー(a-z, F1-F12, Insert, Delete, Space, Home, End, PageUp PageDown)と特殊キー（なし, Ctrl, Shift, Ctrl+Shift）の組み合わせ表となっています。
+			</p>
+			</br>
+		<h4>コマンドテーブル</h4>
+			<p>機能表です。#の数値をKey Bindsテーブルの組み合わせ位置に記述することで、任意のキーの組み合わせに、任意の機能を割り当てることができます。</p>
+			<li><strong>追加ボタン</strong></li>
+				<p>新規コマンドをコマンドテーブルに登録します。</p>
+				<img src="./Media/KeyBinds_Add.png" />
+				<ul type="circle">
+					<span style="font-size:0.95em;">
+					<li>言語<p>各言語指定時に表示されるコマンド名称を確認します。</p></li>
+					<li>コマンド名称<p>キーバインド名を入力します。</p></li>
+					<li>関数<p>実行機能を、マクロで入力します。</p></li>
+					</span>
+				</ul>
+			<li><strong>編集ボタン</strong></li>
+				<p>コマンドテーブル上で選択した登録済コマンドを編集します。</p>
+			<li><strong>削除ボタン</strong></li>
+				<p>コマンドテーブル上で選択したコマンドをコマンドテーブルから削除します。</p>
+			</br>
+		<h4>カスタマイズの読込み&middot;保存</h4>
+			<p>カスタマイズしたキーバインドの設定を<strong>読込み&middot;保存</strong>します。&lpar;xmlファイルフォーマット&rpar;</p>
+			<li><strong>インポート</strong></li>
+				<p>カスタマイズしたキーバインドの設定を読込みます。</p>
+			<li><strong>エクスポート</strong></li>
+				<p>カスタマイズしたキーバインドの設定を保存します。</p>
+			</br>
+		<h3>&ndash;&nbsp;操作手順&nbsp;&lpar;新規キーバインド登録&rpar;&nbsp;&ndash;</h3>
+			<ol>
+				<li>&nbsp;登録したいコマンドのマクロコマンドを取得します。（コマンドを実行し、マクロウィンドウに表示される文字列を右クリック→コピーで取得します。）</li>
+				<li>&nbsp;<strong>ホーム&nbsp;&gt;&nbsp;プリファレンス&nbsp;&gt;&nbsp;デフォルト設定&nbsp;&gt;&nbsp;キーバインド&nbsp;&gt;&nbsp;カスタマイズ</strong>をクリックし、キーバインドダイアログを表示します。</li>
+				<li>&nbsp;追加ボタンをクリックし、表示されるダイアログでコマンド名称にキーバインド名、関数にマクロを入力します。</li>
+				<li>&nbsp;OKボタンをクリックすると、コマンドテーブルに新しいキーバインドが作成されます。</li>
+				<li>&nbsp;新キーバインドに割り振られた値を、キーバインドテーブルの任意の位置に入力します。（セルが赤いところは予約キーのため、変更不可です。）</li>
+				<li>&nbsp;OKボタンをクリックして登録を完了します。</li>
+				<li>&nbsp;設定したキーバインド設定を保存する場合は、<strong>エクスポート</strong>をクリックして指定の場所に保存します。</li>
+			</ol>
+			</br>
+	<!--
+	<h3>-&nbsp;操作動画&nbsp;-</h3>
+	
+		<p>
+		<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+		&nbsp再生ボタンを押すと操作動画が再生されます。
+		</p>
+	-->
+	</div>
+</div>
+</body>
+
+</html>

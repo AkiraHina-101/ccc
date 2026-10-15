@@ -1,0 +1,264 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Nastran(Linear Static)</title>
+
+</meta>
+</head>
+
+<body>
+<div class="page">
+	<h2>Nastran | Linear Static (SOL 101)</h2>
+<div class="contents">
+	<p>
+	Output the Input Deck for Nastran Linear Static analysis (SOL 101)<br>
+	</p>
+
+	<img src="./Media/CommandDlg/Analysis_Analysis_Nastran_Linear%20Static(SOL101).png"></img>
+
+      <h4>Job Option</h4>
+	<img src="./Media/Analysis_Analysis_Nastran_Linear%20Static(SOL101)_1.png"></img><br>
+
+　　　<li>Job
+	<p>
+	Program: Select the type of Nastran Solver<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;MSC: MSC Nastran<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;NX: NX Nastran<br />
+	Job Name:  Enter the name of the job. Output set by this name will be saved in the tree.<br />
+	Job Description: Enter a description for your job.<br />
+	</p>
+　　　</li>
+
+　　　<li>Solver Option
+	<p>
+	Method: Choose the solution method.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Direct: Direct method<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Iterative: Iterative method<br>
+	Epsilon value: Specify the convergence parameter in the iterative method.<br>
+	Run Nastran: Run the Nastran on the local machine.<br>
+	Memory (MB): Define the memory allocation amount.
+	</p>
+　　　</li>
+
+　　　　<li>System Cell and FMS
+	<p>
+	System Cell: Enter data directly card to Nastran (System) section.<br />
+	FMS: Enter text data directly in file management statement section.<br />	
+	</p>
+　　　</li>
+
+　　　<li>Executive Control Option
+	<p>
+	GEOMCHECK, NONE: Disable the geometry checking option.<br />
+	Direct text input: Enter the text data directly to the executive control section.<br />
+	</p>
+　　　</li>
+
+　　　<li>Case Control Option
+	<p>
+	ECHO: Define the echo output of bulk data.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;NONE: No output<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;SORT: Sorted output<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;UNSORT: Unsorted output<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;BOTH: Both sorted and unsorted output<br />
+	TITLE: Define the title at the time of print output.<br />
+	Direct text input: Enter text directly to the case-control section.<br />
+	</p>
+　　　</li>
+
+　　　<li>Bulk Data Option
+	<p>
+	Write Type: Specify the output target.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;By Model: Output to a single file<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;By Each Part: Print a separate file for each part<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Selected Parts: Output of selected parts only<br />
+	GRID Format Type: Specify the Grid output format<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Single: Small field format output<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Double: Large field format output<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Single F.P.: Specify the floating-point number small field format output<br />
+	Delete Floating Nodes: Floating node is removed at the time of exporting output data.<br />
+	Continuance Marker +: Output the continuation pointer + in at the time of exporting output data.<br />
+	Include Bulk Data: Insert the bulk data file.<br />
+	Direct text input: Enter text directly to the bulk data section.<br />
+	</p>
+　　　</li>
+
+
+      <h4>Loading / Boundary Conditions</h4>
+	<img src="./Media/Analysis_Analysis_Nastran_Linear%20Static(SOL101)_2.png"></img><br>
+
+　　　<li>Base:
+	<p>
+	Define the boundary conditions that act on the entire analysis to be defined on the specific SUBCASE.<br />
+	Specify the boundary conditions case to be used in each of the boundary conditions. It will include all of the boundary conditions in Default.<br />
+	LOAD: Specify the load set<br />
+	SPC: Specify the constraints set<br />
+	MPC: Specify the multi-point constraint set<br />
+	Initial Temperature: Specify the initial temperature set<br>
+	Temperature Load: Specify the temperature load set<br>
+	Define LBC ID: Specify the identification ID of load, restraint and multi-point restraint<br>
+	</p>
+　　　</li>
+
+　　　<li>Subcase Option:
+	<p>
+	Define the SUBCASE.<br />
+	Specify the boundary conditions case to be used in each SUBCASE<br />
+	<br />
+	Existing ID: Specify an existing SUBCASE ID<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Add: Add New SUBCASE<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Remove: Delete existing SUBCASE<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Apply: Update existing SUBCASE<br />
+	ID: Specify the SUBCASE ID<br />
+	Subtitle:Enter the title at the time of print output<br />
+	LOAD: Specify the load case<br>
+	SPC: Specify the constraint set<br />
+	MPC: Specify the multi-point constraint set<br />
+	DISPLACEMENT: Specify the displacement output request<br />
+	STRESS: Specify the element stress output request<br />
+	STRAIN: Specify the element strain output request<br />
+	Direct text input: Enter text data directly to SUBCASE<br />
+	</p>
+　　　</li>
+
+
+      <h4>Output Request</h4>
+	<img src="./Media/Analysis_Analysis_Nastran_Linear%20Static(SOL101)_3.png"></img><br>
+
+　　　<li>Result type
+	<p>
+	Specify the output request.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;PLOT: op2 Output<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;PRINT: f06 Output<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;PLOT&PRINT: op2 and f06 output<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Blank: No output<br />
+	<br />
+	DISPLACEMENT: Specify the displacement output request<br />
+	SPCFORCES: Specify the single point constraint force output request<br />
+	OLOAD: Specify the applied load output request<br />
+	MPCFORCES: Specify the multi-point constraint force output request<br />
+	STRESS: Specify the element stress output request<br />
+	STRAIN: Specify the element strain output request<br />
+	FORCE: Specify the element forces output request<br />
+	ESE: Specify the element strain energy output request<br />
+	</p>
+　　　</li>
+
+　　　<li>Group (SET)
+	<p>
+	The extent to which the elements results are output element and limits to specify the node group (set).<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;ALL: Output all the elements, with respect to all the nodes<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Group: Output elements in the specified group, relative to node<br />
+	<br />
+	DISPLACEMENT: Specify the output range with respect to the displacement output request<br />
+	SPCFORCES: Specify the output range with respect to the single-point constraint force output request<br />
+	OLOAD: Specify the output range with respect to the applied load output request<br />
+	MPCFORCES: Specify the output range with respect to the multi-point constraints force output request<br />
+	STRESS: Specify the output range with respect to the element stress output request<br />
+	STRAIN: Specify the output range with respect to the element strain output request<br />
+	FORCE: Specify the output range with respect to the element forces output request<br />
+	ESE: Specify the output range with respect to the element strain energy output request<br />
+	</p>
+　　　</li>
+
+
+      <h4>Parameter</h4>
+	<img src="./Media/Analysis_Analysis_Nastran_Linear%20Static(SOL101)_4.png"></img><br>
+
+　　　<li>Parameter:
+	<p>
+	Define the parameters.<br />
+	<br />
+	POST: Specify the output type for the post-processing results file.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;0: XDB Output<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;-1: op2 Output (For Patran)<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;-2: op2 Output (For I-DEAS)<br />
+
+	OGEOM: Control the geometry output to OP2<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;YES: Yes geometry output<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;NO: No geometry output<br />
+	AUTOSPC: Control the automatic restraint for stiffness singularity<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;YES: Automatic constraint<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;NO: No automatic constraint<br />
+	GRDPNT: Control the weight information output<br />
+	WTMASS: Define Mass correction factor<br />
+	K6ROT: Define the load factor for rotational stiffness of shell elements normal<br />
+	MAXRATIO: Define the matrix pseudo-singularity determination ratio<br />
+	BAILOUT: Control the execution against the pseudo-singularity<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0: Continue run<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;-1: End run<br />
+	PRGPST: Control the print output for singularity summary table<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;YES: Yes output<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;NO: No output<br />
+	</p>
+　　　</li>
+<br>
+<br>
+
+
+<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+　　　<li>General output method (if you do not define a SUBCASE)
+　　　</li>
+
+      <ol>
+　　　<li>&nbsp;Keeping Loading / Boundary Conditions to be default, select the result to be output for post by selecting PLOT in each result item for the output request.</li>
+　　　<li>&nbsp;Click Apply(OK) button and define the name to output the input data file.</li>
+      </ol>
+<br>
+<br>
+
+
+　　　<li>If you want to define a SUBCASE (example: Keep constraint conditions constant and change the load condition for each SUBCASE)
+　　　</li>
+
+      <ol>
+　　　<li>&nbsp;Define Load case such as constraint case in advance  by Boundary Conditions > Load Case command.</li>
+　　　<li>&nbsp;Select a Blank in Loading / Boundary Conditions for Base>LOAD, and then select a constraint case to be used in all SUBCASE in the SPC.</li>
+　　　<li>&nbsp;Enter the Subcase Option>SUBCASE number to ID, select the load case to be used in the LOAD and then click the ADD button.</li>
+	<img src="./Media/Analysis_Analysis_Nastran_Linear%20Static(SOL101)_5.png"></img><br>
+
+　　　<li>&nbsp;Type the following SUBCASE number to Subcase Option>ID, select the load case to be used in LOAD and click on the ADD button.</li>
+	<img src="./Media/Analysis_Analysis_Nastran_Linear%20Static(SOL101)_6.png"></img><br>
+　　　<li>&nbsp;Define the other necessary option and then click the Apply(OK) button to output the input data file. SUBCASE setting will be output as shown below in the image.</li>
+		<img src="./Media/Analysis_Analysis_Nastran_Linear%20Static(SOL101)_7.png"></img><br>
+      </ol>
+<br>
+<br>
+
+
+　　　<li>How to edit SUBCASE (example: Delete SUBCASE 1 and change load cases of SUBCASE2)
+　　　</li>
+
+      <ol>
+　　　<li>&nbsp;Right click on the analysis under the assembly tree and select Edit. Nastran output dialog box will open.</li>
+		<img src="./Media/Analysis_Analysis_Nastran_Linear%20Static(SOL101)_8.png"></img><br>
+　　　<li>&nbsp;Select Subcase Option>Existing ID 1 from the Loading / Boundary Conditions and click on Remove button to delete SUBCASE 1.</li>
+		<img src="./Media/Analysis_Analysis_Nastran_Linear%20Static(SOL101)_9.png"></img><br>
+　　　<li>&nbsp;Select 2 in Existing ID and a different load case in LOAD. When you click the apply buttons, contents of SUBCASE 2 will be changed.</li>
+		<img src="./Media/Analysis_Analysis_Nastran_Linear%20Static(SOL101)_10.png"></img><br>
+	　　　<li>&nbsp;Define the other necessary options and click on the Apply(OK) button to output the input data file.</li>
+      </ol>
+<br>
+<br>
+
+
+<!--<h3>-&nbspOperation Video&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Boundary Temperature - Constant</title>
+
+<style type="text/css">
+<!--/* Link下線、非表示 */-->
+a.no-uline {text-decoration:none}
+</style>
+
+</html>
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Boundary Temperature - Constant</h2>
+	<div class="contents">
+		<p>Set the boundary temperature for the heat transfer analysis model. During heat transfer calculation, specify a point where the temperature is constant.</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Thermal%20Conditions_Boundary%20Temperature.png">
+	<br>
+
+ 　　 <h4>Thermal</h4>
+		<li><b>Name</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Enter a name for the boundary temperature condition.</p>
+		</li>
+		
+	<h4>Value</h4>
+		<li><b>Temperature</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Enter a constant temperature value.</p>
+		</li>
+		<li><b>Input Unit</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the input unit of temperature.</p>
+		</li>
+	
+	<h4>Tables</h4>
+		<li><b>Select Table</b><br>
+			<p>&nbsp;&nbsp;&nbsp;During transient heat transfer analysis, select the time dependency table in <a href="./Boundary%20Conditions_Misc_Field%20Data.html">Field data</a>.</p>
+			<p>&nbsp;※When a table is referenced, the value is the product of the temperature input value in the dialog box and the system value in the table.</p>
+		</li>
+		</br>
+		
+	<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;Select the Face, Edge, Node button, and select the boundary temperature addition target from the screen.</li>
+			<li>&nbsp;Enter a name for the boundary temperature condition.</li>
+			<li>&nbsp;Enter a constant temperature for temperature.</li>
+			<li>&nbsp;Change the input unit if necessary.</li>
+			<li>&nbsp;If the temperature value changes with time in the transient heat transfer analysis, select the change history from the table.</li>
+			<li>&nbsp;Press the Apply or OK button.</li>
+		</ol>
+
+
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

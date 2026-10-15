@@ -1,0 +1,3 @@
+# CreateAbaqusJob
+
+CreateAbaqusJob CreateAbaqusJob Description Create Abaqus Job Syntax CreateAbaqusJob(String m_strName,BOOL m_bRBE2toMPC,BOOL m_bRenameProcess,int m_iCodeType,int m_iSurfDefType,int m_iUnit,int m_iWriteType,String m_strDescription,Cursor[] m_taStepSequence,Cursor m_crEditCursor) Inputs String Job Name BOOL Output REB3 as MPC BOOL Rename Step or not int Output REB3 as MPC int Surface Definiation[0:by element set 1:by element] int unit system int Output type[0: by model 1: by selected bodies] String Description for this Job Cursor[] Steps applied on this Job Cursor Edit Job cursor Return Code 1 Succeeded 0 Failed Sample Code CreateAbaqusJob("Abaqus", 0, 0, 0, 0, 1, 0, "", [], 0:0, [], 0, 0, 0, 0, 1, 22:2)

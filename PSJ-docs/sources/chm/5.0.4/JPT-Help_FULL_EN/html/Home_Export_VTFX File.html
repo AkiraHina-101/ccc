@@ -1,0 +1,127 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>Export VTFX File</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Export VTFX File</h2>
+<div class="contents">
+	<p>Export Geometry information or Geometry and Result information for the active document in Web Viewer format(*.vtfx).</p>
+
+	<img src="./Media/CommandDlg/Home_Export_ExportVTFXFile_1.png"width=600>
+
+	<h4>Path Settings</h4>
+	<li><b>Model Name</b></li>
+		<p>&nbsp;&nbsp;&nbsp;Input file name to export the data. If the text box is blank, show an error message and cancel the execution.
+</p>	
+	</li>
+	<li><b>Output Folder Path</b></li>
+		<p>&nbsp;&nbsp;&nbsp;Input path to export the data. If the text box is blank, show an error message and cancel the execution.
+</p>	
+	</li>
+		<h4>Options</h4>
+	<li><b>Model Type</b></li>
+		<p>&nbsp;&nbsp;&nbsp;Select an exporting model type.
+</p>	
+	</li>
+	
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li>Pre<p>Export only Geometry.</p></li>
+	<li>Post<p>Export Geometry and selected result.</p></li>
+	</span>
+	</ul>
+	<li><b>Exclude bar part</b></li>
+	<p>&nbsp;&nbsp;&nbsp;Bar parts (parts that contain only Edge) will not be exported if checked on.
+	</p>
+	<li><b>Export Surface Data Only</b></li>
+	<p>&nbsp;&nbsp;&nbsp;3D element will not be exported if checked on. Moreover, results on 3D elements will not be exported.
+	</p>
+	<li><b>Export data position control button</b></li>
+	<p>&nbsp;&nbsp;&nbsp;This button displays when Model Type is Post. After clicking this button, the below dialog will open. Select result position of 2D shell on it.
+	</p>
+	
+	<img src="./Media/CommandDlg/Home_Export_ExportVTFXFile_2.png">
+	
+	<h4>2D Element Data</h4>
+	<li><b>Top / Bottom / Average</b></li>
+		<p>&nbsp;&nbsp;&nbsp;Select position.
+</p>	
+	</li>
+	<li><b>Data Location</b></li>
+		<p>&nbsp;&nbsp;&nbsp;When there are 2 position about data location you can select it from pull down menu.
+</p>	
+	</li>
+	<h4>Result Selection list</h4>
+		<p>&nbsp;&nbsp;&nbsp;This list displays when Model Type is Post. Here is same information as Result Tree on Result window, and export checked results.
+</p>	
+	</li>
+	
+	<img src="./Media/Home_Export_ExportVTFXFile_1.png"width=800>
+	
+	<p>&nbsp;&nbsp;&nbsp;Display following two context menu when right click on the tree.
+</p>	
+	
+	<li><b>Select result of all steps</b></li>
+		<p>&nbsp;&nbsp;&nbsp;Select that result in all other timesteps.
+</p>	
+	</li>
+	<li><b>Unselect result of all steps</b></li>
+		<p>&nbsp;&nbsp;&nbsp;Deselect that result in all other timesteps.
+</p>	
+	</li>
+	
+	<h3>-&nbsp操作手順(Model Type : Pre)&nbsp-</h3>
+		<ol>
+			<li>&nbsp;Input Model Name and Output Folder Path.</li>
+			<li>&nbsp;Select Pre on Model Type.</li>
+			<li>&nbsp;Check on options if you need.</li>
+			<li>&nbsp;Click Apply or OK button.</li>
+		</ol>
+	<h3>-&nbsp操作手順(Model Type : Post)&nbsp-</h3>
+		<ol>
+			<li>&nbsp;Input Model Name and Output Folder Path.</li>
+			<li>&nbsp;Select Post on Model Type.</li>
+			<li>&nbsp;Check on options if you need.</li>
+			<li>&nbsp;If you have result for 2D shell, you can select result position of it by opening Data Position Control dialog from Export data position control button.</li>
+			<li>&nbsp;Check on results you want to export.</li>
+			<li>&nbsp;Click Apply or OK button.</li>
+		</ol>
+	<h3>-&nbspNote&nbsp-</h3>
+		<ol>
+			<li>&nbsp;This command doesn't export Solid Principal Stress. Although Solid Principal Stress is the result as which Jupiter displayes 2 vectors of Max Principal Stress and Min Principal Stress, Web Viewer V1.1 doesn't support it. After Web Viewer can support it, Jupiter will update for exporting Solid Principal Stress.</li>
+			<li>&nbsp;Export Solid Tresca when check ON a check box of  Preference > Save/Load > Post > Tresca Stress option.</li>
+		</ol>
+		
+	
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

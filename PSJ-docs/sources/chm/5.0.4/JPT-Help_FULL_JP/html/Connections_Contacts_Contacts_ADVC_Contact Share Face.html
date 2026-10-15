@@ -1,0 +1,343 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>接触 | 共有面 | ADVC</title>
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>接触 | 共有面 | ADVC</h2>
+<div class="contents">
+	<p>
+	共有面からADVC用接触設定を定義します。<br>
+	共有面が分離(二重節点状態のフェースが作成)され、そのフェース間に接触対が定義されます。
+	</p>
+
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_ADVC_Contact%20Share%20Face.png">
+
+      <h4>基本</h4>
+
+　　　<li>名前
+	<p>
+	接触対名称の頭に付ける名称を入力します。
+	</p>
+　　　</li>
+
+　　　<li>アルゴリズム
+	<p>
+	接触設定対象エンティティを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;フェース-フェース: フェース対フェース間接触
+	</p>
+　　　</li>
+
+　　　<li>タイプ
+	<p>
+	接触定義の挙動タイプを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;一般接触: 滑り接触<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;固着: 固着
+	</p>
+　　　</li>
+
+　　　<li>情報
+	<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;情報表示: 選択された共有面に関連するパーツ名が表示されます。<br>
+	<img src="./Media/Connections_Contacts_Contacts_ADVC_Contact%20Share%20Face_1.png"><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;パーツをハイライト: 選択された共有面に関連するパーツがハイライト表示されます。<br>
+	</p>
+　　　</li>
+
+
+      <h4>コンタクトプロパティ</h4>
+
+　　　<li>挙動
+	<p>
+	接触判定の有無を定義します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;外す: 引張り力が発生した場合に接触拘束を外す<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;外さない: 初めの接触探索で見つかった全ての接触対を拘束
+	</p>
+　　　</li>
+
+　　　<li>定式化
+	<p>
+	接触定式化タイプを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;節点-セグメント: 点-面接触<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;セグメント-セグメント: 面-面接触
+	</p>
+　　　</li>
+
+　　　<li>拘束タイプ
+	<p>
+	接触拘束タイプを定義します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ラグランジュ: ラグランジュ未定乗数法<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ペナルティ: ペナルティ法
+	</p>
+　　　</li>
+
+　　　<li>拘束タイプ(陽解法)
+	<p>
+	陽的動解析での接触拘束タイプを定義します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Kinematic: コンストレイント法<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ペナルティ: ペナルティ法
+	</p>
+　　　</li>
+
+　　　<li>ペナルティ比例係数
+	<p>
+	ペナルティスケール係数を定義します。<br>
+	</p>
+　　　</li>
+
+　　　<li>ペナルティ比例係数（陽解法）
+	<p>
+	陽的動解析でのペナルティスケール係数を定義します。<br>
+	</p>
+　　　</li>
+
+　　　<li>調整
+	<p>
+	隙間および貫通がゼロになるようにスレーブ節点をマスター面上に移動させるか選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;あり: すべてのスレーブ節点を移動<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;値: 節点移動を有効とする距離を定義
+	</p>
+　　　</li>
+
+　　　<li>自動シュリンク
+	<p>
+	貫入解消指定の有無を定義します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;はい: 貫入解消指定<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;いいえ: 貫入解消指定せず
+	</p>
+　　　</li>
+
+　　　<li>ギャップ検索
+	<p>
+	隙間側に対する法線方向探索距離を定義します。
+	</p>
+　　　</li>
+
+　　　<li>検索深度
+	<p>
+	貫通側に対する法線方向探索距離を定義します。
+	</p>
+　　　</li>
+
+　　　<li>検索幅
+	<p>
+	接触面内方向の内外判定用パラメータを定義します。
+	</p>
+　　　</li>
+
+　　　<li>角度検索
+	<p>
+	マスター/スレーブ面の法線ベクトルのなす探索角度を定義します。
+	</p>
+　　　</li>
+
+　　　<li>初期状態
+	<p>
+	初期接触状態の指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;自動: 自動判別<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;非接触: 非接触状態から解析開始<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;接触: 接触状態から解析
+	</p>
+　　　</li>
+
+　　　<li>初期状態トレランス
+	<p>
+	初期接触状態を判断するトレランス値を入力します。
+	</p>
+　　　</li>
+　　　
+　　　<li>すべりタイプ
+	<p>
+	すべりタイプを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;有限すべり: 有限すべり接触<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;微小すべり: 微小すべり接触<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;すべらない: すべらない接触
+	</p>
+　　　</li>
+
+　　　<li>間隙量(有限滑りオフ)
+	<p>
+	間隙量を定義します。
+	</p>
+　　　</li>
+
+　　　<li>間隙量に調整(有限滑りオフ)
+	<p>
+	調整機能(adjust)による節点移動による要素潰れを回避するかどうか選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Yes: 節点を動かさず間隙量を0.に置き換え<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;No: 回避せず
+	</p>
+　　　</li>
+
+　　　<li>固着タイプ
+	<p>
+	固着タイプを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;剛結合: 剛結合接触<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;すべり方向結合: すべり方向結合接触
+	</p>
+　　　</li>
+
+
+　　　<li>干渉(有限滑りオン)
+	<p>
+	干渉量を定義します。<br>
+	正の場合、マスター面が実際よりも内側にあると仮定されます。
+	</p>
+　　　</li>
+
+　　　<li>干渉への調整(有限滑りオン)
+	<p>
+	調整機能(adjust)による節点移動による要素潰れを回避するかどうか選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Yes: 節点を動かさず、スレーブ節点毎に干渉量を自動設定<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;No: 回避せず
+	</p>
+　　　</li>
+
+      <h4>一般パラメーター</h4>
+
+　　　<li>摩擦係数
+	<p>
+	静摩擦係数を定義します。
+	</p>
+　　　</li>
+
+　　　<li>運動摩擦係数
+	<p>
+	動摩擦係数を定義します。
+	</p>
+　　　</li>
+
+　　　<li>指数係数
+	<p>
+	指数関数減衰係数を定義します。
+	</p>
+　　　</li>
+
+　　　<li>最大せん断応力
+	<p>
+	最大せん断応力を定義します。
+	</p>
+　　　</li>
+
+　　　<li>弾性滑り
+	<p>
+	許容滑り量を定義します。
+	</p>
+　　　</li>
+
+　　　<li>滑りトレランス
+	<p>
+	許容滑りトレランスを定義します。
+	</p>
+　　　</li>
+
+　　　<li>臨界貫通量
+	<p>
+	臨界貫通量を定義します。
+	</p>
+　　　</li>
+
+　　　<li>衝突時間の予測
+	<p>
+	接触対を衝突/剥離時刻の予測に使用するか選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;いいえ: 不使用<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;はい: 使用
+	</p>
+　　　</li>
+
+      <h4>安定化</h4>
+
+　　　<li>タイプ
+	<p>
+	接触安定化係数のタイプを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;剛性: 剛性比例型<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;面積: 面積比例型
+	</p>
+　　　</li>
+
+　　　<li>残留ファクター
+	<p>
+	補正係数C1の定義に使用される剰余係数を定義します。
+	</p>
+　　　</li>
+
+　　　<li>有効距離
+	<p>
+	補正係数C2の定義に使用される有効距離を定義します。
+	</p>
+　　　</li>
+
+　　　<li>法線方向安定化係数
+	<p>
+	法線方向安定化係数を定義します。
+	</p>
+　　　</li>
+
+　　　<li>接線方向安定化係数
+	<p>
+	接線方向安定化係数を定義します。
+	</p>
+　　　</li>
+
+
+      <h4>色設定</h4>
+
+　　　<li>接触の色
+	<p>
+	接触対表示マーカー色を定義します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;リセット: デフォルト色に初期化
+	</p>
+　　　</li>
+      <h4>熱伝達性</h4>
+
+　　　<li>データタイプ
+	<p>
+	間隙量もしくは圧力依存の接触熱伝達係数を定義します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Clearance Dependency: 間隙量依存<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Pressure Dependency: 圧力依存<br>
+	[入力データ]ボタンを押すと接触設定ダイアログが開き、間隙量依存の熱伝達係数を定義します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Clearance: 間隙量<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Pressure: 圧力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Convection Coefficient: 熱伝達係数<br>
+		<img src="./Media/Connections_Contacts_Contacts_ADVC_Manual%20Face_2.png"><br>
+	</p>
+　　　</li>
+
+
+<h3>-&nbsp;操作手順&nbsp;-</h3>
+      <ol>
+　　　<li>予めアセンブリ機能により共有面を作成し、共有面を表示しておきます</li>
+　　　<li>接触を定義したい共有面となるフェースを選択します。</li>
+　　　<li>必要により接触対に対する詳細設定を定義し、適用（OK）ボタンをクリックして接触対を定義します。</li>
+      </ol>
+	<p>
+	共有面が分離(二重節点状態のフェースが作成)され、そのフェース間に接触対が定義されます。
+	</p>
+<br>
+<br>
+      
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

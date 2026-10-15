@@ -1,0 +1,3 @@
+# Solid Mesh
+
+Solid Mesh Solid Mesh Convert the order of the solid elements. Conversion Type To Linear(Tet4,Penta6,Hex8,Pyramid5) &nbsp;&nbsp;&nbsp;Convert to primary element. To Quadratic(Tet10,Penta15,Hex20,Pyramid13) &nbsp;&nbsp;&nbsp;Convert to a secondary element. Hexa to Penta6 &nbsp;&nbsp;&nbsp;Convert Hex element to Penta element. Hexa/Penta to Tet4 &nbsp;&nbsp;&nbsp;Convert Hexa element and Penta element to Tetra primary element. -&nbspOperating Procedure&nbsp- &nbspSpecify the conversion method. &nbspSelect the target parts. &nbspClick Apply / OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

@@ -1,0 +1,72 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>Perpendicular Cylinder Line</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Perpendicular Cylinder Line</h2>
+<div class="contents">
+	<p>Create a perpendicular line to the selected cylinder Face.</p>
+
+	<img src="./Media/CommandDlg/Geometry_Create%20Entity_Edge_Imprint_Perpendicular%20Cylinder%20Line.png">
+
+	<h4>Options</h4>
+		<li><b>Method</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Select how to specify the Imprint Line.</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>Center Angle</b>&nbsp;:&nbsp;Enter the angle at the cylindrical center of a perpendicular position. First selected Node will be the origin of the angle.</li>
+				<li><b>Arc length</b>&nbsp;:&nbsp;Enter the distance on the circumference of a perpendicular position. First selected Node will be the base point of the distance.</li>
+				</span>
+			</ul>
+			<img src="./Media/Geometry_Create%20Entity_Edge_Imprint_Perpendicular%20Cylinder%20Line.png" width="1000">
+		</br>
+		<li><b>Length / Angle Offset</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Enter the center angle or distance on the circumference.</p>
+		<li><b>Opposite Side</b></li>
+			<p>&nbsp;&nbsp;&nbsp;If you select the check box, it also creates Imprint line in opposite 180-degrees.</p>
+		<li><b>Break Face</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Split the Face.</p>
+		</br>
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+		<ol>
+		<li>&nbsp;Press the Face button, select the cylindrical Face as the Imprint target from the screen.</li>
+		<li>&nbsp;Press the Node button, select the two nodes from the screen in order to determine the direction. The first Node will be the base point. Imprint line is created along the axial direction of the cylindrical surface.</li>
+		<li>&nbsp;Enter Offset amount at an angle or distance in the length / angle Offset.</li>
+		<li>&nbsp;Turn on the opposite side check boxes as needed. In this case, you even create an Imprint line in opposite 180-degrees.</li>
+		<li>&nbsp;Clear the face break check box, if necessary. In this case, the Face after Imprint is not split from the original Face.</li>
+		<li>&nbsp;Click Apply / OK button.</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

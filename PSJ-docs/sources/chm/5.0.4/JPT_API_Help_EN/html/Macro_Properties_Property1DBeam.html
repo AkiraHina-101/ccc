@@ -1,0 +1,82 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Property1DBeam</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>Property1DBeam</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>1D Beam property</p>
+<h4>Syntax</h4>
+<p>Property1DBeam(CString Name, int Id, Cursor Section, int ShapeDataType, Cursor Material, double Area, double[3] Orient, double[3] Inertia, double TorConst, double NSM, double NSM_A, double NSM_B, double NSM_NodeAy, double NSM_NodeAz, double NSM_NodeBy, double NSM_NodeBz, double ShearStiffnessK1, double ShearStiffnessK2, double AreaReliefS1, double AreaReliefS2, double WrapCoefficientA, double WrapCoefficientB, double Y_NA_NodeA, double Z_NA_NodeA, double Y_NA_NodeB, double Z_NA_NodeB, double StressRevoceryCoeff_Cy, double StressRevoceryCoeff_Cz, double StressRevoceryCoeff_Dy, double StressRevoceryCoeff_Dz, double StressRevoceryCoeff_Ey, double StressRevoceryCoeff_Ez, double StressRevoceryCoeff_Fy, double StressRevoceryCoeff_Fz, bool PinA0, bool PinA1, bool PinA2, bool PinA3, bool PinA4, bool PinA5, bool PinB0, bool PinB1, bool PinB2, bool PinB3, bool PinB4, bool PinB5, double[3] OffsetPointA, double[3] OffsetPointB, int LocalLengthUnit, int LocalMassUnit, Cursor[] Target, Cursor credit, bool Tapped, int IntePtNum) </p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>CString<p>Name</p></li>
+<li>Int<p>ID</p></li>
+<li>Int<p>Shape data type [SHAPE_TYPE_UNKNOWN = 0, SHAPE_TYPE_M3 = 1, SHAPE_TYPE_M4 =2, SHAPE_TYPE_M6 = 3, SHAPE_TYPE_M8 = 4, SHAPE_TYPE_M10 = 5, SHAPE_TYPE_M12 = 6, SHAPE_TYPE_M14 = 7, SHAPE_TYPE_M16 = 8, SHAPE_TYPE_M18 = 9, SHAPE_TYPE_M20 = 10,
+SHAPE_TYPE_M22 = 11, SHAPE_TYPE_M24 = 12, SHAPE_TYPE_M26 = 13, SHAPE_TYPE_M28 = 14, SHAPE_TYPE_M30 = 15, SHAPE_TYPE_M32 = 16, SHAPE_TYPE_M34 = 17, SHAPE_TYPE_M36 = 18, SHAPE_TYPE_CIRC = 19]</p></li>
+<li>Cursor<p>Material</p></li>
+<li>Double<p>Area</p></li>
+<li>Double[3]<p>Orient Vector double list [x,y,z]</p></li>
+<li>Double[3]<p>Inertia double list [Izz,Iyy,Izy]</p></li>
+<li>Double<p>Tor const</p></li>
+<li>Double<p>NSM</p></li>
+<li>Double<p>NSM_A</p></li>
+<li>Double<p>NSM_B</p></li>
+<li>Double<p>NSM_NodeAy</p></li>
+<li>Double<p>NSM_NodeAz</p></li>
+<li>Double<p>NSM_NodeBy</p></li>
+<li>Double<p>NSM_NodeBz</p></li>
+<li>Double<p>Shear stiffness K1</p></li>
+<li>Double<p>Shear stiffness K2</p></li>
+<li>Double<p>Shear area relief S1</p></li>
+<li>Double<p>Shear area relief S2</p></li>
+<li>Double<p>Wrap Coefficient A</p></li>
+<li>Double<p>Wrap Coefficient B</p></li>
+<li>Double<p>Stress recovery coefficient Cy</p></li>
+<li>Double<p>Stress recovery coefficient Cz</p></li>
+<li>Double<p>Stress recovery coefficient Dy</p></li>
+<li>Double<p>Stress recovery coefficient Dz</p></li>
+<li>Double<p>Stress recovery coefficient Ey</p></li>
+<li>Double<p>Stress recovery coefficient Ez</p></li>
+<li>Double<p>Stress recovery coefficient Fy</p></li>
+<li>Double<p>Stress recovery coefficient Fz</p></li>
+<li>Bool<p>Pin flag at A3 true = 1, false = 0</p></li>
+<li>Bool<p>Pin flag at A4 true = 1, false = 0</p></li>
+<li>Bool<p>Pin flag at A5 true = 1, false = 0</p></li>
+<li>Bool<p>Pin flag at B0 true = 1, false = 0</p></li>
+<li>Bool<p>Pin flag at B1 true = 1, false = 0</p></li>
+<li>Bool<p>Pin flag at B2 true = 1, false = 0</p></li>
+<li>Bool<p>Pin flag at B3 true = 1, false = 0</p></li>
+<li>Bool<p>Pin flag at B4 true = 1, false = 0</p></li>
+<li>Bool<p>Pin flag at B5 true = 1, false = 0</p></li>
+<li>Double[3]<p>Offset PointA double list</p></li>
+<li>Double[3]<p>Offset PointB double list</p></li>
+<li>Int<p>Local Unit Length</p></li>
+<li>Int<p>Local Unit mass</p></li>
+<li>Cursor[]<p>Target list</p></li>
+<li>Cursor<p>Edit 1D Beam</p></li>
+<li>Bool<p>Tapped flag true = 1, false = 0</p></li>
+<li>Int<p>Integration Points Num</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>Property1DBeam("BEAM2", 2, 93:1, 0, 22:2, 1.25664e-07, [1, 3, 3], [1.257e-15, 1.257e-15, 0], 2.513e-15, 1.79769e+308, 1.79769e+308, 1.79769e+308, 1.79769e+308, 1.79769e+308, 1.79769e+308, 1.79769e+308, 0.9, 0.9, 1.79769e+308, 1.79769e+308, 1.79769e+308, 1.79769e+308, 1.79769e+308, 1.79769e+308, 1.79769e+308, 1.79769e+308, 0.0002, -0, 0, 0.0002, -0.0002, 0, -0, -0.0002, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, [1.7976931e+308, 1.7976931e+308, 1.7976931e+308], [1.7976931e+308, 1.7976931e+308, 1.7976931e+308], 0, 0, [5:1], 0:0, 0, 2147483647)</p>
+</div>
+</div>
+</body>
+</html>

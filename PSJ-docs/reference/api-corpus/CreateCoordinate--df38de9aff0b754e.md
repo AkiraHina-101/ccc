@@ -1,0 +1,3 @@
+# CreateCoordinate
+
+CreateCoordinate CreateCoordinate Description Create coordinate Syntax CreateCoordinate(String name, int type, Point point1, Point point2, Point point3, TCursor crRefCoord, TCursor crEdit) Inputs String Coordinate name int Coordinate type (0: Rectangular, 1: Cylindrical, 2: Spherical) Point Coordinate definition point 1 Point Coordinate definition point 2 Point Coordinate definition point 3 TCursor Reference coordinate TCursor Edit target coordinate Return Code 1 Succeeded 0 Failed Sample Code CreateCoordinateThreeNode("CRect3", 0, 0, [10:466, 10:467, 10:475], [], 0:0, 0:0)

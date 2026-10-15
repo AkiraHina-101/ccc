@@ -1,0 +1,227 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>グリッドメッシュ</title>
+
+<style>
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>グリッドメッシュ</h2>
+<div class="contents">
+	<p>このコマンドは、四角形形状・三角形形状・ディスク形状のフェースに対して、格子状メッシュ（マップメッシュ）を作成します。</br></br>
+
+	<img src="./Media/CommandDlg/Meshing_Local%20Meshing_GridMesh_New_1.png">
+	
+	<h4>フェース形状</h4>
+		<li><b>操作</b>
+			<p>&ensp;&emsp;適切なフェース形状のタイプを選択します </br>
+				<ul type = "square">
+					<li><i>四角形</i>: ４つの頂点を定義したフェースに、マップメッシュを作成します </br></li>
+					<li><i>三角形</i>: ３つの頂点を定義したフェースに、マップメッシュを作成します </br> </li>
+					<li><i>ディスク</i>: ディスク形状のフェースに、メッシュを作成します </br></li>
+					<li><i><span style="color: #0066ff">自動</span></i>: 適切なフェース形状のタイプを自動認識します（推奨） </br></li>
+				</ul>
+			</p>
+		</li>
+	<img src="./Media/Meshing_Local%20Meshing_GridMesh_New_1_FaceShape.png" width=1450 height=auto>
+			
+	<h4>メッシュ数</h4>
+		<li><b>UIコントロール: X ,Y </b>
+			<p>&ensp;&emsp;X（短辺）およびY（長辺）方向のメッシュ数</p>
+			<p><ul>
+					<span style="font-family: 'Wingdings 3'">&#126;</span>  : 分割数を増やす </br>
+					&ensp;&emsp;ヒント:<br/>
+					<ul  type = "circle" style="color: #0066ff">
+					<li>キー <span style="font-family: 'Wingdings 3'">&#147;</span> をクリックして数を増やします。 </li>
+					<li>マウスを上にスクロールして数を増やします</li>
+					</ul>
+			</ul></p>
+			
+			<p><ul>
+					<span style="font-family: 'Wingdings 3'">&#128;</span>  : 分割数を減らす </br>
+					&ensp;&emsp;ヒント:<br/>
+					<ul type = "circle" style="color: #0066ff">
+					<li>キー <span style="font-family: 'Wingdings 3'">&#148;</span> をクリックして数を減らします。 </li>
+					<li>マウスを下にスクロールして数を減らします。</li>
+					</ul>
+			</ul></p>
+			
+			<p><ul>
+					<img src="./Media/Meshing_Local%20Meshing_GridMesh_New_10_SwapValue.png" width=20 height=auto>  : XとYの値を交換します。 </br>
+			</ul></p>
+			
+			<p>&ensp;&emsp;フェースを選択すると、メッシュ分割数が自動的に提案されます。</p>
+			<img src="./Media/Meshing_Local%20Meshing_GridMesh_New_2_MeshCount_UIControl.png" width=700 height=auto>	
+		</li>
+			
+		<li><b>固定</b>
+			<p>&ensp;&emsp;チェックボックスがチェックされている場合：新しいフェースを選択した後も、分割数が保持されます。</p>
+			<p><img src="./Media/Meshing_Local%20Meshing_GridMesh_New_2_MeshCount_Fixed.png" width=1200 height=auto></p>
+		</li>
+	
+		<li><b>マウスとキーボードの制御</b>
+			<p>&ensp;&emsp;<i>マウスポインタ</i> </br>
+				<ul type = "square">
+					<li>メインウィンドウの分割数にマウスオーバーすると、GUI上の分割数がフォーカスされ、上下キーで数値を変更できます。</br></li>
+				</ul>
+				<img src="./Media/Meshing_Local%20Meshing_GridMesh_New_2_MeshCount_MouseAndKeyboard.png" width=1000 height=auto>
+			</p>
+			<p>&ensp;&emsp;<i>キーボード</i> </br>
+				<ul type = "square">
+					カーソルがGUIをフォーカスしている間のショートカット一覧:
+					<li>Tab キーでX軸とY軸の分割数のフォーカスを切り替えます。</br></li>
+					<li>上下キーでフォーカスされている分割数を増減します。</br></li>
+					<li>数字キーで分割数を入力します。</br></li>
+					<li>バックスペースキーで分割数を削除します。</br></li>
+					<li>スペースキーで機能を実行します。</br></li>
+				</ul>
+			</p>
+		</li>
+		
+		<li><b>平均サイズ</b>
+			<p>&ensp;&emsp;マップメッシュのサイズが入力された平均値になるよう、X軸およびYメッシュ数を自動的に計算します。</p>
+			<p><img src="./Media/Meshing_Local%20Meshing_GridMesh_New_2_MeshCount_AveSize.png" width=1000 height=auto></p>
+		</li>
+		
+		<li><b>アスペクト</b>
+			<p>&ensp;&emsp;マップメッシュのアスペクト比が入力された値になるよう、片方の軸の分割数を固定して、もう片方の分割数を計算します。</p>
+			<p type = "circle" style="color: #0066ff">&ensp;&emsp;※ (Yのメッシュサイズ) = アスペクト x (Xのメッシュサイズ) </p>
+			<p type = "circle" style="color: #0066ff">&ensp;&emsp;※ XとYのいずれかの固定チェックボックスがオンであること</p>
+			<p><img src="./Media/Meshing_Local%20Meshing_GridMesh_New_2_MeshCount_Aspect.png" width=1000 height=auto></p>
+		</li>
+		
+		<li><b type = "circle" style="color: #ff9933">（バックグラウンド実行）メッシュ分割数のコネクションを保持</b>
+			<p>&ensp;&emsp;V5のグリッドメッシュから、複数フェースを同時にメッシングする場合、隣り合うフェース同士のメッシュ数が自動的にリンクされます。</p>
+			<p>&ensp;&emsp;次に選択されるフェースのメッシュ分割数は、以前に選択された隣接するフェースと共有するエッジのメッシュ数に基づいて、自動計算されます。隣接フェースと連続するように、分割数を手動入力する必要はありません。</p>
+			<p><img src="./Media/Meshing_Local%20Meshing_GridMesh_New_6_KeepConnectivity.png" width=1300 height=auto></p>
+		</li>
+
+
+	<h4>遷移領域</h4>
+		<li><b>隣接フェース</b>
+			<p>&ensp;&emsp;周囲のフェースに遷移領域を作成します（マップメッシュされるフェースの外側一層のメッシュを変更します）</p></li>
+		<li><b>ターゲットフェース</b>
+			<p>&ensp;&emsp;マップメッシュされるフェースに遷移領域を作成します（マップメッシュされるフェースの内側一層のメッシュを変更します）</p></li>
+		<img src="./Media/Meshing_Local%20Meshing_GridMesh_New_3_TransitionRegion.png" width=1000 height=auto>
+
+
+	<h4>グリッドメッシュタイプ</h4>
+		<li><b>三角形</b>
+			<p>&ensp;&emsp;三角形要素を生成します。</p></li>
+		<li><b>四角形</b>
+			<p>&ensp;&emsp;四角形要素を生成します。</p></li>
+		<li><b>要素をスワップ</b>
+			<p>&ensp;&emsp;三角形の対角線が最も短くなるように、要素エッジの方向を変更します。</p>
+			<p type = "circle" style="color: #0066ff">&ensp;&emsp;※ このオプションは三角形要素のみに対応します。 </p>
+		</li>
+		<img src="./Media/Meshing_Local%20Meshing_GridMesh_New_4_GridMeshType_Swap.png" width=700 height=auto>
+
+
+	<h4>複数選択</h4>
+		<li><b>独立</b>
+			<p>&ensp;&emsp;選択したフェース毎にマップメッシュを生成します</p></li>
+		<li><b>マージ</b>
+			<p>&ensp;&emsp;選択したフェースをマージしてから、マップメッシュを生成します。</br> </p>
+			<p type = "circle" style="color: #0066ff">&ensp;&emsp;※ マージされたフェースのIDは、選択したフェースの最小IDになります。</p></li>
+	<img src="./Media/Meshing_Local%20Meshing_GridMesh_New_5_MultipleSelection.png" width=1200 height=auto>
+
+
+	<h4>詳細設定</h4>
+		<p>グループボックスは折りたたむことができます。</p>
+		<img src="./Media/Meshing_Local%20Meshing_GridMesh_New_7_AdvancedOptions.png">
+		<li><b>グループを追加</b>
+			<p>&ensp;&emsp;グループの追加は、グリッドメッシュされたフェースの管理に役立ちます。</br>
+				<ul type = "square">
+					<li><i>1</i>: グリッドメッシュが実行される度に、対象のフェースが、1つのフェースグループに追加されていきます。 </br></li>
+					<li><i>複数 </i>: グリッドメッシュが実行される度に、対象のフェースで、新しいフェースグループを作成します。 </br> </li>
+				</ul>
+			</p>
+		</li>
+		<li><b>ローカルメッシュ設定を使用</b>
+			<p>&ensp;&emsp;ローカルメッシュ設定を考慮して、メッシュ数を提案します。</br>
+			<p>&ensp;&emsp;参照するローカルメッシュ設定は、エッジ分割数とフェースメッシュサイズです（フェースメッシュサイズが優先されます）</p>
+			<p type = "circle" style="color: #0066ff">&ensp;&emsp;※ フリーズメッシュがある場合、グリッドメッシュは機能しません。</p>
+		</li>
+		<li><b>CADプロジェクション</b>
+			<p>&ensp;&emsp;作成されたマップメッシュを元のCAD形状に投影して、ジオメトリを維持します。</p></li>
+			
+		<li><b>最適化</b>
+			<p>&ensp;&emsp;最適化は、メッシュのレイヤが大きく曲がる際のメッシュ分割を改善するために、特別に使用されます。</br></p>
+			<p>&ensp;&emsp;これにより、メッシュ分割がより均等でまっすぐになります。</p>
+			<img src="./Media/Meshing_Local%20Meshing_GridMesh_New_8_AdvancedOptions_Optimize.png" width=1000 height=auto>
+			<p type = "circle" style="color: #0066ff">&ensp;&emsp;※ 場合によっては、最適化を使用しない方が、パフォーマンスが向上します。 </br>
+			<img src="./Media/Meshing_Local%20Meshing_GridMesh_New_8_AdvancedOptions_Optimize_2.png" width=580 height=auto></p>
+		</li>
+		
+		<li><b>プレビュー</b>
+			<p>&ensp;&emsp;プレビューを表示します（メッシュの最終結果ではありません）</p></li>
+
+	<h4>選択リスト</h4>
+		<img src="./Media/Meshing_Local%20Meshing_GridMesh_New_9_SelectionList.png">
+		<li><b>フェース</b>
+			<p>&ensp;&emsp;グリッドメッシュを実行するフェースを選択します。</p></li>
+		<li><b>頂点の変更</b>
+			<p>&ensp;&emsp;[頂点の変更]ボタンをクリックして、機能をアクティブにします。</br></p>
+			<p>&ensp;&emsp;選択したフェースのエッジ上の節点をクリックすると、近くの頂点がその節点の位置に移動します。 </br></p>
+			<p>&ensp;&emsp;マップメッシュのプレビュー結果が悪い場合、この操作で四角形や三角形の頂点位置を変更する事で、マップメッシュのデザインを調整できます。 </br></p>
+		<img src="./Media/Meshing_Local%20Meshing_GridMesh_New_9_SelectionList_ChangeVertex.png" width=1100 height=auto>
+		</li>
+		<li><b>境界節点をキープ</b>
+			<p>&ensp;&emsp;選択したフェースのエッジ上の要素エッジを選択することにより、そのエッジの節点を保持します。</br></p>
+			<p>&ensp;&emsp;フェース形状別の、節点を保持できるエッジ数：</br></p>
+			<ul type = "square">
+				<li><i>四角形</i>: 2つの隣接するエッジ </br></li>
+				<li><i>三角形</i>: 1つのエッジ </br> </li>
+				<li><i>ディスク</i>: 1つのエッジ </br></li>
+			</ul>
+		<img src="./Media/Meshing_Local%20Meshing_GridMesh_New_9_SelectionList_KeepBdryNode.png" width=800 height=auto>
+		</li>
+
+
+
+	<h3>-&nbsp;操作手順&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;フェース形状: [自動]をオンにします。オフの場合は、目的の形状を選択します(四角形/三角形/ディスク)</li>
+			<li>&nbsp;選択リスト: 対象フェースまたはグループフェースを選択します。</li>
+			<li>&nbsp;メッシュ数: メッシュ分割数を入力します。必要に応じて、平均サイズまたはアスペクト比を指定します。</li>
+			<li>&nbsp;グリッドメッシュタイプ: 作成するメッシュタイプを選択します。</li>
+			<li>&nbsp;必要に応じて、他のパラメータを変更します。</li>
+			<li>&nbsp;グリッドメッシュのプレビュー結果が悪い場合、頂点位置を変更します。</li>
+			<li>&nbsp;一部の境界上節点を保持したい場合、要素エッジで指定します。</li>
+			<li>&nbsp;複数フェースに対して実行する場合は、次のフェースを選択します。</li>
+			<li>&nbsp;適用/ OKで実行します。</li>
+		</ol>
+
+	<h3>-&nbsp;補足&nbsp;-</h3>
+		<ul>
+			<li>&ensp;&emsp;選択したフェースが属するパーツにリファレンスパーツががない場合、グリッドメッシュ実行前に、リファレンスパーツを自動的に作成します（元の形状保存のため）</li>
+			<img src="./Media/Meshing_Local%20Meshing_GridMesh_New_10.png" width=600 height=auto>
+		</ul>
+
+
+	<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

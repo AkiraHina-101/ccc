@@ -1,0 +1,294 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>TS-SS (ShunShine)(非線形静解析)</title>
+
+</meta>
+</head>
+
+<body>
+<div class="page">
+	<h2>TS-SS (ShunShine) | 非線形静解析(SOL 106)</h2>
+<div class="contents">
+	<p>
+	SunShineの非線形静解析(SOL106)用入力データを出力します。<br>
+	</p>
+
+    <h4>ジョブオプション</h4>
+
+	<img src="./Media/Analysis_Analysis_SunShine_NonLinear%20Static(SOL106).png"></img>
+
+　　　<li>ジョブ
+	<p>
+	ジョブ名: ジョブ名を入力します。ツリーにこの名称で出力設定が保存されます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ジョブの説明: ジョブの説明を入力します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Run TS SS: ローカルマシン上のSunShineを実行します。<br>
+
+　　　<li>ソルバーオプション
+	<p>
+	方法: 解法を選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;直接法: 直接法<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;反復法: 反復法<br>
+	使用CPUコア数: 解析に用いるコア数を指定します。<br>
+	メモルー(GB): 解析に用いるメモリーサイズを指定します。<br>
+	慣性リリーフ: 慣性リリーフ機能を使用します。
+	Run SunShine: ローカルマシン上のSunShineを実行します。<br>
+	</p>
+　　　</li>
+
+
+　　　<li>実行コントロールオプション
+	<p>
+	GEOMCHECK, NONE: 形状チェックオプションを無効にします。<br>
+	直接テキスト入力: エグゼクティブコントロールセクションにデータカードを直接入力します。<br>
+	</p>
+　　　</li>
+
+　　　<li>ケースコントロールオプション
+	<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;ECHO: バルクデータのエコー出力を定義します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;NONE: 出力なし<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;SORT: ソート出力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;UNSORT: 未ソート出力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;BOTH: ソートおよび未ソートの両方出力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;TITLE: プリント出力時のタイトルを定義します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;直接テキスト入力: ケースコントロールセクションにデータカードを直接入力します。<br>
+	</p>
+　　　</li>
+
+　　　<li>バルクデータオプション
+	<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;出力タイプ: 出力対象を指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;モデル: 一つのファイルに出力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;パーツ毎: パーツ毎にファイルを分けて出力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;選択したパーツ: 選択されたパーツのみ出力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;グリッドフォーマットタイプ: GRIDカードの出力フォーマットを変更します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;シングル: スモールフィールドフォーマット出力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ダブル: ラージフィールドフォーマット出力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;シングル浮動小数点: 指数不使用のスモールフィールドフォーマット出力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;浮遊節点を削除: データ出力時に浮遊節点を削除します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;継続行マーク +: データ出力時に継続ポインタ+を出力します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;バルクデータを含める: バルクデータファイルを挿入します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;テキスト入力: バルクデータセクションにデータカードを直接入力します。<br>
+	</p>
+　　　</li>
+
+
+      <h4>荷重 / 境界条件</h4>
+	<img src="./Media/Analysis_Analysis_SunShine_NonLinear%20Static(SOL106)_2.png"></img><br>
+
+　　　<li>ベース
+	<p>
+	SUBCASE指定の上に定義する解析全体に作用する境界条件を定義します。<br>
+	各境界条件で使用する境界条件ケースを指定します。Defaultには全ての境界条件が含まれます。<br>
+	<br>
+	LOAD: 荷重ケースを指定します。<br>
+	SPC: 拘束ケースを指定します。<br>
+	MPC: 多点拘束ケースを指定します。<br>
+	初期温度: 初期温度ケースを指定します。<br>
+	温度荷重: 熱荷重ケースを指定します。<br>
+	LBC IDを定義: 荷重、拘束、多点拘束の識別IDを指定します。<br>
+	固有ID: 荷重、拘束、多点拘束でそれぞれ固有のIDが自動指定されます。<br>
+	</p>
+　　　</li>
+
+　　　<li>サブケースオプション
+	<p>
+	SUBCASEを定義します。<br>
+	各SUBCASEで使用する境界条件ケースを指定します。<br>
+	<br>
+	既存 ID: 既存SUBCASE IDを指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;追加: 新規SUBCASEの追加<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;削除: 既存SUBCASEの削除<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;適用: 既存SUBCASEの更新<br>
+	ID: SUBCASE IDを指定します。<br>
+	Subtitle:プリント出力時のタイトルを入力します。<br>
+	LOAD: 荷重ケースを指定します。<br>
+	SPC: 拘束ケースを指定します。<br>
+	MPC: 多点拘束ケースを指定します。<br>
+	DISPLACEMENT: 変位出力要求を指定します。<br>
+	応力: 要素応力出力要求を指定します。<br>
+	ひずみ: 要素ひずみ出力要求を指定します。<br>
+	直接テキスト入力: SUBCASEにデータカードを直接入力します。<br>
+	</p>
+　　　</li>
+
+
+      <h4>出力要求</h4>
+	<img src="./Media/Analysis_Analysis_SunShine_NonLinear%20Static(SOL106)_3.png"></img><br>
+
+　　　<li>結果タイプ
+	<p>
+	出力要求を指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;PLOT: op2出力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;PRINT: f06出力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;PLOT&PRINT: op2およびf06出力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ブランク: 未出力<br>
+	<br>
+	DISPLACEMENT: 変位出力要求を指定します。<br>
+	SPC力S: 単点拘束力出力要求を指定します。<br>
+	OLOAD: 作用荷重出力要求を指定します。<br>
+	MPC力S: 多点拘束力出力要求を指定します。<br>
+	応力: 要素応力出力要求を指定します。<br>
+	ひずみ: 要素ひずみ出力要求を指定します。<br>
+	力: 要素力出力要求を指定します。<br>
+	ESE: 要素ひずみエネルギー出力要求を指定します。<br>
+	</p>
+　　　</li>
+
+　　　<li>結果に出力するグループ(SET)の選択
+	<p>
+	結果出力する範囲を要素、節点グループ(セット)を指定して制限します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;すべて: 全要素、全節点に対して出力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;グループ: 指定グループ内の要素、節点に対して出力<br>
+	<br>
+	DISPLACEMENT: 変位出力要求に対して出力範囲を指定します。<br>
+	SPC力S: 単点拘束力出力要求に対して出力範囲を指定します。<br>
+	OLOAD: 作用荷重出力要求に対して出力範囲を指定します。<br>
+	MPC力S: 多点拘束力出力要求に対して出力範囲を指定します。<br>
+	応力: 要素応力出力要求に対して出力範囲を指定します。<br>
+	ひずみ: 要素ひずみ出力要求に対して出力範囲を指定します。<br>
+	力: 要素力出力要求に対して出力範囲を指定します。<br>
+	ESE: 要素ひずみエネルギー出力要求に対して出力範囲を指定します。<br>
+	</p>
+　　　</li>
+
+
+      <h4>パラメーター</h4>
+	<img src="./Media/Analysis_Analysis_SunShine_NonLinear%20Static(SOL106)_4.png"></img><br>
+
+　　　<li>パラメーター
+	<p>
+	パラメータを定義します。<br>
+	<br>
+	POST: ポスト処理用結果ファイルの出力タイプを指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;-1: op2(Patran向け形式)出力<br>
+
+
+	OGEOM: OP2への形状出力を制御します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;YES: 形状出力あり<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;NO: 形状出力なし<br>
+	AUTOSPC: 剛性特異性の自動拘束を制御します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;YES: 自動拘束<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;NO: 自動拘束なし<br>
+	GRDPNT: 重量情報出力を制御します。<br>
+	WTMASS: 質量補正係数定義します。<br>
+	K6ROT: シェル要素法線回転剛性に対する付加係数を定義します。<br>
+	MAXRATIO: マトリクス擬似特異判定比率を定義します。<br>
+	BAILOUT: 擬似特異性に対する実行を制御します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;0: 継続実行<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;-1: 終了<br>
+	PRGPST: 特異性サマリーテーブルのプリント出力を制御します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;YES: 出力あり<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;NO: 出力なし<br>
+	LGDISP: 幾何学的非線形性を制御します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;-1: 幾何学的非線形性を考慮しません。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;1: 変位の非線形性と従動荷重を考慮します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;2: 変位の非線形性のみ考慮します。<br>
+	</p>
+　　　</li>
+　　　
+　　　      <h4>増分設定(NLPARM)</h4>
+	<img src="./Media/Analysis_Analysis_SunShine_NonLinear%20Static(SOL106)_4.png"></img><br>
+
+　　　<li>増分設定(NLPARM)
+	<p>
+	増分設定をします。<br>
+	<br>
+	増分数(NINC): 解析に用いる増分数を指定します。<br>
+
+
+	剛性評価法(KMETHOD): 剛性評価法を選択します(Version4.1では無効）。<br>
+	AUTOSPC: 剛性特異性の自動拘束を制御します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;YES: 自動拘束<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;NO: 自動拘束なし<br>
+	最大反復数(MAXITER): 収束繰り返し計算最大回数<br>
+	EPSU: 変位収束閾値を設定します。<br>
+	EPSP: 荷重収束閾値を設定します。<br>
+	EPSW: 仕事収束閾値を設定します。<br>
+	</p>
+　　　</li>
+　　　
+　　　
+　　<h4>その他の設定</h4>
+		<img src="./Media/Analysis_Analysis_SunShine_NonLinear%20Static(SOL106)_6.png"></img><br>
+		<li>ダミープロパティ
+			<p>
+				ダミープロパティの設定を行います。<br><br>
+				自動割り当て: チェックを入れると、プロパティが割り当てられていないパーツにダミープロパティを自動で割り当てます。<br>
+				出力ジオメトリーID: チェックを入れると、フェースID、エッジID、パートIDなどのエンティティIDが出力されます。<br>
+				材料: ダミープロパティを割り当てるパーツの材料を指定します。<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;材料コマンドのユーザーデータベースに登録済の材料が選択可能です。ユーザーデータベースに材料未登録の場合、登録済でもブランクを選択した場合はダミー材料を割り当てます。<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ダミー材料の場合、材料特性値は書かれない状態で出力されます。
+			</p>
+		</li>
+
+<h3>-&nbsp;操作手順&nbsp;-</h3>
+　　　<li>一般的な出力方法(SUBCASEを定義しない場合)
+　　　</li>
+
+      <ol>
+　　　<li>荷重 / 境界条件などはデフォルトのまま、Post処理用に出力する結果を選択する場合は出力要求の各結果でPLOTを選択します。</li>
+　　　<li>適用(OK)ボタンをクリックして、入力データファイル名を定義して出力します。</li>
+      </ol>
+<br>
+<br>
+　　　<li>SUBCASEを定義する場合(例:拘束条件一定、荷重条件をSUBCASE毎に変更)
+　　　</li>
+
+      <ol>
+　　　<li>予め境界条件 > ロードケースコマンドで荷重ケース、拘束ケースなどを定義しておきます。</li>
+　　　<li>荷重 / 境界条件のベース>LOADでブランクを選択し、SPCで全SUBCASEで使用する拘束ケースを選択します。</li>
+　　　<li>サブケースオプション>IDにSUBCASE番号を入力し、LOADで使用する荷重ケースを選択し、Addボタンをクリックします。</li>
+<!--	<img src="./Media/Analysis_Analysis_SunShine_NonLinear Static(SOL101)_5.png"></img><br>  
+-->
+　　　<li>サブケースオプション>IDに次のSUBCASE番号を入力し、LOADで使用する荷重ケースを選択し、Addボタンをクリックします。</li>
+<!--	<img src="./Media/Analysis_Analysis_SunShine_NonLinear Static(SOL101)_6.png"></img><br>
+-->
+　　　<li>その他必要なオプションを定義し、適用(OK)ボタンをクリックして、入力データファイルを出力します。下図のようなSUBCASE設定が出力されます。</li>
+<!--		<img src="./Media/Analysis_Analysis_SunShine_NonLinear Static(SOL101)_7.png"></img><br>
+-->
+      </ol>
+<br>
+<br>
+
+
+　　　<li>SUBCASEの編集方法(例:SUBCASE1の削除とSUBCASE2の荷重ケース変更)
+　　　</li>
+
+      <ol>
+　　　<li>Assemblyツリー下の解析設定を右クリックしEditを選択します。TS SS出力のダイアログが開きます。</li>
+<!--		<img src="./Media/Analysis_Analysis_SunShine_NonLinear Static(SOL101)_8.png"></img><br>
+-->
+　　　<li>Loading / Boundary ConditionsのSubcase Option>Existing IDで1を選択し、Removeボタンをクリックすると、SUBCASE1が削除されます。</li>
+<!--		<img src="./Media/Analysis_Analysis_SunShine_NonLinear Static(SOL101)_9.png"></img><br>
+-->
+　　　<li>Existing IDで2を選択し、LOADで別の荷重ケースを選択し、Applyボタンをクリックすると、SUBCASE2の内容が変更されます。</li>
+<!--		<img src="./Media/Analysis_Analysis_SunShine_NonLinear Static(SOL101)_10.png"></img><br>
+-->
+	　　　<li>その他必要なオプションを定義し、Apply(OK)ボタンをクリックして、入力データファイルを出力します。</li>
+      </ol>
+<br>
+<br>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

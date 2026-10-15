@@ -1,0 +1,127 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>Mating Face</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Mating Face</h2>
+<div class="contents">
+	<p>Mirror symmetry move or copy the selected Part.
+</p>
+
+	<img src="./Media/CommandDlg/Geometry_Transform%20Part_Transform_Mating%20Face.png">
+
+	<h4>Operation</h4>
+		<li><b>Create New Part</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Copy the part after the parallel move, as a new Part.</p>
+		<li><b>LBC Copy</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Also copy load constraints that were added to the existing part to a new part.</p>
+
+	<h4>Option</h4>
+		<li><b>Interactive</b></li>
+			<p>&nbsp;&nbsp;&nbsp;When check is turned ON, the Body movement changes moment by moment.</p>
+			
+	<h4>Target Bodies</h4>
+		<li><b>Target Bodies</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Select the Body to be moved.</p>
+	
+	<h4>Mating Face / Element</h4>
+		<li><b>Source</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Specify the Face / Element of Body which is to be moved.</p>
+		<li><b>Destination</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Specify the Face / Element of Body as a reference.</p>
+		<li><b>Opposite Direction</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Invert the Body which is to be moved.</p>
+			
+	<h4>Alignment Edges</h4>
+		<li><b>Method</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Specify how the Edges are aligned.</p>
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>2 Edges</b>&nbsp;:&nbsp;Specifies 2Edge</li>
+					<li><b>Edge - Vector</b>&nbsp;:&nbsp;Specifies Edge and Vector</li>
+				</span>
+				</ul>
+				</br>
+		<li><b>Source</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Specify the Edge of Body which is to be moved.</p>
+		<li><b>Destination</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Specify the Edge / Vector of Body as a reference.</p>
+		<li><b>Angle (Degrees)</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Specify the angle.</p>
+		<li><b>Opposite Direction</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Invert the Body which it to be moved.</p>
+	
+	<h4>Position Adjustment</h4>
+		<li><b>Method</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Specify location adjustment.</p>
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>2 Points</b>&nbsp;:&nbsp;Specifies 2Node </li>
+					<li><b>Points - Coordinate</b>&nbsp;:&nbsp;Specifies Node and coordinates </li>
+				</span>
+				</ul>
+				</br>
+		<li><b>Source Point</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Specify the nodes of Body which is to be moved.</p>
+		<li><b>Destination Point</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Specify the Body of Node / coordinate as reference.</p>
+		<li><b>Direction of Projection</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Projection direction.</p>
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>Face Normal</b>&nbsp;:&nbsp;The normal direction of the surface</li>
+					<li><b>Vector</b>&nbsp;:&nbsp;Vector direction</li>
+				</span>
+				</ul>
+				</br>
+		<li><b>Vector (Global)</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Vector value. (Global coordinate system)</p>
+			
+	<h4>Reset</h4>
+		<li><b>Reset</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Restore the position of Body.</p>
+	</br>
+	
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+		<ol>
+			<li>&nbsp;Select the Body that has to be moved.</li>
+			<li>&nbsp;Select the Face of Body to move.</li>
+			<li>&nbsp;Select the Face serving as a reference Body.</li>
+			<li>&nbsp;Select the Edge of Body to move.</li>
+			<li>&nbsp;Select the Edge of Body as a reference.</li>
+			<li>&nbsp;Press the Apply or OK button.</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

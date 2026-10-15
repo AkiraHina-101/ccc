@@ -1,0 +1,82 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>サーフェース抽出</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>サーフェース抽出</h2>
+	<div class="contents">
+	<p>
+	角度指定により抽出されたフェースから、新規パーツを作成します。<br>
+	この機能により、薄板形状のモデルより片側のサーフェスを抽出することができます。
+	</p>
+
+	<img src="./Media/CommandDlg/Geometry_Extract_Extract%20Surfaces.png">
+
+ 	<h4>サーフェース抽出</h4>
+	<li>フェース間角度
+	<p>
+	角度を入力します。この角度は抽出されるフェース間の角度を設定し、この設定した角度以下のフェースを抽出します。<br>
+	※角度の数値に-1を入力した場合は、選択したフェースのみを抽出します。
+	</p>
+
+ 	<h4>オプション</h4>
+	</li>
+	<li>パーツ名
+	<p>フェース抽出後に作成される新規パーツの名前を入力します。</p>
+	</li>
+	<li>面選択
+	<p>選択中のフェースIDを表示します。</p>
+	</li>
+	<li>プレビュー
+	<p>抽出される要素を確認できます。</p>
+	</li>
+	<li>リセット	
+	<p>プレビューボタンで確認した要素をリセットします。</p>
+	</li>
+	<li>１パーツにマージ	
+	<p>複数パーツのフェースを選択してフェースを抽出した場合、抽出フェースは抽出元のパーツの数だけ作成されます。本オプションをONにすることで、抽出したフェースを１つのパーツにまとめます。<br>
+	※デフォルトはONです。<br>
+	例：<br>
+	１パーツにマージがOFFの場合<br>
+	<img src="./Media/CommandDlg/Geometry_Extract_Extract%20Surfaces_1.png"><br>
+	１パーツにマージがONの場合<br>
+	<img src="./Media/CommandDlg/Geometry_Extract_Extract%20Surfaces_2.png">
+	</p>
+	</li>
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>抽出する角度を入力します。</li>
+	<li>新規パーツ名を入力します。</li>
+	<li>フェースを選択します。</li>
+	<li>プレビュー/リセットで抽出範囲を確認します。</li>
+	<li>必要に応じて、「１パーツにマージ」オプションをチェックします。</li>
+	<li>適用/OKボタンをクリックします。</li>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

@@ -1,0 +1,88 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Move Node | Project to Line</title>
+
+<style>
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>Move Node | Project to Line</h2>
+<div class="contents">
+	<p>Move any target node on the straight line defined by the two reference nodes by the shortest distance.<br>
+	It is also possible to select target nodes by searching from reference nodes.</p>
+
+	<img src="./Media/CommandDlg/Mesh%20Edit_Node%20Manipulation_Move%20Node_Project%20To%20Line.png">
+	<br>
+
+	<h4>Align Node</h4>
+		<li><b>On Shortest Pass</b>
+			<p>&nbsp;&nbsp;&nbsp;Find the shortest path node between two reference nodes and select it as the target node.</p>
+		</li>
+		<li><b>On the Direction the Reference Nodes</b>
+			<p>&nbsp;&nbsp;&nbsp;Find the shortest path node in the direction defined by the two reference nodes and select it as the target node.</p>
+		</li>
+		<li><b>On Selected Entity</b>
+			<p>&nbsp;&nbsp;&nbsp;Find a node on the selected entity and select it as the target node.</p>
+		</li>
+		</br>
+
+	<h3>-&nbsp;Operation Procedure (When moving the shortest path node between reference nodes)&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;Select 2 nodes to define a straight line to project.</li>
+			<li>&nbsp;Select "On Shortest Pass" from the search method of the target node.</li>
+			<li>&nbsp;Click the "Search" button. The shortest path node between reference nodes is selected.</li>
+			<li>&nbsp;Click the Apply / OK button.</li>
+		</ol>
+		
+	<h3>-&nbsp;Operation Procedure (When moving the shortest path node between reference nodes in the direction of reference node)&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;Select 2 nodes to define the line and direction to project.</li>
+			<li>&nbsp;From the search method of the target node, select "On the Direction the Reference Nodes".</li>
+			<li>&nbsp;Click the "Search" button. The shortest path node is selected in the direction between the reference nodes.</li>
+			<li>&nbsp;Click the Apply / OK button.</li>
+		</ol>
+		※If an unintended node is selected here, please select another reference node additionally. Project the target node onto the plane defined by the 3 reference nodes.
+
+	<h3>-&nbsp;Operation Procedure (When moving all nodes on the selected entity)&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;Select 2 nodes to define the line and direction to project.</li>
+			<li>&nbsp;Select "On Selected Entity" from the search method of the target node.</li>
+			<li>&nbsp;Select the entity you want to move the node, such as edge or face.</li>
+			<li>&nbsp;Click the "Search" button. All nodes on the selected entity are selected.</li>
+			<li>&nbsp;Click the Apply / OK button.</li>
+		</ol>
+
+	<h3>-&nbsp;Operation Procedure (When moving any node)&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;Click "Reference Nodes" in the selection list and select 2 nodes to define a straight line to project.</li>
+			<li>&nbsp;Click "Object Node" in the selection list and select the node or floating node to move. (You can select more than one)</li>
+			<li>&nbsp;Click the Apply / OK button.</li>
+		</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

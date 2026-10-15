@@ -1,0 +1,87 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>Interface Information</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Interface Information</h2>
+<div class="contents">
+<h4>CAD and Solver I / O Support Version</h4>
+<table class="commontable">
+<tr><td rowspan="14" valign="top">CAD interface</td><td>Parasolid [V30.1]</td></tr>
+<tr><td>CATIA (Spatial) [V5R8 - V5-6R2022]</td></tr>
+<tr><td>CATIA (Elysium) [R7 - R29]</td></tr>
+<tr><td>NX (Spatial) [NX6 - NX2206 ]</td></tr>
+<tr><td>Pro/E, Creo (Spatial) [WF3 - Creo9.0]</td></tr>
+<tr><td>IGES (Spatial) [V5.2, V5.3]</td></tr>
+<tr><td>IGES (Elysium) [V5.2, V5.3]</td></tr>
+<tr><td>STEP (Spatial)  [AP203, AP214, AP242]</td></tr>
+<tr><td>STEP (Elysium)<sup>※2</sup> [AP203, AP214, AP242]</td></tr>
+<tr><td>ACIS (Spatial) [R1 - 2022 1.0]</td></tr>
+<tr><td>ACIS (Elysium) [R6 - R29]</td></tr>
+<tr><td>JT (Elysium)<sup>※1※2</sup>  [6.4 - 10.5]</td></tr>
+<tr><td>VRML [2.0]</td></tr>
+<tr><td>STL [-]</td></tr>
+<tr><td rowspan="8" valign="top">Solver interface (input)</td><td>MSC Nastran [2022.1]</td></tr>
+<tr><td>NX Nastran [11]</td></tr>
+<tr><td>Abaqus [2021]</td></tr>
+<tr><td>ADVENTURECluster [2021 R1.0]</td></tr>
+<tr><td>ANSYS [V14.5]</td></tr>
+<tr><td>LS-DYNA [V971]</td></tr>
+<tr><td>FrontISTR [V5.3]</td></tr>
+<tr><td>SunShine-Solver [V4.3.0]</td></tr>
+<tr><td rowspan="9" valign="top">Solver interface (output)</td><td>MSC Nastran [2022.1]</td></tr>
+<tr><td>NX Nastran [11]</td></tr>
+<tr><td>Abaqus [2021]</td></tr>
+<tr><td>ADVENTURECluster [2021 R1.0]</td></tr>
+<tr><td>LS-DYNA [V971]</td></tr>
+<tr><td>FrontISTR [V5.3]</td></tr>
+<tr><td>Actran [19]</td></tr>
+<tr><td>OPTISHAPE-TS [2020]</td></tr>
+<tr><td>SunShine-Solver [V4.3.0]</td></tr>
+	</table>
+
+<font size="1"><sup>※1</sup> Only users who use Elysium's  import module for JT (JPT_CAJT_EL) need to install Visual C++ 2012 Update 4.<br>
+［Installation Procedure] At the end of the Jupiter installation procedure, a checkbox for installation will appear.<br>
+
+<sup>※2</sup> Users of import modules (JPT_CAJT_EL, JPT_CASTP_EL) for Elysium's STEP and JT translators (2019) need to install Visual C++ 2013 Update 5.<br>
+［Installation Procedure] Install a file named "vcredist_x64_2013Update5.exe" in the redist folder directly under the installation folder.<br></font>
+	<h4>ID minimum / maximum value</h4>
+	<p>The maximum and minimum ID values available in Jupiter-Pre are set as follows:。</p>
+	<table class="commontable">
+	 <tr><th>Entity</th><th>Minimum ID</th><th>Maximum ID</th></tr>
+	 <tr><td>Node</td><td>1</td><td>2,147,483,646</td></tr>
+	 <tr><td>Element</td><td>1</td><td>2,147,483,646</td></tr>
+	</table>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

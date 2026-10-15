@@ -1,0 +1,88 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>オフセット</title>
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+	<h2>オフセット</h2>
+<div class="contents">
+	<p>
+	任意のシェルを板厚の半分量オフセットして、中立面を作成します。
+	</p>
+	<p>
+	<img src="./Media/CommandDlg/MidPlane%20Edit_Manual_Offset.png">
+ 	</p>
+ 	<b>選択リスト</b></br>
+	フェース：オフセットするフェース（複数パーツのフェース対応）</br>
+	
+ 	<h4>オフセット</h4>
+	<li>板厚[mm]
+	<p>
+	中立面作成対象パーツの板厚を入力します。単位はmmです。
+	</p>
+	</li>
+ 	<li>検索ボタン
+	<p>
+	選択したフェースと面間角度60°で連続している面を自動で検索して選択します。
+	</p>
+	
+	<h4>オプション</h4>
+	<li>初期メッシング
+	<p>
+	このオプションをオンにすると、中立面作成前に任意の平均メッシュサイズでメッシングします。
+	形状が複雑なパーツの中立面を取る際にこのオプションをオンにして頂きますと、
+	フリーエッジ等形状崩れが起きにくくなります。
+	</p>
+	</li>
+	<li>平均メッシュサイズ
+	<p>
+	初期メッシングの際の平均メッシュサイズを入力します。
+	</p>
+	</li>
+	<li>新規作成
+	<p>
+	このオプションをオンにすると、中立面パーツが選択したフェースのパーツと別パーツで作成されます。
+	</li>
+	<li>新規パーツ名
+	<p>
+	新規作成オプションで中立面パーツを作成した際の、新しいパーツの名前を入力します。
+	</p>
+	</li>
+	
+	<h4>2D プロパティ</h4>
+	<li>材料選択
+	<p>
+	中立面を作成と同時に、選択した材料を中立面パーツに定義します。ここには、材料ダイアログのユーザーデータベース内にある材料がプルダウンメニューで表示されます。
+	</p>
+	</li>
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>中立面を作成したいパーツの外側、もしくは内側フェースを選択します。</li>
+	<li>必要に応じて検索ボタンをクリックして、フェースを複数選択します。検索ボタンクリック後も、メインウィンドウからマウス左クリックで選択、選択解除も可能です。</li>
+	<li>板厚を入力します。（オフセット量の2倍の数値）</li>
+	<li>必要に応じてオプションを設定します。</li>
+	<li>材料を定義したい場合は、材料選択から材料を選択します。</li>
+	<li>適用またはOKボタンをクリックします。</li>
+	</ol>
+</div>
+
+</body>
+
+</html>

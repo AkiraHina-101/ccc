@@ -1,0 +1,71 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+</html>
+
+<title>パーツ荷重 | 重力</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</head>
+
+
+<body>
+	<div class="page">
+	<h2>パーツ荷重 | 重力</h2>
+		<div class="contents">
+		<p>選択したパーツに重力などの加速度荷重を定義します。
+		（パーツ指定対応ソルバー：Abaqus）</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Loads_Body%20Load_Gravity.png">
+
+
+	<h4>構造</h4>
+		<li>名前
+			<p>&nbsp;&nbsp;&nbsp;重力荷重名を設定します。</p>
+		
+	<h4>値</h4>
+		<li>X/Y/Z</li>
+			<p>&nbsp;&nbsp;&nbsp;各方向の加速度値を定義します。</p>
+		<li>入力単位系</li>
+			<p>&nbsp;&nbsp;&nbsp;入力単位を指定します。</p>
+	
+	<h4>解析座標系</h4>
+		<li>座標系</li>
+			<p>&nbsp;&nbsp;&nbsp;荷重が参照する座標系を選択します。</p>
+	<br>
+	
+	<h3>-&nbsp;操作手順&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;重力荷重を負荷するパーツを選択します。複数の選択が可能です。</li>
+			<li>&nbsp;X、Y、Zにそれぞれの方向の加速度値を入力します。</li>
+			<li>&nbsp;必要に応じて他のパラメータを選択、入力します。</li>
+			<li>&nbsp;適用またはOKボタンをクリックします。</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+
+	</li></div>
+</div>
+</body>
+
+</html>

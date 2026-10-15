@@ -1,0 +1,3 @@
+# 力 | 非線形力 | NOLIN1 (テーブル)
+
+力 | 非線形力 | NOLIN1 (テーブル) a.no-uline {text-decoration:none} 力 | 非線形力 | NOLIN1 (テーブル) 解析モデルに力とモーメントの荷重を追加します。 構造 名前 &nbsp;&nbsp;&nbsp;荷重条件の名前を入力します。 座標系 &nbsp;&nbsp;&nbsp;荷重条件が参照するローカル座標系またはグローバル座標系を選択します。 力 強制方向 &nbsp;&nbsp;&nbsp;荷重方向 スケール係数 &nbsp;&nbsp;&nbsp;スケール係数 テーブル テーブル選択 &nbsp;&nbsp;&nbsp; フィールドデータ で定義されるテーブルを選択します。 入力単位系 &nbsp;&nbsp;&nbsp;荷重値の入力単位系を指定します。 依存要素： &nbsp;&nbsp;&nbsp;依存する変位あるいは速度成分 モーメント モーメント方向 &nbsp;&nbsp;&nbsp;モーメント荷重方向 スケール係数 &nbsp;&nbsp;&nbsp;スケール係数 テーブル テーブル選択 &nbsp;&nbsp;&nbsp; フィールドデータ で定義されるテーブルを選択します。 入力単位系 &nbsp;&nbsp;&nbsp;モーメント値の入力単位系を指定します。 依存要素： &nbsp;&nbsp;&nbsp;依存する変位あるいは速度成分 -&nbspOperation Video&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

@@ -1,0 +1,137 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>フェース指定</title>
+
+<style type="text/css">
+<!--/* Link下線、非表示 */-->
+a.no-uline {text-decoration:none}
+</style>
+
+
+</html></head>	
+
+
+<body>
+<div class="page">
+	<h2>フェース指定</h2>
+<div class="contents">
+	<p>指定フェース間に接触設定を定義します。<BR>
+	マスター面となるフェース、およびスレーブ面となるフェースを選択し、接触設定を定義します。 </p>
+
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_TS%20SS_Manual%20Face.png">
+	<br>
+	<br>
+	
+	<h4>基本</h4>
+		<li><b>名前</b>
+			<p>&nbsp;&nbsp;&nbsp;接触対の名称を入力します。</p>
+		</li>
+		<li><b>アルゴリズム</b>
+			<p>&nbsp;&nbsp;&nbsp;接触設定対象エンティティを選択します。</p>
+			<ul type="circle">
+			<li><b>フェース-フェース</b>: フェース対フェース間接触</li>
+			</ul>
+		</li>
+		<li><b>タイプ</b>
+			<p>&nbsp;&nbsp;&nbsp;接触定義の挙動タイプを選択します。</p>
+				<ul type="circle">
+					<span style="font-size:0.95em;">
+						<li><b>一般接触</b>&nbsp;:&nbsp;滑り接触<br>
+						<li><b>固着</b>&nbsp;:&nbsp;固着</li>
+						<!--<li><b>Tied w/Frictionless Sliding</b>&nbsp;:&nbsp;？？？</li>-->
+					</span>
+				</ul>
+		</li>
+		<li><b>マスター</b>
+			<p>&nbsp;&nbsp;&nbsp;マスター面となるフェースを選択します。
+
+
+</p>
+		</li>
+		<li><b>スレーブ</b>
+			<p>&nbsp;&nbsp;&nbsp;スレーブ面となるフェースを選択します。</p>
+		</li>
+		<li><b>M/S入替</b>
+			<p>&nbsp;&nbsp;&nbsp;マスターとスレーブを入れ替えます。</p>
+		</li>
+		
+		<h4>コンタクトプロパティ</h4>
+		<li><b>干渉閉鎖距離(CINTERF)</b>
+			<p>&nbsp;&nbsp;&nbsp;接触フェースに垂直な方向の干渉閉鎖量を入力します。CINTERF>0 の場合、ボディ間のオーバーラップ。CINTERF<0 の場合は、ボディ間のギャップ。</p>
+		</li>
+		<li><b>摩擦係数(FRIC)</b>
+			<p>&nbsp;&nbsp;&nbsp;摩擦係数の入力します。</p>
+		</li>
+		<li><b>接触面延伸距離(SLIDE)</b>
+			<p>&nbsp;&nbsp;&nbsp;接触面延伸距離を入力します。 ICOORD >= 2 でない限り、この入力は行わないでください。<br>&nbsp;&nbsp;&nbsp;接触面延伸距離オプションを使用する場合、セグメント上をスライドする節点は、設定値よりも長い距離場合延伸がオフになります。<br></p>
+		</li>
+		<li><b>節点の座標修正（ICOORD)</b>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>いいえ</b>&nbsp;:&nbsp;このオプションを無視します。<br>
+					<li><b>はい</b>&nbsp;:&nbsp;変形パーツと接触しているノードの座標を修正して，応力のない初期接触が得られるようにします。<br>
+				</span>
+			</ul>
+		</li>
+		<li><b>ペナルティファクタ(SFACT)</b>
+			<p>&nbsp;&nbsp;&nbsp;反復回数による時間ステップの増加の要因。</p>
+		</li>
+		<li><b>シェル要素面(スレーブ)</b>
+			<p>&nbsp;&nbsp;&nbsp;シェル要素面(スレーブ)には以下のオプションがあります。</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>表。板厚考慮</b>&nbsp;:&nbsp;接触の説明には上面のみが含まれ、厚さのオフセットが含まれます。<br></li>
+					<li><b>表。板厚考慮しない</b>&nbsp;:&nbsp;接触の説明には上面のみが含まれ、シェルの厚さは無視されます。<br></li>
+					<li><b>裏。板厚考慮</b>&nbsp;:&nbsp;接触の説明には底面のみが含まれ、厚さのオフセットが含まれます。<br></li>
+					<li><b>裏。板厚考慮しない</b>&nbsp;:&nbsp;接触の説明には底面のみが含まれ、シェルの厚さは無視されます。<br></li>
+				</span>
+			</ul>
+		</li>
+		<li><b>シェル要素面(マスター)</b>
+			<p>&nbsp;&nbsp;&nbsp;シェル要素面(マスター)には以下のオプションがあります。</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>表。板厚考慮</b>&nbsp;:&nbsp;接触の説明には底面のみが含まれ、厚さのオフセットが含まれます。<br></li>
+					<li><b>表。板厚考慮しない</b>&nbsp;:&nbsp;接触の説明には上面のみが含まれ、シェルの厚さは無視されます。<br></li>
+					<li><b>裏。板厚考慮</b>&nbsp;:&nbsp;接触の説明には底面のみが含まれ、厚さのオフセットが含まれます。<br></li>
+					<li><b>裏。板厚考慮しない</b>&nbsp;:&nbsp;接触の説明には底面のみが含まれ、シェルの厚さは無視されます。<br></li>
+				</span>
+			</ul>
+		</li>
+		
+		<h4>色設定</h4>
+		<li><b>接触の色</b>
+			<p>&nbsp;&nbsp;&nbsp;接触対表示マーカー色を定義します。</p>
+			<ul type="circle">
+			<li>リセット: デフォルト色に初期化</li>
+		</ul></li>
+	<br>
+	
+	<h3>-&nbsp;操作手順&nbsp;-&nbsp;&nbsp;&nbsp;</h3>
+		<ol>
+			<li>&nbsp;マスターでマスター面となるフェースを選択します。続いてスレーブでスレーブ面となるフェースを選択します。</li>
+			<li>&nbsp;必要により接触対に対する詳細設定を定義し、適用（OK）ボタンをクリックして接触対を定義します。</li>
+		</ol>
+
+	<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

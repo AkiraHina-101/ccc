@@ -1,0 +1,3 @@
+# Tool Menu
+
+Tool Menu Tool Menu Performs operations related to the creation of dialogs and wizards. Tools menu details Icon Name Description Shortcut Key Make a new dialog Clear the JDB that is being created and open a new window. F5 Open and load from file Open an existing .xml file. (currently being created) F4 Save dialog to customer folder Save it as a Python file. (currently being created) F3 Undo Click this icon to undo the previously executed operation. Redo Click this icon to redo the previously cancelled operation. Show or hide code window Switching show and hiding the code window. F1 Preview dialog Displays a preview of the created dialog. F2 Integrate Implement the created dialog in the ribbon. Help Display the Help .(currently being created)

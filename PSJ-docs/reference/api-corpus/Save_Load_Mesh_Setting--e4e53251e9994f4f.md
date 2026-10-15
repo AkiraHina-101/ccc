@@ -1,0 +1,3 @@
+# Save/Load Mesh Setting
+
+Save/Load Mesh Setting Save/Load Mesh Setting Save the local setting to an external file (xml format). In addition, read the saved setting. Type Operation Type &nbsp;&nbsp;&nbsp;Select the operation type. Save &nbsp;:&nbsp;Save the local setting to an external file. Load &nbsp;:&nbsp;It reads the local setting from an external file. -&nbspOperating Procedure&nbsp- Save Procedure &nbsp;Select Save in the Operation Type. &nbsp;Click Apply / OK button. &nbsp;Enter the name of the file. &nbsp;Click the Save button. Load Procedure &nbsp;Select Load in the Operation Type. &nbsp;Click Apply / OK button. &nbsp;Select the saved xml file. &nbsp;Click the button to open. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

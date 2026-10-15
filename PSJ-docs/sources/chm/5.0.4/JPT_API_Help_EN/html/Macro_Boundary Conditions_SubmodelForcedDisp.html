@@ -1,0 +1,50 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>SubmodelForcedDisp</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>SubmodelForcedDisp</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>create sub model forced displacement</p>
+<h4>Syntax</h4>
+<p>SubmodelForcedDisp(String m_strName,int iSolver,String strFilePathName,int iProcessNo,BOOL bTranslationX,BOOL bTranslationY,BOOL bTranslationZ,int iReferType,double dExtensionRange,double dExtensionTol,double dExtensionLimitTol,String strFilePathName,int iUseBucket,int iNumBucketMaxX,int iNumBucketMaxY,int iNumBucketMaxZ,int iPrevBc,Cursor[] m_taTarget,Cursor m_crEdit)</p>
+<h4>Inputs</h4> <ol>
+<li>String<p>name of sub model forced displacement</p></li>
+<li>int<p>slover[0:ADVC]</p></li>
+<li>String<p>file path</p></li>
+<li>int<p>process number</p></li>
+<li>BOOL<p>if translation X used</p></li>
+<li>BOOL<p>if translation Y used</p></li>
+<li>BOOL<p>if translation Z used</p></li>
+<li>int<p>refer type[0:blank; 1:result; 2:restart]</p></li>
+<li>double<p>extension_range</p></li>
+<li>double<p>extension_tol</p></li>
+<li>double<p>extension_limit_tol</p></li>
+<li>String<p>global_element_set</p></li>
+<li>int<p>use_bucket[0:blank; 1:Yes; 2:No]</p></li>
+<li>int<p>num_bucket_max_x</p></li>
+<li>int<p>num_bucket_max_y</p></li>
+<li>int<p>num_bucket_max_z</p></li>
+<li>int<p>prev_bc[0:blank; 1:default hold]</p></li>
+<li>Cursor[]<p>targets</p></li>
+<li>Cursor<p>edit cursor</p></li>
+</ol> <h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>SubmodelForcedDisp("SubmodelForcedDisplacement1", 0, "/home/", 0, 1, 1, 1, -1, 1.79769e+308, 1.79769e+308, 1.79769e+308, "", -1, 2147483647, 2147483647, 2147483647, -1, [6:21], 0:0)</p>
+</div>
+</div>
+</body>
+</html>

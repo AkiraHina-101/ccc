@@ -1,0 +1,119 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Grid Mesh</title>
+
+<style>
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>Grid Mesh</h2>
+<div class="contents">
+	<p>This command creates a grid mesh (mapped mesh) not only for simple square shapes but also for complex shapes.</br></br>
+
+	
+	<img src="./Media/CommandDlg/Meshing_Local%20Meshing_GridMesh1.png">
+	<!--<img src="./Media/CommandDlg/Meshing_Local Meshing_Fillet_Mapped3.png">-->
+	
+	<h4>Face Shape</h4>
+		<li><b>Operation</b>
+			<p>&nbsp;&nbsp;&nbsp;Select the type of face to enter (triangle or rectangle)</br>&nbsp;&nbsp;&nbsp;※Note: Quad4 can not be used for meshing if you select a triangle
+</p>
+	<img src="./Media/Meshing_Local%20Meshing_GridMesh2.png">
+			<p>&nbsp;&nbsp;&nbsp;How to change the selected vertex:</br>&nbsp;&nbsp;&nbsp;If you want to change the recommended vertex, click on the red dot on the display and select the destination vertex. </p></li>
+
+	<h4>Element Number</h4>
+		<li><b>X、Y </b>
+			<p>&nbsp;&nbsp;&nbsp;Number of elements in the X and Y directions (the length of X is shorter than Y)</p></li>
+		<li><b>Fixed</b>
+			<p>&nbsp;&nbsp;&nbsp;Fix the number of X and Y elements when selecting another face.</p></li>
+	<img src="./Media/Meshing_Local%20Meshing_GridMesh3.png">
+			<p>&nbsp;&nbsp;&nbsp;If the check box is not checked: This function automatically recommends the number of divisions from the local mesh settings or the shape of the selected entity.</p></li>
+	<img src="./Media/Meshing_Local%20Meshing_GridMesh4.png">
+			<p>&nbsp;&nbsp;&nbsp;If the check box is checked: The fixed number of divisions is retained even after selecting a new entity.</p></li>
+	<img src="./Media/Meshing_Local%20Meshing_GridMesh5.png">
+
+
+	<h4>Transition Region</h4>
+		<li><b>Neighbor Faces</b>
+			<p>&nbsp;&nbsp;&nbsp;Create a transition region in the surrounding face (there is only one layer of transition elements around the border of the selected face, and the location of this layer is outside the border of the selected face).</p></li>
+		<li><b>Target Faces</b>
+			<p>&nbsp;&nbsp;&nbsp;Change the mesh of the selected face only (keep the mesh of the other face).</p></li>
+	<img src="./Media/Meshing_Local%20Meshing_GridMesh6.png">
+
+
+	<h4>Grid Mesh Type</h4>
+		<li><b>Tri</b>
+			<p>&nbsp;&nbsp;&nbsp;Generate triangle element (Tri3 element).</p></li>
+		<li><b>Quad</b>
+			<p>&nbsp;&nbsp;&nbsp;Generate a quadrilateral element (Quad4 element).</p></li>
+
+
+	<h4>Multiple Selection</h4>
+		<li><b>Independent</b>
+			<p>&nbsp;&nbsp;&nbsp;Generate each mesh on the selected face.</p></li>
+		<li><b>Merged</b>
+			<p>&nbsp;&nbsp;&nbsp;If the selected face is a continuous face, the faces are merged into one face and a mesh of this combined face is generated.</br>&nbsp;&nbsp;&nbsp;※Note: After merging, the merged faces will show the smallest ID of the selected faces.</p></li>
+	<img src="./Media/Meshing_Local%20Meshing_GridMesh7.png">
+
+	<h4>Flip Element</h4>
+			<p>&nbsp;&nbsp;&nbsp;Change the mesh pattern to make the mesh quality better.</br>&nbsp;&nbsp;&nbsp;※Note: This option is only available for triangular elements (Tri3).</p>
+		<li><b>None</b>
+			<p>&nbsp;&nbsp;&nbsp;Do not use this option.</p></li>
+		<li><b>1 Layer</b>
+			<p>&nbsp;&nbsp;&nbsp;Change the mesh of one layer near the border of the selected face (the location of this layer is within the border of the selected face)
+		<li><b>All</b>
+			<p>&nbsp;&nbsp;&nbsp;Change all elements of the selected face.</p>
+	<img src="./Media/Meshing_Local%20Meshing_GridMesh8.png">
+
+
+	<h4>Advanced Options</h4>
+		<li><b>Add to GridMeshFaces group</b>
+			<p>&nbsp;&nbsp;&nbsp;Add mesh faces to the GridMeshFaces group.</p></li>
+		<li><b>Use Local Mesh Setting</b>
+			<p>&nbsp;&nbsp;&nbsp;Use local mesh settings</br>&nbsp;&nbsp;&nbsp;※Note: You can only use the edge mesh number and the face mesh size (the face mesh size takes precedence).</p></li>
+		<li><b>Preview</b>
+			<p>&nbsp;&nbsp;&nbsp;Display temporary results as a preview (not the final result of the mesh).</p></li>
+
+
+
+
+
+	<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;Select the face shape type for which you want to create a grid mesh from operations: rectangle or triangle.</li>
+		<li>&nbsp;Select one or more faces to be targeted. The recommended values for the number of element divisions in the X and Y directions are displayed according to the surrounding element division situation.</li>
+		<li>&nbsp;If necessary, enter the desired number of element divisions in X, Y of the element number. Also, if you want to fix the number of divisions while working, check the Fixed check box.</li>
+		<li>&nbsp;Select the transition area creation target from the transition area as required.</li>
+		<li>&nbsp;Select the element type to use for mesh division from the grid mesh type according to need.</li>
+		<li>&nbsp;When multiple faces are selected, select whether to create a mesh for each face independently from multiple selection or to create a mesh as a single sheet.</li>
+		<li>&nbsp;If you selected a triangular element, select the range to flip the element from the flip element if necessary.</li>
+		<li>&nbsp;From the advanced options, select Create group, Apply local mesh settings, and with or without preview, if necessary.</li>
+		<li>&nbsp;Press the Apply or OK button to execute the function.</li>
+		</ol>
+
+	<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

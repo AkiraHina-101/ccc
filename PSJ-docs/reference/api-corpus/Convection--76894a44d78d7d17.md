@@ -1,0 +1,3 @@
+# Convection
+
+Convection Convection Description create convection Syntax Convection(string strName, double dExtTemp, cursor crTimeTempTbl, double dCoef, cursor crTimeCoefTbl, cursor crTempCoefTbl, cursor crTargets, cursor crEdit) Inputs String Convection name Double External temperature Cursor Time temperature table cursor([81:FieldData ID]) Double Convection coefficient value Cursor Time dependent coefficient table Cursor Time temperature dependent coefficient table Cursor[] Target Entities Cursor Cursor edit Return Code 1 Succeeded 0 Failed Sample Code Convection("Convection_1", 373.15, 81:1, 2000, 81:1, 81:1, [6:3, 11:764], 0:0)

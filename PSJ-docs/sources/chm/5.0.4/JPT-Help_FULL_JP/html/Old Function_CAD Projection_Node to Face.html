@@ -1,0 +1,89 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>節点-面</title>
+
+
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>節点-面</h2>
+<div class="contents">
+	<h4>CAD投影(節点からフェース） ダイアログボックス</h4>
+	<p>
+	メッシュパーツの中間節点やコーナー節点を、選択した節点のみ
+	CAD形状のフェース上に乗せることができます。</p>
+
+	<img src="./Media/CommandDlg/Old%20Function_CAD%20Projection_CAD%20Projection_Node%20to%20Face.png">
+
+	<h4>オプション</h4>
+
+	<li>方向 
+	<p>
+	プロジェクション方向を指定します。
+
+	<ul type="circle">
+	<li>最小
+	<p>フェースへの最短距離方向にプロジェクションします。
+	</p></li>
+
+	<li>X/Y/Z/-X/-Y/-Z
+	<p>選択した方向の選択した正負の方向にある選択したCADフェースまで
+	プロジェクションします。
+	</p>
+	</li>
+	</ul>
+
+	</p>
+	</li>
+	<li>品質を改善
+	<p>
+	チェックを入れると作成後の要素品質を最適に保つように調整されます。<br>
+	このとき方向は無視されます。
+	</p>
+	</li>
+	<li>近接する3節点
+		<p>
+		チェックを入れると、投影先を最近接要素上ではなく、最近接3点で定義される面上に投影します。
+		</p>
+		</li>
+
+<br>
+
+<h3>-&nbsp操作手順&nbsp-</h3>
+
+	<ol>
+	<li>選択リストのCADフェースボタンを押し、画面からプロジェクション
+	ターゲットとなるフェースを選択します。</li>
+	<li>選択リストのメッシュド節点ボタンを押し、画面からプロジェクション対象
+	となるメッシュパーツの節点を選択します。</li>
+	<li>必要に応じて方向、品質を改善のオプションを変更します。</li>
+	<li>適用またはOKボタンをクリックしてプロジェクションを実行します。<br>
+	選択した節点がCADモデルのフェース上に移動します。</li>
+	</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

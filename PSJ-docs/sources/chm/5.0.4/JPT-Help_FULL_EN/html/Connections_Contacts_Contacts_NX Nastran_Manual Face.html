@@ -1,0 +1,233 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Contacts | NX Nastran - Manual Face</title>
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Contacts | NX Nastran - Manual Face</h2>
+<div class="contents">
+	<p>
+	Define contact settings for NX Nastran between specified faces.<br>
+	Select the master face and the slave face, and define the contact settings.
+	</p>
+
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_NX%20Nastran_Manual%20Face.png">
+
+      <h4>Basic</h4>
+
+　　　<li>Name Prefix
+	<p>
+	Enter the contact pair name.
+	</p>
+　　　</li>
+
+　　　<li>Algorithm
+	<p>
+	Select the contact setting target entity.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Face to Face: Face-to-face contact
+	</p>
+　　　</li>
+
+　　　<li>Type
+	<p>
+	Select the behavior type of contact definition.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;General: Sliding contact<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Tied: Tied contact
+	</p>
+　　　</li>
+
+　　　<li>Master
+	<p>
+	Select the face to be the master face.<br>
+	</p>
+　　　</li>
+
+　　　<li>Slave
+	<p>
+	Select the face to be the slave face.
+	
+	&nbsp;&nbsp;&nbsp;&nbsp;Switch M/S: Switch master and slave.<br>
+	</p>
+　　　</li>
+
+
+      <h4>Contact Properties | General</h4>
+
+　　　<li>Normal Penalty Factor
+	<p>
+	Enter the normal penalty factor.
+	</p>
+　　　</li>
+
+　　　<li>Tangential penalty factor
+	<p>
+	Enter tangential penalty factor.
+	</p>
+　　　</li>
+
+　　　<li>Force Convergence Tolerance
+	<p>
+	Enter the force convergence tolerance.
+	</p>
+　　　</li>
+
+　　　<li>Maximum Force Iterations
+	<p>
+	Enter the maximum number of iterations of the force loop.
+	</p>
+　　　</li>
+
+　　　<li>Maximum Status Iterations
+	<p>
+	Enter the maximum number of status iterations.<br>
+	</p>
+　　　</li>
+
+　　　<li>Change Number
+	<p>
+	Enter the number of contact change allowances.<br>
+	</p>
+　　　</li>
+
+　　　<li>Minimum Contact Percentage
+	<p>
+	Enter the minimum contact rate.
+	</p>
+　　　</li>
+
+　　　<li>Shell Thickness
+	<p>
+	Specify whether to include shell thickness.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Include: Include shell thickness<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Not Include: Do not include shell thickness
+	</p>
+　　　</li>
+
+　　　<li>Contact Status
+	<p>
+	Specify the state of contact.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Previous: Previous state<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Initial: Initial State
+	</p>
+　　　</li>
+
+　　　<li>Initial Gap / Penetration
+	<p>Specify the initial gap / penetration state.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;No Correction: As the model<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Reset Penetration: Reset Penetration only<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Reset Both: Reset both gap / penetration
+	</p>
+　　　</li>
+
+　　　<li>Minimum Search Distance
+	<p>
+	Enter the minimum search range.
+	</p>
+　　　</li>
+
+　　　<li>Maximum Search Distance
+	<p>
+	Enter the maximum search range.
+	</p>
+　　　</li>
+
+　　　<li>Friction Coefficient
+	<p>
+	Enter the coefficient of friction.
+	</p>
+　　　</li>
+
+　　　<li>Region Refine
+	<p>
+	Set the region.<BR>
+	&nbsp;&nbsp;&nbsp;&nbsp;Refine：Improve.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Not Refine：Do not improve.
+	</p>
+　　　</li>
+　　　
+　　　<li>Evaluation Points
+	<p>
+	Designate an evaluation point.<BR>
+	&nbsp;&nbsp;&nbsp;&nbsp;Low：Low<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Mid：Mid<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;High：High
+	</p>
+　　　</li>
+
+      <h4>Contact Properties | Tied</h4>
+
+　　　<li>Region Refine
+	<p>
+	Set the region.<BR>
+	&nbsp;&nbsp;&nbsp;&nbsp;Refine：Improve.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Not Refine：Do not improve.
+	</p>
+　　　</li>
+　　　
+　　　<li>Evaluation Points
+	<p>
+	Designate an evaluation point.<BR>
+	&nbsp;&nbsp;&nbsp;&nbsp;Low：Low<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Mid：Mid<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;High：High
+	</p>
+　　　</li>
+
+
+　　　<li>Search Distance
+	<p>
+	Enter the range to search for contacts.
+	</p>
+　　　</li>
+
+　　　<li>Penalty Factor
+	<p>
+	Enter the penalty proportional coefficient.
+	</p>
+　　　</li>
+
+
+      <h4>Color Setting</h4>
+
+　　　<li>Contact Color
+	<p>
+	Define the contact-to-display marker color.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Reset: Initialize to default color
+	</p>
+　　　</li>
+
+
+
+<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+      <ol>
+　　　<li>&nbspSelect the face that will be the master face in the master. Then select the face that will be the slave face in the slave.</li>
+　　　<li>&nbspDefine detailed settings for contact pairs as required, and click the Apply (OK) button to define contact pairs.</li>
+      </ol>
+<br>
+<br>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

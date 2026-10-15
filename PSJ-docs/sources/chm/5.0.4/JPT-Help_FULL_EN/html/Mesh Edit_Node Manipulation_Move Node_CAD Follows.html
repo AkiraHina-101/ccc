@@ -1,0 +1,106 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>CAD Follows</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>CAD Follows</h2>
+	<div class="contents">
+	<p>
+	By dragging a node, you can move it to any position on the face. In addition, it also displays element quality for the node you are dragging.<br>
+	To have the position with the best element quality, you can also move automatically.
+	</p>
+
+	<img src="./Media/CommandDlg/Mesh%20Edit_Node%20Manipulation_Move%20Node_CAD%20Follows.png">
+
+	<h4>Position</h4>
+	<li>X, Y, Z
+	<p>
+	Display the coordinates of the nodal point you are dragging.
+	</p>
+	</li>
+
+	<h4>Element Quality</h4>
+	<li>Metric
+	<p>
+	Specify the evaluation type for elements quality<br>
+	For more information about the element quality, see the Mesh Clean up> Mesh Quality> Auto Check / Manual Check.
+		<ul>
+			<li>Stretch
+			<p>Check the stretch for Tri/Quad/Tet/Hex element.</p>
+			</li>
+			<li>Aspect Ratio
+			<p>Check the aspect ratio for Tri/Quad/Tet/Hex element.</p>
+			</li>
+			<li>Warping
+			<p>For the Quad element, divide the quadrilateral elements into two triangles, and then check the maximum value of the angle that occurs between them.</p>
+			</li>
+			<li>Skewness
+			<p>For the Quad element, check angle of the two line connecting the midpoint of the opposite sides.</p>
+			</li>
+			<li>Edge Length
+			<p>For the Tri / Quad / Tet / Hex element, check the element edge length.</p>
+			</li>
+			<li>Area
+			<p>For the Tri / Quad element, check the element area.</p>
+			</li>
+			<li>Node Valence
+			<p>For the Tri / Quad element, for a particular node, check the number of elements containing the node.</p>
+			</li>
+			<li>Interior angle
+			<p>For the Tri / Quad element, check the lowest value among the angle between the elements Edge around the node.</p>
+			</li>
+			<li>Taper
+			<p>For the Quad element, check the Maximum difference between the average value of the triangular area that connects the 3 nodes in the quadrilateral element.</p>
+			</li>
+		</ul>
+	</p>
+	</li>
+	<li>Applied Elements
+	<p>
+	Specify the element type for applying the element quality specified in    Metric
+	</p>
+	<li>Auto
+	<p>
+	To have the position with the best element quality, move automatically.
+	</p>
+	</li>
+
+	<h3>-&nbspOperating Procedure (manual movement to arbitrary position)&nbsp-</h3>
+	<ol>
+	<li>&nbspSpecify the type of element quality to evaluate in the Metric.</li>
+	<li>&nbspDrag one of the nodes.</li>
+	<li>&nbspClick Apply / OK button.</li>
+	</ol>
+
+	<h3>-&nbspOperating Procedure (automatic movement to the optimum element quality position)&nbsp-</h3>
+	<ol>
+	<li>&nbspSpecify the type of element quality to evaluate in the Metric.</li>
+	<li>&nbspDrag one of the nodes.</li>
+	<li>&nbspClick the Auto button.</li>
+	</ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

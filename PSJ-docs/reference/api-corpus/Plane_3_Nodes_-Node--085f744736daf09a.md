@@ -1,0 +1,3 @@
+# Plane(3 Nodes)-Node
+
+Plane(3 Nodes)-Node a.no-uline {text-decoration:none} Plane(3 Nodes)-Node Measure the distance of a perpendicular line drawn from a node towards a plane defined by three nodes. Output Distance &nbsp;&nbsp;&nbsp;Measurement result is displayed. Input Unit &nbsp;&nbsp;&nbsp;Set the preferred unit system . -&nbsp;Operating Procedure&nbsp;- &nbsp;Choose three nodes from the screen. These three node defines the plane. &nbsp;Select the fourth node. &nbsp;Shortest distance between the plane and node is displayed in the distance. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

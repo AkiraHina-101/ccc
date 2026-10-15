@@ -1,0 +1,103 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Full Quad Remesh</title>
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+	<h2>Full Quad Remesh</h2>
+<div class="contents">
+	<p>
+	Remesh all selected areas with square elements. It is necessary to meet the following conditions:<br>
+	1. An even number of triangles are included in remesh range.<br>
+	2. The shape of the remesh range is close to a triangle, square or pentagon.<br>
+	3. Remesh range corresponds to each place (a remote place can not be executed at the same time).<br>
+	<img src="./Media/Appendix_PreRelease_LocalMeshing_FullQuadRemesh01.png"><br>
+	※Edges within the remesh range are not retained.<br>
+	※The surface position of the remesh area is aligned with the surface of the reference part.<br>
+	If there is a solid CAD and mid-plane reference part, give priority to the mid-plane reference part surface.<br>
+	Please note that if there is no reference, the remeshing range will be flat.
+	</p>
+	<img src="./Media/CommandDlg/Appendix_PreRelease_LocalMeshing_FullQuadRemesh02.png">
+ 	<h4>Parameters</h4>
+	<li>Highlight TRI
+	<p>
+	Highlight triangle element of display part
+	</p>
+	</li>
+ 	<li>Pattern
+	<p>
+	Number of candidates for remeshing results
+	</p>
+	</li>
+	<li>Rev / Next button
+	<p>
+	Switch preview display of remeshed result
+	</p>
+	</li>
+	<li>Auto Find
+	<p>
+	Automatically search and select elements; a Tri element that pairs with the element selected by user, and surrounding elements that form a polygon.<br>
+	The selected quad elements before user selects a Tri element would release if they are different from elements selected by system.
+	</p>
+	</li>
+	<li>Find button
+	<p>
+	When check button for Auto Find is off and user selects one Tri element, this button would be enable.<br>
+	After clicking this, automatically search and select elements, a Tri element that pairs with the element selected by user and surrounding elements that form a polygon.<br>
+	The selected quad elements before user selects a Tri element would release if they are different from elements selected by system.
+	</p>
+	</li>
+	<li>Status of element selection
+	<p>
+	Display message for element selection status.
+	</p>
+	</li>
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li>no message<p>You can execute with current status.</p></li>
+	<li>Check selection area<p>If you don't select anything or, selection area isn't polygon, this message is displayed.<br>
+		Please change the selction area.</p></li>
+	<li>Select one more Tri element<p>If selection number of Tri elements is odd, this message is displayed.<br>
+		Please select an even number of Tri elements.</p></li>
+	</span>
+	</ul>
+
+	<h3>-&nbspOperation Procedure (when making triangular element into quadrilateral element)&nbsp-</h3>
+	<ol>
+	<li>&nbspTurn on Highlight TRI, if necessary.</li>
+	<li>&nbspSelect triangle and square elements of the remesh range to meet the conditions.</li>
+	<li>&nbspSwitch the preview of the element pattern with the Rev button or the Next button as needed.<br>※If there are an odd number of triangles or if there is a problem with the selection, the preview will not be displayed.</li>
+	<li>&nbspClick the Apply / OK button.</li>
+	<li>&nbspAll selected areas are remeshed with square elements.</li>
+	</ol>
+	
+	<h3>-&nbspOperation Procedure (when smoothing a square element)&nbsp-</h3>
+	<ol>
+	<li>&nbspIf necessary, turn on Highlight TRI.</li>
+	<li>&nbspSelect the square element of the remesh range to meet the conditions.</li>
+	<li>&nbspChange the preview of the remeshing result with the Rev button or Next button, as required.<br>※If there is a problem with the selection, it will not be previewed.</li>
+	<li>&nbspClick the Apply / OK button.</li>
+	<li>&nbspThe nodes of the selection rectangle are smoothed and rearranged.</li>
+	</ol>
+
+</div>
+
+</body>
+
+</html>

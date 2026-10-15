@@ -1,0 +1,222 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>3D Property | Solid</title>
+
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>3D Property | Solid</h2>
+<div class="contents">
+	<h4>3D Property Solid Dialog Box</h4>
+	<p>
+	Enter the property data of the three-dimensional solid element.
+	</p>
+
+	<img src="./Media/CommandDlg/Properties_3D_Solid.png"></img>
+
+	<h4>Properties</h4>
+
+	
+ 　　 <li>Name
+	<p>
+	Set the name of the property.
+	</p>
+　　　</li>
+
+ 　　 <li>Property ID
+	<p>
+	Enter the ID of the property. Property ID is entered so as not to overlap in the model.
+	</p>
+　　　</li>
+
+	<h4>Solid</h4>
+	<p>Choose the basic property data of solid elements.</p>
+	<li>Material
+	<p>Select the pre-defined material properties. </p>
+	</li>
+
+	<li>Material Coordinate ID
+	<p>Select the material coordinate system.</p>
+	<ul type="circle">
+	<li>Global<p>Select the entire coordinate system to material coordinate system.</p></li>
+	<li>Element CS<p>Select the element coordinate system to material coordinate system.</p></li>
+	</ul>
+	</li> 
+
+	<h4>NASTRAN</h4>
+	<p>Configure the settings associated with the Nastran solver.</p>
+	<li>Integration Network
+	<p>Integration network</p>
+	<ul type="circle">
+	<li>TWO<p>Use the quadratic function.</p> </li>
+	<li>THREE<p>Use the cubic function.</p></li>
+	<li>BUBBLE<p>Using the BUBBLE function.</p></li>
+	</ul>
+	</li> 
+
+	<li>Output Location
+	<p>Stress output position</p>
+	<ul type="circle">
+	<li>GAUSS<p>Stress output of a Gaussian point.</p></li>
+	<li>GRID<p>Output at the node.</p></li>
+	</ul>
+	</li>
+
+	<li>Integration Schema
+	<p>Integration method</p>
+	<ul type="circle">
+	<li>REDUCED<p>Using the reduced shear integration schema.</p></li>
+	<li>FULL<p>Using the standard iso-parametric integration schema.</p></li>
+	</ul>
+	</li>
+
+	<li>Fluid Element Flag
+	<p>Fluid element flag</p>
+	<ul type="circle">
+	<li>PFLUID<p>Using a fluid element.</p></li>
+	<li>SMECH<p>It uses the structural element.</p></li>
+	</ul>
+	</li>
+
+	<h4>ABAQUS</h4>
+	<p>Configure the settings related for the ABAQUS solver.</p>
+
+ 　　 <li>Hybrid
+	<p>
+	This is used to use a hybrid element.
+	</p>
+　　　</li>
+
+ 　　 <li>Incompatible
+	<p>
+	This is used to use a non-conforming element.
+	</p>
+　　　</li>
+
+ 　　 <li>Modified
+	<p>
+	This is used to use a modified element.
+	</p>
+　　　</li>
+
+ 　　 <li>Reduced Integration
+	<p>
+	Used to use a degenerate integral element.
+	</p>
+　　　</li>
+
+ 　　 <li>Coupled Temp-Disp
+	<p>
+	Use the element for thermal structural coupling analysis.
+	</p>
+　　　</li>
+
+ 　　 <li>Acoustic
+	<p>
+	This is used to use the acoustic elements.
+	</p>
+　　　</li>
+
+ 　　 <li>Setting
+	<p>
+	It is used to if you want to enter additional settings for ABAQUS. <br>
+	ABAQUS Setting dialog box opens.
+	</p>
+	Element Control<br>
+	Hourglass Control:
+	<ul type="circle">
+	<li>Use Default
+	<p>Using the default settings.</p>
+	</li>
+	<li>Enhanced
+	<p>Using the enhanced setting.</p></li>
+	<li>Stiffness
+	<p>Using the stiffness setting.	</p></li>
+	<li>Displacement hourglass
+	<p>Enter the displacement hourglass scaling factor.
+	</p></li>
+	</ul>
+　　　</li>
+
+	<h4>ADVC</h4>
+	<p>Specify the settings related to Adventure Cluster solver.</p>
+
+ 　　 <li>Incompatible
+	<p>
+	This is used to use a non-conforming element.
+	</p>
+　　　</li>
+
+ 　　 <li>Modified
+	<p>
+	This is used to use a modified element.
+	</p>
+　　　</li>
+
+ 　　 <li>Reduced Integration
+	<p>
+	Used to use a degenerate integral element.
+	</p>
+　　　</li>
+
+	<h4>LS-Dyna</h4>
+	<p>Configure the settings related to the LS-Dyna solver.</p>
+
+ 　　 <li>Adaptive Mesh
+	<p>
+	Dyna uses an adaptive mesh.
+	</p>
+　　　</li>
+
+ 　　 <li>Remesh Min Edge Length
+	<p>
+	Minimum edge length.
+	</p>
+　　　</li>
+
+ 　　 <li>Remesh Max Edge Length
+	<p>
+	Maximum edge length.
+	</p>
+　　　</li>
+
+
+
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+
+      <ol>
+　　　<li>&nbspEnter the name of the property in Name.</li>
+　　　<li>&nbspEnter the property ID to the Property ID.</li>
+　　　<li>&nbspSelect the material information that has been already registered from the Material pull-down menu.</li>
+　　　<li>&nbspEnter other parameters as needed.</li>
+　　　<li>&nbspSelect the parts.</li>
+　　　<li>&nbspClick the Apply or OK button to create a property.</li>
+	</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

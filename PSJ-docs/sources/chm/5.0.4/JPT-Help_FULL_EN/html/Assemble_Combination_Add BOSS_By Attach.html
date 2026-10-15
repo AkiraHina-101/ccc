@@ -1,0 +1,127 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Add BOSS | By Attach</title>
+
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Add BOSS | By Attach</h2>
+<div class="contents">
+	<p>
+	This command is used to create a BOSS geometry (cylinder shape) and attach it to selected part.
+	</p>
+
+	<img src="./Media/CommandDlg/Assemble_Combination_Add_BOSS_By_Attach.png">
+
+	<h4>Option</h4>
+	<li>Merge
+	<p>
+	When checked ON, new BOSS part will be merged with the selected part.
+	</p>
+	<h4>Base Center</h4>
+	<ul type="circle">
+	Specify the position of the bottom face of the BOSS (on which the selected part is connected).
+	<li>Set By
+	<p>Selected entity type to set base center: Node or Face Point.
+	</p></li>
+	<li>X
+	<p>X coordinate of base center. 
+	</p></li>
+	<li>Y
+	<p>Y coordinate of base center. 
+	</p></li>
+	<li>Z
+	<p>Z coordinate of base center.
+	</p></li>
+	</ul>
+	</li>
+	
+	<h4>Direction</h4>
+	<ul type="circle">
+	<li>X
+	<p>X coordinate of BOSS directional vector. 
+	</p></li>
+	<li>Y
+	<p>Y coordinate of BOSS directional vector. 
+	</p></li>
+	<li>Z
+	<p>Z coordinate of BOSS directional vector.
+	</p></li>
+	<li>Coordinate System
+	<p>Specify Coordinate system for the BOSS directional vector.
+	</p></li>
+	<li>Rotation Axis
+	<p>Specify the rotation axis on the coordinate system (X axis, Y axis, Z axis).
+	</p></li>
+	<li>Angle
+	<p>Specify the rotation angle of the rotation axis.
+	</p></li>
+	</ul>
+	</li>
+	
+	<h4>BOSS Shape</h4>
+	<ul type="circle">
+	<li>Hollow
+	<p>Select this checkbox to create the BOSS as a hollow geometry.
+	</p></li>
+	<li>Inner Radius
+	<p>Enter the inner radius of the cylinder geometry (in case of a hollow geometry). 
+	</p></li>
+	<li>Outer Radius
+	<p>Enter the outer radius of the cylinder geometry.
+	</p></li>
+	<li>Taper Angle (degree)
+	<p>Enter the taper angle from the top to bottom direction of the cylinder geometry.
+	</p></li>
+	<li>No of Nodes in Circle
+	<p>Enter the number of nodes in in the arc direction of the cylinder.
+	</p></li>
+	<li>No of Nodes in Axis
+	<p>Enter the number of nodes in in the axis direction of the cylinder.
+	</p></li>
+	<li>Height
+	<p>Enter the height of the cylinder geometry.
+	</p></li>
+	</ul>
+	</li>
+
+<br>
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+
+	<ol>
+	<li>&nbspSelect Face Point or Node from Set By and click the face point or node on the position where you want to
+create the BOSS. <br>
+The clicked position will be automatically entered as the Base Center (center point of the BOSS creation
+position) and the normal of the clicked position will be automatically entered as the Direction (of the BOSS).</li>
+	<li>&nbspEnter the Outer Radius and Height of the BOSS. The preview geometry will be displayed.</li>
+	<img src="./Media/CommandDlg/Assemble_Combination_Add_BOSS_By_Attach_Operation.png">
+	<li>&nbspClick the Apply button to generate the geometry.</li>
+	</ol>
+
+
+<!--<h3>-&nbspOperation Video&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

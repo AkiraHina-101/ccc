@@ -1,0 +1,85 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>フェース</title>
+
+
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>フェース</h2>
+<div class="contents">
+	<h4>CAD投影(フェース） ダイアログボックス</h4>
+	<p>
+	メッシュパーツの中間節点やコーナー節点を、選択したフェースのみ
+	CAD形状に乗せることができます。
+	</p>
+
+	<img src="./Media/CommandDlg/Meshing_CAD%20Projection_CAD%20Projection_Face.png">
+
+	<h4>オプション</h4>
+
+	<li>コーナー節点
+	<p>
+	コーナー節点をCAD形状に乗せたい時にチェックを入れます。
+	</p>
+	</li>
+
+	<li>中間節点
+	<p>
+	中間節点をCAD形状に乗せたい時にチェックを入れます。
+	</p>
+	</li>
+
+	<li>IDチェック
+	<p>
+	チェックされた場合はCADパーツとメッシュパーツはパーツ、フェース、エッジ
+	など全てのエンティティについて同じIDを持つ必要があります。
+	同じIDを持たないとプロジェクションを行いません。<br>
+	チェックされない場合は、同じIDを持つ必要はありません。プロジェクションは
+	もっとも距離の近いエンティティ間で行われますが、場合によっては意図しない
+	位置にプロジェクションがされる恐れがあります。
+	</p>
+	</li>
+
+
+<br>
+
+<h3>-&nbsp操作手順&nbsp-</h3>
+
+	<ol>
+	<li>選択リストのCADパーツボタンを押し、画面からプロジェクション
+	ターゲットとなるCADパーツを選択します。</li>
+	<li>選択リストのメッシュドフェースボタンを押し、画面からプロジェクション対象
+	となるメッシュパーツのフェースを選択します。</li>
+	<li>コーナー節点もCAD形状にプロジェクションしたい場合は、コーナー節点
+	オプションもチェックします。</li>
+	<li>適用またはOKボタンをクリックしてプロジェクションを実行します。<br>
+	選択したフェース上の節点がCADモデル上に移動します。</li>
+	</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

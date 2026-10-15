@@ -1,0 +1,101 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>ブーリアン</title>
+
+
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>ブーリアン</h2>
+<div class="contents">
+	<h4>ブーリアンダイアログボックス</h4>
+	<p>
+	選択された2つのボディに対してブーリアンオペレーションを実施します。
+	</p>
+
+	<img src="./Media/CommandDlg/Old%20Function_Combination_Boolean.png">
+
+	<h4>演算方法</h4>
+	<li>選択
+	<p>
+	実行するブーリアンオペレーションのタイプを選択します。
+	</p>
+	<ul type="circle">
+	<li>結合（論理和）
+	<p>選択した2つのボディを1つのボディにします。
+	</p></li>
+	<li>削除（論理差）
+	<p>ボディを2つ選択して、ボディの重複部分を削除して、1つ目に選択したボディ
+	のみ残ります。
+	</p></li>
+	<li>重複部（論理積）
+	<p>ボディを2つ選択して、ボディの重複部分を抽出します。
+	</p></li>
+	<li>交差エッジ作成
+	<p>ボディを2つ選択して、ボディが交差しているフェースにエッジを作成します。
+	</p></li>
+	<li>削除と交差エッジ作成
+	<p>ボディを2つ選択して、1つ目のボディはボディの重複部分を削除します。
+	2つ目のボディはボディが交差しているフェースにエッジを作成します。
+	</p></li>
+	<li>重複部分削除
+	<p>ボディ間に貫入部分がある2つのパーツを選択して、ボディとボディの重複部分
+	を削除します。溶着部分などのモデル化において、共有面を作成する処理で使用します。<br>
+        ※重複部分削除オプションは、このコマンドを実行する前に、アッセンブル＞共有面作成コマンドで、検索ボタンを実行する必要があります。<br>
+        この処理により、本オプションの削除対象面が認識されます。操作手順をご参照ください。
+	</p></li>
+	</ul>
+	</li>
+
+	<li>位置トレランス
+	<p>トレランスを設定します。</p></li>
+
+<br>
+
+<h3>-&nbsp操作手順&nbsp-</h3>
+
+	<ol>
+	<b>一般ブーリアンオペレーションの場合（重複部分削除オプションを除く）</b>
+	<li>選択から実行するブーリアンオペレーションのタイプを選択します。</li>
+	<li>画面から実行対象となるボディを２つ選択します。実行タイプによって
+	選択順に意味がありますので注意します。</li>
+	<li>必要に応じてトレランスに値を入力します。</li>
+	<li>適用またはOKボタンをクリックして演算を実行します。</li>
+	</ol>
+	<ol>
+	<b>重複部分削除オプションの場合</b>
+	<li>アッセンブル＞共有面作成コマンドを起動します。対象となる貫入量をトレランスに入力し、検索ボタンを実行します。</li>
+	<li>対象となる面が検索されたら、適用、OK、キャンセルボタンを<b>押さないまま、</b>ブーリアンコマンドを起動します。</li>
+	<li>選択から重複部分削除オプションを選択します。</li>
+	<li>対象となる貫入量を位置トレランスに入力します。</li>
+	<li>画面から実行対象となるボディを２つ選択します。</li>
+	<li>適用またはOKボタンをクリックして演算を実行します。重複部分が削除されます。</li>
+	<li>必要に応じてアッセンブル＞共有面作成コマンドを起動し、通常の操作で接触面に共有面を作成します。</li>
+	</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

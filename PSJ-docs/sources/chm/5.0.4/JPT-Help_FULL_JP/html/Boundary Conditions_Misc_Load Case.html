@@ -1,0 +1,124 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>荷重ケース</title>
+
+
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>荷重ケース</h2>
+<div class="contents">
+	<h4>荷重ケース ダイアログボックス</h4>
+	<p>
+	このコマンドでは、荷重や拘束条件を束ねる荷重ケースを作成します。<br>
+	荷重ケースは解析ソルバー入力データ作成時などに参照できます。
+	</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Misc_Load%20Case.png">
+
+	<li>名前
+	<p>
+	作成する荷重ケースの名前を入力します。
+	</p>
+	</li>
+
+	<li>ID
+	<p>
+	Nastran向けLOAD、SPC、MPC IDを指定します。
+	</p>
+	</li>
+
+	<li>係数
+	<p>
+	作成する荷重ケース全体にかかるNastran向け荷重係数を入力します。<br>
+	荷重を係数倍する場合に使用します。
+	</p>
+	</li>
+	
+	<li><img src="./Media/Boundary%20Conditions_Misc_LBC%20Copy1.png"><br>
+	<br>リストされたエンティティを一度に選択します。左から、全選択、全選択解除、選択と非選択を反転。
+	</p>
+	</li>
+
+	<li>エンティティタイプ
+	<p>
+	リスト内に表示されている条件を、選択したアイテムごとに表示します。  
+	</p>
+	</li>
+
+	<li>フィルター
+	<p>
+	入力した名前の一部により、表示項目をフィルタリングします。
+	</p>
+	</li>
+
+	<li>全境界条件
+	<p>
+	作成された既存の荷重、拘束条件をリスト表示します。<br>
+	選択にはチェックボックスを使用します。
+	チェックを入れた境界条件が属しているエンティティがハイライトされます。
+	</p>
+	</li>
+
+	<li>選択した境界条件
+	<p>
+	作成する荷重ケースで使用する荷重や拘束条件をリスト表示します。<br>
+	荷重毎に係数を入力します。
+	</p>
+	</li>
+
+	<li>所属パーツ
+	<p>
+	チェックを入れた境界条件が属しているパーツをリスト表示します。
+	クリックすると、所属パーツがハイライトされます。
+	
+	</p>
+	</li>
+
+<br>
+
+<h3>-&nbsp操作手順&nbsp-</h3>
+
+	<ol>
+	<li>名前に作成する荷重ケース名を入力します。</li>
+	<li>必要に応じて係数に荷重係数を入力します(Nastran向け)。</li>
+	<li>作成されたすべての境界条件リストから荷重ケースに入れる荷重、拘束条件のチェックボックスを選択します。<br>
+	選択された条件は選択した境界条件リストに表示されます。</li><br>
+	<img src="./Media/Boundary%20Conditions_Misc_Load%20Case_1.png">
+	<li>適用またはOKボタンを押して荷重ケースを作成します。</li><br><br>
+	*作成した荷重ケースはNastran出力のLoading / Boundary ConditionsのベースもしくはサブケースオプションのLOADで指定します。<br>
+	<img src="./Media/Boundary%20Conditions_Misc_Load%20Case_2.png"><br>
+	&nbsp;下図のようなLOADカードが出力されます。<br>
+	<img src="./Media/Boundary%20Conditions_Misc_Load%20Case_3.png"><br>
+	</ol>
+	
+<h3>-&nbsp補足&nbsp-</h3>
+ツリーアイテム上の右クリックメニューから作成することも可能です。<br>
+	<img src="./Media/Boundary%20Conditions_Misc_Load%20Case_4.png"><br>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

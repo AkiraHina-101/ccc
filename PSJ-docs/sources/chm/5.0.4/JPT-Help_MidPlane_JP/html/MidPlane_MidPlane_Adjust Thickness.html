@@ -1,0 +1,96 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>板厚を調整</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>板厚を調整</h2>
+<div class="contents">
+	<p>パーツの板厚情報からパーツの総重量を表示させ、CAD などで計算した総重量
+に変更し、全体板厚の微調整をします。
+	</p>
+
+	<img src="./Media/CommandDlg/MidPlane_MidPlane_Adjust%20Thickness.PNG">
+
+	<h4>基本パラメーター</h4>
+	<li><b>材料ＩＤ</b></li>
+		<p>&nbsp;&nbsp;&nbsp;材料IDを入力します。</p>	
+	<li>
+		<b>材料</b></li>
+		<p>&nbsp;&nbsp;&nbsp;材料を選択します。</p>	
+	<li>
+		<b>質量密度</b></li>
+		<p>&nbsp;&nbsp;&nbsp;質量密度を入力します。</p>	
+	</li>
+	<h4>元のデータ</h4>
+	<li><b>要素数表示</b></li>
+		<p>&nbsp;&nbsp;&nbsp;このボタンを押すと、割り当てられた材料で計算された数値がそれぞれ
+に表示されます。</p>
+	</li>
+	<li><b>最小板厚</b></li>
+		<p>&nbsp;&nbsp;&nbsp;最小板厚を入力します。</p>
+	</li>
+	<li><b>最大板厚</b></li>
+		<p>&nbsp;&nbsp;&nbsp;最大板厚を入力します。</p>
+	</li>
+	<li><b>平均板厚</b></li>
+		<p>&nbsp;&nbsp;&nbsp;平均板厚を入力します。</p>
+	</li>
+	<li><b>合計面積</b></li>
+		<p>&nbsp;&nbsp;&nbsp;合計面積を入力します。</p>
+	</li>
+	<li><b>合計質量	</b></li>
+		<p>&nbsp;&nbsp;&nbsp;合計質量を入力します。</p>
+	</li>	
+	<h4>データの調整</h4>
+	<li><b>フェース板厚を調整</b></li>
+		<p>&nbsp;&nbsp;&nbsp;チェックを入れると、実際の総重量に合わせて、中立面モデル板厚を自
+動調整し、割り当てることができます。</p>
+	</li>
+	<li><b>板厚プロパティを調整</b></li>
+		<p>&nbsp;&nbsp;&nbsp;チェックを入れると、実際の総重量に合わせて、メッシュモデルの板厚
+を自動調整して、割り当てることができます。</p>
+	</li>
+	<li><b>合計質量（実部）</b></li>
+		<p>&nbsp;&nbsp;&nbsp;実際の総重量を入力します。</p>
+
+		</li>	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+			<li>&nbsp;対象のパーツを選択します。</li>
+			<li>&nbsp;材料を設定します。</li>
+			<li>&nbsp;要素数表示をクリックします。</li>
+			<li>&nbsp;合計質量(実部)に正しい重量の値を入力します。</li>
+			<li>&nbsp;適用またはOKをクリックします。</li>
+		</ol>
+
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

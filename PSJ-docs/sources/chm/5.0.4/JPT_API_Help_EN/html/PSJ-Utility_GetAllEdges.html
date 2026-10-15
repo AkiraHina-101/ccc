@@ -1,0 +1,48 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>GetAllEdges</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>GetAllEdges</h2>
+	<div class="contents">
+<h4>Description</h4>
+	<p>Get information of edges</p>
+<h4>Syntax</h4>
+	<p>GetAllEdges()</p>
+<h4>Inputs</h4> 
+	<ol>
+
+		<li>None<p>No input value</p></li>
+
+	</ol> 
+<h4>Return Code</h4>
+	<p><em>Python Output</em></p>
+	<ul>
+		<li>EdgeVector<p>Edge information (id, key, typeID)</p></li>
+	</ul>
+<h4>Sample Code</h4>
+	<p><em>Input:</em></p>
+	<p style = "margin-left: 40px"> edges= JPT.GetAllEdges()</p>
+	<p style = "margin-left: 40px"> for ed in edges:</p>
+	<p style = "margin-left: 80px"> print(str(ed.typeID)+' '+str(ed.id)+' '+str(ed.key))</p>
+
+	<p><em>Output:</em></p>
+	<p style = "margin-left: 40px">> 5 35 35</p>
+	<p style = "margin-left: 40px">> 5 18 18</p>
+	<p style = "margin-left: 40px">> 5 36 36</p>
+	<p style = "margin-left: 40px">> ... </p>
+
+</div>
+</div>
+</body>
+</html>

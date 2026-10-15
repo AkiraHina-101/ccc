@@ -1,0 +1,3 @@
+# DGroup
+
+DGroup DGroup Description It is a group class. Properties Attribute Description typeID Item type ID (=79). #Get the integer value of Entity ItemType. The return value is int(DItemw::GetItemTypeInt). key The internal ID of the item. Unique ID within each TypeID. Cannot be changed by the user. #Get the internal Key of Entity. Return value Id (int). id The external ID of the item. It can be duplicated within each TypeID, but it is not recommended. Some entity IDs can be changed with the renumber function. #Get the external ID of Entity. The return value is Id (int). name The name of the item. targets Holds the contents of the group. An array of DItem classes.

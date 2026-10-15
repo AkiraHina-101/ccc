@@ -1,0 +1,202 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Auto Bolt Connection</title>
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+	<h2>Auto Bolt Connection</h2>
+<div class="contents">
+	<p>
+	This command can search the bolt holes from the selected part pair, set the conditions of the bolt type, and create the rigid bolts automatically. There are four types of rigid bolts to choose from.
+	</p>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_a.png" width="1200"></br>
+	</p>
+	<p>
+	Rigid bolts consist of multiple FEM conditions, and for each bolt created, a group of them is created. The bolt group will be placed under the Bolt Connection subgroup.
+	</p>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_b.png" width="300"></br>
+	</p>
+	<p>
+	<img src="./Media/CommandDlg/Connections_Bolt%20Modeling_Bolt%20Connections_Auto.png" width="500"></br>
+	</p>
+
+	<p>
+	<b>Selection list</b>
+	</p>
+	<p>
+	Upper Part: Bolt seat side part.</br>
+	Lower Part: Bolt thread side part.</br>
+	</p>
+	<h4>Bolt Modeling</h4>
+	<li>Bolt Name
+	<p>
+	Specify the name of the rigid bolt.</br>
+	</p>
+	</li>
+	<li>Bolt Hole Size
+	<p>
+	Specify the bolt hole size from the list and entered it automatically into the minimum and maximum diameters below.</br>
+	Bolt hole size and minimum/maximum are referenced from "*installation folder*\bin\common\template\LBC\BoltModeling\BoltSizeInfomation.DAT".</br>
+	</p>
+	</li>
+	<li>Min Circle Diameter
+	<p>
+	Specify the minimum diameter of the bolt holes to be searched.</br>
+	</p>
+	</li>
+	<li>Max Circle Diameter
+	<p>
+	Specify the maximum diameter of the bolt holes to be searched.</br>
+	</p>
+	</li>
+
+	<h4>Bolt Setting List</h4>
+
+	<h4 style="text-indent:2em">Mating Face</h4>
+	<li style="text-indent:2em">Gap Tolerance
+	<p>
+	Specify the gap tolerance between the upper and lower parts. Bolt holes with the mating surface less than or equal to this gap are to be searched for.
+	</p>
+	</li>
+	<li style="text-indent:2em">Angle Tolerance
+	<p>
+	Specify the angle tolerance in degrees of the mating surface between the upper and lower part. This parameter is used to determine the planarity of the mating surfaces and does not usually need to be changed.
+	</p>
+	</li>
+
+	<li>
+	Fit the Previewed pair
+	<p>
+	The viewpoint of the main window will fit the selected bolt pair from the list.
+	</p>
+	</li>
+	<li>
+	Find
+	<p>
+	Find the bolt holes from the selected part pair.
+	</p>
+	</li>
+	<li>
+	Check All On/Off
+	<p>
+	Switches the state of all checkboxes in the list to On or Off.
+	</p>
+	</li>
+	<li>
+	Check Box
+	<p>
+	Set up bolt modeling of the rigid body for the checked bolt pairs.</br>
+	The check box state is reversed when right-clicking on it.</br>
+	</p>
+	</li>
+	<li>
+	Master Face
+	<p>
+	Display the ID of faces of the bolt holes in the upper part.
+	</p>
+	</li>
+	<li>
+	Slave Face
+	<p>
+	Display the ID of faces of the bolt holes in the lower part.
+	</p>
+	</li>
+	<li>
+	Modification
+	<p>
+	By clicking the "Edit" button, the members of the master/slave faces can be edited (adding or removing) by selecting face manually.</br>
+	After editing, click the "Apply" button in the list to save the modification.
+	</p>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_c.png" width="600"></br>
+	</p>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_d.png" width="600"></br>
+	</p>
+	</li>
+	<li>
+	Bolt Type
+	<p>
+	Specify the type of rigid bolt to be created. The display switches when the FEM conditions for Bolt Type are set. Only a bolt type is possible to set for each bolt hole.
+	</p>
+	</li>
+	<li>Right-click menu on the list
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Copy</b>&nbsp;:&nbsp;Only displayed on bolt types. Copy the bolt type.</li>
+		<li><b>Paste</b>&nbsp;:&nbsp;Only displayed on bolt types. Paste the copied bolt type.</li>
+		<li><b>Insert</b>&nbsp;:&nbsp;Add an empty row to the list.</li>
+		<li><b>Delete</b>&nbsp;:&nbsp;Delete the selected row.</li>
+		<li><b>Clear All</b>&nbsp;:&nbsp;Clear out the list.</li>
+		</span>
+		</ul>
+	</li>
+	<h4>Bolt Type</h4>
+	<p>
+	Set the FEM conditions for each bolt type.</br>
+	The button for the bolt type that has been set will be highlighted. The highlighted bolt type means that the setup is ready.</br>
+	There are four bolt types: Type A, Type B, Type C, and Type D. <b>Please see the help for each bolt type GUI from the link below.</b>
+	</p>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_e.png" width="600"></br>
+	</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b><a href="./Connections_Bolt%20Modeling_Bolt%20Connections_Auto_Bolt%20Type%20A.html">Help for Type A</a></b>&nbsp;:&nbsp;Create RBE2/RBE3 elements in a circular shape on the upper and lower seating surfaces and connect their centers with a Bar/RBE2 element.</li>
+		<li><b><a href="./Connections_Bolt%20Modeling_Bolt%20Connections_Auto_Bolt%20Type%20B.html">Help for Type B</a></b>&nbsp;:&nbsp;Create an RBE2/RBE3 element in a circular shape on the seating surface of the bolt hole and an RBE2/RBE3 element on the threaded part, and connect their centers with a Bar/RBE2 element.</li>
+		<li><b><a href="./Connections_Bolt%20Modeling_Bolt%20Connections_Auto_Bolt%20Type%20C.html">Help for Type C</a></b>&nbsp;:&nbsp;Create RBE2/RBE3 elements in the bolt hole and connect its center with a Spring/RBE2 element.</li>
+		<li><b><a href="./Connections_Bolt%20Modeling_Bolt%20Connections_Auto_Bolt%20Type%20D.html">Help for Type D</a></b>&nbsp;:&nbsp;Create RBE2/MPC elements around the bolt hole on the mating surface and join them together.</li>
+		</span>
+		</ul>
+	<p>
+	The following is a list of combinations of FEM conditions supported by each bolt type.
+	</p>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_f.png" width="600"></br>
+	</p>
+	<h4>Local Settings Face</h4>
+	<p>
+	Create the local setting for the searched bolt hole faces. It is useful when executing on parts before meshing.</br>
+	And not required when executing on mesh parts.
+	</p>
+	<li>
+	Average Mesh Size
+	<p>
+	Specify the average size of the element. The minimum is automatically set to 0.1 times the average, and the maximum is automatically set to twice the average.
+	</p>
+	</li>
+	</div>
+
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+	<li>Select one Upper Part and one Lower Part.</li></br>
+	<li>Change the search parameters (Min Circle Diameter, Max Circle Diameter, Gap Tolerance).</li></br>
+	<li>Click the "Find" button. The found bolt pairs will be listed.</li></br>
+	<li>Check the listed bolt pairs and modify them if necessary.</li></br>
+	<li>Click the button of the desired bolt type to set the FEM conditions. The button will be highlighted.</li></br>
+	<li>When the bolt pair is present in the list and the bolt type button is highlighted, then Apply/OK button is activated.</br>
+		Click the Apply/OK button. The rigid bolts will be created automatically.</li></br>
+	</ol>
+</div>
+
+</body>
+
+</html>

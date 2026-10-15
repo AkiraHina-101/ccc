@@ -1,0 +1,104 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>モデル</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>モデル</h2>
+<div class="contents">
+	<p>
+	モデル全体に対し、指定空間内に含まれるフェースに対してメッシュサイズを設定します。<br>
+	全体メッシュ作成前に予め設定し、全体メッシュ作成時に設定したメッシュサイズが適用されます。
+	</p>
+
+	<img src="./Media/CommandDlg/Meshing_Local%20Settings_Local%20Settings_Model.png">
+	<p>
+	<h4>メッシュパラメーター</h4>
+	<li>名前
+	<p>
+	メッシュコントロール名を設定します。
+	</p>
+	<h4>空間メッシング</h4>
+	</li>
+	<li>平均
+	<p>
+	要素の平均サイズを設定します。
+	</p>
+	</li>
+	<li>最小
+	<p>要素の最小サイズを設定します。
+	</p>
+	</li>
+	<li>最大
+	<p>
+	要素の最大サイズを設定します。
+	</p>
+	</li>
+	<li>パーツタイプ
+	<p>
+	空間形状を指定します。
+	</p>
+	</li>
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li>直方体<p>直方体の範囲を、原点位置と各軸方向の長さで指定します。</p></li>
+	<li>楕円体<p>楕円体の範囲を、中心位置と長辺点、短辺点の位置で指定します。</p></li>
+	</span>
+	</ul>
+	<li>全内包のみ対象
+	<p>
+	空間形状に完全に内包されているフェースにのみ設定を行います。
+	</p>
+	</li>
+	<h4>プレビュー</h4>
+	<li>プレビュー
+	<p>
+	空間形状をプレビュー表示し、設定されるフェースの色をプレビューカラーに塗りつぶします。
+	</p>
+	</li>
+	<li>リセット
+	<p>
+	プレビューをリセットします。
+	</p>
+	</li>
+	<h4>曲面メッシング</h4>
+	<li><b>曲面メッシング</b>
+	<p>&nbsp;&nbsp;&nbsp;ONにすると、フィレット部を指定角度で分割する設定を行います。サーフェースメッシングの曲面メッシング設定を上書きします。</p>
+	</li>
+	<li><b>最大要素角（度）</b>
+	<p>&nbsp;&nbsp;&nbsp;分割角度を設定します。</p>
+	</li>
+	<li><b>最小要素サイズ</b>
+	<p>&nbsp;&nbsp;&nbsp;フィレット部の要素最小サイズを設定します。</p>
+	</li>
+	※最小メッシュサイズは、このサイズ以下に設定する必要があります。
+<h3>-&nbsp操作手順&nbsp-</h3>
+      <ol>
+	<li>メッシュサイズの各項目を入力します。</li>
+	<li>パーツタイプから空間形状を選択し、パラメータを入力してプレビューボタンをクリックします。</li>
+	<li>空間形状と重なったフェースがプレビュー色で表示されます。</li>
+	<li>全内包のみ対象のチェックを入れてプレビューをクリックすると、空間形状の内部に完全に囲まれたフェースのみがプレビュー色で表示されます。</li>
+	<li>適用/OKボタンをクリックします。</li>
+      </ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>-->
+
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

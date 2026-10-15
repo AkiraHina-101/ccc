@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<style type="text/css">
+		/* Linkの下線非表示 */
+		a.no-uline { text-decoration:none }
+		/* Linkの上にマウスポインタを置くと非表示 */
+		a.noul:hover { text-decoration:none !important }
+		</style>
+		<!--2017.05.26修正 Kiyo-->
+		<!--2017.05.29修正 Kiyo-->
+		<!--2017.06.06修正 Kiyo-->
+		<!--2018.03.28修正 Kyoko-->
+		<!--2019.12.03修正 Hongjae Yoo-->
+		<title>画面設定</title>
+	</head>
+	<body>
+		<div class="page">
+			<h2>画面設定</h2>
+			
+			<div class="contents">
+				<p>メインウィンドウ上の各種表示設定を行います。</p>
+				<img src="./Media/Home_Preferences_Display.png" />
+				<h4>LBC</h4>
+				<p>境界拘束条件の表示条件を設定します。</p>
+				<ul>
+					<li><strong>対象エンティティを表示</strong></br>
+						境界拘束条件を設定したエンティティの色を変更して表示します。
+					</li>
+						<ul type="circle">
+						<span style="font-size:0.95em;">
+							<li><strong>オフ</strong></br>
+								表示しません。
+							</li>
+							<li><strong>常に表示</strong></br>
+								常に表示します。
+							</li>
+							<li><strong>選択</strong></br>
+								エンティティを選択した際のみ表示します。
+							</li>
+						</span>
+						</ul>
+					</br>
+					<li><strong>マーカー密度</strong>
+						マーカーの密度を設定します。
+					</li>
+						<ul type="circle">
+						<span style="font-size:0.95em;">
+							<li><strong>エンティティ毎に１つ</strong></br>
+								１か所の設定に対して、１つ（１ペア）のマーカーを表示します。
+							</li>
+							<li><strong>粗</strong></br>
+								設定個所の節点にランダムにマーカーを表示します。（低密度）
+							</li>
+							<li><strong>中間</strong></br>
+								設定個所の節点にランダムにマーカーを表示します。（高密度）
+							</li>
+							<li><strong>密</strong></br>
+								設定個所の全節点にマーカーを表示します。（最高密度）
+							</li>
+							<li><strong>有効なエリアのみ</strong></br>
+								接触マーカーを実接触面の範囲のみに限定します。
+							</li>
+							<li><strong>LBC毎に１つ</strong></br>
+								１つの境界条件に対して、１つ（１ペア）のマーカーを表示します。
+							</li>
+						</span>
+						</ul>
+					</br>
+					<li><strong>値の表示</strong></br>
+						設定値を表示します。
+					</li>
+						<ul type="circle">
+						<span style="font-size:0.95em;">
+							<li><strong>オフ</strong></br>
+								設定値を表示しません。
+							</li>
+							<li><strong>スクリーン上</strong></br>
+								メインウィンドウの左上に表示します。
+							</li>
+							<li><strong>3D上</strong></br>
+								マーカー上に表示します。
+							</li>
+							<li><strong>3D上（単位付き）</strong></br>
+								マーカー上に単位とともに表示します。
+							</li>
+						</span>
+						</ul>
+					</br>
+					<li><strong>LBC表示を追従</strong></br>
+						パーツの表示・非表示を切り替えた際に、そのパーツに設定されているLBCの表示も一緒に表示・非表示にします。
+						<ul type="circle">
+							<span style="font-size:0.95em;">
+								<li><strong>オフ</strong></br>
+									機能を有効にします。
+								</li>
+								<li><strong>オン</strong></br>
+									機能を無効にします。
+								</li>
+							</span>
+							</ul>
+					</li>
+					<li><strong>透過率</strong></br>
+						接触設定した面に対するマーカーの透過率を設定します。</li>
+					<li><strong>マスター色</strong></br>
+						接触設定で、マスター側の面の色を指定します。</li>
+					<li><strong>スレーブ色</strong></br>
+						接触設定で、スレーブ側の面の色を指定します。</li>
+					<li><strong>3Dマーカー</strong></br>
+						マーカー表示を立体的にします。</li>
+						<img src="./Media/Home_Preferences_Display_3DMarker_J.png" width="auto;" height="250px;" />
+				</ul>
+				<h4>グラフィックス</h4>
+				<ul>
+					<li><strong>表示モード</strong></br>
+					パーツ表面のシェーディング（陰影色）のタイプを変更します。
+					<ul type="circle">
+					<span style="font-size:0.95em;">
+						<li><strong>要素シェーディング</strong></br>
+							要素毎に陰影色を計算し、それぞれ単一の陰影色を塗ります。
+						</li>
+						<li><strong>スムースシェーディング</strong></br>
+							節点で陰影色を計算し、要素内で陰影色をなめらかに補完して塗ります。
+						</li>
+					</span>
+					</ul>
+					<li><strong>光源を有効にする</strong></br>
+						画面に点光源を設置し、色合いに陰影を付けます。
+					</li>
+					<li><strong>FPS表示</strong></br>
+						画面左下にモデル移動時のFPSを表示します。
+					</li>
+					<li><strong>浮遊節点を接続先に同期</strong></br>
+						接続要素に接続している浮遊節点を、接続要素を表示・非表示した際に一緒に表示・非表示にします。
+					</li>
+				</ul>
+				
+				<h4>ビュー回転方法</h4>
+					<p>メインウィンドウでの回転の方法を指定します。</p>
+					<ul>
+						<li><strong>2D/3Dの自動切替</strong></br>
+							楕円空間内のドラッグは３D回転、空間外のドラッグは2D回転と自動的に判断します。
+						</li>
+						<li><strong>3D回転エリア表示</strong></br>
+							2D/3Dの自動切替がONのときに楕円空間を表示
+						</li>
+						<li><strong>プリセットビュー操作時に自動フィット</strong></br>
+							プリセットビューによるモデル移動後に、モデルが画面全体に収まるように自動フィットします。
+						</li>
+						<li><strong>高速回転</strong></br>
+							モデル回転時に境界条件・接続要素を非表示にすることで、モデル回転速度を向上させます。
+						</li>
+						<li><strong>初期ビューポイント</strong></br>
+							新規ドキュメント作成時の視点を設定します。デフォルト：アイソメトリックビュー（+Z1）
+						</li>
+					</ul>
+					
+
+				
+				<h4>LBC表示切替</h4>
+					<p>LBCの見た目を変更します。オリジナルを選択するとシンプル表示、詳細表示を選択するとより情報量の多い表示となります。</p>
+					<ul type="circle">
+					<span style="font-size:0.95em;">
+						<li><strong>拘束</strong></br>
+							拘束条件の見た目を変更します。</li>
+						<li><strong>ばね要素</strong></br>
+							ばね要素の見た目を変更します。</li>
+						<li><strong>RBE2/RBE3</strong></br>
+							RBE2/RBE3接続要素の見た目を変更します。</li>
+						<li><strong>質量</strong></br>
+							質量要素の見た目を変更します。</li>
+						<li><strong>MPC</strong></br>
+							MPC拘束条件の見た目を変更します。</li>
+						<li><strong>ブッシュ</strong></br>
+							ブッシュ要素の見た目を変更します。</li>
+					</span>
+					</ul>
+				
+				<h4>ラベル</h4>
+					<p>チェックボックスをチェックすると、該当する機能のラベルを表示します。</p>
+						<ul type="circle">
+						<span style="font-size:0.95em;">
+							<li><strong>軸ラベル文字</strong></br>
+								全体座標系を示す軸に、X,Y,Zのラベル文字を表示します。</li>
+							<li><strong>コンター数値</strong></br>
+								コンター凡例が表示されている場合に、その横に数値を表示します。</li>
+						</span>
+						</ul>
+				
+				<h3>-&nbsp;操作手順&nbsp;-</h3>
+					<ol>
+						<li>&nbsp;コマンドを起動し、各オプションを指定して適用もしくはOKボタンをクリックします。</li>
+					</ol>
+		
+				<!--
+				<h3>-&nbsp;操作動画&nbsp;-</h3>
+				
+					<p>
+					<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+					&nbsp再生ボタンを押すと操作動画が再生されます。
+					</p>
+				-->
+			</div>
+		</div>
+	</body>
+</html>

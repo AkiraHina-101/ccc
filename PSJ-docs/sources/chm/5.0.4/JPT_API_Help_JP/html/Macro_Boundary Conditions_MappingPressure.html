@@ -1,0 +1,59 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>MappingPressure</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>MappingPressure</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create mapping pressure</p>
+<h4>Syntax</h4>
+<p>MappingPressure(String name, Cursor[] target, int pos, int conflictMode, int component, int srcType, int mappedComponentIndex, double dSclFact, double[3] transitionVct, double[3] rotVct, double coordScl, double dSearchRange, int iInputUnit, string strDataScrFile, Cursor editCursor)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>String<p>name of mapping pressure</p></li>
+<li>Cursor[]<p>mapping target entities</p></li>
+<li>int<p>mapping positon, 0: surface node, 1:solid node, 2:surface element, 3: solid element</p></li>
+<li>int<p>how to deal conflict case</p></li>
+<li>int<p>component number, 1 for pressure</p></li>
+<li>int<p>source data type, 0: fluent, 1: starCD, 2:text</p></li>
+<li>int<p>pressure data index in file</p></li>
+<li>double<p> Scale factor for mapping pressure </p></li>
+<li>double[3]<p> Transition vector </p></li>
+<li>double[3]<p> Rotation vector</p></li>
+<li>double<p> Coordinate scale value</p></li>
+<li>double<p> Search range*</p>
+                  <p>*0: Auto search range</p>
+                  <p>&ensp;Value: Tolerance search range</p></li>
+<li>int<p>Input Unit*</p>
+           <p>*0: MPa</p>
+           <p>&ensp;1: Pa</p>
+           <p>&ensp;2: kPa</p>
+           <p>&ensp;3: kgf/mm^2</p>
+           <p>&ensp;4: lbf/ft^2</p>
+           <p>&ensp;5: tf/m^2</p>
+           <p>&ensp;6: GPa</p></li>
+<li>string<p>pressure data index in file</p></li>
+<li>Cursor<p>Edit mapping pressure</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>MappingPressure("MappingPressure1", [6:30, 6:22], 2, 0, 1, 1, -1, 1, [0, 0, 0], [0, 0, 0], 1, 0, 0, "D:/ImportFile/Fluent.dat", 0:0)</p>
+</div>
+</div>
+</body>
+</html>

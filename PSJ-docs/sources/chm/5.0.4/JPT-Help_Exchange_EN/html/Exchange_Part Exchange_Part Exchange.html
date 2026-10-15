@@ -1,0 +1,204 @@
+<html lang="en" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Part Exchange</title>
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+	<h2>Part Exchange</h2>
+<div class="contents">
+	<p>
+	This is an exchange function allows user can replace the existing part with the New Part and re-assigning all LBCs, Connection, Property, Group information of the Original Part to the New Part.</br>
+	The replacement part can be CAD part, mesh part or solid part but it must not have any shape error.
+	</p>
+	<p>
+	<img src="./Media/Exchange_Part%20Exchange_Part%20Exchange_1.png" ></br>
+	</p>
+	<p>
+	<img src="./Media/CommandDlg/Exchange_Part%20Exchange_Part%20Exchange.png"></br>
+	</p>
+	<p>
+	The New Part could be managed the LBCs, Connections, Local Mesh Setting, Group, Contacts and Property to edit/update before apply.
+	</p>
+	<p>
+	<img src="./Media/Exchange_Part%20Exchange_Part%20Exchange_2.png"></br>
+	</p>
+	<p>
+	For simplified confirmation, you can check the number of entities before and after the function is executed in the columns for the Num. Original and Num. New. <br><br>
+	Moreover, when modifying a specific LBCs, Connections, Local Mesh Setting, Group, Contacts or Property, a Mini View window will pop-up to easily illustrate the location of setting between Original Part and replacement part, and it hepls user to confirm the setting is correct or not, or add/remove the entities of setting. The 3D mouse and view is both syncronized between the Main Window and the Mini View.</br>
+	</p>
+	<p>
+	<img src="./Media/Exchange_Part%20Exchange_Part%20Exchange_3.png"></br>
+	</p>
+
+	<p>
+	<b>Selection list</b>
+	</p>
+	<p>
+	New Part: The New Part to be replaced</br>
+	Original Part: The existing part on the model</br>
+	Delete Part: The part to be removed with all related LBCs, Connection,...</br>
+	</p>
+	<h3>Exchange Informations</h3>
+	<h4>Parameters</h4>
+	<li>New Part
+	<p>
+	Select the New Part to be the replacement part.</br>
+	This option is related to selection list, the ID of New Part in selection list will automatically fill in the combo box</br>
+	</p>
+	</li>
+	<li>Original Part
+	<p>
+	Select the Original Part to be exchanged by New Part.</br>
+	This option is related to selection list, the ID of Original Part in selection list will automatically fill in the combo box</br>
+	</p>
+	</li>
+	<li>Delete Part
+	<p>
+	Select the Delete Part to be removed.</br>
+		&nbsp;&nbsp;&lowast;It is a particular case to remove part, it is recommended that users should confirm before removing it.
+	</p>
+	</li>
+	<h4>Tolerance</h4>
+	<li>Tolerance
+	<p>
+	Specify the threshold value for the range of the surface or element between the New Part to be replaced and the Original Part.
+	</p>
+	</li>
+	<li>Face duplication ratio
+	<p>
+	Specify the threshold ratio value of the area ratio between 2 faces of the New Part and the Original Part.</br>
+	This value will use to judge the LBCs item can be applied on the New Part's face or not. If the actual area ratio is greater than the threshold value, LBCs is considered to assign on the New Part's face.
+	</p>
+	</li>
+	<h4>Options</h4>
+	<li>Exclude Tiny Faces
+	<p>Specify the tiny faces in LBC target entity to be excluded.</br>
+	</p>
+	</li>
+	<li>Max Face Width
+	<p>Specify the maximum threshold width value for the tiny faces to be excluded.</br>
+	The minimum face width is always fixed to 0, the maximum face width is equal to input value. 
+	</p>
+	</li>
+	<h4>Show Result</h4>
+	<p>
+	Show Result Button: To open the management dialog to control the information of result. It needs the selections have been specified before using the button.
+	<ul>
+	<li>
+	<p>
+	Group: Specify the Group information of the Orignal Part and list all of them on the table.</br>
+	</p>
+	</li>
+	<li>
+	<p>
+	Load and Boundary: Specify the Load and Boundary information of the Orignal Part and list all of them on the table.</br>
+	</p>
+	</li>	
+	<li>
+	<p>
+	Local Mesh Setting: Specify the Local Mesh Setting information of the Orignal Part and list all of them on the table.</br>
+	</p>
+	</li>	
+	<li>
+	<p>
+	Contact: Specify the Contact information of the Orignal Part and list all of them on the table.</br>
+	</p>
+	</li>	
+	<li>
+	<p>
+	Connection: Specify the Connection information of the Orignal Part and list all of them on the table.</br>
+	</p>
+	</li>
+	<li>
+	<p>
+	Property: Specify the Property information of the Orignal Part and list all of them on the table.</br>
+	</p>
+	</li>	
+	</ul>
+	<ul>
+	<li>
+	<p>
+	Name[ID]: Item name and ID.</br>
+	</p>
+	</li>
+	<li>
+	<p>
+	Num. Original: Number of entities selected for the item in the original part before moving to the new part</br>
+	</p>
+	</li>	
+	<li>
+	<p>
+	Num. New: Number of entities selected in the item after moving to a new part.</br>
+	</p>
+	</li>	
+	<li>
+	<p>
+	Modification: Display of the Mini View window. Change selection entity.</br>
+	</p>
+	</li>	
+	</ul>
+	</p>
+	</div>
+
+	<h3>-&nbspOperating Procedure: General workflow&nbsp-</h3>
+	<ol>
+	<li>Select a New Part.</li>
+	<li>Select a Original Part.</li>
+	<li>Change the parameters (Parameter) as needed.</li>
+	<li>Click the Show Result button. The dialog will expand to show more information of the selection.</li>
+	<li>Check on each information which is needed to convert to the New Part from the Original Part</li>
+	<li>Confirm the information setting, position, selection entities between the New Part and the Original Part by the Mini View window</li>
+	<li>Click Apply/OK button to replace the Original Part by the New Part.
+	<p>&lowast;From step 4-6, below operation will show how it works.</p>
+	</ol>
+
+	<h3>-&nbspOperating Procedure: Detail operation when to edit the information(Add/Remove selection entities)&nbsp-</h3>
+	<ol>
+	<li>
+	Click the Show Result button, the dialog will expand to show more information of the selection.
+	</li>
+	<li>
+	Specify information result types which will apply to New Part, all the related information will be listed on the table. In this case, all information will be checked and converted to the New Part.
+	</li>
+	<li>
+	Check and confirm the information items from Original Part on the table by clicking on Edit button.
+	<img src="./Media/Exchange_Part%20Exchange_Part%20Exchange_4.png" width="1850"/>	
+	</li>
+	</br>
+	<li>
+	Add or remove the entity on the selection list for each setting item.
+	<img src="./Media/Exchange_Part%20Exchange_Part%20Exchange_5.png" width="1850"/>	
+	</li>
+	<li>
+	After confirmation all settings are OK, click Apply/OK button to replace the Original Part by the New Part.
+	</li>
+	</ol>
+
+	<h3>-&nbspSpecial Notes&nbsp-</h3>
+	<ul>
+	<li>This function supports CAD part, mesh part or solid part but without any shape error.</li>
+	<li>The selection should be finished before clicks on Result button, if not, a failed dialog will show</li>
+	<li>Only one New Part is supported. Therefore, the New Face must also be selected from a single part.</li>
+	<li>This function allows selecting multiple parts, but it will be hard to control the information if there is so much information. It was recommended that one-by-one selection get high efficiency and restraint the failed problem.
+	</ul>
+</div>
+
+</body>
+
+</html>

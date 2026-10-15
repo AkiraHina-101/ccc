@@ -1,0 +1,93 @@
+<html lang="en" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>3 Points</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>3 Points</h2>
+<div class="contents">
+	<p>Move the Target Part from the original position to the new position by the 3 pairs of coordinates points.<br>
+	</p>
+	<img src="./Media/CommandDlg/Geometry_Transform%20Part_Transform_3%20Points.png"></img>
+	
+	<p>
+	<b>Selection list</b>
+	</p>
+	<p>
+	Edge: Select the circular edge or the arc to determine the center position.</br>
+	Node: Select the Node to get the coordinate position value.</br>
+	Part: Select the Target Part to be moved.</br>
+	</p>
+	
+	<h4>Coordinates</h4>
+		<li><b>Original Position</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Specify the coordinates of 3 points that define the original positions on the Target Part.</p>
+		<li><b>Next Position</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Specify the coordinates of 3 points that define the destination positions.</p>
+
+	<h4>Operation</h4>
+		<li><b>Preview</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Display temporary results as a preview (not the final result of the mesh).</p>	
+		<li><b>Create New Part</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Copy the Target Part after moving as a new part.</p>
+		<li><b>LBC Copy</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Also copy Load and Boundary Condition that were added to the existing part to a new part.</p>
+		<li><b>Property Copy</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Also copy properties that were added to the existing part to a new part.</p>
+		<li><b>Reference Copy</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Also copy references that were added to the existing part to a new part.</p>
+	
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+		<ol>
+			<li>&nbsp;Select the circular edges to get the original center coordinates on the Target Part.</li>
+			<img src="./Media/Geometry_Transform%20Part_Transform_3%20Points_1.png"/>			
+			<li>&nbsp;Select the circular edges to get the destination center coordinates.</li>
+			<img src="./Media/Geometry_Transform%20Part_Transform_3%20Points_2.png"/>					
+			<li>&nbsp;Select the Target Part to be moved.</li>
+			<img src="./Media/Geometry_Transform%20Part_Transform_3%20Points_3.png"/>					
+			<li>&nbsp;If you want to create a new Part after moving, turn on the Create New Part check box.</li>
+			<li>&nbsp;Turn on the LBC Copy to copy Load and Boundary Condition of the existing part to the new part.</li>
+			<li>&nbsp;Turn on the Property Copy to copy properties of the existing part to the new part.</li>
+			<li>&nbsp;Turn on the Reference Copy to copy references of the existing part to the new part.</li>
+			<li>&nbsp;Press the Apply or OK button.</li>
+			<img src="./Media/Geometry_Transform%20Part_Transform_3%20Points_4.png"/>			
+		</ol>
+
+	<h3>-&nbspNotes&nbsp-</h3>
+	<ul>
+	<li>The input coordinates will automatically switch after each selection. Users can flexibly select between Edges and Nodes instead of selecting only Edges or Nodes.</li>
+	<li>Users can identify the current selection by the highlighted textbox. Moreover, the markers are also supported to show in the Main Window to recognize the position.</li>
+
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

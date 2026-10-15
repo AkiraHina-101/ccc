@@ -1,0 +1,108 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Along Direction</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Along Direction</h2>
+	<div class="contents">
+	<p>
+	Move the selected node or floating point to the specified offset vector position.<br>
+	Directional vector is defined by either "Element Edge", "2 Nodes", or "direct input of DX, DY, DZ".<br>
+	The movement of the node along directional vector is defined by Vector Magnitude, User Input or Destination by Face or Element.<br>
+	</p>
+
+	<img src="./Media/CommandDlg/Mesh%20Edit_Node%20Manipulation_Move%20Node_Along%20Direction.png">
+
+	<h4>Vector Direction</h4>
+	<li>2 Nodes
+	<p>
+	Click to select the two nodes or floating points to define the directional vector.
+	</p>
+	</li>
+	<li>Elem Edge
+	<p>
+	Click to select the an element edge to define the directional vector.
+	</p>
+	</li>
+	<li>DX, DY, DZ
+	<p>
+	Components of the directional vector will be automatically displayed after selecting 2 Nodes or Element Edge. You can also manually input into these fields.
+	</p>
+	</li>
+	<li>Reverse Direction
+	<p>
+	Click to reverse the direction of the selected vector.
+	</p>
+	</li>
+	<h4>Parameters</h4>
+	<li>Move Amount
+	<p>
+	The Move Amount is automatically displayed after selecting 2 Nodes or Element Edge when in "Use Vector Magnitude".
+	The Move Amount can also be manually input by users when in "User Input".
+	</p>
+	</li>
+	<li>Use Vector Magnitude
+	<p>
+	When in "Use Vector Magnitude", the Move Amount is automatically displayed after selecting 2 Nodes or Element Edge.
+	</p>
+	</li>
+	<li>User Input
+	<p>
+	When in "User Input", the Move Amount is manually input by users.
+	</p>
+	</li>
+	<li>Destination by Face or Element
+	<p>
+	When in "Destination by Face or Element", the movement of the nodes is defined by the destination chosen by users as Face or Element.
+	</p>
+	</li>
+	<!--<li>Project
+	<p>
+	Check to turn on and preserve feature lines.
+	</p>
+	</li>-->
+
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+1) Define the directional vector for moving by any of the followings. <br>
+&nbsp&nbsp&nbsp&nbspa) Click the 2 Nodes button to select the two nodes.<br>
+&nbsp&nbsp&nbsp&nbspb) Click the Elem Edge button to select the Element Edge.<br>
+&nbsp&nbsp&nbsp&nbspc) Enter values directly into the DX, DY, DZ.<br>
+
+2) Define the movement of the chosen nodes by any of the followings.<br>
+
+&nbsp&nbsp&nbsp&nbspa) When User Vector Magnitude is ON, Move Amount is automatically displayed after selecting 2 Nodes or Element Edge.<br>
+&nbsp&nbsp&nbsp&nbspb) When User Input is ON, enter a value directly to Move Amount.<br>
+&nbsp&nbsp&nbsp&nbspc) When Destination by Face or Elem is ON, select face or element, the chosen nodes will be moved to the surface containing that face or element.<br>
+
+
+	<!--<li>If necessary, turn ON the check for Project.</li>-->
+3) Select the node(s) to be moved.<br>
+4) Click Apply / OK button.<br>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

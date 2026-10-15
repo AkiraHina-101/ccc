@@ -1,0 +1,46 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>GetCenterOfEntities</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>GetCenterOfEntities</h2>
+	<div class="contents">
+<h4>Description</h4>
+	<p>Get center coordinate of selected entities</p>
+<h4>Syntax</h4>
+	<p>GetCenterOfEntities(vector DItem)</p>
+<h4>Inputs</h4> 
+	<ol>
+
+		<li>DItemVector<p> Vector DItem</p></li>
+
+	</ol> 
+<h4>Return Code</h4>
+	<p><em>Python Output</em></p>
+	<ul>
+		<li>DoubleVector<p>Coordinate[x,y,z] of selected entities</p></li>
+	</ul>
+<h4>Sample Code</h4>
+	<p><em>Input:</em></p>
+	<p style = "margin-left: 40px">entity = JPT.GetAllSelected()</p> 
+	<p style = "margin-left: 40px">center = JPT.GetCenterOfEntities(entity)</p>
+	<p style = "margin-left: 40px">for c in center:</p>
+	<p style = "margin-left: 80px">print(str(float(c)))</p>
+	<p><em>Output:</em></p>
+	<p style = "margin-left: 40px">> 0.004999999999999999</p>
+	<p style = "margin-left: 40px">> 0.004999999999999999</p>
+	<p style = "margin-left: 40px">> 0.010000000000000007</p>	
+</div>
+</div>
+</body>
+</html>

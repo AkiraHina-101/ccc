@@ -1,0 +1,83 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>レイヤーリメッシュ</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>レイヤーリメッシュ</h2>
+<div class="contents">
+	<p>
+	選択したエッジの周りを、一層のQuad要素でリメッシュします。<br>
+	</p>
+	<img src="./Media/Meshing_Local%20Meshing_Layer%20Remesh_a.png" width="600"></br>
+	</br>
+	<img src="./Media/CommandDlg/Meshing_Local%20Meshing_Layer%20Remesh.png"></br>
+	</br>
+	<b>選択リスト</b></br>
+	<p>
+	エッジ：周りをリメッシュするエッジ</br>
+	フェース：エッジの属するリメッシュするフェース</br>
+	</p>
+	
+	<h4>オプション</h4>
+	<li><b>フェース選択</b>
+	<p>&nbsp;&nbsp;&nbsp;選択したエッジから、自動で属するフェースを選択し、選択リストに格納します。不要なフェースを除外、及び必要なフェースを追加は、手動で行っていただくことが可能です。</p>
+	</li>
+	<h4>ラインの両端タイプ</h4>
+	選択したエッジのタイプを選択します。
+	</br></br>
+	<li><b>フリーライン</b>
+	<p>&nbsp;&nbsp;&nbsp;エッジの末端(片側一方でも)が他のエッジと交差していないタイプ。</br>
+	<img src="./Media/Meshing_Local%20Meshing_Layer%20Remesh_a.png" width="600"></br></p>
+	</li>
+	<li><b>クローズライン</b>
+	<p>&nbsp;&nbsp;&nbsp;エッジの両端が他のエッジと交差しているタイプ。</br>
+	<img src="./Media/Meshing_Local%20Meshing_Layer%20Remesh_b.png" width="600"></br></p>
+	</li>
+	<h4>パラメーター</h4>
+	<li><b>レイヤー幅</b>
+	<p>&nbsp;&nbsp;&nbsp;リメッシュする一層分の要素の幅を入力します。</p>
+	</li>
+
+<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+		<li>&nbsp;エッジを選択します。</li></br>
+		<img src="./Media/Meshing_Local%20Meshing_Layer%20Remesh_c.png" width="200"></br></br>
+		<li>&nbsp;フェース選択ボタン、もしくはメインウィンドウ上クリックでリメッシュするフェースを選択します。</li></br>
+		<img src="./Media/Meshing_Local%20Meshing_Layer%20Remesh_d.png" width="200"></br></br>
+		<li>&nbsp;要素の幅を入力後プレビューを確認し、適用/OKボタンをクリックします。</li></br>
+		<img src="./Media/Meshing_Local%20Meshing_Layer%20Remesh_e.png" width="200"></br></br>
+	</ol>
+	
+<h3>-&nbsp特記事項&nbsp-</h3>
+	<ol>
+		<li>&nbsp;エッジの片側で、複数フェースを選択した場合、選択された複数フェースはマージされます。</li></br>
+		<img src="./Media/Meshing_Local%20Meshing_Layer%20Remesh_f.png" width="800"></br></br>
+	</ol>
+	
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

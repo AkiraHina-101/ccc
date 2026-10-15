@@ -1,0 +1,3 @@
+# PretensionAbaqus
+
+PretensionAbaqus PretensionAbaqus Description Create Pretension Abaqus Syntax PretensionAbaqus(string strName, bool bFixedLength, cursor crTable, double dValue, int iLocalUnit, string stNormal, double[3] dNodePos, cursor crEdit, cursor[] taTarget) Inputs String Pretension abaqus name Bool Bolt FixLength bool flag True = 1, False = 0 Cursor N/A: Table cursor Double Pretension_1 force value Int Input Unit* *0: N &ensp;1: MN &ensp;2: kgf &ensp;3: Lbf &ensp;4: Tf String String normal Double[3] Coordinate of the control node Cursor N/A: Edit cursor Cursor[] Target entities cursor: Face/1D Element Return Code 1 Succeeded 0 Failed Sample Code PretensionAbaqus("PreTensionAbaqus1", 1, 0:0, 100, 0, "1,0,0", [0.0083333, 0.015556, 0.025], 0:0, [6:180])

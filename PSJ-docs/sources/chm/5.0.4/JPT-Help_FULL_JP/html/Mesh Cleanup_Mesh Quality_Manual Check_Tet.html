@@ -1,0 +1,150 @@
+﻿<html lang="ja">
+
+<head>
+	<!DOCTYPE html
+		PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+		<title>要素品質&nbsp;-&nbsp;手動チェック&nbsp;- テトラ</title>
+
+
+
+	</head>
+
+<body>
+	<div class="page">
+		<h2>要素品質&nbsp;-&nbsp;手動チェック&nbsp;- テトラ</h2>
+		<div class="contents">
+			<p>
+				ソリッドメッシュ(Tet4/Tet10)に対し、選択した品質基準による修正を行います。
+			</p>
+
+			<img src="./Media/CommandDlg/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Tet.png">
+			<h4>要素品質</h4>
+			<p>
+				計測方法：要素の品質の計測方法をプルダウンメニューから選択します。
+			</p>
+			<li>ストレッチ　　　	： チェックすると、指定値以下のストレッチ値を持つ要素を検出・表示します。</li>
+			<li>アスペクト比　　	： チェックすると、指定値以上のアスペクト比を持つ要素を検出・表示します。</li>
+			<li>体積　　　　　　	： チェックすると、指定値以下の体積を持つ要素を検出・表示します。</li>
+			<li>ヤコビアン　　　	： チェックすると、指定値以下のヤコビアン値の要素を検出・表示します。</li>
+			<li>テットコラプス　	： チェックすると、指定値以下のテットコラプス値の要素を検出・表示します。</li>
+			<li>テットスキュウ　	： チェックすると、指定値以上のテットスキュウ値の要素を検出・表示します。</li>
+			<li>エッジ長さ　　　	： チェックすると、指定値以下もしくは指定値以上の長さを持つ要素エッジを検出・表示します。</li>
+			<li>不安定要素　　　	： チェックすると、他の要素とコーナー節点で不安定接続になっている要素を検出・表示します。</li>
+			<li>時間間隔(Abaqus)	： チェックすると、Abaqusの算式で、指定した時間増分⊿t以下の⊿tcを持つ要素を検出・表示します。</li>
+			<li>三角形高さ		： オンにすると、各三角形の面の高さが指定された値よりも小さい要素を検出して表示します。</li>
+			<li>内角		： チェックすると、各三角形の面の内角が指定された値よりも小さい要素を検出して表示します。</li><br>
+			<font color="red">
+				※各項目については<a href="./Mesh%20Cleanup_Mesh%20Quality_Metric.html">＜品質確認方法の定義＞</a>をご参照下さい。
+			</font>
+			<h4>カットオフ値</h4>
+			<li>最小　　　　　	： 設定したチェックタイプの最小値が表示されます。</li>
+			<li>最大　　　　　	： 設定したチェックタイプの最大値を表示します。</li>
+			<li>平均　　　　　	： 設定したチェックタイプの平均値を表示します。</li>
+			<li>エンティティ数	： 選択したモデルの要素タイプの個数を表示します。</li>
+			<h4>要素数表示</h4>
+			<li>条件　　　　　	： 設定値に対する不等号を設定します。</li>
+			<li>値　　　　　　	： 表示する要素の設定値を入力します。</li>
+			<li>エンティティ数	： 表示されている要素の個数を表示します。</li>
+			<!--	<li>X方向分割数　： X方向分割数を設定します。</li>
+				<li>Y方向分割数　： Y方向分割数を設定します。</li>  -->
+			<h4>自動クリーンアップ</h4>
+			<li>クリーンアップ　 	： クリーンアップボタン押すことで要素を自動修正することができます。</li>
+			<li>モード 　　　　		： クリーンアップをするときのモードを切り替えます。</li>
+			<ul type="circle">
+				<li>標準　　　　	： ローカルメッシュ設定などを優先してクリーンアップを行います。</li>
+				<li>アグレッシブ	： メッシュ修正をメッシュ設定に優先してクリーンアップを行います。</li>
+				<li>削除　　　　	： 対象要素を削除します。</li>
+			</ul>	
+			<ul>**テットコラプスのみ</ul>
+			<ul type="circle">
+				<li>方法S&nbsp;		:　対象要素の短辺が長辺の5%以内だった場合コラプスを用いて修正します。</li>
+				<li>方法A&nbsp;		:　対象要素の短辺が長辺の10%以内だった場合コラプスを用いて修正します。</li>
+				<li>方法D&nbsp;		:　対象要素の長辺を半分位置でカットし修正します。</li>
+			</ul>
+			<li>方法　　　　： 計測方法でエッジ長さを指定した場合のクリーンアップモードを表示します。</li>
+			<ul type="circle">
+				<li>コラプス		： 条件が&lt;=もしくは&lt;の場合に表示します。指定値以下の長さのエッジをコラプスしてクリーンアップします。</li>
+				<li>スプリット		： 条件が&gt;=もしくは&gt;の場合に表示されます。指定値以上の長さのエッジを半分の位置で分割してクリーンアップします。</li>
+			</ul>
+			<li>ノンマニフォールド		： チェックするとノンマニフォールドも修正します。</li>
+			<li>内部節点のみ		： チェックするとサーフェスメッシュを変更せずに内部要素のみ修正します。</li>
+			<li>サーフェスメッシュ保持	： チェックすると下記項目から領域を選択してサーフェスメッシュを保持します。</li>
+			<ul type="circle">
+				<li>すべて			： すべてのサーフェスメッシュを変更せずに内部要素のみ修正します。</li>
+				<li>フリーズメッシュ設定範囲	： ローカル設定のフリーズメッシュが設定されたサーフェスメッシュを変更せず修正します。</li>
+			</ul>
+			
+
+			<h4>手動クリーンアップ</h4>
+			<li>手動で要素を編集するには、[ドラッグによる節点移動]ボタンを押してダイアログを開きます。 </li>
+			<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_tet_drug.png">
+			<p><ul>
+				<li><b style="color: #0066ff">方法:</b> エラー要素を修正するときはノードを移動する方法を選択します。 </li>
+			</p></ul>
+			<table class="commontable">
+				<tr><th style='width: 20%;'>方法</th><th>画像</th><th>説明</th></tr>
+				<tr><td>要素面</td><td><img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Tet_Manual%20Cleanup_Element%20plane.png" width=200 height=auto></td><td>黄色の節点は属する要素平面（3つの赤い要素平面）に沿って移動できます。 </td></tr>
+				<tr><td>節点法線</td><td><img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Tet_Manual%20Cleanup_Node%20normal.png" width=200 height=auto></td><td>選択した節点は、（d）線（選択した節点の反対側の面に垂直な線）に沿って移動できます。 </td></tr>
+				<tr><td>スクリーン面</td><td><img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Tet_Manual%20Cleanup_Screen%20plane.png" width=200 height=auto></td><td>選択した節点は、平面と平行な平面上を移動できます。</td></tr>
+				<tr><td>エッジに沿って</td><td><img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Tet_Manual%20Cleanup_Along%20Edge.png" width=200 height=auto></td><td>選択した節点は、その節点に接続されている要素の任意のエッジに沿って移動できます。 </td></tr>
+				<tr><td>参考に</td><td><img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Tet_Manual%20Cleanup_On%20reference.png" width=200 height=auto></td><td>選択した節点は選択した1つのCADサーフェス上で移動できます。これは、JupiterのCADフォロー機能に似ていますがこれは3Dメッシュ用です。 </td></tr>
+			</table>
+			<p><ul>
+				<li><b style="color: #0066ff">ポジション</b></li>
+				<ul type="circle">
+					<li>座標系： 投影する座標系を選択します。</li>
+					<li>X/Y/Z ： 座標値を入力して、選択した節点を設定の場所に移動します。 </li>
+				</ul>
+			</p></ul>
+			<p><ul>
+				<li><b style="color: #0066ff">メッシュ品質</b></li>
+				<ul type="circle">
+					<li>計測方法 ： プルダウンメニューより要素の品質を測定する方法を選択します。 </li>
+					<li>条件 ： </li>
+						<ul type="square">
+							<li>プルダウンメニューより要素の品質を測定する方法を選択します。 </li>
+							<li>表示する要素の閾値を入力します。 </li>
+						</ul>
+					<li>透明度 :選択したノードに接続されている要素の透明度を設定します（ボタンをドラッグするときに、要素が透明の場合は要素品質に問題がなく、強調表示された色がある場合は要素品質に問題があることを意味します）  </li> 
+					<li>テトラ品質:元のTet品質のウインドウに戻ります。</li>
+				</ul>
+			</p></ul>
+			<p><ul>
+				<li><b style="color: #FF0000">参考: </b></li>
+				<ul type="circle">
+					<li>モデルに中間ノードが含まれている場合は、ドラッグで修正した後に <i> メッシュ編集 | 節点移動 | 中間節点を主節点の中間へを使用して </i> 中間節点を正しい位置に移動します。</li>
+					
+				</ul>
+			</p></ul>
+			<h4>リフレッシュ</h4>
+			<li>モデルを表示　： モデルを表示ボタンを押すことでモデル表示を元に戻します。</li>
+
+			<h3>-&nbsp操作手順&nbsp-</h3>
+			<ol>
+				<li> 要素形状のチェックを行いたいボディを選択します。</li>
+				<li> 要素品質計測方法を選択します。</li>
+				<li> 表示する要素の閾値を設定します。</li>
+				<li> 適用またはOKボタンを押します。</li>
+				<li> モデル表示を元に戻す場合は、モデルを表示を押します。</li>
+				<p>
+			
+					<font color="red">
+						※自動クリーンアップ機能は全ての要素を自動で修正することは出来ません。自動修正できない要素がある場合には、手動クリーンアップ機能を使用して手動で要素を修正する必要があります。
+					</font>
+
+		</div>
+	</div>
+</body>
+
+</html>
+</head>
+
+</html>

@@ -1,0 +1,122 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Solid Meshing</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Solid Meshing</h2>
+<div class="contents">
+	<p>
+	Create a tetrahedral solid elements.<br>
+	</p>
+
+	<img src="./Media/CommandDlg/Meshing_Meshing_Solid%20Meshing.png">
+	
+	<h4>Mesh Type</h4>
+	<li><b>TET4</b>
+	<p>&nbsp;&nbsp;&nbsp;Create a primary tetrahedron element.</p>
+	</li>
+	<li><b>TET10</b>
+	<p>&nbsp;&nbsp;&nbsp;Create a secondary tetrahedral elements.</p>
+	</li>
+
+	<h4>Attributes</h4>
+	<li><b>Grading Factor</b>
+	<p>&nbsp;&nbsp;&nbsp;Enter the values of the elements for grading.</p>
+	</li>
+	<li><b>Stretch Limit</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the limit values for the elements stretch when creating a mesh.</p>
+	</li>
+	<li><b>Speed Vs Qual</b>	
+	<p>&nbsp;&nbsp;&nbsp;Set the speed versus quality.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Fastest</b>&nbsp;:&nbsp;Priority for mesh generation speed.</li><br>
+		<li><b>Optimized</b>&nbsp;:&nbsp;Give priority to mesh quality.</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Speed Vs Mem</b>
+	<p>&nbsp;&nbsp;&nbsp;The setting of speed versus memory usage.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Standard</b>&nbsp;:&nbsp;Priority for mesh generation speed.</li><br>
+		<li><b>Low Memory</b>&nbsp;:&nbsp;Give priority to the reduction of memory usage.</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Region</b>
+	<p>&nbsp;&nbsp;&nbsp;Set the creation of solid elements into the open space within the part.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Main Region</b>&nbsp;:&nbsp;Create the solid elements in only the main area of part.</li><br>
+		<li><b>All Region</b>&nbsp;:&nbsp;Create solid element to all the area of the part.</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Internal Node</b>
+	<p>&nbsp;&nbsp;&nbsp;Create a node in internal parts. When turned off, creates the solid element using for nodes on the surface.</p>
+	</li>
+	<li><b>SafeMode</b>
+	<p>&nbsp;&nbsp;&nbsp;If you have created very small element, it can be improved by putting the check.</p>
+	</li>
+	<li><b>Parallel Meshing</b>
+	<p>&nbsp;&nbsp;&nbsp;Configure the settings for parallel processing. Parallelization is done by assigning a Core to every body.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>1～32Cores</b>&nbsp;:&nbsp;Core number 1 ~ 32 ?The default is to refer the number of Core which are mounted on the machine.</li>
+		</span>
+		</ul>
+	</li>	
+
+	<h4>ForceClean</h4>
+	<li><b>Surface Nodes</b>	
+	<p>&nbsp;&nbsp;&nbsp;It may slightly move the surface node to ensure the element quality.</p>
+	</li>
+	<li><b>Edge Nodes</b>
+	<p>&nbsp;&nbsp;&nbsp;It may slightly move the edge node to ensure the element quality.</p>
+	</li>
+	<li><b>Preservation</b>	
+	<p>&nbsp;&nbsp;&nbsp;Ignore the Preserve, if you want to move the node.</p>
+	</li>
+	<li><b>Internal Mesh Only</b>	
+	<p>&nbsp;&nbsp;&nbsp;When you use auto-correct at the time of solid elements creation, it makes corrections only for internal elements without changing the surface element.</p>
+	</li>
+
+	<h4>Options</h4>
+	<li><b>Mesh Color</b>	
+	<p>&nbsp;&nbsp;&nbsp;You can choose the color of the parts after creating the solid mesh.</p>
+	</li>
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+		<li>&nbsp;Select the Mesh Type.</li>
+		<li>&nbsp;Select the parts for target.</li>
+		<li>&nbsp;Click Apply / OK button.</li>
+	</ol>
+	
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

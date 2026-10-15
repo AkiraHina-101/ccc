@@ -1,0 +1,3 @@
+# Separate Faces | Solid
+
+Separate Faces | Solid Separate Faces | Solid Surface that is shared between the solid parts (shared surface) is divided into two surfaces to change the shared node to double nodes. Create Face Group If checked, a separated face will be created in the Group tree after command execution. By Shared Face ID Groups are created for each shared face. By Contact Pair Groups are created for contacts by grouping in each part. This makes it easier to handle when defining contacts between parts later in the process. -&nbspOperating Procedure&nbsp- &nbspSelect the parts that have shared surface. &nbspClick Apply/OK button. -&nbspOperation Video&nbsp- -->

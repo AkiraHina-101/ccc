@@ -1,0 +1,104 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>力 | 円筒面に負荷(正弦)</title>
+
+<style type="text/css">
+/* Link下線、非表示 */
+a.no-uline {text-decoration:none}
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>力 | 円筒面に負荷(正弦)</h2>
+<div class="contents">
+	<p>選択したフェース、エッジまたは節点に正弦関数分布に基づいた力荷重を定義します。</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Loads_Force_Function%20Load%20to%20Cylinder(Sin).png">
+
+ 　　 <h4>構造力</h4>
+		<li><b>名前</b><br>
+			<p>力荷重条件の名前を入力します。</p></li>
+
+ 　　 <h4>正弦曲線&nbsp;:&nbsp;<span style="font-style:italic; font-weight: bold;">y&#061;a*sine(rad)</span></h4>
+		<p>&nbsp;&nbsp;正弦関数の設定をします。</p>
+		<li><b>合計値</b><br>
+			<p>力荷重合計値を入力します。</p>
+		</li>
+		<li><b>入力単位系</b><br>
+			<p>力荷重の入力単位を指定します。</p>
+		</li>
+		<li><b>a</b><br>
+			<p>正弦関数の係数aを定義します。</p>
+		</li>
+		<li><b>荷重座標系</b><br>
+			<p>荷重適用範囲の角度を決定する座標系を選択します。</p>
+		</li>
+		<li><b>角度</b><br>
+			<p>荷重適用範囲を指定した座標系XY平面におけるY軸からの角度を入力します。</br>
+			荷重適用範囲は角度0～PIとなり、0°＜角度＜90°の範囲で入力します。<p>
+		</li>
+		<li><b>入力単位系</b><br>
+			<p>入力単位を指定します。</p>
+		</li>
+		<li><b>分布方向</b><br>
+			<p>奥行き方向にも分布を与えます。</p>
+		</li>
+
+ 　　 <h4>オプション</h4>
+ 　　 <li>矢印方向<br>
+        &nbsp;&nbsp;&nbsp;マーカー表示の描画位置を設定をします。<br>
+	    &nbsp;&nbsp;&nbsp;節点が始点：節点を始点として、マーカーを表示します。<br>
+	    &nbsp;&nbsp;&nbsp;節点が終点：節点を終点として、マーカーを表示します。<br>
+　　　</li>
+
+		<br>
+	<span style="font-weight:bold;">荷重適用範囲に含まれるサーフェス上に、
+正弦関数を使用した力が負荷されます。<br>
+奥行き方向は一定ですが、分布方向オプションを選択すると</br>
+奥行き方向にも正弦関数の分布を与えられます。<br>
+荷重適用範囲の全節点荷重の合計が合計荷重となります。 </br>
+力荷重は指定した座標系の-Y方向に適用され、中心位置は指定した座標系の原点となります。 <br>
+荷重適用範囲は0(rad)～PI(rad)とし、力荷重分配比率を計算します。 </br>
+	</span>
+	</br>
+	<img src="./Media/Boundary%20Conditions_Loads_Force_Function%20Load%20to%20Cylinder(Sine)%20image1.png" width="300" height="300">
+	
+	<h3>-&nbsp;操作手順&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;選択リストから、画面上から力荷重の対象となるフェース、エッジまたは節点を選択します。(複数の選択が可能です)</li>
+		<li>&nbsp;荷重につける名前を入力します。</li>
+		<li>&nbsp;全荷重値の合計値を合計荷重に入力します。</li>
+		<li>&nbsp;正弦関数式のaの数値を入力します。</li>
+		<li>&nbsp;正弦関数の荷重適用範囲の座標系と角度を指定します。</li>
+		<li>&nbsp;必要に応じて奥行き方向の分布を分布方向から選択します。</li>
+		<li>&nbsp;必要に応じて矢印の表示方向を矢印方向から選択します。</li>
+		<li>&nbsp;適用またはOKボタンを押します。</li>
+		</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

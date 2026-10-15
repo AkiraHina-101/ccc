@@ -1,0 +1,418 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>メインウィンドウ</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>メインウィンドウ</h2>
+<div class="contents">
+	<p>
+	形状やメッシュモデルが表示されます。複数のドキュメントを同時に開いている場合には、ウィンドウ上部のタブをクリックするか、リボンメニューの右側のメインウィンドウ操作ボタンを利用して、見たいドキュメントを表示します。
+	</p>
+
+	<img src="./Media/Basic_Window_MainWindow_1.png">
+ 	<br>
+	<h4>マウス操作</h4>
+	<p>
+	メインウィンドウ内でのマウス操作の一覧です。
+	</p>
+	<table class="commontable">
+	 <tr><th>マウス操作</th><th>機能</th></tr>
+	 <tr><td>中ボタンクリック＆ドラッグ</td><td>ビューを回転します。</td></tr>
+	 <tr><td>ホイール回転</td><td>ビュー拡大/縮小表示します。</td></tr>
+	 <tr><td>右ボタンクリック＆ドラッグ</td><td>ビューを平行移動（パン）します。</td></tr>
+	 <tr><td>左ボタンクリック</td><td>エンティティを１つ選択します。</td></tr>
+	 <tr><td>左ボタンクリック＆ドラッグ</td><td>範囲を定義し、範囲内の複数のエンティティを選択します。</td></tr>
+	 <tr><td>右ボタンクリック</td><td>ショートカットメニューの表示。</td></tr>
+	</table>
+	マウス設定は、ホーム>プリファレンスコマンド内で変更可能です。
+
+	<h4>メインウィンドウ操作ボタン</h4>
+	<p>
+	メインウィンドウのドキュメントウィンドウの表示をコントロールします。
+	</p>
+	<table class="commontable">
+	 <tr><th>アイコン</th><th>名称</th><th>説明</th></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image025.png"></td><td>最小化</td><td>表示中のドキュメントを最小化して表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image026.png"></td><td>カスケード</td><td>開いているドキュメントをメインウィンドウ内に並べて表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image027.png"></td><td>閉じる</td><td>表示中のドキュメントを閉じます。</td></tr>
+	</table>
+	マウス設定は、ホーム>プリファレンスコマンド内で変更可能です。
+	<h4 id="Toolbar">ツールバー</h4>	
+	メインウィンドウには、ビューポイントツールバー、ビューコントロールツールバー、ビューオプションツールバー、選択ツールバー、選択オプションツールバーの５つのツールバーが配置されています。これらはアイコン上をマウス左ボタンでクリックして使用します。各ツールバーの表示/非表示及び配置の設定は、ホーム>プリファレンスコマンド内で変更可能です。<br>
+	<br><li>ビューポイントツールバー</li>
+	<p>ビューポイント操作に関する機能をまとめたツールバーです。</p>
+	<table class="commontable">
+	 <tr><th>アイコン</th><th>名称</th><th>説明</th></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image028.png"></td><td>正面(+Z)</td><td>モデルを+Z方向から見た状態で表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image029.png"></td><td>背面(-Z)</td><td>モデルを-Z方向から見た状態で表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image030.png"></td><td>上面(+Y)</td><td>モデルを+Y方向から見た状態で表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image031.png"></td><td>下面(-Y)</td><td>モデルを-Y方向から見た状態で表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image032.png"></td><td>左側面(-X)</td><td>モデルを-X方向から見た状態で表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image033.png"></td><td>右側面(+X)</td><td>モデルを+X方向から見た状態で表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image034.png"></td><td>ユーザービュー１</td><td>モデルを+X,+Y,+Z方向から見た状態で表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image035.png"></td><td>ユーザービュー2</td><td>モデルを+X,+Y,-Z方向から見た状態で表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image036.png"></td><td>ユーザービュー3</td><td>モデルを-X,+Y,-Z方向から見た状態で表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image037.png"></td><td>ユーザービュー4</td><td>モデルを-X,+Y,+Z方向から見た状態で表示します。</td></tr>
+	</table>
+	<br><li>ビューコントロールツールバー</li>
+	<p>ビューコントロール操作に関する機能をまとめたツールバーです。</p>
+	<table class="commontable">
+	 <tr><th>アイコン</th><th>名称</th><th>説明</th></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image038.png"></td><td>ビュー回転中心</td><td>アイコンクリック後、メインウィンドウの任意の位置をクリックで指定すると、<br>その位置をモデルの回転中心とします。</br>また、任意の節点を回転中心とする場合は、アイコンクリック後Ctrlキーを</br>クリックしつづけると節点選択可能状態になります。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image039.png"></td><td>ビューリセット</td><td>ビュー回転中心の設定を含めて、ビューをリセットします</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image040.png"></td><td>フィット</td><td>モデル全体をメインウィンドウのサイズに合わせて表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image041.png"></td><td>ズームイン</td><td>一段階拡大表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image042.png"></td><td>ズームアウト</td><td>一段階縮小表示します</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image043.png"></td><td>範囲ズーム</td><td>アイコンクリック後、メインウィンドウ上でマウス左ボタンクリック＆ドラッグで<br>ボックスを定義し、囲まれた部分を拡大表示します。</td></tr>
+	</table>
+	<br><li>ビューオプションツールバー</li>
+	<p>各エンティティや画面の表示状態を変更する機能をまとめたツールバーです。</p>
+	<table class="commontable">
+	 <tr><th>アイコン</th><th>名称</th><th>説明</th></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image044.png"></td><td>サーフェース表示</td><td>フェースの表示・非表示を切り替えます。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image045.png"></td><td>メッシュライン表示</td><td>要素エッジの表示・非表示を切り替えます。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image046.png"></td><td>エッジ表示</td><td>フィーチャーエッジの表示・非表示を切り替えます。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image047.png"></td><td>頂点表示</td><td>頂点の表示・非表示を切り替えます。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image048.png"></td><td>浮遊節点表示</td><td>浮遊節点の表示・非表示を切り替えます。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image093.png"></td><td>節点表示</td><td>節点の表示・非表示を切り替えます</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image107.png"></td><td>フェース法線方向表示</td><td>選択したフェースに法線ベクトルが表示されます。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image049.png"></td><td>背面を暗く</td><td>フェース裏面の表示・非表示を切り替えます。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image050.png"></td><td>境界条件表示</td><td>境界条件の表示・非表示を切り替えます。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image051.png"></td><td>コンタクト表示</td><td>接触条件の表示・非表示を切り替えます。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image052.png"></td><td>ローカルメッシュ設定表示</td><td>ローカルメッシュ設定の表示・非表示を切り替えます</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image053.png"></td><td>バー表示</td><td>バーボディの太さを表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image054.png"></td><td>スケール表示</td><td>メインウィンドウ下方にスケールを表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image055.png"></td><td>ID表示</td><td>選択エンティティのIDを表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image111.png"></td><td>全体座標系表示</td><td>全体座標系の表示・非表示を切り替えます。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image056.png"></td><td>自動レイヤーアップデート </td><td>フリーエッジ、要素交差部表示モード時にクリックすると修正後の表示の更新・非更新を切り替えます</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image057.png"></td><td>レイヤー追加</td><td>表示要素周囲の要素表示範囲を、1レイヤーごとに増やします。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image058.png"></td><td>レイヤー削除</td><td>表示要素周囲の要素表示範囲を、1レイヤーごとに減らします。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image060.png"></td><td>原点座標表示</td><td>原点の位置を表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image087.png"></td><td>フリーエッジ表示</td><td>フリーエッジ（穴あき部）を赤色のラインで表示します</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image061.png"></td><td>ノンマニ表示</td><td>シェルアセンブリモデルのボディ間で共有しているエッジを赤色のラインで表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image101.png"></td><td>共有要素表示</td><td>パーツ間で共有している表面要素を緑色で、パーツ間ですべての節点を共有している要素を橙色で表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/FR_523_16.png"></td><td>共有面表示</td><td>共有面表示モードにします。このモードのとき、選択パーツは透過表示され、共有面はプリファレンスの色＞共有フェースで設定された色で表示されます。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/FR_524_16.png"></td><td>共有節点表示</td><td>共有節点を表示します。共有節点は、プリファレンスの色＞共有節点色、共有節点の外線で設定された色、及びサイズ＞共有節点サイズで指定した大きさで表示されます。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image089.png"></td><td>グループ表示モード</td><td>グループタブに登録されたエンティティを表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image102.png"></td><td>ソリッド表示モード</td><td>ソリッド要素表示・編集モードに切り替えます。選択したパーツがソリッド要素を含んでいる時、各ソリッド要素を表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image103.png"></td><td>グループマーカー表示</td><td>フェースグループ及び表面要素グループに含まれている要素上にマーカーを表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image094.png"></td><td>プロパティコンター表示</td><td>シェルパーツに割り当てられている2Dプロパティをコンター表示/板厚3D表示します。<a href="./Properties_2D_Thickness%20Distribution.html"> コンター表示設定リボン </a></td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image062.png"></td><td>断面表示</td><td>3Dマウスがメインウィンドウに表示され、表示されている形状やモデルの断面を見ることができます。<a href="./Tools_Section_Section.html">断面リボン</a>を表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/FR_532_16.png"></td><td>シュリンクモード表示</td><td>シュリンク表示モードに切り替えます。<a href="./Ribbon_Shrink.html">シュリンクリボン</a>を表示します。</td></tr>
+	 <tr><th colspan="3">表示/非表示ツールバー<!--<a href="Basic_Window_Main Window_Show Hide Toolbar.html">（使用方法）</a>--></th></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image096.png"></td><td>非表示</td><td>このアイコンがONのとき、ピックしたエンティティが非表示になります。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image097.png"></td><td>表示</td><td>このアイコンがONのとき、ピックしたエンティティに隣接する非表示エンティティを表示します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image098.png"></td><td>のみ表示</td><td>このアイコンがONのとき、ピックしたエンティティのみ表示し、他のエンティティは非表示になります。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image099.png"></td><td>隣接面を追加</td><td>このアイコンをクリックすると、選択中のエンティに隣接するエンティティを１レイヤーぶん選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image100.png"></td><td>隣接面を削除</td><td>このアイコンをクリックすると、「隣接面を追加」で選択された１レイヤーぶんのエンティティの選択を解除します。</td></tr>
+	 <tr><th colspan="3"></th></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image059.png"></td><td>標準画面に戻す</td><td>フリーエッジ表示等で特殊表示になっている時にクリックすると、標準の表示に戻ります。</td></tr>
+	</table>
+	<br><li>選択ツールバー</li>
+	<p>エンティティの選択対象を切り替える機能をまとめたツールバーです。アイコンマウス左ボタンでクリックして使用します。</p>
+	<table class="commontable">
+	 <tr><th>アイコン</th><th>名称</th><th>説明</th></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image063.png"></td><td>パーツ選択</td><td>パーツを選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image064.png"></td><td>バーパーツ選択</td><td>バー要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image065.png"></td><td>フェース選択</td><td>フェースを選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image066.png"></td><td>エッジ選択</td><td>エッジを選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image067.png"></td><td>頂点選択</td><td>頂点を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image068.png"></td><td>ソリッド要素選択*</td><td>ソリッド要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image069.png"></td><td>要素選択*</td><td>面要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image070.png"></td><td>1D要素選択</td><td>バー要素を構成する1D要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image071.png"></td><td>要素エッジ選択</td><td>要素エッジを選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image072.png"></td><td>節点選択</td><td>節点を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image095.png"></td><td>中間節点選択</td><td>中間節点を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image074.png"></td><td>境界条件選択*</td><td>境界条件を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image075.png"></td><td>座標系選択</td><td>ローカル座標系を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image076.png"></td><td>グループ選択</td><td>グループを選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image077.png"></td><td>選択解除</td><td>現在選択されているエンティティをすべて選択解除します。</td></tr>
+	</table>
+	<br>
+	*アイコンを長押しすると、要素選択・境界条件選択フィルターが表示されます。<br>
+	長押しした状態で要素・境界条件のアイコンを選択すると（ドラッグ＆ドロップ）その要素・境界条件のみが選択対象となります。<br>
+	<br>
+	<u><b>ソリッド要素選択フィルター</b></u><br>
+	<img src="./Media/MainWindow_icon/Bacic_Window_MainWindow_Elemtype001.png">
+	<table class="commontable">
+	 <tr><th>アイコン</th><th>名称</th><th>説明</th></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image068.png"></td><td>すべてのソリッド要素</td><td>すべてのソリッド要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DA_025_16.png"></td><td>テトラ1次要素</td><td>テトラ1次要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DA_026_16.png"></td><td>テトラ2次要素</td><td>テトラ2次要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DA_029_16.png"></td><td>ヘキサ1次要素</td><td>ヘキサ1次要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DA_030_16.png"></td><td>ヘキサ2次要素</td><td>ヘキサ2次要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DA_027_16.png"></td><td>ペンタ1次要素</td><td>ペンタ1次要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DA_028_16.png"></td><td>ペンタ2次要素</td><td>ペンタ2次要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DA_031_16.png"></td><td>ピラミッド1次要素</td><td>ピラミッド1次要素をを選択します。</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DA_032_16.png"></td><td>ピラミッド2次要素</td><td>ピラミッド2次要素を選択します。</td></tr>
+	</table>
+	<br>
+	
+	<u><b>要素選択フィルター</b></u><br>
+	<img src="./Media/MainWindow_icon/Bacic_Window_MainWindow_Elemtype002.png">
+	<table class="commontable">
+	 <tr><th>アイコン</th><th>名称</th><th>説明</th></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image069.png"></td><td>すべてのシェル要素</td><td>すべてのシェル要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DA_021_16.png"></td><td>三角形1次要素</td><td>三角形1次要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DA_022_16.png"></td><td>三角形2次要素</td><td>三角形2次要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DA_023_16.png"></td><td>四角形1次要素</td><td>四角形1次要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DA_024_16.png"></td><td>四角形2次要素</td><td>四角形2次要素を選択します。</td></tr>
+	</table>
+	<br>
+	
+	<u><b>境界条件選択フィルター</b></u><br>
+	<img src="./Media/MainWindow_icon/Bacic_Window_MainWindow_LBCtype001.png">
+	<table class="commontable">
+	 <tr><th>アイコン</th><th>名称</th><th>説明</th></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image074.png"></td><td>すべての境界条件</td><td>すべての境界条件を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/138_MPC_16.png"></td><td>MPC</td><td>MPCを選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/136_Connection_16.png"></td><td>RBE2</td><td>RBE2を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/DA_1_16.png"></td><td>RBE3</td><td>RBE3を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/019_MaterialGroup_16.png"></td><td>バー要素</td><td>バー要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/139_Spring_16.png"></td><td>ばね要素</td><td>ばね要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/140_Mass_16.png"></td><td>質量要素</td><td>質量要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/FR_235_16.png"></td><td>コネクター要素</td><td>コネクター要素を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/083_Pressure_16.png"></td><td>圧力</td><td>圧力を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/082_Force_16.png"></td><td>力</td><td>力を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/085_EnforceDisplacement_16.png"></td><td>強制荷重</td><td>強制荷重をを選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/008_Constraint_16.png"></td><td>拘束</td><td>拘束条件を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/FR_210_16.png"></td><td>温度</td><td>温度条件を選択します。</td></tr>
+	</table>
+	<br>
+	
+	
+	<br><li>選択オプションツールバー</li>
+	<p>エンティティの選択オプションをまとめたツールバーです。</p>
+	<table class="commontable">
+	 <tr><th>アイコン</th><th>名称</th><th>説明</th></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image078.png"></td><td>四角形選択 </td><td>範囲選択時の形状を、ドラッグ開始位置と終了位置で定義される四角形にします。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image079.png"></td><td>円形選択</td><td>範囲選択時の形状を、ドラッグ開始位置を中心とする円形にします</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image080.png"></td><td>多角形選択</td><td>範囲選択時の形状を、ドラッグ開始位置と終了位置を最初の１辺とする多角形にします。残りの頂点はマウス左ボタンクリックで設定します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image081.png"></td><td>ループ選択</td><td>範囲選択時の形状を、ドラッグ中のマウスの軌跡で囲まれる形状にします。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image082.png"></td><td>ラインドラッグ選択</td><td>ドラッグ中のマウスでなぞったエンティティを選択します。※「範囲内すべて選択」時には実行できません。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image090.png"></td><td>エッジループ選択</td><td>選択したエッジ２つの間にあるエッジを全て選択します。あるいは、エッジをダブルクリックすることで、接続するエッジを全て選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image083.png"></td><td>範囲内すべて選択</td><td>範囲選択時、形状の背面側に隠れたエンティティも含めて全てを選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image092.png"></td><td>範囲内にすべて含むエンティティのみ選択</td><td>範囲選択時、範囲の内部に完全に囲まれたエンティティのみを選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image091.png"></td><td>選択解除モード</td><td>範囲選択によって、範囲内のエンティティを選択解除します。また、関連選択によって関連エンティティを選択解除します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image084.png"></td><td>フェース任意点選択</td><td>フェース上の任意点を選択します。</td></tr>
+	 <tr><td><img src="./Media/MainWindow_icon/image085.png"></td><td>エッジ任意点選択</td><td>エッジ上の任意点を選択します。</td></tr>
+	</table>
+
+	<h4>ショートカットキー一覧</h4>
+	メインウィンドウにフォーカスがある場合には、下記ショートカットキーを利用可能です。
+	<br>※V4.0からマウスオーバーポップアップの内容にショートカットキーの情報を追加しました。
+	<br><li>ビュー操作</li>
+	<table class="commontable">
+	 <tr><th>ショートカットキー</th><th>動作</th></tr>
+	 <tr><td>Z</td><td>キー押下後、左マウスボタンクリック＆ドラッグで囲んだ範囲を拡大表示。</td></tr>
+	 <tr><td>M</td><td>回転中心点設定。</td></tr>
+	 <tr><td>F</td><td>画面にフィット。</td></tr>
+	 <tr><td>Ctrl+Shift+R</td><td>ビューをリセット。</td></tr>
+	 <tr><td>R</td><td>メインビュー表示を標準画面表示に戻す。</td></tr>
+	 <tr><td>F4</td><td>ビューを近くの座標平面に合わせる。</td></tr>
+	 <tr><td>P</td><td>ビューを直前のビュー状態に戻す。</td></tr>
+	 <tr><td>Q</td><td>パーツの表示/非表示を反転。</td></tr>
+	 <tr><td>矢印キー</td><td>ビューを回転移動。</td></tr>
+	 <tr><td>Shift+矢印キー</td><td>ビューを平行移動。</td></tr>
+	 <tr><td>1～6キー</td><td>それぞれ、前面・背面・上面・下面・左側面・右側面からの視点。</td></tr>
+	</table>
+	<br><li>コマンド操作</li>
+	<table class="commontable">
+	 <tr><th>ショートカットキー</th><th>動作</th></tr>
+	 <tr><td>Ctrl+A</td><td>すべてのパーツを選択</td></tr>
+	 <tr><td>Ctrl+H</td><td>選択パーツ／フェース／要素を隠す</td></tr>
+	 <tr><td>E</td><td>エンティティ選択解除。</td></tr>
+	 <tr><td>Shift+R</td><td>選択解除モード有効/解除</td></tr>
+	 <tr><td>AもしくはSpaceキー</td><td>コマンドダイアログ表示時に、コマンドを実行。</td></tr>
+	 <tr><td>Ctrl+N</td><td>新規ウィンドウを作成。</td></tr>
+	 <tr><td>Ctrl+W</td><td>ウィンドウを閉じる。</td></tr>
+	</table>
+	<br><li>一般操作</li>
+	<table class="commontable">
+	 <tr><th>ショートカットキー</th><th>動作</th></tr>
+	 <tr><td>Ctrl+C</td><td>画面をクリップボードにコピー</td></tr>
+	 <tr><td>Ctrl+Shift+C</td><td>CTRLキーとSHIFTキーを押しながら左マウスボタンクリック＆ドラッグ<br>で囲んだ範囲をクリップボードにコピー。</td></tr>
+	 <tr><td>Ctrl+Z</td><td>元に戻す。</td></tr>
+	 <tr><td>Ctrl+Y</td><td>操作のやり直し。</td></tr>
+	</table>
+	<br>
+	<h4>ショートカットメニュー</h4>
+	マウス右クリックで表示されるメニューから、各コマンドを使用します。
+	<br><li>常に利用できるメニュー</li>
+	<table class="commontable">
+	 <tr><th>メニュー</th><th>内容</th></tr>
+	 <tr><td>すべてのパーツを選択</td><td>全てのパーツを選択します。</td></tr>
+	 <tr><td>すべて表示</td><td>モデル内の全てのアイテム（パーツ/LBC/ローカルメッシュ設定)を表示します。<br>フェース表示切替操作中に、1つのパーツについて全てのフェースを表示させるには、<br>そのパーツを選択し、ピックフィルターをフェースにしてからこのコマンドを実行します。</td></tr>
+	 <tr><td>非表示フェースをすべて表示</td><td>表示されているパーツ上の、非表示にしたフェースを全て表示させます。</td></tr>
+	 <tr><td>表示/非表示を反転</td><td>パーツ、フェースの表示/非表示を反転させます。</td></tr>
+	 <tr><td>すべてのツールバーを表示/非表示</td><td>メインウィンドウ上のツールバー全てを非表示にします。</td></tr>
+	 <tr><td>フローティングツールバーを表示/非表示</td><td>メインウィンドウ上のツールバー全てを非表示にし、選択ツールバーウィンドウを表示します。</td></tr>
+	 <tr><td>選択フィルター</td><td>エンティティの選択対象を切り替えるダイアログを表示します。</td></tr>
+	 <tr><td>前のビューを表示</td><td>一つ前のビューを表示します。</td></tr>
+	</table>
+	
+	<br><li>エンティティ選択時に利用できるメニュー</li>
+	<table class="commontable">
+	 <tr><th>メニュー</th><th>内容</th></tr>
+	 <tr><td>削除</td><td>選択エンティティを削除します。<br>接続中心節点とLBCも同様に削除しますか、というメッセージが出た際に「はい」を選択すると、<br>
+	 エンティティに直接接続している接続設定や浮遊節点が同時に削除されます。<br>また、削除された接続設定が更に境界条件付き浮遊節点と接続していた場合、それらも削除されます。<br>
+	 例1）RBE2中心に質量要素が接続されている場合、RBE2を削除した場合に質量要素まで削除します。<br>
+    <table>
+    <tr><td><img src="./Media/MainWindow_DeleteLBC_1.png" width="200"></td>
+    <td><img src="./Media/MainWindow_DeleteLBC_2.png" width="200"></td>
+    <td><img src="./Media/MainWindow_DeleteLBC_3.png"  width="200"></td></tr>
+    <tr><td>RBE2+浮遊節点＋質量要素</td><td>「はい」選択</td><td>「いいえ」選択</td></tr>
+    </table><br>
+    例2)軸力つきボルト（軸をバーパーツで作成）の場合、バーパーツを削除すると接続先のMPCと浮遊節点、浮遊節点に負荷されている力も削除されます。
+    <table>
+    <tr><td><img src="./Media/MainWindow_DeleteLBC_4.png" width="200"></td>
+    <td><img src="./Media/MainWindow_DeleteLBC_5.png" width="200"></td>
+    <td><img src="./Media/MainWindow_DeleteLBC_6.png" width="200"></td>
+    <tr><td>軸力付きボルト（CBar）</td><td>「はい」選択</td><td>「いいえ」選択</td></tr>
+    <br>
+    
+    </td></tr>
+    </table>
+    </td></tr>
+	
+    <tr><td>関連選択</td><td>選択エンティティに関連するエンティティを選択します。<a href="./Basic_Window_MainWindow_AssociatedPickBC.html">関連選択>境界条件</a></td></tr>
+	 <tr><td>グループ作成</td><td>選択エンティティのグループを作成します。<br>すべて: 選択したエンティティ全てを含むグループを作成します。<br>エンティティ毎:選択したエンティティの種類ごとにそれぞれグループを作成します。<br>コマンドダイアログを起動:グループ機能を起動します。</td></tr>
+	</table>
+	<br><li>パーツ選択時にのみ利用できるメニュー</li>
+	<table class="commontable">
+	 <tr><th>メニュー</th><th>内容</th></tr>
+	 <tr><td>非表示</td><td>選択パーツを非表示にします。</td></tr>
+	 <tr><td>表示</td><td>選択パーツを表示します。</td></tr>
+	 <tr><td>選択以外非表示</td><td>選択パーツ以外のパーツを非表示にします。</td></tr>
+	 <tr><td>パーツ外観の非表示</td><td>選択パーツのみサーフェス、メッシュライン、エッジ、節点を非表示にします。</td></tr>
+	 <tr><td>パーツ外観の表示</td><td>選択パーツのみサーフェス、メッシュライン、エッジ、節点を表示します。</td></tr>
+	 <tr><td>色の変更</td><td>選択パーツの表面・メッシュライン・エッジの色を変更します。</td></tr>
+	 <tr><td>透明度設定</td><td>選択パーツの透明度を変更します。</td></tr>
+	 <tr><td>ツリーを検索</td><td>選択パーツをアッセンプルウィンドウのツリー上でハイライト表示します。</td></tr>
+	 <tr><td>ツリー内のローカル設定を探す</td><td>選択されたエンティティが所属するローカル・メッシュ・セッティングをアッセンプルウィンドウのツリー上でハイライト表示します。</td></tr>
+	</table>
+	
+	<br><li>フェース選択時に利用できるメニュー</li>
+	<table class="commontable">
+	　<tr><th>メニュー</th><th>内容</th></tr>
+	　<tr><td>隣接面表示</td><td>選択フェースに接続するフェース１層を追加選択します。</td></tr>
+	　<tr><td>非表示</td><td>選択フェースを非表示にします。</td></tr>
+	　<tr><td>表示</td><td>選択フェースを表示します。</td></tr>
+	　<tr><td>選択のみ表示</td><td>選択フェース以外のフェースを非表示にします。</td></tr>
+	　<tr><td>選択以外非表示</td><td>選択フェース以外のフェース及びパーツを非表示にします。</td></tr>
+	　<tr><td>反転</td><td>選択フェースの法線方向を反転させます。</td></tr>
+	　<tr><td>選択</td><td>フェースを多様な方法で選択します。
+	　<br>ウインドウ範囲: ビューウインドウに表示されている範囲を選択範囲とします。ウインドウからはみ出た部分は選択されません。
+	　<br>表示範囲: ビューに表示されているすべてのフェースを選択範囲とします。ウインドウからはみ出しても選択されます。
+	　<br>すべて: ドキュメントに含まれるすべてのフェースが選択範囲になります。
+	　<br>選択反転： ビューに表示されているフェースに対して、選択と非選択が反転します。
+	　<br>接続フェース： 選択されたフェースに滑らかに接続したフェースが選択されます。接続角度はアドバンスト検索＞隣接面選択機能の設定値を参照します。
+	　<br>付属パーツ： フェースが付属するパーツに含まれるすべてのフェースが選択されます。</td></tr>
+	　<tr><td>色の変更</td><td>選択フェースの表示色を変更します。</td></tr>
+	　<tr><td>色のリセット</td><td>選択フェースの表示色をリセットします。</td></tr>
+	　<tr><td>ツリー内のローカル設定を探す</td><td>選択されたエンティティが所属するローカル・メッシュ・セッティングをアッセンプルウィンドウのツリー上でハイライト表示します。</td></tr>
+	　<tr><td>最大/最小 表示</td><td>選択したエンティティに含まれる節点の最大・最小値を検出します。ウォッチウィンドウに情報が出力されます。(Postモードのみ)</td></tr>
+	　<tr><td>ウォッチ節点</td><td>選択中の節点をウォッチウィンドウに入力します。(Postモードのみ)</td></tr>
+	　<tr><td>ウォッチ要素</td><td>選択中の要素をウォッチウィンドウに入力します。(Postモードのみ)</td></tr>
+	</table>
+	
+	<br><li>エッジ選択時に利用できるメニュー</li>
+	<table class="commontable">
+	  <tr><th>メニュー</th><th>内容</th></tr>
+	  <tr><td>削除</td><td>選択エッジを消去します。</td></tr>
+	  <tr><td>プロパティ表示</td><td>プロパティが与えられている場合、アッセンプルウィンドウ上で該当プロパティを選択し、プロパティビューに詳細を表示します。</td></tr>
+	  <tr><td>色の変更</td><td>選択エッジの表示色を変更します。</td></tr>
+	  <tr><td>色のリセット</td><td>選択エッジの表示色をリセットします。</td></tr>
+	  <tr><td>ツリー内のローカル設定を探す</td><td>ローカル設定が与えられている場合、選択されたエンティティが所属するローカル・メッシュ・セッティングをアッセンプルウィンドウのツリー上でハイライト表示します。</td></tr>
+	  <tr><td>最大/最小 表示</td><td>選択したエンティティに含まれる節点の最大・最小値を検出します。ウォッチウィンドウに情報が出力されます。(Postモードのみ)</td></tr>
+	  <tr><td>ウォッチ節点</td><td>選択中の節点をウォッチウィンドウに入力します。(Postモードのみ)</td></tr>
+	  <tr><td>ウォッチ要素</td><td>選択中の要素をウォッチウィンドウに入力します。(Postモードのみ)</td></tr>
+	</table>
+	
+	<br><li>要素選択時に利用できるメニュー</li>
+	<table class="commontable">
+	  <tr><th>メニュー</th><th>内容</th></tr>
+	  <tr><td>非表示</td><td>選択要素を非表示にします。</td></tr>
+	  <tr><td>選択のみ表示</td><td>選択フェース以外のフェースを非表示にします。</td></tr>
+	  <tr><td>反転</td><td>選択要素の法線方向を反転させます。</td></tr>
+	  <tr><td>選択</td><td>要素を多様な方法で選択します。
+	  <br>ウインドウ範囲: ビューウインドウに表示されている範囲を選択範囲とします。ウインドウからはみ出た部分は選択されません。
+	  <br>表示範囲: ビューに表示されているすべての要素を選択範囲とします。ウインドウからはみ出しても選択されます。
+	  <br>すべて: ドキュメントに含まれるすべての要素が選択範囲になります。
+	  <br>選択反転： ビューに表示されている要素に対して、選択と非選択が反転します。
+	  <br>接続フェース： 選択された要素に滑らかに接続した要素が選択されます。接続角度はアドバンスト検索＞隣接面選択機能の設定値を参照します。
+	  <br>付属パーツ： 要素が付属するパーツに含まれるすべての要素が選択されます。</td></tr>
+	  <tr><td>色の変更</td><td>選択要素の表示色を変更します。<br>　※ソリッド要素の表示色を変更した場合は、ソリッド表示モードでのみ表示されます。</td></tr>
+	  <tr><td>色のリセット</td><td>選択要素の表示色をリセットします。</td></tr>
+	  <tr><td>最大/最小 表示</td><td>選択したエンティティに含まれる節点の最大・最小値を検出します。ウォッチウィンドウに情報が出力されます。(postモードのみ)</td></tr>
+	  <tr><td>ウォッチ</td><td>選択中の節点または要素をウォッチウィンドウに入力します。(Postモードのみ)</td></tr>
+	</table>
+	
+	<br><li>節点選択時に利用できるメニュー</li>
+	<table class="commontable">
+	  <tr><th>メニュー</th><th>内容</th></tr>
+	  <tr><td>色の変更</td><td>選択節点の表示色を変更します。</td></tr>
+	  <tr><td>色のリセット</td><td>選択節点の表示色をリセットします。</td></tr>
+	  <tr><td>最大/最小 表示</td><td>選択したエンティティに含まれる節点の最大・最小値を検出します。ウォッチウィンドウに情報が出力されます。(postモードのみ)</td></tr>
+	  <tr><td>ウォッチ</td><td>選択中の節点または要素をウォッチウィンドウに入力します。(Postモードのみ)</td></tr>
+	</table>
+	
+	<br><li>フェース任意点選択時に利用できるメニュー</li>
+	<table class="commontable">
+	  <tr><th>メニュー</th><th>内容</th></tr>
+	  <tr><td>ウォッチ</td><td>選択中の節点を、ウォッチウィンドウに入力します。(Postモードのみ)</td></tr>
+	</table>
+	
+	<br><li>境界条件選択時に利用できるメニュー</li>
+	<table class="commontable">
+	 <tr><th>メニュー</th><th>内容</th></tr>
+	 <tr><td>非表示</td><td>選択境界条件を非表示にします。</td></tr>
+	 <tr><td>表示</td><td>選択境界条件を表示します。</td></tr>
+	 <tr><td>選択のみ表示</td><td>選択境界条件以外の境界条件を非表示にします。</td></tr>
+	 <tr><td>編集</td><td>選択境界条件の設定を変更します。</td></tr>
+	 <tr><td>削除</td><td>選択境界条件を消去します。<br>接続設定削除時、接続中心節点とLBCも同時に削除しますか、というメッセージが出た際に「はい」を選択すると、<br>接続設定と同時に、それに接続している浮遊節点も削除されます。</td></tr>
+	 <tr><td>色の変更</td><td>選択境界条件の表示色を変更します。</td></tr>
+	 <tr><td>色のリセット</td><td>選択境界条件の表示色をリセットします。</td></tr>
+	</table>
+		
+	<br><li>グループ選択時に利用できるメニュー</li>
+	<table class="commontable">
+	 <tr><th>メニュー</th><th>内容</th></tr>
+	 <tr><td>非表示</td><td>選択境界条件を非表示にします。</td></tr>
+	 <tr><td>表示</td><td>選択境界条件を表示します。</td></tr>
+	 <tr><td>編集</td><td>選択グループの設定を変更します。</td></tr>
+	 <tr><td>関連選択</td><td>選択したグループに関連するエンティティを選択します。</td></tr>
+	</table>
+			
+	<br><li>Postモードもしくはカスタムノート使用時に利用できるメニュー</li>
+	<table class="commontable">
+	  <tr><th>メニュー</th><th>内容</th></tr>
+	  <tr><td>ノートの再配置</td><td>表示中のノートを適度な間隔で円形に配置します。</td></tr>
+	</table>
+
+	<h4>カーソル周辺エンティティ機能</h4>	
+	エンティティ上でAltキーを押しながらマウスの左ボタンをダブルクリックすることで、ダブルクリックしたエンティティの近くにあるエンティティの一覧をマウスカーソル近くに表示します。<br>
+
+	<img src="./Media/Basic_Window_MainWindow_2.png" width="300"><br>
+	細かいエンティティが集中している部分などで、エンティティ１つ１つをリストで確認することができます。<br>
+	また、リスト内の行をクリックすることで、メインウィンドウ上で対応するエンティティをハイライト表示します。
+</div>
+</body>
+
+</html>
+</head></html>

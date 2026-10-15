@@ -1,0 +1,3 @@
+# Open File/Folder
+
+Open File/Folder Open File/Folder ファイル/フォルダオープンダイアログを追加します。 &nbsp;&nbsp;&nbsp;作成イメージ図： Name &nbsp;&nbsp;&nbsp;Open File/Folderコンポーネント名を入力します。 Enable &nbsp;&nbsp;&nbsp;使用の可否を指定します。 チェックオン &nbsp;:&nbsp;使用可能。 チェックオフ &nbsp;:&nbsp;使用不可。（グレーアウトされます） Mode &nbsp;&nbsp;&nbsp;選択モードを指定します。 File &nbsp;:&nbsp;ファイルタイプのみが選択できます。 Folder &nbsp;:&nbsp;フォルダタイプのみが選択できます。 Default &nbsp;&nbsp;&nbsp;表示するデフォルト値（File/Folder）リンクです。 Filter &nbsp;&nbsp;&nbsp;選択できるファイルの種類を指定します。 &nbsp;&nbsp;&nbsp;ファイルのフォーマット： &nbsp;&nbsp;&nbsp;&nbsp;Description 1 (Extension 1, Extension 2, …), Description 2 (Extension 1, Extension 2, …), … Allow Multiple Selection &nbsp;&nbsp;&nbsp;複数のファイルを選択できるかどうか指定します。 チェックオン &nbsp;:&nbsp;複数選択できます。 チェックオフ &nbsp;:&nbsp;複数選択できません。

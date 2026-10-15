@@ -1,0 +1,92 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>リプレースソリッドメッシュ(Replace Solid Mesh)</title>
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+	<h2>リプレースソリッドメッシュ(Replace Solid Mesh)</h2>
+<div class="contents">
+	<p>
+	ソリッドメッシュパーツ向けのアッセンブリ機能です。本機能は、ソリッドメッシュモデルのパーツ入替や、新規パーツ追加などに有効です。</br>
+	ソリッドメッシュパーツ間で、片方のパーツのメッシュパターンが、もう片方のパーツにリプレースされます。置き換えられたメッシュ周りがリメッシュされ、節点共有（共有面作成）されます。
+	</p>
+	<p>
+	<img src="./Media/Exchange_Assemble_Replace%20Solid%20Mesh_a.png"></br>
+	例）新しいボルト（ソリッドメッシュ）を追加
+	<ol>
+	<li>ネジ部メッシュがアンマッチ(ソリッドメッシュ非表示)</li>
+	<li>ケースのネジ部メッシュ周りをリメッシュ</li>
+	<li>ネジ部メッシュが節点共有(ソリッドメッシュ非表示)</li>
+	</ol>
+
+	</p>
+	<p>
+	リメッシュされた要素と節点は、「ReplaceSolidMesh」の名前でグループ化されます。
+	</p>
+	<p>
+	<img src="./Media/Exchange_Assemble_Replace%20Solid%20Mesh_b.png"></br>
+	</p>
+	<p>
+	<img src="./Media/CommandDlg/Exchange_Assemble_Replace%20Solid%20Mesh.png"></br>
+	</p>
+
+	<p>
+	<b>選択リスト(Selection list)</b>
+	</p>
+	<p>
+	元フェース(Source Face)：キープするフェース（複数可）</br>
+	対象フェース(Target Face)：リメッシュするフェース（複数可）</br>
+	※下の注意事項を確認してください。
+	</p>
+	<h4>オプション(Option)</h4>
+	<li>トレランス(Tolerane)
+	<p>
+	フェースペアを抽出するためのパーツ間の距離を入力します。</br>
+	入力した距離以内にあるパーツ間の対象フェースに、元フェースのメッシュをリプレースします。 
+	</p>
+	</li>
+	</div>
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>元フェース(Source Face)を選択します。</li></br>
+	<li>対象フェース(Target Face)を選択します。</li></br>
+	<li>必要に応じて、オプション(Option)を変更します。</li></br>
+	<li>適用(Apply)／OKボタンをクリックします。対象フェース(Target Face)の周りがリメッシュされ、共有面(Share Face)が作成されます。</li>
+	</ol>
+
+	<h3>-&nbsp操作手順：メッシュエラーが発生した場合&nbsp-</h3>
+	<ol>
+	<li>メッシュエラーが発生した場合、リメッシュ範囲がパーツとして残ります。</li></br>
+	<li>該当パーツのメッシュエラーを、手動修正してください。</li></br>
+	<li>該当パーツを、元のパーツにマージしてください。</li>
+	</ol>
+
+	<h3>-&nbsp注意事項&nbsp-</h3>
+	<ul>
+	<li>本機能は、元フェース(Source Face)の領域が、対象フェース(Target Face)の領域内に含まれている必要があります。</li></br>
+	<li>リメッシュされる対象フェース(Target Face)側は、四面体要素である必要があります。</li></br>
+	<li>元フェース(Source Face)側と対象フェース(Target Face)側のパーツの要素タイプが一致していない場合、節点共有されますが、共有面は作成されません。</li></br>
+	<li>元フェース(Source Face)と対象フェース(Target Face)のペアは1つまで対応しています。離れた複数のペアに対して、同時に実行することはできません。</li></br>
+	</ul>
+</div>
+
+</body>
+
+</html>

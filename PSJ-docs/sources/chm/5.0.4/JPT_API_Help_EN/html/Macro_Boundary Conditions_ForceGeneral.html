@@ -1,0 +1,54 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>ForceGeneral</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>ForceGeneral</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create Force general</p>
+<h4>Syntax</h4>
+<p>ForceGeneral(String name, Vector force, Vector moment, int arrowDir, int distributionMethod, Cursor crCoordinate, Cursor crTable, Cursor crNodeSet, double phase, double delay, Cursor crPhaseTable, String formulaFX, String formulaFY, String formulaFZ, String formulaMX, String formulaMY, String formulaMZ, Cursor[] targets, Cursor crEdit)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>String<p>name</p></li>
+<li>Vector<p>force</p></li>
+<li>Vector<p>moment</p></li>
+<li>int<p>arrorDir (0: Start at node, 1: End at node)</p></li>
+<li>int<p>distributionMethod (0: Per selected entity, 1: Per node, 2: Total of select</p></li>
+<li>Cursor<p>coordinate system</p></li>
+<li>Cursor<p>table</p></li>
+<li>Cursor<p>node set</p></li>
+<li>double<p>phase</p></li>
+<li>double<p>delay</p></li>
+<li>Cursor<p>phase table</p></li>
+<li>String<p>formula of Force X</p></li>
+<li>String<p>formula of Force Y</p></li>
+<li>String<p>formula of Force Z</p></li>
+<li>String<p>formula of Moment X</p></li>
+<li>String<p>formula of Moment Y</p></li>
+<li>String<p>formula of Moment Z</p></li>
+<li>Cursor[]<p>targets</p></li>
+<li>Cursor<p>edit target</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>ForceGeneral("Force2", [1, 2, 3], [0.004, 0.005, 0.006], 0, 0, 0:0, 0:0, 0:0, 0, 0, 0:0, "", "", "", "", "", "", [6:25], 0:0)</p>
+</div>
+</div>
+</body>
+</html>

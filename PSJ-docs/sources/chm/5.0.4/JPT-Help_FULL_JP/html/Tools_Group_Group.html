@@ -1,0 +1,103 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>グループ</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</br>
+</style>
+</html></head>
+
+
+<body>
+<div class="page">
+<h2>グループ</h2>
+	<div class="contents">
+	<p>各エンティティのグループを作成します。</p>
+
+	<img src="./Media/CommandDlg/Tools_Group_Group.png">
+
+ 　　 <h4>グループ</h4>
+		<li><b>名前</b><br>
+			<p>&nbsp;&nbsp;&nbsp;グループの名前を入力します。</p>
+		</li>
+		<li><b>エンティティ</b><br>
+			<p>&nbsp;&nbsp;&nbsp;グループを作成するエンティティを選択します。</p>
+		</li>
+		
+	<h4>マニュアルID入力</h4>
+		<span style="font-size:1.15em;">
+		<p>&nbsp;&nbsp;IDを指定してエンティティを選択します。</p>
+		</span>
+		<br>
+		<li><b>エンティティ番号</b><br>
+			<p>&nbsp;&nbsp;&nbsp;エンティティ&nbsp;IDを入力して「追加」ボタンを押すと、選択リストに対応するエンティティが格納されます。</p>
+		</li>
+
+	<h4>CSVファイルから読込み</h4>
+		<span style="font-size:1.15em;">
+		<p>&nbsp;&nbsp;CSV&nbsp;ファイルに記載したIDでグループを作成します。</p>
+		</span>
+		</br>
+		
+		<!--2017.10.26追記 [Hongjae Yoo]-->
+		<li><b>ファイル&nbsp;を開く</b><br>
+			<p>&nbsp;&nbsp;&nbsp;指定したTypeのEntityのIDをCSV&nbsp;fileから読み込み、Entityを選択します。</p>
+
+			<ul>
+				<li type="circle">読込むCSV&nbsp;fileフォーマットの例</br>
+					<font color=#ff0000><span style="font-size:0.95em;">&#xFF0A;&nbsp;グループウィンドウにてExportした<b>csvファイルのフォーマット</b>とは異なります。</font></span></br>
+					<img src="./Media/Tools_Group_Group_CSV%20Format.png" width="400"></img>
+				</li>
+			</ul>
+		</li>
+		<!---->
+
+	<h4>補足</h4>
+	<p>右クリックメニュー「コマンドダイアログを起動」からグループ作成も可能です。</p>
+	- 操作方法 -<br>
+	<img src="./Media/Tools_Group_Group_2.png" width="400"></img><br>
+	対象のエンティティを選択し、右クリック → グループ作成 > コマンドダイアログを起動　を選択します。
+<br><br>
+	<img src="./Media/Tools_Group_Group_3.png" width="400"></img><br>
+	作成するグループ名を入力し、適用またはOKボタンを押します。
+
+	<br>
+
+	<h3>-&nbsp;操作手順&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;選択リスト上の各エンティティボタンを押して、画面からグループ化したいエンティティを選択します。</li>
+		<li>&nbsp;作成するグループ名を入力します。</li>
+		<li>&nbsp;適用またはOKボタンを押します。</li>
+		<li>&nbsp;作成したグループは、対応するエンティティのツリーに格納されます。</li>
+		<p>※作成したグループの表示を行う場合は、メインウィンドウ内の'グループ表示モードアイコン<img src="./Media/MainWindow_icon/image089.png" style="vertical-align:middle;">をクリックします。<br>
+		&nbsp;&nbsp;再度クリックすると、表示を通常に戻せます。</p>
+		</ol>
+
+
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

@@ -1,0 +1,3 @@
+# AddItemsEdgeExtendEdgeFacetoFace
+
+AddItemsEdgeExtendEdgeFacetoFace AddItemsEdgeExtendEdgeFacetoFace Description Add Items Edge by projecting Edge on to the intersecting point of Face Syntax AddItemsEdgeExtendEdgeFacetoFace(Cursor[] Edge, Cursor[] Face, bool Neighbour Edge Direction, bool Project to connect Faces) Inputs Cursor [] Target edge to be projected Cursor [] Target Faces for projecting Edge bool Create the New Edge at the intersecting point of projected Edge's neighbour edges on the Face true = 1,false = 0 bool Create the New Edge on connected Faces of the Target Face. true = 1,false = 0 Return Code 1 Succeeded 0 Failed Sample Code AddItemsEdgeExtendEdgeFacetoFace([5:31], [6:24], 1, 0)

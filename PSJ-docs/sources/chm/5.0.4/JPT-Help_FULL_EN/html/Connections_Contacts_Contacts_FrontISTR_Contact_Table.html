@@ -1,0 +1,196 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Contacts | FrontISTR - Contact Table</title>
+
+</meta>
+</head>
+
+<body>
+<div class="page">
+	<h2>Contacts | FrontISTR - Contact Table</h2>
+<div class="contents">
+	<p>
+	Contact pairs are automatically detected based on the gap distance between the parts, to create a contact definition.<br />
+	</p>
+
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_FrontISTR_Contact_Table_1.png"></img>
+
+      <h4>Contact</h4>
+
+　　　<li>Finding Tolerance
+	<p>
+	Enter the gap distance between the parts to detect the contact pair. Displays the detected contact pair based on face input tolerance.
+	</p>
+　　　</li>
+
+　　　<li>Input Unit
+	<p>
+	Specify the unit system of tolerance.
+	</p>
+　　　</li>
+　　　
+　　　<li>Search Area
+	<p>
+	Specify the range of contact pairs and candidate faces.
+	When minimized, only faces found with search tolerance will be displayed as potential contact pairs.
+	When maximized, it will display as a contact pair candidate up to the face that smoothly connects with the searched face.
+	</p>
+　　　</li>
+　　　	<li>Check face direction
+	<p>
+	When checked on, the contact pairs will not be created if the normal vectors of faces are in opposite directions.<br>
+	</p>
+	</li>
+	
+　　　<li>Master Basis
+	<p>
+	Specify the criteria for contact segment to be master side in the detected contact pairs.<br />
+	Mesh size: Segment group whose average value of the element surface area is larger<br />
+	Area: Segment group with a larger total area
+	</p>
+　　　</li>
+
+　　<li>Contact Type
+	<p>
+	Define contact type for contact FrontISTR, easily control for same contact type setting.<br />
+
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_FrontISTR_Contact_Table_2.png"><br />
+	&nbsp;&nbsp;&nbsp;&nbsp;ID: Input ID.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Interaction: Select neccessary interaction method.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Normal Direction Convergence (NTOL): Input normal direction convergence parameter.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Tangential Direction Convergence (TTOL): Input tangential direction convergence parameter.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Normal Direction Penalty (NPENALTY): Input normal direction penalty parameter.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Tangential Direction Penalty (TPENALTY): Input tangential direction convergence parameter.
+	</p>
+	<p>List Contact Type Created: Shows all previously created contact types. Also right click to get features like Edit and Delete.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Edit: Modify parameter of Contact Type.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Delete: Delete Contact Type.<br />
+	</p>
+　　　</li>	
+
+　　　<li>Find Contact
+	<p>
+	Face is detected based on the input tolerance, contact pairs will be displayed in the table.<br />
+	</p>
+　　　</li>
+
+　　　<li>Options
+	<p>
+	Select the contact options that you want to appear in the table.<br />
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_FrontISTR_Contact_Table_3.png"></img>
+	</p>
+　　　</li>
+
+	
+　　　<li>Options title bar<br />
+	<p>
+	Contact pair in the item name is sorted by clicking on each. To change the Options to be displayed, specify from the Options button. 
+	</p>
+　　　</li>
+
+　　　<li>Search box<br />
+	<p>
+	Displays only contact pair for partial matches. In addition, cancel the search by clicking the X button.<br />
+	</p>
+　　　</li>
+
+　　　<li>Checkbox<br />
+	<p>
+	Among the detected contact pairs, check the contact pair that you wish to actually define. Contact pair is created with Apply (OK) button.<br />
+	</p>
+　　　</li>
+
+　　　<li>Contact table<br />
+	<p>
+	Contacts in the model window is highlighted by selecting the contact pair displayed on the table. The color of the master / slave contact segment depends on the Preference> Display> LBC of the Master / Slave color settings.<br />
+	</p>
+　　　</li>
+
+　　　<li>Contact option settings<br />
+	<p>
+	For contact Options you view and edit in the table.<br />
+	Contact options are divided into input methods such as numeric input,  pull-down selection. Individual contact options can be edited after creating contact pair. 
+	</p>
+　　　</li>
+
+　　　<li>Table function button<br />
+	<p>
+	Select All: Select all of the contact pairs<br />
+	Switch Master/Slave: Switch the master / slave segment group of the contact body<br />
+	Edit: The contact pairs that has been selected in the table open in the Manual Group dialog and can then be edited<br />
+	Delete: Remove the contact pair that have been selected in the table<br />
+	Export: Output existing contact pair Options information (contact pair with no check box in the table for On / Off) to a csv file<br />
+	Import: Read a csv file of contact Options information, to update the information for existing contact pairs in the table<br />
+	</p>
+　　　</li>
+
+
+
+<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+　　　<li>Create a new contact pair
+　　　</li>
+
+      <ol>
+　　　<li>&nbsp;Enter the respective tolerance value to Tolerance and Tolerance for TIED, click the Find Contact button.<br />
+&nbsp;&nbsp;&nbsp;If you want to narrow the detection range, click the button after selecting multiple parts. Default is to detect contact between all of the parts (in parts unselected state).</li>
+　　　<li>&nbsp;Select the contact pair displayed on the table and make sure where they point on the model window.</li>
+　　　<li>&nbsp;Change the contact options of contact pairs, if necessary. Also clear the check box if there are any unwanted contact pair.<br />
+　　　<li>&nbsp;Press the OK button to define the contact pair.</li>
+　　　<li>&nbsp;Contact pair will be created in the Assembly tree under All Items> Contacts. Each contact pair can be edited through right-click> Edit.<br />
+      </ol>
+<br />
+<br />
+
+　　　<li>Add and review contact pairs using the contact table
+　　　</li>
+
+      <ol>
+　　　<li>&nbsp;Start the Contact Table command to define the contact pairs. <br />
+&nbsp;&nbsp;&nbsp;Existing contact pairs will be displayed in the table.<br />
+　　　<li>&nbsp;By selecting an existing contact pair appearing in the table, you can see its position on the model window.<br />
+　　　<li>&nbsp;If you want to search a new contact pair, select the part of the detection target and press the Find Contact button after you enter the Tolerance.<br />
+&nbsp;&nbsp;&nbsp;If the newly detected contact pair candidate duplicates an existing contact pair, it will be displayed in red.</li>
+　　　<li>&nbsp;Change the contact Options as necessary, to define the contact pair by clicking on the OK button.<br />
+&nbsp;&nbsp;&nbsp;Newly added contact pairs will be marked with check box.</li>
+      </ol>
+<br />
+<br />
+
+
+　　　<li>Update the contact Options information about existing contact pair output
+　　　</li>
+
+      <ol>
+　　　<li>&nbsp;Start the Contact Table command to define the contact pairs.</li>
+　　　<li>&nbsp;Press the Export button at the bottom of the table, and then output the information file of contact Options.<br />
+　　　<li>&nbsp;Open the output to csv file, and then change the setting of the contact Options. Master / Slave group name can not be changed.<br />
+　　　<li>&nbsp;Press the Import button and read the csv file that you edit.<br />
+&nbsp;&nbsp;&nbsp;Contact Options settings are updated with the contents edited by the csv file.</li>
+      </ol>
+<br />
+<br />
+
+
+
+      
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

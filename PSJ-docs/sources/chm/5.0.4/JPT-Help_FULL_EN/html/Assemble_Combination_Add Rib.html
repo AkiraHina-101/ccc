@@ -1,0 +1,114 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Add Rib</title>
+
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Add Rib</h2>
+<div class="contents">
+	<h4>Add Rib Dialog Box</h4>
+	<p>
+	Add the ribs to the body. Additionally, Surface Mesh is possible for rib  after creation.
+	</p>
+
+	<img src="./Media/CommandDlg/Assemble_Combination_Add%20Rib.png">
+
+	<h4>Parameters</h4>
+	<li>Type
+	<p>
+	Specify how to create the ribs. 
+	</p>
+	<ul type="circle">
+	<li>By rib part
+	<p>
+	The Rib part is prepared separately, and attached to the parts after Surf Meshing. 
+	</p>
+	<li>By three points
+	<p>
+	Create a Rib part by the specified parameter.
+	</p>	
+	</ul>
+	<li>Width
+	<p>Specify the width of the rib (When By three points is selected).
+	</p></li>
+	<li>Depth
+	<p>Specify the distance from the rib surface (When By three points is selected).
+	</p></li>
+	<li>Auto Remesh
+	<p>After the ribs are created, run the Local Remesh near the attachment surface.
+	</p></li>
+	</li>
+<br>
+
+<h3>-&nbspOperating Procedure (Rib attachment)&nbsp-</h3>
+
+	<ol>
+	<li>&nbspSelect By rib part from Type.</li>
+	<li>&nbspSelect the Rib part and the attachment surface.</li>
+	<li>&nbspClick the Apply or OK button to execute.</li>
+	</ol>
+	<table>
+	<tr>
+	<td><img width="250" src="./Media/Assemble_Combination_Add%20Rib_5.png"></td><td>→</td>
+	<td><img width="250" src="./Media/Assemble_Combination_Add%20Rib_6.png"></td>
+	<td><img width="250" src="./Media/Assemble_Combination_Add%20Rib_7.png"></td>
+	<tr>
+	<td align="center">Rib Part Attachment Surface Selection (2)</td><td></td>
+	<td align="center">After Execution</td>
+	<td align="center">Auto Mesh:ON</td>
+	</tr>
+	</table>
+
+
+<h3>-&nbspOperating Procedure (Rib created)&nbsp-</h3>
+
+	<ol>
+	<li>&nbspSelect By three points from the type.</li>
+	<li>&nbspSelect the Start and End points for the Ribs.</li>
+	<li>&nbspSpecify the point that determines the direction for Ribs.</li>
+	<li>&nbspSpecify the attaching surface for the ribs.</li>
+	<li>&nbspClick the Apply or OK button to execute.</li>
+	</ol>
+	<p>※To specify the point, Node, Face Point or Edge Point can be used.</p>
+	
+	<table>
+	<tr>
+	<td><img width="170" src="./Media/Assemble_Combination_Add%20Rib_1.png"></td><td>→</td>
+	<td><img width="170" src="./Media/Assemble_Combination_Add%20Rib_2.png"></td><td>→</td>
+	<td><img width="170" src="./Media/Assemble_Combination_Add%20Rib_3.png"></td><td>→</td>
+	<td><img width="170" src="./Media/Assemble_Combination_Add%20Rib_4.png"></td>
+	</tr>
+	<tr>
+	<td align="center">Selection of starting point and the end point (2)</td><td></td>
+	<td align="center">Select Points to determine the direction<br>(3)</td><td></td>
+	<td align="center">Attachment surface for Rib specification(4)</td><td></td>
+	<td align="center">After Execution</td>
+	</tr>
+	</table>
+
+<!--<h3>-&nbspOperation Video&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

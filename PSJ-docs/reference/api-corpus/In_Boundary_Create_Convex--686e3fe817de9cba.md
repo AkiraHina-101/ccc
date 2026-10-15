@@ -1,0 +1,3 @@
+# In Boundary｜Create Convex
+
+In Boundary｜Create Convex In Boundary｜Create Convex Create the shape of the infinite boundary surface (convex body). Convex Mesh Size &nbsp;&nbsp;&nbsp;Enter the mesh size. Offset &nbsp;&nbsp;&nbsp;Enter the offset. Radius &nbsp;&nbsp;&nbsp;Enter the radius. Plane Option Axis &nbsp;&nbsp;&nbsp;When setting the reflection boundary such as the ground, check it and select the coordinate axis. -&nbspOperating procedure&nbsp- &nbsp;Select Part and enter the mesh size, offset and radius values. &nbsp;When you press the OK button, a convex shape will be created along the shape of the model. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

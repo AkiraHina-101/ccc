@@ -1,0 +1,131 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>1Dプロパティ | 断面設定</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>1Dプロパティ | 断面設定</h2>
+	<div class="contents">
+	<p>
+	断面性能をライブラリに登録できます。
+	</p>
+	<img src="./Media/CommandDlg/Properties_1D_Section.png">
+
+	<h4>ボタン</h4>
+	<li>追加
+	<p>
+	断面ダイアログボックスを開いて、新しい断面性能を登録します。
+	</p>
+	</li>
+	<li>修正
+	<p>断面ダイアログボックスを開いて、断面性能を編集します。</p>
+	</li>
+	<li>削除
+	<p>断面性能を削除します。</p>
+	</li>
+	<li>インポート
+	<p>断面性能を1Dプロパティライブラリのxml形式、もしくはslib形式で読み込みます。</p>
+	※slib形式で読み込んだ1Dプロパティは、ノート列に「SLIB」と記載されます。形状の修正ができない代わりに細かいプロパティを個別に設定することができます。
+	<b><p>slib形式</p></b>
+	<table class="commontable"><tr><td>
+		&lt;?xml version="1.0" encoding="UTF-8"&gt;<br>
+&lt;JPT-BAR-PROPERTY-LIBRARY&gt;<br>
+&lt;Bar-Property Name="M3" A="7.068583" Izz="3.976078" Iyy="3.976078" J="7.952157" Cy="1.5" Cz="0" Dy="0" Dz="-1.5" Ey="-1.5" Ez="0" Fy="0" Fz="1.5" K1="0.9" K2="0.9"/&gt;<br>
+&lt;/JPT-BAR-PROPERTY-LIBRARY&gt;<br>
+	</td></tr></table>
+	<b><p>xml形式</p></b>
+
+	<table class="commontable"><tr><td>
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>
+	&lt;JPT-BAR-PROPERTY-LIBRARY&gt;<br>
+		&lt;Section Name="M34" Type="General" Dir="90" Taper="false"&gt;<br>
+		&lt;Detail Type="CIRCLE" a="0" b="0" h="0" t1="0.017" t2="0" t3="0"&gt;<br>
+		&lt;/Detail&gt;&lt;/Section&gt;<br>
+		&lt;/JPT-BAR-PROPERTY-LIBRARY&gt;<br>
+	</td></tr></table>
+<br>
+	</li>
+	<li>エクスポート
+	<p>断面性能を1Dプロパティライブラリのxml形式で書き出します。</p>
+	</li>
+
+	<h4>断面ダイアログボックス</h4>
+	<p>
+	断面特性値を計算します。作成された値は断面プルダウンメニューに
+	登録されます。
+	</p>
+	<img src="./Media/CommandDlg/Properties_1D_Section2.png">
+
+	<h4>一般</h4>
+	<p>
+	一般断面特性を入力します。
+	</p>
+	  <li>名前<p>断面特性の登録名前を入力します。</p></li>
+	  <li>タイプ<p>選択された計算タイプが表示されます。</p></li>
+	  <li>形状<p>一般断面計上を選択します。選択された形状に従って寸法変数名が右のイメージとサイズ表に表示されます。</p></li>
+	  <li>テーパー<p>梁の左右の断面サイズが異なる場合に選択します。サイズ変数を2種類入力できるようになります。</p></li>
+	  <li>サイズ表<p>表示された寸法変数に値を入力します。</p></li>
+	  <li>要素Y方向<p>断面のY軸方向を選択します。</p></li>
+	  <li>入力単位系<p>断面計算の入力単位を選択します。</p></li>
+	
+	<h4>ライブラリー</h4>
+	<p>
+	Nastranの断面形状ライブラリを使用します。
+	</p>
+	<li>名前<p>断面特性の登録名前を入力します。</p></li>
+	<li>タイプ<p>選択された計算タイプが表示されます。</p></li>
+	<li>形状<p>Nastranの断面ライブラリのタイプを選択します。選択された形状に従ってNastranの寸法変数名が右のイメージとサイズ表に表示されます。</p></li>
+	<li>テーパー<p>梁の左右の断面サイズが異なる場合に選択します。サイズ変数を2種類入力できるようになります。</p></li>
+	<li>サイズ表<p>表示された寸法変数に値を入力します。</p></li>
+	<li>要素Y方向<p>断面のY軸方向を定義します。</p></li>
+	<li>入力単位系<p>断面計算の入力単位を選択します。</p></li>
+	
+	<h3>-&nbsp操作手順（追加）&nbsp-</h3>
+	<ol>
+	<li>追加ボタンをクリックして、断面ダイアログボックスを開きます</li>
+	<li>パラメータを入力します。</li>
+	<li>断面ダイアログボックスのOKボタンをクリックします。</li>
+	</ol>
+
+	
+	<h3>-&nbsp操作手順（編集）&nbsp-</h3>
+	<ol>
+	<li>テーブル上で編集対象の断面性能をクリックします。</li>
+	<li>修正ボタンをクリックして、断面ダイアログボックスを開きます</li>
+	<li>＊テーブル上で断面性能をダブルクリックした場合も、編集用の断面ダイアログボックスが開きます。</li>
+	<li>パラメータを入力します。</li>
+	<li>断面ダイアログボックスのOKボタンをクリックします。</li>
+	</ol>
+
+	<h3>-&nbsp操作手順（削除）&nbsp-</h3>
+	<ol>
+	<li>テーブル上で削除対象の断面性能をクリックします（複数選択可）。</li>
+	<li>削除ボタンをクリックします。</li>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

@@ -1,0 +1,94 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Load Case</title>
+
+
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Load Case</h2>
+<div class="contents">
+	<h4>Load Case Dialog Box</h4>
+	<p>
+	This command creates a load case that bundles loads and constraints.<br>
+	Load cases can be referenced when creating analysis solver input data.
+	</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Misc_Load%20Case.png">
+
+	<li>Name
+	<p>
+	Enter the name of the load case to be created.
+	</p>
+	</li>
+
+	<li>ID
+	<p>
+	Specify LOAD, SPC and MPC ID for Nastran.
+	</p>
+	</li>
+
+	<li>Coefficient
+	<p>
+	Enter the load factor for Nastran that applies to the entire load case to be created.<br>
+	Used when multiplying the load by a factor.
+	</p>
+	</li>
+
+	<li>All Created Boundary Conditions
+	<p>
+	List existing created loads and constraints.<br>
+	Use the checkboxes to make a selection.
+	</p>
+	</li>
+
+	<li>Selected Boundary Conditions
+	<p>
+	List the loads and restraints used in the load case to be created.<br>
+	Enter a coefficient for each load.
+	</p>
+	</li>
+
+<br>
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+
+	<ol>
+	<li>&nbspEnter the load case name to be created in Name.</li>
+	<li>&nbspEnter a weighting factor for the factor if necessary (for Nastran).</li>
+	<li>&nbspFrom the list of all created boundary conditions, select the Load and Constraint checkboxes to be placed in the load case.<br>
+	The selected condition is displayed in the selected boundary condition list.</li><br>
+	<img src="./Media/Boundary%20Conditions_Misc_Load%20Case_1.png">
+	<li>&nbspPress the Apply or OK button to create a load case.</li><br><br>
+	*The created load case is specified by Nastran output under "Loading / Boundary Conditions" or with the subcase option "LOAD".<br>
+	<img src="./Media/Boundary%20Conditions_Misc_Load%20Case_2.png"><br>
+	&nbsp;The LOAD card as shown below is output.<br>
+	<img src="./Media/Boundary%20Conditions_Misc_Load%20Case_3.png"><br>
+	</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

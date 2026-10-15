@@ -1,0 +1,91 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>無限境界 | 制限境界 | 回転</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>無限境界 | 制限境界 | 回転</h2>
+<div class="contents">
+	<p>無限境界の制限面の回転を行います。</p>
+
+	<img src="./Media/CommandDlg/AC_Modeling_Move_Rotation.png">
+
+	<li><b>座標系</b></li>
+		<p>&nbsp;&nbsp;&nbsp;参照する座標系を選択します。</p>	
+	</li>
+	<li><b>軸</b></li>
+		<p>&nbsp;&nbsp;&nbsp;回転軸を選択します。</p>	
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>X軸</b>&nbsp;:&nbsp;選択された座標系のX軸回りに回転します。</li>
+					<li><b>Y軸</b>&nbsp;:&nbsp;選択された座標系のY軸回りに回転します。</li>
+					<li><b>Z軸</b>&nbsp;:&nbsp;選択された座標系のZ軸回りに回転します。</li>
+					<li><b>任意の軸</b>&nbsp;:&nbsp;X、Y、Zの方向ベクトルで指定された軸回りにアングル分回転します。</li>
+					<li><b>2節点</b>&nbsp;:&nbsp; 画面から選択された2つのNode方向の軸回りにアングル分回転します。</li>
+					<li><b>エッジ</b>&nbsp;:&nbsp;画面から選択されたEdge方向の軸回りにアングル分回転します。</li>
+				</span>
+				</ul>
+	</li>
+	<li><b>X軸,Y軸,Z軸</b></li>
+		<p>&nbsp;&nbsp;&nbsp; 回転中心位置のX、Y、Z座標を入力します。</p>	
+	</li>
+	<li><b>中心</b></li>
+		<p>&nbsp;&nbsp;&nbsp;回転の中心位置を決めます。</p>	
+	</li>
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>Part Center</b>&nbsp;:&nbsp;Partの中心を回転中心にします。</li>
+					<li><b>Node</b>&nbsp;:&nbsp;画面から選択したNodeを回転の中心にします。</li>
+					<li><b>Input</b>&nbsp;:&nbsp;回転中心を中心-X、中心-Y、中心-Zに入力します。</li>
+				</span>
+				</ul>
+	<li><b>角度</b></li>
+		<p>&nbsp;&nbsp;&nbsp;回転角度を入力します。</p>	
+	</li>
+
+	
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+			<li>&nbsp;Partを選択します。 </li>
+			<li>&nbsp;既存の座標系軸回りに回転させる場合には、座標系から既存の座標系を選択し、回転軸からX軸、Y軸、Z軸のいずれかを選択します。 </li>
+			<li>&nbsp;任意の方向に回転させるには、回転軸から任意軸を選択し、X軸、Y軸、Z軸入力ボックスに方向ベクトルを入力します。</li>
+			<li>&nbsp;選択した2節点方向に回転させるには、回転軸から2節点を選択し、画面から節点を２つ選択します。</li>
+			<li>&nbsp;選択したエッジ方向に移動させるには、回転軸からエッジを選択し、画面からエッジを選択します。</li>
+			<li>&nbsp;Partの中心を回転中心にするには、中心からパーツ中心を選択します。</li>
+			<li>&nbsp;Partの中心を節点位置にするには、中心から節点を選択し、画面から節点をピックします。</li>
+			<li>&nbsp;Partの中心を直接入力にするには、中心から入力を選択し、回転中心を中心-X、中心-Y、中心-Zに入力します。</li>
+			<li>&nbsp;回転角度に回転する角度を入力します。</li>
+			<li>&nbsp;OKボタンを押します。 </li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

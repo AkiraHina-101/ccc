@@ -1,0 +1,3 @@
+# PressureQuadratic
+
+PressureQuadratic PressureQuadratic Description Create Pressure quadratic Syntax PressureQuadratic(String name, double a, double b, Cursor crCoordinate, double angleRange, int pressureDirectionMode, Vector pressureDirection, Cursor[] targets, Cursor crEdit) Inputs String name double a double b Cursor coordinate system double angle range int direction mode (0: normal, 1: direction) Vector pressure direction Cursor[] targets Cursor edit target Return Code 1 Succeeded 0 Failed Sample Code PressureQuadratic("PressureQuadratic1", 1e+06, 2e+06, 0:0, 0.523599, 0, [0, 0, 0], [6:23], 0:0)

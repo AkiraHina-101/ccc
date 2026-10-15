@@ -1,0 +1,482 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>ADVC</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Heat Transfer</h2>
+<div class="contents">
+	<p>Output the heat transfer analysis file to ADVENTURE Cluster (Hereinafter ADVC).<br></p>
+
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_Heat Transfer_1.png">
+
+
+	<h4>ADVC Job</h4>
+	<li><b>Job Name</b>
+	<p>&nbsp;&nbsp;&nbsp;Set the name of ADVC Job.</p>
+	</li>
+	<li><b>Job Description</b> 
+	<p>&nbsp;&nbsp;&nbsp;List the job description.</p>
+	</li>
+	<li><b>Job Type</b> 
+	<p>&nbsp;&nbsp;&nbsp;Select the analysis type.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Structure</b>&nbsp;:&nbsp;Structural analysis</li><br>
+		<li><b>Heat Transfer</b>&nbsp;:&nbsp;Heat Transfer analysis</li>
+		</span>
+		</ul>
+	</li>
+
+	<h4>ADVC Process</h4>
+	<li><b>Make Process</b>
+	<p>&nbsp;&nbsp;&nbsp;Launch the ADVC Process Setting dialog to create a process(s).</p>
+	</li>
+	
+	<h4>Interval Definition</h4>
+	<li><b>LBC Manager</b>
+	<p>&nbsp;&nbsp;&nbsp;Launch the LBC Manager dialog to set the LBC and Load Case.</p>
+	</li>
+	<li><b>Contact Manager</b>
+	<p>&nbsp;&nbsp;&nbsp;Launch the Contact Manager dialog to set parameters for contact conditions.</p>
+	</li>
+
+	<h4>Output Definition</h4>
+	<li><b>Output Manager</b>
+	<p>&nbsp;&nbsp;&nbsp;Select the checkbox and Launch the Output Manager dialog to set the output request.</p>
+	</li>
+
+	<h4>Options</h4>
+	<li><b>Write Group</b>
+	<p>&nbsp;&nbsp;&nbsp;Output the face, element, and node groups as $SurfaceSegment, $ElementSet, and $NodeSet respectively.</p>
+	</li>
+	
+	<li><b>Separate File</b>
+	<p>&nbsp;&nbsp;&nbsp;When the scale of analysis is large, outputting the data separately reduces the size of the input file for analysis control and makes it easier to change commands by manual input. Only node and element data are output in separate files.</p>
+	</li>
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+		<li><b>None</b>&nbsp;:&nbsp;Output all data to a single file.</li>
+		<li><b>By Model</b>&nbsp;:&nbsp;Output node and element data in one separate file.</li>
+		<li><b>By Body</b>&nbsp;:&nbsp;Output node and element data in separate files for each body.</li>
+		<li><b>By Selected Body</b>&nbsp;:&nbsp;Output all LBCs related to the selected body.</li>
+		<li><b>Select LBCs</b>&nbsp;:&nbsp;Output only selected boundary conditions to a file.<br></li>
+	</span>
+	</ul>
+
+	<li><b>Boundary Conditions</b>
+	<p>&nbsp;&nbsp;&nbsp;Output boundary conditions, contact pairs, and contact segments to separate files.</p>
+	</li>
+	
+	<li><b>Use Entity Name</b><br>
+	  <p>&nbsp;&nbsp;&nbsp;&nbsp;Output a file using the entity name on Jupiter.</p>
+	  <p>&nbsp;&nbsp;&nbsp;&nbsp;Output ADVC table data user defined name in Field Data.</p>
+	</li>
+	
+	<li><b>Export related All LBCs</b><br>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;Output all LBCs related to the selected body.</p>
+	</li>
+	
+	<li><b>Delete Floating Node</b><br>
+	<p>&nbsp;&nbsp;&nbsp;Delete and output all unused floating nodes in the model.</p>
+	</li>
+	
+	<li><b>BC Duplicate Check</b><br>
+	<p>&nbsp;&nbsp;&nbsp;Check whether the same type of boundary condition with different values overlaps on a node.</p>
+	</li>
+	
+	<li><b>Separate part info file</b><br>
+	<p>&nbsp;&nbsp;&nbsp;Output node and element data of the selected body in separate files for each body.</p>
+	</li>
+	
+	<li><b>Heat Convection</b><br>
+	<p>&nbsp;&nbsp;&nbsp;Select the method of specifying the heat transfer coefficient (Direct, Indirect).</p>
+	</li>
+
+	<h4>ADVC Process Setting Dialog Box</h4>
+	<p>&nbsp;&nbsp;&nbsp;Configure the settings of the process.</p>
+
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_Heat%20Transfer_ADVC%20Process%20Setting.png">	
+
+	<h4></h4>
+	<li><b>Process Name</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the program name.</p>
+	</li>
+
+	<li><b>Set One by One Process</b>
+	<p>&nbsp;&nbsp;&nbsp;Define the process one by one.</p>
+	</li>
+
+	<li><b>Set Multiple Process</b>
+	<p>&nbsp;&nbsp;&nbsp;Define the multiple processes simultaneously.</p>
+	</li>
+
+	<li><b>Num of Processes</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the number of processes.</p>
+	</li>
+
+	<li><b>Job Type</b>
+	<p>&nbsp;&nbsp;&nbsp;Select the analysis type.</p>
+	</li>
+
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li><b>Heat Transfer</b>&nbsp;:&nbsp;Heat Transfer analysis</li>
+	</span>
+	</ul>
+
+ 	<li><b>Solution Type</b>
+	<p>&nbsp;&nbsp;&nbsp;Select the solution type.</p>
+	</li>
+
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li><b>Transient</b>&nbsp;:&nbsp;Transient heat transfer analysis</li>
+	<li><b>Steady State</b>&nbsp;:&nbsp;Steady state heat transfer analysis</li>
+	</span>
+	</ul>
+
+	<li><b>End Condition</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the end conditions of the analysis.</p>
+	</li>
+
+	<img src="./Media/CommandDlg/Analysis_ADVC_HeatTransfer_MakeProcess_EndCondition.png">
+
+	<li><b>End Type</b>
+	<p>&nbsp;&nbsp;&nbsp;Select the analysis termination conditions.</p>
+	</li>
+
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li><b>Max Time</b>&nbsp;:&nbsp;Specify the analysis time.</li>
+	<li><b>Steady Rate</b>&nbsp;:&nbsp;Specify the maximum value of the temperature change per unit time as a steady-state end.</li>
+	<li><b>Both</b>&nbsp;:&nbsp;Specify both the Max Time and Steady Rate.</li>
+	</span>
+	</ul>
+
+	<li><b>Max Time</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the analysis time.</p>
+	</li>
+
+	<li><b>Steady Rate</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the maximum value of the temperature change per unit time as a steady-state rate.</p>
+	</li>
+
+	<li><b>Incrementation</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the amount of time increments.</p>
+	</li>
+
+	<img src="./Media/CommandDlg/Analysis_ADVC_HeatTransfer_MakeProcess_Incrementation.png">
+
+	<li><b>Type</b>
+	<p>&nbsp;&nbsp;&nbsp;Select the method of increments of time.</p>
+	</li>
+
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li><b>Auto</b>&nbsp;:&nbsp;Specify the increments of time automatically.</li>
+	<li><b>Fixed</b>&nbsp;:&nbsp;Specify the fixed increments of time.</li>
+	</span>
+	</ul>
+
+	<li><b>Max Change Temp</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the maximum temperature change.</p>
+	</li>
+
+	<li><b>Init dt time</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the initial time step size.</p>
+	</li>
+
+	<li><b>Max dt time</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the upper limit of the time step size.</p>
+	</li>
+
+	<li><b>Min dt time</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the lower limit of the time step size.</p>
+	</li>
+
+	<li><b>Fixed dt time</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify a fixed time step size.</p>
+	</li>
+
+	<li><b>Output Timing Definition</b>
+	<p>&nbsp;&nbsp;&nbsp;Structure of Make Process, refer Output Timing Definition.</p>
+	</li>
+
+	<li><b>Convergence Parameter</b>
+	<p>&nbsp;&nbsp;&nbsp;Structure of Make Process, refer Convergence Parameter.</p>
+	</li>
+
+ 	<li><b>Contact Parameter</b>
+	<p>&nbsp;&nbsp;&nbsp;Structure of Make Process, refer Contact Parameter.</p>
+	</li>
+
+	<li><b>Auto Increment Parameter</b>
+	<p>&nbsp;&nbsp;&nbsp;Structure of Make Process, refer Auto Increment Parameter</p>
+	</li>
+
+	<p>※Additionally, for parameters of every analysis, please refer to the ADVC manual.</p>
+	
+	<h4>LBC Manager Dialog</h4>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_Heat Transfer_LBC Manager_new.png">
+
+	<li><b>Move Left</b>
+	<p>&nbsp;&nbsp;&nbsp;Move the selected process column to the left.</p>
+	</li>	
+	
+	<li><b>Move Right</b>
+	<p>&nbsp;&nbsp;&nbsp;Move the selected process column to the right.</p>
+	</li>	
+	
+	<li><b>Edit Process</b>
+	<p>&nbsp;&nbsp;&nbsp;Edit the selected Process.</p>	
+	</li>
+	
+	<li><b>Delete Process</b>
+	<p>&nbsp;&nbsp;&nbsp;Remove the selected Process.</p>
+	</li>	
+	
+	<li><b>Active</b>
+	<p>&nbsp;&nbsp;&nbsp;Enable the display conditions.</p>
+	</li>	
+	
+	<li><b>Inactive</b>
+	<p>&nbsp;&nbsp;&nbsp;Disable the display conditions.</p>
+	</li>
+	
+	<li><b>Export Settings File</b>
+	<p>&nbsp;&nbsp;&nbsp;The LBC Manager is exported to .csv file format.</p>
+	</li>
+	
+	<li><b>Import Settings File</b>
+	<p>&nbsp;&nbsp;&nbsp;The LBC Manager is set by import .csv file.</p>	
+	</li>
+	
+	<li><b>OK</b>
+	<p>&nbsp;&nbsp;&nbsp;Save the settings and close the dialog box.</p>
+	</li>
+	
+	<li><b>Cancel</b>
+	<p>&nbsp;&nbsp;&nbsp;Discard the settings and close the dialog box.</p>
+	</li>
+	
+	<li><b>LBC Filter</b>
+	<p>&nbsp;&nbsp;&nbsp;Filter the condition display.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>All</b>&nbsp;:&nbsp;Display all the conditions.</li>
+		<li><b>Loads</b>&nbsp;:&nbsp;Display only load conditions.</li>
+		<li><b>BC</b>&nbsp;:&nbsp;Display only constraints.</li>
+		<li><b>Temperature</b>&nbsp;:&nbsp;Display only temperature conditions.</li>
+		</span>
+		</ul>
+	</li>	
+	
+	<h4>Contact Manager Dialog</h4>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_Structure_Contact%20Manager_new.png">
+	
+	<li><b>Search</b>
+	<p>&nbsp;&nbsp;&nbsp;Display the condition based on the search keyword.</p>
+	</li>	
+	
+	<li><b>Contact Name</b>
+	<p>&nbsp;&nbsp;&nbsp;Display the contact condition name.</p>
+	</li>	
+	
+	<li><b>Parameters</b>
+	<p>&nbsp;&nbsp;&nbsp;Display the criteria settings.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Status</b>&nbsp;:&nbsp;Display whether contact conditions are enabled/disabled.</li>
+		<li><b>Interference</b>&nbsp;:&nbsp;Specify the amount of interference/clearance.</li>
+		<li><b>Shrink</b>&nbsp;:&nbsp;Specify the penetration overcome.</li>
+		<li><b>Stabilization</b>&nbsp;:&nbsp;Set the contact stabilization parameter.</li>
+		<li><b>Set</b>&nbsp;:&nbsp;Open the Contact Stabilize dialog.</li>
+		</span>
+		</ul>
+	</li>
+	
+	<li><b>Contact Stabilize Dialog</b>
+	<p>&nbsp;&nbsp;&nbsp;Set the contact stabilization parameter.</p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_Structure_Contact%20Manager_Stabilize.png">
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Residual Factor</b>&nbsp;:&nbsp;Residual factor</li>
+		<li><b>Effective Distance</b>&nbsp;:&nbsp;Effective range</li>
+		<li><b>Type</b>&nbsp;:&nbsp;Input Type</li>
+		<p><b>&nbsp;&nbsp;&nbsp;Stiffness</b>&nbsp;:&nbsp;Stiffness type</br>
+		<b>&nbsp;&nbsp;&nbsp;Area</b>&nbsp;:&nbsp;Area type</p>
+		<li><b>Normal Factor</b>&nbsp;:&nbsp;Normal direction stabilization coefficient</li>
+		<li><b>Tangent Factor</b>&nbsp;:&nbsp;Tangential direction stabilization coefficient</li>
+		</span>
+		</ul>
+	</li>
+	
+	<li><b>Active</b>
+	<p>&nbsp;&nbsp;&nbsp;Enable display conditions.</p>
+	</li>	
+	
+	<li><b>Inactive</b>
+	<p>&nbsp;&nbsp;&nbsp;Disable display conditions.</p>
+	</li>
+	
+	<li><b>Switch M/S</b>
+	<p>&nbsp;&nbsp;&nbsp;Swap the master/slave surface of the contact conditions.</p>
+	</li>
+	
+	<li><b>Export Setting File</b>
+	<p>&nbsp;&nbsp;&nbsp;The Contact Manager is exported to .csv file format.</p>
+	</li>
+	
+	<li><b>Import Setting File</b>
+	<p>&nbsp;&nbsp;&nbsp;The Contact Manager is set by import .csv file.</p>
+	</li>
+	
+	<h4>Output Manager Dialog Box</h4>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_Heat%20Transfer_Output%20Manager.png">
+
+	<li><b>Same Output on all Process</b>
+	<p>&nbsp;&nbsp;&nbsp;Apply the Output Parameter set to all of Processes.</p>
+	</li>	
+	
+	<li><b>Process</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the Process to apply the Output Parameter.</p>
+	</li>
+	
+	<li><b>Output Group setting</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify only specific group result output.</p>
+	</li>
+	
+	<li><b>OK</b>
+	<p>&nbsp;&nbsp;&nbsp;Save settings and close the dialog box.</p>
+	</li>
+	
+	<li><b>Cancel</b>
+	<p>&nbsp;&nbsp;&nbsp;Discard settings and close the dialog box.</p>
+	</li>
+	
+	<h4>Reference Restart Data</h4>
+	
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_Structure_reference_restart_data.png">
+
+	<li><b>Data Dir</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the directory where the restart file is located.</p>
+	</li>
+	
+	<li><b>Process Number</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the process number of the restart data.</p>
+	</li>
+	
+	<li><b>Step Number</b>
+ 	<p>&nbsp;&nbsp;&nbsp;Specify the step number of the restart data.</p>
+	</li>
+	
+	<li><b>Coordinates Type</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the coordinate system to be referenced in the restart analysis.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Initial</b>&nbsp;:&nbsp;The displacement is the total value, including the value before the restart.</li>
+		<li><b>Deformation</b>&nbsp;:&nbsp;The displacement is only the deformation component after the restart.</li>
+		</span>
+		</ul>	
+	</li>
+	
+	<li><b>Update Contact Search</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify whether to update the contact search with the deformation state at the time the restart analysis is started.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>No</b>&nbsp;:&nbsp;The contact search inherits the result of the restart data.</li>
+		<li><b>Yes</b>&nbsp;:&nbsp;If no deformation is specified for the Coordinate Type, the behavior is the same as No.</li>
+		</span>
+		</ul>	
+	</li>
+	
+	<h4>ADVC Fixed Phrase</h4>
+	<li><b>Template file</b>
+	<p>&nbsp;&nbsp;&nbsp;List all template .adx files which are stored in the ADVC template folder.</p>
+	</li>
+	
+	<li><b>Edit</b>
+	<p>&nbsp;&nbsp;&nbsp;Edit the selected template .adx file.</p>
+	</li>
+
+	<h4>Dummy Property</h4>
+	<p>&nbsp;&nbsp;&nbsp;Configure the dummy property settings.</p>
+	
+	<li><b>Auto assign</b>
+	<p>&nbsp;&nbsp;&nbsp;If checked, dummy properties will be automatically assigned to parts that do not have any properties assigned.</p>
+	</li>
+
+	<li><b>Material</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the material of the part to which the dummy property is assigned.</p>
+	<p>&nbsp;&nbsp;&nbsp;You can select a material that has already been registered in the user database for the material command. If the material is not registered in the user database, or if the material is registered but the blank is selected, a dummy material is assigned.</p>
+	<p>&nbsp;&nbsp;&nbsp;In the case of dummy material, the material property value is output without being written.</p>
+	</li>
+	
+	<li><b>Output Geometry ID</b>
+	<p>&nbsp;&nbsp;&nbsp;If checked, output the geometry ID (PartID, FaceID, and EdgeID) for which dummy property is set.</p>
+	</li>
+	
+	<h4>Analysis Template Setting</h4>
+    <li><b>Define LBCs manager using .csv template</b>
+	<p>&nbsp;&nbsp;&nbsp;Select the checkbox and use the .csv file to define the LBCs Manager.</p>
+	</li>
+	
+	<li><b>File</b>
+	<p>&nbsp;&nbsp;&nbsp;Select the LBCs Manager template .csv file.</p>
+	</li>
+	<li><b>Define Contact manager using .csv template</b>
+	<p>&nbsp;&nbsp;&nbsp;Select the checkbox and use the .csv file to define the Contact Manager.</p>
+	</li>
+	
+	<li><b>File</b>
+	<p>&nbsp;&nbsp;&nbsp;Select the Contact Manager template .csv file.</p>
+	</li>
+	
+	<li><b>Template</b>
+	<p>&nbsp;&nbsp;&nbsp;Saves and displays all ADVC template.xml files.</br>
+	&nbsp;&nbsp;&nbsp;The default folder is C:\Users\XXX\AppData\Roaming\TechnoStar\JPT5.0.0\AnalysisSetting\ADVC</p>
+	</li>
+	
+	<li><b>Remove </b>
+	<p>&nbsp;&nbsp;&nbsp;Delete the selected template.</p>
+	</li>
+	
+	<li><b>Add</b>
+	<p>&nbsp;&nbsp;&nbsp;Save the defined analysis parameters to template and export to an XML file.</p>
+	</li>
+	
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+		<li>&nbsp;Specify the Job Name.</li>
+		<li>&nbsp;Create a process with Make Process. If you want to perform the analysis in increments of default time, you do not particularly need to specify the time.</li>
+		<li>&nbsp;Assign the boundary conditions in the LBC Manager.</li>
+		<li>&nbsp;Select the output requests in the Output Manager.</li>
+		<li>&nbsp;Click Apply/OK button</li>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

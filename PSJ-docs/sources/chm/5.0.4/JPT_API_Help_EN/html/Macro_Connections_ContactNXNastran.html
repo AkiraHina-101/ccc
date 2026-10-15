@@ -1,0 +1,60 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>ContactNXNastran</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>ContactNXNastran</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>create contact for nastran</p>
+<h4>Syntax</h4>
+<p>ContactNXNastran(String m_strName,int iType,int iAlg,double dNorPenFactor,double dTanPenFactor,double dForceConTol,double dMaxForceIter,double dMaxStaIter,double dChangeNum,double dMinContactPer,int iShellThickness,int iContactStatus,int iInitGapPenetra,int iRegionRefine,int iEvaluPts,double dMinSearDist,double dMaxSearDist,double dFricCoef,double dSearchDist,double dPenatlyFactor,int iShellOffset,Cursor[] m_taTarget,Cursor m_crEdit,int m_Color,int m_iMethod)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>String<p>name of contact</p></li>
+<li>int<p>contact type[0:General; 1:Tied]</p></li>
+<li>int<p>algorithm[0:face to face]</p></li>
+<li>double<p>normal penalty factor</p></li>
+<li>double<p>tangential penalty factor</p></li>
+<li>double<p>force convergence tol</p></li>
+<li>double<p>max force iterations</p></li>
+<li>double<p>max status iterations</p></li>
+<li>double<p>change number</p></li>
+<li>double<p>min contact percentage</p></li>
+<li>int<p>shell thickness[0:Include; 1:Not Include]</p></li>
+<li>int<p>contact status[0:Previous; 1:Initial]</p></li>
+<li>int<p>initial gap or penetration[0:No Correction; 1:Reset Penetration; 2:Reset Both]</p></li>
+<li>int<p>region refine[0:Refine; 1:Not Refine]</p></li>
+<li>int<p>evaluation points[0:Low; 1:Mid; 2:High]</p></li>
+<li>double<p>min search dist</p></li>
+<li>double<p>max search dist</p></li>
+<li>double<p>friction coef</p></li>
+<li>double<p>search dist</p></li>
+<li>double<p>penalty factor</p></li>
+<li>int<p>shell thickness[0:Include; 1:Not Include]</p></li>
+<li>Cursor[]<p>targets</p></li>
+<li>Cursor<p>edit cursor</p></li>
+<li>int<p>contact maker color</p></li>
+<li>int<p>method type[0:MANUAL_FACE; 1:MANUAL_GROUP; 2:BY_GROUP_MATRIX; 3:SHARE_FACE; 4:AUTO_SETTING; 5:METHOD_UNKNOWN]</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>ContactNXNastran("ContactNXNastran_1", 0, 0, 10, 1, 0.01, 10, 20, 0.02, 100, 0, 0, 0, 0, 1, 0, 0.01, 0, 10, 1, 0, [79:1-79:2], 0:0, 16711680, 1)</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>CreateLocalSetting</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>CreateLocalSetting</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create Local Settings</p>
+<h4>Syntax</h4>
+<p>CreateLocalSetting(String name, MeshLocalParam param, Cursor[] target, int[] hard_point_id, Point[] hard_Point_xyz, Cursor[] hard_point_target, Cursor edit_target)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>String<p>Node List</p></li>
+<li>MeshLocalParam::int<p>Entity Type 0=NONE,1=BODY,2=FACE,3=EDGE,8=FACE_POINT,9=EDGE_POINT</p></li>
+<li>MeshLocalParam::bool<p>Enable Size Param 0=No 1=Yes</p></li>
+<li>MeshLocalParam::double<p>Avg_Element_Size</p></li>
+<li>MeshLocalParam::double<p>Max_Element_Size</p></li>
+<li>MeshLocalParam::double<p>Min_Element_Size</p></li>
+<li>MeshLocalParam::bool<p>Enable Trim Angle 0=No 1=Yes</p></li>
+<li>MeshLocalParam::double<p>Trim Angle</p></li>
+<li>MeshLocalParam::bool<p>Enable Mesh Count 0=No 1=Yes</p></li>
+<li>MeshLocalParam::int<p>Node Count</p></li>
+<li>MeshLocalParam::int<p>Bias Node Id</p></li>
+<li>MeshLocalParam::double<p>Bias Factor</p></li>
+<li>MeshLocalParam::int<p>Bias Method 0=LINEAR,1=BIAS,2=BIAS_CENTER,3=BIAS_SIDE</p></li>
+<li>MeshLocalParam::int<p>Bias Progression 0=GEOMETRY,1=ARITHMETIC</p></li>
+<li>MeshLocalParam::bool<p>Enable Mesh Pattern 0=No 1=Yes</p></li>
+<li>MeshLocalParam::int<p>Mesh Pattern Type 0=UNSTRUCTURED,1=STRUCTURED_ISO,2=IMPRINTING_ISO</p></li>
+<li>MeshLocalParam::bool<p>Enable Keep Entity 0=No 1=Yes</p></li>
+<li>MeshLocalParam::double<p>Hard Point X</p></li>
+<li>MeshLocalParam::double<p>Hard Point Y</p></li>
+<li>MeshLocalParam::double<p>Hard Point Z</p></li>
+<li>MeshLocalParam::int<p>Hard Point Id</p></li>
+<li>MeshLocalParam::bool<p>Enable Freeze Mesh 0=No 1=Yes</p></li>
+<li>Cursor[]<p>Target List(Body/Face/Edge)</p></li>
+<li>int[]<p>Hard Point Id list</p></li>
+<li>Point[]<p>Hard Point XYZ list</p></li>
+<li>Cursor[]<p>Hard Point Target list</p></li>
+<li>Cursor<p>Edit Target</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>CreateLocalSetting("MeshParam_1", {2, 1, 0.005, 0.01, 0.001, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0}, [6:8], [], [], [], 0:0)
+</p>
+</div>
+</div>
+</body>
+</html>

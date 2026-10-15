@@ -1,0 +1,3 @@
+# Tool Box Window
+
+Tool Box Window Tool Box Window It aggregates the components used to create dialogs and wizards. Tool Box Window details Icon Name Description Layout Create a child component. Group Box Create a group of components. Tab Control Create a tab component. Tab Item Create a tab under the tab component. Label Create a label. Text Box Create a text box. Rich Edit Control Create text boxes that can be entered in various data formats. Combo Box Create a combo box. Check box Create a checkbox. Radio Button Create a radio button. Button Create a button. Image Control Insert the image. Spin Create a spin button. Slider Bar Create a slide bar.

@@ -1,0 +1,36 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>MeasureDistanceByPlane3Nodes_Node</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>MeasureDistanceByPlane3Nodes_Node</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Measure Distance between Node and plane (created by 3 nodes).</p>
+<h4>Syntax</h4>
+<p>MeasureDistanceByPlane3Nodes_Node(cursor node1,cursor node2,cursor node3,cursor node,Integer N)</p>
+<h4>Inputs</h4> <ol>
+<li>cursor<p>node1 cursor(10:*,*=node id)</p></li>
+<li>cursor<p>node2 cursor(10:*,*=node id)</p></li>
+<li>cursor<p>node3 cursor(10:*,*=node id)</p></li>
+<li>cursor<p>node cursor(10:*,*=node id)</p></li>
+<li>Integer N<p>specify the number of decimal places (0<=N<=30)</p></li>
+</ol> <h4>Return Code</h4>
+<li>Distance value<p>Succeeded</p></li>
+<li>FAILED<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>MeasureDistanceByPlane3Nodes_Node(10:438,10:478,10:450,10:396,6)</p>
+</div>
+</div>
+</body>
+</html>

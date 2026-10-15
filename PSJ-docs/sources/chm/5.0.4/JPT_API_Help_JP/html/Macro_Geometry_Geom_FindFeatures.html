@@ -1,0 +1,47 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Geom_FindFeatures</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>Geom_FindFeatures</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Face/Edge selected of grouped by its feature</p>
+<h4>Syntax</h4>
+<p>Geom_FindFeatures(int taItems, int nType, int nOption, TKey taEdgeItems, int bCylinder, bool bDisc, bool bFourCorners, double dMinThickness, double dMaxThickness, double dDiameterMin, double dDiameterMax, TKey taFaceItems)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>int[]<p>Items ID</p></li>
+<li>int<p>If Type == 1 find faces, if type == 2 find edges</p></li>
+<li>int<p>Option</p></li>
+<li>int[]<p>Edge ID</p></li>
+<li>bool<p>Cylinder flag true = 1, false = 0</p></li>
+<li>bool<p>Disc flag true = 1, false = 0</p></li>
+<li>bool<p>Four corners flag true = 1, false = 0</p></li>
+<li>double<p>Min thickness value</p></li>
+<li>double<p>Max thickness value</p></li>
+<li>double<p>Min Diameter value</p></li>
+<li>double<p>Max diameter value</p></li>
+<li>int[]<p>Face ID</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>Geom_FindFeatures([1], 1, 0, [], 1, 0, 1, 0.1, 2, 1, 2, [])</p>
+</div>
+</div>
+</body>
+</html>

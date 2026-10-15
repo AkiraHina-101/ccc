@@ -1,0 +1,103 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>質量[材料]</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</br>
+</style>
+</html></head>
+
+
+<body>
+<div class="page">
+<h2>質量[材料]</h2>
+	<div class="contents">
+	<p>パーツの質量を材料ライブラリから選択した材料特性で計測します。密度を手入力し計測することもできます。</p>
+
+	<img src="./Media/CommandDlg/Tools_Information_Measure_Mass_Material.png">
+
+	<h4>計測</h4>
+		<li><b>座標系</b><br>
+			<p>&nbsp;&nbsp;&nbsp;参照座標系</p>
+		</li>
+		
+	<h4>材料ライブラリー</h4>
+		<span style="font-size:1.15em;">
+		<p>&nbsp;材料ライブラリから材料を選択します。</p>
+		</span>
+		<br>
+
+		<li><b>材料</b><br>
+			<p>&nbsp;&nbsp;&nbsp;材料ライブラリファイルを指定し、読み込みます。</p>
+		</li>
+		<li><b>質量密度</b><br>
+			<p>&nbsp;&nbsp;&nbsp;材料ライブラリファイル内から質量密度を参照する材料を指定します。</p>
+		</li>
+	<h4>出力</h4>
+		<li><b>値</b><br>
+			<p>&nbsp;&nbsp;&nbsp;計測結果（質量）が表示されます。</p>
+		</li>
+		<li><b>入力単位系</b><br>
+			<p>&nbsp;&nbsp;&nbsp;表示する質量の単位を指示します。</p>
+		</li>
+	
+	<h4>重心</h4>
+		<li><b>X/Y/Z</b><br>
+			<p>&nbsp;&nbsp;&nbsp;参照座標系における重心位置を指定します。</p>
+		</li>
+	
+	<h4>慣性モーメント</h4>
+		<li><b>軸</b><br>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>Principal</b>&nbsp;:&nbsp;慣性モーメント計算に慣性主軸を用います。</li>
+					<ul type="square">
+						<li>11,22,33&nbsp;:&nbsp;主慣性モーメントの値</li>
+						<li>回転角度&nbsp;:&nbsp;主軸の回転角度</li>
+						<li>1/2/3&nbsp;&nbsp;X,Y,Z&nbsp;:&nbsp;各慣性主軸の方向(重心座標が0)</li>
+					</ul>
+				<br>
+				<li><b>XYZ</b>&nbsp;:&nbsp;慣性モーメント計算に参照座標系を用います。</li>
+					<ul type="square">
+						<li>XX/YY/ZZ/XY/XZ/YZ&nbsp;:&nbsp;参照座標系まわりの慣性モーメントの値</li>
+					</ul>
+				</span>
+			</ul>
+		</br>
+					
+	<h3>-&nbsp;操作手順&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;画面上からソリッドパーツを選択します。</li>
+		<li>&nbsp;質量密度を入力(材料ライブラリから材料を選択)します。</li>
+		<li>&nbsp;値に選択されたパーツ全体の質量が表示されます。</li>
+		※パーツ選択されなかった場合、ドキュメント内のすべてのパーツが計測対象となります。
+		</ol>
+
+
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</li></div>
+</div>
+</body>
+
+
+</html>

@@ -1,0 +1,89 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>任意点</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>任意点</h2>
+<div class="contents">
+	<p>
+	サーフェースメッシュ作成時に、指定した位置に節点が作成されるように、固定節点位置（ハードポイント）設定を行います。
+	</p>
+	<img src="./Media/CommandDlg/Meshing_Local%20Settings_Local%20Settings_Point.png">
+	<p>
+	<h4>メッシュパラメーター</h4>
+	<li>名前
+	<p>
+	メッシュコントロール名を設定します。
+	</p>
+	<h4>メッシュサイズ</h4>
+	<li>メッシュサイズ
+	<p>
+	固定節点位置（ハードポイント）周りの要素サイズを設定します。
+	</p>
+	</li>
+	<li>平均
+	<p>
+	要素の平均サイズを設定します。
+	</p>
+	</li>
+	<li>最小(<=0.7*平均)
+	<p>要素の最小サイズを設定します。
+	</p>
+	</li>
+	<li>最大(>=1.4*平均)
+	<p>
+	要素の最大サイズを設定します。
+	</p>
+	</li>
+	<h4>ハードポイント</h4>
+	<p>
+	節点の座標値及びメッシング後の節点IDの指定を行います。
+	</p>
+	<ul type="circle">
+	<li>CSV読み込み
+	<p>
+	テーブル内にCSVファイルを読み込みます。CSVファイルのフォーマットは、X,Y,Zです。
+	</p>
+	</li>
+	<li>追加<p>テーブルに行を追加します。</p></li>
+	<li>削除<p>選択行を削除します。</p></li>
+	<li>プレビュー<p>ハードポイントの設定位置のプレビューを表示します。</p></li>
+	<li>リセット<p>ハードポイントの設定位置のプレビューをリセットします。</p></li>
+<img src="./Media/Meshing_LocalSettings_LocalSettings_FacePoint.PNG">
+
+<h3>-&nbsp操作手順（メインビュー指定）&nbsp-</h3>
+	<ol>
+	<li>節点作成位置を任意点/エッジ上任意点選択で指定します。</li>
+	<li>適用/OKボタンをクリックします。</li>
+      </ol>
+
+<h3>-&nbsp操作手順（CSVファイル指定）&nbsp-</h3>
+      <ol>
+	<li>CSV読み込みボタンをクリックして表示されるダイアログ上でCSVファイルを指定し、「開く」でCSVファイルの内容をテーブルに読み込みます。</li>
+	<li>ハードポイントを作成するフェースあるいはパーツを選択します。</li>
+	<li>プレビューボタンをクリックして、ハードポイント作成位置を確認します。</li>
+	<li>適用/OKボタンをクリックします。</li>
+      </ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>-->
+
+	</ul></li></div>
+</div>
+</body>
+
+</html>
+</head></html>

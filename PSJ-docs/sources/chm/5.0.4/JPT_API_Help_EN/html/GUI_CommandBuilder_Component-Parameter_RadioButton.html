@@ -1,0 +1,101 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>RadioButton</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>RadioButton</h2>
+<div class="contents">
+	<p>
+	Add a radio button.<br>
+	</p>
+
+	<img src="./Media/GUI_CommandBuilder_Component-Parameter_RadioButton.png">
+	<br><br>
+	
+	<p>&nbsp;&nbsp;&nbsp;Creation image:</p>
+	
+	<img src="./Media/GUI_CommandBuilder_Component-Parameter_RadioButton2.png">
+	<br>
+	<br>
+	
+
+	<li><b>Text</b>
+	<p>&nbsp;&nbsp;&nbsp;Enter the text that appears next to the radio button.</p>
+	</li>
+	<li><b>Name</b>
+	<p>&nbsp;&nbsp;&nbsp;Enter the name of the RadioButton component.</p>
+	</li>
+	<li><b>Checked</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the default value.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>True</b>&nbsp;:&nbsp;Check On</li>
+		<li><b>False</b>&nbsp;:&nbsp;Check Off</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Width</b>
+	<p>&nbsp;&nbsp;&nbsp;Specifies the minimum width of the combo box. (Units: pixels)</p>
+	</li>
+	<li><b>Height</b>
+	<p>&nbsp;&nbsp;&nbsp;Specifies the minimum height of the combo box. (Units: pixels)</p>
+	</li>
+	<li><b>Enable</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify whether to use it or not.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Check On</b>&nbsp;:&nbsp;Available</li>
+		<li><b>Check Off</b>&nbsp;:&nbsp;Impossible to use（It will be grayed out）</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Left Text</b>
+	<p>&nbsp;&nbsp;&nbsp;Display the text to the left of the radio button.</p>
+	</li>
+	<li><b>Group</b>
+	<p>&nbsp;&nbsp;&nbsp;The nearby Radio Button components are in one group.</p>
+	</li>
+	<h4>Command to use</h4>
+	<table class="commontable">
+		<tr><th>Command</th><th>Description</th><th>Sample Code</th></tr>	
+		<tr>
+			<td>dlg.isbutton_checked("component name")</td>
+			<td>Check whether the radio button is checked or not.<br>
+				Returns a Boolean value (True/False).
+			<td>    
+				<p><em>Input:</em></p>
+				<p style = "margin-left: 40px">dlg.isbutton_checked("CheckBoxButton")</p>
+				<p><em>Output:</em></p>
+				<p style = "margin-left: 40px">> True/False</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.set_radiobutton_state("name", Bool)</td>
+			<td>Specify the radio button status (checked or unchecked).<td>    
+				<p><em>Input:</em></p>
+				<p style = "margin-left: 40px">dlg.set_radiobutton_state("CheckBox1", True)</p>
+			</td>
+		</tr>
+	</table>
+<br>
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

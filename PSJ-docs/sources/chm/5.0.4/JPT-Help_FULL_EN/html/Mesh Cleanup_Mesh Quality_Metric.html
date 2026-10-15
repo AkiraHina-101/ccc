@@ -1,0 +1,342 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Definition of Quality Check Method</title>
+
+<style type="text/css">
+<!--/* Link下線、非表示 */-->
+a.no-uline {text-decoration:none}
+</style>
+
+</html>
+</head>
+
+
+<body>
+<div class="page">
+	<h2>-&nbsp;Definition of Quality Check Method&nbsp;-</h2>
+<div class="contents">
+	<h4>&#9312;&nbsp;Stretch</h4>
+		<li>Check the values obtained by the following formula for Tri / Quad / Tetra / Hexa elements.</li>
+			<p>&nbsp;&nbsp;&nbsp;Tri&nbsp;=&nbsp;R&nbsp;&times;&nbsp;2&radic;3&nbsp;/&nbsp;maxSide
+			<br>&nbsp;&nbsp;&nbsp;Quad&nbsp;=&nbsp;&radic;(&radic;2&nbsp;&times;&nbsp;minSide&nbsp;/&nbsp;maxDiag)
+			</br>&nbsp;&nbsp;&nbsp;Tetra&nbsp;=&nbsp;(6&radic;6&nbsp;&times;&nbsp;V)&nbsp;/&nbsp;(&nbsp;S&times;&nbsp;maxSide)
+			<br>&nbsp;&nbsp;&nbsp;Hexa&nbsp;=&nbsp;(maxLen&nbsp;/&nbsp;minLen)&nbsp;&times;&nbsp;&radic;3
+			</p>
+			
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Inscribed circle radius
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxSide&nbsp;&nbsp;:&nbsp;&nbsp;Maximum element edge length
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minSide&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Minimum element edge length
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxDiag&nbsp;&nbsp;:&nbsp;&nbsp;Maximum diagonal length
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Element volume
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Element surface area
+				</p>
+				</span>
+				
+			<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_01.png" height="180">
+		<br>
+		</br>
+			
+	<h4>&#9313;&nbsp;Aspect&nbsp;Ratio</h4>
+		<li>Check the values calculated by the following formula for Tri / Quad / Tetra / Hexa elements.</li>
+			<p>&nbsp;&nbsp;&nbsp;Tri&nbsp;=&nbsp;(&nbsp;&radic;3&nbsp;&times;&nbsp;maxSide<sup>2</sup>)&nbsp;/&nbsp;(4&nbsp;&times;&nbsp;Area)
+			<br>&nbsp;&nbsp;&nbsp;Quad&nbsp;=&nbsp;maxMidLen&nbsp;/&nbsp;minMidLen
+			</br>&nbsp;&nbsp;&nbsp;Tetra&nbsp;=&nbsp;(S&nbsp;&times;&nbsp;maxSide)&nbsp;/&nbsp;(6&radic;6&nbsp;&times;&nbsp;V)
+			<br>&nbsp;&nbsp;&nbsp;Hexa&nbsp;=&nbsp;maxLen&nbsp;/&nbsp;minLen
+			</p>
+
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxSide&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Maximum element edge length
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Area&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Element area
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxMidLen&nbsp;&nbsp;:&nbsp;&nbsp;Maximum opposite side middle point distance
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minMidLen&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Minimum distance between opposite sides
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Element surface area
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Element volume
+				</p>
+				</span>
+				
+			<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_02.png" height="180">
+		<br>
+		</br>
+			
+	<h4>&#9314;&nbsp;Edge Length</h4>
+		<li>Check element edge length for Tri / Quad / Tetra / Hexa elements</li>
+		<br>
+		</br>
+			
+	<h4>&#9315;&nbsp;Area</h4>
+		<li>Check element area for Tri / Quad elements.</li>
+		<br>
+		</br>
+					
+	<h4>&#9316;&nbsp;Node Valence</h4>
+		<li>For a Tri / Quad element, check the number of elements including a particular node.</li>
+		<br>
+		</br>
+
+	<h4>&#9317;&nbsp;Interior Angle</h4>
+		<li>For Tri / Quad elements, check the smallest value among the element edge angles around the nodes.</li>
+		<br>
+		</br>
+					
+	<h4>&#9318;&nbsp;Node&nbsp;Free Edges</h4>
+		<li>Check the number of free edges connected to one node for Tri / Quad elements.</li>
+		<br>
+		</br>
+			
+	<h4>&#9319;&nbsp;Duplicate Elements</h4>
+		<li>Check the number of duplicate elements for Tri / Quad elements.</li>
+		<br>
+		</br>
+
+	<h4>&#9320;&nbsp;Warping</h4>
+		<li>For a Quad element, divide the Quad element into two Tri's and check the maximum value of the angle between them.</li>
+			<p>&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;MAX&nbsp;(Angl&nbsp;&#44;&nbsp;Ang&nbsp;2)</p>
+				
+		<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_09.png" height="180">					
+		<br>
+		</br>
+
+	<h4>&#9321;&nbsp;Skewness</h4>
+		<li>Check the angle formed by two lines connecting the midpoints of opposite sides of a Quad element.</li>
+		
+		<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_10.png" height="180">					
+		<br>
+		</br>
+		
+	<h4>&#9322;&nbsp;Taper</h4>
+		<li>Check the maximum difference between the Quad element and the average value of the Tri area connecting 3 nodes in the Quad element.</li>
+			<p>&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;MAX&nbsp;(aRatio&nbsp;<i>i</i>)&nbsp;&nbsp;&nbsp;&nbsp;<i>i</i>&nbsp;=&nbsp;1&#126;4
+			<br>&nbsp;&nbsp;&nbsp;aRatio&nbsp;<i>i</i>&nbsp;=&nbsp;ABS&nbsp;&#123;(&nbsp;triArea&nbsp;<i>i</i>&nbsp;-&nbsp;triAreaAvg)&nbsp;/&nbsp;triAreaAvg&#125;
+			</br>&nbsp;&nbsp;&nbsp;triAreaAvg&nbsp;=&nbsp;(triArea1&nbsp;+&nbsp;triArea2&nbsp;+&nbsp;triArea3&nbsp+&nbsp;triArea4)&nbsp/&nbsp;4
+			</p>
+				
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;triArea&nbsp;<i>i</i>&nbsp;&nbsp;:&nbsp;&nbsp;Tri&nbsp;<i>i</i>&nbsp's area
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tri1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Triangle consisting of Node 1&#44;&nbsp;2&#44;&nbsp;3
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tri2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Triangle consisting of Node 3&#44;&nbsp;4&#44;&nbsp;1
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tri3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Triangle consisting of Node 2&#44;&nbsp;3&#44;&nbsp;4
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tri4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Triangle consisting of Node 4&#44;&nbsp;1&#44;&nbsp;2
+				</p>
+				</span>
+				
+		<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_11.png" height="180">
+		<br>
+		</br>
+				
+	<h4>&#9323;&nbsp;Volume</h4>
+		<li>Check element volume for Tetra / Hexa elements.</li>
+		<br>
+		</br>
+				
+	<h4>&#9324;&nbsp;Jacobian Factor</h4>
+		<li>For the Tetra element, check the value obtained by the following formula.
+		<br>&nbsp;&nbsp;&nbsp;If the midpoint is on the line connecting the vertices, then Jacob.Factor will be 1.
+		</li>
+
+		<p>&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;minJacDet&nbsp;/&nbsp;V</p>
+			
+			<span style="font-size:0.9em;">
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minJacDet&nbsp;&nbsp;:&nbsp;&nbsp;Minimum value of Jacobian determinant at each node
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Element volume
+			</p>
+			</span>
+		<br>
+		</br>
+				
+	<h4>&#9325;&nbsp;Tet Collapse</h4>
+		<li>For the Tetra element, check the value obtained by the following formula.</li>
+		<p>&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;MIN&nbsp;(&nbsp;h&nbsp;<i>i</i>&nbsp;/&nbsp;maxSide&nbsp;<i>i</i>&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;<i>i</i>&nbsp;=&nbsp;1&#126;4</p>
+			
+			<span style="font-size:0.9em;">
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h&nbsp;<i>i</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Height from the <i>i</i>&nbsp;th vertex to the opposite surface
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxSide&nbsp;<i>i</i>&nbsp;&nbsp;:&nbsp;&nbsp;Maximum element edge length of face opposite to <i>i</i>&nbsp;th vertex
+			</p>
+			</span>
+				
+		<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_14.png" height="180">
+		<br>
+		</br>
+
+	<h4>&#9326;&nbsp;Tet Skew</h4>
+		<li>For Tetra elements, check the difference ratio between the volume of the tetrahedron and the element volume obtained from the element circumscribed sphere radius.</li>
+			<p>&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;(&nbsp;Vr&nbsp;-&nbsp;V&nbsp;)&nbsp;/&nbsp;Vr
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vr&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;8&times;&nbsp;R<sup>3</sup>&nbsp;/&nbsp;9&radic;3</p>
+			
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Element volume
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Sphere radius
+				</p>
+				</span>
+		
+		<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_15.png" height="180">
+		<br>
+		</br>
+				
+	<h4>&#9327;&nbsp;Unstable factor&nbsp;(Tetra / Hexa and Tri + Quad)</h4>
+		<li>Check the number of (corner) nodes connecting with adjacent elements.&nbsp;It is used to detect elements of 1 (2) point connection where rigid motion occurs.
+		<br>&nbsp;&nbsp;&nbsp;(For solid elements, correction with surface model after detection is recommended.)
+		</li>
+				
+		<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_16.png" height="180">
+		<br>
+		</br>
+	<h4>&#9328;&nbsp;CFL&nbsp;condition</h4>
+		<li>For the Tri / Quad / Tet element, check the Courant conditions.
+		</li>
+
+			<p>&nbsp;&nbsp;&nbsp;Expression for the Shell element is below.</p>
+			<p>&nbsp;&nbsp;&nbsp;<i>&#9651;</i>t&nbsp;=&nbsp;L<sub>s</sub>&nbsp;/&nbsp;c
+			</br>&nbsp;&nbsp;&nbsp;&nbsp;L<sub>s</sub>&nbsp;=&nbsp;[(1+<i>&beta;</i>)&nbsp;A<sub>s</sub>]&nbsp;/&nbsp;[<i>max</i>(L<sub>1</sub>,L<sub>2</sub>,L<sub>3</sub>,(1-<i>&beta;</i>)&times;L<sub>4</sub>)]
+			</br>&nbsp;&nbsp;&nbsp;&nbsp;<i>&beta;</i>&nbsp;=&nbsp;0&nbsp;&nbsp;(Quadrilateral element)),&nbsp;1&nbsp;&nbsp;(Triangular element)
+			</p>
+
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A<sub>s</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Area 
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L<sup>i</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Shell element length of each side&nbsp;&nbsp;(i=1,2,3,4)
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Speed of sound
+				</p>
+				</span>
+
+		<div style="position:absolute; left:80px; Height:70">
+		<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_17.png">	<!--<img src="./Media/Mesh Cleanup_Mesh Quality_Manual Check_Metric_17.png" Height="70">--> 
+		</div>
+		</br>
+		</br>
+		</br>
+		</br>
+			<p>&nbsp;&nbsp;&nbsp;Expression for Solid element is below.</p>				
+			<p>&nbsp;&nbsp;&nbsp;<i>&#9651;</i>t&nbsp;=&nbsp;L<sub>e</sub>&nbsp;/&nbsp;c
+			</br>&nbsp;&nbsp;&nbsp;&nbsp;L<sub>s</sub>&nbsp;=&nbsp;V<sub>e</sub>&nbsp;/&nbsp;A<sub>e</sub>&nbsp;<sub><i>max</i></sub>&nbsp;(Solid element of 8Node)&nbsp;,&nbsp;Minimum height&nbsp;（TETRA element of 4Node）
+			</p>
+			
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V<sub>e</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Volume
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A<sub>e</sub>&nbsp;<sub><i>max</i></sub>&nbsp;&nbsp;:&nbsp;&nbsp;The area of the Maximum surface 
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Speed of sound 
+				</p>
+				</span>
+				
+		<div style="position:absolute; left:80px; Height:70">
+		<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_18.png">	<!--<img src="./Media/Mesh Cleanup_Mesh Quality_Manual Check_Metric_17.png" Height="70">--> 
+		</div>
+		</br>
+		</br>
+		</br>
+		</br>		
+	<h4>&#9329;&nbsp;Time Step (LS-DYNA)&nbsp;(Tetra / Hexa and Tri + Quad)</a></h4>
+		<li>For Tri / Quad elements, check ⊿tc in the CFL condition by the LS-DYNA formula. The threshold time increment ⊿t is calculated by "Safety factor x Set value".<br></li>
+		<p>
+		&nbsp;&nbsp;⊿tc＝Lc/c<br>
+		&nbsp;&nbsp;Lc = S/MAX(Lside)<br>
+		&nbsp;&nbsp;c = &radic;(E/(ρ(1-ν&sup2)))
+		</p>
+				<span style="font-size:0.9em;">
+				<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lc	&nbsp;&nbsp;&nbsp;:&nbsp;Element representative length<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lside	&nbsp;&nbsp;:&nbsp;&nbsp;Element edge length<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S		&nbsp;&nbsp;:&nbsp;&nbsp;Element surface area<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c		&nbsp;&nbsp;:&nbsp;&nbsp;Stress propagation speed<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E		&nbsp;&nbsp;:&nbsp;&nbsp;Young's modulus<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ρ	&nbsp;&nbsp;:&nbsp;&nbsp;Density<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ν	&nbsp;&nbsp;:&nbsp;&nbsp;Poisson's ratio<br>
+				</p>
+				</span>
+		<li>We will explain GUI items not found in other measurement methods.<br></li>
+		<p>
+		&nbsp;&nbsp;Safety factor		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;⊿t = Safety factor x Set value<br>
+		&nbsp;&nbsp;Stress propagation speed	&nbsp;&nbsp;:&nbsp;&nbsp;By selecting a material, you can check the stress propagation rate of that material.<br>
+		</p>
+		<br>
+		</br>					
+			
+	<h4>&#9330;&nbsp;Time Step (Abaqus)&nbsp;(Tetra / Hexa and Tri + Quad)</a></h4>
+		<li>For Tri / Quad / Tetra / Hexa elements, check ⊿tc in the CFL condition with Abaqus formula. The threshold time increment ⊿t is calculated by "Safety factor x Set value".<br></li>
+		<p>
+		&nbsp;&nbsp;⊿tc＝lc/c<br>
+		&nbsp;&nbsp;L1 = S/MAX(Ldiag)	&nbsp;&nbsp;&nbsp;:&nbsp;In case of Tri / Quad element<br>
+		&nbsp;&nbsp;L2 = MIN(Lside,Ldiag)	&nbsp;&nbsp;&nbsp;:&nbsp;In case of Tri / Quad element<br>
+		&nbsp;&nbsp;Lc = MAX(L1,L2)	&nbsp;&nbsp;&nbsp;:&nbsp;In case of Tri / Quad element<br>
+		&nbsp;&nbsp;Lc = 0.816MIN(Lside)	&nbsp;&nbsp;&nbsp;:&nbsp;In the case of Tetra primary element<br>
+		&nbsp;&nbsp;Lc = 0.264MIN(Lside)	&nbsp;&nbsp;&nbsp;:&nbsp;In the case of Tetra quadratic element<br>
+		&nbsp;&nbsp;Lc = V/MAX(S)	&nbsp;&nbsp;&nbsp;:&nbsp;In the case of Hexa element<br>
+		&nbsp;&nbsp;c = &radic;(E/(ρ(1-ν&sup2)))	&nbsp;&nbsp;&nbsp;:&nbsp;In case of Tri / Quad element<br>
+		&nbsp;&nbsp;c = &radic;(E(1-ν)/(ρ(1+ν)(1-2ν)))	&nbsp;&nbsp;&nbsp;:&nbsp;In case of Tetra / Hexa element
+		</p>
+				<span style="font-size:0.9em;">
+				<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lc	&nbsp;&nbsp;&nbsp;:&nbsp;Element representative length<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lside	&nbsp;&nbsp;:&nbsp;&nbsp;Element edge length<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ldiag	&nbsp;&nbsp;:&nbsp;&nbsp;Element diagonal length<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S		&nbsp;&nbsp;:&nbsp;&nbsp;Element surface area<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V		&nbsp;&nbsp;:&nbsp;&nbsp;Element volume<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c		&nbsp;&nbsp;:&nbsp;&nbsp;Stress propagation speed<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E		&nbsp;&nbsp;:&nbsp;&nbsp;Young's modulus<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ρ	&nbsp;&nbsp;:&nbsp;&nbsp;Density<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ν	&nbsp;&nbsp;:&nbsp;&nbsp;Poisson's ratio<br>
+				</p>
+				</span>
+		<li>We will explain GUI items not found in other measurement methods.<br></li>
+		<p>
+		&nbsp;&nbsp;Safety factor		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;⊿t = Safety factor x Set value<br>
+		&nbsp;&nbsp;Include the diagonal	:&nbsp;&nbsp;When ON, include element diagonal length in calculation of representative length of element.<br>
+		&nbsp;&nbsp;Stress propagation speed	&nbsp;&nbsp;:&nbsp;&nbsp;By selecting a material, you can check the stress propagation rate of that material.<br>
+		</p>
+		<br>
+		</br>					
+<!--	<h4>&#9328;&nbsp;CFL&nbsp;condition</h4>
+		<li>Tri/Quad/テトラ要素に対して、クーランン条件をチェックします。
+		</li>
+
+			<p>&nbsp;&nbsp;&nbsp;シェル要素の式は以下になります。</p>
+			<p>&nbsp;&nbsp;&nbsp;<i>&#9651;</i>t&nbsp;=&nbsp;L<sub>s</sub>&nbsp;/&nbsp;c
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;L<sub>s</sub>&nbsp;=&nbsp;[(1+<i>&beta;</i>)&nbsp;A<sub>s</sub>]&nbsp;/&nbsp;[<i>max</i>(L<sub>1</sub>,L<sub>2</sub>,L<sub>3</sub>,(1-<i>&beta;</i>)&times;L<sub>4</sub>)]
+			</br>&nbsp;&nbsp;&nbsp;&nbsp;<i>&beta;</i>&nbsp;=&nbsp;0&nbsp;&nbsp;(四辺形要素),&nbsp;1&nbsp;&nbsp;(三角形要素)
+			</p>
+
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A<sub>s</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;面積
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L<sup>i</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;シェル要素各辺の長さ&nbsp;&nbsp;(i=1,2,3,4)
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;音速
+				</p>
+				</span>
+
+		<div style="position:absolute; left:80px; Height:70">
+		<img src="./Media/Mesh Cleanup_Mesh Quality_Manual Check_Metric_17.png"> 
+		</div>
+		<br>
+		</br>
+		<br>
+		</br>
+			<p>&nbsp;&nbsp;&nbsp;ソリッド要素の式は以下になります。</p>				
+			<p>&nbsp;&nbsp;&nbsp;<i>&#9651;</i>t&nbsp;=&nbsp;L<sub>e</sub>&nbsp;/&nbsp;c
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;L<sub>s</sub>&nbsp;=&nbsp;V<sub>e</sub>&nbsp;/&nbsp;A<sub>e</sub>&nbsp;<sub><i>max</i></sub>&nbsp;(8Nodeのソリッド要素)&nbsp;,&nbsp;最小高&nbsp;（4NodeのTETRA要素）
+			</p>
+			
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V<sub>e</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;体積
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A<sub>e</sub>&nbsp;<sub><i>max</i></sub>&nbsp;&nbsp;:&nbsp;&nbsp;最大面の面積
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;音速
+				</p>
+				</span>
+				
+		<div style="position:absolute; left:80px; Height:70">
+		<img src="./Media/Mesh Cleanup_Mesh Quality_Manual Check_Metric_18.png">--> 
+		</div>
+		<br>
+		</br>
+		<br>
+		</br>
+	</div></div></body>
+</html>

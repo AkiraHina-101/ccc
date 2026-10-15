@@ -1,0 +1,135 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>CreateAnsysJob</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>CreateAnsysJob</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create Ansys Job</p>
+<h4>Syntax</h4>
+<p>CreateAnsysJob(Cstring name, int analysisType, int SolverType, Cstirng JobName, Cstring JobDescription, bool bOutputDisplacements, bool bOutputReactionLoad, bool bOutputStrain, bool bOutputStress, int iAnalysisOpt, bool bCal_Press_effects, double fUniTem, double fRefTemp, double fEndLoadtime, int iTimeStep, int iStepChosen, int iSubStepNum, int iMaxSubStep, int iMinStepNum, double fTimeStepSize, double fMinTimeStep, double fMaxTimeStep, int iWriteReslutFre, int iN, bool bRunAPDL, bool bWriteResultDB, double fEndFreq, double fStartFreq, int iSolutionOption, double fPropChange, int iPointNum, double fMinTemp, double fMaxTemp, int EquationSolv, double fTolLevel, double fMultiplier, bool bSignlePrecision, double fTempDiff, double fStartFreq, double fEndFreq, int nSubsteps, double fAlphad, double fBetad, double fDmprat, bool bOutputDisplacements, bool bOutputStrain, bool bOutputStress, int iLCId, int imodeShape, int iModeMethod, int iExtractNum, bool bExpandShape, int iExpandNum, bool bUseApprox, bool bInclPrssEff, bool bMemorySave, bool bRsvec, bool bOutputDisplacements, bool bOutputStrain, bool bOutputStress, int iPrintNum, bool bMemorySave, bool bOutputHeatFlux, bool bOutputTemperature, bool bPivotsCheck, bool bSignlePrecision, double fMultiplier, double fTempDiff, double fTolLevel, int iAdaptiveDes, int iEquationSolv, int iNPOption, Cstring AnsysVersion, Cstring CommandLineOption, bool OutputSOLVE, int iRigidMode, int iWorkSize, int iNPADNum, int iBlockNum, int iMaxiteratCnt, int iMinNShift, int iSeqCheck, bool bTranEffect, int iLoadingType, double fMassMatrixMult, double fStiffMatrixMult, bool bMidStep, double fToleranceBisection, double fToleranceTimeStep, int iTimeInterAlgor, int iTimeInter, double fGAMMA, double fALPHA, double fDELTA, double fALPHAF, double fALPHAM, bool bOutputTemperature, bool bOutputHeatFlux, Cursor Edit)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>Cstring<p>Name Job</p></li>
+<li>int<p>Analysis Type[0:none 1:struct 2:thermal]</p></li>
+<li>int<p>Solver Type [0:none 1:modal 2:hamonic 3:static 4:struct transient 5:steady state 6:thermal transient]</p></li>
+<li>Cstring<p>Name Job</p></li>
+<li>Cstring<p>Job description</p></li>
+<li>bool<p>Output Displacements</p></li>
+<li>bool<p>Output Reaction Load</p></li>
+<li>bool<p>Output Strain</p></li>
+<li>bool<p>Output Stress</p></li>
+<li>int<p>Analysis Opt [0 = small displacement,1 = large displacement ]</p></li>
+<li>bool<p>Cal Press effects</p></li>
+<li>double<p>Uniform temperature</p></li>
+<li>double<p>Reference temperature</p></li>
+<li>double<p>End load time</p></li>
+<li>int<p>Time step [0 = Prog chosen, 1 = On, 2 = Off, 3 = Arc-Length] </p></li>
+<li>int<p>Step chosen [0 = Number of SubSteps, 1 = Time Increment]</p></li>
+<li>int<p>Number of substep</p></li>
+<li>int<p>Max Number of substep</p></li>
+<li>int<p>Min Number of substep</p></li>
+<li>double<p>Time step size</p></li>
+<li>double<p>Min time step</p></li>
+<li>double<p>Max time step</p></li>
+<li>int<p>Write result fre [0=write every subStep, 1=Do not write any substeps,2=Write last subStep only,3= Write every Nth Substep,4=Write N Number subStep]</p></li>
+<li>int<p>iN</p></li>
+<li>bool<p>Run APDL</p></li>
+<li>bool<p>Write result DB</p></li>
+<li>double<p>End frequency</p></li>
+<li>double<p>Start frequency</p></li>
+<li>int<p>Solution option [0=Full,=1=Quasi,2=Linear]</p></li>
+<li>double<p>Property change for reformation</p></li>
+<li>int<p>Number of points in fast table</p></li>
+<li>double<p>Min temperature for fast table </p></li>
+<li>double<p>Max temperature for fast table</p></li>
+<li>int<p>Equation solver[0=Program Chosen,1=Frontal solver,2=Sparse solver,3=Jacobi Conj Grad,4=JCG out-of-core,5=Precondition CG,6=PCG out-of-core,7=Algebraic M-grid,8=Inc Cholesky CG,9=Iter auto select]</p></li>
+<li>double<p>Tolerance/Level</p></li>
+<li>double<p>Multiplier</p></li>
+<li>bool<p>Single Precision</p></li>
+<li>bool<p>Memory save</p></li>
+<li>double<p>Temperature difference</p></li>
+<li>double<p>Start frequency</p></li>
+<li>double<p>End frequency</p></li>
+<li>int<p>Substeps</p></li>
+<li>double<p>Alfhad</p></li>
+<li>double<p>Betad</p></li>
+<li>double<p>Dmprat</p></li>
+<li>bool<p>Output displacement</p></li>
+<li>bool<p>Output Strain</p></li>
+<li>bool<p>Output Stress</p></li>
+<li>int<p>Load case id</p></li>
+<li>int<p>Nrmkey Normalize mode shapes [0=To mass matrix, 1= To unity]</p></li>
+<li>int<p>Mode Method [0=Block,1=Subspace,2=Reduced]</p></li>
+<li>int<p>Extract Num</p></li>
+<li>bool<p>Expand mode shape</p></li>
+<li>int<p>No. of modes to expand</p></li>
+<li>bool<p>Use lumped mass approx.</p></li>
+<li>bool<p>Incl prestress effects</p></li>
+<li>bool<p>Memory save</p></li>
+<li>bool<p>Residual Vector</p></li>
+<li>bool<p>Output displacement</p></li>
+<li>bool<p>Output Strain</p></li>
+<li>bool<p>Output Stress</p></li>
+<li>int<p>Num of modes to print</p></li>
+<li>bool<p>Memory save for steady state</p></li>
+<li>bool<p>Output heat flux</p></li>
+<li>bool<p>Output temperature</p></li>
+<li>bool<p>Pivots check</p></li>
+<li>bool<p>single precision</p></li>
+<li>double<p>Multiplier</p></li>
+<li>double<p>Temperature difference</p></li>
+<li>double<p>Tolerance level</p></li>
+<li>int<p>Adaptive descent [0 = ON if necessary,  1 = ON,  2 = OFF]</p></li>
+<li>int<p>Equation solver [0= Program Chosen,1= Frontal solver]</p></li>
+<li>int<p>Newton-Raphson option[0= Program chosen, 1= Full N-R, 2= Modified N-R, 3= Initial stiffnes, 4= Full N-R unsymm]</p></li>
+<li>Cstring<p>Ansys version</p></li>
+<li>Cstring<p>Command line option</p></li>
+<li>bool<p>Output solver</p></li>
+<li>int<p>Rigid mode</p></li>
+<li>int<p>Work size</p></li>
+<li>int<p>No of extra vectors</p></li>
+<li>int<p>NPERBK No of modes/memory block</p></li>
+<li>int<p>NUMSSI Maximum number of iterations</p></li>
+<li>int<p>NSHIFT Min, before shift</p></li>
+<li>int<p>Strmck Sturm sequence check [0 =At shift+end pts, 1= At shift pts,  2 =  No Sturm check]</p></li>
+<li>bool<p>Transient effects</p></li>
+<li>int<p>Loading type [0= Stepped Loading,1= Ramped Loading]</p></li>
+<li>double<p>Mass matrix multiplier</p></li>
+<li>double<p>Stiffness matrix multiplier</p></li>
+<li>bool<p>MidStep Criterion</p></li>
+<li>double<p>Tolerance for  Bisection</p></li>
+<li>double<p>Tolerance for  TimeStep</p></li>
+<li>int<p>Time intergration algorithm [0 =Newmark,1=HHT]</p></li>
+<li>int<p>Time intergration[0 =Amplitude decay	,1= Integration parameters]</p></li>
+<li>double<p>Gamma</p></li>
+<li>double<p>Alpha</p></li>
+<li>double<p>Delta</p></li>
+<li>double<p>AlphaF</p></li>
+<li>double<p>AlphaM</p></li>
+<li>bool<p>Output temperature</p></li>
+<li>bool<p>Output heat flux</p></li>
+<li>Cursor<p>Edit job</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>CreateAnsysJob("Ansys", 2, 5, "Nastran4", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1.79769e+308, 1.79769e+308, 0, 0.05, 64, 0, 0, 0, 0, 0, 0, 0, 1.1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, "", "", 0, 0, 8, 4, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0.005, 0.252506, 0.505, 0.005, 0, 0, 0, 0:0)</p>
+</div>
+</div>
+</body>
+</html>

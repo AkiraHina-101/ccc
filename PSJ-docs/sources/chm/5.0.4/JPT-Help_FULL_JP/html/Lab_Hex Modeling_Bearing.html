@@ -1,0 +1,99 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>ヘキサモデリング | ベアリング</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>ヘキサモデリング | ベアリング</h2>
+	<div class="contents">
+	<p>
+	選択したフェースをリメッシュしてヘキサベアリングパーツを作成し、選択フェースとの間でメッシュパターンができるだけ一致するようにします。<br>
+	</p>
+
+	<img src="./Media/CommandDlg/Lab_Hex Modeling_Bearing_1.png">
+
+	<h4>パラメーター</h4>
+	<li>ベアリングタイプ
+	<p>完全円筒形のベアリング（360）もしくは半円筒形x2のベアリングか（180x2）を選択します。
+	</li>
+	<li>角度分割数
+	<p>円周方向のメッシュ分割数を指定します。
+	</li>
+	<li>要素タイプ
+	<p>ヘキサ１次要素（Hex8）もしくはヘキサ２次要素（Hex20）から選択します。
+	</li>
+	<li>L1：外側幅
+	<p>L1の寸法を指定します。
+	</li>
+	<li>L2：内側幅
+	<p>L2の寸法を指定します。
+	</li>
+	<li>L2要素数
+	<p>L2の要素数が表示されます。
+	</li>
+	<li>L2分割(比率)
+	<p>L2のメッシュ分割を比率で入力します。<br>
+	例） 幅12mmのベアリングに対し、「1,2,2,1」と入力<br>
+	→ベアリング幅方向の要素数は4、幅は2mm, 4mm, 4mm, 2mm。
+	</li>
+	<li>T1: 外側厚み
+	<p>T1の寸法を入力します。
+	</li>
+	<li>T2: 内側厚み
+	<p>T2の寸法を入力します。
+	</li>
+	<li>T2要素数
+	<p>T2の要素数を入力します。
+	</li>
+	<li>プレビューチェックボックス
+	<p>チェックボックスがONのとき、作成されるベアリング形状のプレビュー表示を行います。
+	</li>
+	<li>画像を表示ボタン
+	<p>ベアリングの断面形状の参考画像(断面パラメータ）を表示します。L1, L2, T1, T2入力時の参考となります。
+	<br>	
+	<img src="./Media/CommandDlg/Lab_Hex Modeling_Bearing_2.png">
+
+	</li>
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>ベアリングパーツの取付先となるパーツに対して、あらかじめメッシュを作成しておきます。<br>
+	<img src="./Media/Lab_Bearing_3.png">	
+	<li>フェースを選択します。選択フェースに合わせて自動的にパラメータが入力されます。また、プレビューチェックボックスがONの場合かつパラメータに問題が無い場合には、プレビューが表示されます。</li>
+	<img src="./Media/Lab_Bearing_4.png">	
+	<li>パラメータを任意に変更します。
+	<li>適用またはOKボタンで機能が実行されます。ベアリングパーツと、取付先のフェースのパターンは、ベアリングパーツ基準でできるだけ合致するように編集されます。</li>
+	<img src="./Media/Lab_Bearing_5.png"><br>
+	<br>
+	<table class=commontable>
+		<tr><td><img src="./Media/Lab_Bearing_6.png" width=410></td><td><img src="./Media/Lab_Bearing_7.png" width=380></td></tr>
+		<tr><td align="center">取付先のメッシュパターン</td><td align="center">ベアリングパーツ</td></tr>
+	</table>
+	
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

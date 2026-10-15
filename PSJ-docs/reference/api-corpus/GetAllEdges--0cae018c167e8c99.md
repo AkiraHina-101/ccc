@@ -1,0 +1,3 @@
+# GetAllEdges
+
+GetAllEdges GetAllEdges Description Get information of edges Syntax GetAllEdges() Inputs None No input value Return Code Python Output EdgeVector Edge information (id, key, typeID) Sample Code Input: edges= JPT.GetAllEdges() for ed in edges: print(str(ed.typeID)+' '+str(ed.id)+' '+str(ed.key)) Output: > 5 35 35 > 5 18 18 > 5 36 36 > ...

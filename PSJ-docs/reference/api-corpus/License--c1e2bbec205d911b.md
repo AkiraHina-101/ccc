@@ -1,0 +1,3 @@
+# License
+
+License License Enable/disable the license option for jupiter-pre features. Feature The list of licenses you purchased will be displayed. Click on the license checkbox next to the item to turn on the features. User can also turn on/off all check boxes beneath by right-clicking on the bold text items (base, CAD loading etc). Expiration Date License expiration date is displayed right side of respective feature Set All On/Off Click on "set all on" to select all features on license.click on "set all off" to unselect all features on license. -&nbspOperating Procedure&nbsp- &nbspActivate the command and click the check box next to the license you want to use to turn it on. &nbspClick Apply or OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

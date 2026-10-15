@@ -1,0 +1,84 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>圧力 | 静水圧</title>
+
+<style type="text/css">
+/* Link下線、非表示 */
+a.no-uline {text-decoration:none}
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>圧力 | 静水圧</h2>
+<div class="contents">
+	<p>解析モデルに圧力荷重を追加します。</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Loads_Pressure_Hydrostatic.png">
+
+ 　　 <h4>構造</h4>
+		<li><b>名前</b><br>
+			<p>&nbsp;&nbsp;&nbsp;圧力荷重条件の名前を入力します。</p>
+		</li>
+			
+ 　　 <h4>静水圧&nbsp;:&nbsp;&#124;r&times;g&times;h&#124;</h4>
+		<span style="font-size:1.1em;">
+		<p>&nbsp;静水圧荷重の設定をします。</p>
+		</span>
+		<br>
+		<li><b>流体密度</b><br>
+			<p>&nbsp;&nbsp;&nbsp;静水圧に参照される流体の密度[r]を入力します。</p>
+		</li>
+		<li><b>入力単位系</b><br>
+			<p>&nbsp;&nbsp;&nbsp;流体密度の入力単位を指定します。</p>
+		</li>
+		<li><b>重力方向</b><br>
+			<p>&nbsp;&nbsp;&nbsp;モデル内の重力のかかる方向を選択します（全体座標系）。</p>
+		</li>
+		<li><b>重力</b><br>
+			<p>&nbsp;&nbsp;&nbsp;重力の値[g]を入力します。</p>
+		</li>
+		<li><b>入力単位系</b><br>
+			<p>&nbsp;&nbsp;&nbsp;重力値の入力単位を指定します。</p>
+		</li>
+		<li><b>水面高さ</b><br>
+			<p>&nbsp;&nbsp;&nbsp;モデル内の水面の位置の座標[h]を入力します。</p>
+		</li>
+		<li><b>入力単位系</b><br>
+			<p>&nbsp;&nbsp;&nbsp;座標値の入力単位を指定します。</p>
+		</li>
+	</br>
+	<h3>-&nbsp;操作手順&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;選択リストからフェースまたは要素のいずれかのボタンを選択し、画面上から静水圧荷重付加対象を選択します。</li>
+		<li>&nbsp;荷重につける名前を入力します。</li>
+		<li>&nbsp;流体密度値、重力方向、重力値、水面の座標をそれぞれ入力します。</li>
+		<li>&nbsp;適用またはOKボタンを押します。</li>
+		</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

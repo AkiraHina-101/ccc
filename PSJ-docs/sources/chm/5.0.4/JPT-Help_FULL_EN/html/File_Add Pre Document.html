@@ -1,0 +1,106 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>Add Pre Document</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Add Pre Document</h2>
+<div class="contents">
+	<p>Import a Pre document to the current document. ID offset or ID renumbering are available to deal with duplicate IDs.</p>
+
+	<img src="./Media/CommandDlg/AddPreDocument.png">
+	<h4>Path Setting</h4>
+		<p>&nbsp;&nbsp;&nbsp;Specify the path to the Pre Document.</p></li>
+		<li><b>Add Pre Document</b>
+		<p>&nbsp;&nbsp;&nbsp;Select a Pre Document file to be added to active document.</p></li>
+		<li><b>Imported Model</b>
+		<p>&nbsp;&nbsp;&nbsp;Activate the button to input parameters to offset/renumber the IDs of the imported model.</p></li>
+		</li>	
+		<li><b>Current Model</b>
+		<p>&nbsp;&nbsp;&nbsp;Activate the button to input parameters to offset/renumber the IDs of the current model.</p></li>
+		</li>
+	<h4>Offset/Renumber</h4>
+		<p>&nbsp;&nbsp;&nbsp;Setting configuration parameters for Offset/Renumber operation.</p></li>
+		<li><b>Option</b>
+			<p>&nbsp;&nbsp;&nbsp;There are two options available to deal with the duplicate IDs:<br>
+			
+			<ul type="circle">
+			<span style="font-size:0.95em;">
+				<li>
+				<b>Offset ID</b>: The IDs of the selected model entities are offset using the specified values in the text boxes.<br>
+				<b>Example: OffsetID is selected</b><br>
+				<img src="./Media/AddPreDocument_OffsetID.png"><br>
+				
+				In this example, Imported model IDs are selected to be offset. Node, Element, Face, Edge and Part IDs are duplicated, their default state is checked.
+				Offset values are originally set to the maximum ID numbers of their corresponding entities in the Current Model.<br>
+				After pressing OK button, all IDs of the specified objects of the selected model will be offset (added) at the specified values.<br><br>
+				</li>
+
+				<li>
+				<b>Renumber ID</b>: The IDs of the selected model entities are renumbered using the specified values in the text boxes.<br>
+				
+				<b>Example: RenumberID is selected</b> <br>
+				
+				<img src="./Media/AddPreDocument_RenumberID.png"> <br>
+				
+				In this example, Imported model IDs are selected to be renumbered. Node, Element, Face, Edge and Part IDs are duplicated, their default state is checked.
+				Start values are originally set to the maximum ID numbers of their corresponding entities in the Current Model and plus one.
+				End values are calculated by adding the corresponding number of entities of the selected model to the Start value.<br>
+				After pressing OK button, all IDs of the specified objects of the selected model will be renumbered according to the specified values.<br><br>
+				</p>
+				</li>
+			</span>
+			</ul>
+		</li>
+		
+		<li><b>Show Log file</b>
+		<p>&nbsp;&nbsp;&nbsp;When checked, a log file with offset/renumber ID information will appear after pressing OK.</p></li>
+		
+	<h4>Unit System</h4>
+		<li><b>Option</b>
+			<p>&nbsp;&nbsp;&nbsp;Select the units system to display in the current document.<br>
+			
+			<ul type="circle">
+			<span style="font-size:0.95em;">
+				<li>
+				<b>Current Unit System</b>: Holds the units system of the current document. The numbers in the imported file are to be converted to the unit system of the current document.<br>
+				</li>
+				<li>
+				<b>Imported Unit System</b>: Use the units system of the import file. The numbers in the current document is to be converted to the unit system of the import file.<br>
+				</li>
+			</span>
+			</ul>
+		</li>
+
+	
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

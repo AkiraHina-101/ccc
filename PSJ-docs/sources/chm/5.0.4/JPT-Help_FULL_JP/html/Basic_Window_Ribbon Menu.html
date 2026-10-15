@@ -1,0 +1,78 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>リボンメニュー</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>リボンメニュー</h2>
+<div class="contents">
+
+	<img src="./Media/Basic_Window_Ribbon_1.png" width="700">
+ 	<br>
+ 	<li>タブメニュー</li>
+	<p>
+	コマンドが配置されています。詳細は、各コマンドの解説を参照してください。
+	</p><li>スタイルメニュー</li>
+	<p>Jupiter-Preの外観を変更します。<br></p>
+	<img src="./Media/Basic_Window_Ribbon_2.png" >
+
+	<li>ショートカットメニュー</li>
+	<p>タブメニューの何もない箇所を右クリックすることで表示されるメニューから、各コマンドを使用可能です。</p>
+	<table class="commontable">
+		<tr><th colspan=2>メニュー</th><th>内容</th></tr>
+		<tr><td colspan=2>カスタマイズ</td colspan=2><td>クイックアクセスツールバーのカスタマイズダイアログを表示します。</td></tr>
+		<tr><td colspan=2>クイックアクセスツールバーをリボンの下（上）に表示</td colspan=2><td>クイックアクセスツールバーの表示位置を、リボンメニューの下（上）に表示します。</td></tr>
+		<tr><td colspan=2>リボンをカスタマイズ</td colspan=2><td>リボンのカスタマイズダイアログを表示します。</td></tr>
+		<tr><td colspan=2>リボンを最小化</td colspan=2><td>リボンメニューを最小化し、タブメニューの表示を通常はタイトルのみとします。</td></tr>
+		<tr><td colspan=2>ウィンドウ設定をエクスポート</td colspan=2><td>現在のウィンドウサイズとドッキングウィンドウの各ステータスをエクスポートします。出力された .regファイルをダブルクリックする事で、設定のインポートを実行します。</td></tr>
+		<tr><td rowspan=2>デフォルト設定</td><td>デフォルト設定をエクスポート</td><td>現在のJupiter-Preの設定をエクスポートします。</td></tr>
+		<tr><td>リセット</td><td>Jupiter-Preの設定をデフォルト設定に戻します。</td></tr>
+	</table>
+
+	<h4>デフォルト設定について</h4>
+	デフォルト設定は、プリファレンス、メインウィンドウ上のツールバーアイコンのON/OFF、及びコマンドダイアログの、Jupiter-Pre起動時の初期値を任意に指定できる機能です。<br>
+	Jupiter-Pre終了後は、これらの値がデフォルト設定で指定した値に戻ります。<br><br>
+
+	＜Jupiter-Pre起動時の初期値設定＞
+	<table class="commontable">
+		<tr><th>デフォルト設定対象</th><th>通常(オリジナル設定)</th><th>デフォルト設定使用時</th></tr>
+		<tr><td>プリファレンス</td><td>最終変更時の値</td><td>デフォルト設定値</td></tr>
+		<tr><td>メインウィンドウ上のツールバーアイコンのON/OFF</td><td>Jupiter初期値</td><td>デフォルト設定値</td></tr>
+		<tr><td>コマンドダイアログ</td><td>最終変更時の値</td><td>デフォルト設定値</td></tr>
+	</table>
+	<h3>-&nbsp;デフォルト設定の使用方法&nbsp;-</h3>
+	<ol>
+		<li>プリファレンス、メインウィンドウ上のツールバーアイコンのON/OFF及びコマンドダイアログの各値を任意に設定します。</li>
+		<img src="./Media/Basic_Ribbon_DefaultSettings_1.png" width="700"><br>
+		<li>リボンのなにもない箇所を右クリックし、デフォルト設定から「デフォルト設定をエクスポート」メニューを選択します。<br>
+		<img src="./Media/Basic_Ribbon_DefaultSettings_5.png"><br>
+				[ユーザープロファイル]&yen;AppData&yen;Roaming&yen;TechnoStar&yen;JPT4.1に、ExportedSettingsフォルダ（設定をまとめたファイル群を格納したフォルダ）が出力されます。</li>
+		<img src="./Media/Basic_Ribbon_DefaultSettings_2.png"><br>
+		※ユーザープロファイルの場所は、エクスプローラの窓に%userprofile%と入力すると表示されます。<br>
+		<li>ExportedSettingsフォルダ内の、installSettings.batをダブルクリックします。</li>
+		<img src="./Media/Basic_Ribbon_DefaultSettings_3.png"><br>
+		[ユーザープロファイル]&yen;AppData&yen;Roaming&yen;TechnoStar&yen;JPT4.1に、DefaultSettingsというフォルダが作成されます。これはExportedSettingsフォルダのコピーで、次回起動時以降はこの設定が使用されるようになります。</li>
+		<img src="./Media/Basic_Ribbon_DefaultSettings_4.png"><br>
+		<br>※Jupiter-PreV4.1がインストールされている別のマシン上に、ExportedSettingsフォルダをコピーし、フォルダ内の、installSettings.batをダブルクリックすることで、設定をマシン間でコピーすることができます。
+				<li>デフォルト設定の利用をやめる場合には、リボンのなにもない箇所を右クリックし、デフォルト設定から「リセット」メニューを選択します。ユーザープロファイル領域からDefaultSettingsフォルダが削除され、オリジナル設定が使用されるようになります。</li>
+		<img src="./Media/Basic_Ribbon_DefaultSettings_6.png"><br>	
+	</ol>
+	</div>
+</div></body>
+
+</html>
+</head></html>

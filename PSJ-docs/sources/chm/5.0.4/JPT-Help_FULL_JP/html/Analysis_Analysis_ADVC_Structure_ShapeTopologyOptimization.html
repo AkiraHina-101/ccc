@@ -1,0 +1,495 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>ADVCの最適化</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>形状/トポロジー最適化</h2>
+<div class="contents">
+	<p>ADVENTURECluster（以下ADVC）の形状/トポロジー最適化解析ファイルを出力します。<br></p>
+	<p>解析>ADVC>構造コマンドでADVCプロセス、間隔定義、出力定義などの詳細設定を設定します。<br></p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization.png">
+
+	<h4>目的関数</h4>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_01.png"><p>
+	<li><b>関数の種類</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_02.png">
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>1</b>:&nbsp;形状最適化では10の関数を対応します。 トポロジー最適化では、変位、固有振動数、表面積を除くすべてを対応します。</li><br>
+		<li><b>2</b>:&nbsp;ユーザーは、[追加]ボタンで複数の目的関数を選択できます。</li><br>
+		<li><b>3</b>:&nbsp;関数によって必要なパラメーターが表示/非表示されます。</li><br>
+		<li><b>4</b>:&nbsp;間違った入力または必要なパラメーターが入力されていない場合に警告ログを表示します。</li><br>
+		<li><b>5</b>:&nbsp;目的関数をエクスポートする場合、.adxファイルには$ComplianceFunction（オプションのパラメーター）と$Objectiveドキュメントが出力されまれます。</li><br>		
+		<li><b>6</b>:&nbsp;Prosess Numberで使用されるプロセス番号は、プロセス構成での解析順に、0から連続して各プロセスに割り当てられる番号です。</li><br>	
+		<li><b>7</b>:&nbsp;プロセス構成内のすべてのプロセスを指定するにはAllを定義します。 プロセス構成の最後のプロセスを指定するにはLastを定義します。</li><br>			
+		<li><b>8</b>:&nbsp;プロセス番号を指定せずに省略し、プロセス構成IDのみを指定すると、最後のプロセスが指定されます。</li>		
+		</span>
+		</ul>	
+	</li>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_03.png">
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>編集</b>:&nbsp;入力ミスまたは次の解析向けにパラメータを直接編集します。</li><br>
+		<li><b>追加</b>:&nbsp;関数を追加し、情報領域にパラメータを表示します。</li><br>
+		<li><b>消去</b>:&nbsp;関数を削除します。</li><br>
+		<li><b>上</b>:&nbsp;上に移動して関数の順序を変更します。</li><br>
+		<li><b>下</b>:&nbsp;下に移動して関数の順序を変更します。</li>			
+		</span>
+		</ul>	
+	</li>
+	<li><b>Compliance Function / 平均コンプライアンス</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_031.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>機能名</b>:&nbsp;機能名を指定します。</li><br>
+		<li><b>係数</b>:&nbsp;目的関数の係数を指定します。</li>
+		</span>
+		</ul>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>要素セット</b>:&nbsp;要素グループまたはプロパティで要素セットを指定します。</li><br>
+		<li><b>プロセスシーケンス-プロセス</b>:&nbsp;関数に必要な各プロセスを個別に指定できます（プロセスは、構造/熱伝達解析と同様に、[プロセスの作成]ダイアログで作成します）。</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Displacement Function / 節点変位</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_04.png"><p>	
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>機能名</b>:&nbsp;機能名を指定します。</li><br>
+		<li><b>係数</b>:&nbsp;目的関数の係数を指定します。</li>
+		</span>
+		</ul>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>変位相関</b>:&nbsp;変位関数の追加パラメーターとして変位相関を指定します。</li><br>
+		<li><b>自由度数</b>:&nbsp;0 1 2 3 4 5または0：5のように自由度を指定します。</li><br>
+		<li><b>変位係数</b>:&nbsp;各方向の変位関数に対応する係数。</li><br>
+		<li><b>節点セット</b>:&nbsp;変位相関向けに節点グループで節点セットを指定します。</li><br>
+		<li><b>要素セット</b>:&nbsp;要素グループまたはプロパティで要素セットを指定します。</li><br>
+		<li><b>プロセスシーケンス-プロセス</b>:&nbsp;関数に必要な各プロセスを個別に指定できます（プロセスは、構造/熱伝達解析と同様に、[プロセスの作成]ダイアログで作成されます）。</li>
+		</span>
+		</ul>
+	</li>
+
+	<li><b>Eigen Frequency Function / 固有振動数</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_05.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>機能名</b>:&nbsp;機能名を指定します。</li><br>
+		<li><b>係数</b>:&nbsp;目的関数の係数を指定します。</li>
+		</span>
+		</ul>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>固有数</b>:&nbsp;固有モードの数を指定します。</li><br>
+		<li><b>要素セット</b>:&nbsp;要素グループまたはプロパティで要素セットを指定します。</li><br>
+		<li><b>プロセスシーケンス</b>:&nbsp;固有振動数のプロセスのみを含めることができます（プロセスは構造/熱伝達解析と同様に、[プロセスの作成]ダイアログで作成されます）。</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Mass Function / 質量</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_06.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>機能名</b>:&nbsp;機能名を指定します。</li><br>
+		<li><b>係数</b>:&nbsp;目的関数の係数を指定します。</li>
+		</span>
+		</ul>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>要素セット</b>:&nbsp;要素グループまたはプロパティで要素セットを指定します。</li>
+		</span>
+		</ul>
+	</li>
+	
+	<li><b>Maximum Displacement Function / 最大変位</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_07.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>機能名</b>:&nbsp;機能名を指定します。</li><br>
+		<li><b>係数</b>:&nbsp;目的関数の係数を指定します。</li>
+		</span>
+		</ul>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>KSkernel</b>:&nbsp;KS関数の定義式を選択します。</li><br>
+		<li><b>Exponential</b>:&nbsp;Exponentialを指定する場合は、RHOパラメーターのみを指定します。</li><br>
+		<li><b>Monomial</b>:&nbsp;Monomialを指定する場合は、Exponent＆RHOパラメーターを指定します。</li><br>
+		<li><b>要素セット</b>:&nbsp;要素グループまたはプロパティで要素セットを指定します。</li><br>
+		<li><b>プロセスシーケンス-プロセス</b>:&nbsp;関数に必要な各プロセスを個別に指定できます（プロセスは、構造/熱伝達解析と同様に、[プロセスの作成]ダイアログで作成されます）。</li>
+		</span>
+		</ul>
+	</li>	
+	<li><b>Maximum Mises Stress Function / 最大Mises 応力</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_08.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>機能名</b>:&nbsp;機能名を指定します。</li><br>
+		<li><b>係数</b>:&nbsp;目的関数の係数を指定します。</li>
+		</span>
+		</ul>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>KSkernel</b>:&nbsp;KS関数の定義式を選択します。</li><br>
+		<li><b>Exponential</b>:&nbsp;Exponentialを指定する場合は、RHOパラメーターのみを指定します。</li><br>
+		<li><b>Monomial</b>:&nbsp;Monomialを指定する場合は、Exponent＆RHOパラメーターを指定します。</li><br>
+		<li><b>要素セット</b>:&nbsp;要素グループまたはプロパティで要素セットを指定します。</li><br>
+		<li><b>プロセスシーケンス-プロセス</b>:&nbsp;関数に必要な各プロセスを個別に指定できます（プロセスは、構造/熱伝達解析と同様に、[プロセスの作成]ダイアログで作成されます）。</li>
+		</span>
+		</ul>
+	</li>	
+	<li><b>Maximum Principal Stress Function / 最大主応力</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_09.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>機能名</b>:&nbsp;機能名を指定します。</li><br>
+		<li><b>係数</b>:&nbsp;目的関数の係数を指定します。</li>
+		</span>
+		</ul>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>KSkernel</b>:&nbsp;KS関数の定義式を選択します。</li><br>
+		<li><b>Exponential</b>:&nbsp;Exponentialを指定する場合は、RHOパラメーターのみを指定します。</li><br>
+		<li><b>Monomial</b>:&nbsp;Monomialを指定する場合は、Exponent＆RHOパラメーターを指定します。</li><br>
+		<li><b>要素セット</b>:&nbsp;要素グループまたはプロパティで要素セットを指定します。</li><br>
+		<li><b>プロセスシーケンス-プロセス</b>:&nbsp;関数に必要な各プロセスを個別に指定できます（プロセスは、構造/熱伝達解析と同様に、[プロセスの作成]ダイアログで作成されます）。</li>
+		</span>
+		</ul>
+	</li>	
+	<li><b>Minimum Principal Stress Function / 最小主応力</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_10.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>機能名</b>:&nbsp;機能名を指定します。</li><br>
+		<li><b>係数</b>:&nbsp;目的関数の係数を指定します。</li>
+		</span>
+		</ul>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>KSkernel</b>:&nbsp;KS関数の定義式を選択します。</li><br>
+		<li><b>Exponential</b>:&nbsp;Exponentialを指定する場合は、RHOパラメーターのみを指定します。</li><br>
+		<li><b>Monomial</b>:&nbsp;Monomialを指定する場合は、Exponent＆RHOパラメーターを指定します。</li><br>
+		<li><b>要素セット</b>:&nbsp;要素グループまたはプロパティで要素セットを指定します。</li><br>
+		<li><b>プロセスシーケンス-プロセス</b>:&nbsp;関数に必要な各プロセスを個別に指定できます（プロセスは、構造/熱伝達解析と同様に、[プロセスの作成]ダイアログで作成されます）。</li>
+		</span>
+		</ul>
+	</li>		
+	<li><b>Surface Area Function / 表面積</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_11.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>機能名</b>:&nbsp;機能名を指定します。</li><br>
+		<li><b>係数</b>:&nbsp;目的関数の係数を指定します。</li>
+		</span>
+		</ul>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>サーフェスセット</b>:&nbsp;サーフェスグループでサーフェスセットを指定します。</li>
+		</span>
+		</ul>
+	</li>	
+	<li><b>Volume Function / 体積</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_12.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>機能名</b>:&nbsp;機能名を指定します。</li><br>
+		<li><b>係数</b>:&nbsp;目的関数の係数を指定します。</li>
+		</span>
+		</ul>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>要素セット</b>:&nbsp;要素グループまたはプロパティで要素セットを指定します。</li>
+		</span>
+		</ul>
+	</li>	
+	
+	
+	
+	
+	<h4>制約関数</h4>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_13.png"><p>
+	<li><b>関数の種類</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_02.png">
+		<ul type="circle">
+		<span style="font-size:0.95em;">	
+		<li><b>1</b>:&nbsp;形状最適化は10の関数を対応します。 トポロジ最適化は、変位、固有振動数、表面積を除くすべてを対応します。</li><br>
+		<li><b>2</b>:&nbsp;ユーザーは、[追加]ボタンで複数の目的関数を選択できます。</li><br>
+		<li><b>3</b>:&nbsp;関数によって必要なパラメーターが表示/非表示されます。</li><br>
+		<li><b>4</b>:&nbsp;間違った入力または必要なパラメーターが入力されていない場合に警告ログを表示します。</li><br>
+		<li><b>5</b>:&nbsp;目的関数をエクスポートする場合、.adxファイルには$ComplianceFunction（オプションのパラメーター）と$Objectiveドキュメントが出力されます。</li><br>		
+		<li><b>6</b>:&nbsp;Prosess Numberで使用されるプロセス番号は、プロセス構成での解析順に、0から連続して各プロセスに割り当てられる番号です。</li><br>	
+		<li><b>7</b>:&nbsp;プロセス構成内のすべてのプロセスを指定するにはAllを定義します。 プロセス構成の最後のプロセスを指定するにはLastを定義します。</li><br>			
+		<li><b>8</b>:&nbsp;プロセス番号を指定せずに省略し、プロセス構成IDのみを指定すると、最後のプロセスが指定されます。</li>		
+
+				</span>
+		</ul>	
+	</li>	
+	<li><b>目的関数との違い</b><p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>必要なパラメーター</b>:&nbsp;機能名、制約条件、比率|値と係数を含みます。</li><br>	
+		<li><b>オプションのパラメータ</b>:&nbsp;目的関数と同じです。</li>
+		</span>
+		</ul>	
+	</li>	
+	
+	
+	
+	
+	
+	<h4>非設計領域</h4>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_14.png"><p>
+	<li><b>関数の種類</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_15.png">
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>1</b>:&nbsp;形状最適化のための3つの関数を、トポロジー最適化のために2つの関数を対応します。</li><br>
+		<li><b>2</b>:&nbsp;ユーザーは追加ボタンで複数の関数を選択できます。</li><br>
+		<li><b>3</b>:&nbsp;節点の自由度（$ShapeOptimizationFixedNode）の指定は、形状最適化の場合にのみ有効です。</li><br>
+		<li><b>4</b>:&nbsp;関数によって必要なパラメーターが表示/非表示されます。</li><br>
+		<li><b>5</b>:&nbsp;間違った入力または必要なパラメーターが入力されていない場合に警告ログを表示します。</li>
+		</span>
+		</ul>	
+	</li>	
+	<li><b>Optimization Frozen Node / 節点指定</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_16.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>節点セット</b>:&nbsp;節点グループで節点セットを指定します。</li><br>
+		<li><b>最適化</b>:&nbsp;最適化のタイプ（形状とトポロジー）を指定します。</li>	
+		</span>
+		</ul>
+	</li>
+	<li><b>Optimization Frozen Element / 要素指定</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_17.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>要素セット</b>:&nbsp;要素グループまたはプロパティで要素セットを指定します。</li><br>
+		<li><b>最適化</b>:&nbsp;最適化のタイプ（形状とトポロジー）を指定します。</li>	
+		</span>
+		</ul>
+	</li>	
+	<li><b>Shape Optimization Fixed Node / 節点自由度指定</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_18.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>自由度数</b>:&nbsp;0 1 2 3 4 5または0：5のように自由度を指定します。</li><br>
+		<li><b>節点セット</b>:&nbsp;節点グループごとに節点セットを指定します。</li>
+		</span>
+		</ul>
+	</li>	
+	
+	
+	<h4>形状/トポロジー</h4>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_19.png"><p>
+	<li><b>関数の種類</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_20.png">
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>１</b>:&nbsp;形状最適化は5つの機能をサポートし、トポロジー最適化は2つの機能をサポートします。</li><br>
+		<li><b>２</b>:&nbsp;ユーザーは追加ボタンで複数の関数を選択できます。</li><br>
+		<li><b>３</b>:&nbsp;接触ペアと厚さを指定するときは、非干渉領域と最適化領域に注意してください。</li><br>
+		<li><b>４</b>:&nbsp;関数によって必要なパラメーターが表示/非表示されます。</li><br>
+		<li><b>５</b>:&nbsp;間違った入力または必要なパラメーターが入力されていない場合に警告ログを表示します。</li>
+		</span>
+		</ul>	
+	</li>	
+	<li><b>Shape Optimization / 形状最適化パラメーター</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_21.png"><p>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>最大反復</b>:&nbsp;形状最適化の反復の最大数を指定します。</li><br>
+		<li><b>最大ひずみ</b>:&nbsp;最大ひずみの大きさを指定します。</li><br>	
+		<li><b>H1トレランス</b>:&nbsp;形状最適化の収束許容値を指定します。</li><br>
+		<li><b>最終結果の出力</b>:&nbsp;最適化の反復の最終結果を出力するかどうかを選択します。</li><br>	
+		<li><b>出力間隔</b>:&nbsp;最適化解析結果の出力間隔を指定します。</li><br>
+		<li><b>リスタートファイル最終結果出力</b>:&nbsp;最適化反復の最終結果を再起動ファイルとして出力するかどうかを選択します。</li><br>	
+		<li><b>リスタートファイルの出力間隔</b>:&nbsp;最適化再開ファイルの出力間隔を指定します。</li><br>
+		<li><b>Armijoチェック</b>:&nbsp;Armijo基準を使用するかどうかを選択して、ステップサイズを調整するかどうかを選択します。</li><br>	
+		<li><b>Armijoパラメーター</b>:&nbsp;Armijoパラメータを指定する。</li><br>
+		<li><b>自動増分</b>:&nbsp;最適化のために、自動ステップ幅または固定ステップ幅のいずれかを選択します。</li><br>
+		<li><b>安定化係数</b>:&nbsp;形状最適化の安定化係数を指定します。</li><br>	
+		<li><b>ポアソン比</b>:&nbsp;H1勾配法で使用されるポアソン比を指定します。</li><br>
+		<li><b>自動設計不可領域</b>:&nbsp;荷重ケース内に特定の境界条件(拘束、節点荷重)が設定されている場合、領域内の全自由度を自動的に設計不可にします。</li><br>	
+		<li><b>マトリックス</b>:&nbsp;H1勾配法計算時に、2次要素を1次要素として扱うか指定します。StiffnessLinearまたはStiffnessを選択します。</li><br>
+		<li><b>Wolfe規準</b>:&nbsp;Wolfe規準を用いたステップ幅調節の有無を選択し、Wolfe規準で用いるパラメーター値を指定します。</li><br>	
+		<li><b>Wolfeパラメーター</b>:&nbsp;Wolfeパラメータを指定する。</li><br>
+		<li><b>要素体積感度調整</b>:&nbsp;体積に応じた感度の調整を行うかどうか指定します。</li>		
+		</span>
+		</ul>
+	</li>	
+	<li><b>Shape Optimization Contact Pair / 干渉防止</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_22.png"><p>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>非干渉領域</b>:&nbsp;サーフェスグループごとに、接触ペアの非干渉領域を選択します。</li><br>	
+		<li><b>最適化領域</b>:&nbsp;サーフェスグループごとに、接触ペアの最適化領域を選択します。</li><br>	
+		<li><b>ギャップ</b>:&nbsp;法線方向（ギャップ側）の接触面探索距離を指定します。</li><br>
+		<li><b>深さ</b>:&nbsp;法線方向（貫通側）の接触面探索距離を指定します。</li><br>	
+		<li><b>角度</b>:&nbsp;接触面の探索角度を指定します。</li>
+		</span>
+		</ul>
+	</li>	
+	<li><b>Shape Optimization Die Drawing / 型抜き制約</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_23.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>方向</b>:&nbsp;拘束条件を指定して、形状最適化でダイカットできる形状を取得します。 X Y Zを定義します。たとえば、0 0 1（X = 0、Y = 0、Z = 1）です。</li>	
+		</span>
+		</ul>
+	</li>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>最適化領域</b>:&nbsp;表面グループによる形状最適化ダイドローイングに使用する領域を選択します。</li><br>	
+		<li><b>抜き勾配角度</b>:&nbsp;許容される型抜き勾配を度で指定します。</li>
+		</span>
+		</ul>
+	</li>	
+	<li><b>Shape Optimization Interface Node / 干渉不可領域</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_24.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>節点セット</b>:&nbsp;節点グループで、形状最適化の干渉不可領域を定義する節点を選択します。</li>	
+		</span>
+		</ul>
+	</li>	
+	<li><b>Shape Optimization Thickness / 肉厚制限</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_25.png"><p>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>最適化領域</b>:&nbsp;サーフェスグループで、形状最適化の肉厚制限を定義する領域を選択します。</li><br>	
+		<li><b>最大板厚</b>:&nbsp;最大肉厚（実際の値）を指定します。</li><br>
+		<li><b>最小板厚</b>:&nbsp;最小肉厚（実際の値）を指定します。</li><br>
+		<li><b>板厚深さ</b>:&nbsp;板厚検索距離（実際の値）を指定します。</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Topology Optimization / 位相最適化</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_26.png"><p>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>初期密度</b>:&nbsp;濃度比の初期値（0から1の値）を指定します。</li><br>
+		<li><b>密度変数</b>:&nbsp;0から値を指定しますか？ rwidth？ 0.5は、最適化された反復法の初期密度比（位相）に範囲（？rwidth、rwidth）の通常の乱数を追加します。</li><br>	
+		<li><b>アルファ</b>:&nbsp;SIMP（ペナルティのある固体等方性材料）ルールが使用され、φα（θ（x））が物性値の補正として使用されます。</li><br>		
+		<li><b>最大反復</b>:&nbsp;トポロジー最適化の反復の最大数を指定します。</li><br>
+		<li><b>最大シータ</b>:&nbsp;位相変化の大きさの最大値を指定します。</li><br>	
+		<li><b>H1トレランス</b>:&nbsp;トポロジ最適化の収束許容値を指定します。</li><br>
+		<li><b>最終結果の出力</b>:&nbsp;最適化の反復の最終結果を出力するかどうかを選択します。</li><br>	
+		<li><b>出力間隔</b>:&nbsp;最適化解析結果の出力間隔を指定します。</li><br>
+		<li><b>リスタートファイル最終結果出力</b>:&nbsp;最適化反復の最終結果を再起動ファイルとして出力するかどうかを選択します。</li><br>	
+		<li><b>リスタートファイルの出力間隔</b>:&nbsp;最適化再開ファイルの出力間隔を指定します。</li><br>
+		<li><b>Armijoチェック</b>:&nbsp;Armijo基準を使用するかどうかを選択して、ステップサイズを調整するかどうかを選択します。</li><br>
+		<li><b>Armijoパラメーター</b>:&nbsp;Armijoパラメータを指定する。</li><br>		
+		<li><b>自動増分</b>:&nbsp;最適化のために、自動ステップ幅または固定ステップ幅のいずれかを選択します。</li><br>
+		<li><b>安定化係数</b>:&nbsp;トポロジー最適化の安定化係数を指定します。 値が大きいほど、全体の動きを抑える効果があります。</li><br>	
+		<li><b>自動設計不可領域</b>:&nbsp;荷重がかかっているかどうかに関係なく、特定の境界条件を持つ領域のすべての自由度を自動的に無効にします。</li><br>	
+		<li><b>Wolfe基準</b>:&nbsp;Wolfe基準に使用するかどうかを選択します-ステップサイズを増やします。 Wolfe標準はArmijo標準と二重であり、各ステップサイズの下限を設定します。</li><br>	
+		<li><b>Wolfeパラメーター</b>:&nbsp;Wolfeパラメータを指定する。</li><br>	
+		<li><b>グレースケール比</b>:&nbsp;グレースケール比を指定します。</li><br>	
+		<li><b>出力グレースケール比</b>:&nbsp;出力をグレースケール比に従うかどうかを指定します。</li>	
+		</span>
+		</ul>
+	</li>	
+	<li><b>Toporogy Optimaization Die Drawing / 位相最適化型抜き制約</b><p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_27.png"><p>
+	</p>必要なパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>方向</b>:&nbsp;トポロジー最適化でダイカットできる形状を取得するための拘束条件を指定します。 X Y Zを定義します。たとえば、0 0 1（X = 0、Y = 0、Z = 1）です。</li>	
+		</span>
+		</ul>
+	</li>
+	</p>オプションのパラメーター</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>要素セット</b>:&nbsp;要素グループまたはプロパティごとに、トポロジ最適化ダイ描画に使用する領域を選択します。</li>	<br>
+		<li><b>打ち抜き|片側型抜き</b>:&nbsp;型抜きの種類を指定します。 Punchingは打ち抜きで、Onesideは片側型抜きです。</li><br>
+		<li><b>座標系</b>:&nbsp;型抜きベクトルの座標系を指定します。 指定しない場合は、座標系全体になります。</li>
+		</span>
+		</ul>
+	</li>		
+	
+	
+	<h4>出力パラメータ</h4>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_ShapeTopologyOptimization_28.png"><p>
+	<li><b>形状/トポロジー最適化のためのすべてのタイプの出力要求</b><p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>形状変動</b>:&nbsp;形状最適化の形状変動。</li><br>
+		<li><b>節点密度比</b>:&nbsp;位相最適化の節点密度比。</li><br>
+		<li><b>密度比</b>:&nbsp;位相最適化の密度比。</li><br>
+		<li><b>全感度</b>:&nbsp;全感度は目的関数と制約関数の感度にラグランジュの未定乗数を掛けた和。</li><br>
+		<li><b>目的関数の感度</b>:&nbsp;目的関数の感度。</li><br>
+		<li><b>各制約関数の感度</b>:&nbsp;制約関数の感度。</li><br>
+		<li><b>感度一括指定</b>:&nbsp;感度を指定すると、すべての感度情報を一度に指定できます。</li>
+		</span>
+		</ul>	
+	</li>		
+<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+		<li>&nbsp;ジョブ名を指定します。</li>
+		<li>&nbsp;プロセスを作成でプロセスを作成します。 デフォルト時間の増分で分析を実行する場合は、特に時間を指定する必要はありません。</li>
+		<li>&nbsp;LBCマネージャーで境界条件を割り当てます。</li>
+		<li>&nbsp;出力マネージャで出力項目を選択します。</li>
+		<li>&nbsp;[形状/トポロジの最適化]ボタンをクリックし、すべてのパラメータを設定します。</li>
+		<li>&nbsp;計算を完了するには、少なくとも4ページ設定する必要があります。非設計領域は任意指定です。 必須パラメータに注意してください。</li>
+		<li>&nbsp;[適用/ OK]ボタンをクリックします。</li>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

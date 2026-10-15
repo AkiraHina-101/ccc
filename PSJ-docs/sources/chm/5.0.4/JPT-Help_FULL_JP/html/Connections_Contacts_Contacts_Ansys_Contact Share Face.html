@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<style type="text/css">
+		/* Linkの下線非表示 */
+		a.no-uline { text-decoration:none }
+		/* Linkの上にマウスポインタを置くと非表示 */
+		a.noul:hover { text-decoration:none !important }
+		</style>
+		<title>接触 | 共有面 | Ansys</title>
+	</head>
+	<body>
+		<div class="page">
+			<h2>接触 | 共有面 | Ansys</h2>
+
+			<div class="contents">
+				<p>
+				共有面からAnsys用接触設定を定義します。<br>
+				共有面が分離(二重節点状態のフェースが作成)され、そのフェース間に接触対が定義されます。
+				</p>
+				
+				<img src="./Media/CommandDlg/Connections_Contacts_Contacts_Ansys_Contact%20Share%20Face.png" />
+				
+				<h4>基本</h4>
+				<ul>
+					<li>名前
+						<p>接触対名称の頭に付ける名称を入力します。</p>
+					</li>
+					<li>アルゴリズム
+						<p>接触設定対象エンティティを選択します。
+						<ul type="circle" style="text-size: 0.95em">
+							<li>フェース-フェース&nbsp;:&nbsp;フェース対フェース間接触</li>
+						</ul>
+						</p>
+					</li>
+					<li>タイプ
+						<p>接触定義の挙動タイプを選択します。
+						<ul type="circle" style="text-size: 0.95em">
+							<li>一般&nbsp;:&nbsp;滑り接触</li>
+							<li>シェル-ソリッド交差部接続(オリジナルメッシュ)&nbsp;:&nbsp;シェル-ソリッド交差部接続(オリジナルメッシュ)</li>
+						</ul>
+						</p>
+					</li>
+					<li>情報
+						<p>
+						<ul type="circle" style="text-size: 0.95em">
+							<li>情報表示&nbsp;:&nbsp;選択された共有面に関連するパーツ名が表示されます。
+							<p>
+							<img src="./Media/Connections_Contacts_Contacts_Ansys_Contact%20Share%20Face_1.png"><br>
+							パーツをハイライト&nbsp;:&nbsp;選択された共有面に関連するパーツがハイライト表示されます。
+							</p>
+							</li>
+						</ul>
+						</p>
+					</li>
+				</ul>
+				
+				<h4>ンタクトプロパティ｜一般</h4>
+				<ul>
+					<li>摩擦係数
+						<p>摩擦係数を指定します。</p>
+					</li>
+					<li>法線ペナルティ剛性
+						<p>法線ペナルティ剛性を指定します。</p>
+					</li>
+					<li>貫通トレランス
+						<p>貫通トレランスを指定します。</p>
+					</li>
+					<li>接触剛性更新
+						<p>接触剛性更新を指定します。
+						<ul type="circle" style="text-size: 0.95em">
+							<li>0 各荷重ステップ(ペアベース)。</li>
+							<li>1 各サブステップ(ペアベース)。</li>
+							<li>2 各反復(ペアベース)。</li>
+							<li>3 各荷重ステップ(要素ベース)。</li>
+							<li>4 各サブステップ(要素ベース)。</li>
+							<li>5 各反復(要素ベース)。</li>
+						</ul>
+						</p>
+					</li>
+					<li>接触アルゴリズム
+						<p>接触アルゴリズムを指定します。
+						<ul type="circle" style="text-size: 0.95em">
+							<li>拡大ラグランジュ方。</li>
+							<li>ペナルティ法。</li>
+							<li>MPCアルゴリズム。</li>
+							<li>ラグランジュ法およびペナルティ法。</li>
+							<li>ラグランジュ法。</li>
+						</ul>
+						</p>
+					</li>
+					<li>接触検出
+						<p>接触検出を指定します。
+						<ul type="circle" style="text-size: 0.95em">
+							<li>ガウス点上。</li>
+							<li>接触面から法線方向の節点上。</li>
+							<li>ターゲットサーフェスに垂直な節点上。</li>
+						</ul>
+						</p>
+					</li>
+					<li>接触面の挙動
+						<p>接触面の挙動を指定します。
+						<ul type="circle" style="text-size: 0.95em">
+							<li>標準。</li>
+							<li>ラフ。</li>
+							<li>分離なし。</li>
+							<li>固着。</li>
+							<li>分離しない (常に)。</li>
+							<li>固着(常に)。</li>
+							<li>固着(初期接触)。</li>
+						</ul>
+						</p>
+					</li>
+					<li>初期貫通
+						<p>初期貫通を指定します。
+						<ul type="circle" style="text-size: 0.95em">
+							<li>すべてを考慮する。</li>
+							<li>すべてを考慮しない。</li>
+							<li>すべてを線形的に考慮する。</li>
+							<li>オフセットによる分のみを考慮する。</li>
+							<li>オフセットによる分のみを線形的に考慮する。</li>
+						</ul>
+						</p>
+					</li>
+				</ul>
+				
+				<h4>ンタクトプロパティ｜シェル-ソリッド交差部接続(オリジナルメッシュ)</h4>
+				<ul>
+					<li>接触アルゴリズム
+						<p>接触アルゴリズムを指定します。
+						<ul type="circle" style="text-size: 0.95em">
+							<li>拡大ラグランジュ方。</li>
+							<li>ペナルティ法。</li>
+							<li>MPCアルゴリズム。</li>
+							<li>ラグランジュ法およびペナルティ法。</li>
+							<li>ラグランジュ法。</li>
+						</ul>
+						</p>
+					</li>
+					<li>接触検出
+						<p>接触検出を指定します。
+						<ul type="circle" style="text-size: 0.95em">
+							<li>ガウス点上。</li>
+							<li>接触面から法線方向の節点上。</li>
+							<li>ターゲットサーフェスに垂直な節点上。</li>
+						</ul>
+						</p>
+					</li>
+					<li>接触面の挙動
+						<p>接触面の挙動を指定します。
+						<ul type="circle" style="text-size: 0.95em">
+							<li>標準。</li>
+							<li>ラフ。</li>
+							<li>分離なし。</li>
+							<li>固着。</li>
+							<li>分離しない (常に)。</li>
+							<li>固着(常に)。</li>
+							<li>固着(初期接触)。</li>
+						</ul>
+						</p>
+					</li>
+					<li>初期貫通
+						<p>初期貫通を指定します。
+						<ul type="circle" style="text-size: 0.95em">
+							<li>すべてを考慮する。</li>
+							<li>すべてを考慮しない。</li>
+							<li>すべてを線形的に考慮する。</li>
+							<li>オフセットによる分のみを考慮する。</li>
+							<li>オフセットによる分のみを線形的に考慮する。</li>
+						</ul>
+						</p>
+					</li>
+				</ul>
+				
+				<h4>色設定</h4>
+				<ul>
+					<li>接触の色
+						<p>接触対表示マーカー色を定義します。
+						<ul type="circle" style="text-size: 0.95em">
+							<li>リセット: デフォルト色に初期化。</li>
+						</ul>
+						</p>
+					</li>
+				</ul>
+												
+				<h3>&nbsp;-&nbsp;操作手順&nbsp-&nbsp;</h3>
+					<ol>
+						<li>予めアセンブリ機能により共有面を作成し、共有面を表示しておきます。</li>
+						<li>接触を定義したい共有面となるフェースを選択します。</li>
+						<li>必要により接触対に対する詳細設定を定義し、適用（OK）ボタンをクリックして接触対を定義します。</br>
+							共有面が分離(二重節点状態のフェースが作成)され、そのフェース間に接触対が定義されます。</li>
+					</ol>
+			</div>
+		</div>
+	</body>
+</html>
+</head></html>

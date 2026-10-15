@@ -1,0 +1,88 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>力 | 法線方向</title>
+
+
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>力 | 法線方向</h2>
+<div class="contents">
+	<p>
+	選択した節点に、選択したフェースの法線方向に荷重を定義します。
+	</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Loads_Force_Normal%20Direction.png">
+
+	<h4>構造力</h4>
+ 　　 <li>名前
+	<p>
+	力荷重名を設定します。
+	</p>
+	<h4>力</h4>
+　　　</li>
+ 　　 <li>荷重X/Y/Z
+	<p>
+	選択された要素面から荷重のX,Y,Z各軸方向の成分を表示します。
+	</p>
+　　　</li>
+ 　　 <li>値
+	<p>
+	負荷する荷重値を入力します。
+	</p>
+　　　</li>
+ 　　 <li>入力単位系
+	<p>
+	入力単位を指定します。
+	</p>
+	<h4>オプション</h4>
+　　　</li>
+ 　　 <li>矢印方向
+	<p>
+	マーカー表示の描画位置を設定をします。<br>
+	&nbsp;&nbsp;&nbsp;節点が始点：節点を始点として、マーカーを表示します。<br>
+	&nbsp;&nbsp;&nbsp;節点が終点：節点を終点として、マーカーを表示します。<br>
+	</p>
+　　　</li>
+ 　　 <li>分配方法
+	<p>力の分配方法の設定をします。<br>
+	&nbsp;&nbsp;&nbsp;選択したエンティティ毎 ：選択したエンティティ毎に設定した値がかかります。<br>
+	&nbsp;&nbsp;&nbsp;節点毎 ：全節点に入力した荷重値が設定されます。<br>
+	&nbsp;&nbsp;&nbsp;選択したエンティティの合計 ：選択したエンティティに設定した値が振分けられます。<br>
+	</p>
+　　　</li>
+
+<h3>-&nbsp操作手順&nbsp-</h3>
+      <ol>
+　　　<li>法線方向の加重を負荷する節点を選択します。複数の選択が可能です。</li>
+　　　<li>法線方向を参照するサーフェスを一つ選択します。</li>
+　　　<li>負荷する荷重値を入力入力します。</li>
+　　　<li>入力した荷重値の分配方法選択します。</li>
+　　　<li>必要に応じて他のパラメータを選択、入力します。</li>
+　　　<li>適用またはOKボタンをクリックします。</li>
+      </ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</li></div>
+</div>
+</body>
+
+</html>
+</head></html>

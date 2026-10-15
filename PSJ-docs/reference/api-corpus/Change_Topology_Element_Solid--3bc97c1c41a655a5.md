@@ -1,0 +1,3 @@
+# Change Topology | Element | Solid
+
+Change Topology | Element | Solid Change Topology | Element | Solid Make the selected solid element belong to another part. Options Create New Part If checked, a new part will be created with the selected element. If you do not select it, the element belongs to the selected part. -&nbspOperating Procedure&nbsp- &nbspSelect a solid element. &nbspIf you want it to belong to another part, select the part. &nbspIf you want to create a new part, check Create New Part. &nbspThe function is executed with the Apply or OK button. Create New Part: Change Belonging Parts: -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

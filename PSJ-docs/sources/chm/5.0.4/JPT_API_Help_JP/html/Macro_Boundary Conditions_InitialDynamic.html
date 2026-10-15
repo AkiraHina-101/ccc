@@ -1,0 +1,40 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>InitialDynamic</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>InitialDynamic</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create Initial Condition</p>
+<h4>Syntax</h4>
+<p>InitialDynamic(CString m_strName,int m_Type,double[] fVel,BOOL bSelNodeSet,Cursor crNodeSet,Cursor crTable,Cursor curCoord,Cursor[] m_taTarget,Cursor m_crEdit)</p>
+<h4>Inputs</h4> <ol>
+<li>CString<p>Condition name</p></li>
+<li>int<p>Condition Type[0-displacement 1-velocity 2-rotation angle 3-angular velocity]</p></li>
+<li>double[]<p>Condition value</p></li>
+<li>BOOL<p>selected node set</p></li>
+<li>Cursor<p>selected node set cursor</p></li>
+<li>Cursor<p>selected table cursor</p></li>
+<li>Cursor<p>coordinate cursor</p></li>
+<li>Cursor[]<p>selected entity</p></li>
+<li>Cursor<p>edit mode</p></li>
+</ol> <h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>InitialDynamic("InitialAngularVelocity1", 3, [1, 2, 3], 0, 0:0, 0:0, 0:0, [3:1], 0:0)</p>
+</div>
+</div>
+</body>
+</html>

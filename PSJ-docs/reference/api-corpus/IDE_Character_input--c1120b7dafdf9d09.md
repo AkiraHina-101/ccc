@@ -1,0 +1,3 @@
+# IDE : Character input
+
+IDE : Character input Character input Highlight When you double-click a word, the duplicate word is highlighted (yellow). The highlighted data is stored in the database folder. Auto completion Supports auto-completion. For example, if you type "Geometry.Sol"", the list box will show words that start with "Sol". The auto-completion data is stored in the database folder. This function supports the following. All words in the IDE Python keywords PSJ-Utility Tooltip Supports tooltips. For example, if you enter "JPT.ClearLog(", a tooltip showing the JPT.ClearLog document is displayed. Tooltip data is stored in the database folder. User-defined function tooltip It also supports user functions.

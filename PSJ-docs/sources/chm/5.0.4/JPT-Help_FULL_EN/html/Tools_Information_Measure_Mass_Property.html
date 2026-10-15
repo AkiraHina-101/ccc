@@ -1,0 +1,86 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>Mass [Manual]</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</br>
+</style>
+</head>
+
+
+<body>
+<div class="page">
+<h2>Mass [Manual]</h2>
+	<div class="contents">
+	<p>Measure the mass of the Solid Part. In this case, Mass is calculated based on property of the solid.</p>
+
+	<img src="./Media/CommandDlg/Tools_Information_Measure_Mass_property.png"></img>
+
+ 　　 <h4>Measure</h4>
+		<li><b>Coordinate System</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Reference coordinate system.</p>
+		</li>
+	<h4>Output</h4>
+		<li><b>Value</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Measurement results (mass) is displayed.</p>
+		<li><b>Input Unit</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Set the preferred unit system  .</p>
+		</li>
+	
+	<h4>Gravity Center</h4>
+		<li><b>X/Y/Z</b>
+			<p>&nbsp;&nbsp;&nbsp;Specify the position of the centre of gravity in the reference coordinate system.</p>
+		</li>
+	
+	<h4>Moment of Inertia</h4>
+		<li><b>Axis</b></br>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>Principal</b>&nbsp;:&nbsp;Using the principal axis of inertia for the moment of inertia calculation.</li>
+					<ul type="square">
+						<li>11,22,33&nbsp;:&nbsp;The value of the principal moments of inertia</li>
+						<li>Rotation Angle&nbsp;:&nbsp;Rotation angle of the main axis</li>
+						<li>1/2/3&nbsp;&nbsp;X,Y,Z&nbsp;:&nbsp;Direction of each of the principal axis of inertia (centre of gravity coordinate is 0)</li>
+					</ul>
+				</br>
+				<li><b>XYZ</b>&nbsp;:&nbsp;Using the reference coordinate system for the moment of inertia calculation. </li>
+					<ul type="square">
+						<li>XX/YY/ZZ/XY/XZ/YZ&nbsp;:&nbsp;The value of the moment of inertia around the reference coordinate system</li>
+					</ul>
+				</span>
+			</ul>
+		</br>
+					
+	<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;Select the solid parts from the screen(*Solid component should contain material propery).</li>
+		<li>&nbsp;Total value of mass of the selected part is displayed.</li>
+		</ol>
+
+
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

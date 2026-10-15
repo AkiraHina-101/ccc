@@ -1,0 +1,71 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>Project Line</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Project Line</h2>
+<div class="contents">
+<p>Project the selected edge vertically onto the selected face.</p>
+
+	<img src="./Media/CommandDlg/Geometry_Create%20Entity_Edge_Imprint_Project%20Line.png">
+
+	<h4>Option</h4>
+
+		<li><b>Break Face</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Break the face.</p>
+		<li><b>Vector Direction</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Specify the projection method.</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>Target Face Normal</b>: Project in the normal direction of the target face.</li>
+				<li><b>Two Nodes</b>: Project in the direction of the specified 2 nodes.</li>
+				<li><b>Nearest Vector</b>: Project onto the face closest to the selected edge.</li>
+				</span>
+			</ul>
+		<li><b>Gap</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Limit the projection distance to the input value.</p>
+		<br>
+	</br>
+	
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+		<ol>
+		<li>&nbsp;Press the edge or face button and select the edge to imprint from and the face to be imprinted from the screen.</li>
+		<li>&nbsp;From the preview, check that the projection destination is correct.</li>
+		<li>&nbsp;Set the projection method and gap amount as necessary.</li>
+		<li>&nbsp;Clear the Split Faces check box if necessary. In this case, the imprinted face is not divided from the original face.</li>
+		<li>&nbsp;Click the Apply / OK button.</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

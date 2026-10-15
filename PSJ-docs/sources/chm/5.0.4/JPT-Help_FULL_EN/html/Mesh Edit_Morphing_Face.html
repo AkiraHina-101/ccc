@@ -1,0 +1,108 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Morphing | Face</title>
+
+<style type="text/css">
+<!--/* Link下線、非表示 */-->
+a.no-uline {text-decoration:none}
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Morphing | Face</h2>
+<div class="contents">
+
+	<img src="./Media/CommandDlg/Mesh%20Edit_Morphing_Face.png">
+	</br>
+	<p>Perform mesh deformation (morphing). While moving the selected face, smoothly move the nodes within the specified range from the selected face.<br>
+	It is used when changing the board thickness.</p>
+	<p>※After the morphing function is executed, the mesh is trimmed with the partial remeshing function. </p>	
+	<h4>Parameters</h4>
+		<li><b>Strong Effect Distance</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the range that is strongly affected by the movement of the selected entity as a distance.
+		The nodes included in this range are moved by the distance specified by Move Distance.
+</p>
+		</li>
+
+		<li><b>Weak Effect Distance</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the range affected by the movement of the selected entity as a distance.
+		The Movement Amount of the nodes included in this distance range is 0 &lt; Movement Amount &lt; Move Distance, and decreases as the distance from the selected entity increases.
+</p>
+		</li>
+
+	<img src="./Media/Mesh%20Edit_Morphing_OneNode_1.png">		
+		<li><b>Effect Range</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Specify how to set Strong Effect Distance / Weak Effect Distance.</p>
+		</li>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li>Both Side Faces <p> Centers on the selected entity and sets it to be spherical. The effects of movement extend to all nodes in the model.</p></li>
+		<li>Selected Faces<p>Set to follow the face connected to the selected entity.</p></li>
+		</span>
+		</ul>
+	<img src="./Media/Mesh%20Edit_Morphing_OneNode_2.png">		
+		<li><b>Direction Type</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the movement type.</p>				
+		</li>
+			<ul type="circle">
+			<span style="font-size:0.95em;">
+			<li>Offset Values<p>Move in the specified direction.</p></li>
+			<li>Normal Offset<p>Move in the direction perpendicular to the surface of the mesh.</p></li>
+			<p>※In the case of 1 node and in the case of face, the moving direction of the corner part is different.</p>
+			<img src="./Media/Mesh%20Edit_Morphing_OneNode_3.png" width="500">
+			<li>Node+Point<p>Move in the direction of the selected node and face point.</p></li>
+			<li>Rotation<p>Move the selected node at the specified angle around the rotation center.</p></li>	
+			</span>
+			</ul>
+	<h4>Move Distance</h4>
+		<li><b>Coordinates</b></br>
+			<p>&nbsp;&nbsp;&nbsp; (Direction type: Normal Offset) Specify the Movement Amount in the direction of each axis.</p>				
+		</li>	
+		<li><b>Move Distance</b></br>
+			<p>&nbsp;&nbsp;&nbsp; (Direction type: Offset Values, Node + Point) Specify the movement amount.</p>				
+		</li>
+		<li><b>Angle</b></br>
+			<p>&nbsp;&nbsp;&nbsp; (Direction type: Rotation) Specify the rotation angle.</p>				
+		</li>
+
+	<h4>Options</h4>
+		<li><b>Show Influence Node</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Preview the moving node.</p>
+		</li>
+		<li><b>Show Preview</b></br>
+			<p>&nbsp;&nbsp;&nbsp;The ovement amount of each node to be moved is previewed with an arrow.</p>
+		</li>
+	<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;Select a face from the screen. The influence nodes are previewed.</li>
+			<li>&nbsp;Change the parameters to adjust the movement amount.</li>
+			<li>&nbsp;If you want to see the actual movement amount, turn on Show Preview.</li>
+			<li>&nbsp;Press the Apply or OK button to move the nodes.</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+
+</div>
+</body>
+</html>

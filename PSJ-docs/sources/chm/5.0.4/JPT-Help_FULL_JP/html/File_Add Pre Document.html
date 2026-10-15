@@ -1,0 +1,77 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>Preドキュメントを追加</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Preドキュメントを追加</h2>
+<div class="contents">
+	<p>指定したPreドキュメントをインポートします。既存モデルとエンティティIDが重複した場合はIDオフセットもしくはIDリナンバーを行います。</p>
+
+	<img src="./Media/CommandDlg/AddPreDocument.PNG">
+	<h4>パス設定</h4>
+		<p>&nbsp;&nbsp;&nbsp;Preドキュメントのパス設定。</p></li>
+		<li><b>Preドキュメントを追加</b>
+			<p>&nbsp;&nbsp;&nbsp;現在開いているドキュメントに追加するPreドキュメントを選択します。</p></li>
+	<h4>インポートモデル</h4>
+		<p>&nbsp;&nbsp;&nbsp;[インポートモデル]を選択して、インポートモデルのIDをオフセット/リナンバーパラメーターを入力します。</p></li>
+	<h4>現在のモデル</h4>
+		<p>&nbsp;&nbsp;&nbsp;[現在のモデル]を選択してパラメーターを入力し、現在のモデルのIDをオフセット/リナンバーします。</p></li>
+	<h4>オフセット/リナンバー</h4>
+		<p>&nbsp;&nbsp;&nbsp;[IDオフセット]または[IDリナンバー]オプションを選択します。</p></li>
+		<li><b>オプション</b>
+			<p>&nbsp;&nbsp;&nbsp;重複IDを処理するには、2つのオプションがあります。<br>
+			- <strong>IDオフセット</strong>: このオプションを使用すると、テキストボックスに指定された値を持つ選択したモデルのエンティティIDがオフセットされます。<br>
+			<strong>例：IDオフセットを選択した場合</strong> <br>
+			<img src="./Media/AddPreDocument_OffsetID.png"> <br>
+			インポートモデルのエンティティIDはオフセットとして処理されます。
+			この例では、ノード、要素、フェース、エッジおよびパーツIDがオフセット処理されます。オフセット値は現在のモデルの対応するエンティティの最大ID値に設定されます。<br>
+			[OK]を押してモデルをインポートすると、選択したモデルのエンティティのすべてのIDが、指定したオフセット値によってオフセットされます。<br><br>
+			- <strong>IDリナンバー</strong>: このオプションを使用すると、エンティティIDを指定した開始IDでリナンバーしてインポートします。<br>
+			<strong>例：IDリナンバーを選択した場合</strong> <br>
+			<img src="./Media/AddPreDocument_RenumberID.png"> <br>
+			現在のモデルの各エンティティIDの最大値+1の値を開始IDとして入力され、リナンバーされます。
+			この例では、ノード、要素、フェース、エッジおよびパーツIDがリナンバーされます。<br>
+			[OK]を押すと、選択されたモデルの指定された番号変更したオブジェクトのすべてのIDが、指定された値にしたがって番号変更されます。<br><br.
+			</p></li>
+		<li><b>ログファイルを表示</b>
+			<p>&nbsp;&nbsp;&nbsp;オンの状態で、OKを押すと、IDオフセット/IDリナンバー情報を含むログファイルが表示されます。</p></li>
+		<h4>単位系</h4>		
+		<li><b>オプション</b><br>
+			- <strong>現在の単位系</strong>:
+			<p>&nbsp;&nbsp;&nbsp;現在開いているドキュメントの単位系を保持します。インポートファイル内の数値は、現在のドキュメントの単位系に変換されます。</p></li>
+	
+			- <strong>インポート単位系</strong>:
+			<p>&nbsp;&nbsp;&nbsp;インポートファイルの単位系を使用します。現在開いているドキュメント内の数値は、インポートファイルの単位系に変換されます。</p></li>
+	
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

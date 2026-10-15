@@ -1,0 +1,203 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>接触 | 共有面 | ABAQUS</title>
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>接触 | 共有面 | ABAQUS</h2>
+<div class="contents">
+	<p>
+	共有面からAbaqus用接触設定を定義します。<br>
+	共有面が分離(二重節点状態のフェースが作成)され、そのフェース間に接触対が定義されます。
+	</p>
+
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_ABAQUS_Contact%20Share%20Face.png">
+
+      <h4>基本</h4>
+
+　　　<li>名前
+	<p>
+	接触対名称の頭に付ける名称を入力します。
+	</p>
+　　　</li>
+
+　　　<li>アルゴリズム
+	<p>
+	接触設定対象エンティティを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;フェース-フェース間: フェース対フェース間接触<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;節点-フェース間: 節点指定によるスレーブフェース対フェース間接触
+		</p>
+　　　</li>
+
+　　　<li>タイプ
+	<p>
+	接触定義の挙動タイプを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;一般接触: 滑り接触<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;固着: 固着<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;自己接触: 自動接触検知
+	</p>
+　　　</li>
+      <h4>共有フェース情報</h4>
+	<p>
+	&nbsp;&nbsp;選択された共有面に関連するパーツ名が表示されます。<br>
+	<img src="./Media/Connections_Contacts_Contacts_ABAQUS_Contact%20Share%20Face_1.png"><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Highlight Body: 選択された共有面に関連するパーツがハイライト表示されます。<br>
+	</p>
+
+      <h4>コンタクトプロパティ</h4>
+
+
+　　　<li>調整
+	<p>
+	初期節点位置の調整幅を指定します。
+	</p>
+　　　</li>
+
+　　　<li>延長ゾーン
+	<p>
+	拡張領域を指定します。
+	</p>
+　　　</li>
+
+　　　<li>TIE
+	<p>
+	接触ペアを固着条件とします。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;On: 固着指定
+	</p>
+　　　</li>
+
+　　　<li>最大貫通量
+	<p>
+	最大貫通量を指定します。
+	</p>
+　　　</li>
+
+　　　<li>スムーズ
+	<p>
+	スムージング角度を指定します。
+	</p>
+　　　</li>
+
+　　　<li>微小滑り
+	<p>
+	微小滑りの考慮を指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;オフ: 無効<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;オン: 有効
+	</p>
+　　　</li>
+
+　　　<li>定式化
+	<p>
+	接触定式化タイプを指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;color:black">節点-サーフェース
+</span>: 点-面接触<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;サーフェース-サーフェース: 面-面接触
+	</p>
+　　　</li>
+
+
+      <h4>摩擦プロパティ</h4>
+
+　　　<li>摩擦タイプ
+	<p>
+	摩擦特性タイプを指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;なし: 摩擦未考慮<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;一般: 一般接触<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;摩擦係数1: 摩擦係数1<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;摩擦係数2: 摩擦係数2<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;せん断応力限界: せん断応力限界<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;滑りトレランス: 許容最大弾性滑り用サーフェス寸法比率<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ラグランジュ: ラグランジェ乗数法<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;摩擦係数1: 摩擦係数1<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;摩擦係数2: 摩擦係数2<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;せん断応力限界: せん断応力限界<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ラフ: ラフ(スリップ無し)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;静的: 静動摩擦別指定<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;滑りトレランス: 許容最大弾性滑り用サーフェス寸法比率<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;静止摩擦係数: 静摩擦係数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;動摩擦係数: 動摩擦係数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;減衰係数: 減少係数<br>
+	</p>
+　　　</li>
+
+
+      <h4>法線方向挙動</h4>
+
+　　　<li>圧力-食い込み量
+	<p>
+	接触方向挙動の接触厚-食い込み特性タイプを指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;剛接触: 剛接触<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分離を許可: 分離許可<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;指数: 指数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;入力データ: 指数曲線定義用の圧力0時の間隙量と間隙量0時の圧力値入力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;線形: 線形<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接触剛性: 接触剛性<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;表形式: 表形式<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;入力データ: 圧力、食い込み量のテーブル入力<br>
+	</p>
+　　　</li>
+
+
+      <h4>熱伝達性</h4>
+
+　　　<li>データタイプ
+	<p>
+	熱伝導の接触特性定義方法を指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;クリアランス依存関係: 間隙量依存<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;入力データ: 間隙量依存の熱伝導率テーブル入力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;圧力依存関係: 圧力依存<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;入力データ: 圧力依存の熱伝導率テーブル入力<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;クリアランスと圧力の依存関係: 間隙量と圧力依存<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;入力データ: 間隙量と圧力依存の熱伝導率テーブル入力<br>
+	</p>
+　　　</li>
+
+
+      <h4>色設定</h4>
+
+　　　<li>接触の色
+	<p>
+	接触対表示マーカー色を定義します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;リセット: デフォルト色に戻します。
+	</p>
+　　　</li>
+
+
+
+<h3>-&nbsp;操作手順&nbsp;-</h3>
+      <ol>
+　　　<li>予めアセンブリ機能により共有面を作成し、共有面を表示しておきます</li>
+　　　<li>接触を定義したい共有面となるフェースを選択します。</li>
+　　　<li>必要により接触対に対する詳細設定を定義し、適用（OK）ボタンをクリックして接触対を定義します。</li>
+      </ol>
+	<p>
+	共有面が分離(二重節点状態のフェースが作成)され、そのフェース間に接触対が定義されます。
+	</p>
+<br>
+<br>
+      
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

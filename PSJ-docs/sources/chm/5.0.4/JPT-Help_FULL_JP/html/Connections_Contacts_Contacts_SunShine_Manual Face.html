@@ -1,0 +1,159 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>フェース指定</title>
+
+<style type="text/css">
+<!--/* Link下線、非表示 */-->
+a.no-uline {text-decoration:none}
+</style>
+
+
+</html></head>	
+
+
+<body>
+<div class="page">
+	<h2>接触 | SunShine - フェース指定</h2>
+<div class="contents">
+	<p>指定フェース間に接触設定を定義します。<BR>
+	マスター面となるフェース、およびスレーブ面となるフェースを選択し、接触設定を定義します。 </p>
+
+	<img src="./Media/CommandDlg_JP/Connections_Contacts_Contacts_TS%20SS_Manual%20Face.png">
+	<br>
+	<br>
+	
+	<h4>基本</h4>
+		<li><b>名前</b>
+			<p>&nbsp;&nbsp;&nbsp;接触対の名称を入力します。</p>
+		</li>
+		<li><b>アルゴリズム</b>
+			<p>&nbsp;&nbsp;&nbsp;接触設定対象エンティティを選択します。</p>
+			<ul type="circle">
+			<li><b>フェース-フェース</b>: フェース対フェース間接触</li>
+			</ul>
+		</li>
+		<li><b>タイプ</b>
+			<p>&nbsp;&nbsp;&nbsp;接触定義の挙動タイプを選択します。</p>
+				<ul type="circle">
+					<span style="font-size:0.95em;">
+						<li><b>一般接触</b>&nbsp;:&nbsp;(IGLUE:0)滑り接触<br>
+						<li><b>固着</b>&nbsp;:&nbsp;(JGLUE:0)固着</li>
+						<li><b>滑り可能固着</b>&nbsp;:&nbsp;(JGLUE:1)摩擦なし滑り可能な固着<br>
+					</span>
+				</ul>
+		</li>
+		<li><b>マスター</b>
+			<p>&nbsp;&nbsp;&nbsp;マスター面となるフェースを選択します。
+
+
+</p>
+		</li>
+		<li><b>スレーブ</b>
+			<p>&nbsp;&nbsp;&nbsp;スレーブ面となるフェースを選択します。</p>
+		</li>
+		<li><b>M/S入替</b>
+			<p>&nbsp;&nbsp;&nbsp;マスター/スレーブセグメントグループを切り替えます。</p>
+		</li>
+		<h4>コンタクトプロパティ</h4>
+		<li><b>接触距離範囲(ERROR)</b>
+			<p>&nbsp;&nbsp;&nbsp;節点がボディに接触していると見なされる距離。</p>
+		</li>
+		<li><b>摩擦係数(FRIC)</b>
+			<p>&nbsp;&nbsp;&nbsp;摩擦係数。</p>
+		</li>
+		<li><b>干渉閉鎖距離(CINTERF)</b>
+			<p>&nbsp;&nbsp;&nbsp;接触フェースに垂直な方向の干渉閉鎖量。<br>
+			&nbsp;&nbsp;&nbsp;CINTERF>0 の場合、ボディ間のオーバーラップ。<br>
+			&nbsp;&nbsp;&nbsp;CINTERF<0 の場合は、ボディ間のギャップ。</p>
+		</li>
+		<li><b>接触面延伸距離(SLIDE)</b>
+			<p>&nbsp;&nbsp;&nbsp;接触面延伸距離。<br>
+			&nbsp;&nbsp;&nbsp;ICOORD >= 2 でない限り、この入力は行わないでください。<br>
+			&nbsp;&nbsp;&nbsp;接触面延伸距離オプションを使用する場合、セグメント上をスライドする節点は、設定値以上に鋭角上の節点やエッジを超えて通る場合のみセグメントから滑り落ちます。<br></p>
+		</li>
+		<li><b>節点の座標修正（ICOORD)</b>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>無し</b>&nbsp;:&nbsp;(0) このオプションを無視します。<br>
+					<li><b>位置を修正</b>&nbsp;:&nbsp;(1) 変形パーツと接触しているノードの座標を修正して，応力のない初期接触が得られるようにします。<br>
+					<li><b>滑り出し遅れ</b>&nbsp;:&nbsp;(2) 接触したセグメントから滑り落ちるのを遅らせるために、ボディコーナーでの接線誤差の許容範囲を拡張します。<br>
+					<li><b>両方を有効化</b>&nbsp;:&nbsp; (3) 位置を修正と滑り出し遅れの両方を有効化します。<br>
+				</span>
+			</ul>
+		</li>
+		<li><b>固着接着タイプ</b>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>ペナルティ法</b>&nbsp;:&nbsp;(IGLUE:1)ペナルティ法を使用します。<br>
+					<li><b>MPC法</b>&nbsp;:&nbsp;(IGLUE:2)内部的に多点拘束(MPC)を使用します。<br>
+						*安定的ですが他の拘束自由度との重複に注意が必要です。</li>
+				</span>
+			</ul>
+		</li>
+		<li><b>ペナルティファクタ(SFACT)</b>
+			<p>&nbsp;&nbsp;&nbsp;ペナルティ法スケール係数。</p>
+		</li>
+		<li><b>ペナルティファクタ(SFACT T)</b>
+			<p>&nbsp;&nbsp;&nbsp;ペナルティ法接線スケール係数。</p>
+		</li>
+		<li><b>接触ダンピング(CDAMP)</b>
+			<p>&nbsp;&nbsp;&nbsp;接触減衰係数。</p>
+		</li>
+		<li><b>シェル要素フェース(スレーブ)</b>
+			<p>&nbsp;&nbsp;&nbsp;シェル要素面（スレーブ）には、次のオプションがあります。</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>裏・板厚考慮</b>&nbsp;:&nbsp;接触の説明には底面のみが含まれ、厚さのオフセットが含まれます。<br>		
+				<li><b>裏・板厚考慮しない</b>&nbsp;:&nbsp;接触の説明には底面のみが含まれ、シェルの厚さは無視されます。<br>
+				<li><b>表・板厚考慮</b>&nbsp;:&nbsp;接触の説明には上面のみが含まれ、厚さのオフセットが含まれます。<br>
+				<li><b>表・板厚考慮しない</b>&nbsp;:&nbsp;接触の説明には上面のみが含まれ、シェルの厚さは無視されます。<br>
+				</span>
+			</ul>
+		</li>
+		<li><b>シェル要素フェース(マスター)</b>
+			<p>&nbsp;&nbsp;&nbsp;シェル要素面（マスター）には、次のオプションがあります。</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>裏・板厚考慮</b>&nbsp;:&nbsp;接触の説明には底面のみが含まれ、厚さのオフセットが含まれます。<br>		
+				<li><b>裏・板厚考慮しない</b>&nbsp;:&nbsp;接触の説明には底面のみが含まれ、シェルの厚さは無視されます。<br>
+				<li><b>表・板厚考慮</b>&nbsp;:&nbsp;接触の説明には上面のみが含まれ、厚さのオフセットが含まれます。<br>
+				<li><b>表・板厚考慮しない</b>&nbsp;:&nbsp;接触の説明には上面のみが含まれ、シェルの厚さは無視されます。<br>
+				</span>
+			</ul>
+		</li>
+		<h4>色設定</h4>
+		<li><b>接触の色</b>
+			<p>&nbsp;&nbsp;&nbsp;接触対表示マーカー色を定義します。</p>
+			<ul type="circle">
+			<li>リセット: デフォルト色に初期化</li>
+		</ul></li>
+	<br>
+	
+	<h3>-&nbsp;操作手順&nbsp;-&nbsp;&nbsp;&nbsp;</h3>
+		<ol>
+			<li>&nbsp;マスターでマスター面となるフェースを選択します。続いてスレーブでスレーブ面となるフェースを選択します。</li>
+			<li>&nbsp;必要により接触対に対する詳細設定を定義し、適用（OK）ボタンをクリックして接触対を定義します。</li>
+		</ol>
+
+	<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

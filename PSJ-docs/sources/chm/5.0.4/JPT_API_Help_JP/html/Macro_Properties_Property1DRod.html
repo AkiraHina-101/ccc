@@ -1,0 +1,57 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Property1DRod</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>Property1DRod</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>1D Rod property</p>
+<h4>Syntax</h4>
+<p>Property1DRod(string strName, int ID, cursor crSection, cursor DataMat, double dAreaVal, double dTorsConst, double dTorsStress, double dNonstMass, int dLocalLengthUnit, int iLocalMassUnit, cursor[] taTarget, cursor crEdit)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>String<p>Property 1D rod name</p></li>
+<li>Int<p>Property 1D ID input</p></li>
+<li>Cursor<p>Section cursor(93:SectionGeneral ID)</p></li>
+<li>Cursor<p>Data material cursor(22:Material ID)</p></li>
+<li>Double<p>Area value</p></li>
+<li>Double<p>Torsional const value</p></li>
+<li>Double<p>Torsional stress coefficient</p></li>
+<li>Double<p>Nonstruct Mass</p></li>
+<li>Int<p>Input length unit*</p>
+       <p>*0: Mm</p>
+       <p>&ensp;1: M</p>
+       <p>&ensp;2: Ft</p>
+       <p>&ensp;3: In</p>
+       <p>&ensp;4: Cm</p></li>
+<li>Int<p>Input mass unit*</p>
+       <p>*-1: Blank</p>
+       <p>&ensp;0: T</p>
+       <p>&ensp;1: kg</p>
+       <p>&ensp;2: kgf*s^2/mm</p>
+       <p>&ensp;3: Lbf*s^2/in</p></li>
+<li>Cursor[]<p>Target entities cursor</p></li>
+<li>Cursor<p>N/A: Edit cursor</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>Property1DRod("ROD10", 8, 93:1, 22:6, 1e-05, 2e-12, 4, 3e+06, 0, 0, [5:53], 0:0)</p>
+</div>
+</div>
+</body>
+</html>

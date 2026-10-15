@@ -1,0 +1,129 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>境界温度 | サーフェースマッピング</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>境界温度 | サーフェースマッピング</h2>
+<div class="contents">
+	<p>
+	Fluent・StarCDの流体解析計算結果の温度を<a href="./Appendix_Technical%20Information_Algorithm%20of%20Surface%20Mapping.html">最近傍法</a>でマッピングします。<br>
+	ファイル内の数値は、ドキュメント単位系で読み込まれ、その単位系のまま出力されます。<br>
+	</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Thermal%20Condition_Boundary%20Temperature_Surface%20Mapping.png">
+	
+	<h4>境界温度マッピング</h4>
+	<li><b>名前</b>
+	<p>&nbsp;&nbsp;&nbsp;条件名を指定します。</p>
+	</li>
+	<li><b>出力方法</b>
+	<p>&nbsp;&nbsp;&nbsp;結果ファイルが出力された流体解析ソルバーを指定します。</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b><a href="./Appendix_Technical%20Information_Data%20Format%20of%20Surface%20Mapping%20File.html#fluent">Fluent</a></b></li>
+		<li><b><a href="./Appendix_Technical%20Information_Data%20Format%20of%20Surface%20Mapping%20File.html#starcd">StarCD</a></b></li>
+		</span>
+		</ul>
+	</li>
+	<li><b>マッピングファイル</b>
+	<p>&nbsp;&nbsp;&nbsp;流体解析結果ファイルを指定します。</p>
+	</li>
+	<li><b>温度タグ</b>
+	<p>&nbsp;&nbsp;&nbsp;マッピングするカラム番号を選択します。</p>
+	</li>
+	<li><b>入力単位系</b><br>
+		<p>&nbsp;&nbsp;&nbsp;CFDファイル内の数値の単位系を指定します。</p>
+	</li>
+	<li><b>時間依存</b><br>
+		<p>&nbsp;&nbsp;&nbsp;時間テーブルを指定します。</p>
+	</li>
+	<li><b>スケール係数</b>
+	<p>&nbsp;&nbsp;&nbsp;マッピング結果を係数で補正することができます。</p>
+	</li>
+	<h4>データ点位置調整</h4>
+	<li><b>回転 X/Y/Z</b>
+	<p>&nbsp;&nbsp;&nbsp;解析結果を回転させ位置を補正することができます。</p>
+	</li>
+	<li><b>変位 X/Y/Z</b>
+	<p>&nbsp;&nbsp;&nbsp;解析結果を並進方向に移動し位置を補正することができます。</p>
+	</li>
+	<li><b>座標系スケール</b>
+	<p>&nbsp;&nbsp;&nbsp;解析結果のスケールを補正することができます。</p>
+	</li>
+	<h4>プレビュー</h4>
+	<h5 class="sg">要素数表示</h5>
+		<li><b>CFD点表示 / クリアーボタン</b><br>
+			<p>&nbsp;&nbsp;&nbsp;流体解析結果のデータ点群を表示します。クリアーボタンで点群を非表示にします。対象モデルと点群との位置関係を確認することができます。
+		</li>
+		<img src="./Media/CommandDlg/Boundary%20Conditions_Loads_Pressure_Surface%20Mapping_2.png"></p>
+		<li><b>グリッド表示 / クリアーボタン</b><br>
+			<p>&nbsp;&nbsp;&nbsp;データ点の散らばりから計算されるマッピング用グリッド線を表示します。クリアーボタンでグリッドを非表示にします。マッピングはグリッド毎に処理されますので、どのデータ点がマップされたのか確認しやすくなります。</p>
+		</li>
+		<li><b>マッププレビュー / クリアーボタン</b><br>
+			<p>&nbsp;&nbsp;&nbsp;実際にマッピングされた結果をコンター表示します。クリアーボタンでコンターを非表示にします。マッピングはグリッド毎に処理されますので、どのデータ点がマップされたのか確認しやすくなります。</p>
+		</li>
+	<h5 class="sg">検索範囲</h5>
+		<li><b>自動</b><br>
+			<p>&nbsp;&nbsp;&nbsp;データ検索範囲を自動で指定します。</p>
+		</li>
+		<li><b>入力(TSV)</b><br>
+			<p>&nbsp;&nbsp;&nbsp;任意のトレランスを入力します。
+		</li>
+		<img src="./Media/CommandDlg/Boundary%20Conditions_Loads_Pressure_Surface%20Mapping_3.png"></p>	
+<h5>※グリッド及び検索範囲の詳細は、<a href="./Appendix_Technical%20Information_Algorithm%20of%20Surface%20Mapping.html">サーフェスマッピングのアルゴリズム</a>を参照ください。</h5>
+
+	<h4>コンター設定</h4>
+		<li><b>最大</b><br>
+			<p>&nbsp;&nbsp;&nbsp;凡例の最大値を指定します。</p>
+		</li>
+		<li><b>最小</b><br>
+			<p>&nbsp;&nbsp;&nbsp;凡例の最小値を指定します。</p>
+		</li>
+		<li><b>分割数</b><br>
+			<p>&nbsp;&nbsp;&nbsp;凡例の分割数を指定します。</p>
+		</li>
+		<li><b>更新ボタン</b><br>
+			<p>&nbsp;&nbsp;&nbsp;指定した設定内容で、凡例を更新します。</p>
+		</li>	
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+		<li>&nbsp;名前に条件名を入力します。</li>
+		<li>&nbsp;流体解析のソルバーを指定します。</li>
+		<li>&nbsp;マッピングファイルボタンをクリックし、流体解析結果を指定します。</li>
+		<li>&nbsp;温度タグで結果のカラムを指定します。</li>
+		<li>&nbsp;入力単位系で、ファイルの内数値の単位系を指定します。</li>
+		<li>&nbsp;データ点ボタンを押して対象モデルと解析結果の位置を確認します。</li>
+		<li>&nbsp;マッピング対象のフェースを選択します。</li>
+		<li>&nbsp;必要に応じてデータ検索範囲を設定します。</li>
+		<li>&nbsp;マッピングプレビューボタンをクリックすると、マッピング結果のコンターカラーが表示されます。</li>
+		<li>&nbsp;適用/OKボタンをクリックしてマッピングを適用します。
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

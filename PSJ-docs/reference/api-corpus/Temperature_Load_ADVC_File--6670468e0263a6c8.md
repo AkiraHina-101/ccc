@@ -1,0 +1,3 @@
+# Temperature Load | ADVC File
+
+Temperature Load | ADVC File Temperature Load | ADVC File The temperature results output are read in Format2 format of Adventure Cluster solver and is defined as a temperature load. Name Name Set the temperature load name. Value Browse Choose to find the temperature results file. Input Unit Specify the input unit system. -&nbspOperating Procedure&nbsp- &nbspSelect the parts to load the temperature load. You can have multiple selections. &nbspClick the Browse button to find the temperature load file and select it. &nbspChange the other parameters as needed. &nbspClick the Apply or OK button. -&nbspOperation Video&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

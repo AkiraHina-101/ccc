@@ -1,0 +1,138 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Combo Box</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Combo Box</h2>
+<div class="contents">
+	<p>
+	コンボボックスを追加します。<br>
+	</p>
+
+	<img src="./Media/GUI_CommandBuilder_Component-Parameter_ComboBox.png">
+	<br><br>
+	
+	<p>&nbsp;&nbsp;&nbsp;作成イメージ図：</p>
+	
+	<img src="./Media/GUI_CommandBuilder_Component-Parameter_ComboBox3.png">
+	<br>
+	<br>
+	
+
+	<li><b>Name</b>
+	<p>&nbsp;&nbsp;&nbsp;Combo Boxコンポーネント名を入力します。</p>
+	</li>
+	<li><b>Enable</b>
+	<p>&nbsp;&nbsp;&nbsp;使用の可否を指定します。</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>チェックオン</b>&nbsp;:&nbsp;使用可能。</li>
+		<li><b>チェックオフ</b>&nbsp;:&nbsp;使用不可。（グレーアウトされます）</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Width</b>
+	<p>&nbsp;&nbsp;&nbsp;コンボボックスの最小幅を指定します。（単位：ピクセル）</p>
+	</li>
+	<li><b>Height</b>
+	<p>&nbsp;&nbsp;&nbsp;コンボボックスの最小高さを指定します。（単位：ピクセル）</p>
+	</li>
+	<li><b>Source File</b>
+	<p>&nbsp;&nbsp;&nbsp;テキストファイルからオプションを入力します。</p>
+	<p>&nbsp;&nbsp;&nbsp;Source Fileの構造：</p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;Option1<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Option2<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Option3<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Option4<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Option5<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;入力した結果：</p>
+	</li>
+	
+	<img src="./Media/GUI_CommandBuilder_Component-Parameter_ComboBox2.png">
+	<br><br>
+
+	<li><b>Option Count</b>
+	<p>&nbsp;&nbsp;&nbsp;選択アイテム数を指定します。</p>
+	</li>
+	<li><b>Options *</b>
+	<p>&nbsp;&nbsp;&nbsp;アイテム名を入力します。</p>
+	</li>
+	<br>
+	
+	<h4>使用コマンド</h4>
+	<table class="commontable">
+		<tr><th>コマンド</th><th>説明</th><th>サンプルコード</th></tr>	
+		<tr>
+			<td>dlg.get_combobox_sel("name")</td>
+			<td>コンボボックスにて選択されているアイテムの位置を取得します。</td>
+			<td>    
+				<p>ComboBox = ["1", "2", "3", "4", "5"]<br>
+				"4"を選択している場合<br>
+				<p><em>Input:</em></p>
+				<p style = "margin-left: 40px">a = dlg.get_combobox_sel("ComboBox")</p>
+				<p><em>Output:</em></p>
+				<p style = "margin-left: 40px">> a = 3</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.get_len_combobox("name")</td>
+			<td>コンボボックスの長さ（アイテム数）を取得します。</td>
+			<td>
+				<p>listbox = ["1", "2", "3", "4", "5"]<br>
+					<p><em>Input:</em></p>
+					<p style = "margin-left: 40px">a = dlg.get_len_combobox("ComboBox”)</p>
+					<p><em>Output:</em></p>
+					<p style = "margin-left: 40px">> a = 5</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.set_combobox_sel(“Name”, Index) </td>
+			<td>コンボボックスで選択されている値を切り替えます。</td>
+			<td>
+				<p>ComboBox = [“1”, “2”, “3”, “4”, “5”]<br>
+					<p><em>Input:</em></p>
+					<p style = "margin-left: 40px">dlg.set_combobox_sel(“ComboBox”, 3)</p>
+					<p style = "margin-left: 40px">⇒ 選択されている値=”4”</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.insert_combobox_option("name", position, "text")</td>
+			<td>コンボボックスの特定の位置にオプションを1つ追加します。</td>
+			<td>
+					<p><em>Input:</em></p>
+					<p style = "margin-left: 40px">dlg.insert_combobox_option("name", 1, "text")</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.insert_combobox_options("name", position, [アイテムリスト])</td>
+			<td>コンボボックスの特定の位置に複数のオプションを追加します。</td>
+			<td>
+					<p><em>Input:</em></p>
+					<p style = "margin-left: 40px">dlg.insert_combobox_options("name", 3, [アイテムリスト])</p>
+			</td>
+		</tr>
+
+	</table>
+<br>
+</div>
+</div>
+</body>
+
+</html>
+</head></html>

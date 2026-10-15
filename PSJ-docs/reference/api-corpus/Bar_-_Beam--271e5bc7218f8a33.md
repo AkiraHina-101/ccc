@@ -1,0 +1,3 @@
+# Bar - Beam
+
+Bar - Beam Bar - Beam Create a bar / beam element by 2 selecting two nodes. ＊1 d Property data is required in advance. Connection Name Enter the name of the bar parts to be created. Property Property Select the 1D Property to be applied Orientation Vector Define the direction vector. Vector Specify the input vector. Node Specify the node. Local unit Length Specify the local unit of length. Mass Specify the local unit of weight. -&nbspOperating Procedure&nbsp- &nbspSelect two Nodes. &nbspSelect the Property. &nbspSet the Orientation Vector. &nbspClick Apply/OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

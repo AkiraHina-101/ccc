@@ -1,0 +1,56 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>ImportElysium</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>ImportElysium</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Import CAD file by Elysium interface</p>
+<h4>Syntax</h4>
+<p>ImportElysium(string[] vecPath, double height_tol, double angle_tolerance_degree, double iso_cur, double iges_fixedCurevePreference, double iges_autoStitch, double iges_stitchTolerance, double catia_convertNotShowedElement, double catia_convertNotShowedInstance, double catia_convertAxis, double step_createSeam, double step_pointTolerance, double acis_healAcisBeforeVersion, double jt_convertGeometryType, double jt_convertGeneralBody, double jt_convertAxis, double jt_convertCenterLine, bool m_setFaceColor, double dek_cleanSelfIntersectingLoop, double point_coincident_tolerance, double dek_volumeToBody)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>String[]<p>Path directory</p></li>
+<li>Double<p>Height tolerance option</p></li>
+<li>Double<p>Angle tolerance degree option</p></li>
+<li>Double<p>Isolated curve</p></li>
+<li>Double<p>Iges fixedCurvePreference option</p></li>
+<li>Double<p>Iges autoStitch option</p></li>
+<li>Double<p>Iges stitchTolerance option</p></li>
+<li>Double<p>Catia convertNotShowedElement option</p></li>
+<li>Double<p>Catia convertNotShowedInstance option</p></li>
+<li>Double<p>Catia convertAxis option</p></li>
+<li>Double<p>Step createSeam option</p></li>
+<li>Double<p>Step pointTolerance option</p></li>
+<li>Double<p>Acis healAcisBeforeVersio option</p></li>
+<li>Double<p>jt convertGeometryType option</p></li>
+<li>Double<p>jt convertGeneralBody option</p></li>
+<li>Double<p>jt convertAxis option</p></li>
+<li>Double<p>jt convertCenterLine option</p></li>
+<li>Bool<p>M_setFaceColor option</p></li>
+<li>Double<p>dek_cleanSelfIntersectingLoop option</p></li>
+<li>Double<p>Point coincident tolerance option</p></li>
+<li>Double<p>dek_volumToBody option</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>ImportElysium(["D:/ImportFile/Elysium_Test.SAT"], 1, 5, 0, 0, 1, 0.1, 0, 0, 1, 1, 0, 0, 2, 1, 1, 0, 1, 2, 0.01, 4)</p>
+</div>
+</div>
+</body>
+</html>

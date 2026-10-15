@@ -1,0 +1,142 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>コネクター | エッジ - エッジ間</title>
+
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>コネクター | エッジ - エッジ間</h2>
+<div class="contents">
+	<p>
+	2エッジ間にコネクター要素を作成します。
+	</p>
+    <p>
+	<img src="./Media/Connections_Details_Connector.png">
+	</p>
+
+	<img src="">
+
+	<h4>接続</h4>
+ 　　 <li>名前
+ 　　   <p>　 作成するコネクター要素の名前を設定します。</p>
+ 　　 </li>
+
+	<h4>接続タイプ</h4>
+
+ 　　 <li>タイプ
+ 　　   <p>　 コネクションタイプを定義します。</p>
+ 　　 </li>
+ 　　 
+	<table class="commontable">
+	<tr>
+	<th></th>
+	<th>有効軸番号</th>
+	<th>拘束軸番号</th>
+	</tr>
+	
+	<tr>
+	<td>Parallel</td>
+	<td>0</td>
+	<td>なし</td>
+    </tr>
+    
+    <tr>
+    <td>Translation</td>
+    <td>0 , 1 , 2</td>
+	<td>なし</td>
+	</tr>
+	
+    <tr>
+    <td>Rotation</td>
+    <td>3 , 4 , 5</td>
+	<td>なし</td>
+	</tr>
+	
+    <tr>
+    <td>Bushing</td>
+    <td>0 , 1 , 2 , 3 , 4 , 5</td>
+	<td>なし</td>
+	</tr>
+	
+    <tr>
+    <td>Cylindrical</td>
+    <td>0 , 3</td>
+	<td>1 , 2 , 4 , 5</td>
+	</tr>
+	
+    <tr>
+    <td>Joint</td>
+    <td>なし</td>
+	<td>0 , 1 , 2</td>
+	</tr>
+	
+    <tr>
+    <td>RigidRod</td>
+    <td>なし</td>
+	<td>0</td>
+	</tr>
+	
+    <tr>
+    <td>RigidBar</td>
+    <td>なし</td>
+	<td>0 , 1 , 2 , 3 , 4 , 5</td>
+	</tr>
+	
+	</table>
+	
+ 　　 <li>座標系
+ 　　   <p>　 特性の方向を定義します。
+ 　　 </li>
+    ・ Global　:　全体座標系で方向を定義します。<br>
+    ・ Elm　　 :　2点の節点から定義します。
+        </p>
+	
+ 　　 <li>参照節点
+ 　　 <p>　 座標系を決めるときに参照する節点を指定します。
+ 　　 </li>
+    ・ 0　：　第1節点を参照します。<br>
+    ・ 1　：　第2節点を参照します。
+     </p>
+	
+ 　　 <li>弾性0
+ 　　   <p>　 弾性特性のテーブルデータを設定します。</p>
+ 　　 </li>
+
+ 　　 <li>減衰0
+ 　　   <p>　 粘性特性のテーブルデータを設定します。</p>
+ 　　 </li>
+ 　　 
+    <p>
+    ※各特性のテーブルデータは Field Data コマンドで作成します。<br>
+     ・ 弾性特性テーブルタイプ：Displacement, Force<br>
+     ・ 粘性特性テーブルタイプ：Velocity, Force 
+    </p>
+
+<h3>-&nbsp操作手順&nbsp-</h3>
+      <ol>
+		<li>境界条件 > フィールドデータ　より、テーブルデータを作成します。</li>
+		<li>接続 > コネクター > エッジ-エッジ間 をクリックします。</li>
+		<li>接続タイプをそれぞれ指定します。</li>
+		<li>選択リストを開き、マスターとスレーブとなるエッジをそれぞれ選択します。 </li>
+		<li>適用 / OKボタンをクリックします。</li><br>
+補足：【タイプ】で指定する自由度が選択でき。「Translation」にすることで並進3方向の入力が可能となります。(X軸のみであればデフォルトのままで問題ありません。)
+      </ol>
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

@@ -1,0 +1,3 @@
+# Layout
+
+Layout Layout コンポーネントのレイアウトを設定します。 &nbsp;&nbsp;&nbsp;作成イメージ図：Orientation Name &nbsp;&nbsp;&nbsp;Layoutコンポーネント名を入力します。 Orientation &nbsp;&nbsp;&nbsp;コンポーネントの並びを指定します。 Horizontal &nbsp;:&nbsp;コンポーネントを横並びにします。 Vertical &nbsp;:&nbsp;コンポーネントを縦並びにします。 Margin &nbsp;&nbsp;&nbsp; Left &nbsp;:&nbsp;Group Boxの左に余白を入れます。（単位：ピクセル） &nbsp;&nbsp;&nbsp; Top &nbsp;:&nbsp;Group Boxの上に余白を入れます。（単位：ピクセル） &nbsp;&nbsp;&nbsp; Right &nbsp;:&nbsp;Group Boxの右に余白を入れます。（単位：ピクセル） &nbsp;&nbsp;&nbsp; Bottom &nbsp;:&nbsp;Group Boxの下に余白を入れます。（単位：ピクセル） 使用コマンド コマンド 説明 サンプルコード dlg.show_layout("name") 指定されているレイアウトを表示します。 Input: dlg.show_layout("Layout5") dlg.hide_layout("name") 指定されているレイアウトを非表示にします。 Input: dlg.hide_layout("Layout5")

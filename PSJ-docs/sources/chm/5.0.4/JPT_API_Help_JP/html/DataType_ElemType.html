@@ -1,0 +1,121 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Element types</title>
+
+</head>
+<body>
+<div class="page">
+<h2>Element types</h2>
+<p>ElemKindは要素種類の列挙型です。</p>
+<p>ElemTypeは要素タイプの列挙型です。</p>
+	<div class="contents">
+<table class="commontable">
+<tr>
+    <th>ElemKind</th>
+    <th>説明</th>
+    <th>ElemType</th>
+    <th>説明</th>
+  </tr>
+  <tr>
+    <td>ELEMKIND_0D</td>
+    <td>節点用に準備された要素です。</td>
+    <td>ELEMTYPE_POINT</td>
+    <td>頂点用要素</td>
+  </tr>
+  <tr>
+    <td rowspan="2">ELEMKIND_1D</td>
+    <td rowspan="2">1D要素(バー要素)です。</td>
+    <td>ELEMTYPE_LINE2</td>
+    <td>1D要素（1次）</td>
+  </tr>
+  <tr>
+    <td>ELEMTYPE_LINE3</td>
+    <td>1D要素（2次）</td>
+  </tr>
+  <tr>
+    <td rowspan="4">ELEMKIND_2D</td>
+    <td rowspan="4">2D要素（シェル要素）です。</td>
+    <td>ELEMTYPE_TRI3</td>
+    <td>三角形1次要素</td>
+  </tr>
+  <tr>
+    <td>ELEMTYPE_TRI6</td>
+    <td>三角形2次要素</td>
+  </tr>  
+  <tr>
+    <td>ELEMTYPE_QUAD4</td>
+    <td>四角形1次要素</td>
+  </tr>
+  <tr>
+    <td>ELEMTYPE_QUAD8</td>
+    <td>四角形2次要素</td>
+  </tr>  
+  <tr>
+    <td rowspan="8">ELEMKIND_3D</td>
+    <td rowspan="8">3D要素（ソリッド要素）です</td>
+    <td>ELEMTYPE_TET4</td>
+    <td>テトラ1次要素</td>
+  </tr>
+  <tr>
+    <td>ELEMTYPE_TET10</td>
+    <td>テトラ2次要素</td>
+  </tr>  
+  <tr>
+    <td>ELEMTYPE_HEX8</td>
+    <td>ヘキサ1次要素</td>
+  </tr>
+  <tr>
+    <td>ELEMTYPE_HEX20</td>
+    <td>ヘキサ2次要素</td>
+  </tr>  
+  <tr>
+    <td>ELEMTYPE_PRISM6</td>
+    <td>ペンタ1次要素</td>
+  </tr>  
+  <tr>
+    <td>ELEMTYPE_PRISM15</td>
+    <td>ペンタ2次要素</td>
+  </tr>  
+  <tr>
+    <td>ELEMTYPE_PYRAMID5</td>
+    <td>ピラミッド1次要素</td>
+  </tr>  
+  <tr>
+    <td>ELEMTYPE_PYRAMID13</td>
+    <td>ピラミッド2次要素</td>
+  </tr>  
+
+<!--  <tr>
+    <td>？</td>
+    <td>？</td>
+    <td>ELEMTYPE_PLOT</td>
+    <td>プロット要素</td>
+  </tr>   
+  <tr>
+    <td>？</td>
+    <td>？</td>
+    <td>ELEMTYPE_RBE</td>
+    <td>剛体要素</td>
+  </tr> 
+  <tr>
+    <td>？</td>
+    <td>？</td>
+    <td>ELEMTYPE_MASS</td>
+    <td>質量要素</td>
+  </tr>
+-->
+
+</table>
+
+</div>
+</div>
+</body>
+</html>

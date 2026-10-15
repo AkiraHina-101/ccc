@@ -1,0 +1,76 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Face to Face</title>
+
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Face to Face</h2>
+<div class="contents">
+	<h4>CAD Projection(Face to Face) Dialog Box</h4>
+	<p>
+	To project mid-node or corner nodes of the mesh parts, to the CAD shape face you have selected. 
+	</p>
+
+	<img src="./Media/CommandDlg/Meshing_CAD%20Projection_CAD%20Projection_Face%20to%20Face.png">
+
+	<h4>Options</h4>
+
+	<li>Corner Nodes
+	<p>
+	Put a check when you want to place the corner node in the CAD shape.
+	</p>
+	</li>
+
+	<li>Mid Nodes
+	<p>
+	Put a check when you want to place the mid-node to the CAD geometry.
+	</p>
+	</li>
+
+	<li>ID Check
+	<p>
+	If it is checked, CAD parts and mesh parts must have the same ID for all of the entity such as parts, face, edge. Projection is not carried out unless they have the same ID.<br>
+	If not checked, you do not need to have the same ID. Projection is made between the entity at the most closest distance, but in some cases there is a risk that the projection might be to an unintended position. 
+	</p>
+	</li>
+
+
+<br>
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+
+	<ol>
+	<li>&nbspPress the CAD Face button on the Selection List, select the face from the screen that becomes a projection target.</li>
+	<li>&nbspPress the Meshed Face button on the Selection List, select the face of the mesh part from the screen that becomes the projection target.</li>
+	<li>&nbspCheck Corner Nodes option, if you want the corner node to be projected into CAD geometry.</li>
+	<li>&nbspClick the Apply or OK button to execute the projection.<br>
+	Nodes on the selected faces will move on the CAD model.</li>
+	</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

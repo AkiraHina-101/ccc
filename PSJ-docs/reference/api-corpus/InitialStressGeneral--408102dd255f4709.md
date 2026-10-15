@@ -1,0 +1,3 @@
+# InitialStressGeneral
+
+InitialStressGeneral InitialStressGeneral Description create initial stress Syntax InitialStressGeneral(String m_strName,int dim,int cs,double dval[0],double dval[1],double dval[2],Cursor crTable,Cursor[] m_taTarget,Cursor m_crEdit) Inputs String name of stress int dimension[0:2D] int coordinate[0:Element CS] double initial stress component Sx double initial stress component Sy double initial stress component Sxy Cursor select table Cursor[] targets Cursor edit cursor Return Code 1 Succeeded 0 Failed Sample Code InitialStressGeneral("Test",1,1,0.001,0.001,0.001,1:11,[1:11,2:12],1:11)

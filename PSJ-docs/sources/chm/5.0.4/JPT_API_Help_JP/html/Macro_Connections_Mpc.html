@@ -1,0 +1,46 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Mpc</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>Mpc</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create mpc connection</p>
+<h4>Syntax</h4>
+<p>Mpc(int method, String name, Cursor[] master, Cursor[] slave, MPCTermAttribute[] termAtb, double tol, double value, double mpcType, int searchType, int coordId, Cursor editObj)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>int<p>method to create mpc,1:2Nodes, 2: 2Edges, 3: 2Faces, 4: Node to Any, 7: Semi Auto, 8: Nodes to Nodes, 9: Node to Edge, 10: Node to Face, 14: Faces to faces, 16: Any Entities</p></li>
+<li>String<p>Name of MPC</p></li>
+<li>Cursor[]<p>master entities of mpc</p></li>
+<li>Cursor[]<p>slave entities of mpc</p></li>
+<li>MPCTermAttribute[]<p>stores attribute for each mpc term, includes coef. and DoF</p></li>
+<li>double<p>tolerance to find node pair</p></li>
+<li>double<p>constant value for equation mpc</p></li>
+<li>int<p>mpc type, 0:General, 1: equation </p></li>
+<li>int<p>mode to find node pair between master and slave, 0: free, 1: 1 to 1</p></li>
+<li>int<p>id of referred coordinate system</p></li>
+<li>Cursor<p>used for edit mode</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>Mpc(1, "MPC_1", [10:10546], [10:483], [(2, 1), (0, 2), (0, 4), (0, 0), (0, 0), (0, 0)], 0, 0, 0, 1, 0, 0:0)</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>By Surface</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>By Surface</h2>
+<div class="contents">
+	<p>
+	Select parts to split along the specified surface.
+	</p>
+
+	<img src="./Media/CommandDlg/Geometry_Assembly_Body%20Cut_By%20Surface.png">
+
+	<p>
+	※This function doesn't support cutting the shared face.
+	</p>
+
+	<h4>Selection Plane</h4>
+	<li>Partition Only
+	<p>When it is checked, a partition is created inside. In this case, the parts are not split.</p>
+	</li>
+	<li>Make Section Face
+	<p>If you check this box, in the case of dividing the parts, a face is created at the section.</p>
+	</li>
+	<li>Shared Face
+	<p>When this box is checked while dividing the parts, a shared surface is created at the division plane.</p>
+	</li>
+	<li>Separate Face
+	<p>When this box is checked while dividing the parts, if you want to create a face to the division place, it prevents the face to be coupled (merge) in the enclave.</p>
+	</li>
+
+<H3>-&nbsp;Operation Procedure (When dividing a part and creating a face at the divided part)&nbsp;-</H3>
+<OL>
+  <LI>&nbsp;Select the coordinate plane to split. 
+  <LI>&nbsp;Open the selection list window and click the Target button. 
+  <LI>&nbsp;Select the parts to split. 
+  <LI>&nbsp;Click the Cut button in the selection list window.
+  <LI>&nbsp;Select the face to be divided.
+  <LI>&nbsp;Select the Make Section Face check box. 
+  <LI>&nbsp;Click the Apply / OK button. </LI></OL>
+<H3>-&nbsp;Operation Procedure (When creating partitions only without dividing parts)&nbsp;-</H3>
+<OL>
+  <LI>&nbsp;Open the selection list window and click the Target button.  
+  <LI>&nbsp;Select the parts to split. 
+  <LI>&nbsp;Click the Cut button in the selection list window.
+  <LI>&nbsp;Select the face to be divided. 
+  <LI>&nbsp;Select the Partition Only check box. 
+  <LI>&nbsp;Select the Make Section Face check box. 
+  <LI>&nbsp;Click the Apply / OK button.
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+	</div>
+</div>
+</body>
+
+</html>

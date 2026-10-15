@@ -1,0 +1,52 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Spring</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>Spring</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create spring connection</p>
+<h4>Syntax</h4>
+<p>Spring(int method, String name, Cursor[] master, Cursor[] slave,Cursor coord, int springType, int ground, double tol, int dir, int distMode, int dof1, int dof2, double dampCoef, double stressCoef, double[3] transStiffness, double[3] rotStiffness, Cursor editObj )</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>int<p>method to create spring, 17: any entities(1:1)</p></li>
+<li>String<p>name of spring</p></li>
+<li>Cursor[]<p>master entities of spring</p></li>
+<li>Cursor[]<p>master entities of spring</p></li>
+<li>Cursor<p>referred coordinate system, NULL is global</p></li>
+<li>int<p>type of spring, 0: general, 1: DoF, 2: uniform DoF</p></li>
+<li>int<p>ground or not, 0: no, 1: yes</p></li>
+<li>double<p>tolerance to find node pair</p></li>
+<li>int<p>direction of spring, 0: isotropic, 1: anisotropic</p></li>
+<li>int<p>distribute mode, not used </p></li>
+<li>int<p>DoF at reference</p></li>
+<li>int<p>DoF at target</p></li>
+<li>double<p>Damping coef.</p></li>
+<li>double<p>Stress coef.</p></li>
+<li>double[3]<p>stiffness</p></li>
+<li>double[3]<p>Rotate stiffness</p></li>
+<li>Cursor<p>used for edit mode</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>Spring(17, "Spring_1", [5:66316], [5:66299], 0:0, 2, 0, 0, 0, 0, 0, 0, 1.2, 1.5, [1000, 2000, 1000], [1.7976931e+308, 1.7976931e+308, 1.7976931e+308], 1, 0:0)</p>
+</div>
+</div>
+</body>
+</html>

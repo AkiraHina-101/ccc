@@ -1,0 +1,71 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>MappingHeatFlux</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>MappingHeatFlux</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create mapping pressure</p>
+<h4>Syntax</h4>
+<p>MappingHeatFlux(string strName, cursor[] taTarget, int pos, int iViewCp, int iCp, int iSrcType, int iMappedCpIndexArr0, double dScaleFactor, cursor[] crTrans, cursor[] crRotate, double dCoordScale, double dSearchTol, int iUnit, string strPath, cursor crEdit, int iMappingMethod, int submodelBCMappingType, int iMappingFromStepNo, bool bSetADVCFile, string strADVCResultFile, bool bSetDetATol, double dDetATol, bool bSetElementSet, string strElementSet)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>String<p>Mapping heat flux name</p></li>
+<li>Cursor[]<p>Target entities cursor</p></li>
+<li>Int<p>Mapping positon</p>
+       <p>*0: Surface node</p>
+       <p>&ensp;1: Solid node </p>
+       <p>&ensp;2:surface element </p>
+       <p>&ensp;3: Solid element</p></li>
+<li>Int<p>N/A: View Heat flux</p></li>
+<li>Int<p>N/A</p></li>
+<li>Int<p>Source data type*</p>
+       <p>*0: Fluent</p>
+       <p>&ensp;1: StarCD</p></li>
+<li>Int<p>N/A: Heat flux data index in file</p></li>
+<li>Double<p>Scale factor value</p></li>
+<li>Cursor[]<p>Translation X Y Z direction value</p></li>
+<li>Cursor[]<p>Rotation X Y Z direction value</p></li>
+<li>Double<p>Coordinate scale value</p></li>
+<li>Double<p>Search range tolerance</p></li>
+<li>Int<p>Input unit type*</p>
+       <p>*0: MW/mm^2</p>
+       <p>&ensp;1: W/m^2</p>
+       <p>&ensp;2:MiuW/mm^2</p>
+       <p>&ensp;3: kcal/mm^2*h</p>
+       <p>&ensp;4: Lbf/ft*s</p>
+       <p>&ensp;5: Lbf/in*s</p></li>
+<li>String<p>directory path name</p></li>
+<li>Cursor<p>N/A: Edit cursor</p></li>
+<li>Int<p>N/A: Mapping method</p></li>
+<li>Int<p>N/A: Submodel IBC mapping type</p></li>
+<li>Int<p>N/A: Mapping from step</p></li>
+<li>Bool<p>N/A: Set ADVC file bool flag True = 1, False = 0</p></li>
+<li>String<p>N/A ADVC result file</p></li>
+<li>Bool<p>N/A Set tolerance bool flag True = 1, False = 0</p></li>
+<li>Double<p>N/A set tolerance</p></li>
+<li>Bool<p>N/A: Set element </p></li>
+<li>String<p>Element set</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>MappingHeatFlux("MappingHeatFlux1", [3:1], 2, 0, 1, 0, 0, 1.5, [4, 5, 6], [1, 2, 3], 0.5, 0.003, 0, "D:/ImportFile/Fluent.dat", 0:0, 1, 0, 0, 0, "", 0, 1e-08, 0, "all")</p>
+</div>
+</div>
+</body>
+</html>

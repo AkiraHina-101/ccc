@@ -1,0 +1,3 @@
+# MPC Equation | 2 Faces
+
+MPC Equation | 2 Faces MPC Equation | 2 Faces It is the ability to create MPC between multiple points of two faces. Faces-Faces Name Enter the name to be registered. Parameters Coordinate Select the reference coordinate system. MPC Term Coef1(Slave) Enter the coefficients of the slave. DOF1(Slave) Choose the degree of freedom of the slave. Coef2(Master) Enter the coefficients of the master. DOF2(Master) Choose the degree of freedom of the master. -&nbspOperating Procedure&nbsp- &nbspSelect the master face. &nbspSelect the slave face. &nbspSet the parameters. &nbspClick Apply / OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

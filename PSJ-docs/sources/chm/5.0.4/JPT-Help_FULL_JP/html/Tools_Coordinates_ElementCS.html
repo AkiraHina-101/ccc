@@ -1,0 +1,103 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	
+	<!--2021.07.14Modified Hongjae Yoo-->
+	<title>要素座標系</title>
+
+	<style type="text/css">
+	<!--/* Link下線、非表示 */-->
+	a.no-uline {text-decoration:none}
+	</style>
+
+	</head>
+
+<body>
+	<div class="page">
+		<h2>要素座標系</h2>
+		
+		<div class="contents">
+			<p>
+			要素座標系を表示・変更します。</br>
+			要素座標系は、要素の節点書き出し順によって規定される座標系です。
+			</p>
+			<img src="./Media/CommandDlg/Tools_Coordinates_ElementCS.png"></img>
+			</br>
+			
+			<h4>操作</h4>
+				<li>方法</li>
+					<p>要素座標系の変更方法を選択します。</p>
+				<ul style="list-style-type:circle; font-size:0.95em;">
+					<li>方向を整列&nbsp;&colon;&nbsp;節点２点を順に選択した方向と、各要素のx方向とが近い方向になるように、選択面上の要素の要素座標系を変更します。</li>
+					<li>接続を整列&nbsp;&colon;&nbsp;同じ面要素上の節点２点を順に選択し、その方向を要素のx軸とします。接続する面要素のx軸が、接続元のx軸の先に揃うように、選択面上の要素の要素座標系を変更します。</li>
+					<img src="./Media/Tools_Coordinates_ElementCS_2.png" width="500"></img>
+				</ul>
+
+			<h4>要素数表示</h4>
+				<li>タイプ</li>
+					<p>表示される要素座標系の定義を選択します。</p>
+					<ul style="list-style-type:circle; font-size:0.95em;">
+						<li>最初の要素エッジ&nbsp;&colon;&nbsp;要素座標系のx軸が、1番目の節点→2番目の節点方向と一致するように定義します。</li>
+						<li>Nastran&nbsp;&colon;&nbsp;Nastran上での要素座標系の定義を使用します。</li>
+						<img src="./Media/Tools_Coordinates_ElementCS_1.png" width="650"></img>
+					</ul>
+					</br>
+				<li>選択した要素のみ表示</li>
+					<p>選択した要素の要素座標系のみ表示します。オフのとき、全要素の要素座標系が表示されます。</br>
+					<span style="font-size:0.95em;">要素座標系の表示により、メインウィンドウ上のモデル表示パフォーマンスが低下する場合にお勧めします。</span></p>
+				<li>ｘ方向</li>
+					<p>x軸方向表示のオン&sol;オフを切り替えます。オンのとき、各要素の1番目の節点→2番目の節点と接続する辺上に、x軸の位置と向きを示す矢印が表示されます。</p>
+				<li>スケール</li>
+					<p>x方向を示す矢印表示の大きさを、倍数で設定します。</p>
+				<li>要素座標系を表示</li>
+					<p>要素座標系表示のオン&sol;オフを切り替えます。オンのとき、各要素の中心位置に要素座標系記号が表示されます。</p>
+				<li>要素座標系Z軸を表示</li>
+					<p>要素座標系を表示した際に、そのZ軸の表示のオン&sol;オフを切り替えます。オンのとき、要素座標系のZ軸が表示されます。</p>
+				<!--<li>メッシュ接続判定係数</li>
+					<p>方法が「接続を整列」の場合に、接続検索の方向を調節するための係数です(0-1)。特に要素間が急角度で接続しているような際には、この値を0か1に近づけることで、方向検出の精度を上げることができます。</br>
+					デフォルト値は、0.755に設定されています。
+					</p>
+				-->
+		
+			<h3>-&nbsp;操作手順&nbsp;-</h3>
+				<ol>
+					<!-- !!修正前!!
+					<li>要素座標系を変更したいフェースもしくは面要素を選択します。</li>
+					<li>x軸の方向を、節点2点を順に選択して指定します。</li>
+					<li>タイプを指定します。</li>
+					<li>適用/OKで要素方向を変更します。</li>
+					-->
+					<li><strong>操作</strong>にて、要素座標系の変更<strong>方法</strong>を選択します。</li>
+					<li>x軸の方向を、節点2点を順に選択して指定します。</li>
+					<li><strong>要素数表示</strong>にて、<strong>タイプ</strong>、<strong>X方向</strong>、<strong>スケール</strong>を指定します。</li>
+					<li><strong>要素座標系を表示</strong>のチェックを<strong>オン</strong>にします。</li>
+					<li>場合に合わせて<strong>要素座標系Z軸を表示</strong>をオン&sol;オフします。</li>
+				</ol>
+			<h3>-&nbsp;操作手順&nbsp;<span style="font-size:0.9em;">&lpar;&apos;断面のみ表示&apos;の場合&rpar;</span>&nbsp;-</h3>
+				<ol>
+					<li><strong>操作</strong>にて、要素座標系の変更<strong>方法</strong>を選択します。</li>
+					<li>x軸の方向を、節点2点を順に選択して指定します。</li>
+					<li><strong>要素数表示</strong>にて、<strong>タイプ</strong>、<strong>選択した要素のみ表示</strong>、<strong>X方向</strong>、<strong>スケール</strong>を指定します。</li>
+					<li><strong>要素座標系を表示</strong>のチェックを<strong>オン</strong>にします。</li>
+					<li>表示する<strong>要素</strong>を選択します。</li>
+					<li>場合に合わせて<strong>要素座標系Z軸を表示</strong>をオン&sol;オフします。</li>
+				</ol>
+			<!--<h3>-&nbsp操作動画&nbsp-</h3>
+			
+			<p>
+			<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+			</p>
+			-->
+		</div>
+	</div>
+</body>
+
+</html></html>

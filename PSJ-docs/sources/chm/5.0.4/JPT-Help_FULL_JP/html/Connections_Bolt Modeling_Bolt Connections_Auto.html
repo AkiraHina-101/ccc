@@ -1,0 +1,202 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>自動ボルト接続(Auto Bolt Connection)</title>
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+	<h2>自動ボルト接続(Auto Bolt Connection)</h2>
+<div class="contents">
+	<p>
+	選択したパーツペアからボルト穴を検索し、ボルトタイプのコンディションを設定をしたら、剛体ボルトを自動作成できます。剛体ボルトは４つのタイプから選択します。
+	</p>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_a.png" width="1200"></br>
+	</p>
+	<p>
+	剛体ボルトは複数のFEM条件で構成されますが、作成されたボルト1本ごとに、それらのグループを作成します。ボルトグループはBolt Connectionサブグループの下に置かれます。
+	</p>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_b.png" width="300"></br>
+	</p>
+	<p>
+	<img src="./Media/CommandDlg/Connections_Bolt%20Modeling_Bolt%20Connections_Auto.png" width="500"></br>
+	</p>
+
+	<p>
+	<b>選択リスト(Selection list)</b>
+	</p>
+	<p>
+	上部パーツ(Upper Part)：ボルト座面側パーツ</br>
+	下部パーツ(Lower Part)：ボルトねじ部側パーツ</br>
+	</p>
+	<h4>ボルトモデリング(Bolt Modeling)</h4>
+	<li>ボルト名(Bolt Name)
+	<p>
+	剛体ボルトの名前を入力します。</br>
+	</p>
+	</li>
+	<li>ボルト穴サイズ(Bolt Hole Size)
+	<p>
+	このメニューで選んだボルト穴サイズが、下の最小直径、及び最大直径に自動で入力されます。</br>
+	ボルト穴サイズと最小最大は「*インストールフォルダ*\bin\common\template\LBC\BoltModeling\BoltSizeInfomation.DAT」を参照しています。</br>
+	</p>
+	</li>
+	<li>最小円直径(Min Circle Diameter)
+	<p>
+	検索するボルト穴の最小直径を入力します。</br>
+	</p>
+	</li>
+	<li>最大円直径(Max Circle Diameter)
+	<p>
+	検索するボルト穴の最大直径を入力します。</br>
+	</p>
+	</li>
+
+	<h4>ボルト設定リスト(Bolt Setting List)</h4>
+
+	<h4 style="text-indent:2em">合わせ面(Mating Face)</h4>
+	<li style="text-indent:2em">間隙トレランス(Gap Tolerance)
+	<p>
+	上部パーツと下部パーツ間の隙間トレランスを入力します。この隙間以下の合わせ面のボルト穴が検索されます。
+	</p>
+	</li>
+	<li style="text-indent:2em">角度トレランス(Angle Tolerance)
+	<p>
+	上部パーツと下部パーツ間の合わせ面角度トレランス（度）を入力します。合わせ面の平面判定のためのパラメータで、通常は変更する必要ございません。
+	</p>
+	</li>
+
+	<li>
+	プレビューペアをフィット(Fit the Previewed pair)
+	<p>
+	リストの検索されたボルトペアをクリックした際に、メインウィンドウの視点がそのボルトペアにフィットします。
+	</p>
+	</li>
+	<li>
+	検索(Find)
+	<p>
+	ボルトペアの検索を実行します。
+	</p>
+	</li>
+	<li>
+	すべてをチェック(Check All On/Off)
+	<p>
+	リストのチェックボックスの状態を全てオンまたはオフに切り替えます。
+	</p>
+	</li>
+	<li>
+	チェックボックス
+	<p>
+	チェックが入っているボルトペアに剛体でのボルトモデリング設定をします。</br>
+	チェックボックス上で右クリックすることで、チェックボックス状態を反転することができます。</br>
+	</p>
+	</li>
+	<li>
+	マスターフェース(Master Face)
+	<p>
+	上部パーツのボルト穴のフェースIDを表示します。
+	</p>
+	</li>
+	<li>
+	スレーブフェース(Slave Face)
+	<p>
+	下部パーツのボルト穴のフェースIDを表示します。
+	</p>
+	</li>
+	<li>
+	修正(Modification)
+	<p>
+	リスト内の編集(Edit)ボタンをクリックすると、手動フェース選択により、マスターフェース/スレーブフェースのメンバーを編集（追加と削除）できます。</br>
+	編集後は、リスト内の適用(Apply)ボタンをクリックしてください。
+	</p>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_c.png" width="600"></br>
+	</p>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_d.png" width="600"></br>
+	</p>
+	</li>
+	<li>
+	ボルトタイプ(Bolt Type)
+	<p>
+	作成する剛体ボルトのタイプです。ボルトタイプ(Bolt Type)のFEM条件を設定すると表示が切り替ります。ボルト穴毎に異なるボルトタイプを設定することはできません。
+	</p>
+	</li>
+	<li>リスト上での右クリックメニュー
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>コピー(Copy)</b>&nbsp;:&nbsp;ボルトタイプ上でのみ表示されます。ボルトタイプをコピーします。</li>
+		<li><b>貼り付け(Paste)</b>&nbsp;:&nbsp;ボルトタイプ上でのみ表示されます。コピーしたボルトタイプを貼り付けます。</li>
+		<li><b>挿入(Insert)</b>&nbsp;:&nbsp;リスト内に空の行を追加します。</li>
+		<li><b>削除(Delete)</b>&nbsp;:&nbsp;選択した行を削除します。</li>
+		<li><b>すべてクリア―(Clear All)</b>&nbsp;:&nbsp;リスト内を空にします。</li>
+		</span>
+		</ul>
+	</li>
+	<h4>ボルトタイプ(Bolt Type)</h4>
+	<p>
+	各ボルトタイプのFEM条件を設定します。</br>
+	設定をしたボルトタイプのボタンがハイライトされます。ハイライトされたボルトタイプが、設定準備完了を意味します。</br>
+	ボルトタイプは、Type A, Tyep B, Type C, Type Dの4タイプあります。<b>各ボルトタイプGUIのヘルプは、下記のリンクから表示してください。</b>
+	</p>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_e.png" width="600"></br>
+	</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b><a href="./Connections_Bolt%20Modeling_Bolt%20Connections_Auto_Bolt%20Type%20A.html">タイプA(Type A)のヘルプ</a></b>&nbsp;:&nbsp;ボルト穴の上下座面にRBE2/RBE3要素を円形に作成、その中心をバー/RBE2要素で結合します。</li>
+		<li><b><a href="./Connections_Bolt%20Modeling_Bolt%20Connections_Auto_Bolt%20Type%20B.html">タイプB(Type B)のヘルプ</a></b>&nbsp;:&nbsp;ボルト穴の座面にRBE2/RBE3要素を円形に作成、またねじ部にRBE2/RBE3を作成し、その中心をバー/RBE2要素で結合します。</li>
+		<li><b><a href="./Connections_Bolt%20Modeling_Bolt%20Connections_Auto_Bolt%20Type%20C.html">タイプC(Type C)のヘルプ</a></b>&nbsp;:&nbsp;ボルト穴にRBE2/RBE3要素を作成し、その中心をばね/RBE2要素で結合します。</li>
+		<li><b><a href="./Connections_Bolt%20Modeling_Bolt%20Connections_Auto_Bolt%20Type%20D.html">タイプD(Type D)のヘルプ</a></b>&nbsp;:&nbsp;合わせ面のボルト穴周りにRBE2/MPCを作成して、結合します。</li>
+		</span>
+		</ul>
+	<p>
+	各ボルトタイプがサポートしているFEM条件の組合せ一覧表です。
+	</p>
+	<p>
+	<img src="./Media/Connections_Bolt%20Modeling_Bolt%20Connections_Auto_f.png" width="600"></br>
+	</p>
+	<h4>ローカルメッシュ設定フェース(Local Settings Face)</h4>
+	<p>
+	検索されたボルト穴フェースにローカル設定を作成します。メッシング前のパーツに対して実行する際に便利です。</br>
+	メッシュパーツに対して実行する場合は不要です。
+	</p>
+	<li>
+	平均メッシュサイズ(Average Mesh Size)
+	<p>
+	要素の平均サイズを入力します。最小は平均の0.1倍、最大は平均の2倍が自動設定されます。
+	</p>
+	</li>
+	</div>
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>上部パーツ(Upper Part)と下部パーツ(Lower Part)を１つずつ選択します。</li></br>
+	<li>検索用パラメーター（最小円直径(Min Circle Diameter)、最大円直径(Max Circle Diameter)、間隙トレランス(Gap Tolearance)）を変更します。</li></br>
+	<li>検索(Find)ボタンをクリックします。ボルトペアがリストアップされます。</li></br>
+	<li>リストアップされたボルトペアを確認し、必要に応じて修正します。</li></br>
+	<li>設定するボルトタイプのボタンをクリックして、FEM条件を設定します。ボタンがハイライトされます。</li></br>
+	<li>リストにボルトペアが存在し、ボルトタイプのボタンがハイライトされると、適用(Apply)／OKボタンがアクティブになります。</br>
+	適用(Apply)／OKボタンをクリックします。剛体ボルトが自動作成されます。</li></br>
+	</ol>
+</div>
+
+</body>
+
+</html>

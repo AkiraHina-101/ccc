@@ -1,0 +1,88 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>節点移動 | 直線に投影</title>
+
+<style>
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>節点移動 | 直線に投影</h2>
+<div class="contents">
+	<p>任意の対象節点を、2つの参照節点で定義される直線上に、最短距離で動かします。<br>
+	対象節点を参照節点からの検索によって選択することも可能です。</p>
+
+	<img src="./Media/CommandDlg/Mesh%20Edit_Node%20Manipulation_Move%20Node_Project%20To%20Line.png">
+	<br>
+
+	<h4>直線に投影</h4>
+		<li><b>最短距離</b>
+			<p>&nbsp;&nbsp;&nbsp;2つの参照節点間の最短経路節点を検索し、対象節点として選択します。</p>
+		</li>
+		<li><b>参照節点の方向へ</b>
+			<p>&nbsp;&nbsp;&nbsp;2つの参照節点で定義される方向に向かって最短経路節点を検索し、対象節点として選択します。</p>
+		</li>
+		<li><b>選択エンティティ上</b>
+			<p>&nbsp;&nbsp;&nbsp;選択エンティティ上の節点を検索し、対象節点として選択します。</p>
+		</li>
+		</br>
+
+	<h3>-&nbsp;操作手順（参照節点間の最短経路節点を動かす場合）&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;投影する直線を定義するための、2節点を選択します。</li>
+			<li>&nbsp;対象節点の検索方法より、「最短距離」を選択します。</li>
+			<li>&nbsp;「検索」ボタンをクリックします。参照節点間の最短経路節点が選択されます。</li>
+			<li>&nbsp;適用/OKボタンをクリックします。</li>
+		</ol>
+		
+	<h3>-&nbsp;操作手順（参照節点の方向に向かって、参照節点間の最短経路節点を動かす場合）&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;投影する直線と方向を定義するための、2節点を選択します。</li>
+			<li>&nbsp;対象節点の検索方法より、「参照節点の方向へ」を選択します。</li>
+			<li>&nbsp;「検索」ボタンをクリックします。参照節点間の方向に向かって、最短経路節点が選択されます。</li>
+			<li>&nbsp;適用/OKボタンをクリックします。</li>
+		</ol>
+		※ここで意図しない節点が選択される場合、追加で参照節点をもう1点選択下さい。3参照節点で定義される平面上へと対象節点を投影します。
+
+	<h3>-&nbsp;操作手順（選択エンティティ上のすべての節点を動かす場合）&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;投影する直線と方向を定義するための、2節点を選択します。</li>
+			<li>&nbsp;対象節点の検索方法より、「選択エンティティ上」を選択します。</li>
+			<li>&nbsp;エッジ・フェースなど節点を動かしたいエンティティを選択します。</li>
+			<li>&nbsp;「検索」ボタンをクリックします。選択エンティティ上のすべての節点が選択されます。</li>
+			<li>&nbsp;適用/OKボタンをクリックします。</li>
+		</ol>
+
+	<h3>-&nbsp;操作手順（任意の節点を動かす場合）&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;選択リストの「参照節点」をクリックし、投影する直線を定義するための2節点を選択します。</li>
+			<li>&nbsp;選択リストの「対象節点」をクリックし、移動する節点または浮遊節点を選択します。（複数選択可）</li>
+			<li>&nbsp;適用/OKボタンをクリックします。</li>
+		</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

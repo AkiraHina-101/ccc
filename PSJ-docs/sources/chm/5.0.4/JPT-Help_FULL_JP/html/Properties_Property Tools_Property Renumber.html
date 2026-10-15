@@ -1,0 +1,110 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>プロパティリナンバー</title>
+
+
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>プロパティリナンバー</h2>
+<div class="contents">
+	<h4>3D プロパティテーブルダイアログボックス</h4>
+	<p>
+	ドキュメント内のプロパティID/材料IDをテーブルでリナンバーします。
+	</p>
+
+	<img src="./Media/CommandDlg/Properties_Property%20Tools_Property%20Renumber.png"></img>
+	<h4>プロパティテーブル</h4>
+ 　　 <li>設定
+	<p>リナンバー対象をプロパティ/材料から選択します。
+	</p>
+　　　</li>
+ 　　 <li>テーブル
+ 	<p>現在ドキュメントに存在する全てのプロパティ/材料をリストします。</p>
+ 	<ul>
+<li>名前<br>プロパティ/材料の名称です。部分一致検索により、行のフィルタリング表示が可能です。
+</li>
+<li>現在のID<br>
+	プロパティ/材料の現在のIDです。<br>
+	</li>
+	<li>リナンバー後のID<br>
+	プロパティ/材料のリナンバー後のIDです。IDはモデル内で重複しないように入力します。
+	</li>
+	<li>材料（プロパティの場合のみ）<br>
+	プロパティの使用している材料です。部分一致検索により、行のフィルタリング表示が可能です。
+	</li>
+	<li>有効<br>
+	チェックをつけた列のみ、実際にリナンバーを行います。
+　　　</li>
+	</ul>
+　　　</li>
+	<li>全てオン
+	<p>全ての列を有効にします。</p>
+　　　</li>
+	<li>全てオフ
+		<p>全ての列を無効にします。</p>
+　　　</li>
+	<li>スイッチ
+		<p>有効/無効を反転させます。</p>
+　　　</li>
+	<h4>オプション</h4>
+	<p>ソリッド要素の基本プロパティデータを選択します。</p>
+	<li>開始ID
+	<p>可視行のリナンバー後のIDを指定IDから順にナンバリングします。 </p>
+	</li>
+	<li>増分値
+	<p>ナンバリング時の間隔値を指定します。 </p>
+	</li>
+	<h4>ソート順</h4>
+	<li>昇順
+	<p>リナンバー後のIDを昇順にナンバリングします。 </p>
+	</li>
+	<li>降順
+	<p>リナンバー後のIDを昇順にナンバリングします。</p>
+	</li>
+	<li>テーブル更新
+	<p>現在のオプション・ソート順設定により、リナンバー後のIDを変更します。 </p>
+	</li>
+
+<h3>-&nbsp操作手順&nbsp-</h3>
+
+<ol>
+<li>プロパティ/材料を割り当てたモデルを準備します。</li>
+<li>プロパティテーブルを起動します。</li>
+<li>設定リストで、リナンバー対象をプロパティ/材料から選択します。</li>
+<li>下記いずれかの方法で、リナンバー後のIDを指定します。
+<ul>
+	<li>"リナンバー後のID"セルをクリックし、直接値を編集します。</1i>
+	<li>オプションで開始ID,増分値を入力し、ソート順を指定し、テーブル更新ボタンをクリックします。</1i>
+</ul>
+</li>
+<li>リナンバーを行いたくない列の、有効のチェックボックスをOFFにします。</li>
+<li>適用ボタンをクリックして、リナンバーを行います。</li>
+</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

@@ -1,0 +1,96 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>XX-YY On 1 Point</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>XX-YY On 1 Point</h2>
+<div class="contents">
+	<p>
+	Select parts to split along the specified coordinate plane with one node as a starting point.
+	</p>
+	<img src="./Media/CommandDlg/Geometry_Assembly_Body%20Cut_XX-YY%20On%201%20Point.png">
+
+	<h4>Selection Plane</h4>
+	<li>Select
+	<p>Select the coordinate plane to split.</p>
+	</li>
+
+	<ul>
+	<li>Y-Z On 1 Point
+	<p>Select Y-Z Coordinate plane to split, along with the node on the same plane which is to be the starting point of division.</p>
+	</li>
+	<li>X- Z On 1 Point
+	<p>Select X-Z Coordinate plane to split, along with the node on the same plane which is to be the starting point of division.</p>
+	</li>
+	<li>X-Y On 1 Point
+	<p>Select X-Y Coordinate plane to split, along with the node on the same plane which is to be the starting point of division.</p>
+	</li>
+	</ul>
+
+	<li>Offset
+	<p>Enter the offset value. They are separated by a distance that is offset from the split plane specified by three points.</p>
+	</li>
+	<li>Partition Only
+	<p>When it is checked, a partition is created inside. In this case, the parts are not split.</p>
+	</li>
+	<li>Make Section Face
+	<p>If you check this box, in the case of dividing the parts, a face is created at the section.</p>
+	</li>
+	<li>Shared Face
+	<p>When this box is checked while dividing the parts, a shared surface is created at the division plane.</p>
+	</li>
+	<li>Coordinate System
+	<p>Select the coordinate system for coordinate plane to split.</p>
+	</li>
+	<li>Separate Face
+	<p>When this box is checked while dividing the parts, if you want to create a face to the division place, it prevents the face to be coupled (merge) in the enclave.</p>
+	</li>
+
+<h3>-&nbspOperating Procedure (while splitting the parts, to create a face to the split point) &nbsp-</h3>
+	<ol>
+　　　<li>&nbspSelect the coordinate plane to split.</li>
+　　　<li>&nbspOpen the Selection List window and click the Target button.</li>
+　　　<li>&nbspSelect the part to be split.</li>
+　　　<li>&nbspClick the Cut button in the Selection List window.</li>
+　　　<li>&nbspSelect a node on the coordinate plane you selected, which is to be the starting point of division.</li>
+　　　<li>&nbspTurn on the check box for Make Section Face.</li>
+　　　<li>&nbspChange the coordinate system from the default if necessary.</li>
+　　　<li>&nbspClick Apply / Ok button.</li>
+      </ol>
+
+<h3>-&nbspOperating Procedure (without dividing the parts, to create partitions only)&nbsp-</h3>
+      <ol>
+　　　<li>&nbspSelect the coordinate plane to split.</li>
+　　　<li>&nbspOpen the Selection List window and click the Target button.</li>
+　　　<li>&nbspSelect the part to be split.</li>
+　　　<li>&nbspClick the Cut button in the Selection List window.</li>
+　　　<li>&nbspSelect a node on the coordinate plane you selected, which is to be the starting point of division.</li>
+　　　<li>&nbspTurn on the Partition Only check box.</li>
+　　　<li>&nbspTurn on the check box for Make Section Face.</li>
+　　　<li>&nbspChange the coordinate system from the default if necessary.</li>
+　　　<li>&nbspClick the Apply/Ok button.</li>
+      </ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>-->
+
+	</div>
+</div>
+</body>
+
+</html>

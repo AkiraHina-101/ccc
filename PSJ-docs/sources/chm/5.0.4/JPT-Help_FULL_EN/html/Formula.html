@@ -1,0 +1,76 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>Formula</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Formula</h2>
+<div class="contents">
+	<p>Users are allowed to enter formula in the load value column followed by (=) symbol in Pressure (General) and Force (General).  <br>When specifying force value for nodes by formula in force (General), set the distribution method to "Per node". The force at each node is applied according to the formula entered.</p>
+<table class="commontable">
+<tr><th>Function/symbol</th><th>Definition</th></tr>
+<tr><td>+ </td><td>Addition</td></tr>
+<tr><td>- </td><td>Subtraction</td></tr>
+<tr><td>* </td><td>Multiplication</td></tr>
+<tr><td>/ </td><td>Division</td></tr>
+<tr><td>^ </td><td>Exponentiation</td></tr>
+<tr><td>pi </td><td>Ratio of a circle's circumference to its diameter.</td></tr>
+<tr><td>sin(...) </td><td>Sine Function</td></tr>
+<tr><td>cos(...) </td><td>Cosine Function</td></tr>
+<tr><td>tan(...) </td><td>Tangent Function</td></tr>
+<tr><td>arctan(...)</td><td>Arctan Function</td></tr>
+<tr><td>cot(...) </td><td>Cotangent Function</td></tr>
+<tr><td>sqrt(...) </td><td>square root</td></tr>
+<tr><td>fabs(...) </td><td>Absolute Value</td></tr>
+<tr><td>xn(i,LCS)</td><td>X coordinate of the node i from the local coordinate system LCS</td></tr>
+<tr><td>yn(i,LCS)</td><td>Y coordinate of the node i from the local coordinate system LCS</td></tr>
+<tr><td>zn(i,LCS)</td><td>Z coordinate of the node i from the local coordinate system LCS</td></tr>
+<tr><td>xe(i,LCS)</td><td>X coordinate of element i center from local coordinate system LCS</td></tr>
+<tr><td>ye(i,LCS)</td><td>Y coordinate of element i center from local coordinate system LCS</td></tr>
+<tr><td>ze(i,LCS)</td><td>Z coordinate of element i center from local coordinate system LCS</td></tr>
+</table>
+*i, LCS uses the ID of the node, element, local coordinate system and converts the value in the global coordinate system unless you enter the local coordinate system LCS.
+
+<h4>Example</h4>
+
+<table class="commontable">
+<tr><th>Input Formula</th><th>Result</th></tr>
+<tr><td>=1+3*10-5^(-1) </td><td>30.8</td></tr>
+<tr><td>=sin(pi/2) </td><td>1</td></tr>
+<tr><td>=arctan(fabs(3^(sqrt(3)))-5)</td><td>1.704991854</td></tr>
+<tr><td colspan="2">=10*zn(i)<br><img src=./Media/Formula_1.png width="1200"></td></tr>
+</tabe>
+
+
+
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

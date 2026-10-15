@@ -1,0 +1,3 @@
+# Separate Faces | Shell
+
+Separate Faces | Shell Separate Faces | Shell Separate the node that is shared between the shell parts into double nodes. Separate Face Picked Type Specify the type of entity to select. Model Separate all of the shared nodes that are in the model into double nodes. Parts Separate the share nodes that are included between the selected parts to double nodes. Edge Divide the shared nodes on the selected edge to double nodes. (When the adjacent edge of the selected edge has a shared node, the shared node of the selected edge is not a double node) -&nbspOperating Procedure&nbsp- &nbspSelect the desired entity: model, part or edge. &nbspClick Apply/OK button. -&nbspOperation Video&nbsp- -->

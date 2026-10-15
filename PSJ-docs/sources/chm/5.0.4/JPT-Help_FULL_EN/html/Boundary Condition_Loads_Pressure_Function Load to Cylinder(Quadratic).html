@@ -1,0 +1,101 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Pressure | Function Load to Cylinder (Quadratic)</title>
+
+<style type="text/css">
+/* Link下線、非表示 */
+a.no-uline {text-decoration:none}
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Pressure | Function Load to Cylinder (Quadratic)</h2>
+<div class="contents">
+	<p>Define the pressure load on the basis of the quadratic function distribution to the selected Face or Element surface.</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Loads_Pressure_Function%20Load%20to%20Cylinder(Quadratic).png"></img>
+
+ 　　 <h4>Structural</h4>
+		<li><b>Name</b></br>
+			<p>Enter the name of the pressure loading conditions.</p></li>
+
+ 　　 <h4>Quadratic Curve&nbsp;:&nbsp;<span style="font-style:italic; font-weight: bold;">y&#061;ax&sup2;&plus;b</span></h4>
+		<p>&nbsp;&nbsp;Set up the quadratic function.</p>
+		</br>
+		<li><b>a</b></br>
+			<p>Define the a quadratic function.</p>
+		</li>
+		<li><b>b</b></br>
+			<p>Define the b of the quadratic function.</p>
+		</li>
+		<li><b>Input Unit</b></br>
+			<p>Specify the input unit system.</p>
+		</li>
+		<li><b>Coordinate System for Load</b></br>
+			<p>Select the coordinate system to determine the angle range of the load  application.</p>
+		</li>
+		<li><b>Angle Range</b></br>
+			<p>Specify the angle of the load application range from the Y axis on the XY plane in the above coordinate system.</br>
+			Enter the load coverage angle in the range 0~PI or 0°<Angle<90°.</p>
+		</li>
+		<li><b>Input Unit</b></br>
+			<p>Specify the input unit system.</p>
+		</li>
+		<li><b>Pressure Direction</b></br>
+			<p>Specify the pressure load direction.</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>Normal</b>&nbsp;：&nbsp;Perpendicular to the element plane </li>
+				<li><b>Vector</b>&nbsp;：&nbsp;Specify any direction </li>
+				</span>
+			</ul>
+		</li>
+		<li><b>Coordinate System for Direction</b></br>
+			<p>If the pressure direction specified is "Vector (specify any direction)" then select the coordinate system to reference.</p>
+		</li>
+		<li><b>Direction</b></br>
+			<p>If the pressure direction specified is "Vector (specify any direction)", enter a comma-separated direction vector in the order of X, Y, Z.</p>
+		</li>
+		</br>
+	<span style="font-weight:bold;">On the surface which is included in the load coverage, the pressure which uses secondary function is loaded. The depth direction is constant. </br>
+	In the coordinate system specified in the X, use the element centre X coordinate value.
+	</span>
+	</br>
+	<img src="./Media/Boundary%20Conditions_Loads_Pressure_Function%20Load%20to%20Cylinder(Quadratic)_1.png" width="300" height="200"></img>
+	
+	<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;From the selection list, select the Face or Element surface for applying pressure load, from the screen. (Multiple selections are possible).</li>
+		<li>&nbsp;Enter a name for the load.</li>
+		<li>&nbsp;Enter the numeric value of the second order function expression of a and b.</li>
+		<li>&nbsp;Specifies the angle of load application for quadratic functions</li>
+		<li>&nbsp;If the pressure direction is set to vector, specify the coordinate system and the direction vector.</li>
+		<li>&nbsp;Click the apply or OK button.</li>
+		</ol>
+
+
+<!--<h3>-&nbspOperation Video&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

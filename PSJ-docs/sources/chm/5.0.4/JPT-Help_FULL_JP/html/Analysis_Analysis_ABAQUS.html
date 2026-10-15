@@ -1,0 +1,818 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Abaqus出力設定ダイアログ</title>
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Abaqus出力設定ダイアログ</h2>
+<div class="contents">
+	<p>
+	Abaqus解析出力データ設定ダイアログ<br>
+	</p>
+
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Export_Settings_Dialog_New.png">
+
+
+
+　　	<li>解析タイプ : 解析種別
+	<p>
+	&nbsp;&nbsp;構造&nbsp;:&nbsp;構造解析<br>
+	&nbsp;&nbsp;熱&nbsp;:&nbsp;　伝熱解析<br>
+	</p>
+　　	</li>
+
+　　　<li>Abaqusジョブ:　ジョブ設定
+	<p>
+	&nbsp;&nbsp;ジョブ名&nbsp;:&nbsp;　ジョブ名<br>
+	&nbsp;&nbsp;ジョブの説明&nbsp;:&nbsp;　ジョブ内容説明文<br>
+	&nbsp;&nbsp;ヘッダー入力&nbsp;:&nbsp;　INPファイルヘッダー文<br>
+	&nbsp;&nbsp;モデル単位系を出力&nbsp;:&nbsp;　解析入力データ単位系設定
+	</p>
+　　　</li>
+
+　　　<li>ジョブマネージャ&nbsp;:&nbsp;　ジョブマネージャ
+	<p>
+	&nbsp;&nbsp;荷重ケース&nbsp;:&nbsp;　作成されている荷重ケースを表示<br>
+	&nbsp;&nbsp;荷重&nbsp;:&nbsp;　　　作成されている境界拘束条件を表示<br>
+	&nbsp;&nbsp;荷重フィルタ&nbsp;:&nbsp;境界拘束条件の種類表示フィルター<br>
+	&nbsp;&nbsp;ステップタイプ&nbsp;:&nbsp;Abaqusステップ種別<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;構造解析<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一般静解析&nbsp;:&nbsp;静解析<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;固有周波数&nbsp;:&nbsp;固有値解析<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;動解析(陰解法)&nbsp;:&nbsp;動解析(陰解法)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;動解析(陽解法)&nbsp;:&nbsp;動解析(陽解法)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;温度-変位連成&nbsp;:&nbsp;熱・構造連成解析(陰解法)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;動的温度-変位連成(陽解法)&nbsp;:&nbsp;熱・構造連成解析(陽解法)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;弧長増分法&nbsp;:&nbsp;静的弧長増分法解析<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;伝熱解析<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熱伝導(定常)&nbsp;:&nbsp;定常伝熱解析<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熱伝導(非定常)&nbsp;:&nbsp;非定常伝熱解析<br>
+
+	&nbsp;&nbsp;ステップを追加:  ステップ追加ボタン
+	</p>
+　　　</li>
+
+　　　<li>設定の出力: モデルデータ出力設定
+	<p>
+	&nbsp;&nbsp;ファイル分割単位&nbsp;:&nbsp;ファイル出力時にパーツごとにファイルを分割して出力します。<br>
+	&nbsp;&nbsp;サーフェース定義基準&nbsp;:&nbsp;サーフェース定義方式を指定します。<br>
+	&nbsp;&nbsp;&nbsp;要素セット&nbsp;:&nbsp;*SURFACE定義で、要素セットを使用して出力します。<br>
+	&nbsp;&nbsp;&nbsp;要素&nbsp;:&nbsp;*SURFACE定義で、直接要素番号を出力します。<br>
+	&nbsp;&nbsp;リネーム処理&nbsp;:&nbsp;カードに使用されている名称の重複を避けるために、名称変更を行います。<br>	
+	&nbsp;&nbsp;剛体要素をMPCはり要素で出力&nbsp;:&nbsp;チェックすると、RBE2をMPC はり要素に変換して書き出します。<br>
+	&nbsp;&nbsp;浮遊点削除&nbsp;:&nbsp;チェックすると、モデル内の使用されない浮遊節点を出力しません。<br>	
+	&nbsp;&nbsp;節点/要素グループを*NSET/*ELSETに書き出し&nbsp;:&nbsp;節点グループを*NSET, 要素グループを*ELSETで出力します。<br>
+	&nbsp;&nbsp;フェース/要素グループを*SURFACEとして書き出し&nbsp;:&nbsp;フェースグループ及び要素グループを*SURFACEで出力します。<br>
+	&nbsp;&nbsp;別ファイルに履歴を出力&nbsp;:&nbsp;ステップ手順の新しい入力ファイルを作成します。<br>
+	</p>
+　　　</li>
+　　　　　　
+      <h4>構造解析->ステップタイプ&nbsp;:&nbsp;Static General 静解析ステップ</h4>
+      	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static_General_Basic.PNG">
+<li>基本タブ
+	<p>
+	&nbsp;&nbsp;説明&nbsp;:&nbsp;説明<br>
+	&nbsp;&nbsp;解析時間&nbsp;:&nbsp;解析時間<br>
+	&nbsp;&nbsp;大変形&nbsp;:&nbsp;幾何学非線形（大変形）を考慮するかどうかの選択<br>
+	&nbsp;&nbsp;自動安定化 &nbsp;:&nbsp;自動安定化<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;なし&nbsp;:&nbsp;なし<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;消散エネルギー比を指定&nbsp;:&nbsp;散逸エネルギ比を指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;減衰係数を指定&nbsp;:&nbsp;減衰係数を指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;前回のステップからの減衰係数を使用&nbsp;:&nbsp;前回の一般ステップからの減衰係数を使用します。<br>
+<!--
+	&nbsp;&nbsp;&nbsp;&nbsp;ひずみエネルギに対する最大安定化比率による最適安定化を使用します。&nbsp;:&nbsp;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ひずみエネルギに対する最大安定化比率による最適安定化を使用します。<br>
+-->
+	&nbsp;&nbsp;断熱膨張効果を含める&nbsp;:&nbsp;断熱膨張効果<br>
+	</p>
+</li>
+<br>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static_General_Increments-Automatic.PNG">
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static_General_Increments-Fixed.PNG">
+<li>増分タブ
+	<p>
+	&nbsp;&nbsp;タイプ&nbsp;:&nbsp;増分方法の指定<br>
+	&nbsp;&nbsp;自動&nbsp;:&nbsp;自動<br>
+	&nbsp;&nbsp;&nbsp;最大増分数&nbsp;:&nbsp;最大増分数<br>
+	&nbsp;&nbsp;&nbsp;初期&nbsp;:&nbsp;初期増分値<br>
+	&nbsp;&nbsp;&nbsp;最小&nbsp;:&nbsp;最小増分値<br>
+	&nbsp;&nbsp;&nbsp;最大&nbsp;:&nbsp;最大増分値<br>
+	&nbsp;&nbsp;固定&nbsp;:&nbsp;固定<br>
+	&nbsp;&nbsp;&nbsp;最大増分数&nbsp;:&nbsp;最大増分数<br>
+	&nbsp;&nbsp;&nbsp;増分サイズ&nbsp;:&nbsp;時間増分値<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static_General_Other.PNG">
+<li>その他タブ
+	<p>
+	&nbsp;&nbsp;<b>方程式ソルバー</b><br>
+	&nbsp;&nbsp;&nbsp;方法&nbsp;:&nbsp;解法<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;直接法&nbsp;:&nbsp;直接法<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;反復法&nbsp;:&nbsp;反復法<br>	
+	&nbsp;&nbsp;マトリクス格納&nbsp;:&nbsp;マトリクス格納<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ソルバーのデフォルトを使用&nbsp;:&nbsp;デフォルト<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;非対称&nbsp;:&nbsp;非対称<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;対称&nbsp;:&nbsp;対称<br>
+<br>
+	&nbsp;&nbsp;<b>解法</b><br>
+	&nbsp;&nbsp;&nbsp;解法&nbsp;:&nbsp;解法テクニック<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;フルニュートン&nbsp;:&nbsp;ニュートン<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;準ニュートン&nbsp;:&nbsp;準ニュートン<br>	
+	&nbsp;&nbsp;&nbsp;&nbsp;接触反復数&nbsp;:&nbsp;接触イテレーション<br>
+	&nbsp;&nbsp;&nbsp;カーネル行列が再構成されるまでに許容される反復数&nbsp;:&nbsp;カーネルマトリックを再構築するまでの許容最大イテレーション数<br>
+	&nbsp;&nbsp;&nbsp;任意の反復における解の数の調整係数&nbsp;:&nbsp;解法テクニック<br>	
+	&nbsp;&nbsp;&nbsp;接触の最大反復数&nbsp;:&nbsp;解法テクニック<br>
+<br>
+	&nbsp;&nbsp;過度不連続反復を変換&nbsp;:&nbsp;過度不連続反復を変換<br>
+	&nbsp;&nbsp;&nbsp;前のステップから継承&nbsp;:&nbsp;前のステップから継承<br>
+	&nbsp;&nbsp;&nbsp;オン&nbsp;:&nbsp;オン<br>	
+	&nbsp;&nbsp;&nbsp;オフ&nbsp;:&nbsp;オフ<br>		
+<br>
+	&nbsp;&nbsp;<b>時間によるデフォルト荷重の変動</b>&nbsp;:&nbsp;荷重時間変化デフォルト<br>
+	&nbsp;&nbsp;&nbsp;即時&nbsp;:&nbsp;瞬間<br>
+	&nbsp;&nbsp;&nbsp;ステップ間で線形勾配&nbsp;:&nbsp;ステップ内で線形変化<br>	
+	&nbsp;&nbsp;&nbsp;空欄&nbsp;:&nbsp;ブランク<br>	
+		
+	&nbsp;&nbsp;各増分の開始時に前の状態を外挿&nbsp;:&nbsp;各増分開始時、前の状態を外挿<br>
+	&nbsp;&nbsp;&nbsp;一次&nbsp;:&nbsp;線形<br>
+	&nbsp;&nbsp;&nbsp;二次&nbsp;:&nbsp;二次<br>
+	&nbsp;&nbsp;&nbsp;空欄&nbsp;:&nbsp;ブランク<br>
+	&nbsp;&nbsp;領域 “ ” が全塑性したら停止&nbsp;:&nbsp;領域が全塑性したら停止<br>
+	&nbsp;&nbsp;時間依存材料特性で長期的な解を取得&nbsp;:&nbsp;<br>
+	&nbsp;&nbsp;&nbsp;時間依存材料特性で長期的な解を取得<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static_General_Output_Setting.PNG">
+<li>出力設定タブ
+	<p>
+	&nbsp;&nbsp;新しい名前&nbsp;:&nbsp;出力セット名<br>
+	&nbsp;&nbsp;&nbsp;追加&nbsp;:&nbsp;新しい出力セットを作成します。<br>
+	&nbsp;&nbsp;名前&nbsp;:&nbsp;出力セット名<br>	
+	&nbsp;&nbsp;&nbsp;削除 ：既存の出力セットを削除します。<br>
+	&nbsp;&nbsp;フィールド(ODB)&nbsp;:&nbsp;フィールド形式のODBファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;印刷&nbsp;:&nbsp;テキストファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;ファイル(.fil)&nbsp;:&nbsp;Filファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;履歴 &nbsp;:&nbsp;履歴出力を行います。※コンタクト、Energy結果出力のみ対応<br>
+	&nbsp;&nbsp;ドメイン&nbsp;:&nbsp;出力するグループを指定します。<br>
+	&nbsp;&nbsp;&nbsp;モデル全体&nbsp;:&nbsp;モデル全体<br>	
+	&nbsp;&nbsp;&nbsp;設定&nbsp;:&nbsp;セット<br>
+	&nbsp;&nbsp;周波数&nbsp;:&nbsp;出力の間隔<br>
+	&nbsp;&nbsp;&nbsp;最終結果のみ&nbsp;:&nbsp;ステップ内の最終結果のみを出力します。<br>
+	&nbsp;&nbsp;&nbsp;nインクリメント毎&nbsp;:&nbsp;nインクリメントごとに結果を出力します。<br>
+	&nbsp;&nbsp;&nbsp;間隔等分時間毎&nbsp;:&nbsp;間隔等分した時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;&nbsp;X時間毎&nbsp;:&nbsp;x時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;タイミング&nbsp;:&nbsp;出力タイミングの調整<br>
+	&nbsp;&nbsp;出力変数&nbsp;:&nbsp;出力する結果変数を選択します。<br>
+		</p>
+</li>
+	
+      <h4>構造解析->ステップタイプ&nbsp;:&nbsp;固有周波数 固有振動数解析ステップ</h4>
+		<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Natural_Frequency_New_Basic.PNG">
+		
+<li>基本タブ
+	<p>
+	&nbsp;&nbsp;説明&nbsp;:&nbsp;説明<br>
+	&nbsp;&nbsp;大変形<br>
+	&nbsp;&nbsp;固有値ソルバ&nbsp;:&nbsp;固有値解法<br>
+	&nbsp;&nbsp;要求される固有値の数&nbsp;:&nbsp;求める固有値の数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;すべて周波数範囲内&nbsp;:&nbsp;周波数レンジ内すべて<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;値&nbsp;:&nbsp;数<br>
+	&nbsp;&nbsp;周波数シフト(サイクル/時間)**2&nbsp;:&nbsp;振動数シフト値（(サイクル/時間)^2)<br>
+	&nbsp;&nbsp;Minimum frequency of interest(cycles/times)&nbsp;:&nbsp;求解最小周波数(サイクル/時間)<br>
+	&nbsp;&nbsp;求解最大周波数(サイクル/時間)&nbsp;:&nbsp;求解最高周波数(サイクル/時間)<br>
+	&nbsp;&nbsp;該当する場合は音響-構造連成を含める&nbsp;:&nbsp;音響ー構造連成を含めます。<br>
+	&nbsp;&nbsp;ブロックサイズ&nbsp;:&nbsp;ブロックサイズ<br>
+	&nbsp;&nbsp;ブロックランチョス ステップの最大数&nbsp;:&nbsp;ブロックランチョス法ステップ数最大値<br>
+	&nbsp;&nbsp;SIMベースの線形動的手順を使用&nbsp;:&nbsp;SIM ベースの線形動的プロシージャを使用します。<br>
+	&nbsp;&nbsp;残差モードを含める&nbsp;:&nbsp;残差モードを含める<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Natural_Frequency_New_Other.PNG">
+<li>その他タブ
+	<p>
+	&nbsp;&nbsp;方程式ソルバー&nbsp;:&nbsp;説明<br>
+	&nbsp;&nbsp;方程式ソルバー&nbsp;:&nbsp;固有値解法<br>
+	&nbsp;&nbsp;&nbsp;マトリクス格納&nbsp;:&nbsp;周波数レンジ内すべて<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ソルバーのデフォルトを使用&nbsp;:&nbsp;ソルバーデフォルトを使用<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;非対称&nbsp;:&nbsp;非対称<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;対称&nbsp;:&nbsp;対称<br>
+	
+	&nbsp;&nbsp;固有ベクトルの正規化方法:&nbsp;&nbsp;固有ベクトルの正規化<br>
+	&nbsp;&nbsp;&nbsp;変位&nbsp;:&nbsp;変位<br>
+	&nbsp;&nbsp;&nbsp;質量要素&nbsp;:&nbsp;質量<br>
+	&nbsp;&nbsp;依存プロパティを評価(周波数を指定)&nbsp;:&nbsp;周波数依存特性評価周波数<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Natural_Frequency_New_Output_Setting.PNG">
+<li>出力設定タブ
+	<p>
+	&nbsp;&nbsp;新しい名前&nbsp;:&nbsp;出力セット名<br>
+	&nbsp;&nbsp;&nbsp;追加&nbsp;:&nbsp;新しい出力セットを作成します。<br>
+	&nbsp;&nbsp;名前&nbsp;:&nbsp;出力セット名<br>	
+	&nbsp;&nbsp;&nbsp;削除 ：既存の出力セットを削除します。<br>
+	&nbsp;&nbsp;フィールド(ODB)&nbsp;:&nbsp;フィールド形式のODBファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;印刷&nbsp;:&nbsp;テキストファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;ファイル(.fil)&nbsp;:&nbsp;Filファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;履歴 &nbsp;:&nbsp;履歴出力を行います。※コンタクト、Energy結果出力のみ対応<br>
+	&nbsp;&nbsp;ドメイン&nbsp;:&nbsp;出力するグループを指定します。<br>
+	&nbsp;&nbsp;&nbsp;モデル全体&nbsp;:&nbsp;モデル全体<br>	
+	&nbsp;&nbsp;&nbsp;設定&nbsp;:&nbsp;セット<br>
+	&nbsp;&nbsp;周波数&nbsp;:&nbsp;出力の間隔<br>
+	&nbsp;&nbsp;&nbsp;最終結果のみ&nbsp;:&nbsp;ステップ内の最終結果のみを出力します。<br>
+	&nbsp;&nbsp;&nbsp;nインクリメント毎&nbsp;:&nbsp;nインクリメントごとに結果を出力します。<br>
+	&nbsp;&nbsp;&nbsp;間隔等分時間毎&nbsp;:&nbsp;間隔等分した時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;&nbsp;x時間毎&nbsp;:&nbsp;x時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;タイミング&nbsp;:&nbsp;出力タイミングの調整<br>
+	&nbsp;&nbsp;出力変数&nbsp;:&nbsp;出力する結果変数を選択します。<br>
+		</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Natural_Frequency_New_Flexible_Body.PNG">
+<li>フレキシブルパーツ
+	<p>
+	&nbsp;&nbsp;これは下部構造解析用です。 モデルに自由度定義がある場合にのみ有効です。 <br><br>
+	&nbsp;&nbsp;ソルバータイプ &nbsp;:&nbsp;ソルバータイプを選択します: EXCITE/ADAMS/GENERIC/SID/SIMPACK。<br>
+	&nbsp;&nbsp;ライブラリー &nbsp;:&nbsp;下部構造ライブラリの入力名。 <br>
+	&emsp;&emsp;上書きする&nbsp;:&nbsp;ライブラリ内の同じTYPE識別子で既存のサブ構造を上書きします (デフォルト = NO)。<br>
+	&nbsp;&nbsp;縮退マトリクス&nbsp;:&nbsp;縮小行列を計算する。<br>
+	&emsp;&emsp;質量&nbsp;:&nbsp;下部構造の換算質量行列を計算します (デフォルト = NO)。<br>
+	&emsp;&emsp;粘性減衰&nbsp;:&nbsp;下部構造の低減された粘性減衰行列を計算します (デフォルト = NO)。<br>
+	&emsp;&emsp;構造減衰&nbsp;:&nbsp;下部構造の縮小構造減衰行列を計算します (デフォルト = NO)。<br>
+	&nbsp;&nbsp;リカバリーマトリクス &nbsp;:&nbsp;下部構造の任意の自由度の解を回復できます。</br>
+	&emsp;&emsp;デフォルト = YES, 除去された変数の回復がほとんどの分析手順で可能であることを示します。<br>
+	&emsp;&emsp;セット = NO, 要素または節点情報の出力がこの下部構造内で使用できないことを指定する。<br>
+	&nbsp;&nbsp;モデルデータ &nbsp;:<br>
+	&emsp;&emsp;モデルデータ = ODB (デフォルト), 復元された結果に関連する下部構造モデルデータファイルの生成。<br>
+	&emsp;&emsp;モデルデータ = NONE, 下部構造モデルデータファイルの生成を抑制する。<br>
+	&nbsp;&nbsp;自由度定義&nbsp;:&nbsp;保持された自由度定義する　(All/特定)。 <br>
+	&emsp;&emsp;ソート後&nbsp;:&nbsp;下部構造を使用するかどうかに関係なく、ノードの順序を並べ替えます。<br>
+	&nbsp;&nbsp;保持固有モード指定&nbsp;:&nbsp;このオプションは、使用するモードを選択し、一意のモードのリストを生成します。 （デフォルトの増分= 1）。<br>
+		</p>
+</li>
+
+	<h4>構造解析->ステップタイプ&nbsp;:&nbsp;動解析(陰解法)　動解析、陰解法ステップ</h4>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Implicit_Basic.PNG">
+<li>基本タブ
+	<p>
+	&nbsp;&nbsp;説明&nbsp;:&nbsp;説明<br>
+	&nbsp;&nbsp;解析時間&nbsp;:&nbsp;解析時間<br>
+	&nbsp;&nbsp;大変形&nbsp;:&nbsp;幾何学非線形（大変形）を考慮するかどうかの選択<br>
+	&nbsp;&nbsp;断熱膨張効果を含める&nbsp;:&nbsp;断熱効果を含めるかどうかの選択<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Implicit_Increments-Automatic.PNG">
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Implicit_Increments-Fixed.PNG">	
+<li>増分タブ
+	<p>
+	&nbsp;&nbsp;タイプ&nbsp;:&nbsp;増分方法の指定<br>
+	&nbsp;&nbsp;固定&nbsp;:&nbsp;固定<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大増分数&nbsp;:&nbsp;最大増分数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;増分サイズ&nbsp;:&nbsp;時間増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;初期&nbsp;:&nbsp;初期増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最小&nbsp;:&nbsp;最小増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最大&nbsp;:&nbsp;最大増分値<br>
+	&nbsp;&nbsp;&nbsp;中間増分残差&nbsp;:&nbsp;中間残差の許容値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;計算しない&nbsp;:&nbsp;チェックした場合、計算しない<br>
+	&nbsp;&nbsp;&nbsp;トレランス&nbsp;:&nbsp;トレランス<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ソルバーデフォルト&nbsp;:&nbsp;ソルバーデフォルト <br>
+	&nbsp;&nbsp;&nbsp;&nbsp;倍卒指定&nbsp;:&nbsp;倍卒指定<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;値指定&nbsp;:&nbsp;値指定<br>
+	
+	&nbsp;&nbsp;自動&nbsp;:&nbsp;自動<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大増分数&nbsp;:&nbsp;最大増分数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;増分サイズ&nbsp;:&nbsp;時間増分値<br>	
+	&nbsp;&nbsp;&nbsp;中間増分残差&nbsp;:&nbsp;中間残差の許容値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;計算しない&nbsp;:&nbsp;チェックした場合、計算しない<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Implicit_Other.PNG">
+<li>その他タブ
+	<p>
+	&nbsp;&nbsp;方程式ソルバー&nbsp;:&nbsp;方程式ソルバ<br>
+	&nbsp;&nbsp;マトリクス格納&nbsp;:&nbsp;マトリクス格納<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ソルバーのデフォルトを使用&nbsp;:&nbsp;デフォルト<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;非対称&nbsp;:&nbsp;非対称<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;対称&nbsp;:&nbsp;対称<br>
+	
+	&nbsp;&nbsp;解法&nbsp;:&nbsp;解法テクニック<br>
+	&nbsp;&nbsp;&nbsp;解法&nbsp;:&nbsp;解法テクニック<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;フルニュートン&nbsp;:&nbsp;フルニュートン<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;準ニュートン&nbsp;:&nbsp;準ニュートン<br>	
+	
+	&nbsp;&nbsp;&nbsp;カーネル行列が再構成されるまでに許容される反復数&nbsp;:&nbsp;カーネルマトリックを再構築するまでの許容最大イテレーション数<br>
+	
+	&nbsp;&nbsp;過度不連続反復を変換&nbsp;:&nbsp;過度不連続イテレーションの変換<br>
+	&nbsp;&nbsp;&nbsp;前のステップから継承&nbsp;:&nbsp;前のステップから継承<br>
+	&nbsp;&nbsp;&nbsp;オン&nbsp;:&nbsp;オン<br>	
+	&nbsp;&nbsp;&nbsp;オフ&nbsp;:&nbsp;オフ<br>		
+
+	&nbsp;&nbsp;時間によるデフォルト荷重の変動&nbsp;:&nbsp;荷重時間変化デフォルト<br>
+	&nbsp;&nbsp;&nbsp;即時&nbsp;:&nbsp;瞬間<br>
+	&nbsp;&nbsp;&nbsp;ステップ間で線形勾配&nbsp;:&nbsp;ステップ内で線形変化<br>	
+
+	&nbsp;&nbsp;各増分の開始時に前の状態を外挿&nbsp;:&nbsp;各増分開始時、前の状態を外挿<br>
+	&nbsp;&nbsp;&nbsp;一次&nbsp;:&nbsp;線形<br>
+	&nbsp;&nbsp;&nbsp;二次&nbsp;:&nbsp;二次<br>
+	
+	&nbsp;&nbsp;減衰コントロール数値パラメーター&nbsp;:&nbsp;数値減衰コントロールパラメーター<br>
+	
+	&nbsp;&nbsp;反復数の上限に達したら解を受諾&nbsp;:&nbsp;最大イテレーション数に達した時の解を受け入れます。<br>
+	
+	&nbsp;&nbsp;ステップの最初に初期加速度を計算&nbsp;:&nbsp;該当ステップにおける初期加速度の計算方法を指定します。<br>	
+		
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Implicit_Output_Setting.PNG">
+<li>出力設定タブ
+	<p>
+	&nbsp;&nbsp;新しい名前&nbsp;:&nbsp;出力セット名<br>
+	&nbsp;&nbsp;&nbsp;追加&nbsp;:&nbsp;新しい出力セットを作成します。<br>
+	&nbsp;&nbsp;名前&nbsp;:&nbsp;出力セット名<br>	
+	&nbsp;&nbsp;&nbsp;削除 ：既存の出力セットを削除します。<br>
+	&nbsp;&nbsp;フィールド(ODB)&nbsp;:&nbsp;フィールド形式のODBファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;印刷&nbsp;:&nbsp;テキストファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;ファイル(.fil)&nbsp;:&nbsp;Filファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;履歴 &nbsp;:&nbsp;履歴出力を行います。※コンタクト、Energy結果出力のみ対応<br>
+	&nbsp;&nbsp;ドメイン&nbsp;:&nbsp;出力するグループを指定します。<br>
+	&nbsp;&nbsp;&nbsp;モデル全体&nbsp;:&nbsp;モデル全体<br>	
+	&nbsp;&nbsp;&nbsp;設定&nbsp;:&nbsp;セット<br>
+	&nbsp;&nbsp;周波数&nbsp;:&nbsp;出力の間隔<br>
+	&nbsp;&nbsp;&nbsp;最終結果のみ&nbsp;:&nbsp;ステップ内の最終結果のみを出力します。<br>
+	&nbsp;&nbsp;&nbsp;nインクリメント毎&nbsp;:&nbsp;nインクリメントごとに結果を出力します。<br>
+	&nbsp;&nbsp;&nbsp;間隔等分時間毎&nbsp;:&nbsp;間隔等分した時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;&nbsp;x時間毎&nbsp;:&nbsp;x時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;タイミング&nbsp;:&nbsp;出力タイミングの調整<br>
+	&nbsp;&nbsp;出力変数&nbsp;:&nbsp;出力する結果変数を選択します。<br>
+		</p>
+</li>
+      <h4>構造解析->ステップタイプ&nbsp;:&nbsp;動解析(陽解法)　動解析、陽解法ステップ</h4>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Explicit_Basic.PNG">
+
+<li>基本タブ
+	<p>
+	&nbsp;&nbsp;説明&nbsp;:&nbsp;説明<br>
+	&nbsp;&nbsp;解析時間&nbsp;:&nbsp;解析時間<br>
+	&nbsp;&nbsp;大変形&nbsp;:&nbsp;幾何学非線形（大変形）を考慮するかどうかの選択<br>
+	&nbsp;&nbsp;断熱膨張効果を含める&nbsp;:&nbsp;断熱効果を含めるかどうかの選択<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Explicit_Increments-Automatic.PNG">
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Explicit_Increments-Fixed.PNG">	
+<li>増分 タブ
+	<p>
+	&nbsp;&nbsp;タイプ&nbsp;:&nbsp;増分方法の指定<br>
+	&nbsp;&nbsp;&nbsp;自動&nbsp;:&nbsp;自動<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;安定時間増分の予測&nbsp;:&nbsp;安定時間増分の予測<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;グローバル&nbsp;:&nbsp;全体<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;要素ごと&nbsp;:&nbsp;要素ごと<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大時間増分&nbsp;:&nbsp;最大時間増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;制限なし&nbsp;:&nbsp;無制限<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;値&nbsp;:&nbsp;値<br>	
+	&nbsp;&nbsp;&nbsp;&nbsp;時間スケーリング係数&nbsp;:&nbsp;時間倍率<br>
+	&nbsp;&nbsp;&nbsp;固定&nbsp;:&nbsp;固定<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;増分サイズの選択&nbsp;:&nbsp;増分値選択<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ユーザー定義の時間増分：<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;要素ごとの時間増分予測値を使用する&nbsp;:&nbsp;要素ごと時間増分予測<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;時間スケーリング係数&nbsp;:&nbsp;時間倍率<br>	
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Explicit_Other.PNG">
+<li>その他タブ
+	<p>
+	&nbsp;&nbsp;線形体積粘性パラメーター&nbsp;:&nbsp;線形体積粘性パラメーター<br>
+	&nbsp;&nbsp;&nbsp;二次体積粘性パラメーター&nbsp;:&nbsp;２次体積粘性パラメーター<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Explicit_Output_Setting.PNG">
+<li>出力設定タブ
+	<p>
+	&nbsp;&nbsp;新しい名前&nbsp;:&nbsp;出力セット名<br>
+	&nbsp;&nbsp;&nbsp;追加&nbsp;:&nbsp;新しい出力セットを作成します。<br>
+	&nbsp;&nbsp;名前&nbsp;:&nbsp;出力セット名<br>	
+	&nbsp;&nbsp;&nbsp;削除 ：既存の出力セットを削除します。<br>
+	&nbsp;&nbsp;フィールド(ODB)&nbsp;:&nbsp;フィールド形式のODBファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;印刷&nbsp;:&nbsp;テキストファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;ファイル(.fil)&nbsp;:&nbsp;Filファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;履歴 &nbsp;:&nbsp;履歴出力を行います。※コンタクト、Energy結果出力のみ対応<br>
+	&nbsp;&nbsp;ドメイン&nbsp;:&nbsp;出力するグループを指定します。<br>
+	&nbsp;&nbsp;&nbsp;モデル全体&nbsp;:&nbsp;モデル全体<br>	
+	&nbsp;&nbsp;&nbsp;設定&nbsp;:&nbsp;セット<br>
+	&nbsp;&nbsp;周波数&nbsp;:&nbsp;出力の間隔<br>
+	&nbsp;&nbsp;&nbsp;最終結果のみ&nbsp;:&nbsp;ステップ内の最終結果のみを出力します。<br>
+	&nbsp;&nbsp;&nbsp;nインクリメント毎&nbsp;:&nbsp;nインクリメントごとに結果を出力します。<br>
+	&nbsp;&nbsp;&nbsp;間隔等分時間毎&nbsp;:&nbsp;間隔等分した時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;&nbsp;x時間毎&nbsp;:&nbsp;x時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;タイミング&nbsp;:&nbsp;出力タイミングの調整<br>
+	&nbsp;&nbsp;出力変数&nbsp;:&nbsp;出力する結果変数を選択します。<br>
+		</p>
+</li>
+      <h4>構造解析->ステップタイプ&nbsp;:&nbsp;温度-変位連成　熱構造連成解析ステップ</h4>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Coupled_Temp-Displacement_Basic.PNG">
+<li>基本タブ
+	<p>
+	&nbsp;&nbsp;説明&nbsp;:&nbsp;説明<br>
+	&nbsp;&nbsp;解析時間&nbsp;:&nbsp;解析時間<br>
+	&nbsp;&nbsp;応答&nbsp;:&nbsp;応答<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;定常&nbsp;:&nbsp;定常<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;非定常&nbsp;:&nbsp;非定常<br>
+	&nbsp;&nbsp;大変形&nbsp;:&nbsp;幾何学非線形（大変形）を考慮するかどうかの選択<br>
+	&nbsp;&nbsp;自動安定化 &nbsp;:&nbsp;自動安定化<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;なし&nbsp;:&nbsp;なし<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;消散エネルギー比を指定&nbsp;:&nbsp;消散エネルギ比<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;減衰係数を指定&nbsp;:&nbsp;減衰係数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;前回のステップからの減衰係数を使用&nbsp;:&nbsp;前回のステップからの減衰係数を使用します。<br>
+	&nbsp;&nbsp;ひずみエネルギに対する最大安定化比率による最適安定化を使用&nbsp;:&nbsp;<br>
+	&nbsp;&nbsp;&nbsp;ひずみエネルギに対する最大安定化比率による最適安定化を使用します。<br>
+	&nbsp;&nbsp;クリープ/スウェリング/粘弾性の挙動を含める&nbsp;:&nbsp;クリープ/スウェリング/粘弾性効果を含めます。<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Coupled_Temp-Displacement_Increments-Automatic.PNG">
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Coupled_Temp-Displacement_Increments-Fixed.PNG">　　　
+<li>増分タブ
+	<p>
+	&nbsp;&nbsp;タイプ&nbsp;:&nbsp;増分方法の指定<br>
+	&nbsp;&nbsp;&nbsp;自動&nbsp;:&nbsp;自動<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大増分数&nbsp;:&nbsp;最大増分数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;増分サイズ&nbsp;:&nbsp;時間増分<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;初期&nbsp;:&nbsp;初期増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最小&nbsp;:&nbsp;最小増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大 ：最大増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;増分あたりの温度変化量の最大許容値&nbsp;:&nbsp;温度の変化率の最大値を設定<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;クリープ/スウェリング/粘弾性ひずみ増分のトレランス&nbsp;:&nbsp;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;クリープ/スウェリング/粘弾性ひずみ増分の許容値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;クリープ/スウェリング/粘弾性の積分方法&nbsp;:&nbsp;クリープ/スウェリング/粘弾性の積分方法<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;陽解法/陰解法&nbsp;:&nbsp;陽解法/陰解法<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;陽解法&nbsp;:&nbsp;陽解法<br>
+	&nbsp;&nbsp;&nbsp;固定&nbsp;:&nbsp;固定<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大増分数&nbsp;:&nbsp;最大増分数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;増分サイズ&nbsp;:&nbsp;時間増分<br>			
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Coupled_Temp-Displacement_Other.PNG">
+<li>その他タブ
+	<p>
+	&nbsp;&nbsp;方程式ソルバー&nbsp;:&nbsp;方程式ソルバ<br>
+	&nbsp;&nbsp;&nbsp;マトリクス格納&nbsp;:&nbsp;マトリクス格納<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ソルバーのデフォルトを使用&nbsp;:&nbsp;デフォルト<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;非対称&nbsp;:&nbsp;非対称<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;対称&nbsp;:&nbsp;対称<br>
+	
+	&nbsp;&nbsp;解法&nbsp;:&nbsp;解法テクニック<br>
+	&nbsp;&nbsp;&nbsp;解法&nbsp;:&nbsp;解法テクニック<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;フルニュートン&nbsp;:&nbsp;フルニュートン<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;分離&nbsp;:&nbsp;分離型<br>
+	<!--&nbsp;&nbsp;&nbsp;&nbsp;接触反復数&nbsp;:&nbsp;接触イテレーション<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;任意の反復における解の数の調整係数&nbsp;:&nbsp;イテレーションにおける解個数の調整係数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接触の最大反復数&nbsp;:&nbsp;接触イテレーション最大回数<br>-->
+	
+	&nbsp;&nbsp;過度不連続反復を変換&nbsp;:&nbsp;過度不連続イテレーションの変換<br>
+	&nbsp;&nbsp;&nbsp;前のステップから継承&nbsp;:&nbsp;前のステップから継承<br>
+	&nbsp;&nbsp;&nbsp;オン&nbsp;:&nbsp;オン<br>	
+	&nbsp;&nbsp;&nbsp;オフ&nbsp;:&nbsp;オフ<br>		
+
+	&nbsp;&nbsp;時間によるデフォルト荷重の変動&nbsp;:&nbsp;荷重時間変化デフォルト<br>
+	&nbsp;&nbsp;&nbsp;即時&nbsp;:&nbsp;瞬間<br>
+	&nbsp;&nbsp;&nbsp;ステップ間で線形勾配&nbsp;:&nbsp;ステップ内で線形変化<br>	
+
+	&nbsp;&nbsp;各増分の開始時に前の状態を外挿&nbsp;:&nbsp;各増分開始時、前の状態を外挿<br>
+	&nbsp;&nbsp;&nbsp;一次&nbsp;:&nbsp;線形<br>
+	&nbsp;&nbsp;&nbsp;二次&nbsp;:&nbsp;二次<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Coupled_Temp-Displacement_Output_Setting.PNG">
+<li>出力設定タブ
+	<p>
+	&nbsp;&nbsp;新しい名前&nbsp;:&nbsp;出力セット名<br>
+	&nbsp;&nbsp;&nbsp;追加&nbsp;:&nbsp;新しい出力セットを作成します。<br>
+	&nbsp;&nbsp;名前&nbsp;:&nbsp;出力セット名<br>	
+	&nbsp;&nbsp;&nbsp;削除 ：既存の出力セットを削除します。<br>
+	&nbsp;&nbsp;フィールド(ODB)&nbsp;:&nbsp;フィールド形式のODBファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;印刷&nbsp;:&nbsp;テキストファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;ファイル(.fil)&nbsp;:&nbsp;Filファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;履歴 &nbsp;:&nbsp;履歴出力を行います。※コンタクト、Energy結果出力のみ対応<br>
+	&nbsp;&nbsp;ドメイン&nbsp;:&nbsp;出力するグループを指定します。<br>
+	&nbsp;&nbsp;&nbsp;モデル全体&nbsp;:&nbsp;モデル全体<br>	
+	&nbsp;&nbsp;&nbsp;設定&nbsp;:&nbsp;セット<br>
+	&nbsp;&nbsp;周波数&nbsp;:&nbsp;出力の間隔<br>
+	&nbsp;&nbsp;&nbsp;最終結果のみ&nbsp;:&nbsp;ステップ内の最終結果のみを出力します。<br>
+	&nbsp;&nbsp;&nbsp;nインクリメント毎&nbsp;:&nbsp;nインクリメントごとに結果を出力します。<br>
+	&nbsp;&nbsp;&nbsp;間隔等分時間毎&nbsp;:&nbsp;間隔等分した時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;&nbsp;x時間毎&nbsp;:&nbsp;x時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;タイミング&nbsp;:&nbsp;出力タイミングの調整<br>
+	&nbsp;&nbsp;出力変数&nbsp;:&nbsp;出力する結果変数を選択します。<br>
+		</p>
+</li>
+
+      <h4>構造解析->ステップタイプ&nbsp;:&nbsp;動的温度-変位連成(陽解法)　動的熱構造連成、陽解法ステップ</h4>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Coupled_Temp-Displacement-Explicit_Basic.PNG">
+<li>基本タブ
+	<p>
+	&nbsp;&nbsp;説明&nbsp;:&nbsp;説明<br>
+	&nbsp;&nbsp;解析時間&nbsp;:&nbsp;解析時間<br>
+	&nbsp;&nbsp;大変形&nbsp;:&nbsp;幾何学非線形（大変形）を考慮するかどうかの選択<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Coupled_Temp-Displacement-Explicit_Increments-Automatic.PNG">
+
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Coupled_Temp-Displacement-Explicit_Increments-Fixed.PNG">
+<li>増分タブ
+	<p>
+	&nbsp;&nbsp;タイプ&nbsp;:&nbsp;増分方法の指定<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;自動&nbsp;:&nbsp;自動<br>
+
+	&nbsp;&nbsp;安定時間増分の予測&nbsp;:&nbsp;安定時間増分の予測<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;グローバル&nbsp;:&nbsp;全体<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;要素ごと&nbsp;:&nbsp;要素ごと<br>
+	&nbsp;&nbsp;最大時間増分&nbsp;:&nbsp;最大時間増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;制限なし&nbsp;:&nbsp;無制限<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;値&nbsp;:&nbsp;値<br>	
+	&nbsp;&nbsp;時間スケーリング係数&nbsp;:&nbsp;時間倍率<br>
+	&nbsp;&nbsp;固定&nbsp;:&nbsp;固定<br>
+	&nbsp;&nbsp;&nbsp;増分サイズの選択&nbsp;:&nbsp;時間増分値の選択<br>
+	&nbsp;&nbsp;&nbsp;&nbsp; ユーザー定義の時間増分&nbsp;:&nbsp;ユーザ定義時間増分<br>	
+	&nbsp;&nbsp;&nbsp;&nbsp; 要素ごとの時間増分予測値を使用する&nbsp;:&nbsp;要素ごとの時間増分予測を使用<br>
+	&nbsp;&nbsp;&nbsp;時間スケーリング係数&nbsp;:&nbsp;時間倍率<br>	
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Coupled_Temp-Displacement-Explicit_Other.PNG">
+<li>その他タブ
+	<p>
+	&nbsp;&nbsp;線形体積粘性パラメーター&nbsp;:&nbsp;線形体積粘性パラメーター<br>
+	&nbsp;&nbsp;&nbsp;二次体積粘性パラメーター&nbsp;:&nbsp;２次体積粘性パラメーター<br>
+	</p>
+</li>
+
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Coupled_Temp-Displacement-Explicit_Output_Setting.PNG">
+<li>出力設定タブ
+	<p>
+	&nbsp;&nbsp;新しい名前&nbsp;:&nbsp;出力セット名<br>
+	&nbsp;&nbsp;&nbsp;追加&nbsp;:&nbsp;新しい出力セットを作成します。<br>
+	&nbsp;&nbsp;名前&nbsp;:&nbsp;出力セット名<br>	
+	&nbsp;&nbsp;&nbsp;削除 ：既存の出力セットを削除します。<br>
+	&nbsp;&nbsp;フィールド(ODB)&nbsp;:&nbsp;フィールド形式のODBファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;印刷&nbsp;:&nbsp;テキストファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;ファイル(.fil)&nbsp;:&nbsp;Filファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;履歴 &nbsp;:&nbsp;履歴出力を行います。※コンタクト、Energy結果出力のみ対応<br>
+	&nbsp;&nbsp;ドメイン&nbsp;:&nbsp;出力するグループを指定します。<br>
+	&nbsp;&nbsp;&nbsp;モデル全体&nbsp;:&nbsp;モデル全体<br>	
+	&nbsp;&nbsp;&nbsp;設定&nbsp;:&nbsp;セット<br>
+	&nbsp;&nbsp;周波数&nbsp;:&nbsp;出力の間隔<br>
+	&nbsp;&nbsp;&nbsp;最終結果のみ&nbsp;:&nbsp;ステップ内の最終結果のみを出力します。<br>
+	&nbsp;&nbsp;&nbsp;nインクリメント毎&nbsp;:&nbsp;nインクリメントごとに結果を出力します。<br>
+	&nbsp;&nbsp;&nbsp;間隔等分時間毎&nbsp;:&nbsp;間隔等分した時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;&nbsp;x時間毎&nbsp;:&nbsp;x時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;タイミング&nbsp;:&nbsp;出力タイミングの調整<br>
+	&nbsp;&nbsp;出力変数&nbsp;:&nbsp;出力する結果変数を選択します。<br>
+		</p>
+</li>
+      <h4>構造解析->解法タイプ&nbsp;:&nbsp;弧長増分法&nbsp;:&nbsp;静解析・弧長増分法</h4>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static-Riks_Basic.PNG">
+<li>基本タブ
+	<p>
+	&nbsp;&nbsp;説明&nbsp;:&nbsp;説明<br>
+	&nbsp;&nbsp;大変形&nbsp;:&nbsp;幾何学非線形（大変形）を考慮するかどうかの選択<br>
+	&nbsp;&nbsp;断熱膨張効果を含める&nbsp;:&nbsp;断熱効果を含める<br>
+	&nbsp;&nbsp;停止基準&nbsp;:&nbsp;終了基準<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大荷重比例係数&nbsp;:&nbsp;最大荷重比例係数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大変位&nbsp;:&nbsp;最大変位<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;自由度&nbsp;:&nbsp;自由度<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;節点領域&nbsp;:&nbsp;節点領域<br>
+</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static-Riks_Increments-Automatic.PNG">
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static-Riks_Increments-Fixed.PNG">	
+<li>増分タブ
+	<p>
+	&nbsp;&nbsp;タイプ&nbsp;:&nbsp;増分方法の指定<br>
+	&nbsp;&nbsp;&nbsp;自動&nbsp;:&nbsp;自動<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大反復数&nbsp;:&nbsp;最大増分数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;増分サイズ&nbsp;:&nbsp;弧長増分<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;初期&nbsp;:&nbsp;初期増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最小&nbsp;:&nbsp;最小増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大&nbsp;:&nbsp;最大増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;円弧の合計長の予測値&nbsp;:&nbsp;予測全弧長<br>
+	&nbsp;&nbsp;&nbsp;固定&nbsp;:&nbsp;固定<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大反復数&nbsp;:&nbsp;最大増分数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;増分サイズ&nbsp;:&nbsp;弧長増分<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static-Riks_Other.PNG">
+<li>その他タブ
+	<p>
+	&nbsp;&nbsp;方程式ソルバー&nbsp;:&nbsp;方程式ソルバ<br>
+	&nbsp;&nbsp;マトリクス格納&nbsp;:&nbsp;マトリクス格納<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ソルバーのデフォルトを使用&nbsp;:&nbsp;デフォルト<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;非対称&nbsp;:&nbsp;非対称<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;対称&nbsp;:&nbsp;対称<br>
+	&nbsp;&nbsp;過度不連続反復を変換&nbsp;:&nbsp;過度不連続反復を変換<br>
+	&nbsp;&nbsp;前のステップから継承&nbsp;:&nbsp;前のステップから継承<br>
+	&nbsp;&nbsp;各増分の開始時に前の状態を外挿&nbsp;:&nbsp;各増分開始時、前の状態を外挿<br>
+	&nbsp;&nbsp;一次&nbsp;:&nbsp;線形<br>
+	&nbsp;&nbsp;二次&nbsp;:&nbsp;二次<br>
+	&nbsp;&nbsp;領域 “ ” が全塑性したら停止&nbsp;:&nbsp;領域が全塑性したら停止<br>
+	&nbsp;&nbsp;反復数の上限に達したら解を受諾&nbsp;:&nbsp;最大イテレーション数に達した時の解を受け入れます。<br>	
+	&nbsp;&nbsp;時間依存材料特性で長期的な解を取得&nbsp;:&nbsp;<br>
+	&nbsp;&nbsp;時間依存材料特性で長期的な解を取得します。<br>
+	</p>
+</li>
+<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static-Riks_Output_Setting.PNG">
+<li>出力設定タブ
+	<p>
+	&nbsp;&nbsp;新しい名前&nbsp;:&nbsp;出力セット名<br>
+	&nbsp;&nbsp;&nbsp;追加&nbsp;:&nbsp;新しい出力セットを作成します。<br>
+	&nbsp;&nbsp;名前&nbsp;:&nbsp;出力セット名<br>	
+	&nbsp;&nbsp;&nbsp;削除 ：既存の出力セットを削除します。<br>
+	&nbsp;&nbsp;フィールド(ODB)&nbsp;:&nbsp;フィールド形式のODBファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;印刷&nbsp;:&nbsp;テキストファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;ファイル(.fil)&nbsp;:&nbsp;Filファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;履歴 &nbsp;:&nbsp;履歴出力を行います。※コンタクト、Energy結果出力のみ対応<br>
+	&nbsp;&nbsp;ドメイン&nbsp;:&nbsp;出力するグループを指定します。<br>
+	&nbsp;&nbsp;&nbsp;モデル全体&nbsp;:&nbsp;モデル全体<br>	
+	&nbsp;&nbsp;&nbsp;設定&nbsp;:&nbsp;セット<br>
+	&nbsp;&nbsp;周波数&nbsp;:&nbsp;出力の間隔<br>
+	&nbsp;&nbsp;&nbsp;最終結果のみ&nbsp;:&nbsp;ステップ内の最終結果のみを出力します。<br>
+	&nbsp;&nbsp;&nbsp;nインクリメント毎&nbsp;:&nbsp;nインクリメントごとに結果を出力します。<br>
+	&nbsp;&nbsp;&nbsp;間隔等分時間毎&nbsp;:&nbsp;間隔等分した時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;&nbsp;x時間毎&nbsp;:&nbsp;x時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;タイミング&nbsp;:&nbsp;出力タイミングの調整<br>
+	&nbsp;&nbsp;出力変数&nbsp;:&nbsp;出力する結果変数を選択します。<br>
+		</p>
+</li>
+      <h4>伝熱解析->ステップタイプ&nbsp;:&nbsp;熱伝導(定常)　定常伝熱解析ステップ</h4>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Steady_State_Basic.PNG">
+
+<li>基本タブ
+	<p>
+	&nbsp;&nbsp;説明&nbsp;:&nbsp;説明<br>
+	&nbsp;&nbsp;解析時間&nbsp;:&nbsp;解析時間<br>
+	</p>
+</li>	
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Steady_State_Increments-Automatic.PNG">
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Steady_State_Increments-Fixed.PNG">	
+<li>増分タブ
+	<p>
+	&nbsp;&nbsp;タイプ&nbsp;:&nbsp;増分方法の指定<br>	
+	&nbsp;&nbsp;&nbsp;自動 ：自動<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大反復数 ：最大増分数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;増分サイズ ：時間増分<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;初期 ：初期増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最小 ：最小増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大 ：最大増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;増分あたりの放射率の最大許容値 ：増分あたりの輻射率の変化量の許容最大値を設定<br>
+	&nbsp;&nbsp;&nbsp;固定&nbsp;:&nbsp;固定<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大反復数&nbsp;:&nbsp;最大増分数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;増分サイズ&nbsp;:&nbsp;時間増分値<br>
+		
+	</p>     
+</li>      
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Steady_State_Other.PNG">
+<li>その他タブ
+	<p>
+	&nbsp;&nbsp;方程式ソルバー&nbsp;:&nbsp;方程式ソルバ<br>
+	&nbsp;&nbsp;&nbsp;方法&nbsp;:&nbsp;解法<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;直接法&nbsp;:&nbsp;直接法<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;反復法&nbsp;:&nbsp;反復法<br>	
+	&nbsp;&nbsp;マトリクス格納&nbsp;:&nbsp;マトリクス格納<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ソルバーのデフォルトを使用&nbsp;:&nbsp;デフォルト<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;非対称&nbsp;:&nbsp;非対称<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;対称&nbsp;:&nbsp;対称<br>
+	
+	&nbsp;&nbsp;解法&nbsp;:&nbsp;解法テクニック<br>
+	&nbsp;&nbsp;&nbsp;解法&nbsp;:&nbsp;解法テクニック<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;フルニュートン&nbsp;:&nbsp;フルニュートン<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;準ニュートン&nbsp;:&nbsp;準ニュートン<br>	
+	
+	&nbsp;&nbsp;&nbsp;カーネル行列が再構成されるまでに許容される反復数&nbsp;:&nbsp;カーネルマトリックを再構築するまでの許容最大イテレーション数<br>
+	
+	&nbsp;&nbsp;過度不連続反復を変換&nbsp;:&nbsp;過度不連続イテレーションの変換<br>
+	&nbsp;&nbsp;&nbsp;前のステップから継承&nbsp;:&nbsp;前のステップから継承<br>
+	&nbsp;&nbsp;&nbsp;オン&nbsp;:&nbsp;オン<br>	
+	&nbsp;&nbsp;&nbsp;オフ&nbsp;:&nbsp;オフ<br>		
+
+	&nbsp;&nbsp;時間によるデフォルト荷重の変動&nbsp;:&nbsp;荷重時間変化デフォルト<br>
+	&nbsp;&nbsp;&nbsp;即時&nbsp;:&nbsp;瞬間<br>
+	&nbsp;&nbsp;&nbsp;ステップ間で線形勾配&nbsp;:&nbsp;ステップ内で線形変化<br>	
+
+	&nbsp;&nbsp;各増分の開始時に前の状態を外挿&nbsp;:&nbsp;各増分開始時、前の状態を外挿<br>
+	&nbsp;&nbsp;&nbsp;一次&nbsp;:&nbsp;線形<br>
+	&nbsp;&nbsp;&nbsp;二次&nbsp;:&nbsp;二次<br>
+	</p>
+</li>
+<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Steady_State_Output_Setting.PNG">
+<li>出力設定タブ
+	<p>
+	&nbsp;&nbsp;新しい名前&nbsp;:&nbsp;出力セット名<br>
+	&nbsp;&nbsp;&nbsp;追加&nbsp;:&nbsp;新しい出力セットを作成します。<br>
+	&nbsp;&nbsp;名前&nbsp;:&nbsp;出力セット名<br>	
+	&nbsp;&nbsp;&nbsp;削除 ：既存の出力セットを削除します。<br>
+	&nbsp;&nbsp;フィールド(ODB)&nbsp;:&nbsp;フィールド形式のODBファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;印刷&nbsp;:&nbsp;テキストファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;ファイル(.fil)&nbsp;:&nbsp;Filファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;履歴 &nbsp;:&nbsp;履歴出力を行います。※コンタクト、Energy結果出力のみ対応<br>
+	&nbsp;&nbsp;ドメイン&nbsp;:&nbsp;出力するグループを指定します。<br>
+	&nbsp;&nbsp;&nbsp;モデル全体&nbsp;:&nbsp;モデル全体<br>	
+	&nbsp;&nbsp;&nbsp;設定&nbsp;:&nbsp;セット<br>
+	&nbsp;&nbsp;周波数&nbsp;:&nbsp;出力の間隔<br>
+	&nbsp;&nbsp;&nbsp;最終結果のみ&nbsp;:&nbsp;ステップ内の最終結果のみを出力します。<br>
+	&nbsp;&nbsp;&nbsp;nインクリメント毎&nbsp;:&nbsp;nインクリメントごとに結果を出力します。<br>
+	&nbsp;&nbsp;&nbsp;間隔等分時間毎&nbsp;:&nbsp;間隔等分した時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;&nbsp;x時間毎&nbsp;:&nbsp;x時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;タイミング&nbsp;:&nbsp;出力タイミングの調整<br>
+	&nbsp;&nbsp;出力変数&nbsp;:&nbsp;出力する結果変数を選択します。<br>
+		</p>
+</li>
+      <h4>伝熱解析->ステップタイプ&nbsp;:&nbsp;熱伝導(非定常)　非定常伝熱解析ステップ</h4>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Transient_Basic.PNG">
+
+<li>基本タブ
+	<p>
+	&nbsp;&nbsp;説明&nbsp;:&nbsp;説明<br>
+	&nbsp;&nbsp;解析時間&nbsp;:&nbsp;時間幅<br>
+	</p>
+</li>	
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Transient_Increments-Automatic.PNG">
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Transient_Increments-Fixed.PNG">	
+<li>増分（増分）タブ
+	<p>
+	&nbsp;&nbsp;タイプ&nbsp;:&nbsp;増分方法の指定<br>
+	&nbsp;&nbsp;&nbsp;自動 ：自動<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大反復数 ：最大増分数<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;増分サイズ ：時間増分<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;初期 ：初期増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最小 ：最小増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;最大 ：最大増分値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;増分あたりの放射率の最大許容値 ：増分あたりの輻射率の変化量の許容最大値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;増分あたりの温度変化量の最大許容値 ：増分あたりの温度の変化量の許容最大値<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;温度変化量が次を下回るとステップを終了 ：増分内における温度の変化量が右の値より小さくなった時に終了します。<br>
+	&nbsp;&nbsp;固定&nbsp;:&nbsp;固定<br>
+	&nbsp;&nbsp;最大反復数&nbsp;:&nbsp;最大増分数<br>
+	&nbsp;&nbsp;増分サイズ&nbsp;:&nbsp;時間増分<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;温度変化量が次を下回るとステップを終了 ：増分内における温度の変化量が右の値より小さくなった時に終了します。<br>	
+	</p>     
+</li>
+<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Transient_Output_Setting.PNG">
+<li>出力設定タブ
+	<p>
+	&nbsp;&nbsp;新しい名前&nbsp;:&nbsp;出力セット名<br>
+	&nbsp;&nbsp;&nbsp;追加&nbsp;:&nbsp;新しい出力セットを作成します。<br>
+	&nbsp;&nbsp;名前&nbsp;:&nbsp;出力セット名<br>	
+	&nbsp;&nbsp;&nbsp;削除 ：既存の出力セットを削除します。<br>
+	&nbsp;&nbsp;フィールド(ODB)&nbsp;:&nbsp;フィールド形式のODBファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;印刷&nbsp;:&nbsp;テキストファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;ファイル(.fil)&nbsp;:&nbsp;Filファイルで出力します。<br>
+	&nbsp;&nbsp;&nbsp;履歴 &nbsp;:&nbsp;履歴出力を行います。※コンタクト、Energy結果出力のみ対応<br>
+	&nbsp;&nbsp;ドメイン&nbsp;:&nbsp;出力するグループを指定します。<br>
+	&nbsp;&nbsp;&nbsp;モデル全体&nbsp;:&nbsp;モデル全体<br>	
+	&nbsp;&nbsp;&nbsp;設定&nbsp;:&nbsp;セット<br>
+	&nbsp;&nbsp;周波数&nbsp;:&nbsp;出力の間隔<br>
+	&nbsp;&nbsp;&nbsp;最終結果のみ&nbsp;:&nbsp;ステップ内の最終結果のみを出力します。<br>
+	&nbsp;&nbsp;&nbsp;nインクリメント毎&nbsp;:&nbsp;nインクリメントごとに結果を出力します。<br>
+	&nbsp;&nbsp;&nbsp;間隔等分時間毎&nbsp;:&nbsp;間隔等分した時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;&nbsp;x時間毎&nbsp;:&nbsp;x時間ごとに結果を出力します(陽解法のみ)。<br>
+	&nbsp;&nbsp;タイミング&nbsp;:&nbsp;出力タイミングの調整<br>
+	&nbsp;&nbsp;出力変数&nbsp;:&nbsp;出力する結果変数を選択します。<br>
+		</p>
+</li>
+　　<li>ダミープロパティ: ダミープロパティの設定を行います。
+		<p>
+		  &nbsp;&nbsp;自動割り当て&nbsp;:&nbsp;チェックを入れると、プロパティが割り当てられていないパーツにダミープロパティを自動で割り当てます。<br>
+		  &nbsp;&nbsp;出力ジオメトリーID&nbsp;:&nbsp;チェックを入れると、フェースID、エッジID、パートIDなどのエンティティIDが出力されます。<br>
+		  &nbsp;&nbsp;&nbsp;材料&nbsp;:&nbsp;ダミープロパティを割り当てるパーツの材料を指定します。<br>
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;材料コマンドのユーザーデータベースに登録済の材料が選択可能です。ユーザーデータベースに材料未登録の場合、登録済でもブランクを選択した場合はダミー材料を割り当てます。<br>
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ダミー材料の場合、材料特性値は書かれない状態で出力されます。
+		</p>
+　　</li>
+
+<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+		<li>&nbsp;荷重・拘束など境界条件を設定したモデルを準備します。</li>
+		<li>&nbsp;解析タイプ（構造解析、伝熱解析）を指定します。</li>
+		<li>&nbsp;ステップタイプを選択し、対応した基本設定、増分設定、その他の項目および出力設定を行い、ステップを追加します。</li>
+		<li>&nbsp;ジョブマネージャを用いてステップに対応した境界条件などを指定します。</li>
+		<li>&nbsp;その他必要なオプションを定義し、適用/OKボタンをクリックして、入力データファイルを出力します。</li>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

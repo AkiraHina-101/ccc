@@ -1,0 +1,87 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Sweep</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Layer</h2>
+	<div class="contents">
+	<p>
+	Create a solid mesh by sweeping in the normal direction from surface meshes (Tri and Quad mesh). </br>
+	</p>
+
+	<img src="./Media/CommandDlg/Hex%20Modeling_Sweep_Layer.PNG">
+
+	<h4>Layer Parameters</h4>
+	<li>Base Face Type
+	<p>Sweep the source face, to specify what will be the location for shape after the sweep.</br>
+	Bottom: Specified face will be the bottom surface, to create a sweep shape toward the front side</br>
+	Middle: Create a sweep shape on both sides around the specified face</br>
+	Top Specified: Specified face will be the top surface, to create a sweep shape toward the bottom side</p>
+	</li>
+	
+	<li>Layer Width
+	<p>Specify the thickness of the layer upon layer. 
+	</p>
+	</li>
+	<li>Number of Layers
+	<p>Specify the number of layers.
+	</p>
+	</li>
+	
+	<h4>Layer Options</h4>
+	<li>Body Separation
+	<p>Specify the isolation / integration state for the part that was created.</br>
+	Merge: Integrate all the layers in one part</br>
+	Separate: Separate the layers in different parts</br>
+	Separate Front-Back: Specify each front side of the layer and the back side for layer, in different parts</br>
+	</p>
+	</li>
+	<li>Interface
+	<p>Specify the processing for the created layer and the border of the selected face.<br>
+	None: Do not perform special processing.</br>
+	Keep Surface: Copy the selected face and create a new surface part.<br>
+	Merge: Merge the node between the layer part and the selected face.</br>
+	</p>
+	</li>
+	<img src="./Media/Hex%20Modeling_Sweep_Layer_example.PNG">
+
+	<p>
+* If you select and run an entity that contains 2nd element, a warning will be displayed. <br>
+Convert to primary element and execute. </ br>
+	</p>
+
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+	<li>&nbspSelect the surface to sweep.</li>
+	<li>&nbspSpecify the even thickness.</li>
+	<li>&nbspSpecify the number of layers.</li>
+	<li>&nbspSet up the parts for layer.</li>
+	<li>&nbspClick the Apply or OK button.</li>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

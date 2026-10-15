@@ -1,0 +1,53 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>MC_Mesh_Quality_Auto_Check_Tet</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>MC_Mesh_Quality_Auto_Check_Tet</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Mesh_Quality_Auto_Check_Tet</p>
+<h4>Syntax</h4>
+<p>MC_Mesh_Quality_Auto_Check_Tet(Cursor[] Part Cursor,Cursor[] Element Cursor,int nElemType, bool nStretchCheck, bool nAspectRatioCheck, bool nVolumeCheck, bool nJacobFactCheck, bool nTetCollapseCheck, bool nTetSkewCheck, double dStretchLimitValue,double dAspectRatioLimitValue, double dVolumeLimitValue,double dJacobFactLimitValue,double dTetCollapseLimitValue,double dTetSkewLimitValue)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>Cursor[]<p>Part Cursor([3:*]*=Part ID)</p></li>
+<li>Cursor[]<p>Element Cursor([11:*]*=Element ID)</p></li>
+<li>int<p>Elem Type(2-Tet Element)</p></li>
+<li>bool<p>Stretch Check flag,true = 1,false=0</p></li>
+<li>bool<p>Aspect Ratio Check flag,true = 1,false=0</p></li>
+<li>bool<p>Volume bool flag,true = 1,false=0</p></li>
+<li>bool<p> Jacob factor bool flag,true = 1,false=0</p></li>
+<li>bool<p> Tet Collapse bool flag,true = 1,false=0</p></li>
+<li>bool<p> Tet skew flag,true = 1,false=0</p></li>
+<li>double<p>Stretch limit value</p></li>
+<li>double<p>Aspect Ratio limit value</p></li>
+<li>double<p> Volume limit value</p></li>
+<li>double<p> Jacob factor limit value</p></li>
+<li>double<p> Tet Collapse limit value</p></li>
+<li>double<p> Tet skew limit value</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<p>It returns a string separated by commas contains 2 values.</p>
+<ol>
+<li><p>Succeeded:1 Failed: 0</p></li>
+<li><p>Number of failed elements within selected metrics limit value</p></li>
+</ol>
+<h4>Sample Code</h4>
+<p>MC_Mesh_Quality_Auto_Check_Tet([3:1], [], 2, 0, 0, 0, 0, 0, 0, 0.1, 10, 0, 0, 0.05, 0.9)</p>
+</div>
+</div>
+</body>
+</html>

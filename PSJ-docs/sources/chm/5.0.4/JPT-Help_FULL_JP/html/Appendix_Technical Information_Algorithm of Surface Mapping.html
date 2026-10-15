@@ -1,0 +1,54 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>サーフェースマッピングのアルゴリズム</title>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>サーフェースマッピングのアルゴリズム</h2>
+<div class="contents">
+	<p>
+	境界条件リボンの圧力、温度、熱流束、表面対流の各サーフェースマッピングでは、データ点の形状とマッピング対象の形状がほぼ等しいと仮定しています。そのため、要素中心あるいは節点に最も近い位置にあるデータ点の値を、そのまま対象のデータとしてマップします（データ間の補間は行なっていません）。<br>近傍にデータ点が無い場合のマッピング結果は、お客様のご判断によりご利用下さい。<br>
+	</p>
+
+	<img src="./Media/Appendix_SurfaceMapping_1.png" width="900"></p>
+
+
+	<h3>-&nbspデータ検索＆マッピングアルゴリズム&nbsp-</h3>
+	<ol>
+		<li>&nbsp;データクラウド（流体データ）全体を覆うグリッドを設定します。</li>
+		<li>&nbsp;グリッド幅を、データクラウドの広がりと数から決定します。</li>
+		<li>&nbsp;マッピング対象の要素中心/節点を中心として、検索円を設定します。検索円の半径は、グリッド幅（自動）もしくはトレランス値（入力（TSV））です。</li>
+		<li>&nbsp;円と交差するグリッドのインデックスを2x2(3x3)行列の状態で検出します。</li>
+		<li>&nbsp;自動の場合、検索グリッド内にデータが存在しなければ、検索グリッドの範囲を広げて検索を続行します。</li>
+		<li>&nbsp;検出されたグリッド（検索グリッド）内のデータのうち、最もターゲットに近い点を、対象のデータとしてマップします。</li>
+	</ol>
+	<img src="./Media/Appendix_SurfaceMapping_2.png" width="400"><br>
+	円の外側にあるデータは、検索グリッドの内部にあったとしてもマッピングはされません(P1, P2が無い場合、P3はマッピング対象になりません）。
+
+
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</li></div>
+</div>
+</body>
+
+</html>
+</head></html>

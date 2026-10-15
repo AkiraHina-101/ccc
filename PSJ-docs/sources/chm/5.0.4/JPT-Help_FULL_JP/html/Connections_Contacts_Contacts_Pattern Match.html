@@ -1,0 +1,65 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>メッシュパターン確認</title>
+
+<style type="text/css">
+<!--/* Link下線、非表示 */-->
+a.no-uline {text-decoration:none}
+</style>
+
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>メッシュパターン確認</h2>
+<div class="contents">
+	<p>合い面のメッシュパターンを確認します。接触定義するペアフェース間で、メッシュパターンが合致しているかどうかを検出・表示します。</p>
+
+	<img src="./Media/CommandDlg/Connections_Contacts_Pattern%20Match.png">
+	<br>
+	</br>
+
+		<li><b>不一致パターンを表示</b>
+			<p>&nbsp;&nbsp;&nbsp;メッシュパターンが一致していない箇所を表示します。
+			<br>&nbsp;&nbsp;&nbsp;※V4.0から不一致の要素数を出力ウインドウに表示します。</p>
+		</li>
+		<li><b>一致するパターンを表示</b>
+			<p>&nbsp;&nbsp;&nbsp;メッシュパターンが一致している箇所を表示します。
+			<br>&nbsp;&nbsp;&nbsp;※V4.0から一致の要素数を出力ウインドウに表示します。</p>
+		</li>
+		<li><b>検索トレランス</b>
+			<p>&nbsp;&nbsp;&nbsp;メッシュパターンを検出するフェース間距離を入力します。</p>
+		</li>
+		
+	<h3>-&nbsp;操作手順&nbsp;-&nbsp;</h3>
+		<ol>
+			<li>&nbsp;隣接するパーツを２つ以上選択します。</li>
+			<li>&nbsp;必要に応じてトレランスの値をデフォルト値から変更します。</li>
+			<li>&nbsp;必要に応じて「不一致パターンを表示」「一致するパターンを表示」チェックボックスを切り替えます。</li>
+			<li>&nbsp;適用をクリックします。「一致するパターンを表示」にチェックを入れている場合には、メッシュパターンが合い面間で合致しているメッシュが青色で表示されます。「不一致パターンを表示」にチェックを入れている場合には、メッシュパターンが合い面間で合致していないメッシュが赤色で表示されます。</li>
+		</ol>
+
+	<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

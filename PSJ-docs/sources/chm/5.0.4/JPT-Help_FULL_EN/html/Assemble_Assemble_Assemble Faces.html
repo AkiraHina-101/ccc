@@ -1,0 +1,99 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Assemble Faces</title>
+
+</meta>
+</head>
+
+<body>
+<div class="page">
+	<h2>Assemble Faces</h2>
+	<div class="contents">
+	<p>For the assembly model of multiple parts, this dialog automatically searches for contact and creates a share surface with that face between the parts in the model. When you create a shared surface, a group of face pairs is created in Group tree of Group window.</p>
+
+	<img src="./Media/CommandDlg/Assemble_Assemble_Assemble%20Faces.png">
+
+	<h4>Mating</h4>
+	<li>Tolerance
+	<p>Enter the tolerance distance between the two adjacent faces that are in contact.</p>
+	</li>
+
+	<li>Find
+	<p>Start the search of the face that is in contact when pressed Find button.</p>
+	</li>
+
+	<li>Mating Face No./Assembled Face No.
+	<p>Display the number of face pairs in contact that are searched through the Find button.</p>
+	<p>If you click the Apply button to create a shared surface, the option name will be changed to Assembled Face No. which displays the number of shared surface pairs that are created.</p>
+	</li>
+
+	<li>Find Result/Assembled Faces
+	<p>Display the  list of face pairs in contact that have been searched through the Find button.</p>
+	<p>If you click the Apply button to create a shared surface, the option name will be changed to Assembled Faces. which displays a list of shared surface pairs that are created.</p>
+	</li>
+
+	<li>No.
+	<p>Serial number for searching the order in which they will be created. A check box is displayed at the top of the ID number, only when share surface is created.  </p>
+	</li>
+
+	<li>Find Result
+	<p>Display a list of face pairs that have contacts based of part name.</p>
+	</li>
+
+	<li>Select All
+	<p>Select all the check boxes that are displayed and then turn them on.</p>
+	</li>
+
+	<li>Unselect All
+	<p>Select all the check boxes that are displayed and then turn them off.</p>
+	</li>
+
+	<h4>Imprinting</h4>
+	<li>Fit Edge
+	<p>When checked, it will prevent edge split after creation of a shared surface.</p>
+	</li>
+
+
+	<h3>-&nbspOperating Procedure (If you want to create a shared surface targeting the model)&nbsp-</h3>
+	<ol>
+	<li>&nbspChange the value of tolerance from the default value, if necessary.</li>
+	<li>&nbspClick on the Find button.</li>
+	<li>&nbspResult of the face pair are listed.</li>
+	<li>&nbspClick each line of the list, face will be selected and displayed on the screen.</li>
+	<li>&nbspIf there is no need to create a shared surface from a face pair, uncheck the corresponding check box.</li>
+	<li>&nbspClick Apply/OK button.</li>
+	</ol>
+
+	<h3>-&nbspOperating Procedure (If you want to create a shared surface for multiple parts)&nbsp-</h3>
+	<ol>
+	<li>&nbspSelect more than one part.</li>
+	<li>&nbspChange the value of tolerance from the default value, if necessary.</li>
+	<li>&nbspClick on the Find button.</li>
+	<li>&nbspResults of the face pairs are listed.</li>
+	<li>&nbspClick each row of the list, face will be selected and displayed on the screen.</li>
+	<li>&nbspIf there is no need to create a shared surface from a face pair, uncheck the corresponding check box.</li>
+	<li>&nbspClick Apply/OK button.</li>
+	</ol>
+
+
+<!--<h3>-&nbspOperation Video&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

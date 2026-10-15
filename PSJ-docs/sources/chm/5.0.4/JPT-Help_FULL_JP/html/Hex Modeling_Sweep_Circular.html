@@ -1,0 +1,125 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>スイープ | 円形</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>スイープ | 円形</h2>
+	<div class="contents">
+	<p>
+	作成したサーフェスメッシュ(Tri,Quadメッシュ)からソリッドメッシュを<br>
+	指定した軸に軸対称にスイープして作成します。</br>
+	</p>
+
+	<img src="./Media/CommandDlg/Hex%20Modeling_Sweep_Circular.PNG"></img>
+
+	<h4>円形パラメーター</h4>
+		<li>角度
+			<p>スイープする角度を入力します。</p>
+		</li>
+		
+		<li>レイヤー数
+			<p>層数を入力します。</p>
+		</li>
+		
+		<li>中心タイプ
+			<p>回転中心の設定をプルダウンから選択します。</p>
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>エッジの中心</b>&nbsp;:&nbsp;選択したエッジの中心</li>
+					<li><b>節点</b>&nbsp;:&nbsp;選択した節点</li>
+					<li><b>任意</b>&nbsp;:&nbsp;入力した任意方向のベクトル</li>
+					<li><b>ローカル座標系</b>&nbsp;:&nbsp;ローカル座標系の方向を指定します。</li>
+				</span>
+				</ul>
+		</li>
+		
+		<li>中心X,Y,Z
+			<p>中心位置X,Y,Z成分</p>
+		</li>
+		
+		<li>軸タイプ
+			<p>回転軸の設定をプルダウンから選択します。</p>
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>節点</b>&nbsp;:&nbsp;選択した２つの節点で指定</li>
+					<li><b>要素エッジ</b>&nbsp;:&nbsp;選択した要素エッジで指定</li>
+					<li><b>任意</b>&nbsp;:&nbsp;入力した任意方向のベクトル</li>
+					<li><b>ローカル座標系</b>&nbsp;:&nbsp;ローカル座標系の方向を指定します。</li>
+				</span>
+				</ul>
+		</li>
+		
+		<li>軸X,Y,Z
+			<p>軸方向ベクトルX,Y,Z成分</p>
+		</li>
+	
+		<li>軸トレランス
+			<p>回転軸のトレランスを指定できます。</p>
+		</li>
+		
+	<h4>自動インターフェースPenta5/Tet4</h4>
+		<li>インターフェース要素
+			<p>チェックすると境界面にペンタ要素を作成します。</p>
+		</li>
+	
+	<h4>元の形状を自動消去</h4>
+		<li>元の形状を消去
+			<p>チェックすると自動で元の部品を削除します。</p>
+		</li>
+
+	<h4>回転角度と押し出し距離</h4>
+		<li>回転角度と押し出し距離
+			<p>チェックすると回転角度と押し出し距離を可能にします。</p>
+		</li>
+		<li>押し出す距離
+			<p>押し出し距離を定義します。</p>
+		</li>
+
+	<p>
+	※2次要素が含まれるエンティティを選択し実行した場合は、ワーニングが表示されます。<br>
+    1次要素に変換し実行します。</br>
+	</p>	
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+		<li>回転スイープする面を選択します。</li>
+		<li>回転スイープする角度を指定します。</li>
+		<li>層数を指定します。</li>
+		<li>回転軸および中心を設定します。</li>
+		<li>適用もしくはOKボタンをクリックします。</li>
+			<p>回転角度と押し出し距離を可能にしません：<br>
+			<img src="./Media/Hex%20Modeling_Sweep_Circular_example_01.png"></img>
+			</p></br>
+			
+			<p>回転角度と押し出し距離を可能にします：<br>
+			<img src="./Media/Hex%20Modeling_Sweep_Circular_example_02.png"></img>
+			</p></br>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

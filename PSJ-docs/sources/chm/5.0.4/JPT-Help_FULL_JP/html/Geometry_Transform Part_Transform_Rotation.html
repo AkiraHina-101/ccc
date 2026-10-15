@@ -1,0 +1,117 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>回転</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>回転</h2>
+<div class="contents">
+	<p>選択されたパーツを回転します。</p>
+
+	<img src="./Media/CommandDlg/Geometry_Transform%20Part_Transform_Rotation.png">
+
+	<h4>操作</h4>
+		<li><b>新規作成</b></li>
+			<p>&nbsp;&nbsp;&nbsp;移動後にパーツをコピーし、新規パーツとします。新規パーツの名称は、<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元パーツ名_ROT<br>
+&nbsp;&nbsp;&nbsp;となります。</p>
+		<li><b>LBCコピー</b></li>
+			<p>&nbsp;&nbsp;&nbsp;新規パーツに既存パーツに付加した荷重境界条件もコピーします。</p>
+		<li><b>プロパティコピー</b></li>
+			<p>&nbsp;&nbsp;&nbsp;新規パーツに既存パーツに付加したプロパティもコピーします。</p>
+		<li><b>リファレンス</b></li>
+			<p>&nbsp;&nbsp;&nbsp;新規パーツに既存パーツに付加したリファレンスもコピーします。</p>
+		<li><b>コピー数</b></li>
+			<p>&nbsp;&nbsp;&nbsp;コピーの繰り返し数を入力します。</p>
+
+	<h4>回転</h4>
+		<li><b>座標系</b></li>
+			<p>&nbsp;&nbsp;&nbsp;参照する座標系を選択します。</p>
+		<li><b>回転軸</b></li>
+			<p>&nbsp;&nbsp;&nbsp;回転軸を選択します。</p>
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>X軸</b>&nbsp;:&nbsp;選択された座標系のX軸回りに回転します。</li>
+					<li><b>Y軸</b>&nbsp;:&nbsp;選択された座標系のY軸回りに回転します。</li>
+					<li><b>Z軸</b>&nbsp;:&nbsp;選択された座標系のZ軸回りに回転します。</li>
+					<li><b>任意の軸</b>&nbsp;:&nbsp;X、Y、Zの方向ベクトルで指定された軸回りにアングル分回転します。</li>
+					<li><b>2 節点</b>&nbsp;:&nbsp;画面から選択された2つの節点方向の軸回りにアングル分回転します。</li>
+					<li><b>エッジ</b>&nbsp;:&nbsp;画面から選択されたエッジ方向の軸回りにアングル分回転します。</li>
+				</span>
+				</ul>
+			<br>
+		<li><b>X軸</b></li>
+			<p>&nbsp;&nbsp;&nbsp;回転中心位置のX座標を入力します。</p>
+		<li><b>Y軸</b></li>
+			<p>&nbsp;&nbsp;&nbsp;回転中心位置のY座標を入力します。</p>
+		<li><b>Z軸</b></li>
+			<p>&nbsp;&nbsp;&nbsp;回転中心位置のZ座標を入力します。</p>
+		<li><b>中心</b></li>
+			<p>&nbsp;&nbsp;&nbsp;回転の中心位置を決めます。</p>
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>パーツ中心</b>&nbsp;:&nbsp;パーツの中心を回転中心にします。</li>
+					<li><b>節点</b>&nbsp;:&nbsp;画面から選択した節点を回転の中心にします。</li>
+					<li><b>入力</b>&nbsp;:&nbsp;回転中心（グローバル座標系で指定）を中心 Global-X、中心 Global-Y、中心 Global-Zに入力します。</li>
+				</span>
+				</ul>
+			</br>
+		<li><b>回転角度</b></li>
+			<p>&nbsp;&nbsp;&nbsp;回転角度を入力します。</p>
+		<li><b>節点をイクイバランス</b></li>
+			<p>&nbsp;&nbsp;&nbsp;チェックするとモデル内に回転コピーされたボディのフェースが、コピー元のボディのフェースと接する場合にその節点を結合します。</p>
+		<li><b>イクイバランストレランス</b></li>
+			<p>&nbsp;&nbsp;&nbsp;節点結合判定のトレランスを入力します。</p>
+	<br>
+	
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+			<li>&nbsp;回転後に新しいパーツを作成する場合は、新規作成をオンにします。</li>
+			<li>&nbsp;既存パーツの荷重拘束条件を新規パーツにコピーする場合はLBCコピーをオンにします。</li>
+			<li>&nbsp;繰り返しコピーする場合は、コピー数を入力します。</li>
+			<li>&nbsp;グループボタンまたはパーツボタンを押し、画面から回転対象のグループまたはパーツを選択します。</li>
+			<li>&nbsp;既存の座標系軸回りに回転させる場合は、座標系から既存の座標系を選択し、回転軸からX軸、Y軸、Z軸のいずれかを選択します。</li>
+			<li>&nbsp;任意の方向に回転させる場合は、回転軸から任意の軸を選択し、X、Y、Z入力ボックスに方向ベクトルを入力します。</li>
+			<li>&nbsp;選択した2節点方向に回転させる場合は、回転軸から2節点を選択し、画面から節点を２つ選択します。</li>
+			<li>&nbsp;選択したエッジ方向に移動させる場合は、回転軸からエッジを選択し、画面からエッジを選択します。</li>
+			<li>&nbsp;パーツの中心を回転中心にする場合は、中心からパーツ 中心を選択します。</li>
+			<li>&nbsp;パーツの中心を節点位置にする場合は、中心から節点を選択し、画面から節点をピックします。</li>
+			<li>&nbsp;パーツの中心を直接入力にする場合は、中心からインプットを選択し、回転中心を中心 Global-X、中心 Global-Y、中心 Global-Zにグローバル座標系の座標値で入力します。</li>
+			<li>&nbsp;回転角度に回転する角度を入力します。</li>
+			<li>&nbsp;コピー後の節点を元のパーツとマージする場合は、節点マージをオンにし、マージトレランスに結合判定許容値を入力します。</li>
+			<li>&nbsp;適用/OKボタンをクリックします。</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

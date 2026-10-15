@@ -1,0 +1,100 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>保存/読込</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Save/Load</h2>
+<div class="contents">
+	<p>Allows you to configure settings for saving and loading files.</p>
+
+	<img src="./Media/Home_Preferences_SaveLoad.png">
+
+
+	<h4>Common</h4>
+	<li><b>Auto Save</b></li>
+	<p>This function saves the open documents in the Temp folder (%temp%\Technostar) at each specified time.<br>
+	You can get a backup of the document you were working on in case you quit without saving the document, or if Jupiter-Pre crashes. <br>
+	The document is saved as the file name _YYYYMMDDHHMMSS.jtdb.
+	</p>
+	<p>*The files in the Temp folder will be erased when Jupiter-Pre is started. Save files should be retrieved before starting a new Jupiter-Pre.</p>
+	<p>*While the file is being saved, it will be in a temporary standby state.</p>
+	
+	<ul type="circle">
+		<span style="font-size:0.95em;">
+	<li><b>Enable auto save</b></li><p>Enables the auto-save setting.</p>
+	<li><b>Interval</b></li><p>Specifies the save time interval.</p>
+	<li><b>Number of save files</b></li><p>Specifies how many files should be saved for a single document.</p>
+	</span>
+		</ul>		
+
+	<li><b>Items displayed when a document file is opened</b></li>
+	<ul type="circle">
+		<span style="font-size:0.95em;">
+	<p>This controls the initial display status of each tree item in the assembly window when loading jtdb or solver data (ADVC, Nastran, Abaqus). It can be hidden by unchecking the check box.</p>
+	<li><b>All Parts</b></li><p>Controls the display of the part in its initial state.</p>
+	<li><b>All Items</b></li><p>Controls the display of all items in the initial state.</p>
+	LocalMeshSettings, LoadBCs, Contacts, Coordinates, Connections : Controls the display of individual items below all items in the initial state.</p>
+</span>
+		</ul>	
+		<li><b>CSV Export Format</b></li>
+	<ul type="circle">
+		<p>Select the output format of CSV file output from Jupiter from UTF-8 (with BOM) or UTF-8 (without BOM). The default is UTF-8 (without BOM). </p>
+<table bgcolor="#FFFFEE">
+	<tr><td>About BOM(Byte Order Mark)<br><br>
+		A BOM is data added to the first few bytes of text to determine which encoding type is used when a program reads text data.<br><br>
+Microsoft&reg; Excel&reg; and some other applications determine the encoding format by the BOM at the beginning of the CSV file, so opening a file by them without a BOM may cause garbled characters.<br><br>
+On the other hand, when reading data in a program, it is up to the programmer to decide whether or not to use the BOM, so it is easier to program the data without the BOM so that the actual data starts from the first byte.
+
+</td></tr>
+</table>	
+	</ul>
+	<h4>Post</h4>
+<p>Configure the settings for Post documents.</p>
+	<li><b>Automatic calculation when result file is opened</b></li>
+	<p>Calculates the results checked when the result file is read, and adds them to the result tree.</p>
+	<li><b>Background Import</b></li>
+	<p>Off: Only model and result title will be loaded.
+	   And the result data will be loaded into a temporary file and displayed when the result title is selected.<br>
+	   On: After loading the model and result title, all result data is loaded into a temporary file in the background. This improves the display speed when selecting a result title and the performance of commands that use the results of each step.<br>
+	   *When executing macro/PSJ on Jupiter, command processing will be paused until all results import is completed. When executing macro/PSJ with batch execution, background importing processing will be deactivated.</p>
+
+	
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+		<ol>
+			<li>&nbsp;Activate the command, specify each option and click Apply or OK button.</li>
+		</ol>
+		
+		
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

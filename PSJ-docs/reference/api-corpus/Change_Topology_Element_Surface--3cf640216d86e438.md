@@ -1,0 +1,3 @@
+# Change Topology | Element | Surface
+
+Change Topology | Element | Surface Change Topology | Element | Surface Make the selected element belong to another part. Options Create New Part When a selected element is checked, a new part is created with the selected element. It belongs to another part. If you do not select it, the element belongs to the selected part. -&nbspOperating Procedure&nbsp- &nbspSelect a face. &nbspIf you want to belong to another part, select the part. (uncheck Create New Part) &nbspIf you want to create a new part, check Create New Part. &nbspThe function is executed with the Apply or OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

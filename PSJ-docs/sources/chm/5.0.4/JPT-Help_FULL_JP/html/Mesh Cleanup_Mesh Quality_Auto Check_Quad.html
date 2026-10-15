@@ -1,0 +1,70 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+			<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+	<title>要素品質&nbsp;-&nbsp;自動チェック&nbsp;- 四角形</title>
+
+
+
+	</head>
+
+	<body>
+		<div class="page">
+			<h2>要素品質&nbsp;-&nbsp;自動チェック&nbsp;- 四角形</h2>
+		<div class="contents">
+			<p>
+			表面のサーフェースメッシュ(Quad4/Quad8)に対し、複数の品質基準による修正を行います。
+			</p>
+
+		<img src="./Media/CommandDlg/Mesh%20Cleanup_Mesh%20Quality_Auto%20Check_Quad.png">
+			<h4>品質基準</h4>
+				<li>ストレッチ　　： チェックすると、指定値以下のストレッチ値を持つ要素を検出・表示します。</li>
+				<li>アスペクト比　： チェックすると、指定値以上のアスペクト比を持つ要素を検出・表示します。</li>
+				<li>ワーピング　　： チェックすると、指定値以下のワーピング値を持つ要素を検出・表示します。</li>
+				<li>スキュウネス　： チェックすると、指定値以下のスキュウネスを持つ要素を検出・表示します。</li>
+				<li>エッジ長さ　　： チェックすると、指定値以下のエッジ長さを持つ要素を検出・表示します。</li>
+				<li>面積　　　　　： チェックすると、指定値以下の面積の要素を検出・表示します。</li>
+				<li>節点接続数　　： チェックすると、指定値以上の節点接続数を持つ要素を検出・表示します。</li>
+				<li>内部角度　　　： チェックすると、指定値以下の角度を持つ要素を検出・表示します。</li>
+				<li>テーパー　　　： チェックすると、指定値以上のテーパー値を持つを検出・表示します。</li>
+				<li>重複要素　　　： チェックすると、重複要素を検出・表示します。</li>
+					<font color="red">
+						※各項目については<a href="./Mesh%20Cleanup_Mesh%20Quality_Metric.html">＜品質確認方法の定義＞</a>をご参照下さい。
+					</font>
+			<h4>要素数表示</h4>
+				<li>エンティティ数　： 表示されている要素の個数を表示します。</li>
+			<h4>自動クリーンアップ</h4>
+				<li>クリーンアップ　： 検出・表示した要素を自動修正します。</li>
+				<li>モード　： クリーンアップモードを標準もしくはアグレッシブから選択します。</li>
+				<table class="commontable">
+					<tr><th>クリーンアップ処理</th><th>標準</th><th>アグレッシブ</th></tr>
+					<tr><td>クリーンナップ要素に隣接する要素の法線方向の変化の許容値</td><td>60度</td><td>90度</td></tr>
+					<tr><td>エッジ上の要素エッジを潰すかどうか</td><td>潰さない</td><td>潰す</td></tr>
+				</table>
+				<li>ノンマニフォールド　： チェックするとノンマニフォールドも修正します。</li>
+			<h4>リフレッシュ</h4>
+				<li>モデルを表示　： モデルを表示ボタンを押すことでモデル表示を元に戻します。</li>
+				
+			<h3>-&nbsp操作手順&nbsp-</h3>
+				<ol>
+					<li> 要素形状のチェックを行いたいボディを選択します。</li>
+					<li> 確認したい品質基準のチェックボックスをチェックします。</li>
+					<li> 適用またはOKボタンを押します。</li>
+					<li> モデル表示を元に戻す場合は、モデルを表示を押します。</li>
+						<p>
+							<font color="red">
+								※自動クリーンアップ機能は全ての要素を自動で修正することは出来ません。自動修正できない要素がある場合には、手動クリーンアップ機能を使用して手動で要素を修正する必要があります。
+							</font>
+						</p>
+				</ol>
+	</div></div></body>
+</html>
+</head></html>

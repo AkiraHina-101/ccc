@@ -1,0 +1,3 @@
+# Connection | BarBeam
+
+Connection | BarBeam Connection | BarBeam This command is used to create bar/beam elements by selecting two points. ＊1D Property data must be prepared previously. Connections Name Enter the name of the bar parts to be created. Property Property Select the 1D Property to be specified. Orientation vector Define the orientation vector. Vector Specify the vector by user input. Node Specify node. Local Unit Length Specify the local unit for defining the length. Mass Specify the local unit for defining the weight. -&nbspOperating Procedure&nbsp- &nbspSelect 2 nodes. &nbspSelect the property. &nbspSpecify the orientation vector. &nbspClick the Apply/OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

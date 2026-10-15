@@ -1,0 +1,124 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Contacts | TS Solver - Manual Face</title>
+
+<style type="text/css">
+<!--/* Link下線、非表示 */-->
+a.no-uline {text-decoration:none}
+</style>
+
+
+</html></head>	
+
+
+<body>
+<div class="page">
+	<h2>Contacts | TS Solver - Manual Face</h2>
+<div class="contents">
+	<p>Define contact settings between specified faces.<BR>
+	Select the master face and the slave face, and define the contact settings. </p>
+
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_TS%20Solver_Manual%20Face.png">
+	<br>
+	<br>
+	
+	<h4>Basic</h4>
+		<li><b>Name Prefix</b>
+			<p>&nbsp;&nbsp;&nbsp;Enter the contact pair name.</p>
+		</li>
+		<li><b>Algorithm</b>
+			<p>&nbsp;&nbsp;&nbsp;Select the contact setting target entity.</p>
+			<ul type="circle">
+			<li><b>Face to Face</b>: Face-to-face contact</li>
+			</ul>
+		</li>
+		<li><b>Type</b>
+			<p>&nbsp;&nbsp;&nbsp;Select the behavior type of contact definition.</p>
+				<ul type="circle">
+					<span style="font-size:0.95em;">
+						<li><b>General</b>&nbsp;:&nbsp;Sliding contact<br>
+						<li><b>Tied</b>&nbsp;:&nbsp;Tied contact</li>
+					</span>
+				</ul>
+		</li>
+		<li><b>Master</b>
+			<p>&nbsp;&nbsp;&nbsp;Select the face to be the master face.
+
+
+</p>
+		</li>
+		<li><b>Slave</b>
+			<p>&nbsp;&nbsp;&nbsp;Select the face to be the slave face.</p>
+		</li>
+		<li><b>Switch M/S</b>
+			<p>&nbsp;&nbsp;&nbsp;Switch master / slave group.</p>
+		</li>
+		
+		<h4>Contact Properties</h4>
+		<li><b>Interference Closure (CINTERF)</b>
+			<p>&nbsp;&nbsp;&nbsp;Interference closure amount, normal to the contact surface. For CINTERF > 0, overlap between bodies. For CINTERF < 0, gap between bodies.</p>
+		</li>
+		<li><b>Friction Coefficient (FRIC)</b>
+			<p>&nbsp;&nbsp;&nbsp;Friction Coefficient.</p>
+		</li>
+		<li><b>Delayed Slide Off (SLIDE)</b>
+			<p>&nbsp;&nbsp;&nbsp;Delayed slide off distance. This entry should not be made unless ICOORD >= 2. When using the delayed slide off option, a node sliding on a segment will slide off this segment only if it passes the node or edge at a sharp corner over a distance larger than the delayed slide off distance.</p>
+		</li>
+		<li><b>Modify Coordinates (ICOORD)</b>
+			<p>&nbsp;&nbsp;&nbsp;Choose No to ignore this option.<br>
+			<p>&nbsp;&nbsp;&nbsp;Choose Yes to modify the coordinates of a node in contact with a deformable body so that stress-free initial contact can be obtained.<br>
+		</li>
+		<li><b>Penalty Factor (SFACT)</b>
+			<p>&nbsp;&nbsp;&nbsp;Factor for increasing time steps due to number of iterations.</p>
+		</li>
+		<li><b>Shell element face (Slave)</b>
+			<p>Shell element face (Slave) has the following options:<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;Top w/ Thk. offset&nbsp;:&nbsp;Only top faces will be in the contact description, thickness offset will be included.<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;Top w/o Thk. offset&nbsp;:&nbsp;Only top faces will be in the contact description, shell thickness will be ignored.<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;Btm w/ Thk. offset&nbsp;:&nbsp;Only bottom faces will be in the contact description, thickness offset will be included.<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;Btm w/o Thk. offset&nbsp;:&nbsp;Only bottom faces will be in the contact description, shell thickness will be ignored.<br>
+		</li>
+		<li><b>Shell element face (Master)</b>
+			<p>Shell element face (Master) has the following options:<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;Top w/ Thk. offset&nbsp;:&nbsp;Only top faces will be in the contact description, thickness offset will be included.<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;Top w/o Thk. offset&nbsp;:&nbsp;Only top faces will be in the contact description, shell thickness will be ignored.<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;Btm w/ Thk. offset&nbsp;:&nbsp;Only bottom faces will be in the contact description, thickness offset will be included.<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;Btm w/o Thk. offset&nbsp;:&nbsp;Only bottom faces will be in the contact description, shell thickness will be ignored.<br>
+		</li>
+		
+		<h4>Color Setting</h4>
+		<li><b>Contact Color</b>
+			<p>&nbsp;&nbsp;&nbsp;Define the contact-to-display marker color.</p>
+			<ul type="circle">
+			<li>Reset: Initialize to default color</li>
+		</ul></li>
+	<br>
+	
+	<h3>-&nbsp;Operating Procedure&nbsp;-&nbsp;&nbsp;&nbsp;</h3>
+		<ol>
+			<li>&nbsp;Select the face that will be the master face in the master. Then select the face that will be the slave face in the slave.</li>
+			<li>&nbsp;Define detailed settings for contact pairs as required, and click the Apply (OK) button to define contact pairs.</li>
+		</ol>
+
+	<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

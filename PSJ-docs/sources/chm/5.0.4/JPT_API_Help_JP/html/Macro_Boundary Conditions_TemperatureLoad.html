@@ -1,0 +1,41 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>TemperatureLoad</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>TemperatureLoad</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>create temperature load</p>
+<h4>Syntax</h4>
+<p>TemperatureLoad(String m_strName,int nType,double fTemp,String strFilePathName,Cursor crTable,Cursor[] m_taTarget,Cursor m_crEdit,BOOL bUseAsMaterialReferenceTemp)</p>
+<h4>Inputs</h4>
+<ol>
+<li>String<p>name of temperature load</p></li>
+<li>int<p>type[0:Constant; 1:Nastran Punch]</p></li>
+<li>double<p>value of temperature</p></li>
+<li>String<p>file path</p></li>
+<li>Cursor<p>select table</p></li>
+<li>Cursor[]<p>targets</p></li>
+<li>Cursor<p>edit cursor</p></li>
+<li>BOOL<p>if use as material reference temperature</p></li>
+</ol>
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>TemperatureLoad("Test",1,0.001,"Test",1:11,[1:11,2:12],1:11,1)</p>
+</div>
+</div>
+</body>
+</html>

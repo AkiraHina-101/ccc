@@ -1,0 +1,769 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Abaqus Export Setting Dialog</title>
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Abaqus Export Setting Dialog</h2>
+<div class="contents">
+	<p>
+	Abaqus Export Setting Dialog<br>
+	</p>
+
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Export_Settings_Dialog.png">
+
+
+
+　　　<li>Analysis type: Define the analysis type.
+	<p>
+	&nbsp;&nbsp;Structure&nbsp;:&nbsp;Specify the structural analysis type. <br>
+	&nbsp;&nbsp;Thermal&nbsp;:&nbsp;Specify the thermal analysis type.<br>
+	</p>
+　　　</li>
+
+　　　<li>Abaqus Job: Define the job setting.
+	<p>
+	&nbsp;&nbsp;Job name&nbsp;:&nbsp;Specify the job name.<br>
+	&nbsp;&nbsp;Job description&nbsp;:&nbsp;Specify the job description.<br>
+	&nbsp;&nbsp;Export Model Unit System&nbsp;:&nbsp;Specify the unit system for the analysis input data.
+	</p>
+　　　</li>
+
+　　　<li>Job Manager&nbsp;:&nbsp;The following settings are defined by the Job Manager:
+	<p>
+	&nbsp;&nbsp;Load Case&nbsp;:&nbsp;Display the load case.<br>
+	&nbsp;&nbsp;Load&nbsp;:&nbsp;Display the existing boundary constraint conditions.<br>
+	&nbsp;&nbsp;Load Filter&nbsp;:&nbsp;Specify the display filter of the boundary constraint condition type.<br>
+	&nbsp;&nbsp;Step Type&nbsp;:&nbsp;Specify the Abaqus step type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Structure<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Static General&nbsp;:&nbsp;Specify the static general analysis type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Natural Frequency&nbsp;:&nbsp;Specify the normal mode analysis type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dynamic, Implicit&nbsp;:&nbsp;Specify the implicit dynamic analysis type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dynamic, Explicit&nbsp;:&nbsp;Specify the explicit dynamic analysis type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coupled Temp-Disp&nbsp;:&nbsp;Specify the implicit temperature-strucural coupled analysis type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dynamic Temp-Displacement, Explicit&nbsp;:&nbsp;Specify the explicit temperature-strucural coupled analysis type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Static, Riks&nbsp;:&nbsp;Specify the static incremental arc-length method analysis type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Thermal<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heat Transfer, Steady State&nbsp;:&nbsp;Specify the steady state heat transfer analysis type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heat Transfer, Transient&nbsp;:&nbsp;Specify the transient heat transfer analysis type.<br>
+
+	&nbsp;&nbsp;Add Step: This button is used to add steps.  
+	</p>
+　　　</li>
+
+　　　<li>Export Settings: Define export settings for the model data.
+	<p>
+	&nbsp;&nbsp;Separate File&nbsp;:&nbsp;Specify settings of the export model.<br>
+	&nbsp;&nbsp;Surface Definition&nbsp;:&nbsp;Specify the surface definition method.<br>
+	&nbsp;&nbsp;RBE2 to MPC Type BEAM&nbsp;:&nbsp;Specify whether or not to convert RBE2 elements into MPC beam elements before export.<br>
+	&nbsp;&nbsp;Rename Process&nbsp;:&nbsp;Specify whether or not to change the process name.<br>	
+	</p>
+　　　</li>
+　　　　　　
+      <h4>Structural Analysis -> Step Type&nbsp;:&nbsp;Static, General</h4>
+      	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static_General_Basic.PNG">
+<li>Basic tab
+	<p>
+	&nbsp;&nbsp;Description&nbsp;:&nbsp;Display the description.<br>
+	&nbsp;&nbsp;Time Period&nbsp;:&nbsp;Enter the time period. <br>
+	&nbsp;&nbsp;Nlgeom&nbsp;:&nbsp;Specify whether or not to consider geometric nonlinear (large deformation) analysis.<br>
+	&nbsp;&nbsp;Automatic static stabilization&nbsp;:&nbsp;Specify automatic static stabilization.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;None&nbsp;:&nbsp;Specify no automatic static stabilization.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Specify dissipated energy fraction&nbsp;:&nbsp;Specify dissipated energy fraction for automatic static stabilization.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Specify damping factor&nbsp;:&nbsp;Specify damping factor for automatic static stabilization.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Use damping factors from previous general step&nbsp;:&nbsp;Use damping factors from previous general step for automatic static stabilization.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Use adaptive stabilization with max. Ratio of stabilization to strain energy&nbsp;:&nbsp;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use adaptive stabilization with max. Ratio of stabilization to strain energy for automatic static stabilization.<br>
+	&nbsp;&nbsp;Include adiabatic heating effects&nbsp;:&nbsp;Specify the inclusion of adiabatic heating effects.<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static_General_Increments-Automatic.PNG">
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static_General_Increments-Fixed.PNG">
+<li>Increments tab
+	<p>
+	&nbsp;&nbsp;Type&nbsp;:&nbsp;Define the increment method.<br>
+	&nbsp;&nbsp;Automatic&nbsp;:&nbsp;Specify the automatic type.<br>
+	&nbsp;&nbsp;&nbsp;Maximum number of increments&nbsp;:&nbsp;Enter the maximum number of increments.<br>
+	&nbsp;&nbsp;&nbsp;Initial&nbsp;:&nbsp;Enter the intial increment value.<br>
+	&nbsp;&nbsp;&nbsp;Minimum&nbsp;:&nbsp;Enter the minimum increment value.<br>
+	&nbsp;&nbsp;&nbsp;Maximum&nbsp;:&nbsp;Enter the maximum increment value.<br>
+	&nbsp;&nbsp;Fixed&nbsp;:&nbsp;Specify the fixed type.<br>
+	&nbsp;&nbsp;&nbsp;Maximum number of increments&nbsp;:&nbsp;Enter the maximum number of increments.<br>
+	&nbsp;&nbsp;&nbsp;Increment size&nbsp;:&nbsp;Specify the time increment value.<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static_General_Other.PNG" width=700>
+<li>Other tab
+	<p>
+	&nbsp;&nbsp;Equation solver&nbsp;:&nbsp;Specify the equation solver.<br>
+	&nbsp;&nbsp;&nbsp;Method&nbsp;:&nbsp;Specify the method.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Direct&nbsp;:&nbsp;Specify the direct method.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Iterative&nbsp;:&nbsp;Specify the iterative method.<br>	
+	&nbsp;&nbsp;Matrix storage&nbsp;:&nbsp;Specify the matrix storage setting.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Use solver default&nbsp;:&nbsp;Specify the default setting.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Unsymmetric&nbsp;:&nbsp;Specify the unsymmetric setting.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Symmetric&nbsp;:&nbsp;Specify the symmetric setting.<br>
+	
+	&nbsp;&nbsp;Solution Technique&nbsp;:&nbsp;Specify the solution technique.<br>
+	&nbsp;&nbsp;&nbsp;Solution technique&nbsp;:&nbsp;Specify the solution technique.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Full Newton&nbsp;:&nbsp;Specify the Full Newton solution technique.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Quasi-Newton&nbsp;:&nbsp;Specify the Quasi-Newton solution technique.<br>	
+	&nbsp;&nbsp;&nbsp;&nbsp;Contact iterations&nbsp;:&nbsp;Specify the Contact iterations solution.<br>
+	&nbsp;&nbsp;&nbsp;Number of iterations allowed before the kernel matrix is reformed&nbsp;:&nbsp;Specify the number of iterations allowed before the kernel matrix is reformed.<br>
+	&nbsp;&nbsp;&nbsp;Adjustment factor for the number of solutions in any iteration&nbsp;:&nbsp;Specify the adjustment factor for the number of solutions in any iteration.<br>	
+	&nbsp;&nbsp;&nbsp;Maximum of contact iterations&nbsp;:&nbsp;Specify the maximum number of contact iterations.<br>
+	
+	&nbsp;&nbsp;Convert severe discontinuity iterations&nbsp;:&nbsp;Specify the conversion of severe discontinuity iterations.<br>
+	&nbsp;&nbsp;&nbsp;Propagate from previous step&nbsp;:&nbsp;Propagate from previous step.<br>
+	&nbsp;&nbsp;&nbsp;On&nbsp;:&nbsp;Specify On.<br>	
+	&nbsp;&nbsp;&nbsp;Off&nbsp;:&nbsp;Specify Off.<br>		
+
+	&nbsp;&nbsp;Default load variation with time&nbsp;:&nbsp;Specify the default load variation with time.<br>
+	&nbsp;&nbsp;&nbsp;Instantaneous&nbsp;:&nbsp;Specify instantaneous.<br>
+	&nbsp;&nbsp;&nbsp;Ramp linearly over step&nbsp;:&nbsp;Specify linear change over step.<br>	
+	&nbsp;&nbsp;&nbsp;Blank&nbsp;:&nbsp;Specify blank.<br>	
+		
+	&nbsp;&nbsp;Extrapolation of previous state at start of each increment&nbsp;:&nbsp;Extrapolate previous state at start of each increment.<br>
+	&nbsp;&nbsp;&nbsp;Linear&nbsp;:&nbsp;Specify linear.<br>
+	&nbsp;&nbsp;&nbsp;Quadratic&nbsp;:&nbsp;Specify quadratic.<br>
+	&nbsp;&nbsp;&nbsp;Blank&nbsp;:&nbsp;Specify blank.<br>
+	&nbsp;&nbsp;Stop when region “ ” is fully plastic&nbsp;:&nbsp;Stop when the region is fully plastic.<br>
+	&nbsp;&nbsp;Obtain long-term solution with time-domain material properties&nbsp;:&nbsp;<br>
+	&nbsp;&nbsp;&nbsp;Obtain long-term solution with time-domain material properties.<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static_General_Output_Setting.PNG">
+<li>Output Setting tab
+	<p>
+	&nbsp;&nbsp;New Name&nbsp;:&nbsp;Specify the output set name.<br>
+	&nbsp;&nbsp;&nbsp;Add&nbsp;:&nbsp;Create a new output set.<br>
+	&nbsp;&nbsp;Name&nbsp;:&nbsp;Enter the output set name.<br>	
+	&nbsp;&nbsp;&nbsp;Delete：Delete the existing output set. <br>
+	&nbsp;&nbsp;Field(ODB)&nbsp;:&nbsp;Output the ODB file in field format. <br>
+	&nbsp;&nbsp;&nbsp;Print&nbsp;:&nbsp;Output the file in text format.<br>
+	&nbsp;&nbsp;&nbsp;File(Fil)&nbsp;:&nbsp;Output the file in Fil format.<br>
+	&nbsp;&nbsp;&nbsp;History&nbsp;:&nbsp;Output the history. ※Supported only for Contact and Energy result outputs.<br>
+	&nbsp;&nbsp;Domain &nbsp;:&nbsp;Specify the target group for output.<br>
+	&nbsp;&nbsp;&nbsp;Whole Model&nbsp;:&nbsp;Specify the whole model.<br>	
+	&nbsp;&nbsp;&nbsp;Setting&nbsp;:&nbsp;Specify the settings.<br>
+	&nbsp;&nbsp;Frequency&nbsp;:&nbsp;Specify the output interval.<br>
+	&nbsp;&nbsp;&nbsp;Last increment&nbsp;:&nbsp;Output only the final result in the step.<br>
+	&nbsp;&nbsp;&nbsp;Every n increments&nbsp;:&nbsp;Output results for every n increments.<br>
+	&nbsp;&nbsp;&nbsp;Evenly spaced time increments&nbsp;:&nbsp;Output results for every evenly divided time interval (for explicit method only).<br>
+	&nbsp;&nbsp;&nbsp;Every x units of time&nbsp;:&nbsp;Output results per x hours (for explicit method only).<br>
+	&nbsp;&nbsp;Timing&nbsp;:&nbsp;Adjust the output timing. <br>
+	&nbsp;&nbsp;Output Variables&nbsp;:&nbsp;Specify the result variable to be output. <br>
+		</p>
+</li>
+	
+      <h4>Structural Analysis -> Step Type&nbsp;:&nbsp;Natural Frequency</h4>
+		<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Natural_Frequency_Basic.PNG">
+		
+<li>Basic tab
+	<p>
+	&nbsp;&nbsp;Description&nbsp;:&nbsp;Display the description.<br>
+	&nbsp;&nbsp;Nlgeom<br>
+	&nbsp;&nbsp;Eigensolver&nbsp;:&nbsp;Specify the eigensolver. <br>
+	&nbsp;&nbsp;Number of eigenvalues requested&nbsp;:&nbsp;Specify the number of eigenvalues to obtain. <br>
+	&nbsp;&nbsp;&nbsp;&nbsp;All in frequency range&nbsp;:&nbsp;Specify all eigenvalues in frequency range.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Value&nbsp;:&nbsp;Specify a value.<br>
+	&nbsp;&nbsp;Frequency shift (cylcles/time)**2&nbsp;:&nbsp;Specify the frequency shift value ((cylcles/time)**2)<br>
+	&nbsp;&nbsp;Minimum frequency of interest (cylcles/time)&nbsp;:&nbsp;Specify the minimum frequency of interest (cylcles/time).<br>
+	&nbsp;&nbsp;Maximum frequency of interest (cylcles/time)&nbsp;:&nbsp;Specify the maximum frequency of interest (cylcles/time).<br>
+	&nbsp;&nbsp;Include acoustic-structural coupling where applicable&nbsp;:&nbsp;Specify the inclusion of acoustic-structural coupling.<br>
+	&nbsp;&nbsp;Block size&nbsp;:&nbsp;Specify the block size.<br>
+	&nbsp;&nbsp;Maximum number of block Lanczos steps&nbsp;:&nbsp;Specify the maximum number of block Lanczos steps.<br>
+	&nbsp;&nbsp;Use SIM-Based linear dynamics procedures&nbsp;:&nbsp;Specify the usage of SIM-Based linear dynamics procedures.<br>
+	&nbsp;&nbsp;Include residual modes&nbsp;:&nbsp;Specify the inclusion of residual modes.<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Natural_Frequency_Other.PNG">
+<li>Other tab
+	<p>
+	&nbsp;&nbsp;Equation Solver&nbsp;:&nbsp;Specify the equation solver.<br>
+	&nbsp;&nbsp;Equation Solver&nbsp;:&nbsp;Specify the eigensolver.<br>
+	&nbsp;&nbsp;&nbsp;Matrix storage&nbsp;:&nbsp;Specify the whole frequency range.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Use solver default&nbsp;:&nbsp;Specify the use of the solver default.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Unsymmetric&nbsp;:&nbsp;Specify unsymmetric.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Symmetric&nbsp;:&nbsp;Specify symmetric.<br>
+	
+	&nbsp;&nbsp;Normalize eigenvectors by:&nbsp;&nbsp;Specify the normalization of eigenvectors. <br>
+	&nbsp;&nbsp;&nbsp;Displacement&nbsp;:&nbsp;Specify displacement.<br>
+	&nbsp;&nbsp;&nbsp;Mass&nbsp;:&nbsp;Specify the mass. <br>
+	&nbsp;&nbsp;Evaluate dependent properties at frequency (by specifying the frequency)&nbsp;:&nbsp;Specify the frequency for evaluating frequency dependent properties.<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Natural_Frequency_Output_Setting.PNG">
+<li>Output Setting tab
+	<p>
+	&nbsp;&nbsp;New Name&nbsp;:&nbsp;Specify the output set name.<br>
+	&nbsp;&nbsp;&nbsp;Add&nbsp;:&nbsp;Create a new output set.<br>
+	&nbsp;&nbsp;Name&nbsp;:&nbsp;Specify an output set name.<br>	
+	&nbsp;&nbsp;&nbsp;Delete：Delete an existing output set.<br>
+	&nbsp;&nbsp;Field(ODB)&nbsp;:&nbsp;Output an ODB file in Field format.<br>
+	&nbsp;&nbsp;&nbsp;Print&nbsp;:&nbsp;Output a text file.<br>
+	&nbsp;&nbsp;&nbsp;File(Fil)&nbsp;:&nbsp;Output a Fil format file.<br>
+	&nbsp;&nbsp;&nbsp;History &nbsp;:&nbsp;Output the history. ※Supported only for Contact and Energy result output. <br>
+	&nbsp;&nbsp;Domain&nbsp;:&nbsp;Specify the target group for output. <br>
+	&nbsp;&nbsp;&nbsp;Whole Model&nbsp;:&nbsp;Specify the whole model.<br>	
+	&nbsp;&nbsp;&nbsp;Setting&nbsp;:&nbsp;Specify the setting.<br>
+	&nbsp;&nbsp;Frequency&nbsp;:&nbsp;Specify the output interval.<br>
+	&nbsp;&nbsp;&nbsp;Last increment&nbsp;:&nbsp;Output only the final result in the step. <br>
+	&nbsp;&nbsp;&nbsp;Every n increments&nbsp;:&nbsp;Output results for every n increments.<br>
+	&nbsp;&nbsp;&nbsp;Evenly spaced time increments&nbsp;:&nbsp; Output results for every evenly divided time interval (for explicit method only).<br>
+	&nbsp;&nbsp;&nbsp;Every x units of time&nbsp;:&nbsp;Output results per x hours (for explicit method only).<br>
+	&nbsp;&nbsp;Timing&nbsp;:&nbsp;Adjust the output timing.<br>
+	&nbsp;&nbsp;Output Variables&nbsp;:&nbsp;Specify the result variable to be output. <br>
+		</p>
+</li>
+	<h4>Structural Analysis ->Step Type &nbsp;:&nbsp;Dynamic, Implicit </h4>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Implicit_Basic.PNG">
+<li>Basic tab
+	<p>
+	&nbsp;&nbsp;Description&nbsp;:&nbsp;Display the description.<br>
+	&nbsp;&nbsp;Time Period&nbsp;:&nbsp;Enter the analysis time.<br>
+	&nbsp;&nbsp;Nlgeom&nbsp;:&nbsp;Specify whether or not to consider geometric nonlinear (large deformation) analysis.<br>
+	&nbsp;&nbsp;Include adiabatic heating effects&nbsp;:&nbsp;Specify whether or not to consider adiabatic heating effects.<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Implicit_Increments-Automatic.PNG">
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Implicit_Increments-Fixed.PNG">	
+<li>Increments tab
+	<p>
+	&nbsp;&nbsp;Type&nbsp;:&nbsp;Define the increment method.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Automatic&nbsp;:&nbsp;Specify the automatic type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Maximum number of increments&nbsp;:&nbsp;Enter the maximum number of increments.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initial&nbsp;:&nbsp;Enter the intial increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minimum&nbsp;:&nbsp;Enter the minimum increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Maximum&nbsp;:&nbsp;Enter the maximum increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Half-increment Residual&nbsp;:&nbsp;Specify the half-increment residual tolerance value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Suppress calculation&nbsp;:&nbsp;Suppress the calculation of the half-increment residual.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tolerance.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Fixed&nbsp;:&nbsp;Specify the fixed type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Maximum number of increments&nbsp;:&nbsp;Enter the maximum number of increments.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Increment size&nbsp;:&nbsp;Specify the time increment value.<br>	
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Suppress calculation&nbsp;:&nbsp;Suppress the calculation of the half-increment residual.<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Implicit_Other.PNG">
+<li>Other tab
+	<p>
+	&nbsp;&nbsp;Equation Solver&nbsp;:&nbsp;Specify the equation solver.<br>
+	&nbsp;&nbsp;Matrix storage&nbsp;:&nbsp;Specify the matrix storage.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Use solver default &nbsp;:&nbsp;Specify the use of the solver default.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Unsymmetric&nbsp;:&nbsp;Specify unsymmetric.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Symmetric&nbsp;:&nbsp;Specify symmetric.<br>
+	
+	&nbsp;&nbsp;Solution Technique&nbsp;:&nbsp;Specify the solution technique.<br>
+	&nbsp;&nbsp;&nbsp;Solution technique&nbsp;:&nbsp;Specify the solution technique.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Full Newton&nbsp;:&nbsp;Specify the Full Newton solution technique.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Quasi-Newton&nbsp;:&nbsp;Specify the Quasi-Newton solution technique.<br>	
+	
+	&nbsp;&nbsp;&nbsp;Number of iterations allowed before the kernel matrix is reformed&nbsp;:&nbsp;Specify the number of iterations allowed before the kernel matrix is reformed.<br>
+	
+	&nbsp;&nbsp;Convert severe discontinuity iterations&nbsp;:&nbsp;Convert severe discontinuity iterations.<br>
+	&nbsp;&nbsp;&nbsp;Propagate from previous step&nbsp;:&nbsp;Specify propagation from previous step.<br>
+	&nbsp;&nbsp;&nbsp;On&nbsp;:&nbsp;Specify ON.<br>	
+	&nbsp;&nbsp;&nbsp;Off&nbsp;:&nbsp;Specify OFF.<br>		
+
+	&nbsp;&nbsp;Default load variation with time&nbsp;:&nbsp;Specify the default load variation with time.<br>
+	&nbsp;&nbsp;&nbsp;Instantaneous&nbsp;:&nbsp;Specify instantaneous.<br>
+	&nbsp;&nbsp;&nbsp;Ramp linearly over step&nbsp;:&nbsp;Specify linear ramp over step.<br>	
+
+	&nbsp;&nbsp;Extrapolation of previous state at start of each increment&nbsp;:&nbsp;Specify the extrapolation of previous state at start of each increment.<br>
+	&nbsp;&nbsp;&nbsp;Linear&nbsp;:&nbsp;Specify linear.<br>
+	&nbsp;&nbsp;&nbsp;Quadratic&nbsp;:&nbsp;Specify quadratic.<br>
+	
+	&nbsp;&nbsp;Numerical damping control parameter&nbsp;:&nbsp;Enter a value for the numerical damping control parameter.<br>
+	
+	&nbsp;&nbsp;Accept solution after reaching maximum number of iterations&nbsp;:&nbsp;Select this checkbox to accept the solution after reaching maximum number of iterations.<br>
+	
+	&nbsp;&nbsp;Bypass calculations of initial accelerations at beginning of step&nbsp;:&nbsp;Specify whether or not to bypass calculations of initial accelerations at beginning of step.<br>	
+		
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Implicit_Output_Setting.PNG">
+<li>Output Setting tab
+	<p>
+	&nbsp;&nbsp;New Name&nbsp;:&nbsp;Specify the output set name.<br>
+	&nbsp;&nbsp;&nbsp;Add&nbsp;:&nbsp;Create a new output set.<br>
+	&nbsp;&nbsp;Name&nbsp;:&nbsp;Specify an output set name.<br>	
+	&nbsp;&nbsp;&nbsp;Delete：Delete an existing output set.<br>
+	&nbsp;&nbsp;Field(ODB)&nbsp;:&nbsp;Output an ODB file in Field format.<br>
+	&nbsp;&nbsp;&nbsp;Print&nbsp;:&nbsp;Output a text file.<br>
+	&nbsp;&nbsp;&nbsp;File(.fil)&nbsp;:&nbsp;Output a Fil format file.<br>
+	&nbsp;&nbsp;&nbsp;History &nbsp;:&nbsp;Output the history. ※Supported only for Contact and Energy result output.<br>
+	&nbsp;&nbsp;Domain&nbsp;:&nbsp;Specify the target group for output. <br>
+	&nbsp;&nbsp;&nbsp;Whole Model&nbsp;:&nbsp;Specify the whole model.<br>	
+	&nbsp;&nbsp;&nbsp;Setting&nbsp;:&nbsp;Specify the settings.<br>
+	&nbsp;&nbsp;Frequency&nbsp;:&nbsp;Specify the output interval.<br>
+	&nbsp;&nbsp;&nbsp;Last increment&nbsp;:&nbsp;Output only the final result in the step.<br>
+	&nbsp;&nbsp;&nbsp;Every n increments&nbsp;:&nbsp;Output results for every n increments.<br>
+	&nbsp;&nbsp;&nbsp;Evenly spaced time increments&nbsp;:&nbsp;Output results for every evenly divided time interval (for explicit method only).<br>
+	&nbsp;&nbsp;&nbsp;Every x units of time&nbsp;:&nbsp;Output results per x hours (for explicit method only).<br>
+	&nbsp;&nbsp;Timing&nbsp;:&nbsp;Adjust the output timing.<br>
+	&nbsp;&nbsp;Output Variables&nbsp;:&nbsp;Specify the result variable to be output. <br>
+		</p>
+</li>
+      <h4>Structural Analysis -> Step Type&nbsp;:&nbsp;Dynamic Analysis (Explicit)</h4>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Explicit_Basic.PNG">
+
+<li>Basic tab
+	<p>
+	&nbsp;&nbsp;Description&nbsp;:&nbsp;Display the description.<br>
+	&nbsp;&nbsp;Time Period&nbsp;:&nbsp;Enter the time period. <br>
+	&nbsp;&nbsp;Nlgeom&nbsp;:&nbsp;Specify whether or not to consider geometric nonlinear (large deformation) analysis.<br>
+	&nbsp;&nbsp;Include adiabatic heating effects &nbsp;:&nbsp;Specify the inclusion of adiabatic heating effects.<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Explicit_Increments-Automatic.PNG">
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Explicit_Increments-Fixed.PNG">	
+<li>Increments tab
+	<p>
+	&nbsp;&nbsp;Type&nbsp;:&nbsp;Define the increment method.<br>
+	&nbsp;&nbsp;&nbsp;Automatic&nbsp;:&nbsp;Specify the automatic type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Use element-by-element time increment estimator&nbsp;:&nbsp;Specify the use of the element-by-element time increment estimator.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Global&nbsp;:&nbsp;Specify Global.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Element-by-element&nbsp;:&nbsp;Specify Element-by-element.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Max. time increment&nbsp;:&nbsp;Specify the maximum time increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unlimited&nbsp;:&nbsp;Specify unlimited.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Value&nbsp;:&nbsp;Specify the value.<br>	
+	&nbsp;&nbsp;&nbsp;&nbsp;Time scaling factor&nbsp;:&nbsp;Specify the time scaling factor.<br>
+	&nbsp;&nbsp;&nbsp;Fixed&nbsp;:&nbsp;Specify fixed.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Increment size selection&nbsp;:&nbsp;Select the increment size value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;User-defined time increment&nbsp;:&nbsp;Specify the user-defined time increment.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Use element-by-element time increment estimator&nbsp;:&nbsp;Specify the use of the element-by-element time increment estimator.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Time scaling factor&nbsp;:&nbsp;Specify the time scaling factor.<br>	
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Explicit_Other.PNG">
+<li>Other tab
+	<p>
+	&nbsp;&nbsp;Linear bulk viscosity parameter&nbsp;:&nbsp;Specify the linear bulk viscosity parameter.<br>
+	&nbsp;&nbsp;&nbsp;Quadratic bulk viscosity parameter&nbsp;:&nbsp;Specify the quadratic bulk viscosity parameter.<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Explicit_Output_Setting.PNG">
+<li>Output Setting tab
+	<p>
+	&nbsp;&nbsp;New Name&nbsp;:&nbsp;Specify the output set name.<br>
+	&nbsp;&nbsp;&nbsp;Add&nbsp;:&nbsp;Create a new output set.<br>
+	&nbsp;&nbsp;Name&nbsp;:&nbsp;Specify an output set name.<br>	
+	&nbsp;&nbsp;&nbsp;Delete：Delete an existing output set.<br>
+	&nbsp;&nbsp;Field(ODB)&nbsp;:&nbsp;Output an ODB file in Field format.<br>
+	&nbsp;&nbsp;&nbsp;Print&nbsp;:&nbsp;Output the file in text format.<br>
+	&nbsp;&nbsp;&nbsp;File(.fil)&nbsp;:&nbsp;Output the file in Fil format.<br>
+	&nbsp;&nbsp;&nbsp;History&nbsp;:&nbsp;Output the history. ※Supported only for Contact and Energy result outputs.<br>
+	&nbsp;&nbsp;Domain&nbsp;:&nbsp;Specify the target group for output.<br>
+	&nbsp;&nbsp;&nbsp;Whole Model&nbsp;:&nbsp;Specify the whole model.<br>	
+	&nbsp;&nbsp;&nbsp;Setting&nbsp;:&nbsp;Specify the settings.<br>
+	&nbsp;&nbsp;Frequency&nbsp;:&nbsp;Specify the output interval.<br>
+	&nbsp;&nbsp;&nbsp;Last increment&nbsp;:&nbsp;Output only the final result in the step.<br>
+	&nbsp;&nbsp;&nbsp;Every n increments&nbsp;:&nbsp;Output results for every n increments.<br>
+	&nbsp;&nbsp;&nbsp;Evenly spaced time increments&nbsp;:&nbsp;Output results for every evenly divided time interval (for explicit method only).<br>
+	&nbsp;&nbsp;&nbsp;Every x units of time&nbsp;:&nbsp;Output results per x hours (for explicit method only).<br>
+	&nbsp;&nbsp;Timing&nbsp;:&nbsp;Adjust the output timing.<br>
+	&nbsp;&nbsp;Output Variables &nbsp;:&nbsp;Specify the result variable to be output. <br>
+		</p>
+</li>
+      <h4>Structural Analysis -> Step Type &nbsp;:&nbsp;Coupled Temp-Displacement</h4>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Coupled_Temp-Displacement_Basic.PNG">
+<li>Basic tab
+	<p>
+	&nbsp;&nbsp;Description&nbsp;:&nbsp;Display the description.<br>
+	&nbsp;&nbsp;Time Period&nbsp;:&nbsp;Enter the analysis time.<br>
+	&nbsp;&nbsp;Response&nbsp;:&nbsp;Specify the response.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Steady-state&nbsp;:&nbsp;Specify steady-state.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Transient&nbsp;:&nbsp;Specify transient.<br>
+	&nbsp;&nbsp;Nlgeom&nbsp;:&nbsp;Specify whether or not to consider geometric nonlinear (large deformation) analysis.<br>
+	&nbsp;&nbsp;Automatic static stabilization &nbsp;:&nbsp;Specify automatic static stabilization.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;None&nbsp;:&nbsp;Specify no automatic static stabilization.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Specify dissipated energy fraction&nbsp;:&nbsp;Specify dissipated energy fraction for automatic static stabilization.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Specify damping factor&nbsp;:&nbsp;Specify damping factor for automatic static stabilization.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Use damping factors from previous general step&nbsp;:&nbsp;Use damping factors from previous general step for automatic static stabilization.<br>
+	&nbsp;&nbsp;Use adaptive stabilization with max. Ratio of stabilization to strain energy&nbsp;:&nbsp;<br>
+	&nbsp;&nbsp;&nbsp;Use adaptive stabilization with max. Ratio of stabilization to strain energy for automatic static stabilization.<br>
+	&nbsp;&nbsp;Include creep/swelling/viscoelatic behavior&nbsp;:&nbsp;Specify the inclusion of creep/swelling/viscoelatic behavior.<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Coupled_Temp-Displacement_Increments-Automatic.PNG">
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Coupled_Temp-Displacement_Increments-Fixed.PNG">　　　
+<li>Increments tab
+	<p>
+	&nbsp;&nbsp;Type&nbsp;:&nbsp;Define the increment method.<br>
+	&nbsp;&nbsp;&nbsp;Automatic&nbsp;:&nbsp;Specify the automatic type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Maximum number of increments&nbsp;:&nbsp;Enter the maximum number of increments.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Increment size &nbsp;:&nbsp;Specify the time increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Initial&nbsp;:&nbsp;Enter the intial increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Minimum&nbsp;:&nbsp;Enter the minimum increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Maximum：Enter the maximum increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Max. allowable temperature change per increment&nbsp;:&nbsp;Specify the maximum value of the allowable temperature change.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Creep/swelling/viscoelastic strain error tolerance&nbsp;:&nbsp;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Specify the creep/swelling/viscoelastic strain error tolerance value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Creep/swelling/viscoelastic integration&nbsp;:&nbsp;Specify the creep/swelling/viscoelastic integration method.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Explicit/Implicit&nbsp;:&nbsp;Specify the explicit or implicit method.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Explicit&nbsp;:&nbsp;Specify the explicit method.<br>
+	&nbsp;&nbsp;&nbsp;Fixed&nbsp;:&nbsp;Specify the fixed type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Maximum number of increments&nbsp;:&nbsp;Enter the maximum number of increments.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Increment size&nbsp;:&nbsp;Specify the time increment value.<br>			
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Coupled_Temp-Displacement_Other.PNG">
+<li>Other tab
+	<p>
+	&nbsp;&nbsp;Equation solver&nbsp;:&nbsp;Specify the equation solver.<br>
+	&nbsp;&nbsp;&nbsp;Matrix storage&nbsp;:&nbsp;Specify the matrix storage setting.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Use solver default&nbsp;:&nbsp;Specify the default setting.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Unsymmetric&nbsp;:&nbsp;Specify the unsymmetric setting.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Symmetric&nbsp;:&nbsp;Specify the symmetric setting.<br>
+	
+	&nbsp;&nbsp;Solution Technique&nbsp;:&nbsp;Specify the solution technique.<br>
+	&nbsp;&nbsp;&nbsp;Solution technique&nbsp;:&nbsp;Specify the solution technique.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Full Newton &nbsp;:&nbsp;Specify the Full Newton solution technique.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Separated&nbsp;:&nbsp;Specify the Separated solution technique.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Contact iterations&nbsp;:&nbsp;Specify the number of contact iterations.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adjustment factor for the number of solutions in any iteration&nbsp;:&nbsp;Specify the adjustment factor for the number of solutions in any iteration.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Maximum of contact iterations&nbsp;:&nbsp;Specify the maximum number of contact iterations.<br>
+	
+	&nbsp;&nbsp;Convert severe discontinuity iterations&nbsp;:&nbsp;Specify the conversion of severe discontinuity iterations.<br>
+	&nbsp;&nbsp;&nbsp;Propagate from previous step&nbsp;:&nbsp;Specify the propagation from previous step.<br>
+	&nbsp;&nbsp;&nbsp;On&nbsp;:&nbsp;Specify On.<br>	
+	&nbsp;&nbsp;&nbsp;Off&nbsp;:&nbsp;Specify Off.<br>		
+
+	&nbsp;&nbsp;Default load variation with time&nbsp;:&nbsp;Specify default load variation with time.<br>
+	&nbsp;&nbsp;&nbsp;Instantaneous&nbsp;:&nbsp;Specify instantaneous.<br>
+	&nbsp;&nbsp;&nbsp;Ramp linearly over step &nbsp;:&nbsp;Specify linear change over step.<br>	
+
+	&nbsp;&nbsp;Extrapolation of previous state at start of each increment &nbsp;:&nbsp;Extrapolate previous state at start of each increment.<br>
+	&nbsp;&nbsp;&nbsp;Linear&nbsp;:&nbsp;Specify linear.<br>
+	&nbsp;&nbsp;&nbsp;Quadratic&nbsp;:&nbsp;Specify quadratic.<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Coupled_Temp-Displacement_Output_Setting.PNG">
+<li>Output Setting tab 
+	<p>
+	&nbsp;&nbsp;New Name&nbsp;:&nbsp;Specify the output set name.<br>
+	&nbsp;&nbsp;&nbsp;Add&nbsp;:&nbsp;Create a new output set.<br>
+	&nbsp;&nbsp;Name&nbsp;:&nbsp;Enter the output set name.<br>	
+	&nbsp;&nbsp;&nbsp;Delete：Delete the existing output set.<br>
+	&nbsp;&nbsp;Field(ODB)&nbsp;:&nbsp;Output the ODB file in field format. <br>
+	&nbsp;&nbsp;&nbsp;Print&nbsp;:&nbsp;Output the file in text format.<br>
+	&nbsp;&nbsp;&nbsp;File(.fil)&nbsp;:&nbsp;Output the file in Fil format.<br>
+	&nbsp;&nbsp;&nbsp;History &nbsp;:&nbsp;Output the history. ※Supported only for Contact and Energy result outputs.<br>
+	&nbsp;&nbsp;Domain&nbsp;:&nbsp;Specify the target group for output.<br>
+	&nbsp;&nbsp;&nbsp;Whole Model&nbsp;:&nbsp;Specify the whole model.<br>	
+	&nbsp;&nbsp;&nbsp;Setting&nbsp;:&nbsp;Specify the settings.<br>
+	&nbsp;&nbsp;Frequency&nbsp;:&nbsp;Specify the output interval.<br>
+	&nbsp;&nbsp;&nbsp;Last increment&nbsp;:&nbsp;Output only the final result in the step.<br>
+	&nbsp;&nbsp;&nbsp;Every n increments&nbsp;:&nbsp;Output results for every n increments.<br>
+	&nbsp;&nbsp;&nbsp;Evenly spaced time increments&nbsp;:&nbsp;Output results for every evenly divided time interval (for explicit method only).<br>
+	&nbsp;&nbsp;&nbsp;Every x units of time&nbsp;:&nbsp;Output results per x hours (for explicit method only).<br>
+	&nbsp;&nbsp;Timing&nbsp;:&nbsp;Adjust the output timing. <br>
+	&nbsp;&nbsp;Output Variables&nbsp;:&nbsp;Specify the result variable to be output. <br>
+		</p>
+</li>
+
+      <h4>Structural Analysis -> Step Type&nbsp;:&nbsp;Dynamic Temp-Displacement, Explicit</h4>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Coupled_Temp-Displacement-Explicit_Basic.PNG">
+<li>Basic tab
+	<p>
+	&nbsp;&nbsp;Description&nbsp;:&nbsp;Display the description.<br>
+	&nbsp;&nbsp;Time Period &nbsp;:&nbsp; Enter the time period. <br>
+	&nbsp;&nbsp;Nlgeom&nbsp;:&nbsp;Specify whether or not to consider geometric nonlinear (large deformation) analysis.<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Coupled_Temp-Displacement-Explicit_Increments-Automatic.PNG">
+
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Coupled_Temp-Displacement-Explicit_Increments-Fixed.PNG">
+<li>Increments tab
+	<p>
+	&nbsp;&nbsp;Type&nbsp;:&nbsp;Define the increment method.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Automatic&nbsp;:&nbsp;Specify the automatic type.<br>
+
+	&nbsp;&nbsp;Stable increment estimator&nbsp;:&nbsp;Specify the use of the stable increment estimator.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Global&nbsp;:&nbsp;Specify Global.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Element-by-element&nbsp;:&nbsp;Specify Element-by-element.<br>
+	&nbsp;&nbsp;Max. time increment&nbsp;:&nbsp;Specify the maximum time increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Unlimited&nbsp;:&nbsp;Specify unlimited.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Value&nbsp;:&nbsp;Specify the value.<br>	
+	&nbsp;&nbsp;Time scaling factor&nbsp;:&nbsp;Specify the time scaling factor.<br>
+	&nbsp;&nbsp;Fixed&nbsp;:&nbsp;Specify fixed.<br>
+	&nbsp;&nbsp;&nbsp;Increment size selection&nbsp;:&nbsp;Select the increment size value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;User-defined time increment&nbsp;:&nbsp;Specify the user-defined time increment.<br>	
+	&nbsp;&nbsp;&nbsp;&nbsp;Use element-by-element time increment estimator&nbsp;:&nbsp;Specify the use of the element-by-element time increment estimator.<br>
+	&nbsp;&nbsp;&nbsp;Time scaling factor&nbsp;:&nbsp;Specify the time scaling factor.<br>	
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Coupled_Temp-Displacement-Explicit_Other.PNG">
+<li>Other tab
+	<p>
+	&nbsp;&nbsp;Linear bulk viscosity parameter&nbsp;:&nbsp;Specify the linear bulk viscosity parameter.<br>
+	&nbsp;&nbsp;&nbsp;Quadratic bulk viscosity parameter&nbsp;:&nbsp;Specify the quadratic bulk viscosity parameter.<br>
+	</p>
+</li>
+
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Dynamic_Coupled_Temp-Displacement-Explicit_Output_Setting.PNG">
+<li>Output Setting tab
+	<p>
+	&nbsp;&nbsp;New Name&nbsp;:&nbsp;Specify the output set name.<br>
+	&nbsp;&nbsp;&nbsp;Add&nbsp;:&nbsp;Create a new output set.<br>
+	&nbsp;&nbsp;Name&nbsp;:&nbsp;Specify an output set name.<br>	
+	&nbsp;&nbsp;&nbsp;Delete：Delete an existing output set.<br>
+	&nbsp;&nbsp;Field(ODB)&nbsp;:&nbsp;Output an ODB file in Field format.<br>
+	&nbsp;&nbsp;&nbsp;Print&nbsp;:&nbsp;Output the file in text format.<br>
+	&nbsp;&nbsp;&nbsp;File(.fil)&nbsp;:&nbsp;Output the file in Fil format.<br>
+	&nbsp;&nbsp;&nbsp;History&nbsp;:&nbsp;Output the history. ※Supported only for Contact and Energy result outputs.<br>
+	&nbsp;&nbsp;Domain&nbsp;:&nbsp;Specify the target group for output.<br>
+	&nbsp;&nbsp;&nbsp;Whole Model&nbsp;:&nbsp;Specify the whole model.<br>	
+	&nbsp;&nbsp;&nbsp;Setting&nbsp;:&nbsp;Specify the settings.<br>
+	&nbsp;&nbsp;Frequency&nbsp;:&nbsp;Specify the output interval.<br>
+	&nbsp;&nbsp;&nbsp;Last increment&nbsp;:&nbsp;Output only the final result in the step.<br>
+	&nbsp;&nbsp;&nbsp;Every n increments&nbsp;:&nbsp;Output results for every n increments.<br>
+	&nbsp;&nbsp;&nbsp;Evenly spaced time increments&nbsp;:&nbsp;Output results for every evenly divided time interval (for explicit method only).<br>
+	&nbsp;&nbsp;&nbsp;Every x units of time&nbsp;:&nbsp;Output results per x hours (for explicit method only).<br>
+	&nbsp;&nbsp;Timing&nbsp;:&nbsp;Adjust the output timing.<br>
+	&nbsp;&nbsp;Output Variables&nbsp;:&nbsp;Specify the result variable to be output. <br>
+		</p>
+</li>
+      <h4>Structural analysis -> Analysis type&nbsp;:&nbsp;Riks&nbsp;:&nbsp;Static, Riks</h4>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static-Riks_Basic.PNG">
+<li>Basic tab
+	<p>
+	&nbsp;&nbsp;Description&nbsp;:&nbsp;Display the description.<br>
+	&nbsp;&nbsp;Nlgeom&nbsp;:&nbsp;Specify whether or not to consider geometric nonlinear (large deformation) analysis.<br>
+	&nbsp;&nbsp;Include adiabatic heating effects&nbsp;:&nbsp;Specify the inclusion of adiabatic heating effects.<br>
+	&nbsp;&nbsp;Stopping criteria&nbsp;:&nbsp;Specify the stopping criteria.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Maximum load proportionality factor&nbsp;:&nbsp;Specify the maximum load proportionality factor.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Maximum displacement&nbsp;:&nbsp;Specify the maximum displacement.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;DOF&nbsp;:&nbsp;Specify the DOF.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Node Region&nbsp;:&nbsp;Specify the node region.<br>
+</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static-Riks_Increments-Automatic.PNG">
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static-Riks_Increments-Fixed.PNG">	
+<li>Increments tab
+	<p>
+	&nbsp;&nbsp;Type&nbsp;:&nbsp;Define the increment method.<br>
+	&nbsp;&nbsp;&nbsp;Automatic&nbsp;:&nbsp;Specify the automatic type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Maximum number of increments&nbsp;:&nbsp;Enter the maximum number of increments.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Increment size&nbsp;:&nbsp;Specify the arc length increment.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Initial&nbsp;:&nbsp;Specify the initial increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Minimum&nbsp;:&nbsp;Specify the minimum increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Maximum&nbsp;:&nbsp;Specify the maximum increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Estimated total arc length&nbsp;:&nbsp;Specify the estimated total arc length.<br>
+	&nbsp;&nbsp;&nbsp;Fixed&nbsp;:&nbsp;Specify the fixed type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Maximum number of iterations&nbsp;:&nbsp;Enter the maximum number of increments.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Increment size&nbsp;:&nbsp;Specify the time increment value.<br>
+	</p>
+</li>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static-Riks_Other.PNG">
+<li>Other tab
+	<p>
+	&nbsp;&nbsp;Equation solver &nbsp;:&nbsp;Specify the equation solver.<br>
+	&nbsp;&nbsp;Matrix storage &nbsp;:&nbsp;Matrix storage <br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Use solver default&nbsp;:&nbsp;Specify the default setting.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Unsymmetric&nbsp;:&nbsp;Specify the unsymmetric setting.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Symmetric&nbsp;:&nbsp;Specify the symmetric setting.<br>
+	&nbsp;&nbsp;Convert severe discontinuity iterations&nbsp;:&nbsp;Specify the conversion of severe discontinuity iterations.<br>
+	&nbsp;&nbsp;Propagate from previous step &nbsp;:&nbsp;Propagate from previous step.<br>
+	&nbsp;&nbsp;Extrapolation of previous state at start of each increment&nbsp;:&nbsp;Extrapolate previous state at start of each increment.<br>
+	&nbsp;&nbsp;Linear&nbsp;:&nbsp;Specify linear.<br>
+	&nbsp;&nbsp;Quadratic&nbsp;:&nbsp;Specify quadratic.<br>
+	&nbsp;&nbsp;Stop when region “ ” is fully plastic&nbsp;:&nbsp;Stop when the region is fully plastic.<br>
+	&nbsp;&nbsp;Accept solution after reaching maximum number of iterations&nbsp;:&nbsp;Select this checkbox to accept the solution after reaching maximum number of iterations.<br>	
+	&nbsp;&nbsp;Obtain long-term solution with time-domain material properties&nbsp;:&nbsp;<br>
+	&nbsp;&nbsp;Obtain long-term solution with time-domain material properties.<br>
+	</p>
+</li>
+<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Static-Riks_Output_Setting.PNG">
+<li>Output Setting tab 
+	<p>
+	&nbsp;&nbsp;New Name&nbsp;:&nbsp;Specify the output set name.<br>
+	&nbsp;&nbsp;&nbsp;Add&nbsp;:&nbsp;Create a new output set.<br>
+	&nbsp;&nbsp;Name&nbsp;:&nbsp;Specify an output set name.<br>	
+	&nbsp;&nbsp;&nbsp;Delete ：Delete an existing output set.<br>
+	&nbsp;&nbsp;Field(ODB)&nbsp;:&nbsp;Output an ODB file in Field format.<br>
+	&nbsp;&nbsp;&nbsp;Print&nbsp;:&nbsp;Output a text file.<br>
+	&nbsp;&nbsp;&nbsp;File(.fil)&nbsp;:&nbsp;Output a Fil format file.<br>
+	&nbsp;&nbsp;&nbsp;History&nbsp;:&nbsp;Output the history. ※Supported only for Contact and Energy result output.<br>
+	&nbsp;&nbsp;Domain&nbsp;:&nbsp;Specify the target group for output. <br>
+	&nbsp;&nbsp;&nbsp;Whole Model&nbsp;:&nbsp;Specify the whole model.<br>	
+	&nbsp;&nbsp;&nbsp;Setting&nbsp;:&nbsp;Specify the settings.<br>
+	&nbsp;&nbsp;Frequency&nbsp;:&nbsp;Specify the output interval.<br>
+	&nbsp;&nbsp;&nbsp;Last increment&nbsp;:&nbsp;Output only the final result in the step.<br>
+	&nbsp;&nbsp;&nbsp;Every n increments&nbsp;:&nbsp;Output results for every n increments.<br>
+	&nbsp;&nbsp;&nbsp;Evenly spaced time increments&nbsp;:&nbsp;Output results for every evenly divided time interval (for explicit method only).<br>
+	&nbsp;&nbsp;&nbsp;Every x units of time&nbsp;:&nbsp;Output results per x hours (for explicit method only).<br>
+	&nbsp;&nbsp;Timing&nbsp;:&nbsp;Adjust the output timing.<br>
+	&nbsp;&nbsp;Output Variables &nbsp;:&nbsp;Specify the result variable to be output. <br>
+		</p>
+</li>
+      <h4>Heat Transfer -> Step Type&nbsp;:&nbsp;Heat Transfer (Steady State)</h4>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Steady_State_Basic.PNG">
+
+<li>Basic tab
+	<p>
+	&nbsp;&nbsp;Description&nbsp;:&nbsp;Display the description.<br>
+	&nbsp;&nbsp;Time Period&nbsp;:&nbsp;Enter the analysis time.<br>
+	</p>
+</li>	
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Steady_State_Increments-Automatic.PNG">
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Steady_State_Increments-Fixed.PNG">	
+<li>Increments tab 
+	<p>
+	&nbsp;&nbsp;Type&nbsp;:&nbsp;Define the increment method.<br>	
+	&nbsp;&nbsp;&nbsp;Automatic：Specify the automatic type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Maximum number of increments：Enter the maximum number of increments.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Increment size ：Specify the time increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Initial ：Enter the intial increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Minimum ：Enter the minimum increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Maximum ：Enter the maximum increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Max. allowable emissivity change per increment ：Specify the maximum allowable emissivity change per increment.<br>
+	&nbsp;&nbsp;&nbsp;Fixed&nbsp;:&nbsp;Specify the fixed type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Maximum number of increments&nbsp;:&nbsp;Enter the maximum number of increments.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Increment size&nbsp;:&nbsp;Specify the time increment value.<br>
+		
+	</p>     
+</li>      
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Steady_State_Other.PNG">
+<li>Other tab
+	<p>
+	&nbsp;&nbsp;Equation solver&nbsp;:&nbsp;Specify the equation solver.<br>
+	&nbsp;&nbsp;&nbsp;Method&nbsp;:&nbsp;Specify the method.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Direct&nbsp;:&nbsp;Specify the direct method.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Iterative&nbsp;:&nbsp;Specify the iterative method.<br>	
+	&nbsp;&nbsp;Matrix storage&nbsp;:&nbsp;Specify the matrix storage setting.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Use solver default&nbsp;:&nbsp;Specify the default setting.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Unsymmetric&nbsp;:&nbsp;Specify the unsymmetric setting.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Symmetric&nbsp;:&nbsp;Specify the symmetric setting.<br>
+	
+	&nbsp;&nbsp;Solution Technique&nbsp;:&nbsp;Specify the solution technique.<br>
+	&nbsp;&nbsp;&nbsp;Solution technique&nbsp;:&nbsp;Specify the solution technique.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Full Newton&nbsp;:&nbsp;Specify the Full Newton solution technique.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Quasi-Newton&nbsp;:&nbsp;Specify the Quasi-Newton solution technique.<br>	
+	
+	&nbsp;&nbsp;&nbsp;Number of iterations allowed before the kernel matrix is reformed&nbsp;:&nbsp;Specify the number of iterations allowed before the kernel matrix is reformed.<br>
+	
+	&nbsp;&nbsp;Convert severe discontinuity iterations &nbsp;:&nbsp;Specify the conversion of severe discontinuity iterations.<br>
+	&nbsp;&nbsp;&nbsp;Propagate from previous step &nbsp;:&nbsp;Propagate from previous step.<br>
+	&nbsp;&nbsp;&nbsp;On&nbsp;:&nbsp;Specify On.<br>	
+	&nbsp;&nbsp;&nbsp;Off&nbsp;:&nbsp;Specify Off.<br>		
+
+	&nbsp;&nbsp;Default load variation with time &nbsp;:&nbsp;Specify the default load variation with time.<br>
+	&nbsp;&nbsp;&nbsp;Instantaneous&nbsp;:&nbsp;Specify instantaneous.<br>
+	&nbsp;&nbsp;&nbsp;Ramp linearly over step&nbsp;:&nbsp;Specify linear change over step.<br>	
+
+	&nbsp;&nbsp;Extrapolation of previous state at start of each increment&nbsp;:&nbsp;Extrapolate previous state at start of each increment.<br>
+	&nbsp;&nbsp;&nbsp;Linear&nbsp;:&nbsp;Specify linear.<br>
+	&nbsp;&nbsp;&nbsp;Quadratic&nbsp;:&nbsp;Specify quadratic.<br>
+	</p>
+</li>
+<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Steady_State_Output_Setting.PNG">
+<li>Output Setting tab
+	<p>
+	&nbsp;&nbsp;New Name&nbsp;:&nbsp;Specify the output set name.<br>
+	&nbsp;&nbsp;&nbsp;Add&nbsp;:&nbsp;Create a new output set.<br>
+	&nbsp;&nbsp;Name&nbsp;:&nbsp;Enter the output set name.<br>	
+	&nbsp;&nbsp;&nbsp;Delete ：Delete the existing output set. <br>
+	&nbsp;&nbsp;Field(ODB)&nbsp;:&nbsp;Output the ODB file in field format. <br>
+	&nbsp;&nbsp;&nbsp;Print&nbsp;:&nbsp;Output the file in text format.<br>
+	&nbsp;&nbsp;&nbsp;File(.fil)&nbsp;:&nbsp;Output the file in Fil format.<br>
+	&nbsp;&nbsp;&nbsp;History&nbsp;:&nbsp;Output the history. ※Supported only for Contact and Energy result outputs.<br>
+	&nbsp;&nbsp;Domain&nbsp;:&nbsp;Specify the target group for output.<br>
+	&nbsp;&nbsp;&nbsp;Whole Model&nbsp;:&nbsp;Specify the whole model.<br>	
+	&nbsp;&nbsp;&nbsp;Setting&nbsp;:&nbsp;Specify the settings.<br>
+	&nbsp;&nbsp;Frequency&nbsp;:&nbsp;Specify the output interval.<br>
+	&nbsp;&nbsp;&nbsp;Last increment&nbsp;:&nbsp;Output only the final result in the step.<br>
+	&nbsp;&nbsp;&nbsp;Every n increments&nbsp;:&nbsp;Output results for every n increments.<br>
+	&nbsp;&nbsp;&nbsp;Evenly spaced time increments&nbsp;:&nbsp;Output results for every evenly divided time interval (for explicit method only).<br>
+	&nbsp;&nbsp;&nbsp;Every x units of time&nbsp;:&nbsp;Output results per x hours (for explicit method only).<br>
+	&nbsp;&nbsp;Timing&nbsp;:&nbsp;Adjust the output timing.<br>
+	&nbsp;&nbsp;Output Variables&nbsp;:&nbsp;Specify the result variable to be output. <br>
+		</p>
+</li>
+      <h4>Heat Transfer Analysis -> Step Type&nbsp;:&nbsp;Heat Transfer (Transient)</h4>
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Transient_Basic.PNG">
+
+<li>Basic tab
+	<p>
+	&nbsp;&nbsp;Description&nbsp;:&nbsp;Display the description.<br>
+	&nbsp;&nbsp;Time Period&nbsp;:&nbsp;Enter the time period. <br>
+	</p>
+</li>	
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Transient_Increments-Automatic.PNG">
+	<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Transient_Increments-Fixed.PNG">	
+<li>Increments tab
+	<p>
+	&nbsp;&nbsp;Type&nbsp;:&nbsp;Define the increment method.<br>
+	&nbsp;&nbsp;&nbsp;Automatic：Specify the automatic type.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Maximum number of increments：Enter the maximum number of increments.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Increment size ：Specify the time increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Initial：Enter the intial increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Minimum：Enter the minimum increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Maximum：Enter the maximum increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Max. allowable emissivity change per increment  ：Specify the maximum allowable emissivity change per increment.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Max. allowable temperature change per increment ：Specify the maximum value of the allowable temperature change.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;End step when temperature change is less than：End the step when the temperature change is less than the value on the right.<br>
+	&nbsp;&nbsp;Fixed&nbsp;:&nbsp;Specify the fixed type.<br>
+	&nbsp;&nbsp;Maximum number of increments&nbsp;:&nbsp;Enter the maximum number of increments.<br>
+	&nbsp;&nbsp;Increment size &nbsp;:&nbsp;Specify the time increment value.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;End step when temperature change is less than：End the step when the temperature change is less than the value on the right.<br>	
+	</p>     
+</li>
+<img src="./Media/CommandDlg/Analysis_Abaqus_Add_Step_Heat_Transfer_Transient_Output_Setting.PNG">
+<li>Output Setting tab
+	<p>
+	&nbsp;&nbsp;New Name&nbsp;:&nbsp;Specify the output set name.<br>
+	&nbsp;&nbsp;&nbsp;Add&nbsp;:&nbsp;Create a new output set.<br>
+	&nbsp;&nbsp;Name&nbsp;:&nbsp;Enter the output set name.<br>	
+	&nbsp;&nbsp;&nbsp;Delete：Delete the existing output set. <br>
+	&nbsp;&nbsp;Field(ODB)&nbsp;:&nbsp;Output the ODB file in field format. <br>
+	&nbsp;&nbsp;&nbsp;Print&nbsp;:&nbsp;Output the file in text format.<br>
+	&nbsp;&nbsp;&nbsp;File(.fil)&nbsp;:&nbsp;Output the file in Fil format.<br>
+	&nbsp;&nbsp;&nbsp;History&nbsp;:&nbsp;Output the history. ※Supported only for Contact and Energy result outputs.<br>
+	&nbsp;&nbsp;Domain&nbsp;:&nbsp;Specify the target group for output.<br>
+	&nbsp;&nbsp;&nbsp;Whole Model&nbsp;:&nbsp;Specify the whole model.<br>	
+	&nbsp;&nbsp;&nbsp;Setting&nbsp;:&nbsp;Specify the settings.<br>
+	&nbsp;&nbsp;Frequency&nbsp;:&nbsp;Specify the output interval.<br>
+	&nbsp;&nbsp;&nbsp;Last increment&nbsp;:&nbsp;Output only the final result in the step.<br>
+	&nbsp;&nbsp;&nbsp;Every n increments&nbsp;:&nbsp;Output results for every n increments.<br>
+	&nbsp;&nbsp;&nbsp;Evenly spaced time increments&nbsp;:&nbsp;Output results for every evenly divided time interval (for explicit method only).<br>
+	&nbsp;&nbsp;&nbsp;Every x units of time&nbsp;:&nbsp;Output results per x hours (for explicit method only).<br>
+	&nbsp;&nbsp;Timing&nbsp;:&nbsp;Adjust the output timing. <br>
+	&nbsp;&nbsp;Output Variables &nbsp;:&nbsp;Specify the result variable to be output. <br>
+		</p>
+</li>
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+		<li>&nbsp;Prepare the model with boundary condition settings such as loads and constraints defined.</li>
+		<li>&nbsp;Specify the analysis type (structural / heat transfer).</li>
+		<li>&nbsp;Select the step type and define basic, increment and other settings as well as output settings. Add the step.</li>
+		<li>&nbsp;Use the Job Manager to specify boundary conditions according to the step.</li>
+		<li>&nbsp;Define other necessary options and click the Apply/OK button to export the input data file.</li>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

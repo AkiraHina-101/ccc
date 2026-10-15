@@ -1,0 +1,74 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>サーフェースマッピング入力ファイル形式ト</title>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>サーフェースマッピング入力ファイル形式</h2>
+<div class="contents">
+	<p>サーフェースマッピング用流体ファイルのファイル形式を示します。すべてテキスト形式です。<br>	</p>
+
+	<li id="fluent">Fluent（拡張子：.dat）</li>
+
+<p>Fluentから出力されたデータです。<br>
+１行目はタイトル行で、各列にどのタイプのデータが記載されているか記載されています。<br>
+データはカンマ区切りで、スペースは無視します。<br>
+<img src="./Media/Appendix_SurfaceMapping_3.png" border="1"><br>
+
+タイトル行に書かれたキーワードから、どの条件が記載されているのかを判定し、自動的にタグを設定します。<br>
+条件が同じで、異なるタイトル行キーワードを記載した場合には、より後ろのキーワードのみが読まれます。<br></p>
+
+
+<table class="commontable">
+<tr><th>タイトル行キーワード</th><th>条件</th></tr>
+<tr><td>pressure</td><td rowspan=4>圧力</td></tr>
+<tr><td>dynamic-pressure</td></tr>
+<tr><td>absolute-pressure</td></tr>
+<tr><td>total-pressure</td></tr>
+<tr><td>temperature</td><td rowspan=2>温度</td></tr>
+<tr><td>wall-temp-out-surf</td></tr>
+<tr><td>heat-flux</td><td>熱流束</td></tr>
+<tr><td>heat-transfer-coef</td><td rowspan=2>温度係数</td></tr>
+<tr><td>heat-transfer-coef-wall</td></tr>
+</table><br>
+
+
+<li id="starcd">Star CD（拡張子：.dat/.txt）<br></li>
+<p>Star CDから出力されたデータです。
+タイトル行はありません。<br>
+左列から順に、<br>
+ID,X座標値,Y座標値,Z座標値,Column1値,Column2値,...<br>となります。
+データはスペース区切りで、各データは1つ以上の半角空白で区切られます。<br>
+</p>
+
+<img src="./Media/Appendix_SurfaceMapping_4.png" border="1"><br><br>
+
+<li id="csv">CSV(拡張子：.csv)<br></li>
+<p>TSV-Post/Jupiter-PostのMapping機能から出力されたデータです。表面対流のみ使用可能です。<br>
+タイトル行はありません。データはカンマ区切りで、左列から順に節点,X,Y,Z,係数,温度の順で固定です。<br></p>
+<img src="./Media/Appendix_SurfaceMapping_5.png" border="1"><br>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</li></div>
+</div>
+</body>
+
+</html>
+</head></html>

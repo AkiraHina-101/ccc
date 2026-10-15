@@ -1,0 +1,139 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Dialog</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Dialog</h2>
+<div class="contents">
+	<p>
+	Set up the title, execute button, and click button (selection list) of the creation dialog.<br>
+	</p>
+	
+
+	<img src="./Media/GUI_CommandBuilder_Component-Parameter_Dialog.png">
+	<br><br>
+	
+	<p>&nbsp;&nbsp;&nbsp;Creation image：</p>
+	
+	<img src="./Media/GUI_CommandBuilder_Component-Parameter_Dialog2.png">
+	<br><br>
+
+	<li><b>Title</b>
+	<p>&nbsp;&nbsp;&nbsp;Enter the title of the dialog you want to create.</p>
+	</li>
+	<li><b>Resizable</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify whether to resize the dialog to be created.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Check On</b>&nbsp;:&nbsp;Change the size of the dialog.</li>
+		<li><b>Check Off</b>&nbsp;:&nbsp;The size of the dialog is fixed.</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Validation</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify whether to confirm the input in the dialog. (format, data format, etc.)</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Check On</b>&nbsp;:&nbsp;Confirm</li>
+		<li><b>Check Off</b>&nbsp;:&nbsp;Do not confirm</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Apply Button</b>
+	<p>&nbsp;&nbsp;&nbsp;Sets whether to create the Apply button.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Check On</b>&nbsp;:&nbsp;Create</li>
+		<li><b>Check Off</b>&nbsp;:&nbsp;Not created</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>OK Button</b>
+	<p>&nbsp;&nbsp;&nbsp;Sets whether to create an OK button.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Check On</b>&nbsp;:&nbsp;Create</li>
+		<li><b>Check Off</b>&nbsp;:&nbsp;Not created</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Cancel Button</b>
+	<p>&nbsp;&nbsp;&nbsp; Sets whether to create the Cancel button.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Check On</b>：Create</li>
+		<li><b>Check Off</b>：Not created</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Description</b>
+	<p>&nbsp;&nbsp;&nbsp;The information you enter here will be displayed at the top of the dialog.</p>
+	</li>	
+	<li><b>Selector</b>
+	<p>&nbsp;&nbsp;&nbsp;Option to add a selection list.</p>
+	<p>&nbsp;&nbsp;&nbsp;※Supported Selection Types：<br>
+	 &nbsp;&nbsp;&nbsp;Node Selector, Part Selector, Bar Part Selector, Element Edge Selector, <br> 
+	 &nbsp;&nbsp;&nbsp;1D Element Selector, 2D Element Selector,3D Element Selector,Face Selector, Edge Selector, Vertex Selector.
+	 </p>
+	</li>
+	<h4>Command to use</h4>
+	<table class="commontable">
+		<tr><th>Command</th><th>Description</th><th>Sample Code</th></tr>	
+		<tr>
+			<td>dlg.on_command(“name”, function)</td>
+			<td>Execute by incorporating the function in the created component.<td>    
+				<p><em>Input:</em></p>
+				<p style = "margin-left: 40px">dlg.on_command(“ButtonOk”, on_click_exec_button)</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.add_space(orientation = "horizontal, layout = "Layout")</td>
+			<td>Adds a placeholder with the specified orientation.<td>    
+				<p><em>Input:</em></p>
+				<p style = "margin-left: 40px">dlg.add_space(orientation="horizontal",layout="footer")</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.get_selected_entities(int selector_id)</td>
+			<td>Gets the selected entities for the specified Selector.<td>    
+				<p><em>Input:</em></p>
+				<p style = "margin-left: 40px">dlg.get_selected_entities(0)</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.disable_item("component name")</td>
+			<td>Changes the property status of a component from enabled to disabled.<td>    
+				<p><em>Input:</em></p>
+				<p style = "margin-left: 40px">dlg.disable_item("TextBox")</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.enable_item("component name")</td>
+			<td>Change the status of the component properties from disabled to enabled.<td>    
+				<p><em>Input:</em></p>
+				<p style = "margin-left: 40px">dlg.enable_item("TextBox")</p>
+			</td>
+		</tr>
+	</table>
+<br>
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

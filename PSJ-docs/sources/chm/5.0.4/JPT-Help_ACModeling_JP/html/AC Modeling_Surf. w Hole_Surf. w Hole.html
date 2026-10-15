@@ -1,0 +1,65 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>構造外表面抽出</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>構造外表面抽出</h2>
+<div class="contents">
+	<p>音響境界面（ACBoundary）のモデルを利用し、構造解析モデルの外表面を節点ID保持し抽出します。</p>
+	<p>抽出後のモデルから外表面のみの節点グループを作成し、音響計算の為の振動計算結果ファイルサイズを削減することができます。</p>
+
+	<img src="./Media/CommandDlg/AC_Modeling_Surf_W_Hole.png">
+
+	<h4>構造外表面抽出</h4>
+	<li><b>トレランス</b></li>
+		<p>&nbsp;&nbsp;&nbsp;抽出する形状の音響境界面からの距離を入力します。</p>	
+	</li>
+	<li><b>構造モデル</b></li>
+		<p>&nbsp;&nbsp;&nbsp;構造解析モデルのドキュメントを選択します。</p>	
+	</li>
+	<li><b>境界メッシュ</b></li>
+	<p>&nbsp;&nbsp;&nbsp;音響境界面のドキュメントを選択します。</p>	
+	</li>
+
+	
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+			<li>&nbsp;抽出する構造解析モデルの表面を音響境界面からの距離で指定します。トレランスに距離を入力します。</li>
+			<li>&nbsp;構造モデルのメニューから構造解析モデルのドキュメントを選択します。</li>
+			<li>&nbsp;境界メッシュのメニューから音響境界モデルのドキュメントを選択します。</li>
+			<li>&nbsp;Apply/OKボタンを押します。</li>
+		</ol>
+			<img src="./Media/CommandDlg/AC_Modeling_Surf_W_Hole_howto.png">		
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

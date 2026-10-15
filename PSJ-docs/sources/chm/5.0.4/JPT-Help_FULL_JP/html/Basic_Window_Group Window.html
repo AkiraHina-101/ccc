@@ -1,0 +1,149 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>グループウィンドウ</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>グループウィンドウ</h2>
+<div class="contents">
+	<p>
+	グループコマンドで作成したグループの表示・編集を行います。<br>
+	グループモードをONにした場合、表示されているグループ以外のエンティティは非表示となります。
+	</p>
+	<img src="./Media/Base_Window_GroupWindow_1.png" width="300">
+ 	<br>
+ 	<h4>ツリーコントロールメニュー</h4>
+	<p>
+	ツリーの表示を調節します。
+	</p>
+	<table class="commontable">
+	 <tr><th>アイコン</th><th>名称</th><th>説明</th></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/034_ClearSelection_16.png"></td><td>選択解除</td><td>選択されているツリーアイテムをすべて選択解除します。</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DS_026_OpenTree_16.png"></td><td>すべて開く</td><td>サブツリーをすべて展開します。</td></tr>
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DS_027_CloseTree_16.png"></td><td>すべて閉じる</td><td>サブツリーをすべて閉じます。</td></tr>	 
+	 <tr><td><img src="./Media/AssemblyWindow_icon/DA_057_16.png"></td><td>ソート順切り替え</td><td>グループツリーの並び順をソート設定ダイアログで設定された順に、昇順または降順に並び替えます。</td></tr>
+	 <tr><td><img src="./Media/OtherWindow_icon/086_Setting_16.png"></td><td>ソート設定</td><td>グループソート設定ダイアログを起動します。</td></tr>
+	</table>
+	<h4>グループソート設定ダイアログ</h4>
+	<p>グループツリーの並び順を変更します。</p>
+	<img src="./Media/GroupWindow＿GroupSort.png">
+	<li>ソート順<p>グループツリーの並び順の基準を選択します。</p></li>
+
+	<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>グループ名順</b>&nbsp;:&nbsp;グループアイテムをアルファベット順に昇順/降順で並べます。</li>
+		<li><b>グループID順</b>&nbsp;:&nbsp;グループアイテムをグループID順に昇順/降順で並べます。</li>
+		<li><b>節点数順</b>&nbsp;:&nbsp;グループアイテムを、各グループに含まれる節点数順に昇順/降順で並べます。</li>
+		<li><b>要素数順</b>&nbsp;:&nbsp;グループアイテムを各グループに含まれる指定要素順に昇順/降順で並べます。</br>
+		</span>
+		</ul>
+	<h4>ツリービュー</h4>
+	<p>
+	グループの設定状態をツリー形式で表示します。 各ツリーアイテムをマウス左ボタンクリックすることでツリーアイテムをハイライトします。また、各ツリーアイテムをマウス左ボタンダブルクリックすることで、<b>グループ内のエンティティ</b>を選択状態にします。<br>
+※V4.0より、グループアイテムのダブルクリックによる"グループの選択"及び"グループ内の選択エンティティの選択解除"が削除され、"グループ内エンティティの選択"のみに変更されました。選択解除モードがONの場合でも、本機能使用時にはエンティティが選択されます。</p>
+ 		<table class="commontable">
+	 <tr><th width="">アイコン</th><th>名称</th><th>説明</th></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/AnyGroup_16.png"></td><td>グループ/サブグループ</td><td>複数のグループの親グループです。また、グループ内に復数の異なる種類のエンティティが存在している場合にも、このアイコンが表示されます。
+
+</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_PartGroup_16.png"></td><td>パーツグループ</td><td>パーツのみのグループです。</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_FaceGroup_16.png"></td><td>フェースグループ</td><td>フェースのみのグループです。</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_NodeGroup_16.png"></td><td>ノードグループ</td><td>節点のみのグループです。</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_ElementGroup_16.png"></td><td>エレメントグループ</td><td>面要素のみのグループです。</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_EdgeGroup_16.png"></td><td>エッジグループ</td><td>エッジのみのグループです。</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_SolidElementGroup_16.png"></td><td>ソリッドエレメントグループ</td><td>ソリッド要素のみのグループです。</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_ConnectionGroup.png"></td><td>接続要素グループ</td><td>接続要素のみのグループです。</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_ConditionGroup.png"></td><td>境界条件グループ</td><td>境界条件のみのグループです。</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_1DElementGroup_16.png"></td><td>1D要素グループ</td><td>1D要素のみのグループです。</td></tr>
+	 <tr><td><img src="./Media/GroupWindow_icon/xxx_ElementEdgeGroup_16.png"></td><td>要素エッジグループ</td><td>要素エッジのみのグループです。</td></tr>
+	
+	</table>
+	<h4>ショートカットメニュー</h4>
+	<p>
+	マウス右クリックメニューで表示されるメニューから、各コマンドを使用します。
+	</p>
+	・アイテム未選択時に利用できるメニュー
+	<table class="commontable">
+	 <tr><th>コマンド</th><th>機能</th></tr>
+	 <tr><td>グループビューで表示</td><td>メインウィンドウの表示を、グループモードに変更します。</td></tr>
+	 <tr><td>グループビュー終了</td><td>メインウィンドウの表示を、標準画面に戻します。</td></tr>
+	</table><br>
+
+	・常に利用できるメニュー
+	<table class="commontable">
+	 <tr><th>コマンド</th><th>機能</th></tr>
+	 <tr><td>エンティティ選択</td><td>ハイライトしたグループに含まれるエンティティを選択状態にします。</td></tr>
+	 <tr><td>グループ選択</td><td>ハイライトしたグループ自身を選択状態にします。</td></tr>
+	 <tr><td>サブグループを追加</td><td>空のサブグループをグループアイテム下に追加します。</td></tr>
+	 <tr><td>コピー</td><td>ハイライトしたグループをアセンブリ間でコピーします。</td></tr>
+	 <tr><td>材料グループ作成</td><td>同じマテリアルが割り当てられたエンティティのグループを作成します。</td></tr>
+	 <tr><td>プロパティグループ作成</td><td>同じプロパティが割り当てられたエンティティのグループを作成します。</td></tr>
+	 <tr><td>非表示エンティティグループ作成</td><td>現在非表示になっているフェース、エレメント及びパーツのグループを作成します。</td></tr>
+	 <tr><td>エンティティグループ作成</td><td>グループコマンドが起動され、エンティティ毎のグループを作成します。</td></tr>
+	 <tr><td>グループ作成-モデルフィルター</td><td>モデルフィルターコマンドが起動され、要素タイプやプロパティでフィルターしながらグループを作成します。</td></tr>
+	 <tr><td>インポート</td><td>エクスポートメニューでCSV形式ファイルに出力されたグループの情報を読み込みます。</td></tr>
+	 <tr><td>エクスポート</td><td>ハイライトしたグループの内容をCSV形式ファイルに書き出します。</td></tr>
+	 <tr><td>貼付け</td><td>カット/コピーしたグループを、ハイライトしたアセンブリ下に移動させます。</td></tr>
+	 <tr><td>グループ削除</td><td>ハイライトしたグループを削除します。<br>圧力やサーフェース荷重、接触条件に使用されているフェースグループは、削除されません。</td></tr>
+	 <tr><td>エンティティ削除</td><td>ハイライトしたグループ内に含まれるエンティティを削除します。</td></tr>
+	</table>
+	<br>
+	・グループアイテム選択時に利用できるメニュー
+	<table class="commontable">
+	 <tr><th>コマンド</th><th>機能</th></tr>
+	 <tr><td>非表示</td><td>ハイライトしたグループを非表示にします。</td></tr>
+	 <tr><td>選択のみ非表示</td><td>ハイライトしたグループのみを非表示にし、他のグループを表示します。</td></tr>
+	 <tr><td>表示</td><td>ハイライトしたグループを表示します。</td></tr>
+	 <tr><td>選択のみ表示</td><td>ハイライトしたグループのみを表示し、他のグループを非表示にします。</td></tr>
+	 <tr><td>すべて表示</td><td>すべてのグループを表示します。</td></tr>
+	 <tr><td>すべて非表示</td><td>ハイライトしたグループを非表示にします。。</td></tr>
+	 <tr><td>表示/非表示を反転</td><td>現在の表示、非表示設定を反転します。</td></tr>
+	 <tr><td>編集<sup>※</sup></td><td>ハイライトしたグループを編集するためのダイアログが開きます。</td></tr>
+	 <tr><td>リネーム</td><td>ハイライトしたグループのグループ名を変更します。</td></tr>
+	 <tr><td>関連選択</td><td>ハイライトしたグループに関連するエンティティを選択します。</td></tr>
+	 <tr><td>グループマーカー</td><td>グループマーカーの色をランダムに、または指定色に変更します。</td></tr>
+	</table><br>	
+   <a href="#f3">※「編集」にショートカットキー［F3］が設定されています。</a><br>
+	<br>
+	・同一タイプのグループアイテム復数選択時に利用できるメニュー
+	<table class="commontable">
+	 <tr><th>コマンド</th><th>機能</th></tr>
+	 <tr><td>ブーリアン（和）</td><td>ハイライトした復数のグループ内のエンティティを足し合わせた、新しいグループを作成します。</td></tr>
+	 <tr><td>ブーリアン（差）</td><td>２つの同一のタイプのグループアイテムを順にクリックしたとき、先にハイライトしたグループ内のエンティティから、後にハイライトしたグループ内のエンティティを取り除いた、新しいグループを作成します。</td></tr>
+	 <tr><td>ブーリアン（積）</td><td>ハイライトした復数のグループ内のエンティティの共通のアイテムについて新しいグループを作成します。</td></tr>
+	</table>
+	<h4>ショートカットキー一覧</h4>
+	グループウィンドウにフォーカスがある場合には、下記ショートカットキーを利用可能です。
+	<br><li>ビュー操作</li>
+	<table class="commontable">
+	<tr><th>ショートカットキー</th><th>動作</th></tr>
+	<tr><td>F2</td><td>ツリーアイテムをハイライトしてキーを押下すると、アイテムをリネームします。</td></tr>
+	<tr><td id="f3">F3</td><td>ツリーアイテムをハイライトしてキーを押下すると、右クリックメニューの「編集」を実行します。</td></tr>
+	<tr><td>上下矢印キー</td><td>ツリーアイテムのハイライトを移動します。</td></tr>
+	<tr><td>F</td><td>選択パーツを画面にフィットします。パーツ未選択の場合、モデル全体を画面にフィットさせます。</td></tr>
+	<tr><td>E</td><td>選択エンティティを選択解除します。</td></tr>
+	<tr><td>A</td><td>コマンドダイアログ起動時、コマンドを実行します。</td></tr>
+	<tr><td>Space</td><td>コマンドダイアログ起動時、コマンドを実行します。</td></tr>
+	<tr><td>Ctrl＋マウス左クリック</td><td>複数のツリーアイテムをハイライトします。</td></tr>
+	<tr><td>Shift＋マウス左クリック</td><td>複数の連続したツリーアイテムをハイライトします。</td></tr>
+	</table>
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

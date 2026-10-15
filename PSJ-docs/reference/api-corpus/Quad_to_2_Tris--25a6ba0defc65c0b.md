@@ -1,0 +1,3 @@
+# Quad to 2 Tris
+
+Quad to 2 Tris Quad to 2 Tris Convert one quadrilateral elements into two triangular element. When you move mouse over the element to preview, if there are multiple splitting patterns, you can split by confirming the change in the preview display of split pattern. Settings Auto Execution When checked, it will convert automatically when you select an element. -&nbspOperating Procedure&nbsp- &nbspTurn on the Auto Execution check box. &nbspFor the elements that you want to convert into triangular elements, select the dividing line while displaying preview. &nbspConvert selected simultaneously. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

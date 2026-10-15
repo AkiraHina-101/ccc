@@ -1,0 +1,62 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+	<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+	<link href="basic.css" rel="stylesheet" type="text/css" />
+	   <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Edges</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Displacement CS</h2>
+<div class="contents">
+	<p>
+	Define the displacement coordinate system to the node. The output of the node result by this setting refers to the local coordinate system<br>
+	After the displacement coordinate system settings you should be able to see the coordinate system set to the node information that is output to the Output window.
+	<br>
+	※Behaviour depends on the solver.
+	</p>
+	<img src="./Media/CommandDlg/Tools_Coordinates_DisplacementCS.png">
+	<li>Coordinate System
+	<p>
+	Select the coordinate system
+	</p>
+	</li>
+	<li>Group by DCS
+	<p>
+	When you click the "Create Groups" button, the node that has been set to the current displacement coordinate system are grouped into each displacement coordinate system. 
+	</p>
+	</li>
+	<li>Coloured Node by DCS
+	<p>
+	When you click the ON / OFF button, the nodal displacement coordinate system is set to display / hide  colour contour. 
+	</p>
+　　　</li>
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+	  <ol>
+　　　<li>&nbspYou have to create multiple local coordinate systems in advance.</li>
+　　　<li>&nbspSelect the entity that contains the node you want to set the displacement coordinate system and then click the Apply button.</li>
+　　　<li>&nbspIf the displacement coordinate system settings are to be checked by the colour contour: Click next to the ON/OFF button near Coloured Node by DCS.</li>
+　　　<li>&nbspIf you want to ensure in a group the displacement coordinate system  setting: Click group by DCS next to Create Groups button. Check the group mode as the node group is created for each displacement coordinate system setting.</ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Surface Mapping Input File Format</title>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Surface Mapping Input File Format</h2>
+<div class="contents">
+	<p>Indicate the file format of fluid file for surface mapping.<br>	</p>
+
+	<li id="fluent">Fluent (extension: .dat)</li>
+
+<p>Data output from Fluent.<br>
+The first line is the title line, which describes what type of data is listed in each column.<br>
+Data is separated by commas and spaces are ignored.<br>
+<img src="./Media/Appendix_SurfaceMapping_3.png" border="1"><br>
+
+From the keyword written in the title line, which condition is described is judged, and the tag is automatically set.<br>
+If the conditions are the same and different title line keywords are listed, only the later keywords will be read.<br></p>
+
+
+<table class="commontable">
+<tr><th>Title line keyword</th><th>Condition</th></tr>
+<tr><td>pressure</td><td rowspan=4>Pressure</td></tr>
+<tr><td>dynamic-pressure</td></tr>
+<tr><td>absolute-pressure</td></tr>
+<tr><td>total-pressure</td></tr>
+<tr><td>temperature</td><td rowspan=2>Temperature</td></tr>
+<tr><td>wall-temp-out-surf</td></tr>
+<tr><td>heat-flux</td><td>Heat flux</td></tr>
+<tr><td>heat-transfer-coef</td><td rowspan=2>Temperature coefficient</td></tr>
+<tr><td>heat-transfer-coef-wall</td></tr>
+</table><br>
+
+
+<li id="starcd">Star CD (extension: .dat / .txt)<br></li>
+<p>Data output from the Star CD.
+There is no title line.<br>
+From the left column,<br>
+ID, X coordinate value, Y coordinate value, Z coordinate value, Column1 value, Column2 value, ...<br>and so on.
+Data is separated by spaces, and each data is separated by one or more single-byte spaces.<br>
+</p>
+
+<img src="./Media/Appendix_SurfaceMapping_4.png" border="1"><br><br>
+
+<li id="csv">CSV (extension: .csv)<br></li>
+<p>Data output from the Mapping function of TSV-Post / Jupiter-Post. Only surface convection can be used.<br>
+There is no title line. Data are separated by commas and fixed in order of node, X, Y, Z, coefficient, temperature from left column.<br></p>
+<img src="./Media/Appendix_SurfaceMapping_4.png" border="1"><br>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</li></div>
+</div>
+</body>
+
+</html>
+</head></html>

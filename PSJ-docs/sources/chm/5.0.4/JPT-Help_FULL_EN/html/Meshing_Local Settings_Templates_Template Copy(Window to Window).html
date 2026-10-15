@@ -1,0 +1,88 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Export Mesh Settings</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Template Copy(Window to Window)</h2>
+<div class="contents">
+	<p>
+	Copy the local setting to the other window of the model.<br>
+	</p>
+
+	<img src="./Media/CommandDlg/Meshing_Local%20Settings_Templates_Template%20Copy(Window%20to%20Window).png">
+      <h4>Local Setting Copy</h4>
+      <li><b>Source Document</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the window of the model to be the copy source for the local setting.</p>
+	</li>
+	<li><b>Target Document</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the window of the model to be copied for the local setting.</p>
+	</li>
+	<li><b>Input Unit</b>
+	<p>&nbsp;&nbsp;&nbsp;You can specify units of correction value between the model.</p>
+	</li>
+	<li><b>Coordinate System</b>
+	<p>&nbsp;&nbsp;&nbsp;Specifies correction direction of the coordinate system between the model.</p>
+	</li>
+	<li><b>Magnitude</b>
+	<p>&nbsp;&nbsp;&nbsp;Enter the correction distance between the model.</p>
+	</li>
+	<li><b>Tolerance</b>
+	<p>&nbsp;&nbsp;&nbsp;Enter the error tolerance between the model.</p>
+	</li>
+	<li><b>Axis</b>
+	<p>&nbsp;&nbsp;&nbsp;How to specify and select Inter-model correction direction.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Arbitrary</b>&nbsp;:&nbsp;Enter a component of the XYZ to specify the direction. </li><br>
+		<li><b>X Axis</b>&nbsp;:&nbsp;Specifies the X direction. </li><br>
+		<li><b>Y Axis</b>&nbsp;:&nbsp;Specifies the Y direction. </li><br>
+		<li><b>Z Axis</b>&nbsp;:&nbsp;Specifies the Z direction. </li><br>
+		<li><b>2Nodes</b>&nbsp;:&nbsp;Select the 2 nodes to specify the direction.</li><br>
+		<li><b>Edge</b>&nbsp;:&nbsp;It specifies the direction to select the edge. </li>
+		</span>
+		</ul>		
+	</li>
+	<li><b>X/Y/Z</b>
+	<p>&nbsp;&nbsp;&nbsp;XYZ components of the correction direction vector between the model is displayed.</p>
+	</li>
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+		<li>&nbsp;Open the local setting copy source and target model in the software.</li>
+		<li>&nbsp;After start-up, specify the window of the model from which to copy in Source Document.</li>
+		<li>&nbsp;Specifies the window of the model to be copied in Target Document.</li>
+		<li>&nbsp;If the position correction between the models is required, specify the coordinate system of the correction direction in Coordinate System.</li>
+		<li>&nbsp;Enter the correct distance between the model in Magnitude.</li>
+		<li>&nbsp;Enter the allowable value of the error between the model in Tolerance.</li>
+		<li>&nbsp;Specify the Arbitrary in Axis.</li>
+		<li>&nbsp;Specify the direction, enter the component of the XYZ.</li>
+		<li>&nbsp;Click Apply / OK button.</li>
+	</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

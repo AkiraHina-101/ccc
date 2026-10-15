@@ -1,0 +1,61 @@
+	<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>CADトリム</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>CADトリム</h2>
+<div class="contents">
+	<p>
+	このコマンドでは、CAD形状のファセット（三角形パッチ形状）の数を削減することができます。<br>
+	＊JPT-Preでは、ファセットは、メッシング前のモデルの三角形一次要素と同義です。<br>
+	（表面メッシュがきれいに作成できないとき、ファセットの数が多いためにアスペクト比が極大なファセットが存在することが原因の場合があります。そのような場合、本機能をお試し下さい。）
+	</p>
+	<img src="./Media/CommandDlg/Geometry_Edit%20Entity_CAD%20Trim.png">
+
+	<h4>属性</h4>
+	<li>トリムサイズ
+	<p>削減するファセットの最大サイズを入力します。</p>
+	<li>トリム角度
+	<p>削減するファセットの最大角度を入力します。</p>
+	</li>
+	<h4>モデルの詳細</h4>
+	<li>Tris要素の数
+	<p>現在のファセット数（三角形要素数）が表示されます。</p>
+	<li>任意点の数
+	<p>現在の点の数（節点数）が表示されます。</p>
+	</li>
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>ファセット数を削減するパーツかフェースを選択します。</li>
+	<li>トリムサイズとトリム角度に削減するファセットの範囲を入力します。</li>
+	<li>適用/OKボタンをクリックします。ファセットが削減され、Tris要素の数と任意点の数が変化します。</li>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</li></li></div>
+</div>
+</body>
+
+</html>
+</head></html>

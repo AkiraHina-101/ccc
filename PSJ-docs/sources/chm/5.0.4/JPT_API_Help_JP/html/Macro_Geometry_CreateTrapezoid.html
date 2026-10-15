@@ -1,0 +1,43 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>CreateTrapezoid</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>CreateTrapezoid</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create Trapezoid Body</p>
+<h4>Syntax</h4>
+<p>CreateTrapezoid(double[3] vdOriginXYZ, double[3] vdLength, double dTopXLength, double dRadius, int[3] vlNodeCnt, string strBodyName, color colBody, cursor crCoord)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>Double[3]<p>Origin coordinate Point([x, y, z])</p></li>
+<li>Double[3]<p>Length along the coordinate axis Length([x_length, y_length, z_length])</p></li>
+<li>Double<p>Length in X (Top)</p></li>
+<li>Double<p>Radius corresponding to bool flag Circle Segment</p></li>
+<li>int[3]<p>Number of node along the coordinate axis Node([x_node, y_node, z_node])</p></li>
+<li>String<p>Part name</p></li>
+<li>Color<p>N/A<p>Part color</p></li>
+<li>Cursor<p>Whether use local coordinate or not True = 27:*, False = 0:0</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>CreateTrapezoid([0, 0, 0], [0.01, 0.015, 0.02], 0.007, 0.005, [10, 10, 10], "Trapezoid_1", 5000371, 0:0)</p>
+</div>
+</div>
+</body>
+</html>

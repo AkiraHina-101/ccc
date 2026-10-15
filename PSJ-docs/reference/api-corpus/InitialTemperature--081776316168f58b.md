@@ -1,0 +1,3 @@
+# InitialTemperature
+
+InitialTemperature InitialTemperature Description create initial temperature Syntax InitialTemperature(string strName, int nType, double dTemp, string strFilePathName, bool bUseDefault, cursor crTable, cursor[] taTarget, cursor crEdit) Inputs String Initial temperature name Int Thermal type* *0: Constant &ensp;2: ADVC File &ensp;3: Nastran Punch Double Temperature value String directory file path Bool Use default temperature bool flag True = 1, False = 0; corresponding to Type 2, 3 Cursor N/A: Table cursor Cursor[] Target entities cursor Cursor N/A: Edit cursor Return Code 1 Succeeded 0 Failed Sample Code InitialTemperature("InitialTemperature1", 3, 1.79769e+308, "D:/ImportFile/1_heat.pch", 0, 0:0, [3:1], 0:0)

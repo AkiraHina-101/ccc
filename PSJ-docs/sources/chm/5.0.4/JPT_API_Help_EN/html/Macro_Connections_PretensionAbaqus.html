@@ -1,0 +1,49 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>PretensionAbaqus</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>PretensionAbaqus</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create Pretension Abaqus</p>
+<h4>Syntax</h4>
+<p>PretensionAbaqus(string strName, bool bFixedLength, cursor crTable, double dValue, int iLocalUnit, string stNormal, double[3] dNodePos, cursor crEdit, cursor[] taTarget)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>String<p>Pretension abaqus name</p></li>
+<li>Bool<p>Bolt FixLength bool flag True = 1, False = 0</p></li>
+<li>Cursor<p>N/A: Table cursor</p></li>
+<li>Double<p>Pretension_1 force value</p></li>
+<li>Int<p>Input Unit*</p>
+       <p>*0: N</p>
+       <p>&ensp;1: MN</p>
+       <p>&ensp;2: kgf</p>
+       <p>&ensp;3: Lbf</p>
+       <p>&ensp;4: Tf</p></li>
+<li>String<p>String normal</p></li>
+<li>Double[3]<p>Coordinate of the control node</p></li>
+<li>Cursor<p>N/A: Edit cursor</p></li>
+<li>Cursor[]<p>Target entities cursor: Face/1D Element</p></li>
+
+</ol>
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>PretensionAbaqus("PreTensionAbaqus1", 1, 0:0, 100, 0, "1,0,0", [0.0083333, 0.015556, 0.025], 0:0, [6:180])</p>
+</div>
+</div>
+</body>
+</html>

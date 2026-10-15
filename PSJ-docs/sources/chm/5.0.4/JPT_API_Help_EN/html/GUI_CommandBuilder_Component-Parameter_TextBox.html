@@ -1,0 +1,114 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>TextBox</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>TextBox</h2>
+<div class="contents">
+	<p>
+	Add a text box.<br>
+	</p>
+
+	<img src="./Media/GUI_CommandBuilder_Component-Parameter_TextBox.png">
+	<br><br>
+	
+	<p>&nbsp;&nbsp;&nbsp;Creation image：</p>
+	
+	<img src="./Media/GUI_CommandBuilder_Component-Parameter_TextBox2.png">
+	<br>
+	<br>
+	
+
+	<li><b>Default</b>
+	<p>&nbsp;&nbsp;&nbsp;Enter the text that is entered by default.</p>
+	</li>
+	<li><b>Align</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the display position of the text.</p>
+	</li>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Left</b>&nbsp;:&nbsp;Left alignment</li>
+		<li><b>Right</b>&nbsp;:&nbsp;Right align</li>
+		<li><b>Center</b>&nbsp;:&nbsp;Align in the center</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>ReadOnly</b>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Check On</b>&nbsp;:&nbsp;Text cannot be edited. (Copying is possible.)</li>
+		<li><b>Check Off</b>&nbsp;:&nbsp;You can edit the text.</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Name</b>
+	<p>&nbsp;&nbsp;&nbsp;Enter the name of the text box component.</p>
+	</li>
+	<li><b>Width</b>
+	<p>&nbsp;&nbsp;&nbsp;Specifies the minimum width of the text box. (Units: pixels)</p>
+	</li>
+	<li><b>Height</b>
+	<p>&nbsp;&nbsp;&nbsp;Enter the minimum height of the text box. (Units: pixels)</p>
+	</li>
+	<li><b>Type</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the data type that can be entered into the text box.</p>
+	</li>
+	<li><b>Type</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify the data type that can be entered into the text box.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>String</b>&nbsp;:&nbsp; string type</li>
+		<li><b>Double</b>&nbsp;:&nbsp;double precision floating point number type</li>
+		<li><b>Integer</b>&nbsp;:&nbsp;integer type</li>
+		</span>
+		</ul>
+	</li>
+	<li><b>Enable</b>
+	<p>&nbsp;&nbsp;&nbsp;Specify whether to use it or not.</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Check On</b>&nbsp;:&nbsp;Available</li>
+		<li><b>Check Off</b>&nbsp;:&nbsp;Impossible to use（It will be grayed out）</li>
+		</span>
+		</ul>
+	</li>
+	<h4>Command to use</h4>
+	<table class="commontable">
+		<tr><th>Command</th><th>Description</th><th>Sample Code</th></tr>	
+		<tr>
+			<td>dlg.set_item_text("component name","text")</td>
+			<td>Specifies the text of the selected component.<td>    
+				<p><em>Input:</em></p>
+				<p style = "margin-left: 40px">dlg.set_item_text("Item", "text")</p>
+			</td>
+		</tr>
+		<tr>
+			<td>dlg.get_item_text("component name")</td>
+			<td>Gets the text information of the selected component.<td>    
+				<p><em>Input:</em></p>
+				<p style = "margin-left: 40px">dlg.get_item_text("TextBox")</p>
+			</td>
+		</tr>
+	</table>
+<br>
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

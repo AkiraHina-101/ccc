@@ -1,0 +1,105 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>AdvcDynamicProcess</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>AdvcDynamicProcess</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>create advc dynamic process</p>
+<h4>Syntax</h4>
+<p>AdvcDynamicProcess(String m_strName,int m_iGeomNonlinear,int fixed_or_auto,int num_of_inc,double max_time,double max_dt,double min_dt,int load_type,int output_last,int output_interval,int restart_last,int restart_interval,double output_time_interval,double restart_time_interval,BOOL m_bConvergence,double cg_tol,double cg_nr_tol,double cg_disp_tol,double cg_nr_disp_tol,double cg_disp_limit_tol,double cg_total_disp_limit_tol,double newton_tol,double newton_disp_tol,double newton_disp_limit_tol,double newton_total_disp_limit_tol,int cgloop_max,int newton_max,double ht_nl_loop_tol,int ht_nl_loop_max,BOOL m_bContact,int subdivide_mode,int contactloop_max,int internal_contactloop_max,double separation_tol,double relative_separation_tol,double penetration_tol,double relative_penetration_tol,int maxchp,int friction_onset,double stick_slip_tol,double friction_tol,int estimate_impact_time,BOOL m_bAutoIncrement,int newton_residue_incr_max,int begin_residue_incr_check,int begin_logarithmic_rate_check,double cut_back_factor_for_divergence,double cut_back_factor_for_too_slow_convergence,double cut_back_factor_for_excessive_distortion,int incr_enlarge_newton_max,int incr_enlarge_suppress,double increase_factor_for_static,double increase_factor_for_dynamic,double increase_factor_for_creep,double increase_factor_for_rdnlk,double temperature_incr_max,int use_temperature_incr_max,double half_step_tol,double stra_tol,double creep_stra_tol,double rdnlk_stra_tol,BOOL m_bDynamic,double alpha,double beta,double gamma,Cursor m_crEdit,List m_LoadNodeList,List m_LoadCaseNodeList,List m_LoadNodeContactList,List m_OutputParamList,int m_iRefType,String m_strRefPath,List m_ReferenceResultList)</p>
+<h4>Inputs</h4>
+<li>String<p>name of advc dynamic process</p></li>
+<li>int<p>geom nonlinear[0:blank; 1:Total Langrange; 2:Updated Langrange;]</p></li>
+<li>int<p>time[0:Auto; 1:Fixed]</p></li>
+<li>int<p>number of increment</p></li>
+<li>double<p>max time</p></li>
+<li>double<p>max dt</p></li>
+<li>double<p>min dt</p></li>
+<li>int<p>load type[-1:default; 0:Step; 1:Ramp]</p></li>
+<li>int<p>output last[-1:default; 0:No; 1:Yes]</p></li>
+<li>int<p>output interval</p></li>
+<li>int<p>restart last[-1:default; 0:No; 1:Yes]</p></li>
+<li>int<p>restart interval</p></li>
+<li>double<p>output time interval</p></li>
+<li>double<p>restart time interval</p></li>
+<li>BOOL<p>if convergence parameter defined</p></li>
+<li>double<p>cg_tol</p></li>
+<li>double<p>cg_nr_tol</p></li>
+<li>double<p>cg_disp_tol</p></li>
+<li>double<p>cg_nr_disp_tol</p></li>
+<li>double<p>cg_disp_limit_tol</p></li>
+<li>double<p>cg_total_disp_limit_tol</p></li>
+<li>double<p>newton_tol</p></li>
+<li>double<p>newton_disp_tol</p></li>
+<li>double<p>newton_disp_limit_tol</p></li>
+<li>double<p>newton_total_disp_limit_tol</p></li>
+<li>int<p>cgloop_max</p></li>
+<li>int<p>newton_max</p></li>
+<li>double<p>ht_nl_loop_tol</p></li>
+<li>int<p>ht_nl_loop_max</p></li>
+<li>BOOL<p>if contact parameter defined</p></li>
+<li>int<p>subdivide_mode[-1:default; 0:No; 1:Yes]</p></li>
+<li>int<p>contactloop_max</p></li>
+<li>int<p>internal_contactloop_max</p></li>
+<li>double<p>separation_tol</p></li>
+<li>double<p>relative_separation_tol</p></li>
+<li>double<p>penetration_tol</p></li>
+<li>double<p>relative_penetration_tol</p></li>
+<li>int<p>maxchp</p></li>
+<li>int<p>friction_onset[0:delayd; 1:immediate]</p></li>
+<li>double<p>stick_slip_tol</p></li>
+<li>double<p>friction_tol</p></li>
+<li>int<p>estimate_impact_time[-1:default; 0:No; 1:Yes]</p></li>
+<li>BOOL<p>if auto increment parameter defined</p></li>
+<li>int<p>newton_residue_incr_max</p></li>
+<li>int<p>begin_residue_incr_check</p></li>
+<li>int<p>begin_logarithmic_rate_check</p></li>
+<li>double<p>cut_back_factor_for_divergence</p></li>
+<li>double<p>cut_back_factor_for_too_slow_convergence</p></li>
+<li>double<p>cut_back_factor_for_excessive_distortion</p></li>
+<li>int<p>incr_enlarge_newton_max</p></li>
+<li>int<p>incr_enlarge_suppress</p></li>
+<li>double<p>increase_factor_for_static</p></li>
+<li>double<p>increase_factor_for_dynamic</p></li>
+<li>double<p>increase_factor_for_creep</p></li>
+<li>double<p>increase_factor_for_rdnlk</p></li>
+<li>double<p>temperature_incr_max</p></li>
+<li>int<p>use_temperature_incr_max[-1:default; 0:No; 1:Yes]</p></li>
+<li>double<p>half_step_tol</p></li>
+<li>double<p>stra_tol</p></li>
+<li>double<p>creep_stra_tol</p></li>
+<li>double<p>rdnlk_stra_tol</p></li>
+<li>BOOL<p>if dynamic parameter defined</p></li>
+<li>double<p>alpha</p></li>
+<li>double<p>beta</p></li>
+<li>double<p>gamma</p></li>
+<li>Cursor<p>edit cursor</p></li>
+<li>List<p>status of Loads</p></li>
+<li>List<p>status of Load Cases</p></li>
+<li>List<p>status and other data of Contacts</p></li>
+<li>List<p>output parameters</p></li>
+<li>int<p>reference result type[0:Temperature Load; 1:Stress]</p></li>
+<li>String<p>path of reference result</p></li>
+<li>List<p>data of reference result</p></li>
+
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>AdvcDynamicProcess("Test",1,1,1,0.001,0.001,0.001,1,1,1,1,1,0.001,0.001,1,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,1,1,0.001,1,1,1,1,1,0.001,0.001,0.001,0.001,1,1,0.001,0.001,1,1,1,1,1,0.001,0.001,0.001,1,1,0.001,0.001,0.001,0.001,0.001,1,0.001,0.001,0.001,0.001,1,0.001,0.001,0.001,1:11,,,,,1,"Test",)</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Connection | Gaps - 2 Faces</title>
+
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Connection | Gaps - 2 Faces</h2>
+<div class="contents">
+	<p>
+	Create gap element between the nodes on the selected two faces.
+	</p>
+	<p>
+	<img src="./Media/CommandDlg/Connections_Details_Gaps_2%20Faces.png">
+	</p>
+	<h4>Connection</h4>
+ 　　 <li>Name</li>
+	<p>
+	Set the name of gap element to be created.
+	</p>
+
+	<h4>Search Area</h4>
+ 　　 <li>Radius</li>
+ 	<p>Specify the distance between the two nodes for connection. 
+For distance more than this, Gap elements are not created.
+	</p>
+
+	<h4>GAP</h4>
+
+ 　　 <li>Orientation by</li>
+	<p>
+	Select the orientation method of gap element.
+	</p>
+
+	<ul type="circle">
+ 　　 <li>Orientation Vector</li>
+	Specified by the direction vector
+
+ 　　 <li>Coordinate system</li>
+	Specified by the coordinate system 
+	</ul>
+
+ 　　 <li>Coordinate System</li>
+	<p>
+	If you select specified by the coordinate system, select an existing coordinate system you want to use from the list.
+	</p>
+
+ 　　 <li>Orientation Vector</li>
+	<p>
+	If you select specified by the direction vector, enter a comma-separated direction vector in the order of X, Y, Z.
+	</p>
+
+
+ 　　 <li>U0</li>
+	<p>Enter the amount of initial open gap.
+	</p>
+
+ 　　 <li>F0</li>
+	<p>Enter the initial load value.
+	</p>
+
+ 　　 <li>KA</li>
+	<p>Enter the axis stiffness value for the closed gap.
+	</p>
+
+ 　　 <li>KB</li>
+	<p>Enter the axis stiffness value for the open gap
+	</p>
+
+ 　　 <li>KT</li>
+	<p>Enter the transverse shear stiffness value when the gap is closed.
+	</p>
+
+ 　　 <li>MU1</li>
+	<p>Enter the static friction coefficient value of the adaptive gap element.
+	</p>
+
+ 　　 <li>MU2</li>
+	<p>Enter the dynamic friction coefficient value of the adaptive gap element.
+	</p>
+
+ 　　 <li>TMAX</li>
+	<p>Enter the maximum allowable penetration amount to be used in the penalty value adjustment.
+	</p>
+
+ 　　 <li>MAR</li>
+	<p>Enter the maximum allowable adjustment ratio to the adaptive penalty value KA and KT.
+	</p>
+
+ 　　 <li>TRMIN</li>
+	<p>Enter the ratio of TMAX that defines the lower limit of the penetration tolerance value. 
+	</p>
+
+	<h4>Local Unit</h4>
+
+	<p>Specify the local unit system.
+	</p>
+
+ 　　 <li>Length</li>
+	<p>Select the unit of length.
+	</p>
+
+ 　　 <li>Force</li>
+	<p>Select the unit of force.
+	</p>
+
+
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+       <ol>
+　　　<li>&nbspIn Selection List ensure Master button is active to select the face that contains the node at one end of the gap element.</li>
+　　　<li>&nbspIn Selection List ensure Slave button is active to select the face that contains the node at the other end of the gap element.</li>　　　
+　　　<li>&nbspIf you want to limit the connection range of the node pair at a distance between the nodes, enter distance for the Radius of Search Area.</li>
+　　　<li>&nbspChoose how to specify the direction vector from Orientation By. Enter the direction vector according to the specified method.</li>
+　　　<li>&nbspEnter the number, such as axial stiffness of gap element to it that of the input field. Select the Local Unit System of length and force, if necessary.</li>
+　　　<li>&nbspClick the Apply or OK button to create the gap element between the nodes.</li>
+
+      </ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Ball Hexa</title>
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Ball Hexa</h2>
+	<div class="contents">
+	<p>
+	This command is used to create a true sphere using Hexa 8 node elemenets.
+	</p>
+
+	<img src="./Media/CommandDlg/ID_CMD_HEXMODELING_BALLHEXA.PNG">
+
+	<h4>Ball Hexa</h4>
+
+	<li>Part Name
+	<p>Enter the name of the part to be created.
+	</p>
+	</li>
+	<li>Type
+	<p>Hexa：Creates the sphere using Hexa elements only including the center of the sphere.</br>
+Hexa+Tetra：Creates the sphere using Hexa elements for the specified layers of the outer shell and tetra elements for the center. 
+	</p>
+	</li>		
+	<li>Center X, Center Y, Center Z
+	<p>Enter the coordinate values for the sphere center.
+	</p>
+	</li>
+	<li>Radius
+	<p>Enter the radius value of the sphere.
+	</p>
+	</li>
+	<li>Mesh Size
+	<p>Specify the mesh size.</br>※The minimum mesh size is limited to 5% of the radius.
+	</p>
+	</li>
+	</li>
+
+	<li>Make Center Node
+	<p>Select this checkbox to position a node at the center of the sphere. 
+	</p>
+	</li>
+	<p>
+※When an existing body is selected, values are automatically entered in the Center X/Y/Z、Radius、Mesh Size fields. </br>
+Cancel the part selection in order to change the value.
+	</p>
+
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+	<li>&nbspEnter the name of the mesh part to be created.</li>
+	<li>&nbspSelect the Hexa or Hexa+Tetra mesh type.</li>
+	<li>&nbspSelect a spherical part in the model or enter the center position, radius or mesh size. </li>
+	<li>&nbspIn case the Hexa+Tetra type is selected, enter the number of layers.</li>
+	<li>&nbspSelect the checkbox in order to position a node at the center of the mesh part.</li>
+	<li>&nbspClick the Apply/OK button.</li>	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

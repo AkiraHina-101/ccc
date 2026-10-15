@@ -1,0 +1,99 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Lab | Custom Note</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Lab | Custom Note</h2>
+	<div class="contents">
+	<p>	This is the function to add notes that point to any location on the model and save them inside the file.</p>
+	
+	<img src="./Media/CommandDlg/Lab_CustomNote.png">
+	<p>Adding even one custom note will add a "Custom Notes" item under "All Items" in the Assemblies tree in the Assemblies window, with a collection item under the specified collection name and a custom note item under it.</p>
+	<img src="./Media/CustomNote_1.png">	
+
+	<h4>Note</h4>
+	<li>Note Name
+	<p>Specify the name of the note.
+	</li>
+	<h4>Option</h4>
+	<li>Position
+	<p>Specify the position of the note by coordinate.</p>
+	<p>Creating a custom note with a node/arbitrary point/arbitrary point on an edge selected will automatically populate the coordinate values of the selected entity.</p>
+	<p>If you create a custom note with a 1D, 2D, or 3D element selected, the center coordinate value of the selected entity will be automatically populated.</p>
+	<p>If you create an entity-specific custom note in a Pre document, its position will not follow if you edit the entity.	</p>
+	<p>If you create a node-specified custom note in a Post document, its position will follow the deformation display. For other entity-specified custom notes, their positions will not follow the deformation display.</p>
+		</li>
+	<li>Create New Collection check box.
+	<p>Create a new collection and add a new custom note to it.
+	</li>
+	<li>Collection combo box
+	<p>Specifies the collection to which a new custom note will be added.
+	</li>
+	<h4>Content</h4>
+	<p>Describes the contents of the note. Holds up to 20 lines of content.
+	<h4>Style</h4>
+	<li>Font Size
+	<p>Specifies the font size of the text of Content.
+	</li>
+	<li>Font color (color selection dialog next to Font Size)
+	<p>Specifies the color of the text of Content.
+	</li>
+	<li>Bold check box
+	<p>Bold text in the Content.
+	</li>
+	<li>Alignment combo box
+	<p>Currently, only left-aligning is available.
+	</li>
+	<li>Note Background Color
+	<p>Specifies the ground color of the creating custom note.
+	</li>
+	<li>Note Outline
+	<p>Width and adjacent color selection specify the width and color of the note border.
+	</li>
+	<li>Note Arrow
+	<p>Specifies the thickness and color of the line extending from the note to the coordinate position. Setting the size to 0 hides the line.
+		<br>
+	</li>
+	<li>Type combo box
+	<p>Select the shape type that points to the coordinate position from "None" or "Arrow".
+	</li>
+	</li>
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>Launch Custon Note command.</li>
+	<li>Input position directly or select a Node, a face Point , an Edge Point or an element.<br>
+	<img src="./Media/CustomNote_2.png" height="500">	</li>
+	<li>Click Apply/OK to run the command.<br>
+		<img src="./Media/CustomNote_3.png" height="500">	</li>
+	<li>The note positions can be distributed by executing "Spread Note" at the right-click menu of Main Window.<br>
+		<table><tr><td><img src="./Media/CustomNote_4_1.png" height="300">
+			</td><td><img src="./Media/CustomNote_4_2.png" height="300"></tr></td></table>	</li>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

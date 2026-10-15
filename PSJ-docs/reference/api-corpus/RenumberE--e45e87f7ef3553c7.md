@@ -1,0 +1,3 @@
+# RenumberE
+
+RenumberE RenumberE Description RenumberE Syntax RenumberE(RenumberItem[] Item, bool AssignProperty, bool SurfaceCornerFirst) Inputs RenumberItem[] RenumberItem List* *:Cursor Target &ensp;int Begin &ensp;int NodeOrElem &ensp;int Counter &ensp;int Increasement &ensp;int Order &ensp;int Method &ensp;Cursor CoordinateReference &ensp;int[] CoordinateOrder &ensp;int[] Offset &ensp;double[] CoordinateTolerance &ensp;int ConflictStrategy &ensp;int Solver &ensp;bool Enable Bool Property Assigned flag True = 1, False =0 Bool Surface Corner first flag True = 1, False = 0 Return Code 1 Succeeded 0 Failed Sample Code RenumberE([(3:1, 1, 0, 7743, 0, 0, 0, 0:0, [0, 0, 0], [10000, 100, 1], [0.1, 0.1, 0.1], 0, 0, 1)], 1, 0)

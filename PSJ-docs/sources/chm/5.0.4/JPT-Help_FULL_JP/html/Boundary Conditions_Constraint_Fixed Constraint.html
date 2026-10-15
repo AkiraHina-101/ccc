@@ -1,0 +1,120 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>拘束</title>
+
+<style type="text/css">
+<!--/* Link下線、非表示 */-->
+a.no-uline {text-decoration:none}
+</style>
+
+</html>
+</head>
+
+
+<body>
+<div class="page">
+	<h2>拘束</h2>
+<div class="contents">
+	<p>解析モデルに使用する変位固定条件を作成します。</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Constraints_Fixed%20Constraints.png">
+
+ 　　 <h4>構造</h4>
+		<li><b>名前</b><br>
+			<p>&nbsp;&nbsp;&nbsp;作成する変位固定条件の名前を入力します。</p>
+		</li>
+		<li><b>座標系</b><br>
+			<p>&nbsp;&nbsp;&nbsp;拘束する自由度が参照する既存の座標系をプルダウンメニューから選択します。</p>
+		</li>
+		
+	<h4>拘束方向</h4>
+		<span style="font-size:1.1em;">
+		<p>&nbsp;拘束する自由度の方向をチェックボックスから選択します。</p>
+		</span>
+		<br>
+		
+		<li><b>変位X</b><br>
+			<p>&nbsp;&nbsp;&nbsp;チェックするとX方向の並進移動を拘束します。</p>
+		</li>
+		<li><b>変位Y</b><br>
+			<p>&nbsp;&nbsp;&nbsp;チェックするとY方向の並進移動を拘束します。</p>
+		</li>
+		<li><b>変位Z</b><br>
+			<p>&nbsp;&nbsp;&nbsp;チェックするとZ方向の並進移動を拘束します。</p>
+		</li>		
+		<li><b>回転X</b><br>
+			<p>&nbsp;&nbsp;&nbsp;チェックするとX軸周りの回転移動を拘束します。</p>
+		</li>
+		<li><b>回転Y</b><br>
+			<p>&nbsp;&nbsp;&nbsp;チェックするとY軸周りの回転移動を拘束します。</p>
+		</li>
+		<li><b>回転Z</b><br>
+			<p>&nbsp;&nbsp;&nbsp;チェックするとZ軸周りの回転移動を拘束します。</p>
+		</li>
+		
+	<h4>テーブル</h4>
+		<li><b>テーブル選択</b><br>
+			<p>&nbsp;&nbsp;&nbsp;<a href="./Boundary%20Conditions_Misc_Field%20Data.html">フィールドデータ</a>で定義します。現在サポートされていません。</p>
+		</li>
+		
+	<h4>他の機能</h4>
+		<span style="font-size:1.1em;">
+		<p>&nbsp;&nbsp;他の機能を設定できます</p>
+		</span>
+		</br>
+		
+		<li><b>タイプ</b><br>
+			<p>&nbsp;&nbsp;&nbsp;オプションを選択します。</p>
+				<ul type="circle">
+					<span style="font-size:0.95em;">
+					<li>SUPPORT&nbsp;:&nbsp;NastranのSUPORTカードを節点に定義します。</li>
+					<li>USET&nbsp;:&nbsp;NastranのUSETカードを節点に定義します。</li>
+					</span>
+				</ul>
+		</li>
+		<li><b>セット名</b><br>
+			<p>&nbsp;&nbsp;&nbsp;USETを選択した場合、SET名をU1～U6から選択します。</p>
+		</li>
+		
+	<h4>Abaqusオプション</h4>
+		<span style="font-size:1.1em;">
+		<p>&nbsp;ABAQUSI/F向けの設定になります。</p>
+		</span>
+		<br>
+		
+		<li><b>固定</b><br>
+			<p>&nbsp;&nbsp;&nbsp;前ステップの変形量の保持</p>
+		</li>
+		
+	<h3>-&nbsp;操作手順&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;フェース、エッジまたは節点ボタンを押し、画面上から拘束条件付加対象を選択します。</li>
+			<li>&nbsp;名前に作成する拘束条件の名前を入力します。</li>
+			<li>&nbsp;座標系から拘束する節点が参照する座標系を選択します。参照される座標系はあらかじめ作成しておく必要があります。</li>
+			<li>&nbsp;変位を拘束する並進方向と回転方向の自由度のチェックボックスをチェックします。</li>
+			<li>&nbsp;適用またはOKボタンを押します。</li>
+		</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

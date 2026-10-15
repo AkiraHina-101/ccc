@@ -1,0 +1,45 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Imprint_Projection_LineS</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>Imprint_Projection_LineS</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create imprint Projection line</p>
+<h4>Syntax</h4>
+<p>Imprint_Projection_LineS(cursor[] taCrEdges, cursor[] taCrFaces, cursor[] taCrNodes, bool bBreakFace, int iType, bool bCheckGap, double dGap)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>Cursor[]<p>Target edge for projection line cursor([5:Edge ID])</p></li>
+<li>Cursor[]<p>Target face for projecting line on cursor([6:Face ID])</p></li>
+<li>Cursor[]<p>Target node cursor([10:Node ID]) corresponding to Vector Direction type 1</p></li>
+<li>Bool<p>Whether break face or not True = 1, False = 0</p></li>
+<li>Int<p>Vector Direction type*</p>
+       <p>*0: Target Face Normal</p>
+       <p>&ensp;1: Two Nodes</p>
+       <p>&ensp;2: Nearest Vector</p></li>
+<li>Bool<p>Whether check Gap or not True =1, False = 0</p></li>
+<li>Double<p>Gap value</p></li>
+
+</ol>
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>Imprint_Projection_LineS([5:568], [6:67], [10:1347, 10:1324], 1, 1, 1, 0.003)</p>
+</div>
+</div>
+</body>
+</html>

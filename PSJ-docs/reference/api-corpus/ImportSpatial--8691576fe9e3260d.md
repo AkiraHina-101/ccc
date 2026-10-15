@@ -1,0 +1,3 @@
+# ImportSpatial
+
+ImportSpatial ImportSpatial Description Import CAD file by Spatial interface Syntax ImportSpatial(string[] vecPath, double surface_plane_tolerance, double suface_plane_angle, double max_facet_width, int NX_multibody, int healing, int isNXDirect, int setFaceColor, String facetParamCsvFile) Inputs String[] Multiple CAD file paths Double Surface plane tolerance option Double Suface plane angle option Double Max facet width option Int Flag of NX Multibody Int Flag of healing option Int Flag of NXDirect Int Flag of setting face color option String Facet parameter csv file path Return Code 1 Succeeded 0 Failed Sample Code ImportSpatial(["D:/ImportFile/Spatial_Test.SAT"], 0, 20, 0.1, 1, 1, 0, 1, "")

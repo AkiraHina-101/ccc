@@ -1,0 +1,51 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Property1DSection</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>Property1DSection</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>1D 1D section property</p>
+<h4>Syntax</h4>
+<p>Property1DSection(CString Name, int SectionType, int SectionGenerateType, double SizeA, double SizeB, double SizeH, double SizeT1, double SizeT2, double SizeT3, bool Tapered, double A_tap, double B_tap, double H_tap, double T1_tap, double T2_tap, double T3_tap)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>CString<p>Name Section</p></li>
+<li>Int<p>Section Type [General Section = 0, Library Section = 1]</p></li>
+<li>Int<p>Section Generate Type [PROP_SECTION_GEN_RECT = 0, PROP_SECTION_GEN_RECT_TUBE = 1, PROP_SECTION_GEN_CIRCLE = 2, PROP_SECTION_GEN_CIRCLE_TUBE = 3, PROP_SECTION_GEN_C = 4, PROP_SECTION_GEN_IH = 5, PROP_SECTION_GEN_L = 6, PROP_SECTION_GEN_T =7]</p></li>
+<li>Double<p>Section size A</p></li>
+<li>Double<p>Section size B</p></li>
+<li>Double<p>Section size H</p></li>
+<li>Double<p>Section size T1</p></li>
+<li>Double<p>Section size T2</p></li>
+<li>Double<p>Section size T3</p></li>
+<li>Bool<p>Tapered flag true = 1,false = 0</p></li>
+<li>Double<p>Tap size A</p></li>
+<li>Double<p>Tap size B</p></li>
+<li>Double<p>Tap size H</p></li>
+<li>Double<p>Tap size T1</p></li>
+<li>Double<p>Tap size T2</p></li>
+<li>Double<p>Tap size T3</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>Property1DSection("T", 0, 7, 0, 0.0005, 0.0005, 0.0001, 0.0001, 0, 0, 0, 0, 0, 0, 0, 0)</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>SplitElemEdge</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>SplitElemEdge</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Split Element Edge</p>
+<h4>Syntax</h4>
+<p>SplitElemEdge(cursor[] vcrElemEdge, double dRatio, cursor crNodeRef, cursor crProjBody)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>Cursor[]<p>Select (multiple) element edges cursor([10:Node ID-10:Node ID])</p></li>
+<li>Double<p>Split ratio</p></li>
+<li>Cursor<p>Whether use node for reference or not True = 10:*, False = 0:0</p></li>
+<li>Cursor<p>Whether use reference CAD part or not True = 12:*, False = 0:0</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>SplitElemEdge([10:462-10:471], 0.2, 0:0, 12:1)</p>
+</div>
+</div>
+</body>
+</html>

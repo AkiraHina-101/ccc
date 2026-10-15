@@ -1,0 +1,56 @@
+[
+  {
+    "source": "05-jupiter-help/5.0.4/Help/API_HELP/JPT_API_Help_EN.chm",
+    "target": "07-chm-extracted/5.0.4/JPT_API_Help_EN",
+    "text_files": 520,
+    "error": null
+  },
+  {
+    "source": "05-jupiter-help/5.0.4/Help/API_HELP/JPT_API_Help_JP.chm",
+    "target": "07-chm-extracted/5.0.4/JPT_API_Help_JP",
+    "text_files": 532,
+    "error": null
+  },
+  {
+    "source": "05-jupiter-help/5.0.4/Help/BASE_HELP/JPT-Help_FULL_EN.chm",
+    "target": "07-chm-extracted/5.0.4/JPT-Help_FULL_EN",
+    "text_files": 591,
+    "error": null
+  },
+  {
+    "source": "05-jupiter-help/5.0.4/Help/BASE_HELP/JPT-Help_FULL_JP.chm",
+    "target": "07-chm-extracted/5.0.4/JPT-Help_FULL_JP",
+    "text_files": 643,
+    "error": null
+  },
+  {
+    "source": "05-jupiter-help/5.0.4/Help/OPTION_HELP/AC_MODELING/JPT-Help_ACModeling_EN.chm",
+    "target": "07-chm-extracted/5.0.4/JPT-Help_ACModeling_EN",
+    "text_files": 29,
+    "error": null
+  },
+  {
+    "source": "05-jupiter-help/5.0.4/Help/OPTION_HELP/AC_MODELING/JPT-Help_ACModeling_JP.chm",
+    "target": "07-chm-extracted/5.0.4/JPT-Help_ACModeling_JP",
+    "text_files": 31,
+    "error": null
+  },
+  {
+    "source": "05-jupiter-help/5.0.4/Help/OPTION_HELP/EXCHANGE/JPT-Help_Exchange_EN.chm",
+    "target": "07-chm-extracted/5.0.4/JPT-Help_Exchange_EN",
+    "text_files": 8,
+    "error": null
+  },
+  {
+    "source": "05-jupiter-help/5.0.4/Help/OPTION_HELP/EXCHANGE/JPT-Help_Exchange_JP.chm",
+    "target": "07-chm-extracted/5.0.4/JPT-Help_Exchange_JP",
+    "text_files": 8,
+    "error": null
+  },
+  {
+    "source": "05-jupiter-help/5.0.4/Help/OPTION_HELP/MIDPLANE/JPT-Help_MidPlane_JP.chm",
+    "target": "07-chm-extracted/5.0.4/JPT-Help_MidPlane_JP",
+    "text_files": 30,
+    "error": null
+  }
+]

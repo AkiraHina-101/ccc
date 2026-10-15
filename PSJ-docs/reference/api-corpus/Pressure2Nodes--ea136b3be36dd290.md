@@ -1,0 +1,3 @@
+# Pressure2Nodes
+
+Pressure2Nodes Pressure2Nodes Description Create Pressure 2 nodes Syntax Pressure2Nodes(string strName, cursor crNodeA, double dPressureA, int iNodeAUnit, cursor crNodeB, double dPressureB, int iNodeBUnit, cursor[] taTarget, cursor crEdit) Inputs String Pressure 2 nodes name Cursor Node A key cursor(10:Node ID) Double Pressure A value Int Node A unit type Cursor Node B key cursor(10:Node ID) Double Pressure B value Int Node B unit type Cursor[] Target entities cursor Cursor N/A: Edit cursor Return Code 1 Succeeded 0 Failed Sample Code Pressure2Nodes("PressureLinear1", 10:351, 2000, 0, 10:350, 4000, 0, 2, [6:5, 11:553, 11:554, 10:351, 10:350], 0:0)

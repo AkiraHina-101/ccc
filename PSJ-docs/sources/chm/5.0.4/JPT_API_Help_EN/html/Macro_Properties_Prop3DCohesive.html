@@ -1,0 +1,62 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Prop3DCohesive</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>Prop3DCohesive</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>create property 3d cohesive</p>
+<h4>Syntax</h4>
+<p>Prop3DCohesive(string strName, cursor crMaterial, int iResponse, int iSpecifyThick, double dInitialThick, cursor[] taTarget, cursor crEdit, int FLG, int iID, int iSolverType, int iADVCResponseType, int iADVCStackDir, bool bADVCThickness, double dADVCThickness)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>String<p>Prop3DCohesive name</p></li>
+<li>Cursor<p>Material cursor(22:Material ID)</p></li>
+<li>Int<p>Response type*</p>
+       <p>*0: Traction Separation</p>
+       <p>&ensp;1: Continuum</p>
+       <p>&ensp;2: Gasket</p></li>
+<li>Int<p>Initial thickness type*</p>
+       <p>*0: Geometry</p>
+       <p>&ensp;1: Specified</p></li>
+<li>Double<p>Initial thickness value, corresponding to cohesive solver type 0</p></li>
+<li>Cursor[]<p>Target entities cursor</p></li>
+<li>Cursor<p>N/A: Edit Cursor</p></li>
+<li>Int<p>N/A: FLG</p></li>
+<li>Int<p>Property ID</p></li>
+<li>Int<p>Cohesive solver type*</p>
+       <p>*0: Abaqus</p>
+       <p>&ensp;1: ADVC</p></li>
+<li>Int<p>ADVC response type*</p>
+       <p>*0: Continuum</p>
+       <p>&ensp;1: Continuum2</p></li>
+<li>Int<p>Stack direction type*</p>
+       <p>*0: Blank</p>
+       <p>&ensp;1: Stack 0</p>
+       <p>&ensp;2: Stack 1</p>
+       <p>&ensp;3: Stack 2</p></li>
+<li>Bool<p>ADVC thickness bool flag True = 1, False = 0</p></li>
+<li>Double<p>ADVC thickness value</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>Prop3DCohesive("Cohensive Property 8", 22:5, 2, 1, 20, [3:1], 0:0, 1, 6, 0, 0, 3, 1, 10)</p>
+</div>
+</div>
+</body>
+</html>

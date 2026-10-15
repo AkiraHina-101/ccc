@@ -1,0 +1,77 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>無限境界 | 制限境界 | 平行移動</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>無限境界 | 制限境界 | 平行移動</h2>
+<div class="contents">
+	<p>無限境界の制限面の移動を行います。
+</p>
+
+	<img src="./Media/CommandDlg/AC_Modeling_Move_Translation.png">
+
+	<h4>平行移動</h4>
+	<li><b>座標系</b></li>
+		<p>&nbsp;&nbsp;&nbsp;平行移動に参照する座標系を選択します。</p>	
+	</li>
+	<li><b>軸</b></li>
+		<p>&nbsp;&nbsp;&nbsp;平行移動の方向を決める軸を選択します。</p>	
+			<ul type="circle">
+					<li><b>X軸</b>&nbsp;:&nbsp;選択された座標系のX軸方向にマグニチュード分、平行移動します。</li>
+					<li><b>Y軸</b>&nbsp;:&nbsp;選択された座標系のY軸方向にマグニチュード分、平行移動します。</li>
+					<li><b>Z軸</b>&nbsp;:&nbsp;選択された座標系のZ軸方向にマグニチュード分、平行移動します。</li>
+					<li><b>任意の軸</b>&nbsp;:&nbsp;X、Y、Zの方向ベクトルとマグニチュード分、平行移動します。</li>
+					<li><b>2節点</b>&nbsp;:&nbsp;画面から選択された2つのNode方向にマグニチュード分、平行移動します。</li>
+					<li><b>エッジ</b>&nbsp;:&nbsp;画面から選択されたエッジ方向にマグニチュード分、平行移動します。</li>
+			</ul>
+	</li>
+	<li><b>X,Y,Z</b></li>
+		<p>&nbsp;&nbsp;&nbsp; 方向ベクトルのXYZ成分が表示されます。任意軸指定時は、各成分を入力し方向を指定します。</p>	
+	</li>
+	<li><b>マグニチュード</b></li>
+		<p>&nbsp;&nbsp;&nbsp;移動量を入力します。</p>	
+	</li>
+	
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+			<li>&nbsp;Partを選択します。 </li>
+			<li>&nbsp;既存の座標系方向に移動させる場合には、座標系から既存の座標系を選択し、軸からX軸、Y軸、Z軸のいずれかを選択し、マグニチュードに移動量を入力します。 </li>
+			<li>&nbsp;任意の方向に移動させるには、軸から任意の軸を選択し、X、Y、Zおよびマグニチュードに方向ベクトルと移動量をそれぞれ入力します。</li>
+			<li>&nbsp;選択した2節点方向に移動させるには、節点ボタンを押し、画面から節点を２つ選択します。マグニチュードに節点2つ間の距離が自動的に入力されます。</li>
+			<li>&nbsp;選択したエッジ方向に移動させるには、エッジボタンを押し、画面からエッジを選択します。マグニチュードにエッジ長さが自動的に入力されます。 </li>
+			<li>&nbsp;必要に応じてマグニチュードの移動量を変更します。</li>
+			<li>&nbsp;OKボタンを押します。 </li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

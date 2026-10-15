@@ -1,0 +1,133 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>断面</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</br>
+</style>
+</html></head>
+
+
+<body>
+<div class="page">
+<h2>断面</h2>
+	<div class="contents">
+	<p>
+　　  断面表示をONにすることで、メインウィンドウに3Dマウスが表示されます。<br>
+　　  3Dマウス起動中は、断面リボンが表示され、細かい表示の設定が可能になります。<br>
+　　  形状を任意断面で切断した状態で表示する断面表示は、メインウィンドウに表示される3Dマウスを利用して調節します。<br>
+　　  <br>
+	  V5より、以下の条件を満たしたグループに対してもキャッピングが適用されるようになりました。<br>
+      1. Body要素またはSolid要素のグループ<br>
+      2. 断面のエッジがループしている
+	</p>
+
+	<img src="./Media/Tools_Section_Section_1.png">
+
+	<h4>コマンド一覧</h4>
+ 
+ 	<table class="commontable">
+	 <tr><th>パネル</th><th>アイコン</th><th>名称</th><th>説明</th></tr>
+	 <tr><td>閉じる</td><td><img src="./Media/Ribbon_icon/Section/xxx.png" width="16"></td><td>閉じる</td><td>3Dマウスの使用を終了します。</td></tr>
+	 <tr><td rowspan="8">断面 </td>
+	 	<td><img src="./Media/Ribbon_icon/Section/150.png"></td><td>断面YZ</td><td>YZ平面で切断した断面を表示します。</td></tr>
+	 	<tr><td><img src="./Media/Ribbon_icon/Section/151.png"></td><td>断面XZ</td><td>XZ平面で切断した断面を表示します。</td></tr>	 
+	 	<tr><td><img src="./Media/Ribbon_icon/Section/152.png"></td><td>断面XY</td><td>XY平面で切断した断面を表示します。</td></tr>
+	 	<tr><td><img src="./Media/Ribbon_icon/Section/159.png"></td><td>シフトコントロール</td><td>断面ビューシフトコントロールダイアログを起動します。</td></tr>
+	 	<tr><td><img src="./Media/Ribbon_icon/Section/155.png"></td><td>リセット</td><td>3Dマウスの位置を初期位置に戻します。</td></tr>
+	 	<tr><td><img src="./Media/Ribbon_icon/Section/FR_411_16.png"></td><td>任意の2点 / 3点</td><td>指定の2点もしくは3点で定義される平面で切断した断面を表示します。</td></tr>
+	 	<tr><td><img src="./Media/Ribbon_icon/Section/154.png"></td><td>反対方向</td><td>モデルの表示範囲を、断面の反対側に切り替えます。</td></tr>
+	 	<tr><td><img src="./Media/Ribbon_icon/Section/160.png"></td><td>断面ビュー</td><td>断面がスクリーンと並行になるようにビューを切り替えます。</td></tr>
+	 <tr><td rowspan="2">3D マウス</td>
+	 	<td><img src="./Media/Ribbon_icon/Section/153.png"></td><td>3Dマウス表示</td><td>3Dマウスの表示／非表示を切り替えます。</td></tr>
+	 	<tr><td><img src="./Media/Ribbon_icon/Section/161.png"></td><td>マウスサイズ固定</td><td>ビューの拡大・縮小時に3Dマウスのサイズを保ちます。</td></tr>
+	<tr><td rowspan="4">オプション</td>
+		<td><img src="./Media/Ribbon_icon/Section/156.png"></td><td>キャッピング</td><td>断面の表示／非表示を切り替えます。</td></tr>
+	 	<tr><td><img src="./Media/Ribbon_icon/Section/157.png"></td><td>断面エッジ</td><td>断面の外形線の表示／非表示を切り替えます。</td></tr>
+	 	<tr><td><img src="./Media/Ribbon_icon/Section/158.png"></td><td>断面要素</td><td>断面上のソリッド要素の表示／非表示を切り替えます。</td></tr>
+		<tr><td><img src="./Media/Ribbon_icon/Section/93.png"></td><td>メッシュ線</td><td>断面上のメッシュ線の表示／非表示を切り替えます。</td></tr>
+	<tr><td rowspan="2">透明度</td>
+		<td  colspan="2"> 非表示部分の透明度を変更</td><td>チェックすると、モデルの表示範囲外となる部分のモデルを透過表示します。<br>透過の度合いはスライダーで調整します。</td></tr></tr>
+		<tr><td colspan="2">非表示部分色設定</td><td>透過表示の色を設定します。</td></tr></tr>
+	 
+		<tr><td rowspan="6">テンプレート</td>
+
+		<td><img src="./Media/Ribbon_icon/Section/TemplateList.png"></td><td>テンプレートリスト</td><td>Jupiterに保存されている断面テンプレートを表示するリストボックスです。</td></tr>
+		<td><img src="./Media/Ribbon_icon/Section/Load_16.png"></td><td>テンプレート読込</td><td>リストボックスで選択・表示した断面テンプレートを、現在の画面に適用します。</td></tr>
+	 	<tr><td><img src="./Media/Ribbon_icon/Section/New_16.png"></td><td>テンプレート保存</td><td>現在の断面の位置・設定を、新規断面テンプレートとして保存します。</td></tr>
+	 	<tr><td><img src="./Media/Ribbon_icon/Section/Rename_16.png"></td><td>テンプレートリネーム</td><td>リストボックスで選択中の断面テンプレートの名称を変更します。</td></tr>
+		<tr><td><img src="./Media/Ribbon_icon/Section/Update_16.png"></td><td>テンプレート更新</td><td>リストボックスに表示中の断面テンプレートを、現在の断面の位置・設定で上書きします。</td></tr>
+		<tr><td><img src="./Media/Ribbon_icon/Section/Delete_16.png"></td><td>テンプレート削除</td><td>リストボックスに表示中の断面テンプレートを削除します。</td></tr>
+
+		</table>
+
+	<h4>3Dマウス操作について</h4>
+	<p>
+	3Dマウスの軸やシンボルをマウスオーバーし、色が変わる部分をマウスの左ボタンクリック＆ドラッグによって操作することで、切断面の位置を調節します。
+	</p>
+	<table class="commontable">
+	 <tr><td><img src="./Media/Ribbon_icon/Section/Tools_Section_Section_2.png" width="150"></td><td><img src="./Media/Ribbon_icon/Section/Tools_Section_Section_3.png" width="150"></td><td><img src="./Media/Ribbon_icon/Section/Tools_Section_Section_4.png" width="150"></td><td><img src="./Media/Ribbon_icon/Section/Tools_Section_Section_5.png" width="150"></td></tr>
+	 <tr><td>断面を軸方向に移動</td><td>断面を回転</td><td>3Dマウスを移動</td><td>3Dマウスを拡大縮小</td></tr>
+	</table>
+		
+	<h4>断面ビューシフトコントロールダイアログ</h4>
+		<p>数値入力とボタンクリックにより、切断面の位置を調節します。</p><br>
+		<img src="./Media/CommandDlg_JP/Tools_Section_SectionViewShiftControl.png">
+		<li><b>中心</b><br>
+			<p>3Dマウスの中心位置を指定します。設定ボタンをクリックすると、入力した座標位置を3Dマウスの中心位置とします。リセットで初期位置に戻します。</p>
+		</li>
+		<li><b>方向</b><br>
+			<p>断面の面直方向をベクトル（X, Y, Z）	で指定します。設定ボタンをクリックすると、入力したベクトルの方向を断面の面直方向にします。</p>
+		</li>
+				<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>X</b>&nbsp;:&nbsp;クリックすると、X軸を断面の面直方向にします。</li><br>
+		<li><b>Z</b>&nbsp;:&nbsp;クリックすると、Y軸を断面の面直方向にします。</li><br>
+		<li><b>X</b>&nbsp;:&nbsp;クリックすると、Z軸を断面の面直方向にします。</li><br>
+		<li><b>ISO</b>&nbsp;:&nbsp;クリックすると、ベクトル（1,1,1）の方向を断面の面直方向にします。</li>
+		</span>
+		</ul>
+		<li><b> 回転</b><br>
+			<p>3Dマウスをその場で回転させます。</p>
+		</li>
+				<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>角度</b>&nbsp;:&nbsp;回転角度を指定します。</li><br>
+		<li><b>グローバル X</b>&nbsp;:&nbsp;全体座標系のX軸を中心に回転させます、</li><br>
+		<li><b>グローバル Y</b>&nbsp;:&nbsp;全体座標系のY軸を中心に回転させます、</li><br>
+		<li><b>マウス X</b>&nbsp;:&nbsp;3DマウスのX軸を中心に回転させます。</li><br>
+		<li><b>マウス Y</b>&nbsp;:&nbsp;3DマウスのY軸を中心に回転させます。</li><br>
+		<li><b>リセット</b>&nbsp;:&nbsp;3Dマウスの回転を初期状態に戻します。</li><br>
+		</span>
+		</ul>
+		<li><b>ドラッグ</b><br>
+			<p>3Dマウスを面直方向に入力値だけオフセット移動します。また、スライドバーの操作でも移動することができます。</p>
+		</li>
+
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

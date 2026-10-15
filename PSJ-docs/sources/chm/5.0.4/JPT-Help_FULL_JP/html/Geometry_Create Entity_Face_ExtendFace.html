@@ -1,0 +1,152 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>フェースを延長</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>フェースを延長</h2>
+	<div class="contents">
+	<p>
+	  延長フェースを作成します。
+	</p>
+
+	<img src="./Media/Geometry_Create%20Entity_Face_ExtendFace_Cylinder2.PNG">
+	<img src="./Media/Geometry_Create%20Entity_Face_ExtendFace_Cylinder1.PNG">
+
+	<h4>距離パラメーター</h4>
+	<li>計測方法
+	  <p>フェースの作成方法を選択します。<br>
+	    ・座標系：延長方向をパラメータ指定します<br>
+	    ・2節点：2節点を選択して方向を決定します。<br>
+	    ・要素エッジ：要素エッジを選択して延長方向を決定します。<br>
+	    ・オフセット：選択フェースの方向に延長します。<br>
+	    ・円筒：円筒形状のフェース延長
+	  </p>
+	</li>
+	<li>座標系
+	  <p>参照する座標</p>
+	</li>
+
+	<li>方向(計測方法：座標系の場合のみ)
+	  <p>
+	    ・X, Y, Z：方向を決定するパラメータです。<br>
+	      面を延長する方向の値を入力します。X、Y、Zに入力された値で作られたベクトル方向に面を延長します。
+	  </p>
+	</li>
+	<li>両方向
+	  <p>延長フェースを両方向に作成します。</p>
+	</li>
+	<li>方向を反転
+	  <p>反対方向に面を作成します。</p>
+	</li>
+	<br>
+	<p>-----計測方法：円筒のみ-----</p>
+	<li>方法
+	  <p>円筒面の延長フェースの作成方法を選択します。<br>
+	    ・軸まで：延長方向をパラメータ指定します<br>
+	    ・フェースまで：選択したフェースまでフェースを延長します。<br>
+	    ・円弧角度：延長するフェースの円弧角度を指定します。<br>
+	    ・円弧長さ：延長するフェースの円弧長さを指定します。<br>
+	    ・スイープ：円筒形状に沿って延長フェースを作成します。<br>
+	  </p>
+	</li>
+	
+	<h4>メッシュパラメーター</h4>
+	<li>移動先
+	  <p>長さ：延長フェースの長さを指定します。<br>
+         フェースまで：選択したフェースまで延長フェースが作成されます。
+	  </p>
+	</li>
+	<li>分割数
+	  <p>延長フェースのメッシュ分割数を指定します。</p>
+	</li>
+	<li>メッシュサイズ
+	  <p>延長フェースのメッシュサイズを指定します。</p>
+	</li>
+	<li>偏向係数
+	  <p>バイアス係数を指定します。</p>
+	</li>
+	<li>要素タイプ
+	  <p>延長フェースの要素タイプを指定します。</p>
+	</li>
+
+	<li>円弧の半径
+	  <p>作成する円弧フェースの半径を指定します。</p>
+	</li>
+	<li>円弧の節点数
+	  <p>作成する円弧フェースの節点数を指定します。</p>
+	</li>
+	<li>角度オフセット
+	  <p>作成する円弧フェースの角度を指定します。</p>
+	</li>
+	<li>円周長さ
+	  <p>作成する円弧フェースの円周を指定します。(/p>
+	</li>
+	<li>長さ
+	  <p>スイープする長さを指定します。</p>
+	</li>
+
+	<h4>アドバンスオプション</h4>
+	<li>フェースをマージ
+	  <p>延長元のフェースと延長フェースをマージします。</p>
+	</li>
+	<li>マージエッジ(角度)
+	  <p>エッジをマージする許容角度を指定します。</p>
+	</li>
+	<li>接続
+	  <p>延長フェースと延長先のフェースを共有節点で接続します。</p>
+	</li>
+	<li>新規作成
+	  <p>延長フェースを新規パーツとして作成します。</p>
+	</li>
+	<li>プレビュー
+	  <p>作成する延長フェースをプレビュー表示します。</p>
+	</li>
+
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>計測方法を選択します。(円筒の場合方法も選択します。)</li>
+	<li>選択リストに表示されているエンティティを選択します。</li>
+	<li>必要に応じてパラメーターを入力します。</li>
+	<li>適用/OKボタンをクリックします。</li>
+	</ol>
+
+	<h4>操作補足(計測方法：円筒)</h4>
+	<img src="./Media/Geometry_Create%20Entity_Face_ExtendFace_Cylinder_ToAxis.PNG"><br><br>
+	<hr size="2">
+	<img src="./Media/Geometry_Create%20Entity_Face_ExtendFace_Cylinder_ToFace.PNG"><br><br>
+	<hr size="2">
+	<img src="./Media/Geometry_Create%20Entity_Face_ExtendFace_Cylinder_ArcAngle.PNG"><br><br>
+	<hr size="2">
+	<img src="./Media/Geometry_Create%20Entity_Face_ExtendFace_Cylinder_ArcLength.PNG"><br><br>
+	<hr size="2">
+	<img src="./Media/Geometry_Create%20Entity_Face_ExtendFace_Cylinder_Sweep.PNG"><br><br>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

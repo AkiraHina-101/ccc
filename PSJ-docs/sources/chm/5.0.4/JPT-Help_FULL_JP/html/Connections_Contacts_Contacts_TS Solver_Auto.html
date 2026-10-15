@@ -1,0 +1,132 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>コンタクト検索</title>
+
+<style type="text/css">
+<!--/* Link下線、非表示 */-->
+a.no-uline {text-decoration:none}
+</style>
+
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>コンタクト検索</h2>
+<div class="contents">
+	<p>複数パーツのアッセンブルモデルに対して、パーツ間の接触条件を自動的に検索し接触条件を追加します。</p>
+
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_TS%20Solver_Auto.png">
+	<br>
+	</br>
+	
+	<h4>コンタクト</h4>
+		<li><b>方法</b>
+			<p>&nbsp;&nbsp;&nbsp;自動検索のみ選択できます。</p>
+		</li>
+		<li><b>トレランス</b>
+			<p>&nbsp;&nbsp;&nbsp;2枚の隣接するフェースが接触していると判定する距離を入力します。</p>
+		</li>
+		<li><b>マスター基準</b>
+			<p>&nbsp;&nbsp;&nbsp;検索されたフェースペアに関して、どちらを接触条件のマスター側にするか決定する計算方法を選択します。</p>
+				<ul type="circle">
+					<span style="font-size:0.95em;">
+						<li><b>メッシュサイズ</b>&nbsp;:&nbsp;メッシュのサイズで計算<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;比較対象は、検索されたペア面の中にある要素エッジの平均長さです。</br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;平均の長さが長い方をマスターとします。</li>
+						<li><b>面積</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;面積で計算（フェース単位）</li>
+					</span>
+				</ul>
+		</li>
+		<li><b>コンタクト検索</b>
+			<p>&nbsp;&nbsp;&nbsp;ボタンを押すとコンタクトの検索を始めます。<br>
+			&nbsp;&nbsp;&nbsp;パーツを選択せずに実行する際は、パーツ全体で検索を実行することに対する意思確認メッセージが表示されます。</p>
+		</li>
+		<li><b>円筒面優先</b>
+			<p>&nbsp;&nbsp;&nbsp;チェックを入れると円筒面の接触を優先的に検索します。</p>
+		</li>
+		<li><b>干渉閉鎖距離</b>
+			<p>&nbsp;&nbsp;&nbsp;ソルバーに2つのフェースが接触している判定距離を指示します。</p>
+		</li>
+		<li><b>入力単位系</b>
+			<p>&nbsp;&nbsp;&nbsp;トレランスと干渉弊社距離の入力単位系を指定します。</p>
+		</li>
+		<li><b>検索</b>
+			<p>&nbsp;&nbsp;&nbsp;コンタクト検索結果に対して、左側のテキストボックスにパーツ名または面IDを入力して絞り込み表示を行います。</p>
+		</li>
+		<li><b>クリアー</b>
+			<p>&nbsp;&nbsp;&nbsp;絞り込み表示を解除します。</p>
+		</li>
+		<li><b>コンタクトデータベース</b>
+			<p>&nbsp;&nbsp;&nbsp;コマンド立ち上げ時に既存の接触条件の一覧表示をします。<br>
+			&nbsp;&nbsp;&nbsp;また、コンタクト検索ボタンで検索された、接触しているフェースペアの一覧表示をします。</p>
+				<ul type="circle">
+					<span style="font-size:0.95em;">
+					<li><b>No.</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;検索された順に通し番号が振られます。<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID番号の先頭にはチェックボックスが表示され、チェックされた場合のみ接触設定が作成されま。</li>
+					<li><b>マスターキー</b>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;マスター側に検索されたフェース ID（パーツ名）が表示されます。</li>
+					<li><b>スレーブキー</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;スレーブ側に検索されたフェース ID（パーツ名）が表示されます。</li>
+					<li><b>コンタクトタイプ</b>&nbsp;:&nbsp;接触設定のタイプが固着、一般から表示されます。デフォルトは固着が選択されています。</li>
+					</span>
+				</ul>
+		</li>
+		<li><b>すべて選択</b>
+			<p>&nbsp;&nbsp;&nbsp;No.のチェックボックスををすべてチェックし、行全てをハイライトします。</p>
+		</li>
+		<li><b>マスター/スレーブ入替</b>
+			<p>&nbsp;&nbsp;&nbsp;各行に表示されているマスターとスレーブのフェースを入れ替えます。ハイライト行のみが対象になります。</p>
+		</li>
+		<li><b>固着/一般入替</b>
+			<p>&nbsp;&nbsp;&nbsp;各行に表示されている固着と一般のコンタクトタイプを切替えます。ハイライト行のみが対象になります。</p>
+		</li>
+		<li><b>関連部品表示</b>
+			<p>&nbsp;&nbsp;&nbsp;チェックを入れると選択中のフェースペアに関連する部品が表示されます。</p>
+		</li>
+	<br>
+	
+	<h3>-&nbsp;操作手順&nbsp;-&nbsp;&nbsp;接触条件を新規作成する場合&nbsp;</h3>
+		<ol>
+			<li>&nbsp;パーツボタンを押し、画面上から接触設定の対象となるすべてのパーツを選択します。デフォルト(パーツ未選択状態)では全てのパーツ間の接触を検出します。　</li>
+			<li>&nbsp;必要に応じてトレランスの値をデフォルト値から変更します。</li>
+			<li>&nbsp;必要に応じてマスター側フェースの検索アルゴリズムを切り替えます。</li>
+			<li>&nbsp;必要に応じて干渉閉鎖距離の値をデフォルト値から変更します。</li>
+			<li>&nbsp;必要に応じてトレランス、干渉閉鎖距離入力の入力単位系を切り替えます。</li>
+			<li>&nbsp;&lceil;コンタクト検索&rfloor;を押します。フェースペアの検索結果がリスト表示されます。</li>
+			<li>&nbsp;リストの各行を選択すると、画面上にフェースが選択表示されます。このときマスター側フェースは赤、スレーブ側フェースは青色で表示されます。</li>
+			<li>&nbsp;接触設定の必要ないフェースペアがあれば、チェックボックスを外し、作成されないように切り替えます。</li>
+			<li>&nbsp;切り替えたい行のみ選択し、&lceil;マスター/スレーブ入替&rfloor;ボタンでマスター側とスレーブ側のフェースを入れ替えます。</li>
+			<li>&nbsp;切り替えたい行のみチェックボックスをチェックし、&lceil;固着/一般入替</span>&rfloor;ボタンでコンタクトタイプを固着または一般に切り替えます。</li>
+			<li>&nbsp;作成したい行のみチェックボックスをチェックし、適用またはOKを押します。</li>
+		</ol>
+	<h3>-&nbsp;操作手順&nbsp;-&nbsp;&nbsp;既存の接触条件がある場合（確認目的のみで利用できます）&nbsp;</h3>
+		<ol>
+			<li>&nbsp;アッセンブルツリーからすべてのコンタクトを非表示にします。</li>
+			<li>&nbsp;コマンドを立ち上げると、既存の接触条件の一覧が表示されます。</li>
+			<li>&nbsp;リストの各行を選択すると、画面上にフェースが選択表示されます。<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;この時、マスター側フェースは赤、スレーブ側フェースは青色で表示されます。</li>
+			<li>&nbsp;確認後、OKまたはキャンセルボタンを押してダイアログを閉じます。</li>
+		</ol>
+
+	<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

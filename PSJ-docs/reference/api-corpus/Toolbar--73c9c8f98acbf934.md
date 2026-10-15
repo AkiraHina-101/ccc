@@ -1,0 +1,3 @@
+# Toolbar
+
+Toolbar Toolbar Control the toolbar visibility and position in main window. View Toolbar Display/hide the view toolbar and set the display position. View Option Toolbar Display/hide the View option toolbar and set the display position. Select Toolbar Display/hide the Select toolbar and set the display position. Select Option Toolbar Display/hide the Select option toolbar and set the display position. Button Size Set the size of the toolbar icons in the main window. -&nbspOperating Procedure&nbsp- &nbsp;Activate the command, specify each option and click Apply or OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

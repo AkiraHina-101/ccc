@@ -1,0 +1,80 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Convert Result to Load</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</br>
+</style>
+</html></head>
+
+
+<body>
+<div class="page">
+<h2>Convert Result to Load</h2>
+	<div class="contents">
+	<p>Convert the post result (limited type) to LBCs for Pre side.</p>
+	At current the below result type is supported:</p>
+	- Temperature result  ⇒ Temperature Loads/ Initial Temperature/ Boundary Temperature.</p>
+    - Displacement result ⇒ Initial Displacement/ Enforced Displacement.</p>
+    - Reaction Force/ Reaction Moment ⇒ Force.</p>
+    - Contact Pressure ⇒ Pressure.</p>
+    - Contact Force ⇒ Force.</p>
+
+	<img src="./Media/CommandDlg/Tools_convert_ResulttoLoad.png">
+
+ 　　 <h4>Source</h4>
+		<li><b>Source Document</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Select the post document from which you want to convert result.</p>
+		</li>
+		<li><b>Step/Process </b><br>
+			<p>&nbsp;&nbsp;&nbsp;Select step/process of post result.</p>
+		</li>
+		
+ 　　 <h4>LBC</h4>
+		<li><b>Enable</b><br>
+			<p>&nbsp;&nbsp;&nbsp; Items with a check mark are subject to convert result to selected LBC respectively.</p>
+		</li>
+		<li><b>Result Name</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Display the limited supporting result which come from result post file.</p>
+		<li><b>Convert Load type</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Select the load type for Pre which can be convert from enable items.</p>
+		</li>
+
+	<h3>-&nbsp;Operation Procedure&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;Import post result into Jupiter.</li>
+		<li>&nbsp;Select the post source document and step/process.</li>
+		<li>&nbsp;Enable result items which want to convert to LBCs.</li>
+		<li>&nbsp;Select the entity for selection list.</li>
+		<li>&nbsp;Press the Apply or OK button to execute the command.</li>
+
+		</ol>
+
+
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

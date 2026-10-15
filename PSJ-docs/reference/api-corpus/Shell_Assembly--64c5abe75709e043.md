@@ -1,0 +1,3 @@
+# Shell Assembly
+
+Shell Assembly Shell Assembly For the assembly model of multiple shell parts, connect between the face. Create a node and edge to the connection point. Parameters Method Specify the surrounding elements to be connected. Tri3 In case the mesh on the face is a Tri3 mesh. Quad4 In case the mesh on the face is a Quad4 mesh. Tolerance Enter the tolerance between the faces to be connected. -&nbspOperating Procedure&nbsp- &nbspSelect multiple parts or multiple faces as target. &nbspChange the value of tolerance from the default value, if necessary. &nbspClick the Apply / Ok button. -&nbsp操作動画&nbsp- -->

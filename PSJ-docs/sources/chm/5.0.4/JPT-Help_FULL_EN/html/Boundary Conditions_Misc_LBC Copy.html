@@ -1,0 +1,240 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Boundary Condition Copy</title>
+
+
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Boundary Condition Copy</h2>
+<div class="contents">
+	<h4>LBC Copy Dialog Box</h4>
+	<p>
+	This command copies loads and constraints set from one part to another part.<br>
+	You can also specify parts in different documents as copy destination.
+	</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Misc_LBC%20Copy.png">
+
+	<h4>Source</h4>
+
+	<li>Source document
+	<p>
+	Specify the document to copy from.
+	</p>
+	</li>
+
+	<li>Type
+	<p>
+	Select the type of entity to copy. The existing entities in the model are in the list below:
+	<br>LBC&nbsp&nbsp&nbsp：&nbspCopy existing boundary conditions.
+	<br>Property&nbsp&nbsp&nbsp：&nbspCopy existing property information.
+	<br>Connection&nbsp&nbsp&nbsp：&nbspCopy an existing connection.
+	<br>Group&nbsp&nbsp&nbsp：&nbspCopy an existing group.
+	</p>
+	</li>
+
+	<li>Auto / Manual
+	<p>
+	※This feature is not used in V4.0.
+	</p>
+	</li>
+
+	<li>Match method
+	<p>
+	Select the method to use for target matching judgment of copy source and copy destination.
+	<br>Node&nbsp&nbsp&nbsp：&nbspThis matching method matches the exact nodes of the target to get matching results. 
+	This method is useful when the target features are different. 
+	<br>However, if you select a solid body as the target, the solid mesh will always have a failed match, as it is very rare that the body looks exactly the same but will have the same nodal position.
+	<br>In this case, you need to switch to the feature method.
+	<br>Feature&nbsp&nbsp&nbsp：This matching method is very fast, especially for large models, and requires face-to-face, vertex to vertex like feature matching. 
+	</p>
+	</li>
+
+	<li>All Data
+	<p>
+	<img src="./Media/Boundary%20Conditions_Misc_LBC%20Copy1.png">
+	<br>Select the listed entities at once. From the left, Check All, Uncheck All, Reverse All Check Status.
+	</p>
+	</li>
+
+	<li>Entity Type
+	<p>
+	All types of fields displayed in the table below are registered. If you select a specific type here, the table below will be shortened according to your selection. 
+	Select All to confirm all items.
+	</p>
+	</li>
+
+	<li>Filter
+	<p>
+	Filter the displayed items by part of the name entered to facilitate selection.
+	</p>
+	</li>
+
+	<li>Method
+	<p>
+	Select the method of aligning to the copy destination position. The LBC copy function determines the copy destination entity by the position.
+	<br>Translation&nbsp&nbsp&nbsp：The copy destination is searched by translation in the X, Y, and Z directions.
+	<br>Rotation&nbsp&nbsp&nbsp：The copy destination is searched by the rotational movement of the specified axis.
+	<br>Mirror&nbsp&nbsp&nbsp：Search the copy destination by plane and offset amount. To define a plane, select 3 nodes or 2D elements.
+	</p>
+	</li>
+
+	<li>Input Unit
+	<p>
+	Select a unit system of length. Valid for all length input values.
+	</p>
+	</li>
+
+<br>
+	<p><b>
+	When Translation movement is selected
+	</b></p>
+
+
+	<li>Coordinate System
+	<p>
+	All coordinate systems in the current document are displayed and can be selected.
+	</p>
+	</li>
+
+	<li>Axis
+	<p>
+	Select an axis to determine the movement direction. You have the following options:
+	<br>Arbitrary Axis&nbsp&nbsp&nbsp：Directly enter the direction cosine in the lower X, Y, Z input box to define the axis direction.
+	<br>X axis, Y axis, Z axis&nbsp&nbsp&nbsp：Define the axis direction from the X, Y, Z axes of the selected coordinate system.
+	<br>2 Nodes&nbsp&nbsp&nbsp：Select two nodes from the View window and define the axis direction.
+	<br>Edge&nbsp&nbsp&nbsp：Select an edge from the View window to define the axis direction.
+	</p>
+	</li>
+
+	<li>Magnitude
+	<p>
+	Enter the move distance of the copy destination.
+	</p>
+	</li>
+
+	<li>Tolerance
+	<p>
+	Enter the tolerance value to be used for determination of conformity. Unit of length.
+	</p>
+	</li>
+
+<br>
+	<p><b>
+	When Rotation movement is selected
+	</b></p>
+
+
+	<li>Coordinate System
+	<p>
+	All coordinate systems in the current document are displayed and can be selected.
+	</p>
+	</li>
+
+	<li>Center
+	<p>
+	Define the center of rotation. You have the following options:
+	<br>Body Center&nbsp&nbsp&nbsp：Adopt the center of the boundary box containing all the parts in the document as the center of rotation.
+	<br>Node&nbsp&nbsp&nbsp：Adopt the selected node as the rotation center.
+	<br>Input&nbsp&nbsp&nbsp：Enter the rotation center coordinates directly in the lower center -X, center -Y, center -Z input box.
+	</p>
+	</li>
+
+
+	<li>Rotation Axis
+	<p>
+	Define the rotation axis. You have the following options:
+	<br>Arbitrary Axis&nbsp&nbsp&nbsp：Enter the direction cosine of the rotation axis direction in the lower X-axis, Y-axis, and Z-axis input boxes.
+	<br>X axis, Y axis, Z axis&nbsp&nbsp&nbsp：The selected axis direction of the selected coordinate system is adopted as the rotation axis.
+	<br>2 Nodes&nbsp&nbsp&nbsp：Select two nodes from the View window and define the rotation axis.
+	<br>Edge&nbsp&nbsp&nbsp：Select an edge from the View window to define the rotation axis.
+	</p>
+	</li>
+
+	<li>Angle
+	<p>
+	Enter the copy destination rotation angle.
+	</p>
+	</li>
+
+	<li>Tolerance
+	<p>
+	Enter the tolerance value to be used for determination of conformity. Unit of length.
+	</p>
+	</li>
+
+<br>
+	<p><b>
+	When Mirror is selected
+	</b></p>
+
+	<li>Offset
+	<p>
+	Select 3 nodes or 2D elements from the View window and enter the offset amount from the specified plane.
+	</p>
+	</li>
+
+	<li>Tolerance
+	<p>
+	Enter the tolerance value to be used for determination of conformity. Unit of length.
+	</p>
+	</li>
+
+
+	<h4>Target</h4>
+
+	<li>Target Document
+	<p>
+	Specify the document to copy to. Documents that are currently open in Jupiter-Pre are listed, so you can specify a different document from the one you copied from.
+	</p>
+	</li>
+
+	<li>Auto / Manual
+	<p>
+	※This feature is not used in V4.0.
+	</p>
+	</li>
+
+
+<br>
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+
+	<ol>
+	<li>&nbspFrom the source document, select the LBC etc. to be used for copying.</li>
+	<li>&nbspSelect the entity type to copy from the type. The existing entities are displayed in the table below according to your selection.</li>
+	<li>&nbspSelect the appropriate method for nodes or features from the matching method.</li>
+	<li>&nbspSelect the method of specifying the copy destination position from Translation, Rotation, or Mirror, and enter the copy destination position appropriately.
+	<br>※When 2 nodes or edges are selected, it is necessary to select nodes or edges from the View window.</li>
+	<li>&nbspSelect the LBC etc. document to be used for copying from the copy destination document and press the Apply or OK button.
+	<br>&nbspThe selected LBC etc. is copied to the copy destination part and placed.</li>
+	
+</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

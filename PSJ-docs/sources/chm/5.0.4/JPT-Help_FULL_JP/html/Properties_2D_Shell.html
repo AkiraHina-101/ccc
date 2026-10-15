@@ -1,0 +1,192 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>2Dプロパティ | シェル</title>
+
+
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>2Dプロパティ | シェル</h2>
+<div class="contents">
+	<h4>2Dプロパティ | シェルダイアログボックス</h4>
+	<p>
+	2次元シェル要素のプロパティデータを作成します。
+	</p>
+
+	<img src="./Media/CommandDlg/Properties_2D_Shell_new.png">
+
+ 　　 <li>名前
+	<p>
+	プロパティの名前を指定します。
+	</p>
+　　　</li>
+ 　　 <li>プロパティID
+	<p>
+	プロパティのIDを指定します。プロパティIDはモデル内で重複しないようにします。
+	</p>
+　　　</li>
+　　 <li>色
+	<p>
+	プロパティの色を指定します。
+	</p>
+　　　</li>
+	<h4>シェル</h4>
+ 　　 <li>膜挙動の材料
+	<p>
+	膜挙動に対する材料特性を選択します。
+	</p>
+　　　</li>
+
+ 　　 <li>曲げ挙動の材料
+	<p>
+	曲げ挙動に対する材料特性を選択します。
+	</p>
+　　　</li>
+
+ 　　 <li>横せん断挙動の材料
+	<p>
+	横せん断挙動に対する材料を選択します。
+	</p>
+　　　</li>
+
+ 　　 <li>膜-曲げ連成挙動の材料
+	<p>
+	膜-曲げ連成挙動に対する材料を選択します。
+	</p>
+　　　</li>
+
+ 　　 <li>厚さ
+	<p>
+	要素の板厚を入力します。
+	</p>
+　　　</li>
+
+ 　　 <li>曲げ剛性
+	<p>
+	曲げ剛性に対する断面2次モーメントの比率を入力します。
+	</p>
+　　　</li>
+
+ 　　 <li>板厚比率
+	<p>
+	横せん断剛性に対する厚さの比率を入力します。
+	</p>
+　　　</li>
+
+ 　　 <li>非構造質量要素
+	<p>
+	単位面積あたりの非構造質量を入力します。
+	</p>
+　　　</li>
+
+ 　　 <li>応力積算距離1, 2
+	<p>
+	参照面からの応力算出距離を入力します。
+	</p>
+　　　</li>
+
+ 　　 <li>材料の方向基準
+	<p>
+	材料座標系を選択します。
+	</p>
+　　　</li>
+
+ 　　 <li>平板オフセット
+	<p>
+	オフセット値を入力します。
+	</p>
+　　　</li>
+
+<!-- 　　 <li>色
+	<p>
+	このプロパティデータに使用する色を選択します。
+	</p>
+　　　</li>
+
+ 　　 <li>形状を入力
+	<p>
+	</p>
+　　　</li>
+-->
+
+	<h4>積分点の格納</h4>
+	<li>シェル積分点の数
+	  <p>
+	    シェル要素の積分点数を指定します。
+	  </p>
+　　</li>
+
+	<h4>要素の関連情報</h4>
+	<li>要素の関連情報
+	  <p>
+	    選択した要素のプロパティ情報一覧が表示され、編集することができます。<br>
+	    ※この機能は編集モードで使用する機能です。
+	  </p>
+	</li>
+	<h4>等価放射パワー(Nastran)</h4>
+	<img src="./Media/CommandDlg/Properties_2D_Shell_new2.png">
+    <li>ERP
+ 　　 <p>チェックボックスを選択して機能を有効にします。
+ 　 <li>パネルラベル名
+ 　　 <p>パネルラベルの名前を入力します。
+ 　 <li>パネルラベルID
+ 　　 <p>パネルラベルのIDを入力します。
+ 	</li>
+	<h4>Abaqus</h4>
+	<img src="./Media/CommandDlg/Properties_2D_Shell_new3.png">
+    <li>温度変化
+ 　　 <p>温度変化値を入力します。(自然数のみ)
+	<h4>入力単位系</h4>
+	<li>長さ
+	  <p>
+	    長さの単位を選択します。
+	  </p>
+	</li>
+
+	<li>質量
+	  <p>
+	    質量の単位を選択します。
+	  </p>
+	</li>
+
+<br>
+<h3>-&nbsp操作手順&nbsp-</h3>
+
+      <ol>
+　　　<li>名前にプロパティの名前を入力します。</li>
+　　　<li>プロパティIDにプロパティIDを入力します。</li>
+　　　<li>膜挙動の材料プルダウンメニューからすでに登録された材料を
+	選択します。<br>
+	曲げ、横せん断には膜挙動と同じ材料が自動的に設定されます
+	が、上書き変更も可能です。</li>
+　　　<li>厚さに板厚を入力します。</li>
+　　　<li>必要に応じて他のパラメータも入力します。</li>
+　　　<li>適用またはOKボタンをクリックしてプロパティを作成します。</li>
+	</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

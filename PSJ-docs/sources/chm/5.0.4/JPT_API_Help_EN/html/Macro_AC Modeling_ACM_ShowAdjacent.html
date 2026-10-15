@@ -1,0 +1,43 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>ACM_ShowAdjacent</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>ACM_ShowAdjacent</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Select face(s) then it results the Adjacent faces with the given constrainsts</p>
+<h4>Syntax</h4>
+<p>ACM_ShowAdjacent(double stopAngle,bool IncludeStopFace,int Layer,bool IsPreview,bool bStopByNonma, bool bShowPartOnly,Cursor[] startFaceCursor, Cursor[] stopFaceCursor)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>double<p>Stop Angle value</p></li>
+<li>bool<p>Include stop faces bool flag True = 1, False = 0</p></li>
+<li>int<p>Number of Layers</p></li>
+<li>bool<p>Whether the result is preview or Run</p></li>
+<li>bool<p>Stop by nonmanifold bool flag True = 1, False = 0</p></li>
+<li>bool<p>Show part only bool flag True = 1, False = 0</p></li>
+<li>Cursor[]<p>List of Start face cursor([11:Elem ID])</p></li>
+<li>Cursor[]<p>List of Stop face cursor([11:Elem ID])</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>ACM_ShowAdjacent(0, 0, 100, 0, 0, 0, [6:22], [])</p>
+</div>
+</div>
+</body>
+</html>

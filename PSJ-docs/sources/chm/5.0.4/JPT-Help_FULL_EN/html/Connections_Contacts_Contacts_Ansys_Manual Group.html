@@ -1,0 +1,239 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Contacts | ANSYS - Manual Group</title>
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Contacts | ANSYS - Manual Group</h2>
+<div class="contents">
+	<p>
+	Define contact settings for ANSYS between designated groups.<br>
+	Create groups that will be master faces and slave faces in advance, select contact groups for each contact pair, and define contact settings.
+	</p>
+
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_Ansys_Manual%20Group.png">
+
+      <h4>Basic</h4>
+
+　　　<li>Name
+	<p>
+	Enter the contact pair name.
+	</p>
+　　　</li>
+
+　　　<li>Algorithm
+	<p>
+	Select the contact setting target entity.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Face to Face: Face-to-face contact
+	</p>
+　　　</li>
+
+　　　<li>Type
+	<p>
+	Select the behavior type of contact definition.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;General: Sliding contact<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Shell-Solid Assembly (Original Mesh): Shell-Solid contact<br>
+	
+	</p>
+　　　</li>
+
+　　　<li>Master
+	<p>
+	Select the group that will be the master face.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Search: Search for a group by name or ID and define it as a master face.
+	</p>
+　　　</li>
+
+　　　<li>Slave
+	<p>
+	Select the group to be the slave face.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Search: Search for a group by name or ID and define it as a slave face.
+	</p>
+　　　</li>
+
+　　　<li>Switch
+	<p>
+	Switch master / slave segment group.<br>
+	</p>
+　　　</li>
+
+
+      <h4>Contact Properties | General</h4>
+
+　　　<li>Coefficient of Friction
+	<p>Friction Coefficient.
+	</p>
+　　　</li>
+
+　　　<li>Normal Penalty Stiffness
+	<p>Normal Penalty Stiffness
+	</p>
+　　　</li>
+
+　　　<li>Penetration Tolerance
+	<p>Penetration Tolerance
+	
+	</p>
+　　　</li>
+
+　　　<li>Contact Stiffness Update
+	<p>Options for Contact Stiffness Update:<br>
+	<ul>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;:&nbspEach load step (pair based)</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;:&nbspEach substep (pair based)</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;:&nbspEach iteration (pair based)</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;:&nbspEach load step (element based)</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;:&nbspEach substep (element based)</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;:&nbspEach iteration (element based)</li>
+	</ul>
+	</p>
+　　　</li>
+
+　　　<li>Contact Algorithm
+	<p>Options for Contact Algorithm:<br>
+	<ul>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Augmented Lagrangian</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Penalty method</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;MPC algorithm</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Lagrange and Penalty method</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Lagrange</li>
+	</ul>
+	</p>
+　　　</li>
+
+　　　<li>Contact Detection
+	<p>Options for Contact Detection:<br>
+	<ul>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;On Gauss points</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;On nodal point - normal from contact surface</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;On nodal point - normal to target surface</li>
+	</ul>
+	</p>
+　　　</li>
+
+　　　<li>Behavior of Contact Surface
+	<p>Options for Behavior of Contact Surface:<br>
+	<ul>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Standard</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Rough</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;No separation</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Bonded</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;No separation (always)</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Bonded (always)</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Bonded (initial contact)</li>
+	</ul>
+	</p>
+　　　</li>
+
+　　　<li>Initial Penetration
+	<p>Options for Initial Penetration:<br>
+	<ul>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Include everything</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Exclude everything</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Include everything with ramped effects</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Include offset only</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Include offset only with ramped effects</li>
+	</ul>
+	</p>
+　　　</li>
+
+<h4>Contact Properties | Shell-Solid Assembly (Original Mesh)</h4>
+
+　<li>Contact Algorithm
+	<p>Options for Contact Algorithm:<br>
+	<ul>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Augmented Lagrangian</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Penalty method</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;MPC algorithm</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Lagrange and Penalty method</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Lagrange</li>
+	</ul>
+	</p>
+　　　</li>
+
+　　　<li>Contact Detection
+	<p>Options for Contact Detection:<br>
+	<ul>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;On Gauss points</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;On nodal point - normal from contact surface</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;On nodal point - normal to target surface</li>
+	</ul>
+	</p>
+　　　</li>
+
+　　　<li>Behavior of Contact Surface
+	<p>Options for Behavior of Contact Surface:<br>
+	<ul>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Standard</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Rough</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;No separation</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Bonded</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;No separation (always)</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Bonded (always)</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Bonded (initial contact)</li>
+	</ul>
+	</p>
+　　　</li>
+
+　　　<li>Initial Penetration
+	<p>Options for Initial Penetration:<br>
+	<ul>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Include everything</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Exclude everything</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Include everything with ramped effects</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Include offset only</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;Include offset only with ramped effects</li>
+	</ul>
+	</p>
+　　　</li>
+
+      <h4>Color Setting</h4>
+
+　　　<li>Contact Color
+	<p>
+	Define the contact-to-display marker color.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Reset: Initialize to default color
+	</p>
+　　　</li>
+
+	<h3>-&nbsp;Operating Procedure&nbsp;-&nbsp;&nbsp;&nbsp;</h3>
+		<ol>
+			<li>&nbsp;Create a master face, slave face or element face group in advance.</li>
+			<li>&nbsp;Select the master group as the master face and the slave group as the slave face.</li>
+			<BR>&nbsp;The selected group is highlighted in the model window. It is also possible to confirm by turning off the group display mode.
+			<BR>&nbsp;It is possible to do partial match search or ID search of the name of the group from the search button.<BR>
+			<img src="./Media/CommandDlg/Connections_Contacts_Contacts_MSC%20Nastran_Manual%20Group2.png">
+			<BR>&nbsp;If you want to edit the faces included in the existing group, double-click the group in the list to enter group edit mode.
+			<BR>After editing such as adding faces in the model window, the contents of the group are changed by pressing the Modify button.
+			<BR>Please note that the edited group is used as it is with other contact pairs.<BR>
+			<img src="./Media/CommandDlg/Connections_Contacts_Contacts_MSC%20Nastran_Manual%20Group3.png"></p>
+			
+			<li>&nbsp;If necessary, define the detail settings for contact pairs, and click the OK button to define contact pairs.</li>
+		</ol>
+<br>
+<br>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

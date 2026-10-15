@@ -1,0 +1,104 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Renumber</title>
+
+<style type="text/css">
+</style>
+
+</html>
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Renumber</h2>
+<div class="contents">
+	<p>Renumber the IDs assigned to nodes and elements.
+</p>
+
+	<img src="./Media/CommandDlg/Tools_Renumber_Renumber.png">
+
+	<h4>General Settings</h4>
+		<li><b>Set</b><br>
+				<ul type="circle">
+				<li>By Part<br>
+				Perform renumbering on parts.
+				<li>By Group<br>
+				Perform renumbering on groups.
+				</li></li></li></ul>
+		<li><b>Target</b><br>
+				<ul type="circle">
+				<li>Node<br>
+				Renumber node ID.
+				<li>3D Element<br>
+				Renumber solid element ID.
+				<li>2D Element<br>
+				Renumber face element ID.
+				<li>1D Element<br>
+				Renumber 1D element ID.
+				<li>Edge<br>
+				Renumber edge ID.
+				<li>Face<br>
+				Renumber face ID.
+				</li></li></li></li></ul>
+		
+		<li><b>Auto Renumber</b><br>
+			<p>&nbsp;&nbsp;&nbsp;ID numbers are assigned sequentially from the StartID on the top line.</p>
+		</li>
+		<h4>List</h4>
+		<p>Display a list of renumbering targets.</p>
+		<li><b>Part ID</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Display part ID.</p>
+		<li><b>Name</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Display part name.</p>
+		<li><b>Counter</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Display the number of targets contained in the part.</p>
+		<li><b>Start ID</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the minimum ID of the part after renumbering. At start up, the minimum ID of the current part is displayed.</p>
+		<li><b>End ID</b><br>
+			<p>&nbsp;&nbsp;&nbsp;The maximum ID of the part after renumbering is displayed. At startup, the maximum ID of the current part is displayed.</p>
+		<li><b>Enable</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Items with a check mark are subject to renumbering and automatic renumbering.</p>
+		</li>
+		<h4>Options</h4>
+		<li><b>Resolve Conflict</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Determine how to assign IDs of shared nodes and shared surface elements.</p>
+		</li>
+				<ul type="circle">
+				<li>Lower ID priority<br>
+				The shared node / face element ID belongs to the smaller part ID.
+				<li>Higher ID priority<br>
+				The ID of shared node / face element belongs to the larger part ID.
+				</li></li></ul>
+		<li><b>Display only property assigned entities</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Only the element to which the property is assigned is displayed in the list.</p>
+	<h3>-&nbsp;Operation Procedure&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;Turn on the check in the Enable column of the part line you want to renumber (default: ON).</li>
+			<li>&nbsp;Enter an arbitrary ID for Start ID.</li>
+			<li>&nbsp;Press the Apply or OK button.</li>
+		</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</li></li></li></li></li></li></li></div>
+</div>
+</body>
+
+</html>

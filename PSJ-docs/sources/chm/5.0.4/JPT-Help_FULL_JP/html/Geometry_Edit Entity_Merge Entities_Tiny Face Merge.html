@@ -1,0 +1,152 @@
+	<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>微小フェースのマージ</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>微小フェースのマージ</h2>
+<div class="contents">
+	<p>
+	このコマンドでは、微小フェースを検索し、隣接フェースへマージします。
+	</p>
+		<img src="./Media/Geometry_Edit%20Entity_Merge%20Entities_Tiny%20Face%20Merge_a.png" width="600"></br>
+		<p>
+			A：自動、B：選択、C：マージ、D：置き換え</br>
+		</p>
+	<p>
+	<img src="./Media/CommandDlg/Geometry_Edit%20Entity_Merge%20Entities_Tiny%20Face%20Merge.png">
+	</p>
+	<b>選択リスト</b></br>
+	<p>
+	パーツ：「自動」または「選択」で微小フェースを検索するパーツ</br>
+	フェース：「選択」で微小フェースを選択する、もしくはMergeでマージするフェース</br>
+	節点：「置き換え」で復帰させる境界エッジ上の節点</br>
+	要素エッジ：「置き換え」で復帰させる境界エッジ上の要素エッジ</br>
+	参照エッジ：「置き換え」で復帰させるマージされた境界エッジ</br>
+	</p>
+
+	<h4>ステップ</h4>
+	<li>方法
+	<p>操作を指定します。</p>
+	<ul>
+	<li>自動
+	<p>微小フェースを検索し、隣接フェースへマージを一気通貫で実行します。</p>
+	</li>
+	<li>選択
+	<p>微小フェースの検索と選択のみを実行します。</br>
+	※検索対象となる微小フェースの定義：フェース形状を正規化した際の、最小幅と最大長が、指定範囲以下のフェースです。</p>
+	</li>
+	<li>マージ
+	<p>選択されているフェースを、指定した面間角度以内の隣接フェースへマージします。</br>
+	※マージ対象となる隣接フェースの定義：接線上の面間角度の大きさが指定範囲以下のフェースです。</br>
+	複数存在する場合は、面積が大きい方にマージします。</br>
+	※荷重境界条件や接触条件が設定されているフェースは、マージの対象から除外されます。</br></p>
+	</li>
+	<li>置き換え
+	<p>プレビューリストアボタンで破線表示された境界エッジを、節点や要素エッジ選択で指定し、</br>
+	適用ボタンを押して境界エッジを復活させます。</br></p>
+	</li>
+	</li>
+	</ul>
+	<li>ローカル設定を参照
+	<p>ローカル設定が設定されているフェースは、マージの対象から除外されます。</p>
+	</li>
+	<li>リファレンス作成
+	<p>マージ前のパーツを、リファレンスパーツとして残します。</p>
+	</li>
+	<h4>選択</h4>
+	<li>最小平均フェース幅
+	<p>微小フェース検索範囲の最小幅（正規化したフェース形状）を入力します。</p>
+	</li>
+	<li>最大平均フェース幅
+	<p>微小フェース検索範囲の最大長（正規化したフェース形状）を入力します。</p>
+	<img src="./Media/Geometry_Edit%20Entity_Merge%20Entities_Tiny%20Face%20Merge_b.png" width="600"></br>
+	<p>※フルシリンダーフェースの場合は高さを測ります。ディスクフェースの場合はディスク幅を測ります。</p>
+	</li>
+	<h4>マージ</h4>
+	<li>面角度
+	<p>マージ対象となる面間角度の範囲（隣接フェースとの接線上の角度）を入力します。</p>
+	</li>
+	<li>プレビュー
+	<p>マージ予定のフェース色が変更されます。</p>
+	</li>
+	<li>リセット
+	<p>プレビューの表示を元に戻します。</p>
+	</li>
+	<h4>リストア</h4>
+	<li>プレビューリストア
+	<p>適用ボタンを押してマージされた境界エッジを破線で表示し、リストア（復帰）できるように準備をします。</br> 
+	※OKやキャンセルボタンを押してコマンドを終了すると、境界エッジのリストアができなくなります。 </br>
+	<img src="./Media/Geometry_Edit%20Entity_Merge%20Entities_Tiny%20Face%20Merge_merge_1.png" width="500">
+	<br><br>節点または要素エッジによって選択された境界エッジ
+	<br>
+	<img src="./Media/Geometry_Edit%20Entity_Merge%20Entities_Tiny%20Face%20Merge_merge_2.png" width="500">
+	<br>
+	<br>適用ボタンを押すと選択された境界エッジがリストアされます。
+	<br>
+	<img src="./Media/Geometry_Edit%20Entity_Merge%20Entities_Tiny%20Face%20Merge_merge_3.png" width="500">
+	</p>
+	</li>
+
+	<h3>-&nbsp操作手順1 (微小フェースの検索とマージ)&nbsp-</h3>
+	<ol>
+	<li>方法で自動を選択します。</li>
+	<li>最小/最大平均フェース幅を入力して、微小フェースの検索範囲を定義します。</li>
+	<li>面間角度を入力して、マージ範囲を定義します。</li>
+	<li>適用/OKをクリックします。</li>
+	<li>#2で検索された微小フェースが、#3の面間角度内の隣接フェースにマージされます。</li>
+	</ol>
+	<h3>-&nbsp操作手順2 (微小フェースの検索)&nbsp-</h3>
+	<ol>
+	<li>方法で選択を選択します。</li>
+	<li>最小/最大平均フェース幅を入力して、微小フェースの検索範囲を定義します。</li>
+	<li>適用/OKをクリックします。</li>
+	<li>#2で検索された微小フェースが、選択されます。</li>
+	</ol>
+	<h3>-&nbsp操作手順3 (選択フェースのマージ)&nbsp-</h3>
+	<ol>
+	<li>方法でマージを選択します。</li>
+	<li>マージ対象のフェースを選択します（パーツ選択かフェース選択）</li>
+	<li>面間角度を入力して、マージ範囲を定義します。</li>
+	<li>適用/OKをクリックします。</li>
+	<li>#2で検索された微小フェースが、#3の面間角度内の隣接フェースにマージされます。</li>
+	</ol>
+	<h3>-&nbsp操作手順4 (マージ後の境界エッジ復帰)&nbsp-</h3>
+	<ol>
+	<li>方法で置き換えを選択します。※自動またはマージでの適用ボタン実行後のみ</li>
+	<li>プレビューリストアをクリックして、自動またはマージでマージされた境界エッジを破線で表示します。</li>
+	<li>復帰させる破線上の節点、または要素エッジを選択します。</li>
+	<li>適用/OKをクリックします。</li>
+	<li>#3でプレビューされた境界エッジが復帰します。</li>
+	</ol>
+	<h3>-&nbsp特記事項&nbsp-</h3>
+	<ol>
+	<li>ディスクフェース領域は、完全円の外周、内周を求めて幅を計算して検出しております。</li>
+	<img src="./Media/Geometry_Edit%20Entity_Merge%20Entities_Tiny%20Face%20Merge_merge_4.png" width="500">
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

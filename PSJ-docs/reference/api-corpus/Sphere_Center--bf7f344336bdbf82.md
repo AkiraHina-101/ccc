@@ -1,0 +1,3 @@
+# Sphere Center
+
+Sphere Center Sphere Center Create a node at the center of curvature of the 4 nodal points on the selected spherical face or sphere. The face may be part of a sphere. -&nbspOperating Procedure&nbsp- &nbspSelect a spherical face or 4 nodes on a sphere that creates a node at the center position. When selected, center position coordinate values are displayed in the dialog box. &nbspEnter the desired node number as required. It can not overlap with existing node numbers. It will be transferred automatically avoiding duplication. &nbspClick the Apply / OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

@@ -1,0 +1,33 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>DItemToMacroListTCursor</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>DItemToMacroListTCursor</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Convert a DItem object to cursor list macro string </p>
+<h4>Inputs</h4> 
+<ol>
+    <li><p>DItem objects (DItem class)</p>
+</ol>
+<h4>Return Code</h4>
+<p>cursor list macro string (string)</p>
+<h4>Sample Code</h4>
+<p>listnode = JPT.GetEntitiesByID(JPT.DItemType.NODE, 434)</p>
+<p>node = JPT.DItemToMacroTCursor(listnode[0]) // 10:1</p>
+<p>JPT.DItemToMacroListTCursor(node) [10:1]</p>
+</div>
+</div>
+</body>
+</html>

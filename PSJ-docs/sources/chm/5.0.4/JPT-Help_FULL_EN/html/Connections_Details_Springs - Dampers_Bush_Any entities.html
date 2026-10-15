@@ -1,0 +1,155 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Connection | Bush - Any Entities</title>
+
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Connection | Bush - Any Entities</h2>
+<div class="contents">
+	<p>
+	Create a Bush element (generalized spring - damper) from the node pair included between the selected entity pair.
+	</p>
+
+	<img src="./Media/Connections_Details_Springs%20-%20Dampers_Bush_Any%20entities.png">
+
+	<h4>Connections</h4>
+ 　　 <li>Name</li>
+	<p>
+	Set the name of bush element to be created.
+	</p>
+　
+ 　　 <li>All</li>
+	<p>
+	Check for the case in which all the nodes of the selected entity are to be targeted.
+If unchecked you can enter the Tolerance for the connection range below, the nodes within the range will be connected.
+	</p>
+
+ 　　 <li>Tolerance</li>
+	<p>
+	Enter the connection range value.
+	</p>
+
+ 　　 <li>1:1</li>
+	<p>
+	Limit a bond for bush element only to one-to-one connection.
+	</p>
+
+	<h4>Bush</h4>
+
+ 　　 <li>Grounded</li>
+	<p>
+	When you check this box, one side is defined as the ground (spring).
+	</p>
+
+ 　　 <li>Orientation by</li>
+	<p>
+	Select the orientation method of the bush element.
+	</p>
+
+	<ul type="circle">
+ 　　 <li>Orientation Vector</li>
+	Specified by the direction vector
+
+ 　　 <li>Coordinate system</li>
+	Specified by the coordinate system
+	</ul>
+
+ 　　 <li>Coordinate System</li>
+	<p>
+	If you select specified by the coordinate system, select an existing coordinate system you want to use from the list.
+	</p>
+
+ 　　 <li>Orientation Vector</li>
+	<p>
+	If you select specified by the direction vector, enter a comma-separated direction vector in the order of X, Y, Z.
+	</p>
+
+
+ 　　 <li>Stiffness 1～6</li>
+	<p>
+	Enter stiffness value for each degree of freedom.
+	</p>
+
+ 　　 <li>Local Unit</li>
+	<p>
+	Select the unit system to be used in the stiffness value input.
+	</p>
+
+ 　　 <li>Damping coefficients 1～6</li>
+	<p>
+	Enter the damping coefficient for each degree of freedom.
+	</p>
+
+ 　　 <li>Local Unit</li>
+	<p>
+	Select the unit system to be used in the damping coefficient input.
+	</p>
+
+ 　　 <li>Damping constant 1～6</li>
+	<p>
+	Enter structural damping constant for each degree of freedom.
+	</p>
+
+ 　　 <li>Local Unit</li>
+	<p>
+	Select the unit system to be used in the structural damping constant input.
+	</p>
+
+ 　　 <li>Stress recovery translation</li>
+	<p>
+	Enter the stress recovery coefficient of the translation component.
+	</p>
+
+ 　　 <li>Stress recovery rotation</li>
+	<p>
+	Enter the stress recovery coefficient of the rotation component.
+	</p>
+
+ 　　 <li>Strain recovery translation</li>
+	<p>
+	Enter the strain recovery factor of the translation component.
+	</p>
+
+ 　　 <li>Strain recovery rotation</li>
+	<p>
+	Enter the strain recovery coefficient of the rotation component.
+	</p>
+
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+      <ol>
+　　　<li>&nbspClick the Master button of Selection List to selects the body, face, edge and node, where the node of one end of the bush element is included.</li>
+　　　<li>&nbspClick the Slave button of Selection List to selects the body, face, edge and node, where the node of other end of the bush element is included.</li>
+　　　<li>&nbspIf you specify a range for connection, remove the All check box and enter the range value for Tolerance.</li>
+　　　<li>&nbspRather than the default for 1-to-1 binding, when you define a bond only in the shortest distance, 1: 1 check box is turned off.</li>
+　　　<li>&nbspChoose how to specify the direction vector from Orientation By. Enter the direction vector according to the specified method.</li>
+　　　<li>&nbspEnter the values such as stiffness value, damping coefficient,  structural damping constant, recovery factor in the input field.</li>
+　　　<li>&nbspClick the Apply or OK button to create the bush element between the nodes.</li>
+
+      </ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

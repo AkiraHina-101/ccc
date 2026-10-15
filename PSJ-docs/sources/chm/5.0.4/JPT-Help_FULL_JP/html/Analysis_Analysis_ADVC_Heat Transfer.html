@@ -1,0 +1,435 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>ADVC | 熱伝導解析</title>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>ADVC | 熱伝導解析</h2>
+<div class="contents">
+	<p>ADVENTURECluster(以後ADVC)の伝熱解析向けの入力ファイルを出力します。<br><br>
+温度の拘束条件に関し、同じ節点自由度に対して重複した場合、かつ設定されている値が異なる場合、ワーニングメッセージを表示します。<br>
+重複判定は、各プロセス毎かつ各項目毎に判断されます。</p>
+
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_Heat%20Transfer_new.png">
+
+/
+	<h4>ADVCジョブ</h4>
+	<li><b>ジョブ名</b>
+	<p>&nbsp;&nbsp;&nbsp;ADVCジョブの名前を設定します。</p>
+	</li>
+	<li><b>ジョブの説明</b> 
+	<p>&nbsp;&nbsp;&nbsp;ジョブの説明を記載します。</p>
+	</li>
+	<li><b>ジョブタイプ</b> 
+	<p>&nbsp;&nbsp;&nbsp;解析種別の選択します。</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>構造</b>&nbsp;:&nbsp;構造解析</li><br>
+		<li><b>熱伝導</b>&nbsp;:&nbsp;伝熱解析</li>
+		</span>
+		</ul>
+	</li>
+
+	<h4>ADVCプロセス</h4>
+	<li><b>プロセスを作成</b>
+	<p>&nbsp;&nbsp;&nbsp;プロセスを作成するADVCプロセス設定ダイアログを起動します。</p>
+	</li>
+	
+	<h4>間隔の定義</h4>
+	<li><b>LBCマネージャ</b>
+	<p>&nbsp;&nbsp;&nbsp;境界拘束条件やロードケースを設定するLBCマネージャダイアログを起動します。</p>
+	</li>
+	<li><b>接触マネージャ</b>
+	<p>&nbsp;&nbsp;&nbsp;接触条件の状態を設定する接触マネージャダイアログを起動します。</p>
+	</li>
+
+	<h4>出力定義</h4>
+	<li><b>出力マネージャ</b>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;チェックボックスを選択し、出力要求を設定する出力マネージャダイアログを起動します。</p>
+	</li>
+
+	<h4>オプション</h4>
+	<li><b>フォーマットタイプ</b>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;節点、境界条件のデータを単精度（シングル）で出力するか、倍精度（ダブル）で出力するかを選択します。
+		</li>
+		  <ul type="circle">
+			<span style="font-size:0.95em;">
+			  <li><b>シングル</b>&nbsp;:&nbsp;単精度で出力します。書式は%13.6eです。</li>
+			  <li><b>ダブル</b>&nbsp;:&nbsp;倍精度で出力します。書式は%23.15eです。 </li>
+					</span>
+		  </ul>
+			</p>
+		</li>
+	<li><b>グループ出力</b>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;フェース、要素、節点グループを$SurfaceSegment、$ElementSet、$NodeSetとして出力します。</p>
+	</li>
+	<li><b>ファイル分割単位</b>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;節点、要素データのみ別ファイルで出力します。解析規模が大きい場合、分けて出力することで解析制御用の入力ファイルのサイズが小さくなり、手入力によるコマンド変更が容易になります。
+	</li>
+	  <ul type="circle">
+		<span style="font-size:0.95em;">
+		  <li><b>なし</b>&nbsp;:&nbsp;全データを一つのファイルに出力します。</li>
+		  <li><b>モデル</b>&nbsp;:&nbsp;節点、要素データを 1つの別ファイルで出力します。 </li>
+  		  <li><b>パーツ毎</b>&nbsp;:&nbsp;節点、要素データを パーツ毎に別ファイルで出力します。 </li>
+		  <li><b>選択したパーツのみ</b>&nbsp;:&nbsp;選択したパーツに関連する LBC をすべて出力します。 </li>
+		  <li><b>選択した境界条件のみ</b>&nbsp;:&nbsp;選択した境界条件のみファイル出力します。<br></li>
+
+				</span>
+	  </ul>
+	</p>
+
+	<li><b>境界条件</b>
+	<p>&nbsp;&nbsp;&nbsp;ファイル分割単位がパーツの場合に、境界条件、接触対、接触セグメントを別ファイルに出力します。</p>
+	</li>
+
+	<li><b>エンティティ名を使用</b><br>
+	  <p>&nbsp;&nbsp;&nbsp;&nbsp;Jupiter上のエンティティ名を使用してファイル出力します。</p>
+	</li>
+<br>
+	
+	<li><b>関連するすべてのLBCを出力</b><br>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;選択したパーツに関連するLBCをすべて出力します。</p>
+	</li>
+<br>
+	
+	<li><b>浮遊点削除</b><br>
+	<p>&nbsp;&nbsp;&nbsp;チェックすると、モデル内の使用されない浮遊節点が削除されて出力します。</p>
+	</li>
+<br>
+	
+	<li><b>熱伝達</b><br>
+	<p>&nbsp;&nbsp;&nbsp;熱伝達係数の指定方法を選択します。（直接入力、参照入力）</p>
+	</li>
+
+	<h4>ADVCプロセス設定ダイアログ</h4>
+	<p>&nbsp;&nbsp;&nbsp;過程の設定を行います。</p>
+
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_Heat%20Transfer_ADVC%20Process%20Setting.png">	
+
+	<h4></h4>
+	<li><b>プロセス名</b>
+	<p>&nbsp;&nbsp;&nbsp;過程名を指定します。</p>
+	</li>
+
+	<li><b>プロセスを個別に設定</b>
+	<p>&nbsp;&nbsp;&nbsp;1つずつ過程を定義します。</p>
+	</li>
+
+	<li><b>複数プロセスを設定</b>
+	<p>&nbsp;&nbsp;&nbsp;複数の同一内容の過程を定義します。</p>
+	</li>
+
+	<li><b>プロセス数</b>
+	<p>&nbsp;&nbsp;&nbsp;過程数を指定します。</p>
+	</li>
+
+	<li><b>ジョブタイプ</b>
+	<p>&nbsp;&nbsp;&nbsp;解析タイプを選択します。</p>
+	</li>
+
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li><b>熱伝導</b>&nbsp;:&nbsp;伝熱解析</li>
+	</span>
+	</ul>
+
+ 	<li><b>解法タイプ</b>
+	<p>&nbsp;&nbsp;&nbsp;解法タイプを選択します。</p>
+	</li>
+
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li><b>Transient</b>&nbsp;:&nbsp;非定常熱伝導解析</li><br>
+	<li><b>Steady State</b>&nbsp;:&nbsp;定常熱伝導解析</li>
+	</span>
+	</ul>
+
+	<li><b>終了条件</b>
+	<p>&nbsp;&nbsp;&nbsp;解析終了条件を指定します。</p>
+	</li>
+
+	<img src="./Media/CommandDlg/Analysis_ADVC_HeatTransfer_MakeProcess_EndCondition.png">
+
+	<li><b>終了タイプ</b>
+	<p>&nbsp;&nbsp;&nbsp;解析終了条件を選択します。</p>
+	</li>
+
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li><b>Max Time</b>&nbsp;:&nbsp;解析時間を指定します。</li><br>
+	<li><b>Stedy Rate</b>&nbsp;:&nbsp;定常状態終了となる単位時間当たりの温度変化の最大値を指定します。</li><br>
+	<li><b>Both</b>&nbsp;:&nbsp;最大時間と一定温度の両方を指定します。</li>
+	</span>
+	</ul>
+
+	<li><b>最大時間</b>
+	<p>&nbsp;&nbsp;&nbsp;解析時間を指定します。</p>
+	</li>
+
+	<li><b>一定温度</b>
+	<p>&nbsp;&nbsp;&nbsp;定常状態終了となる単位時間当たりの温度変化の最大値を指定します。</p>
+	</li>
+
+	<li><b>増分</b>
+	<p>&nbsp;&nbsp;&nbsp;時間増分数を指定します。</p>
+	</li>
+
+	<img src="./Media/CommandDlg/Analysis_ADVC_HeatTransfer_MakeProcess_Incrementation.png">
+
+	<li><b>タイプ</b>
+	<p>&nbsp;&nbsp;&nbsp;時間刻みの方法を選択します。</p>
+	</li>
+
+	<ul type="circle">
+	<span style="font-size:0.95em;">
+	<li><b>Auto</b>&nbsp;:&nbsp;自動時間刻みを指定します。</li><br>
+	<li><b>Fixed</b>&nbsp;:&nbsp;固定時間刻みを指定します。</li>
+	</span>
+	</ul>
+
+	<li><b>最大温度変化量</b>
+	<p>&nbsp;&nbsp;&nbsp;最大温度変化を指定します。</p>
+	</li>
+
+	<li><b>初期変化時間</b>
+	<p>&nbsp;&nbsp;&nbsp;初期変化時間を指定します。</p>
+	</li>
+
+	<li><b>最大変化時間</b>
+	<p>&nbsp;&nbsp;&nbsp;時間刻み幅の上限を指定します。</p>
+	</li>
+
+	<li><b>最小変化時間</b>
+	<p>&nbsp;&nbsp;&nbsp;時間刻み幅の下限を指定します。</p>
+	</li>
+
+	<li><b>固定変化時間</b>
+	<p>&nbsp;&nbsp;&nbsp;固定変化時間を指定します。</p>
+	</li>
+
+	<li><b>出力間隔の定義</b>
+	<p>&nbsp;&nbsp;&nbsp;構造 の プロセスを作成、出力間隔の定義 ご参照</p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;開始結果出力: 過程開始時点の結果出力を指定します。<br>
+	   &nbsp;&nbsp;&nbsp;&nbsp;出力間隔: サーモスタットでの履歴出力間隔を指定します。</p>
+	</li>
+
+	<li><b>収束パラメーター</b>
+	<p>&nbsp;&nbsp;&nbsp;構造 の プロセスを作成、収束パラメーター ご参照</p>
+	</li>
+
+ 	<li><b>接触パラメーター</b>
+	<p>&nbsp;&nbsp;&nbsp;構造 の プロセスを作成、接触パラメーターご参照</p>
+	</li>
+
+	<li><b>パラメーター自動増分</b>
+	<p>&nbsp;&nbsp;&nbsp;構造 の プロセスを作成、パラメーター自動増分 ご参照</p>
+	</li>
+
+	<p>※その他、各解析用パラメーターに関しては、ADVCのマニュアルをご参照ください。</p>
+	
+	<h4>LBCマネージャダイアログ</h4>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_Structure_LBC%20Manager_new.png">
+	<h4></h4>
+	<li><b>左に移動</b>
+	<p>&nbsp;&nbsp;&nbsp;選択したプロセスを左の列に移動します。</p>
+	</li>	
+	<li><b>右に移動</b>
+	<p>&nbsp;&nbsp;&nbsp;選択したプロセスを右の列に移動します。</p>
+	</li>
+	<li><b>プロセス編集</b>
+	<p>&nbsp;&nbsp;&nbsp;プロセス設定内容を編集します。</p>
+	</li>
+	<li><b>プロセスを削除</b>
+	<p>&nbsp;&nbsp;&nbsp;プロセスを削除します。</p>
+	</li>	
+	<li><b>アクティブ</b>
+	<p>&nbsp;&nbsp;&nbsp;表示された条件を有効にします。</p>
+	</li>	
+	<li><b>非アクティブ</b>
+	<p>&nbsp;&nbsp;&nbsp;表示された条件を無効にします。</p>
+	<li><b>設定ファイル出カ</b>
+	<p>&nbsp;&nbsp;&nbsp;LBCマネージャーは.csvファイル形式で出カされます。</p>
+	<li><b>設定ファイル読み</b>
+	<p>&nbsp;&nbsp;&nbsp;LBCマネージャーは、読み.csvファイルによって設定されます。</p>
+	</li>	
+	<li><b>OK</b>
+	<p>&nbsp;&nbsp;&nbsp;設定した内容を保持してダイアログを閉じます。</p>
+	</li>	
+	<li><b>キャンセル</b>
+	<p>&nbsp;&nbsp;&nbsp;設定した内容を破棄してダイアログを閉じます。</p>
+	</li>	
+	<li><b>LBCフィルタ</b>
+	<p>&nbsp;&nbsp;&nbsp;条件表示にフィルターをかけます。</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>すべて</b>&nbsp;:&nbsp;全ての条件を表示します。</li><br>
+		<li><b>荷重</b>&nbsp;:&nbsp;荷重条件のみ表示します。</li><br>
+		<li><b>BC</b>&nbsp;:&nbsp;拘束条件のみ表示します。</li><br>
+		<li><b>温度</b>&nbsp;:&nbsp;温度条件のみ表示します。</li><br>
+		<li><b>検索</b>&nbsp;:&nbsp;入力されたキーワードから条件を表示します。</li>
+		</span>
+		</ul>
+	</li>	
+	
+	<h4>接触マネージャダイアログ</h4>
+
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_Structure_Contact%20Manager.png">
+	
+	<h4></h4>
+	<li><b>検索</b>
+	<p>&nbsp;&nbsp;&nbsp;入力されたキーワードから条件を表示します。</p>
+	</li>	
+	<li><b>Contact Name</b>
+	<p>&nbsp;&nbsp;&nbsp;接触条件名を表示します。</p>
+	</li>	
+	<li><b>Parameters</b>
+	<p>&nbsp;&nbsp;&nbsp;設定条件の項目を表示します。</p>
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Status</b>&nbsp;:&nbsp;接触条件の有効/無効を表示します。</li><br>
+		<li><b>Interference</b>&nbsp;:&nbsp;干渉量/間隙量を指定します。</li><br>
+		<li><b>Shrink</b>&nbsp;:&nbsp;貫入解消を指定します。</li><br>
+		<li><b>Stabilization</b>&nbsp;:&nbsp;接触安定化パラメータを設定します。</li><br>
+		<li><b>Set</b>&nbsp;:&nbsp;接触安定化パラメータ設定ダイアログを表示します。</li>
+		<p>※全プロセスを対象とした接触安定化用のチェックボックスとSETボタンが追加されました。<br>
+		&nbsp;チェックON/Offで全てのProcessに反映させることができます。</p>
+		</span>
+		</ul>
+	</li>
+	<li><b>接触の安定化ダイアログ</b>
+	<p>&nbsp;&nbsp;&nbsp;接触安定化パラメータを設定します。</p>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_Structure_Contact%20Manager_Stabilize.png">
+		<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>残留ファクター</b>&nbsp;:&nbsp;残留要因</li><br>
+		<li><b>有効距離</b>&nbsp;:&nbsp;影響の適用距離</li><br>
+		<li><b>タイプ</b>&nbsp;:&nbsp;入力タイプ</li>
+		<p><b>&nbsp;&nbsp;&nbsp;剛性</b>&nbsp;:&nbsp;剛性比例型</p>
+		<p><b>&nbsp;&nbsp;&nbsp;面積</b>&nbsp;:&nbsp;面積比例型</p><br>
+		<li><b>法線方向安定化係数</b>&nbsp;:&nbsp;法線方向安定化係数</li><br>
+		<li><b>接線方向安定化係数</b>&nbsp;:&nbsp;接線方向安定化係数</li>
+		</span>
+		</ul>
+	
+	<li><b>アクティブ</b>
+	<p>&nbsp;&nbsp;&nbsp;表示された条件を有効にします。</p>
+	</li>	
+	<li><b>非アクティブ</b>
+	<p>&nbsp;&nbsp;&nbsp;表示された条件を無効にします。</p>
+	</li>
+	<li><b>M/Sを入れ替え</b>
+	<p>&nbsp;&nbsp;&nbsp;接触条件のマスター面とスレーブ面を入れ替えます。</p>
+	</li>
+	<li><b>Reference Data Directory</b>
+	<p>&nbsp;&nbsp;&nbsp;伝熱解析時の接触面での熱伝達係数定義向けに、接触状況を参照する構造解析結果を指定します。<br>
+	合わせてダイアログテーブル内ReferenceContactStateのProcess Numberでその構造解析結果で参照するプロセス番号を入力します。</p>
+	</li>
+		
+	<h4>出力マネージャダイアログ</h4>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_Heat%20Transfer_Output%20Manager.png">
+	<h4></h4>
+	<li><b>すべてのプロセスで同じ出力</b>
+	<p>&nbsp;&nbsp;&nbsp;すべてのプロセスへ設定した出力パラメータを適用します。</p>
+	</li>	
+	<li><b>プロセス</b>
+	<p>&nbsp;&nbsp;&nbsp;設定する出力パラメータのプロセスを指定します。</p>
+	</li>
+	<li><b>出力グループ設定</b>
+	<p>&nbsp;&nbsp;&nbsp;指定したグループのみ結果出力させることができます。</p>
+	</li>
+	<li><b>OK</b>
+	<p>&nbsp;&nbsp;&nbsp;設定を確定しダイアログを閉じます。</p>
+	</li>
+	<li><b>キャンセル</b>
+	<p>&nbsp;&nbsp;&nbsp;設定を確定せずにダイアログを閉じます。</p>
+	</li>
+	<h4>リスタートデータ参照</h4>
+	<img src="./Media/CommandDlg/Analysis_Analysis_ADVC_Structure_reference_restart_data.png">
+    	<h4></h4>
+	<li><b>データディレクトリ</b>
+	<p>&nbsp;&nbsp;&nbsp;リスタートファイルがあるディレクトリを入力します</p>
+	</li>
+	<li><b>プロセス番号</b>
+	<p>&nbsp;&nbsp;&nbsp;リスタートデータのプロセス番号を指定します。</p>
+	</li>
+	<li><b>ステップ番号</b>
+ 	<p>&nbsp;&nbsp;&nbsp;ステップ番号にはリスタートデータのステップ番号を指定します。</p>
+	</li>
+	<li><b>座標タイプ</b>
+	<p><b>&nbsp;&nbsp;&nbsp;初期</b>
+	&nbsp;:&nbsp;変位がリスタート前も含めたトータルの値となります。</p>
+	<p><b>&nbsp;&nbsp;&nbsp;変形</b>
+	&nbsp;:&nbsp;変位がリスタート後の変形成分のみとなります。</p>
+	</li>
+	<li><b>接触探索更新</b>
+	<p><b>&nbsp;&nbsp;&nbsp;はい</b>&nbsp;:&nbsp;座標タイプに変形の指定がない場合、いいえ と同じ挙動となります。</p>
+	<p><b>&nbsp;&nbsp;&nbsp;いいえ</b>&nbsp;:&nbsp;接触探索は、リスタートデータの結果を引き継ぎます。</p>
+	</li>
+	<h4>ADVC 定型文</h4>
+    <li><b>テンプレートファイル</b>
+	<p>&nbsp;&nbsp;&nbsp;ADVCテンプレートフォルダごとにフォルダに保存されているすべてのテンプレート.adxファイルを表示します。</p>
+    <li><b>編集</b>
+	<p>&nbsp;&nbsp;&nbsp;選択したテンプレート.adxファイルを編集できます。</p>
+	</li>	
+　　<h4>ダミープロパティ</h4>
+　　ダミープロパティの設定を行います。<br><br>
+	<li><b>自動割り当て</b>
+	<p>&nbsp;&nbsp;&nbsp;チェックを入れると、プロパティが割り当てられていないパーツにダミープロパティを自動で割り当てます。</p>
+	</li>
+	<li><b>材料</b>
+	<p>&nbsp;&nbsp;&nbsp;ダミープロパティを割り当てるパーツの材料を指定します。<br>
+		&nbsp;&nbsp;&nbsp;材料コマンドのユーザーデータベースに登録済の材料が選択可能です。ユーザーデータベースに材料未登録の場合、登録済でもブランクを選択した場合はダミー材料を割り当てます。<br>
+		&nbsp;&nbsp;&nbsp;ダミー材料の場合、材料特性値は書かれない状態で出力されます。<br>
+	<li><b>出力ジオメトリーID</b>
+		<p>&nbsp;&nbsp;&nbsp;チェックを入れると、フェースID、エッジID、パートIDなどのエンティティIDが出力されます。</p>
+	</li>
+	</p>
+	</li>
+	    <h4>解析テンプレート設定</h4>
+    <li><b>.csvテンプレートを使用してLBCマネージャーを定義する: </b>
+	<p>&nbsp;&nbsp;&nbsp;チェックボックスを選択して、.csvファイルを使用してLBCマネージャーを定義します。</p>
+<li><b>ファイル : </b>
+	<p>&nbsp;&nbsp;&nbsp;.csvファイルを選択します。</p>
+	 <li><b>.csvテンプレートを使用して接触マネージャーを定義する: </b>
+	 <p>&nbsp;&nbsp;&nbsp;チェックボックスを選択して、.csvファイルを使用して接触マネージャーを定義します。</p>
+	 <li><b>ファイル : </b>
+	<p>&nbsp;&nbsp;&nbsp;.csvファイルを選択します。</p>
+	</li>	
+	 <li><b>テンプレート:</b> すべてのADVCテンプレート.xmlファイルを保存して表示します。<br>
+				デフォルトのフォルダは　C:\Users\XXX\AppData\Roaming\TechnoStar\JPT5.0.0\AnalysisSetting\ADVC <br>
+				 <li><b>削除 </b>: 選択したテンプレートが削除されます。<br>
+				<li><b>追加 </b>: 現在のADVC設定ダイアログが入力名として保存されます。<br>
+<br>
+<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+		<li>&nbsp;ジョブ名を指定します。</li>
+		<li>&nbsp;プロセスを作成でプロセスを作成します。デフォルトの時間刻みで解析を行う場合は、特に必要ありません。</li>
+		<li>&nbsp;LBCマネージャでプロセスに境界条件を割り当てます。</li>
+		<li>&nbsp;出力マネージャで出力項目を選択します。</li>
+		<li>&nbsp;適用/OKボタンをクリックします。</li>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</li></div>
+</div>
+</body>
+
+</html>
+</head></html>

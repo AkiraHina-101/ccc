@@ -1,0 +1,148 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Enforced Displacement</title>
+
+<style type="text/css">
+<!--/* Link下線、非表示 */-->
+a.no-uline {text-decoration:none}
+</style>
+
+</html>
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Enforced Displacement</h2>
+<div class="contents">
+	<p>Add the enforced displacement on the analysis model.</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Loads_Enforced%20Loads_Enforced%20Displacement.png"></img>
+
+ 　　 <h4>Structural</h4>
+		<li><b>Name</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the name of the enforced displacement load conditions.</p>
+		</li>
+		
+	<h4>Values</h4>
+		<li><b>Translation X</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the forced displacement value in the X direction of translation.</p>
+		</li>
+		<li><b>Translation Y</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the forced displacement value in the Y direction of translation.</p>
+		</li>
+		<li><b>Translation Z</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the forced displacement value in the Z direction of translation.</p>
+		</li>
+		<li><b>Arrow Direction</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Adjust the display of the load marker.</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>Start at Node</b>&nbsp;：&nbsp;Arrow of the marker displaying the load, starts from a node.</li>
+				<li><b>End at Node</b>&nbsp;：&nbsp;Arrow of the marker displaying the load, ends at the node.</li>
+				</span>
+			</ul>
+		</li>
+		</br>
+		<li><b>Input Unit</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the input unit of forced displacement value.</p>
+		</li>
+		
+	<h4>Values</h4>
+		<li><b>Rotate X</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the forced displacement value in the X direction of rotation.</p>
+		</li>
+		<li><b>Rotate Y</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the forced displacement value in the Y direction of rotation.</p>
+		</li>
+		<li><b>Rotate Z</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the forced displacement value in the Z direction of rotation.</p>
+		</li>
+		<li><b>Input Unit</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the input unit of forced rotational displacement value.</p>
+		</li>
+
+	<h4>Analysis Coordinate Frame</h4>
+		<li><b>Coordinate</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Choose a coordinate system that is referenced by forced displacement value.</p>
+		</li>
+	</br>
+	
+	<h4>Tables</h4>
+		<li><b>Select Table</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Defined in the <a href="./Boundary%20Conditions_Misc_Field%20Data.html">Field Data</a>. Currently not supported.</p>
+		</li>
+	
+	<h4>Phase Delay</h4>
+		<li><b>Phase</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the phase.</p>
+		</li>
+		<li><b>Phase Table</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Select the phase table that you entered in <a href="./Boundary%20Conditions_Misc_Field%20Data.html">Field Data</a>.</p>
+		</li>
+		<li><b>Delay</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Enter the Delay.</p>
+		</li>
+		
+	<h4>Multi-Excitation Load Export</h4>
+		<span style="font-size:1.1em;">
+		<p>&nbsp;&nbsp;Collectively define the load of each degree of freedom direction. Load will  be created for every degree of freedom you have defined.</p>
+		</span>
+		</br>
+		<li><b>Translation X</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the frequency table for the translational X-direction load. Input required for Values-Translation X</p>
+		</li>
+		<li><b>Translation Y</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the frequency table for the translational Y-direction load. Input required for Values-Translation Y</p>
+		</li>
+		<li><b>Translation Z</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the frequency table for the translational Z-direction load. Input required for Values-Translation Z</p>
+		</li>
+		<li><b>Rotation X</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the frequency table for the X-axis rotation direction load. Input required for Values-Rotation X</p>
+		</li>
+		<li><b>Rotation Y</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the frequency table for the Y-axis rotation direction load. Input required for Values-Rotation Y</p>
+		</li>
+		<li><b>Rotation Z</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the frequency table for the Z-axis rotation direction load. Input required for Values-Rotation Z</p>
+		</li>
+
+		<h4>FrontISTR Rotational Constraint</h4>
+		<li><b>Rotational Constraint Center</b></br>
+			<p>&nbsp;&nbsp;&nbsp;Select boundary that contains Rotational Constraint Center, normally only one node.</p>
+		</li>
+			</br>
+	<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+		<ol>
+			<li>&nbsp;Select one of the Face, Edge, Node buttons from the selection list and then select the target of forced displacement from the screen.</li>
+			<li>&nbsp;Enter the name for the load.</li>
+			<li>&nbsp;Enter the translation on rotation forced displacement value in X, Y, and Z direction. You can change the local unit as required.</li>
+			<li>&nbsp;Adjust the starting point and end point of the load marker  for specifying Arrow Direction as required.</li>
+			<li>&nbsp;Select the coordinate system to reference the forced displacement value, if necessary.</li>
+			<li>&nbsp;Press the Apply or OK button.</li>
+		</ol>
+
+
+<!--<h3>-&nbspOperation Video&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

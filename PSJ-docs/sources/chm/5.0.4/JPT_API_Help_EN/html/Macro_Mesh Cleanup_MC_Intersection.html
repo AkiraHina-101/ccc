@@ -1,0 +1,46 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>MC_Intersection</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>MC_Intersection</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Intersection</p>
+<h4>Syntax</h4>
+<p>MC_Intersection(cursor[] crBody, double dTol, int iDispType, int iNoLayer, bool bErrText)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>Cursor[]<p> Target body cursor([3:Part ID])</p></li>
+<li>Double<p> Number of edges tolerance </p></li>
+<li>Int<p> Display intersection type*</p>
+           <p>*0: Body intersection only</p>
+           <p>&ensp;1: All intersection</p>
+           <p>&ensp;2: Between bodies intersection</p></li>
+<li>Int<p> Number of intersection layer</p></li>
+<li>Bool<p> Error text bool flag True = 1, False = 0</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<p>It returns a string separated by commas contains 2 values.</p>
+<ol>
+<li><p>Succeeded:1 Failed: 0</p></li>
+<li><p>Number of intersection elements</p></li>
+</ol>
+<h4>Sample Code</h4>
+<p>MC_Intersection([3:1], 0, 0, 1, 0)</p>
+</div>
+</div>
+</body>
+</html>

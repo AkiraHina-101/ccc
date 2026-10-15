@@ -1,0 +1,113 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>板厚プロパティ作成</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>板厚プロパティ作成</h2>
+<div class="contents">
+	<p>このコマンドでは、中立面の板厚情報をサーフェースモデルに割り当てます。
+	</p>
+
+	<img src="./Media/CommandDlg/MidPlane_MidPlane%20Auto_Create%20Thick%20Props.PNG">
+
+	<h4>基本パラメーター</h4>
+	<li><b>板厚差</b></li>
+		<p>&nbsp;&nbsp;&nbsp;板厚情報値の許容範囲を入力します。</p>
+	</li>
+	<h4>設定方法</h4>
+	<li><b>エンティティタイプ</b></li>
+		<p>&nbsp;&nbsp;&nbsp;エンティティタイプを選択します。</p>	
+		</li>
+	<li><b>プロパティ分離</b></li>
+		<p>&nbsp;&nbsp;&nbsp;？？？</p>
+
+	<h4>その他のパラメーター</h4>
+	</li>
+	<li><b>膜挙動の材料</b></li>
+		<p>&nbsp;&nbsp;&nbsp;膜挙動に対する材料を選択します。</p>
+	</li>
+	<li><b>曲げ挙動の材料</b></li>
+		<p>&nbsp;&nbsp;&nbsp;曲げ挙動に対する材料を選択します。</p>
+	</li>
+	<li><b>横せん断挙動の材料</b></li>
+		<p>&nbsp;&nbsp;&nbsp;横せん断挙動に対する材料を選択します。</p>
+	</li>
+	<li><b>膜-曲げ連成挙動の材料</b></li>
+		<p>&nbsp;&nbsp;&nbsp;膜-曲げ連成挙動に対する材料を選択します。</p>
+	</li>
+	<li><b>材料の方向</b></li>
+		<p>&nbsp;&nbsp;&nbsp;材料座標系を入力します。</p>
+	</li>
+	<li><b>厚さ</b></li>
+		<p>&nbsp;&nbsp;&nbsp;板厚を入力します。</p>
+	</li>
+	<li><b>曲げ剛性</b></li>
+		<p>&nbsp;&nbsp;&nbsp;曲げに対する断面２次モーメントの比率を入力します。</p>
+	</li>
+	<li><b>板厚比率</b></li>
+		<p>&nbsp;&nbsp;&nbsp;横せん断厚さの比率を入力します。</p>
+	</li>
+	<li><b>非構造質量</b></li>
+		<p>&nbsp;&nbsp;&nbsp;単位面積あたりの非構造質量を入力します。</p>
+	</li>
+	<li><b>応力積算距離1.2</b></li>
+		<p>&nbsp;&nbsp;&nbsp;参照面からの応力算出距離を入力します。</p>
+	</li>
+	<li><b>平板オフセット</b></li>
+		<p>&nbsp;&nbsp;&nbsp;オフセット値を入力します。</p>
+	</li>
+
+	<h4>積分点の格納</h4>
+	</li>
+	<li><b>シェル要素の積分点の数</b></li>
+		<p>&nbsp;&nbsp;&nbsp;シェル要素の積分点を指定します。</p>
+	</li>
+	
+	<h4>板厚設定</h4>
+	</li>
+	<li><b>最大板厚</b></li>
+		<p>&nbsp;&nbsp;&nbsp;板厚分布の最大値を入力します。</p>
+	</li>
+	<li><b>最小板厚</b></li>
+		<p>&nbsp;&nbsp;&nbsp;板厚分布の最小値を入力します。</p>
+	</li>
+	
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+			<li>&nbsp;中立面メッシュパーツと中立面パーツを選択します。</li>
+			<li>&nbsp;膜挙動の材料・曲げ挙動の材料・横せん断挙動の材料で、定義した材料データを選択します。</li>
+			<li>&nbsp;適用またはOKボタンをクリックして中立面の板厚情報を中立面メッシュモデルに割り当てます。</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

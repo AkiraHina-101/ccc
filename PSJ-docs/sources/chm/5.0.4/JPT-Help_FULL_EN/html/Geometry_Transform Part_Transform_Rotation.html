@@ -1,0 +1,110 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>Rotation</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Rotation</h2>
+<div class="contents">
+	<p>Rotate the selected part.</p>
+
+	<img src="./Media/CommandDlg/Geometry_Transform%20Part_Transform_Rotation.png">
+
+	<h4>Operation</h4>
+		<li><b>Create New Part</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Copy the part after the parallel move, as a new Part.</p>
+		<li><b>LBC Copy</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Also copy load constraints that were added to the existing part to a new part.</p>
+		<li><b>Copy Count</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Enter the number of repetitions of the copy.</p>
+
+	<h4>Rotation</h4>
+		<li><b>Coordinate System</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Select the coordinate system to reference.</p>
+		<li><b>Rotation Axis</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Select the axis of rotation.</p>
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>X Axis</b>&nbsp;:&nbsp;Rotate around the X-axis of the selected coordinate system. </li>
+					<li><b>Y Axis</b>&nbsp;:&nbsp;Rotate around the Y-axis of the selected coordinate system. </li>
+					<li><b>Z Axis</b>&nbsp;:&nbsp;Rotate around the Z-axis of the selected coordinate system. </li>
+					<li><b>Arbitrary Axis</b>&nbsp;:&nbsp;To rotate for a specified angle value, about an axis that is specified in the X, Y, Z direction Vector.</li>
+					<li><b>2 Nodes</b>&nbsp;:&nbsp;To rotate for a specified angle value, about the axis of the two Node directions selected from the screen.</li>
+					<li><b>Edge</b>&nbsp;:&nbsp;To rotate for a specified angle value, around the axis of the Edge direction that has been selected from the screen.</li>
+				</span>
+				</ul>
+			</br>
+		<li><b>Axis-X</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Enter the X coordinate of the rotation center location.</p>
+		<li><b>Axis-Y</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Enter the Y coordinate of the rotation center location.</p>
+		<li><b>Axis-Z</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Enter the Z-coordinate of the rotation center position.</p>
+		<li><b>Center</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Decide the position of the center of rotation.</p>
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>Part Center</b>&nbsp;:&nbsp;To define the center of the Part as the center of rotation. </li>
+					<li><b>Node</b>&nbsp;:&nbsp;To define the selected node from the screen as the center of rotation.</li>
+					<li><b>Input</b>&nbsp;:&nbsp;Enter the center of rotation in Center Global-X, Center Global-Y, the Center Global-Z. These are set in Global Coordinate.</li>
+				</span>
+				</ul>
+			</br>
+		<li><b>Rotation Angle</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Enter the rotation angle.</p>
+		<li><b>Merge Nodes</b></li>
+			<p>&nbsp;&nbsp;&nbsp;If checked, Face for rotate that are copied as the body in the model will have the nodes joined in the case where there is contact of the Face with copy source for body.</p>
+		<li><b>Merge Tol.</b></li>
+			<p>&nbsp;&nbsp;&nbsp;Enter the Tolerance of the coupling for Merge Node.</p>
+	</br>
+	
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+		<ol>
+			<li>&nbsp;If you want to create a new Part after the rotation, select the Create New Part.</li>
+			<li>&nbsp;Turn on the LBC Copy to copy a load restraint conditions of the existing part to the new part.</li>
+			<li>&nbsp;To repeat copy, enter the number of copies.</li>
+			<li>&nbsp;Press the Part button and select the Part for rotation from the screen.</li>
+			<li>&nbsp;If you want to rotate around the existing coordinate system axis, select an existing coordinate system from the Coordinate System and select one of the Rotation Axis from the X-axis, Y-axis, Z-axis.</li>
+			<li>&nbsp;To rotate in arbitrary direction, select the Arbitrary Axis from Rotation Axis and enter the direction vector to X, Y, Z input box.</li>
+			<li>&nbsp;To rotate around the selected 2 Node direction, select the 2 Nodes from Rotation Axis, and then select the two Node from the screen.</li>
+			<li>&nbsp;To rotate around the selected Edge direction, select the Edge from Rotation Axis, and then select the Edge from the screen.</li>
+			<li>&nbsp;For the rotation around the center of the Part, select the Part Center from Center.</li>
+			<li>&nbsp;For the center of the Part as the Node position, select the Node from the Center, you pick the Node from the screen.</li>
+			<li>&nbsp;To direct input the center of the Part, select the Input from the Center, enter the center of rotation in the Center Global-X, Center Global-Y, Center Global-Z in global coordinate.</li>
+			<li>&nbsp;Enter the angle of rotation in the rotation angle.</li>
+			<li>&nbsp;To Merge original Part and the Nodes after the copy, check the Merge Nodes, enter the Merge Tol. for the coupling tolerance.</li>
+			<li>&nbsp;Press the Apply or OK button.</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

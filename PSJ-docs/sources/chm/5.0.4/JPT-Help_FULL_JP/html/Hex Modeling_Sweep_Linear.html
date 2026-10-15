@@ -1,0 +1,117 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>スイープ | 線形</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>スイープ | 線形</h2>
+	<div class="contents">
+	<p>
+	作成したサーフェスメッシュ(Tri,Quadメッシュ)からソリッドメッシュを<br>
+	指定した方向と平行にスイープして作成します。</br>
+	</p>
+
+	<img src="./Media/CommandDlg/Hex%20Modeling_Sweep_Linear.PNG"></img>
+
+	<h4>線形パラメーター</h4>
+		<li>長さ
+			<p>スイープする長さを入力します。</p>
+		</li>
+		
+		<li>レイヤー数
+			<p>層数を入力します。</p>
+		</li>
+	
+		<li>方法
+			<p>分割方法を選択します。</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>等分割</b>&nbsp;:&nbsp;パーツを均等に分割します。</li>
+					<li><b>偏向分割</b>&nbsp;:&nbsp;指定端から偏向分割。</li>
+					<li><b>偏向分割・両端</b>&nbsp;:&nbsp;パーツの両端が密な偏向分割。</li>
+					<li><b>偏向分割・中心</b>&nbsp;:&nbsp;パーツの中央が密な偏向分割。</li>
+				</span>
+			</ul>
+		</li>
+		<li>偏向係数
+			<p>係数を入力します。</p>
+		</li>
+		<li>数列
+			<p>分布方法を選択します。</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>等比</b>&nbsp;:&nbsp;等比(*r)偏向</li>
+					<li><b>等差</b>&nbsp;:&nbsp;等差(+d)偏向</li>
+				</span>
+			</ul>
+		</li>
+		<li>方向
+			<p>スイープする方向を選択します。</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>平面の法線</b>&nbsp;:&nbsp;選択した要素に垂直</li>
+					<li><b>任意</b>&nbsp;:&nbsp;入力した任意方向のベクトル</li>
+					<li><b>X,Y,Z</b>&nbsp;:&nbsp;X,Y,Z方向のベクトル</li>
+					<li><b>節点-要素エッジ</b>&nbsp;:&nbsp;基準となるノードと方向を示すエレメントエッジ</li>
+					<li><b>フェース-フェース</b>&nbsp;:&nbsp;フェース間（Quad4メッシュのパターンは同じである必要があります）</li>
+				</span>
+			</ul>
+		</li>
+		<li>X,Y,Z方向
+			<p>方向ベクトルX,Y,Z</p>
+		</li>
+		
+	<h4>自動インターフェース Penta5/Tet4</h4>
+		<li>インターフェース要素
+			<p>チェックすると境界面にペンタ要素を作成します。</p>
+		</li>
+
+	<h4>元の形状を自動消去</h4>
+		<li>スイープ元の形状を消去
+			<p>チェックを入れると、自動で元（スイープ元）の形状を削除します。</p>
+		
+		<li>スイープ先の形状を消去 （方向/フェース-フェース時）
+			<p>チェックと入れると、自動でスイープ先の形状を削除します。</p>		
+	<p>
+	※2次要素が含まれるエンティティを選択し実行した場合は、ワーニングが表示されます。<br>
+    1次要素に変換し実行します。</br>
+	</p>	
+		</li>
+			
+	<br></br>
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+		<li>スイープする面を選択します。</li>
+		<li>スイープする長さを指定します。</li>
+		<li>層数を指定します。</li>
+		<li>スイープする方向を指定します。</li>
+		<li>適用もしくはOKボタンをクリックします。</li>
+		<img src="./Media/Hex%20Modeling_Sweep_Linear_example.PNG"></img>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

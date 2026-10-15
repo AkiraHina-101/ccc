@@ -1,0 +1,138 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Manual 3D Create Tetra / Create Hexa / Create Penta / Create Pyramid</title>
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+	<h2>Manual 3D Create Tetra / Create Hexa / Create Penta / Create Pyramid</h2>
+<div class="contents">
+	<p>
+	Create a solid element from the selected elements or nodes.
+	</p>
+	<p>
+		<img src="./Media/Mesh%20Cleanup_Cleanup_Manual%203D_Create%20Tetra_Create%20Hexa_Create%20Penta_Create%20Pyramid_a.png" width="600"></br></br>
+		<img src="./Media/CommandDlg/Mesh%20Cleanup_Cleanup_Manual%203D_Create%20Tetra_Create%20Hexa_Create%20Penta_Create%20Pyramid.PNG"></br>
+	</p>
+	<b>Selection List</b></br>
+	<p>
+	Element: 2D Element linked with the solid element.</br>
+	Node: Nodes linked with the solid element.</br>
+	Part: The part to which the created solid element belongs (if not selected, the solid element will be created as a new part).</br>
+	</p>
+	
+ 	<h4>Parameter</h4>
+ 	<li><b>Target</b>
+	<p>Select a solid element type to be created.</p>
+	<ul type="circle">
+		<span style="font-size:0.95em;">
+		<li><b>Tet</b>&nbsp;:&nbsp;Creates a Tetra element (Tetrahedron).</li>
+		<li><b>Hex</b>&nbsp;:&nbsp;Create a Hexa element (Hexahedron).</li>
+		<li><b>Penta</b>&nbsp;:&nbsp;Create a Penta element (Triangular Prism).</li>
+		<li><b>Pyramid</b>&nbsp;:&nbsp;Create a Pyramid element (Square Pyramid).</li>
+		</span>
+	</ul>
+	</li>
+	
+	<li><b>Use OrderNode</b>
+	<p>When the check box is selected, the number of the next selection order is displayed in the main window from the fourth node.</p>
+	</li>
+	
+	<li><b>Direction</b>
+	<p>Reverse the direction of the solid element to be created.</p>
+	</li>
+	
+	<li><b>Height</b>
+	<p>Specify the height of the solid element to be created.</p>
+	</li>
+	
+	<li><b>Keep Part Selection</b>
+	<p>Specify whether to keep the selected part in the Selection list after the Apply button is executed.</p>
+	</li>
+	
+</div>
+
+	<h3>-&nbspOperating Procedure (Use OrderNode option)&nbsp-</h3>
+	<ol>
+	<li>Turn on the Use OrderNode option and create a solid element (in this case, a Hexa element as an example) by selecting the nodes.</li>
+	<p>
+	<img src="./Media/Mesh%20Cleanup_Cleanup_Manual%203D_Create%20Tetra_Create%20Hexa_Create%20Penta_Create%20Pyramid_b.png" width="600">
+	<p>
+	<li>Select three nodes to create an element. In this case, select the three nodes in a counterclockwise direction. If select these nodes in a clockwise direction, then the green guidelines will not appear in the intended direction. It's shown in the figure below.</li>
+	<p>
+	<img src="./Media/Mesh%20Cleanup_Cleanup_Manual%203D_Create%20Tetra_Create%20Hexa_Create%20Penta_Create%20Pyramid_c.png" width="600">
+	<p>
+	<li>Next, select a node where the element is to be created, in the direction where the number 4 appears in the main window.</li>
+	<p>
+	<img src="./Media/Mesh%20Cleanup_Cleanup_Manual%203D_Create%20Tetra_Create%20Hexa_Create%20Penta_Create%20Pyramid_d.png" width="600">
+	<p>
+	<li>Next, select a node where the element is to be created, in the direction where the number 5 appears in the main window.</li>
+	<p>
+	<img src="./Media/Mesh%20Cleanup_Cleanup_Manual%203D_Create%20Tetra_Create%20Hexa_Create%20Penta_Create%20Pyramid_e.png" width="600">
+	<p>
+	<li>Next, select a node where the element is to be created, in the direction where the number 6 appears in the main window.</li>
+	<p>
+	<img src="./Media/Mesh%20Cleanup_Cleanup_Manual%203D_Create%20Tetra_Create%20Hexa_Create%20Penta_Create%20Pyramid_f.png" width="600">
+	<p>
+	<li>Next, select a node where the element is to be created, in the direction where the number 7 appears in the main window.</li>
+	<p>
+	<img src="./Media/Mesh%20Cleanup_Cleanup_Manual%203D_Create%20Tetra_Create%20Hexa_Create%20Penta_Create%20Pyramid_g.png" width="600">
+	<p>
+	<li>Next, select a node where the element is to be created, in the direction where the number 8 appears in the main window. After selecting all the nodes, the preview will appear.</li>
+	<p>
+	<img src="./Media/Mesh%20Cleanup_Cleanup_Manual%203D_Create%20Tetra_Create%20Hexa_Create%20Penta_Create%20Pyramid_h.png" width="900">
+	<p>
+	</ol>
+	<h3>-&nbspHow to create an element (Tetra element)&nbsp-</h3>
+	<ol>
+	<p>There are three methods for creating a Tetra element, as shown in the figure below.</p>
+	<p>
+	<img src="./Media/Mesh%20Cleanup_Cleanup_Manual%203D_Create%20Tetra_Create%20Hexa_Create%20Penta_Create%20Pyramid_tet.png" width="600">
+	<p>
+	</ol>
+	<h3>-&nbspHow to create an element (Hexa element)&nbsp-</h3>
+	<ol>
+	<p>There are five methods for creating a Hexa element, as shown in the figure below.</p>
+	<p>
+	<img src="./Media/Mesh%20Cleanup_Cleanup_Manual%203D_Create%20Tetra_Create%20Hexa_Create%20Penta_Create%20Pyramid_hex.png" width="1000">
+	<p>
+	</ol>
+	<h3>-&nbspHow to create an element (Penta element)&nbsp-</h3>
+	<ol>
+	<p>There are six methods for creating a Penta element, as shown in the figure below.</p>
+	<p>
+	<img src="./Media/Mesh%20Cleanup_Cleanup_Manual%203D_Create%20Tetra_Create%20Hexa_Create%20Penta_Create%20Pyramid_penta.png" width="1200">
+	<p>
+	</ol>
+	<h3>-&nbspHow to create an element (Pyramid element)&nbsp-</h3>
+	<ol>
+	<p>There are six methods for creating a Pyramid element, as shown in the figure below.</p>
+	<p>
+	<img src="./Media/Mesh%20Cleanup_Cleanup_Manual%203D_Create%20Tetra_Create%20Hexa_Create%20Penta_Create%20Pyramid_pyramid.png" width="600">
+	<p>
+	</ol>
+    <h3>-&nbspSpecial Notes&nbsp-</h3>
+	<ol>
+	<li>When the "Use OrderNode" option is OFF, automatic generation of concave shapes is not possible.</li>
+	<li>The secondary order elements are also supported. If the order of the selected element is different, an error message will be displayed.</li>
+	<li>Only Keep Part Selection does not save the GUI settings.</li>
+	</ol>
+</div>
+</body>
+
+</html>

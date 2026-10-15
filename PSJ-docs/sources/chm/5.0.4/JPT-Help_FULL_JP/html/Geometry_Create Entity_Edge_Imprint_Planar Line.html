@@ -1,0 +1,74 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>平面との交線</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>平面との交線</h2>
+<div class="contents">
+	<p>選択したフェースを指定した平面が横切る位置にラインを作成します。</p>
+
+	<img src="./Media/CommandDlg/Geometry_Create%20Entity_Edge_Imprint_Planer%20Line.png">
+
+	<h4>オプション</h4>
+		<li><b>面を分割</b></li>
+			<p>&nbsp;&nbsp;&nbsp;チェックすると、インプリント後に分割可能なフェースを分割します。</p>
+		<li><b>座標系</b></li>
+			<p>&nbsp;&nbsp;&nbsp;座標平面で参照される座標系を選択します。</p>
+		<li><b>座標平面</b></li>
+			<p>&nbsp;&nbsp;&nbsp;フェースを分割する平面を指定する方法を選択します。</p>
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+				<li><b>YZ</b>&nbsp;:&nbsp;座標系で指定された座標系のYZ平面を選択します。</li>
+				<li><b>ZX</b>&nbsp;:&nbsp;座標系で指定された座標系のZX平面を選択します。</li>
+				<li><b>XY</b>&nbsp;:&nbsp;座標系で指定された座標系のXY平面を選択します。</li>
+				</span>
+			</ul>
+		<li><b>3点指定</b></li>
+		
+			<p>&nbsp;&nbsp;&nbsp;画面上から選択される3点から平面を定義します。</p>
+
+	</br>
+	
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+		<li>&nbsp;インプリント対象のフェースを画面より選択します。複数のフェース選択が可能です。</li>
+		<li>&nbsp;必要に応じて面を分割チェックボックスをオフにします。この場合はインプリント後のフェースが元のフェースから分割されません。</li>
+		<li>&nbsp;座標平面からフェースを分割する平面を選択します。3点指定を選択した場合は、節点/フェース上任意点/エッジ上任意点ボタンを選択し、画面上から3点を選択します。</li>
+		<li>&nbsp;座標系から参照する座標系を選択します。</li>
+		<li>&nbsp;適用/OKボタンをクリックします。</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

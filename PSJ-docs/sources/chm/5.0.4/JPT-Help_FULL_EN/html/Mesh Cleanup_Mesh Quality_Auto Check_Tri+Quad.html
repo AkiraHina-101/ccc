@@ -1,0 +1,67 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+			<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+	<title>Mesh Quality&nbsp;-&nbsp;Auto Check&nbsp;[Tri+Quad]</title>
+
+
+
+	</head>
+
+	<body>
+		<div class="page">
+			<h2>Mesh Quality&nbsp;-&nbsp;Auto Check&nbsp;[Tri+Quad]</h2>
+		<div class="contents">
+			<p>
+			The surface mesh (Tri3 / Tri6 / Quad4 / Quad8) of the surface is corrected by multiple quality criteria.
+			</p>
+
+		<img src="./Media/CommandDlg/Mesh%20Cleanup_Mesh%20Quality_Auto%20Check_TriQuad.png">
+			<h4>Quality Standard</h4>
+				<li>Stretch: If checked, detect and display elements with a stretch value less than or equal to the specified value.</li>
+				<li>Aspect Ratio: If checked, detect and display elements with aspect ratio greater than or equal to the specified value.</li>
+				<li>Edge Length: If checked, detect and display elements with edge lengths less than the specified value.</li>
+				<li>Area: If checked, the element of the area below the specified value will be detected and displayed.</li>
+				<li>Node Valence: If checked, elements with more than the specified node valence will be detected and displayed.</li>
+				<li>Interior Angle: If checked, detect and display elements with angles less than the specified value.</li>
+				<li>Duplicate Elements: If checked, duplicates will be detected and displayed.</li>
+					<font color="red">
+						※Please refer to <a href="./Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric.html">＜definition of quality check method＞</a> for each item.
+					</font>
+			<h4>Display</h4>
+				<li>Number of Tri / Quad Elements: Display the number of displayed Tri / Quad elements.</li>
+			<h4>Auto Cleanup</h4>
+				<li>Cleanup: You can fix elements automatically by pressing the Clean Up button.</li>
+				<li>Mode: select the cleanup mode from Standard or Aggressive.</li>
+				<table class="commontable">
+					<tr><th>Cleanup process</th><th>Standard</th><th>Aggressive</th></tr>
+					<tr><td>Allowable face normal angle change of neighboring  elements</td><td>60 degree</td><td>90 degree</td></tr>
+					<tr><td>Collapse elem edges on an edge</td><td>No</td><td>Yes</td></tr>
+				</table>
+				<li>Non-manifold: Check to fix non-manifold.</li>
+			<h4>Refresh</h4>
+				<li>Show Model: Press the Show Model button to restore the model display.</li>
+				
+			<h3>-&nbspOperating Procedure&nbsp-</h3>
+				<ol>
+					<li> &nbspSelect the body you want to check the element shape.</li>
+					<li> &nbspCheck the check box of the quality standard you want to check.</li>
+					<li> &nbspPress the Apply or OK button.</li>
+					<li> &nbspIf you want to restore the model view, press Show Model.</li>
+						<p>
+							<font color="red">
+								※The automatic cleanup feature can not automatically fix all elements. If there are elements that can not be fixed automatically, you need to manually fix the elements using the manual cleanup function.
+							</font>
+						</p>
+				</ol>
+	</div></div></body>
+</html>
+</head></html>

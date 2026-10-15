@@ -1,0 +1,112 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>モデルフィルター</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+a.no-uline {text-decoration:none}
+</br>
+</style>
+</html></head>
+
+
+<body>
+<div class="page">
+<h2>モデルフィルター</h2>
+	<div class="contents">
+	<p>モデルの要素タイプ、プロパティ、材料情報を相互に参照しながらグループを作成します。</p>
+
+	<img src="./Media/CommandDlg/Tools_Group_Model%20Filter.png">
+
+ 　　 <h4>フィルタータイプ</h4>
+		<li><b>要素タイプ</b><br>
+			<p>&nbsp;&nbsp;&nbsp;バー、三角形シェルなどの要素タイプによって表示内容を切替えます。</p>
+		</li>
+		<li><b>プロパティ</b><br>
+			<p>&nbsp;&nbsp;&nbsp;モデルに使用されているプロパティ（要素特性）情報によって表示内容を切替えます。</p>
+		</li>
+		<li><b>材料</b><br>
+			<p>&nbsp;&nbsp;&nbsp;モデルに使用されている材料情報によって表示内容を切替えます。</p>
+		</li>
+		<li><b>グループ</b><br>
+			<p>&nbsp;&nbsp;&nbsp;既存のグループによって表示内容を切替えます。</p>
+		</li>
+		<li><b>リセット</b><br>
+			<p>&nbsp;&nbsp;&nbsp;全てのフィルタータイプにおいて選択された内容をリセットします。</p>
+		</li>
+
+ 　　 <h4>ターゲット</h4>
+
+			<p>&nbsp;&nbsp;&nbsp;ビューウインドウに表示状態にあるボディに使用されているアイテムが、各フィルターに対応してリスト表示されます。<br>
+&nbsp;&nbsp;&nbsp;リストからアイテムをピックするとアイテムが反転して選択表示になり、対応した要素がビューウインドウに表示されます。<br>
+&nbsp;&nbsp;&nbsp;要素タイプ以外のアイテムは昇順にソートされてリスト表示されます。<br>
+<img src="./Media/Tools_Group_Model%20Filter_image1.png" style="vertical-align:middle;"><br>
+&nbsp;&nbsp;&nbsp;再度アイテムをピックするとアイテムが選択解除されます。<br>
+<img src="./Media/Tools_Group_Model%20Filter_image2.png" style="vertical-align:middle;"><br>
+&nbsp;&nbsp;&nbsp;ShiftキーやCtrlキーを使用するWindows標準操作でアイテムの複数選択ができます。<br>
+<img src="./Media/Tools_Group_Model%20Filter_image3.png" style="vertical-align:middle;"><br>
+&nbsp;&nbsp;&nbsp;フィルターを切替え、更にアイテムの選択をすると、更に範囲の絞り込みができます。<br>
+&nbsp;&nbsp;&nbsp;例ではHEXA、PENTA要素タイプでSolid Property1を使用する要素グループを表示します。<br>
+<img src="./Media/Tools_Group_Model%20Filter_image4.png" style="vertical-align:middle;"><br>
+</p>
+
+
+ 　　 <h4>新規グループ</h4>
+
+		<li><b>節点グループ</b><br>
+			<p>&nbsp;&nbsp;&nbsp;チェックすると作成するグループに節点を含めます。</p>
+
+		<li><b>要素グループ</b><br>
+			<p>&nbsp;&nbsp;&nbsp;チェックすると作成するグループに要素を含めます。</p>		</li>
+
+		<li><b>名前</b><br>
+			<p>&nbsp;&nbsp;&nbsp;作成するグループの名前を入力します。</p>
+		</li>
+
+		<li><b>新規グループ作成</b><br>
+			<p>&nbsp;&nbsp;&nbsp;ボタンを押すと新規グループを作成します。</p>
+		</li>
+		
+
+	<br>
+
+	<h3>-&nbsp;操作手順&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;ビューウインドウにモデルのグループ作成対象となる範囲を表示します。</li>
+		<li>&nbsp;フィルタータイプから要素タイプボタンを押し、グループ作成対象となる要素タイプを選択します。
+</li>
+		<li>&nbsp;さらにフィルタータイプからプロパティや材料ボタンを押し、リストからアイテムを選択して表示範囲を絞り込みます。
+</li>		<li>&nbsp;絞り込みが終わったら、新規グループの名前を入力し、新規グループ作成ボタンを押します。</li>
+		<li>&nbsp;新しいグループが作成されましたので、フィルタータイプからグループを選択し、リストを確認します。<br>
+グループを表示させるには、フィルタータイプからリセットを選択し、今までの選択履歴をリセットしてからアイテムを選択します。</li>
+		<li>&nbsp;コマンドを終了するには、右上のXボタンをクリックします。</li>
+		<p>※作成したグループの表示を行う場合は、メインウィンドウ内の'グループ表示モードアイコン<img src="./Media/MainWindow_icon/image086.png" style="vertical-align:middle;">をクリックします。<br>
+		&nbsp;&nbsp;再度クリックすると、表示を通常に戻せます。</p>
+		</ol>
+
+
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+
+</html>

@@ -1,0 +1,93 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Actranジョブ実行</title>
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Actranジョブ実行</h2>
+<div class="contents">
+	<p>
+	Actranの計算を実行します。<br>
+	JupiterからACTRAN計算をするためには，ACTRAN_PATH環境変数（例えば，c:\FFT）およびACTRAN_PRODUCTLINE環境変数（例えば，c:\FFT\Actran_11.2）が正しく設定されている必要があります。<br>
+	</p>
+
+	<img src="./Media/CommandDlg/Analysis_Analysis_Actran_Run.png">
+
+    <h4>ATCTRANジョブ</h4>
+	<li><b>ジョブ名</b>
+	<p>&nbsp;&nbsp;&nbsp;ジョブの名前を設定します。</p>
+	</li>
+	<li><b>ジョブの説明</b> 
+	<p>&nbsp;&nbsp;&nbsp;ジョブの説明を記載します。</p>
+	</li>
+
+    <h4>ATCTRAN実行</h4>
+	<li><b>ジョブタイプ</b>
+	<p>&nbsp;&nbsp;&nbsp;解析タイプの指定。</p>
+		<ul type="circle">
+		<li>Direct &nbsp;:&nbsp;基本解析</li>
+		<li>Green Analysis(Sequential) &nbsp;:&nbsp;Green analysis(Sequential)解析</li>
+		<li>Green Analysis(Solution) &nbsp;:&nbsp;Green analysis(Solution)解析</li>
+		</ul>
+	</li>
+	<li><b>無限空間タイプ</b>
+	<p>&nbsp;&nbsp;&nbsp;無限境界のタイプ指定。</p>
+		<ul type="circle">
+		<li>PML &nbsp;:&nbsp;吸音層を用いたモデル</li>
+		<li>IFEM &nbsp;:&nbsp;無限境界面を用いたモデル</li>
+		</ul>
+	</li>
+	<li><b>入力ファイル1のパス</b> 
+	<p>&nbsp;&nbsp;&nbsp;Edatファイルパスの入力。</p>
+	</li>
+	<li><b>Select input file</b> 
+	<p>&nbsp;&nbsp;&nbsp;EdatEdatファイルの指定。</p>
+	</li>
+	<li><b>Input File 2 path</b> 
+	<p>&nbsp;&nbsp;&nbsp;Edatファイルパスの入力。</p>
+	</li>
+	<li><b>Select input file</b> 
+	<p>&nbsp;&nbsp;&nbsp;Edatファイルの指定。</p>
+	</li>
+	<li><b>メモリ(MB)</b> 
+	<p>&nbsp;&nbsp;&nbsp;最大使用メモリ量指定（MB単位）。</p>
+	</li>
+	<li><b>No. of Threads</b> 
+	<p>&nbsp;&nbsp;&nbsp;スレッドの番号を指定。</p>
+	</li>
+	
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+			<li>&nbsp;ジョブ名を指定します。</li>
+			<li>&nbsp;ジョブタイプを指定します。</li>
+			<li>&nbsp;無限空間タイプを指定します。</li>
+			<li>&nbsp;OKボタンをクリックして、入力データファイルを出力します。</li>
+		</ol>
+		<br>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

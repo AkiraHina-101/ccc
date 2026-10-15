@@ -1,0 +1,227 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>3Dプロパティ | ソリッド</title>
+
+
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>3Dプロパティ | ソリッド</h2>
+<div class="contents">
+	<h4>3D プロパティ | ソリッドダイアログボックス</h4>
+	<p>
+	3次元ソリッド要素のプロパティデータを入力します。
+	</p>
+
+	<img src="./Media/CommandDlg/Properties_3D_Solid.png"></img>
+	<h4>プロパティ</h4>
+
+	
+ 　　 <li>名前
+	<p>
+	プロパティの名前を入力します。
+	</p>
+　　　</li>
+
+ 　　 <li>プロパティID
+	<p>
+	プロパティのIDを入力します。プロパティIDはモデル内で重複しないようにします。
+	</p>
+　　　</li>
+　　 <li>色
+	<p>
+	プロパティの色を入力します。
+	</p>
+　　　</li>
+
+	<h4>ソリッド</h4>
+	<p>ソリッド要素の基本プロパティデータを選択します。</p>
+	<li>材料
+	<p>あらかじめ定義された材料特性を選択します。 </p>
+	</li>
+
+	<li>材料座標系ID
+	<p>材料座標系を選択します。</p>
+	<ul type="circle">
+	<li>Global<p>材料座標系に全体座標系を選択します。</p></li>
+	<li>Element CS<p>材料座標系に要素座標系を選択します。</p></li>
+	</ul>
+	</li> 
+
+	<h4>NASTRAN</h4>
+	<p>Nastranソルバーに関連した設定を行います。</p>
+	<li>積分ネットワーク
+	<p>積分ネットワーク</p>
+	<ul type="circle">
+	<li>TWO<p>2次関数を用います。</p> </li>
+	<li>THREE<p>3次関数を用います。</p></li>
+	<li>BUBBLE<p>BUBBLE関数を用います。</p></li>
+	</ul>
+	</li> 
+
+	<li>出力位置
+	<p>応力出力位置</p>
+	<ul type="circle">
+	<li>GAUSS<p>ガウスポイントで応力の出力をします。</p></li>
+	<li>GRID<p>節点での出力をします。</p></li>
+	</ul>
+	</li>
+
+	<li>積算スキーマ
+	<p>積分手法</p>
+	<ul type="circle">
+	<li>REDUCED<p>次数低減せん断積分を用います。</p></li>
+	<li>FULL<p>標準アイソパラメトリック積分を用います。</p></li>
+	</ul>
+	</li>
+
+	<li>流体要素フラグ
+	<p>流体要素フラグ</p>
+	<ul type="circle">
+	<li>PFLUID<p>流体要素を用います。</p></li>
+	<li>SMECH<p>構造要素を用います。</p></li>
+	</ul>
+	</li>
+
+	<h4>ABAQUS</h4>
+	<p>ABAQUSソルバーに関連した設定を行います。</p>
+
+ 　　 <li>ハイブリッド
+	<p>
+	ハイブリッド要素を使用する場合に使用します。
+	</p>
+　　　</li>
+
+ 　　 <li>非互換
+	<p>
+	非適合要素を使用する場合に使用します。
+	</p>
+　　　</li>
+
+ 　　 <li>修正済み
+	<p>
+	修正要素を使用する場合に使用します。
+	</p>
+　　　</li>
+
+ 　　 <li>低減積分
+	<p>
+	縮退積分要素を使用する場合に使用します。
+	</p>
+　　　</li>
+
+ 　　 <li>温度-変位連成
+	<p>
+	熱構造連成解析用の要素を使用する場合に使用します。
+	</p>
+　　　</li>
+
+ 　　 <li>音響
+	<p>
+	音響要素を使用する場合に使用します。
+	</p>
+　　　</li>
+
+ 　　 <li>設定...
+	<p>
+	追加のABAQUS用設定を入力する場合に用います。<br>
+	ABAQUS設定ダイアログボックスが開きます。
+	</p>
+	要素コントロール<br>
+	アワーグラスコントロール:
+	<ul type="circle">
+	<li>デフォルトを使用
+	<p>デフォルト設定を用います。</p>
+	</li>
+	<li>拡張
+	<p>強化型設定を用います。</p></li>
+	<li>剛性
+	<p>剛性設定を用います。	</p></li>
+	<li>変位アワーグラス
+	<p>変位アワーグラススケーリングファクターを入力します。
+	</p></li>
+	</ul>
+　　　</li>
+
+	<h4>ADVC</h4>
+	<p>Advencture Clusterソルバーに関連した設定を行います。</p>
+
+ 　　 <li>非互換
+	<p>
+	非適合要素を使用する場合に使用します。
+	</p>
+　　　</li>
+
+ 　　 <li>修正済み
+	<p>
+	修正要素を使用する場合に使用します。
+	</p>
+　　　</li>
+
+ 　　 <li>低減積分
+	<p>
+	縮退積分要素を使用する場合に使用します。
+	</p>
+　　　</li>
+
+	<h4>LS-Dyna</h4>
+	<p>LS-Dynaソルバーに関連した設定を行います。</p>
+
+ 　　 <li>アダプティブメッシュ
+	<p>
+	Dynaアダプティブメッシュを用います。
+	</p>
+　　　</li>
+
+ 　　 <li>リメッシュ: 最小エッジ長さ
+	<p>
+	最小エッジ長 
+	</p>
+　　　</li>
+
+ 　　 <li>リメッシュ: 最大エッジ長さ
+	<p>
+	最大エッジ長
+	</p>
+　　　</li>
+
+
+
+
+<h3>-&nbsp操作手順&nbsp-</h3>
+
+      <ol>
+　　　<li>名前にプロパティの名前を入力します。</li>
+　　　<li>プロパティIDにプロパティIDを入力します。</li>
+　　　<li>材料プルダウンメニューからすでに登録された材料情報を選択します。</li>
+　　　<li>必要に応じて他のパラメータも入力します。</li>
+　　　<li>対象パーツを選択します。</li>
+　　　<li>適用またはOKボタンをクリックしてプロパティを作成します。</li>
+	</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

@@ -1,0 +1,3 @@
+# MoveNodeAbsolute
+
+MoveNodeAbsolute MoveNodeAbsolute Description Move node(s) to an absolute position Syntax MoveNodeAbsolute(double dDeltaX, double dDeltaY, double dDeltaZ, bool b1stCoord, bool b2ndCoord, bool b3rdCoord, int[] taNodeKey, cursor crCoord) Inputs Double X coordinate to move the node Double Y coordinate to move the node Double Z coordinate to move the node Bool X coordinate bool flag True = 1, False = 0 Bool Y coordinate bool flag True = 1, False = 0 Bool X coordinate bool flag True = 1, False = 0 Int[] Node key cursor([Node ID]) Cursor Whether use local coordinate or not True = 27:*, False = 0:0 Return Code 1 Succeeded 0 Failed Sample Code MoveNodeAbsolute(-0.015, 0.015, 0.015, 1, 1, 1, [1069], 0:0)

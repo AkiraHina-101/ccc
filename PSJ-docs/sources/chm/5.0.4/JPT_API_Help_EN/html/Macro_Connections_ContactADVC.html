@@ -1,0 +1,82 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>ContactADVC</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>ContactADVC</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>create contact for advc</p>
+<h4>Syntax</h4>
+<p>ContactADVC(String m_strName,int m_iType,int slidingType,int InitialState,double initialStateTol,double kineticFrictionCoef,double exponentialCoef,int Behavior,double Clearance,int adjust2Clearance,double interference,int adjust2Interference,int autoShrink,int badvAdjust,double adjustValue,double FrictionCoef,double MaxShear,double elastic_slip,double slip_tolerance,double searchWidth,double SearchGap,double searchDepth,double critialPenetration,int estimation_impact_time,int formula,int constraintType,int iDataType,int m_TypeId,bool m_btemperatureDependency,int m_idependencies,TSheetd m_table,int stabilized,int type,double residual_factor,double effective_dist,double cn,double ct,Cursor[] m_taCClearance,Cursor[] m_taTarget,Cursor m_crEdit,Double searchAngle,int constraintType_explicit,double penaltyFact,double penaltyFactExplicit,int m_Color,int m_iAlg,int m_iMethod)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>String<p>name of contact</p></li>
+<li>int<p>contact type[0:General; 1:Tied]</p></li>
+<li>int<p>finite sliding[0:No; 1:Yes]</p></li>
+<li>int<p>initial state[0:blank; 1:Auto; 2:Open; 3:Close]</p></li>
+<li>double<p>initial state tol</p></li>
+<li>double<p>kinetic friction coef</p></li>
+<li>double<p>exponential coef</p></li>
+<li>int<p>behavior[0:blank; 1:Separation; 2:No Separation]</p></li>
+<li>double<p>clearance</p></li>
+<li>int<p>adjust to clearance[0:blank; 1:Yes; 2:No]</p></li>
+<li>double<p>interference</p></li>
+<li>int<p>adjust to interference[0:blank; 1:Yes; 2:No]</p></li>
+<li>int<p>auto shrink[0:blank; 1:Yes; 2:No]</p></li>
+<li>int<p>adjust[0:blank; 1:Yes; 2:Value]</p></li>
+<li>double<p>adjust value</p></li>
+<li>double<p>friction coef</p></li>
+<li>double<p>max shear stress</p></li>
+<li>double<p>elastic slip</p></li>
+<li>double<p>slip tolerance</p></li>
+<li>double<p>search width</p></li>
+<li>double<p>search gap</p></li>
+<li>double<p>search depth</p></li>
+<li>double<p>critial penetration</p></li>
+<li>int<p>impact time estimation[0:blank; 1:Yes; 2:No]</p></li>
+<li>int<p>formulation[0:blank; 1:node to segment; 2:segment to segment]</p></li>
+<li>int<p>constraint type[0:blank; 1:Lagrange; 2:Penalty]</p></li>
+<li>int<p>thermal conductance type[0:blank; 1:Clearance Dependence]</p></li>
+<li>int<p>type[0:CLEARANCE_DEPENDENCY; 1:PRESSURE_DEPENDENCY]</p></li>
+<li>bool<p>if use temperature dependent data</p></li>
+<li>int<p>number of field variables</p></li>
+<li>TSheetd<p>table of clearance dependency</p></li>
+<li>int<p>if stabilization parameter defined[0:not defined; 1:defined]</p></li>
+<li>int<p>type[0:blank; 1:stiffness; 2:Area]</p></li>
+<li>double<p>residual factor</p></li>
+<li>double<p>effective distance</p></li>
+<li>double<p>normal factor cn</p></li>
+<li>double<p>normal factor ct</p></li>
+<li>Cursor[]<p>clearance list</p></li>
+<li>Cursor[]<p>targets</p></li>
+<li>Cursor<p>edit cursor</p></li>
+<li>Double<p>Search Angle Value</p></li>
+<li>int<p>Constraint for Explicit type [0:blank; 1:kinematic; 2:penalty]</p></li>
+<li>double<p>Penalty Scale Factor</p></li>
+<li>double<p>Penalty Scale Factor for Explicit</p></li>
+<li>int<p>contact maker color</p></li>
+<li>int<p>algorithm[0:face to face]</p></li>
+<li>int<p>method type[0:MANUAL_FACE; 1:MANUAL_GROUP; 2:BY_GROUP_MATRIX; 3:SHARE_FACE; 4:AUTO_SETTING; 5:METHOD_UNKNOWN]</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>ContactADVC("Test",1,1,1,0.001,0.001,0.001,1,0.001,1,0.001,1,1,1,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,1,1,1,1,1,1,1,,1,1,0.001,0.001,0.001,0.001,[1:11,2:12],[1:11,2:12],1:11,,1,0.001,0.001,1,1,1)</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Contacts | ADVC - Manual Face</title>
+
+</meta>
+</head>
+
+<body>
+<div class="page">
+	<h2>Contacts | ADVC - Manual Face</h2>
+<div class="contents">
+	<p>
+	Define the contact setting for ADVC, between the specified face.<br />
+	To define the contact settings, select a face that becomes a slave surface and a face that becomes the master surface.
+	</p>
+
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_ADVC_Manual%20Face.png"></img>
+
+      <h4>Basic</h4>
+
+　　　<li>Name
+	<p>
+	Enter the name of the contact body. 
+	</p>
+　　　</li>
+
+　　　<li>Algorithm
+	<p>
+	Select the contact setting target entity.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Face to Face: Contact between the face to face
+	</p>
+　　　</li>
+
+　　　<li>Type
+	<p>
+	Select the behaviour type of contact definition.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;General: Sliding contact<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Tied: Fixed 
+	</p>
+　　　</li>
+
+　　　<li>Master
+	<p>
+	Select the face to be a master surface.<br />
+	</p>
+　　　</li>
+
+　　　<li>Slave
+	<p>
+	Select the face to be a slave surface.<br />
+	</p>
+　　　</li>
+　　	<li>Switch M/S
+	<p>
+	Switch the master / slave segment group.<br />
+	</p>
+　　　</li>
+
+      <h4>Contact Properties</h4>
+
+　　　<li>Behavior
+	<p>
+	Define the presence or absence of contact.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Separation: Remove the contact restraint when the tensile force is generated<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;No Separation: Binding on all of the contact pairs that were found at the beginning of the contact search
+	</p>
+　　　</li>
+
+　　　<li>Formulation
+	<p>
+	Select the contact formulation type.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Node to Segment: Node - face contact<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Segment to Segment: Face - face contact
+	</p>
+　　　</li>
+
+　　　<li>Constraint Type
+	<p>
+	Define the contact constraint type.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Lagrange: Lagrange undetermined multiplier method<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Penalty: Penalty method
+	</p>
+　　　</li>
+
+　　　<li>Constraint Type Explicit
+	<p>
+	Define the contact constraint type in the explicit dynamic analysis.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Kinematic: Constraint method<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Penalty: Penalty method
+	</p>
+　　　</li>
+
+　　　<li>Penalty Fact
+	<p>
+	Define the penalty scale factor.<br />
+	</p>
+　　　</li>
+
+　　　<li>Penalty Fact Explicit
+	<p>
+	Define the penalty scale factor in the explicit dynamic analysis.<br />
+	</p>
+　　　</li>
+
+　　　<li>Adjust
+	<p>
+	Select whether you want to move the slave node on the master surface so that the clearance goes to zero.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Yes: Move all of the slave node<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Value: Defines the distance to enable the node movement.
+	</p>
+　　　</li>
+
+　　　<li>Auto shrink
+	<p>
+	Define the presence or absence of penetration elimination.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Yes: Penetration elimination <br />
+	&nbsp;&nbsp;&nbsp;&nbsp;No: Without Penetration elimination
+	</p>
+　　　</li>
+
+　　　<li>Finite Sliding
+	<p>
+	Consider a finite sliding contact.
+	</p>
+　　　</li>
+
+　　　<li>Clearance
+	<p>
+	Define the clearance amount.
+	</p>
+　　　</li>
+
+　　　<li>Search Gap
+	<p>
+	Define the normal direction search distance for the gap surface.
+	</p>
+　　　</li>
+
+　　　<li>Search Depth
+	<p>
+	Define the normal direction search distance for the penetration surface.
+	</p>
+　　　</li>
+
+　　　<li>Search Width
+	<p>
+	Define the inside and outside determination parameter in the direction of the contact surface.
+	</p>
+　　　</li>
+
+　　　<li>Search Angle
+	<p>
+	Define the search angle of normal vector of the master / slave surface. 
+	</p>
+　　　</li>
+
+　　　<li>Initial State
+	<p>
+	Specify the initial contact state.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Auto: Auto-detect<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Open: Start analysis from the non-contact state<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Close: Start analysis from the contact state
+	</p>
+　　　</li>
+
+　　　<li>Initial State Tol
+	<p>
+	Enter the tolerance value to determine the initial contact state.
+	</p>
+　　　</li>
+
+　　　<li>Clearance Selection
+	<p>
+	Define the different clearance for each slave node.<br />
+	<img src="./Media/Connections_Contacts_Contacts_ADVC_Manual%20Face_1.png"><br />
+	</p>
+　　　</li>
+
+　　　<li>Adjust to Clearance
+	<p>
+	Choose whether you want to avoid the collapse element in accordance with node movement by Adjust function.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Yes: The gap amount is replaced with 0, without moving the node.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;No: Without avoidance
+	</p>
+　　　</li>
+
+
+      <h4>General Parameter</h4>
+
+　　　<li>Friction Coef.
+	<p>
+	Define the coefficient of static friction.
+	</p>
+　　　</li>
+
+　　　<li>Kinetic Friction Coef.
+	<p>
+	Define the dynamic coefficient of friction.
+	</p>
+　　　</li>
+
+　　　<li>Exponential Coef.
+	<p>
+	Define the exponential damping coefficient.
+	</p>
+　　　</li>
+
+　　　<li>Max Shear Stress
+	<p>
+	Define the maximum shear stress.
+	</p>
+　　　</li>
+
+　　　<li>Elastic Slip
+	<p>
+	Define the allowable amount of slip.
+	</p>
+　　　</li>
+
+　　　<li>Slip Tolerance
+	<p>
+	Define the allowable slip tolerance.
+	</p>
+　　　</li>
+
+　　　<li>Critical Penetration
+	<p>
+	Define the critical penetration amount.
+	</p>
+　　　</li>
+
+　　　<li>Impact Time Estimation
+	<p>
+	Choose contact pairs using prediction of collision and release time.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;No: Not used<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Yes: Use
+	</p>
+　　　</li>
+
+      <h4>Stabilization</h4>
+
+　　　<li>Type
+	<p>
+	Select the type of contact stabilization coefficient<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Stiffness: Stiffness ratio<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Area: Area ratio
+	</p>
+　　　</li>
+
+　　　<li>Residual Factor
+	<p>
+	Define the residual factor used to define the correction coefficient C1.
+	</p>
+　　　</li>
+
+　　　<li>Effective Distance
+	<p>
+	Define the effective distance that is used to define the correction coefficient C2.
+	</p>
+　　　</li>
+
+　　　<li>Normal Factor Cn
+	<p>
+	Define the normal direction stabilization coefficient.
+	</p>
+　　　</li>
+
+　　　<li>Tangential Factor Ct
+	<p>
+	Define the tangential direction stabilization coefficient.
+	</p>
+　　　</li>
+
+
+      <h4>Color Setting</h4>
+
+　　　<li>Contact Color
+	<p>
+	Define the contact pair display marker color.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Reset: Initialize to the default color
+	</p>
+　　　</li>
+      <h4>Thermal Conductance</h4>
+
+　　　<li>Data Type
+	<p>
+	Define the heat transfer coefficient of clearance dependency.<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Clearance Dependency: Define the heat transfer coefficient of the clearance dependency.<br />
+	<img src="./Media/Connections_Contacts_Contacts_ADVC_Contact%20Group%20By%20Matrix_3.png"></img><br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Conductivity: Coefficient of heat transfer<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Clearance: Clearance<br />
+	</p>
+　　　</li>
+
+
+<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+      <ol>
+　　　<li>&nbspSelect the face that becomes the master surface with a Master. Then select a face that becomes a slave surface in the Slave.</li>
+　　　<li>&nbspDefine the advanced settings for the pair of contacts, click the Apply (OK) button to create contact definition.</li>
+      </ol>
+<br />
+<br />
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

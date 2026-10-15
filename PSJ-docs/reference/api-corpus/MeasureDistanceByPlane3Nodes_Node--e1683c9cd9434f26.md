@@ -1,0 +1,3 @@
+# MeasureDistanceByPlane3Nodes_Node
+
+MeasureDistanceByPlane3Nodes_Node MeasureDistanceByPlane3Nodes_Node Description Measure Distance between Node and plane (created by 3 nodes). Syntax MeasureDistanceByPlane3Nodes_Node(cursor node1,cursor node2,cursor node3,cursor node,Integer N) Inputs cursor node1 cursor(10:*,*=node id) cursor node2 cursor(10:*,*=node id) cursor node3 cursor(10:*,*=node id) cursor node cursor(10:*,*=node id) Integer N specify the number of decimal places (0 Return Code Distance value Succeeded FAILED Failed Sample Code MeasureDistanceByPlane3Nodes_Node(10:438,10:478,10:450,10:396,6)

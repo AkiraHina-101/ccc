@@ -1,0 +1,3 @@
+# Intersection Line
+
+Intersection Line a.no-uline {text-decoration:none} Intersection Line Create a Line at the intersection of two selected Faces. Options Method &nbsp;&nbsp;&nbsp;Select how to specify the intersection line. Face & Face &nbsp;:&nbsp;Select two Faces to determine the intersection --> Break Face &nbsp;&nbsp;&nbsp;Split the Face. -&nbspOperating Procedure&nbsp- &nbsp;Press the Face button, select Imprint target from the screen at the intersection of two faces. &nbsp;Turn off the break face check box, if necessary. In this case, the Face after Imprint is not split from the original Face. &nbsp;Click Apply / OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

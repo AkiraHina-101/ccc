@@ -1,0 +1,293 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Advanced Search Window</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Advanced Search Window</h2>
+<div class="contents">
+	<p>
+	Advanced Search Window contains the search functions which can be used simultaneously with the command windows.<br>
+	<img src="./Media/AdvancedSearchWindow_FindEntities.png">
+	</p>
+		<p>
+
+	<h4>Common Items</h4>
+	<li>Add to current selection<br>
+	When the check is ON, search results will be added to the selection list. When the check is OFF, the search results are cleared and replaced with new search results.<br>
+	※The selection for search is always cleared.<br><br>
+	</li>
+	<li>Search button<br>
+	Select entities according to the search settings.<br>
+	</li>
+	</p>
+	<h4>Show Adjacents Tab</h4>
+	This tab is based on Geometry Ribbon > Extract > Show Adjacent Faces Function which has been adjusted so that it can be used simultaneously with the command window.<br>
+	<img src="./Media/AdvancedSearchWindow_ShowAdjacent.png">
+	<p>
+	<li>Face<br>
+	Select adjacent faces.<br><br>
+	</li>
+	<li>Element<br>
+	Select adjacent elements.<br><br>
+	</li>
+	<li>Search<br>
+	<ul>
+		<li>All<br>
+		If checked, all faces (elements) adjacent to the start faces (elements) will be acquired.</li>
+		<li>Number of layers<br></li>
+		Get adjacent faces (elements) within the range of the number of layers from the start faces / elements.</li>
+	</ul>
+	<li>Stop<br></li>
+	<ul>
+		<li>Include stop faces (elements)</li>
+		Include the selected stop faces (elements) in the selection result.
+		<li>Stop angle up to</li>
+		If the faces (elements) are connected at an angle greater than or equal to the angle specified here, the search is stopped.
+	</ul>
+	<li>Preview</li>
+	<ul>
+		<li>Preview button</li>
+		Click the button to highlight the selection in the main window with the color on the right.
+		<li>Reset button</li>
+		Click the button to reset the selection preview.
+	</ul>
+		<li>Start face (element) / stop face (element)</li>
+	<ul>
+		<li>You can select start faces (elements) and stop faces (elements) while checking in the list. Click "Clear" to cancel all selections.</li>
+	</ul>
+</p>
+<h3>-&nbspOperation Method (Show Adjacents Tab)&nbsp-</h3>
+<ol>
+<li>&nbspSelect the target from either face or element with the radio button.</li>
+<li>&nbspClick the "Start face" button and select the selection start face (or element) in the main window.</li>
+<li>&nbspClick the "Stop face" button and select the selection stop face (or element) in the main window.</li>
+<li>&nbspClick the "Preview" button to highlight the selection in the main window.</li>
+<li>&nbspClick the "Search" button to search and select.</li>
+</ol>
+	</p>
+	<h4>Find Features Tab</h4>
+	This tab is based on Geometry Ribbon > Extract > Find Feature Function which has been adjusted so that it can be used simultaneously with the command window.<br>
+	<img src="./Media/AdvancedSearchWindow_FindFeature.png">
+	<p>
+	<li>Face<br>
+	Find and select faces with highlighted features.<br>
+	</li>
+	<ul>
+		<li>4 sided<br>
+		Detect and select quadrilateral face surrounded by 4 edges.
+		</li>
+		<li>Planar<br>
+		Detect and select a plane face.
+		</li>
+		<li>Full cylinder<br>
+		Detect and select cylindrical faces.
+		</li>
+		<li>Half cylinder<br>
+		Detect and select a semi-cylindrical face.
+		</li>
+		<li>Disc<br>
+		Detect and select a disc-shaped face.
+		</li>
+		<li>Map mesh<br>
+		Detect and select map mesh faces.
+		<ul>
+			<li>Cylinder<br>
+			If checked, the cylindrical face will be detected and selected.
+			</li>
+			<li>Disc<br>
+			If checked, a disc-like face is detected and selected。
+			</li>
+			<li>4 corners<br>
+			If checked, faces of four corners will be detected and selected.
+			</li>
+		</ul>
+		</li>
+		<li>Circle chamfer<br>
+		Select a circular chamfer face and delete it.
+		<ul>
+			<li>Min thickness<br>
+			Specify the minimum thickness of the circular chamfer surface.
+			</li>
+			<li>Max thickness<br>
+			Specify the minimum thickness of the circular chamfer surface.
+			</li>
+		</ul>
+		</li>
+		<li>Fillet<br>
+		Select the fillet surface。
+		<ul>
+			<li>Min face width<br>
+			Specify the minimum face width to search.
+			</li>
+			<li>Max face width<br>
+			Specify the maximum face width to search.
+			</li>
+			<li>Min curve radius<br>
+			Specify the minimum radius of the fillet to search.
+			</li>
+			<li>Max curve radius<br>
+			Specify the maximum radius of the fillet to search.
+			</li>
+			<li>Min angle<br>
+			Specify the minimum value of the angle of the fillet to search.
+			</li>
+			<li>Max angle<br>
+			Specify the maximum value of the angle of the fillet to search.
+			</li>
+			<li>Convex<br>
+			Search for convex fillets.
+			</li>
+			<li>Concave<br>
+			Search for concave fillets.
+			</li>
+		</ul>
+		</li>
+		<li>Tiny faces<br>
+		Select tiny faces.
+		<ul>
+			<li>Min face width<br>
+			Specify the minimum face width to search.
+			</li>
+			<li>Max face width<br>
+			Specify the maximum face width to search.
+			</li>
+		</ul>
+ 	</ul>
+	</li>
+</ul>
+
+
+	<li>Edge<br>
+	Detect and select edges with highlighted features.<br>
+	</ul>
+	</li>
+	<ul>
+		<li>Line<br>
+		Select the edge of a straight line.
+		</li>
+		<li>Loop<br>
+		Select the edge of a loop shape.
+		</li>
+		<li>Full circle<br>
+		Select the edge of a circle.
+		</li>
+		<li>Half circle<br>
+		Select the edge of a semicircle.
+		</li>
+		<li>Bolt hole<br>
+		Select bolt hole edge within a range of diameters.
+		<ul>
+			<li>Diameter min
+			Minimum diamater of bolt hole.
+			</li>
+			<li>Diameter max
+			Maximum diamater of bolt hole.
+			</li>
+		</ul>
+		</li>
+		<li>Concentric circles<br>
+		Select the concentric edge of a specified edge.
+		</li>
+	</ul>
+	</li>
+
+<h3>-&nbspOperation Method (Find Features Tab)&nbsp-</h3>
+<ol>
+<li>&nbspHighlight the feature target you want to detect in the Faces and Edges list windows.</li>
+<li>&nbspIf the search parameter queries are displayed at the bottom of the list, enter the parameters.</li>
+<li>&nbspFor features other than concentric circles: Select the search target in the main window. If not selected, the displayed part will be searched.</li>
+<li>&nbspFor concentric circles: Select the reference edge.</li>
+<li>&nbspSearch and select features with the "Search" button.</li>
+</ol>
+	</p>
+	<h4>Find Entities Tab</h4>
+	This tab is based on the Home Ribbon > Find Function which is easier to use.
+	<p>
+	<img src="./Media/AdvancedSearchWindow_FindEntities.png">
+	</p>
+	<li>Match check box<br>
+	If checked, only the target that exactly matches the string entered in the search field will be searched and selected.<br><br>
+	</li>
+	<li>Input ID / Name<br>
+	Enter the search target name, ID, and coordinate values.<br>
+	<ul>
+	<li>When searching multiple strings, enclose each string with "".<br> </li>
+<li>If you want to search multiple IDs, please separate with blanks.<br>Example: 1 2 3<br> </li>
+<li>Coordinate values are input in comma separated format of x, y, z. When entering multiple coordinate values, separate them with commas and enter them one after another.<br>Example: 0, 0, 0, 10, 10, 10</li>
+</ul>
+<li>Options<br>
+	List of search target entities. Search and select the checked object.<br><br>
+	</li>
+<li>From file<br>
+	Enter the search target name, ID, and coordinate values from a CSV file.<br>
+	<File format><br>
+	<ul>
+		<li>ID</li>
+		Comma separated integer value<br>
+		Example 1: <br>
+		<table class="commontable">
+		<tr><th>Line number</th><th>ID description</th></tr>
+		<tr><td>1</td><td>1,2,3,4,5</td></tr>
+		</table>
+		Example 2: When including a line break
+		<table class="commontable">
+		<tr><th>Line number</th><th>ID description</th></tr>
+		<tr><td>1</td><td>1,2,3</td></tr>
+		<tr><td>2</td><td>4,5</td></tr>
+		</table>
+		<li>Name</li>
+		Comma separated names<br>
+		Example 1:<br>
+		<table class="commontable">
+		<tr><th>Line number</th><th>Name description</th></tr>
+		<tr><td>1</td><td>Cube_1,Cube_2,Cube_3</td></tr>
+		</table>
+		Example 2:When including a line break
+		<table class="commontable">
+		<tr><th>Line number</th><th>Name description</th></tr>
+		<tr><td>1</td><td>Cube_1</td></tr>
+		<tr><td>2</td><td>Cube_2</td></tr>
+		<tr><td>3</td><td>Cube_3</td></tr>
+		</table>
+		<li>Coordinate value</li>
+		Indicate #Position in the first line of the file.<br>
+		Describe X, Y, Z coordinate values one line at a time.<br>
+		Example:
+		<table class="commontable">
+		<tr><th>Line number</th><th>Coordinate value description</th></tr>
+		<tr><td>1</td><td>#Position</td></tr>
+		<tr><td>2</td><td>469.38,-58.847,130</td></tr>
+		<tr><td>3</td><td>178.74,-70.421,130</td></tr>
+		<tr><td>4</td><td>146.97,-26.89,131.97</td></tr>
+		</table>
+		
+<h3>-&nbspOperation Method (Find Entities Tab)&nbsp-</h3>
+<ol>
+<li>&nbspFrom the list of options, check the entities to search.</li>
+<li>&nbspEnter ID or name in the search field.</li>
+<li>&nbspClick Search button to search and select.</li>
+</ol>
+
+</ol>
+
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

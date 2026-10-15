@@ -1,0 +1,94 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>プリテンション | ADVC</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>プリテンション | ADVC</h2>
+	<div class="contents">
+	<p>
+	ADVC用初期張力(ボルト軸力)を設定します。ユーザーは複数の面または複数の断面を選択できますが、それらは同じ法線ベクトルを持っている必要があります。
+	<br>
+	<br>※V4.0よりボルトモデリングコマンドが実行されたときに、作成されたボルト1本ごとにグループを作成します。
+	<br>ボルトグループはBolt Connectionサブグループの下に置かれます。
+	</p>
+
+	<img src="./Media/CommandDlg/Connections_BoltModeling_PreTension_ADVC.png">
+
+	<h4>構造</h4>
+	<li>ステップ名
+	<p>作成するアイテムの名前を入力します。</p>
+	<h4>プリテンション-1</h4>
+	<li>軸力
+	<p>初期張力(ボルト軸力)を入力します。<br></p>
+	<li>入力単位系
+	<p>単位系を選択します。</p>
+	<li>参照節点ID
+	<p>参照節点のIDを入力します。<br>
+	選択リストで参照節点を選択した場合、IDが自動入力されます。</p>
+	<li>座標値
+	<p>参照節点の座標値を入力します。<br>
+	選択リストで参照節点を選択した場合、その節点座標値が自動入力されます。</p>
+	<li>締め付け方向
+	<p>ボルト締め付け方向を指定します。<br>
+	断面フェース選択により自動入力されます。必要により変更します。</p>
+	<li>方向更新
+	<p>締め付け方向の更新の有無を指定します。<br>
+	<ul type="circle">
+	  <span style="font-size:0.95em;">
+		<li>Yes&nbsp;：&nbsp;更新する</li>
+		<li>No&nbsp;：&nbsp;更新しない</li>
+	  </span>
+	</ul>
+	</p>
+	<li>ボルト固定長
+	<p>チェックを入れた場合、ボルトの締め付け量を保持する0値の強制速度が作成されます。</p>
+
+	</li>
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<p>パーツ切断等の機能を使用しパーティション断面が入ったボルトパーツを予め用意します。</p>
+	<li>パーティション断面を選択しますまたは顔。もしくは選択リストの節点で断面を構成する節点群を選択します(フェースもしくは節点どちらか一方の方法で指定ください)。<br>
+	参照節点は断面中心に自動定義されます。予め参照節点を作成している場合は選択リストを開き、Ref.Modeを選択し、その節点を選択します。</li>
+	<li>軸力を入力します。</li>
+	<li>必要に応じて単位系の変更、オプションを追加選択します。</li>
+	<li>適用またはOKボタンをクリックします。 </li>
+        <p>
+	<img src="./Media/Connections_BoltModeling_PreTension_ADVC_1.PNG"><br>
+	<br>
+	*ボルト固定長オプションを選択した場合、強制速度荷重が作成されます。<br>
+	&nbsp;ADVC出力時にプロセス作成後LBCマネージャを開き、ボルト設定ボタンを押すことで、2番目のプロセスから締め付け量固定用の強制速度が有効となるよう自動設定されます。</li>
+        <p>
+	<img src="./Media/Connections_BoltModeling_PreTension_ADVC_2.PNG">
+	</ol>
+
+
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</li></li></li></li></li></div>
+</div>
+</body>
+
+</html>
+</head></html>

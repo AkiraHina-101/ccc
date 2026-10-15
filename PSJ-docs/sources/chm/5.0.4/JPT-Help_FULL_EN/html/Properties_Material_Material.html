@@ -1,0 +1,459 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Material</title>
+
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Material</h2>
+<div class="contents">
+	<h4>Material Dialog Box</h4>
+	<p>
+	Create material data that is referenced in the property data.<br>
+	Read from the material library, or you can create new ones.
+	</p>
+
+	<img src="./Media/CommandDlg/Properties_Material_Material.png"></img>
+
+ 　　 <li>Search
+	<p>
+	You can search for material by putting the string to the left for input box, and pressing the Search button.
+	</p>
+　　　</li>
+ 　　 <li>User Data Base
+	<p>
+	It lists the material data that has been registered in the material database for use.<br>
+	It has the following features to list.
+	<ul type="circle">
+	<li>[Double Click] You can edit an item. </li>
+	<li>[Double Click：New] Allows you to create a new material data. </li>
+	<li>[Double Click：Save] Permits you to store an item in the library. </li>
+	<li>[Double Click：Delete] You can delete the item you have clicked. </li>
+	</ul>
+	</p>
+　　　</li>
+ 　　 <li>Library Database
+	<p>
+	It lists the contents of the specified material library.<br>
+	You can register material data on the User database from the import in the right-click menu or drag and drop.<br>
+	It has the following features 
+	<ul type="circle">
+	<li>[Double-click] You can edit an item.</li>
+	<li>[Right Click:Import] It will register material data to the User Database. </li>
+	</ul>
+	※Material not registered in the User Database can not be used.<br>
+	※Specify from the default material library Home>Preference>Material Library.<br>
+	</p>
+　　　</li>
+ 　　 <li>Library Path
+	<p>
+	You can temporarily add material library.<br>
+	Select the library you want to add from the right edge of the folder icon.<br>
+	</p>
+　　　</li>
+	<h4>Material Dialog Box</h4>
+	<p>
+	Create a material data that is referenced in the property data.<br>
+	Read from the material library, or you can create new. 
+	</p>
+
+	<img src="">
+
+ 　　 <li>Name
+	<p>
+	Enter the material name. 
+	</p>
+　　　</li>
+ 　　 <li>Type
+	<p>
+	Enter the material type name. (Any input) 
+	</p>
+　　　</li>
+ 　　 <li>Standard
+	<p>
+	Enter the material reference index. (Optional input) 
+	</p>
+　　　</li>
+ 　　 <li>Material ID
+	<p>
+	Enter the Material ID. You can not duplicate the material ID in the User Database list. <br>
+	 Please select a non-overlapping id.
+	</p>
+　　　</li>
+ 　　 <li>Description
+	<p>
+	Enter additional description of the material. (Optional input)
+	</p>
+　　　</li>
+　　<li>Color
+	<p>
+	The color set for the material.<br>
+    If there is no setting, black will be set.<br>
+    Used as the surface color of the part for certain features (<a href="Basic_Window_Assembly%20Window.html">Reassign Colors</a>, <a href="Properties_Property%20Tools_Property%20Report.html">Property Report</a>).
+	</p>
+　　　</li>
+ 　　 <li>Structure, Thermal, Gasket, Fluid Pull-down Menu 
+	<p>
+	Each material items can be selected from the pull down menu to be used in structure, heat transfer, gaskets and fluids.<br>
+	The selected item will be added to the behaviour list below.
+	</p>
+　　　</li>
+ 　　 <li>Behavior List
+	<p>
+	Item of the selected material constants are listed. 
+	It has the following features.
+	<ul type="circle">
+	<li>[Double click] Clicking the item on the right side of the property window, opens it for editing.</li>
+	<li>[Right click：New] You can add a new item. Content of the item is the same Structure, Thermal, Gasket, and Fluid pull-down menu.</li>
+	</ul>
+	</p>
+　　　</li>
+	<h4>Property Window</h4>
+	<p>
+	Material parameters of the selected item is displayed on the right side of the Property window.
+	</p>
+ 　　 <li>Structure pull-down menu
+	<p>
+	Material constants that are used in the structural analysis are registered.
+	</p>
+　　　</li>
+ 　　 <li>Density
+	<p>
+	Define the mass properties.<br>
+	Option： Option
+	<ul type="circle">
+	<li>Use Temperature-Depend Data： Select to include the temperature dependence.</li>
+	</ul>
+	Unit： Unit
+	<ul type="circle">
+	<li>Mass Density：Select the unit of mass value per unit volume.</li>
+	<li>Temperature：Select the unit of temperature.</li>
+	</ul>
+	</p>
+　　　</li>
+ 　　 <li>Elasticity&gt;Elastic
+	<p>
+	To define the Young's modulus, shear modulus and Poisson's ratio.<br>
+	Option：Option
+	<ul type="circle">
+	<li>Type： Select the type of modulus of elasticity, such as Isotropic, anisotropy.<br>
+	According to the selected type, it changes the input item of the Data table。</li>
+	<ul type="square">
+	<li>ISOTROPIC：Isotropic material</li>
+	<li>ORTHOTROPIC(2D)：Two-dimensional orthogonal anisotropic material</li>
+	<li>ORTHOTROPIC(3D)：Three-dimensional orthogonal anisotropic material</li>
+	<li>ORTHOTROPIC(V4)：Orthotropic material matrix input</li>
+	<li>ANISOTROPIC(2D)：Two-dimensional full anisotropic material</li>
+	<li>ANISOTROPIC(3D)：3-dimensional full anisotropic material</li>
+	<li>ANISOTROPIC(V4)：Full anisotropic material matrix input</li>
+	<li>LAMINA：Laminate material</li>
+	<li>TRACTION：</li>
+	<li>COUPLED_TRACTION</li>
+	<li>SHORT_FIBER</li>
+	</ul>
+	<li>Moduli Time Scale(for Viscos-elasticity)：Time scale (viscoelasticity only)</li>
+	<ul type="disc">
+	<li>LONG_TERM:Long term</li>
+	<li>INSTANTANEOUS:Instant</li>
+	</ul>
+	<li>No Compression：Select in the case of a non-compressible</li>
+	<li>No Tension：Select in the case of a non-extensible</li>
+	<li>Use Temperature-Depend Data：Select to include the temperature dependence</li>
+	</ul>
+	Unit：Unit
+	<ul type="circle">
+	<li>Young's：Select the unit of Young's modulus</li>
+	<li>Shear Module：Select the unit of shear modulus</li>
+	<li>Temperature：Select the unit of temperature</li>
+	</ul>
+	Sub Option:Sub Option
+	<ul type="disc">
+	<li>Fail Strain：Strain fracture</li>
+	<li>Fail Stress：Stress fracture</li>
+	</ul>
+	</p>
+　　　</li>
+ 　　 <li>Elasticity&gt;Low Density Form
+　　　</li>
+ 　　 <li>Plasticity&gt;Plastic(Plastic)
+	<p>
+	Define the plastic material<br>
+	<ul type="circle">
+	<li>Hardening：Select the hardening rule<br>
+	The input fields will change according to the selected type.</li>
+	<ul type="square">
+	<li>Isotropic：Isotropic hardening rule</li>
+	<li>Kinematic：Kinematic hardening rule</li>
+	<li>Johnson_Cook：Johnson Cook law</li>
+	<li>User：User-specified</li>
+	<li>Combined：Composite hardening rule</li>
+	</ul>
+	<li>Sub Option：Hardening model</li>
+	<ul type="square">
+	<li>Rate Dependent：</li>
+	<li>Potential：</li>
+	<li>Cyclic Harden：</li>
+	<li>Ornl：ORNL Model</li>
+	<li>Cycled Plastic：</li>
+	<li>Annel Temperture：</li>
+	</ul>
+	<li>Curve Type：Hardening curve type</li>
+	<ul type="square">
+	<li>Stress_PLStrain：Stress over plastic strain</li>
+	<li>Stress_Strain：Strain over total stress</li>
+	</ul>
+	<li>Use Temperature-Depend Data：Select to include the temperature dependence</li>
+	<li>Export As Mises(ADVC)：Output as Mises value (ADVC only)</li>
+	<li>Use Strain Rate Dependent Data：Enter the strain rate dependency data</li>
+	</p></ul>
+</li>
+</li>
+ <li>Plasticity&gt;RDNLK
+	<p>
+		Specify the material for RDNLK (Rate-Dependent Non-Linear Kinematic hardening) model of ADVC Analysis.<br>
+		<ul type="circle">
+		<li>Predefined Material：Select one of the material that ADVC defines.</li>
+		</ul>
+<li>Damping
+	<p>
+	Define the damping coefficient.
+	<ul type="circle">
+	<li>Alpha：Enter the coefficient of Rayleigh damping α</li>
+	<li>Beta：Enter the coefficient of Rayleigh damping β</li>
+	<li>Composite：Enter the complex damping</li>
+	<li>Structural：Enter the structural damping</li>
+	</ul>
+	</p>
+　　　</li>
+
+ 　　 <li>Expansion
+	<p>
+	Define the linear expansion coefficient.
+	<ul type="circle">
+	<li>Type：Select the input type of linear expansion coefficient<br>
+	It changes input item of data table on the basis of selection.</li>
+
+	<ul type="square">
+	<li>ISOTROPIC：Isotropic linear expansion coefficient</li>
+	<li>ORTHOTROPIC：Orthotropic linear expansion coefficient</li>
+	<li>ANISOTROPIC：Full anisotropy linear expansion coefficient</li>
+	</ul>
+	<li>Reference Temperature：Enter the temperature at the time of measurement</li>
+	<br>※ From Jupiter v5.0.2, it was supported to convert the temperature value by document unit.<br>
+	※ Note that the Jupiter database which was created in Jupiter v5.0.1 or earlier version when loading into Jupiter v5.0.2 version, <br>
+	it will not support to convert Reference Temperature value by document unit.
+	<li>Use Temperature-Depend Data：Select to include the temperature dependence</li>
+	<br>※ If temperature dependent, the initial material settings will be interpolated and defined with the reference temperature.</li>
+	</ul>
+	</p>
+　　　</li>
+ 　　 <li>Rigid
+	<p>
+	Define the rigid body
+	<ul type="circle">
+	<li>Translational：Translational direction coefficient</li>
+	<li>Rotational：Rotation direction coefficient</li>
+	</ul>
+	</p>
+　　　</li>
+ 　　 <li>Eos
+	<p>
+	Define the Eos.
+	<ul type="circle">
+	<li>Type：Select the type of Eos<br>
+	Us-Up only</li>
+	</ul>
+	</p>
+　　　</li>
+ 　　 <li>Viscosity
+	<p>
+	Define the viscosity coefficient.
+	<ul type="circle">
+	<li>Type：Select the type of viscosity coefficient<br>
+	Newtonian only</li>
+	<li>Use Temperature-Depend Data：Select to include the temperature dependence</li>
+	</ul>
+	</p>
+　　　</li>
+
+
+ 　　 <li>Thermal pull-down menu
+	<p>
+	Material constants that are used in heat transfer analysis are registered. 
+ 　　 <li>Conductivity
+	<p>
+	It defines the thermal conductivity<br>
+	Option：Option
+	<ul type="circle">
+	<li>Type：Select the input type of thermal conductivity<br>
+	The contents of the data table will change according to the type.</li>
+	<ul type="square">
+	<li>ISOTROPIC：Isotropic linear expansion coefficient</li>
+	<li>ORTHOTROPIC：Orthotropic linear expansion coefficient</li>
+	<li>ANISOTROPIC：Full anisotropy linear expansion coefficient</li>
+	</ul>
+	<li>Use Temperature-Depend Data：Select to include the temperature dependence</li>
+	</ul>
+	Unit：Unit
+	<ul type="circle">
+	<li>Conductivity：Select the unit of thermal conductivity</li>
+	<li>Temperature：Select the unit of temperature</li>
+	</ul>
+	</p>
+　　　</li>
+
+ 　　 <li>Specific Heat
+	<p>
+	Define the specific heat.<br>
+	Option：Option
+	<ul type="circle">
+	<li>Use Temperature-Depend Data：Select to include the temperature dependence</li>
+	</ul>
+	Unit：Unit
+	<ul type="circle">
+	<li>Specific Heat：Select the unit of specific heat</li>
+	</ul>
+	</p>
+　　　</li>
+
+ 　　 <li>Heat Generate Rate
+	<p>
+	Define the heat rate.<br>
+	<ul type="circle">
+	<li>Use Temperature-Depend Data：Select to include the temperature dependence</li>
+	</ul>
+	</p>
+　　　</li>
+
+ 　　 <li>Gasket pull-down menu
+	<p>
+	Material constants that are used in the gasket model are registered.
+ 　　 <li>Gasket Membrane Elastic
+	Define the gasket surface within the elastic.<br>
+	Option：Option
+	<ul type="circle">
+	<li>Use Temperature-Depend Data：Select to include the temperature dependence</li>
+	<li>Number of Filed Variable：If you need to add a column to the table</li>
+	</ul>
+　　　</li>
+
+ 　　 <li>Gasket Transverse Shear Elastic
+	Define the gasket shear elasticity.<br>
+	<ul type="circle">
+	<li>Horizontal Transverse：It defines the horizontal direction of shear elasticity</li>
+	<li>Vertical Transverse：It defines the shear elasticity in the vertical direction</li>
+	<li>Units：Select the input unit of the shear elastic</li>
+	<li>Use Temperature-Depend Data：Select to include the temperature dependence</li>
+	</ul>
+　　　</li>
+
+ 　　 <li>Gasket Thickness Behavior
+	It defines the thickness behavior of the gasket.<br>
+	<ul type="circle">
+	<li>Type：Select the type of gasket behavior</li>
+	<ul type="square">
+	<li>Elastic_Plastic：Elastic-plastic law</li>
+	<li>Damage：Breaking law</li>
+	</ul>
+
+	<li>Units：Select the input unit of the gasket behavior.</li>
+	<ul type="square">
+	<li>Pressure Per Closure：Pressure per closing amount</li>
+	<li>Force：Closing force</li>
+	<li>Stress Per Strain(ADVC Only)：Stress per closure strain</li>
+	</ul>
+
+	<li>Loading：We define the curve at the time of loading</li>
+	<li>Unloading：Define the curve at the time of unloading</li>
+
+	<li>Yield onset Method：Yield generation law</li>
+	<ul type="square">
+	<li>Relative_slope_drop：</li>
+	<li>Closure_value：Closing amount</li>
+	<li>Pressure_value：Amount of pressure</li>
+	</ul>
+
+	<li>Tensile Siffness Factor/Value：</li>
+	<ul type="square">
+	<li>Value：Enter a numeric value</li>
+	<li>Factor：Input by a factor</li>
+	</ul>
+
+	<li>Use Temperature-Depend Data：Select to include the temperature dependence.</li>
+	<li>Included user-specified unloading curves：Select user-defined curve for unloading.</li>
+	</ul>
+　　　</li>
+
+ 　　 <li>Gasket Additional Behavior
+	It defines additional item of gasket behavior.<br>
+	Option：Option
+	<ul type="circle">
+	<li>Initial Gap：Enter the initial gap amount</li>
+	</ul>
+　　　</li>
+
+	</p>
+　　　</li>
+
+ 　　 <li>Fluid Initial pull-down menu
+	<p>
+	Material constants that are used in fluid analysis are registered.
+	<li>Sound Speed</li>
+	<li>Bulk Modulus<br>
+	Option：Option
+	<ul type="circle">
+	<li>Use Temperature-Depend Data：Select to include the temperature dependence</li>
+	</ul>
+	</li>
+	</p>
+　　　</li>
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+<h4>Create a new material</h4>
+      <ol>
+　　　<li>&nbspSelect New from the right-click menu of the mouse on the User Data Base table.<br>
+	Edit Material dialog box appears.</li>
+　　　<li>&nbspEnter the material name in the Name.</li>
+　　　<li>&nbspChange the other parameters as needed. You can use Type, Standard and Description freely as an optional identifier. Material ID can not be duplicated in the material library.</li>
+　　　<li>&nbspSelect the material constant item that you want to input from Structure, Thermal, Gasket and Fluid.<br>
+	Input the contents of the material constants are displayed on the right side of the Property window.</li>
+　　　<li>&nbspEnter the Material parameters in accordance with the above description.</li>
+　　　<li>&nbspPress the OK button to create the data. Data that is created will be added to the User Data Base table.</li>
+　　　<li>&nbspTo save the created data to any of the library, select Save from the right-click menu of the target item on the mouse specifying the library file.</li>
+　　　<li>&nbspTo delete the created data, select Delete from the right-click menu of the target item on the mouse.</li>
+	</ol>
+<h4>Acquiring existing data from material library</h4>
+      <ol>
+　　　<li>&nbspSince the Library Data Base has table data of the default material library displayed, copy by drag-and-drop to the User Data Base table.<br>
+	You can also perform the same operation by selecting Import from the right-click mouse menu button on the library of items.<br>
+	Material that has been added to the User Data Base table can be referred to at the time of creating property data.</li>
+　　　<li>&nbspTo add a material library to the Library Data Base table, please select the library file from a folder icon in the Library Path.<br>
+	Material data that is included in the library will be added to the display.</li>
+	　　　<li>&nbspFrom Jupiter v5.0.2, when saving the created data to the material library , the version of file (*.mlib) is upgraded to 4 < JPT-MATERIAL-LIBRARY Version="4" >.  <br>
+	The convert temperature unit for Reference Temperature of Expansion is supported only for < JPT-MATERIAL-LIBRARY Version="4" > .</li>
+      </ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Section</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Section</h2>
+	<div class="contents">
+	<p>
+	You can register a cross-sectional in the library.
+	</p>
+	<img src="./Media/CommandDlg/Properties_1D_Section.png">
+
+	<h4>Buttons</h4>
+	<li>Add
+	<p>
+	Open the Cross Section dialog box, and then register a new cross-section.
+	</p>
+	</li>
+	<li>Modify
+	<p>Open the Cross Section dialog box, and then edit the cross-section.</p>
+	</li>
+	<li>Delete
+	<p>Remove the cross-section.</p>
+	</li>
+	<li>Import
+	<p>Load section performance in slib format of 1D property library.</p>
+	</li>
+	<li>Export
+	<p>Export cross section performance in slib format of 1D property library.</p>
+	</li>
+
+	<h4>Cross Section Dialog Box</h4>
+	<p>
+	Calculate the cross-section property values. Created value is registered in the Section pull-down menu.
+	</p>
+
+	<img src="./Media/CommandDlg/Properties_1D_Section2.png">
+
+	<h4>General</h4>
+	<p>
+	Enter the general cross-section properties.
+	</p>
+	<p>Name<br>Enter the name of the cross-section properties to be registered.</p>
+	<p>Type<br>Selected calculation type is displayed.</p>
+	<p>Shape<br>Select the general cross section to be applied. Dimensions variable name will be displayed to the right of the image and the size table, according to the selected shape.</p>
+	<p>Tapered<br>The cross-sectional size of left and right side of the selected beam will be different. It will be the two input to be specified in the size variable.</p>
+	<p>Size Table<br>Enter a value in the dimensions variable to be displayed.</p>
+	<p>Elem Y-dimension Dir<br>Select the Y-axis direction of the cross section.</p>
+	<p>Input Unit<br>Select the local coordinate system of the cross-section calculation.
+</p>
+	
+<h4>Library</h4>
+	<p>
+	Use the cross-sectional shape library of Nastran.
+	</p>
+	<p>Name<br>Enter the name of the cross-section properties to be registered.</p>
+	<p>Type<br>Selected calculation type is displayed.</p>
+	<p>Shape<br>Select the type of cross section library in Nastran. Dimensions variable name of Nastran will be displayed to the right of the image and the size table, according to the selected shape.</p>
+	<p>Tapered<br>The cross-sectional size of left and right side of the selected beam will be different. It will be the two input to be specified in the size variable.</p>
+	<p>Size Table<br>Enter a value in the dimensions variable to be displayed.</p>
+	<p>Elem Y-dimension Dir<br>Can not be selected.</p>
+	<p>Input Unit<br>Select the local coordinate system of the cross-section calculation.
+</p>
+	
+	<h3>-&nbspOperation Procedure (Add)&nbsp-</h3>
+	<ol>
+	<li>&nbspClick the Add button to open the Cross Section dialog box.</li>
+	<li>&nbspEnter the parameters.</li>
+	<li>&nbspClick the OK button in the Cross Section dialog box.</li>
+	</ol>
+
+	
+	<h3>-&nbspOperating Procedure (Edit) &nbsp-</h3>
+	<ol>
+	<li>&nbspClick the edit section of the cross-section table.</li>
+	<li>&nbspClick on the Modify button to open the Cross Section dialog box.</li>
+	<li>&nbsp＊Even if you double-click cross-section table, it opens the Cross Section dialog box for editing.</li>
+	<li>&nbspEnter the parameters.</li>
+	<li>&nbspClick the OK button in the Cross Section dialog box.</li>
+	</ol>
+
+	<h3>-&nbspOperating Procedure (Delete)&nbsp-</h3>
+	<ol>
+	<li>&nbspClick Delete the target of the cross-section table (Multiple selections are possible).</li>
+	<li>&nbspClick the Delete button.</li>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

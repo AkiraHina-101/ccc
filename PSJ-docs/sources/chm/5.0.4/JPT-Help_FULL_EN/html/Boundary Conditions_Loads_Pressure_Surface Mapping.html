@@ -1,0 +1,114 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Pressure | Surface Mapping</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Pressure | Surface Mapping</h2>
+<div class="contents">
+	<p>
+	Map the pressure of fluid analysis calculation result of Fluent and StarCD by <a href="./Appendix_Technical%20Information_Algorithm%20of%20Surface%20Mapping.html">Nearest neighbor method</a>.<br>
+	The values in the file are read in document units and output in the units.<br>
+	<br>
+	</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Loads_Pressure_Surface%20Mapping.png">
+	
+	<h4>Mapping Pressure</h4>
+		<li><b>Name</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the condition name.</p>
+		</li>
+		<li><b>Export by</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the fluid analysis solver from which the result file was output.</p>
+				<ul type="circle">
+					<span style="font-size:0.95em;">
+					<li><b><a href="./Appendix_Technical%20Information_Data%20Format%20of%20Surface%20Mapping%20File.html#fluent">Fluent</a></b></li>
+					<li><b><a href="./Appendix_Technical%20Information_Data%20Format%20of%20Surface%20Mapping%20File.html#starcd">StarCD</a></b></li>
+					</span>
+				</ul>
+		</li>
+		<li><b>Mapping File</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the fluid analysis result file.</p>
+		</li>
+		<li><b>Pressure Tag</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Select the column number to map.</p>
+		</li>
+		<li><b>Scale Factor</b><br>
+			<p>&nbsp;&nbsp;&nbsp;The mapping result can be corrected with a factor.</p>
+		</li>
+	<h4>Transform Data</h4>
+		<li><b>Rotation X / Y / Z</b><br>
+			<p>&nbsp;&nbsp;&nbsp;The analysis results can be rotated to correct the position.</p>
+		</li>
+		<li><b>Displacement X / Y / Z</b><br>
+			<p>&nbsp;&nbsp;&nbsp;The analysis result can be moved in the translational direction to correct the position.</p>
+		</li>
+		<li><b>Coordinate Scale</b><br>
+			<p>&nbsp;&nbsp;&nbsp;You can correct the scale of analysis results.</p>
+		</li>
+	<h4>Preview</h4>
+		<li><b>CFD points</b><br>
+			<p>&nbsp;&nbsp;&nbsp;The point cloud of the analysis result after correction can be displayed, and the position with the target model can be confirmed.
+		</li>
+		<img src="./Media/CommandDlg/Boundary%20Conditions_Loads_Pressure_Surface%20Mapping_2.png"></p>
+		
+		<li><b>Clear</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Clear CFD points preview contents.</p>
+		</li>
+	<h4>Search Range</h4>
+		<li><b>Auto</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Specify the data search range automatically.</p>
+		</li>
+		<li><b>Input(TSV)</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Enter any tolerance.
+		</li>
+		<img src="./Media/CommandDlg/Boundary%20Conditions_Loads_Pressure_Surface%20Mapping_3.png"></p>
+		<li><b>Mapp Preview</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Display a preview of the mapping.</p>
+		</li>
+		<li><b>Clear</b><br>
+			<p>&nbsp;&nbsp;&nbsp;Clear the mapping preview contents.</p>
+		</li>
+	
+
+
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+		<ol>
+			<li>&nbsp;Enter the condition name in Name.</li>
+			<li>&nbsp;Specify a solver for fluid analysis.</li>
+			<li>&nbsp;Click the mapping file button and specify the fluid analysis result.</li>
+			<li>&nbsp;Specify the result column by pressure tag.</li>
+			<li>&nbsp;Check the position of target model and analysis result with data point button.</li>
+			<li>&nbsp;Select the face to map.</li>
+			<li>&nbsp;Set the data search scope as required.</li>
+			<li>&nbsp;Click the mapping preview button to display the contour color of the mapping result.</li>
+			<li>&nbsp;Click the Apply / OK button to apply the mapping.
+		</ol>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

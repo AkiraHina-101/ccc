@@ -1,0 +1,74 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Local Remesh | Solid</title>
+
+<style>
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>Local Remesh | Solid</h2>
+<div class="contents">
+	<p>Solid mesh the specified range (sphere) of the tetra solid mesh model again.<br>
+	It is used to regenerate the solid mesh while maintaining the surface mesh when there is a poor quality tetra element.</p>
+	
+	<img src="./Media/CommandDlg/Meshing_Local%20Meshing_Local%20Remesh%20Solid.png">
+	
+	<h4>Remesh Region</h4>
+		<li><b>Origin-X,Y,Z</b>
+			<p>&nbsp;&nbsp;&nbsp;Enter the center coordinates of the remesh range (sphere).<br>
+			&nbsp;&nbsp;&nbsp;It is automatically input by node selection. When specifying multiple ranges, coordinate value input is not supported, so select multiple nodes.</p>
+		</li>
+		<li><b>Radius</b>
+			<p>&nbsp;&nbsp;&nbsp;Enter the radius of the remesh range.</p>
+		</li>
+
+	<h4>Attributes</h4>
+		<li><b>Grading Factor</b>
+			<p>&nbsp;&nbsp;&nbsp;Enter the grading factor value of the element.</p>
+		</li>
+		<li><b>Stretch Limit</b>
+			<p>&nbsp;&nbsp;&nbsp;Specify the element stretch limit value at mesh creation.</p>
+		</li>
+	</br>
+
+	<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;In advance, display the places where the element quality is bad.</li>
+		<li>&nbsp;Select the part to be remeshed. If no part is selected, all parts included in the range will be remeshed.</li>
+		<li>&nbsp;Select the center node of the remesh range. If there are multiple locations, select multiple nodes.</li>
+		<li>&nbsp;Enter the radius, narrow the remesh range, and click the Apply / OK button.</li><br>
+	<img src="./Media/Meshing_Local%20Meshing_Local%20Remesh_Solid_1.png"></img>
+		<img src="./Media/Meshing_Local%20Meshing_Local%20Remesh_Solid_2.png"></img>
+	<br />
+
+
+	<p>Fixing the surface mesh makes it difficult to improve the quality or it may appear elsewhere. In that case, please perform element editing manually including surface mesh.</p>
+
+		</ol>
+
+	<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

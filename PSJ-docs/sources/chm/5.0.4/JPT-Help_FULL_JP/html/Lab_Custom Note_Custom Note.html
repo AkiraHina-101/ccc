@@ -1,0 +1,99 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Lab | カスタムノート</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Lab | カスタムノート</h2>
+	<div class="contents">
+	<p>	モデル上の任意の位置を指すノートを追加し、ファイル内に保存できる機能です。</p>
+	
+	<img src="./Media/CommandDlg/Lab_CustomNote.png">
+	<p>カスタムノートを1つでも追加すると、アッセンブルウィンドウ内のアッセンブルツリーの「すべてのアイテム」の下に「カスタムノート」アイテムが追加され、その下に指定したコレクション名でコレクションアイテムと、その下にカスタムノートアイテムが追加されます。</p>
+	<img src="./Media/CustomNote_1.png">	
+
+	<h4>ノート</h4>
+	<li>ノート名
+	<p>ノートの名称を入力します。
+	</li>
+	<h4>オプション</h4>
+	<li>座標値
+	<p>ノートを追加する位置を座標値で指定します。</p>
+	<p>節点/任意点/エッジ上任意点のいずれかを選択した状態でカスタムノートを作成すると、選択エンティティの座標値を自動入力します。</p>
+	<p>1D, 2D, 3D要素のいずれかを選択した状態でカスタムノートを作成すると、選択エンティティの中央の座標値を自動入力します。</p>
+	<p>Preドキュメントでエンティティ指定のカスタムノートを作成した場合、その位置はモデルの編集には追従しません。</p>
+	<p>Postドキュメントで節点指定のカスタムノートを作成した場合、その位置は変形表示に追従します。それ以外のエンティティ指定のカスタムノートの場合は、その位置は変形表示に追従しません。</p>
+</li>
+	<li>新規コレクション作成チェックボックス
+	<p>新しいコレクションを作成し、その中に新規カスタムノートを追加します。
+	</li>
+	<li>コレクションコンボボックス
+	<p>新規カスタムノートを追加するコレクションを指定します。
+	</li>
+	<h4>内容</h4>
+	<p>ノートの内容を記載します。最大20行まで内容を保持します。
+	<h4>スタイル</h4>
+	<li>フォントサイズ
+	<p>ノート内文字のフォントサイズを指定します。
+	</li>
+	<li>フォント色（フォントサイズ右側の色選択）
+	<p>フォントの色を指定します。
+	</li>
+	<li>太字チェックボックス
+	<p>ノート内文字を太字にします。
+	</li>
+	<li>配置コンボボックス
+	<p>現在は左揃えのみです。
+	</li>
+	<li>ノート背景色
+	<p>ノートの地の色を指定します。
+	</li>
+	<li>ノート枠線
+	<p>幅及びその右側の色選択で、ノート枠線の幅と色を指定します。
+	</li>
+	<li>ノート矢印
+	<p>サイズ及びその右側の色選択で、ノートから座標値に伸びる線の太さと色を指定します。サイズを0にすると、線が非表示になります。<br>
+	</li>
+	<li>タイプコンボボックス
+	<p>座標値を指す形状タイプを、「なし」もしくは「矢印」から選択します。
+	</li>
+	</li>
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>カスタムノート機能を起動します。</li>
+	<li>座標値を入力するか、節点/任意点/エッジ上任意点/要素を選択します。<br>
+	<img src="./Media/CustomNote_2.png" height="500">	</li>
+	<li>適用またはOKボタンで機能が実行されます。<br>
+		<img src="./Media/CustomNote_3.png" height="500">	</li>
+	<li>適用またはOKボタンで機能が実行されます。</li>
+	<li>メインウィンドウ右クリックメニューの「ノートの再配置」を実行すると、ノート位置を適度に分散させることができます。<br>
+		<table><tr><td><img src="./Media/CustomNote_4_1.png" height="300">
+			</td><td><img src="./Media/CustomNote_4_2.png" height="300"></tr></td></table>	</li>
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

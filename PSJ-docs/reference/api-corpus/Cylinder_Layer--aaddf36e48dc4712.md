@@ -1,0 +1,3 @@
+# Cylinder Layer
+
+Cylinder Layer Cylinder Layer Cylinder Layer Dialog box Create a cylindrical surface that is offset to the cylindrical surface inside of the cylindrical body. Cylinder Layer Select the node that determines the face and the length including the extension you want for the edge. Edges are extended to nodal position selected in the normal direction of the cylindrical surface. There are no options. -&nbspOperating Procedure&nbsp- &nbspSelect the node to specify the distance to extend the cylindrical surface and the circle edge, including the circle edge to be executed from the screen. &nbspClick the Apply or OK button to execute the operation. -&nbspOperation Video&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

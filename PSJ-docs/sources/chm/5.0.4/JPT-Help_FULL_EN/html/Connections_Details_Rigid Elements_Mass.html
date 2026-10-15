@@ -1,0 +1,104 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Mass</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Mass</h2>
+	<div class="contents">
+	<p>
+	Create a mass element<br>
+	</p>
+	<p>
+	<img src="./Media/Connections_Details_Rigid%20Elements_Mass.png">
+	</p>
+
+	<h4>Properties</h4>
+	<li>Name
+	<p>Enter the name to be registered.</p>
+	</li>
+	<li>Mass Value
+	<p>Enter the mass.</p>
+	</li>
+	<li>Coordinate
+	<p>Enter the local coordinate system.</p>
+	</li>
+
+	<h4>DoF</h4>
+	<li>DoF
+	<p>Choose the degree of freedom.</p>
+	</li>
+	<ul>
+	<li>UX - RZ
+	<p>
+	Select to define only one degree of freedom.<br>
+	＊For the Nastran output file (.bdf), CMASS2 is defined. Offset distance and mass moment of inertia will be ignored. 
+	</p>
+	</li>
+	<li>UXUYUZ
+	<p>
+	Select to define the degree of freedom of the translation component.<br>
+	＊For the Nastran output file (.bdf), CONM2 is defined.
+	</p>
+	</li>
+	</ul>
+	</li>
+
+	<h4>Offset</h4>
+	<li>X1, X2, X3
+	<p>
+	Enter the offset distance from the node to the centre of mass. 
+	</p>
+	</li>
+
+	<h4>Inertia</h4>
+	<li>I11 - I33
+	<p>
+	Enter the mass moment of inertia around the centre of mass.
+	</p>
+	</li>
+
+	<h4>Local Unit</h4>
+	<li>Length
+	<p>
+	Specify the local unit of length.
+	</p>
+	</li>
+	<li>Mass
+	<p>
+	Specify the local unit of mass. 
+	</p>
+	</li>
+
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+	<li>&nbspSelect the node(s).</li>
+	<li>&nbspEnter the mass in the Mass Value.</li>
+	<li>&nbspIf necessary, set the other parameters.</li>
+	<li>&nbspClick Apply / OK button.</li>
+	</ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>保存/読込</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>保存/読込</h2>
+<div class="contents">
+	<p>ファイルの保存・読み込みに関する設定を行います。</p>
+
+	<img src="./Media/Home_Preferences_SaveLoad.png">
+
+
+	<h4>共通</h4>
+	<li><b>オートセーブ</b></li>
+	<p>指定時間毎に開いているドキュメントをTempフォルダ（%temp%\Technostar）内に保存する機能です。<br>
+	ドキュメントを保存せずに終了した、Jupiter-Preがクラッシュした、といった場合に作業していたドキュメントのバックアップを取得することができます。<br>
+	ドキュメントはファイル名_YYYYMMDDHHMMSS.jtdbとして保存されています。
+	</p>
+	<p>※Tempフォルダ内のファイルは、Jupiter-Pre起動時に消去されます。セーブファイルは、新たにJupiter-Preを起動する前に取得してください。</p>
+	<p>※ファイル保存中は一時的に待機状態になります。</p>
+	<ul type="circle">
+		<span style="font-size:0.95em;">
+			<li><b>オートセーブを有効化</b></li><p>オートセーブの設定を有効にします。</p>
+			<li><b>保存時</b></li><p>セーブ時間間隔を指定します。</p>
+			<li><b>セーブファイル数</b></li><p>１つのドキュメントをいくつのファイルで保存するか指定します。</p>
+		</span>
+	</ul>	
+	<li><b>ドキュメントファイルを開いた時に表示される項目</b></li>
+	<p>jtdb読み込み時、またソルバーデータ(ADVC,Nastran,Abaqus)読み込み時のアッセンブルウィンドウ内ツリー各項目の初期表示状態を制御します。チェックをオフにすることで非表示となります。</p>
+	<li><b>すべてのパーツ</b></li><p>初期状態でのパーツの表示を制御します。</p>
+	<li><b>すべてのアイテム</b></li><p>初期状態でのすべてのアイテムの表示を制御します。</p>
+	ローカルメッシュ設定, 境界条件, 接触, 座標系, 接触要素 : 初期状態ですべてのアイテム以下の個々のアイテム表示を制御します。</p>
+
+	<li><b>CSV出力フォーマット</b></li>
+	<ul type="circle">
+	<p>Jupiterから出力されるCSVファイルの出力フォーマットを、UTF-8(BOMあり)もしくはUTF-8(BOMなし)から選択します。デフォルトはUTF-8(BOMなし)です。</p>
+<table bgcolor="#FFFFEE">
+	<tr><td>BOM(Byte Order Mark)について<br><br>
+		BOMは、プログラムがテキストデータを読み込む際に、どの種類の符号化形式を採用しているのかを判別するために、テキストの先頭の数バイトに付加されているデータです。<br><br>
+Microsoft&reg; Excel&reg; や一部のアプリケーションでは、CSVファイルの先頭のBOMによって符号化形式を判別していますので、BOMが無いファイルでは文字化け等を起こす場合があります。<br><br>
+一方、プログラムでデータを読み込む場合、BOMを利用するかどうかの判定はプログラマに一任されますので、BOMなしとして先頭バイトから実データが始まるようにした方がプログラミングは易しくなります。
+</td></tr>
+</table>	
+</ul>
+<h4>Post</h4>
+<p>Postドキュメント用の設定を行います。</p>
+	<li><b>結果ファイルオープン時の自動計算</b></li>
+	<p>結果ファイルを読み込んだ際にチェックを入れた結果を計算し、結果ツリーに追加します。</p>
+	<li><b>インポートのバックグラウンド処理</b></li>
+	<p>オフの場合、モデルおよび結果タイトルのみ読み込み、結果タイトル選択時に結果データを一時ファイルに読み込み、表示します。<br>
+オンの場合、モデルおよび結果タイトル読み込み後、バックグラウンドですべての結果データを一時ファイルに読み込みます。結果タイトル選択時の表示速度、および各ステップ結果を使用するコマンドのパフォーマンスが向上します。<br>
+       * Jupiter上でのマクロ/PSJ実行時は結果インポート終了までコマンド処理が一時停止されます。バッチ実行によるマクロ/PSJ実行時はバックグラウンドインポート処理がオフとなります。
+    </p>
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+			<li>&nbsp;コマンドを起動し、各オプションを指定して適用もしくはOKボタンをクリックします。</li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

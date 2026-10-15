@@ -1,0 +1,3 @@
+# Move Node | Smoothing-Refine Quality-
+
+Move Node | Smoothing-Refine Quality- a.no-uline {text-decoration:none} Move Node | Smoothing-Refine Quality- Eliminate poor quality meshes in selected faces / elements / node sets by moving the mesh nodes. Element Quality Metric: Specify the quality check method. &nbsp;&nbsp;&nbsp;&nbsp;※Please refer to ＜definition of quality check method＞ for each item. Applied Elements &nbsp;&nbsp;&nbsp;&nbsp;Specify the target element of node movement. (Tri & Quad only.) -&nbspOperating Procedure&nbsp- &nbsp;Select faces / elements / nodes that contain elements of poor quality. &nbsp;Specify the metric (measurement method). &nbsp;Click the Apply or OK button. -&nbsp;操作動画&nbsp;- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

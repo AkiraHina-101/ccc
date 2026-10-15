@@ -1,0 +1,265 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Contacts | MSC Nastran - Manual Face</title>
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Contacts | MSC Nastran - Manual Face</h2>
+<div class="contents">
+	<p>
+	Define contact settings for MSC Nastran between specified faces.<br>
+	Select the master face and the slave face, and define the contact settings.
+	</p>
+
+	<img src="./Media/CommandDlg/Connections_Contacts_Contacts_MSC%20Nastran_Manual%20Face.png">
+
+      <h4>Basic</h4>
+
+　　　<li>Name Prefix
+	<p>
+	Enter the contact pair name.
+	</p>
+　　　</li>
+
+　　　<li>Algorithm
+	<p>
+	Select the contact setting target entity.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Face to Face: Face-to-face contact
+	</p>
+　　　</li>
+
+　　　<li>Type
+	<p>
+	Select the behavior type of contact definition.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;General: Sliding contact<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Tied: Tied contact<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Tied & Maintain Gap: Tied & Maintain Gap contact<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Tied & Full moment: Tied & Full moment contact<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Tied & Full moment & Maintain Gap: Tied & Full moment & Maintain Gap contact
+	</p>
+　　　</li>
+
+　　　<li>Master
+	<p>
+	Select the face to be the master face.<br>
+	</p>
+　　　</li>
+
+　　　<li>Slave
+	<p>
+	Select the face to be the slave face.
+	
+	&nbsp;&nbsp;&nbsp;&nbsp;Switch M/S: Switch master and slave.<br>
+	</p>
+　　　</li>
+
+
+      <h4>Contact Properties | General</h4>
+
+　　　<li>Touching Distance Range（ERROR)
+	<p>Distance below which a node is considered touching a body.
+	</p>
+　　　</li>
+
+　　　<li>Separation Force (FNTOL)
+	<p>Separation force or stress on above which a node separates from a body.
+	</p>
+　　　</li>
+
+　　　<li>Friction Coefficient (FRIC)
+	<p>Friction coefficient.
+	</p>
+　　　</li>
+
+　　　<li>Interference Closure (CINTERF)
+	<p>Interference closure amount, normal to the contact surface.
+	</p>
+　　　</li>
+
+　　　<li>Searching Order(ISEARCH)
+	<p>Option for contact searching order, from Slave to Master or from Master to Slave, for deformable contact bodies.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Double&nbsp;:&nbspThe search order is from lower BCBODOY ID's to higher ones first.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Slave to Master&nbsp;:&nbspThe searching order is from Slave to Master.<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;Program decision&nbsp;:&nbspLet the program decide which search order.;
+	</p>
+　　　</li>
+
+　　　<li>Modify Coordinates (ICOORD)
+	<p>Modify Coordinates.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;None&nbsp;:&nbsp;No modification.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Modify position&nbsp;:&nbsp;Modify the coordinates of a node in contact with a deformable body so that stress-free initial contact can be obtained.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Delay sliding&nbsp;:&nbsp;Extend the tangential error tolerance at sharp corners of deformable bodies to delay sliding off a contacted segment.<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;Both effect&nbsp;:&nbsp;Have both Modify position and Delay sliding active.
+	</p>
+　　　</li>
+
+　　　<li>Friction Stress Limit (FRLIM)
+	<p>Friction stress limit. This entry is only used for friction type 6 (Coulomb friction using the bilinear model).
+	</p>
+　　　</li>
+
+　　　<li>Tolerance Bias Factor (BIAS)
+	<p>Contact tolerance bias. A non-blank entry will override the BIAS entered on the BCBODY entry.
+	</p>
+　　　</li>
+
+　　　<li>Condition Check (ISTYP)
+	<p>Check of contact conditions. For a deformable body:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Double Side&nbsp;:&nbsp;Symmetric penetration, double sided contact.<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;Optimized&nbsp;:&nbsp;Double-sided contact with automatic optimization of contact constraint equations.
+	</p>
+　　　</li>
+
+　　　<li>Shell element face (Slave)
+	<p>Shell element face (Slave) has the following options:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm Thk. offset&nbsp;:&nbsp;Both top and bottom faces will be in the contact description, thickness offset will be included.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/ Thk. offset&nbsp;:&nbsp;Only bottom faces will be in the contact description, thickness offset will be included.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/o Thk. offset&nbsp;:&nbsp;Only bottom faces will be in the contact description, shell thickness will be ignored.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/ Thk. offset&nbsp;:&nbsp;Only top faces will be in the contact description, thickness offset will be included.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/o Thk. offset&nbsp;:&nbsp;Only top faces will be in the contact description, shell thickness will be ignored.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm w/o Thk. offset&nbsp;:&nbsp;Both top and bottom faces will be in the contact description, shell thickness will be ignored.<br>
+	</p>
+　　　</li>
+
+　　　<li>Bearm/Bar Shell Elem, Edge (Slave)
+	<p>Bearm/Bar Shell Elem, Edge (Slave) has the following options:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Beam/Bar Edge only&nbsp;:&nbsp;Only the beam/bar edges are included in the contact description.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Free&Hard Edge only&nbsp;:&nbsp;Only the free and hard shell edges are included in the contact description.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Both&nbsp;:&nbsp;Both the beam/bar edges and the free and hard shell edges are included in the contact description.<br>
+	</p>
+　　　</li>
+
+　　　<li>Shell element face (Master)
+	<p>Shell element face (Master) has the following options:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm Thk. offset&nbsp;:&nbsp;Both top and bottom faces will be in the contact description, thickness offset will be included.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/ Thk. offset&nbsp;:&nbsp;Only bottom faces will be in the contact description, thickness offset will be included.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/o Thk. offset&nbsp;:&nbsp;Only bottom faces will be in the contact description, shell thickness will be ignored.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/ Thk. offset&nbsp;:&nbsp;Only top faces will be in the contact description, thickness offset will be included.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/o Thk. offset&nbsp;:&nbsp;Only top faces will be in the contact description, shell thickness will be ignored.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm w/o Thk. offset&nbsp;:&nbsp;Both top and bottom faces will be in the contact description, shell thickness will be ignored.<br>
+	</p>
+　　　</li>
+
+　　　<li>Bearm/Bar Shell Elem, Edge (Master)
+	<p>Bearm/Bar Shell Elem, Edge (Master) has the following options:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Beam/Bar Edge only&nbsp;:&nbsp;Only the beam/bar edges are included in the contact description.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Free&Hard Edge only&nbsp;:&nbsp;Only the free and hard shell edges are included in the contact description.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Both&nbsp;:&nbsp;Both the beam/bar edges and the free and hard shell edges are included in the contact description.<br>
+	</p>
+　　　</li>
+<h4>Contact Properties | Tied / Tied & Maintain Gap / Tied  & Full moment / Tied  & Full moment & Maintain Gap</h4>
+
+　　　<li>Touching Distance Range（ERROR)
+	<p>Distance below which a node is considered touching a body.
+	</p>
+　　　</li>
+
+　　　<li>Interference Closure (CINTERF)
+	<p>Interference closure amount, normal to the contact surface.
+	</p>
+　　　</li>
+
+　　　<li>Searching Order (ISEARCH)
+	<p>Option for contact searching order, from Slave to Master or from Master to Slave, for deformable contact bodies.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Double&nbsp;:&nbspThe search order is from lower BCBODOY ID's to higher ones first.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Slave to Master&nbsp;:&nbspThe searching order is from Slave to Master.<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;Program decision&nbsp;:&nbspLet the program decide which search order.;
+	</p>
+　　　</li>
+
+　　　<li>Modify Coordinates (ICOORD)
+	<p>Modify Coordinates.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;None&nbsp;:&nbsp;No modification.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Modify position&nbsp;:&nbsp;Modify the coordinates of a node in contact with a deformable body so that stress-free initial contact can be obtained.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Delay sliding&nbsp;:&nbsp;Extend the tangential error tolerance at sharp corners of deformable bodies to delay sliding off a contacted segment.<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;Both effect&nbsp;:&nbsp;Have both Modify position and Delay sliding active.
+	</p>
+　　　</li>
+
+　　　<li>Condition Check (ISTYP)
+	<p>Check of contact conditions. For a deformable body:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Double Side&nbsp;:&nbsp;Symmetric penetration, double sided contact.<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;Optimized&nbsp;:&nbsp;Double-sided contact with automatic optimization of contact constraint equations.
+	</p>
+　　　</li>
+
+　　　<li>Shell element face (Slave)
+	<p>Shell element face (Slave) has the following options:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm Thk. offset&nbsp;:&nbsp;Both top and bottom faces will be in the contact description, thickness offset will be included.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/ Thk. offset&nbsp;:&nbsp;Only bottom faces will be in the contact description, thickness offset will be included.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/o Thk. offset&nbsp;:&nbsp;Only bottom faces will be in the contact description, shell thickness will be ignored.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/ Thk. offset&nbsp;:&nbsp;Only top faces will be in the contact description, thickness offset will be included.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/o Thk. offset&nbsp;:&nbsp;Only top faces will be in the contact description, shell thickness will be ignored.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm w/o Thk. offset&nbsp;:&nbsp;Both top and bottom faces will be in the contact description, shell thickness will be ignored.<br>
+	</p>
+　　　</li>
+
+　　　<li>Bearm/Bar Shell Elem, Edge (Slave)
+	<p>Bearm/Bar Shell Elem, Edge (Slave) has the following options:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Beam/Bar Edge only&nbsp;:&nbsp;Only the beam/bar edges are included in the contact description.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Free&Hard Edge only&nbsp;:&nbsp;Only the free and hard shell edges are included in the contact description.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Both&nbsp;:&nbsp;Both the beam/bar edges and the free and hard shell edges are included in the contact description.<br>
+	</p>
+　　　</li>
+
+　　　<li>Shell element face (Master)
+	<p>Shell element face (Master) has the following options:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm Thk. offset&nbsp;:&nbsp;Both top and bottom faces will be in the contact description, thickness offset will be included.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/ Thk. offset&nbsp;:&nbsp;Only bottom faces will be in the contact description, thickness offset will be included.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/o Thk. offset&nbsp;:&nbsp;Only bottom faces will be in the contact description, shell thickness will be ignored.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/ Thk. offset&nbsp;:&nbsp;Only top faces will be in the contact description, thickness offset will be included.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/o Thk. offset&nbsp;:&nbsp;Only top faces will be in the contact description, shell thickness will be ignored.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm w/o Thk. offset&nbsp;:&nbsp;Both top and bottom faces will be in the contact description, shell thickness will be ignored.<br>
+	</p>
+　　　</li>
+
+　　　<li>Bearm/Bar Shell Elem, Edge (Master)
+	<p>Bearm/Bar Shell Elem, Edge (Master) has the following options:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Beam/Bar Edge only&nbsp;:&nbsp;Only the beam/bar edges are included in the contact description.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Free&Hard Edge only&nbsp;:&nbsp;Only the free and hard shell edges are included in the contact description.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Both&nbsp;:&nbsp;Both the beam/bar edges and the free and hard shell edges are included in the contact description.<br>
+	</p>
+　　　</li>
+
+      <h4>Color Setting</h4>
+
+　　　<li>Contact Color
+	<p>
+	Define the contact-to-display marker color.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Reset: Initialize to default color
+	</p>
+　　　</li>
+
+<h3>-&nbsp;Operating Procedure&nbsp;-</h3>
+      <ol>
+　　　<li>&nbspSelect the face that will be the master face in the master. Then select the face that will be the slave face in the slave.</li>
+　　　<li>&nbspDefine detailed settings for contact pairs as required, and click the Apply (OK) button to define contact pairs.</li>
+      </ol>
+<br>
+<br>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

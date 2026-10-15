@@ -1,0 +1,106 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>コラプス</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>コラプス</h2>
+	<div class="contents">
+	<p>
+	要素の削除と結合をします。
+	</p>
+
+	<img src="./Media/CommandDlg/Mesh%20Cleanup_Cleanup_Manual_Collapse.png">
+
+	<h4>コラプス</h4>
+	<li>距離
+	<p>選択した要素エッジの長さを表示します。</p>
+	</li>
+	<li>最小ボタン
+	<p>節点を選択した後に「最小」ボタンを押すと、選択した節点に接続する最も短い要素エッジが選択されます。<br>
+	V4.1.1よりショートカットキーShift+mがアサインされました。</p>
+	</li>
+	<li>次&gtボタン
+	<p>節点と要素エッジ選択中に「次&gt」ボタンを押すと、選択中の要素エッジの次に短いエッジに選択が切り替わります。<br>
+		V4.1.1よりショートカットキーShift+nがアサインされました。</p>
+	</li>
+	<li>自動選択チェックボックス
+		<p>チェックボックスをONにしていると、節点選択時に、選択節点に接続する要素エッジの中で最も短いものを自動的に選択します。</p>
+	</li>
+	<li>節点選択を保持チェックボックス
+		<p>チェックボックスをONにしていると、実行後に節点選択が解除されません。</p>
+	</li>
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<li>隣接している要素で分割数が合っていない場合に、要素を削除し分割数を合わせます。</li>
+	<ol>
+	<li>残したい節点を選択します。</li>
+	<li>選択した節点に接する要素のエッジを選択します。
+		<br>自動選択をONにしている場合、本手順が自動的に実行されます。</li>
+	<li>適用ボタンをクリックします。</li>
+	<li>選択した節点に、選択した要素エッジのもう片方の節点が結合され、間にあった要素が削除されます。<br>
+		節点選択を保持チェックボックスがONの場合、１で選択した節点が削除後も選択され続けます。</li>
+	</ol>
+
+
+	<img src="./Media/MeshCleanup_Cleanup_Manual_Collapse.PNG">
+	<br>
+	<br>
+	<補足> <br>
+	コラプスが適用できる節点と要素エッジの組み合わせ以外をピックした場合、適用/OKボタンはグレーアウトされます。<br>
+	例1：ピックした節点と要素エッジが離れている場合<br>
+	例2：複数の節点や要素エッジをピックしている場合<br>
+	<br>
+
+	<h3>-&nbsp操作手順（最小/次&gtボタン）&nbsp-</h3>
+	<li>選択節点に接続する要素エッジの中で、最も短いエッジを順に選択します。</li>
+	<ol>
+	<li>残したい節点を選択します。</li>
+	<li>「最小」ボタンをクリックします。選択した節点に接続する要素エッジの中で、最も短いものが選択されます。
+		<br>自動選択をONにしている場合、本手順が自動的に実行されます。
+	</li>
+	<li>「次&gt」ボタンをクリックします。選択した節点に接続する要素エッジの中で、その次に短いものが順に選択されます。</li>
+	<li>「最小」ボタンをクリックします。再度、最も短い要素エッジが選択されます。</li>
+	<li>適用ボタンをクリックします。</li>
+	<li>選択した節点に、選択した要素エッジのもう片方の節点が結合され、間にあった要素が削除されます。<br>
+	節点選択を保持チェックボックスがONの場合、１で選択した節点が削除後も選択され続けます。</li>
+	</ol>
+<table class="commontable">
+<tr><td>1.節点選択</td>
+<td>2.（ビュー拡大）最小ボタンをクリック</td>
+<td>3.次&gtボタンをクリック</td>
+<td>4.最小ボタンをクリック</td>
+<td>5.適用ボタンをクリック</td></tr>
+<tr>
+<td><img src="./Media/ManualCleanup_Cleanup_Manual_Collapse_1.png"></td>
+<td><img src="./Media/ManualCleanup_Cleanup_Manual_Collapse_2_4.png"></td>
+<td><img src="./Media/ManualCleanup_Cleanup_Manual_Collapse_3.png"></td>
+<td><img src="./Media/ManualCleanup_Cleanup_Manual_Collapse_2_4.png"></td>
+<td><img src="./Media/ManualCleanup_Cleanup_Manual_Collapse_5.png"></td>
+
+</table>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

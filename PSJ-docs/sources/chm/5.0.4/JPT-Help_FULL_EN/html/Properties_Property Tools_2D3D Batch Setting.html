@@ -1,0 +1,102 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>2D3Dバッチ設定(2D3D Batch Setting)</title>
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+	<h2>2D3D Batch Setting</h2>
+<div class="contents">
+	<p>
+	Set material properties for each part at once. Material properties that can be set are 2D / 3D / Gasket.</br>
+	The name of the material property will be the same as the part name.
+	</p>
+	<p>
+	<img src="./Media/Properties_Property%20Tools_2D3D%20Batch%20Setting_a.png"></br>
+	</p>
+	<p>
+	<img src="./Media/CommandDlg/Properties_Property%20Tools_2D3D%20Batch%20Setting.png"></br>
+	</p>
+
+	<h4>Material Setting</h4>
+	<li>Browse material lib
+	<p>
+	The name of the currently set material library. You can specify any material library.
+	</p>
+	</li>
+	<li>Table
+	Table The first row of each column allows you to sort and filter by any name.
+	<ul>
+	<li>Part
+	<p>
+	A list of part names.
+	</p>
+	</li>
+	<li>Material
+	<p>
+	Select a material from the material library.
+	</p>
+	</li>
+	<li>Type
+	<p>
+	Select a material property type from 2D / 3D / Gasket.
+	</p>
+	</li>
+	<li>Thickness
+	<p>
+	Type = 2D parameter. Enter the plate thickness of the element.
+	</p>
+	</li>
+	<li>ThicX/Y/Z
+	<p>
+	Type = Gasket parameter. Specify the thickness direction of the gasket with a direction vector.
+	</p>
+	</li>
+	<li>Uniaxial
+	<p>
+	Type = Gasket parameter. Select the thickness direction behavior option. Only valid for ADVC and ABAQUS.
+	</p>
+	</li>
+	</ul>
+	</li>
+	</br>
+	</div>
+
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+	<li>Specify the material library.</li></br>
+	<li>In the list, specify the material and type to set for each part.</li></br>
+	<li>Change the parameters in the list as needed.</li></br>
+	<li>Click the Apply button. Material properties are set for each part at once.</li></br>
+	</ol>
+
+	<h3>-&nbspOperating Procedure : Input / output of table settings&nbsp-</h3>
+	<ol>
+	<li>Click the Export Setting File button. Outputs the table settings (* .csv).</li></br>
+	<li>Click the Import Setting File button. Read the table settings (* .csv).</li></br>
+	</ol>
+
+	<h3>-&nbspNotes&nbsp-</h3>
+	<ul>
+	<li>This function selects a material from the material library. Create a material library in advance with <b><a href="./Properties_Material_Material.html">Material command</a></b>.</li></br>
+	</ul>
+</div>
+
+</body>
+
+</html>

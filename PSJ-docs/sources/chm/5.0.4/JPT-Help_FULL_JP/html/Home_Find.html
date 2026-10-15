@@ -1,0 +1,82 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>検索</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>検索</h2>
+<div class="contents">
+	<p>このコマンドは、モデルに存在する指定された名前/ ID /値で目的のタイプを示すことにより、エンティティを検索するために使用します。</p>
+
+	<img src="./Media/Home_Preferences_Find.png">
+	<li><b>エンティティタイプを検索する</b></li>
+	<p>以下は、サポートされているターゲットタイプと独自のデータ検証のリストです。</p>
+	<table class="commontable">
+	 <tr><th>名前</th><th>説明</th><th>入力方式</th></tr>
+	 </td><td>パーツ</td><td>パーツおよびバーパーツのターゲットエンティティ</td><td>名前[ストリング], ID[整数]</td></tr>
+	 </td><td>フェース</td><td>フェース</td><td>名前[ストリング], ID[整数]</td></tr>
+	 </td><td>エッジ</td><td>エッジ</td><td>ID[整数]</td></tr>
+	 </td><td>頂点</td><td>頂点</td><td>ID[整数], 位置(X, Y, Z)[ダブル]</td></tr>
+	 </td><td>ソリッド要素</td><td>ソリッド要素</td><td>ID[整数]</td></tr>
+	 </td><td>要素</td><td>要素</td><td>ID[整数]</td></tr>
+	 </td><td>1D要素</td><td>バー要素を構成する1D要素</td><td>ID[整数]</td></tr>
+	 </td><td>節点</td><td>節点</td><td>ID[整数], 位置(X, Y, Z)[ダブル]</td></tr>
+	 </td><td>グループ</td><td>グループ</td><td>名前[ストリング], ID[整数]</td></tr>
+	 </td><td>力</td><td>力</td><td>名前[ストリング], ID[整数]</td></tr>
+	 </td><td>圧力</td><td>圧力</td><td>名前[ストリング], ID[整数]</td></tr>
+	 </td><td>拘束</td><td>拘束条件</td><td>名前[ストリング], ID[整数]</td></tr>
+	 </td><td>自由度定義</td><td>TSソルバーのDoF ASET</td><td>名前[ストリング], ID[整数]</td></tr>
+	 </td><td>遠心力</td><td>遠心力</td><td>名前[ストリング], ID[整数]</td></tr>
+	 </td><td>重力</td><td>重力</td><td>名前[ストリング], ID[整数]</td></tr>
+	 </td><td>接続</td><td>RBE、MPC、スプリング、ダンパー、ボルトプリテンションなどの接続要素</td><td>名前[ストリング], ID[整数]</td></tr>
+	 </td><td>接触</td><td>リジッドウォール設定を含む接触設定</td><td>名前[ストリング], ID[整数]</td></tr>
+	 </td><td>座標系</td><td>ローカル座標系</td><td>名前[ストリング], ID[整数], Coordinate value(X, Y, Z)[ダブル]</td></tr>
+	 </td><td>プロパティ</td><td>3D、2D、1Dなどのプロパティアイテム</td><td>名前[ストリング], ID[整数]</td></tr>
+	</table>
+	</br>
+	<li><b>一致</b></li>
+	<p>検索文字列に完全に一致するエンティティを検索します。</p>
+	<h3>-&nbsp操作手順&nbsp-</h3>
+		<ol>
+			<li>&nbsp;空白のフィールドにターゲットの文字列/ ID /座標値を入力します。</li>
+			<li>&nbsp;空白のフィールドの下にあるコンボボックスから検索対象エンティティを選択します。</li>
+			<li>&nbsp;[検索]ボタンをクリックします。 検索が成功すると、ターゲットが選択されます。</li>
+		</ol>	
+	<h3>-&nbspSpecial Notes&nbsp-</h3>
+		<ol>
+			<li>一般的なルーチンでは、ターゲット文字列に文字のみが含まれている場合、または文字と数字が混在する文字列の場合は少なくとも1つの文字が含まれている場合、入力ターゲットが引用符で囲まれていなくても、関数は文字列型として認識します。 例：Cube_Part、Cube_123</li>
+			<li>ターゲット入力に数字のみが含まれている場合、関数はそれをIDタイプとして認識します。 ただし、特定のエンティティの名前が意図的に数値として設定されている場合があります。たとえば、123456の場合、文字列タイプで検索するには、数値を引用符で囲む必要があります。 例：「123456」</li>
+			<li>複数のIDを検索するには、空白で区切る必要があります。 例：1 2 3</li>
+			<li>座標値は、コンマ（x、y、z）で区切って入力する必要があります。 座標値の検索に使用できるポイントは1つだけです。 例：10、10、10</li>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_フェース_エッジs.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

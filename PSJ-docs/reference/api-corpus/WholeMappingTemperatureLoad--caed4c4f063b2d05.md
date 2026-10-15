@@ -1,0 +1,3 @@
+# WholeMappingTemperatureLoad
+
+WholeMappingTemperatureLoad WholeMappingTemperatureLoad Description create temperature load Syntax WholeMapping(string strName, int iMappingSrcType, string strPath, int iMappingMethod, int iMappingFromStepNo, cursor crEdit) Inputs String Temperature load name Int Result type* *0: Nastran &ensp;1: Abaqus &ensp;2: ADVC format2 &ensp;3: CSV String directory file path name Int Mapping method type Int Mapping step (subcase) value Cursor N/A: Edit cursor Return Code 1 Succeeded 0 Failed Sample Code WholeMappingTemperatureLoad("TemperatureLoadsWholeMapping1", 3, "D:/ImportFile/CFD_Large_ForWholeMapping.csv", 0, 0, 0:0)

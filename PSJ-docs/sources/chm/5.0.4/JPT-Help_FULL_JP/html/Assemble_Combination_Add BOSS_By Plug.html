@@ -1,0 +1,136 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>ボス追加 | 參照位置から差し込む</title>
+
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>ボス追加 | 參照位置から差し込む</h2>
+<div class="contents">
+	<p>
+		このコマンドを使用して、ボスジオメトリ（円柱形状）を作成し、選択したパーツに含める事が出来ます。
+	</p>
+
+	<img src="./Media/CommandDlg/Assemble_Combination_Add_BOSS_By_Plug.png">
+
+	<h4>オプション</h4>
+	<li>マージ
+	<p>
+	オンにすると、新しいボスパーツが選択したパーツとマージされます。
+	</p>
+	<h4>上面の中心</h4>
+	<ul type="circle">
+	ボスの上面の位置（上部）を指定します。
+	<li>設定方法
+	<p>上面の中心を設定するために選択されたエンティティタイプ：<br>
+	- フェース <br>
+	- 3点 <br>
+	- エッジ <br>
+	- ノード <br>
+	- フェイス任意点 <br>
+	- エッジ任意点 <br>
+	</p></li>
+	<li>X
+	<p>上面の中心のX座標。
+	</p></li>
+	<li>Y
+	<p>上面の中心のY座標。
+	</p></li>
+	<li>Z
+	<p>上面の中心のZ座標。
+	</p></li>
+	</ul>
+	</li>
+
+	<h4>方向</h4>
+	<ul type="circle">
+	<li>X
+	<p>ボス方向ベクトルのX座標。
+	</p></li>
+	<li>Y
+	<p>ボス方向ベクトルのY座標。
+	</p></li>
+	<li>Z
+	<p>ボス方向ベクトルのZ座標。
+	</p></li>
+	<li>座標系
+	<p>ボス方向ベクトルの座標系を指定します。
+	</p></li>
+	<li>回転軸
+	<p>座標系の回転軸（X軸、Y軸、Z軸）を指定します。
+	</p></li>
+	<li>角度
+	<p>回転軸の回転角度を指定します。
+	</p></li>
+	</ul>
+	</li>
+
+	<h4>ボス形状</h4>
+	<ul type="circle">
+	<li>中空円筒
+	<p>このチェックボックスを選択すると、ボスが中空のジオメトリとして作成されます。
+	</p></li>
+	<li>内側半径
+	<p>円柱ジオメトリの内径を入力します（中空ジオメトリの場合）。
+	</p></li>
+	<li>外側半径
+	<p>円柱ジオメトリの外半径を入力します。
+	</p></li>
+	<li>テーパー角（度）
+	<p>円柱ジオメトリの上から下へのテーパー角度を入力します。
+	</p></li>
+	<li>サークル内のノードの数
+	<p>円柱の円弧方向のノード数を入力します。
+	</p></li>
+	<li>軸のノードの数
+	<p>円柱の軸方向のノード数を入力します。
+	</p></li>
+	<li>高さ
+	<p>円柱ジオメトリの高さを入力します。
+	</p></li>
+	<li>高さを計算
+	<p>ボスの高さを自動的に設定します
+	</p></li>
+	</ul>
+	</li>
+
+<br>
+
+<h3>-&nbsp操作手順&nbsp-</h3>
+
+	<ol>
+	<li>&nbsp設定方法からフェース / 3点 / エッジ / ノード / フェイス任意点 / エッジ任意点を選択し、ボスの上面をクリックします
+（3点が選択された場合、3つのポイントをクリックして面を定義します）。<br>
+クリックした位置は、上面の中心 XYZ（ボスの中心点）として自動的に入力されます。</li>
+	<li>&nbspボスを作成するボディを選択します。 方向は身体の方向に変更されます。</li>
+	<li>&nbspボスの外側半径を入力し、[高さを計算]ボタンをクリックします。 プレビュージオメトリは表示されます。</li>
+	<li>&nbsp[適用]または[OK]ボタンをクリックして実行します。</li>
+<img src="./Media/CommandDlg/Assemble_Combination_Add_BOSS_By_Plug_Operation.png">
+	</ol>
+
+
+<!--<h3>-&nbspOperation Video&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

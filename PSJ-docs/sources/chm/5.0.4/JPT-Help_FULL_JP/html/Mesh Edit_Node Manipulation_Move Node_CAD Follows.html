@@ -1,0 +1,107 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>節点移動 | CADフォロー</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>節点移動 | CADフォロー</h2>
+	<div class="contents">
+	<p>
+	節点をドラッグすることで、フェース上で任意に移動させることができます。また、ドラッグした節点周りの要素品質表示されます。<br>
+	最適な要素品質となる位置に、自動的に移動させることもできます。
+	</p>
+
+	<img src="./Media/CommandDlg/Mesh%20Edit_Node%20Manipulation_Move%20Node_CAD%20Follows.png">
+
+	<h4>ポジション</h4>
+	<li>X, Y, Z
+	<p>
+	ドラッグしている節点の座標を表示します。
+	</p>
+	</li>
+
+	<h4>要素品質</h4>
+	<li>計測方法
+	<p>
+	評価する要素品質の種類を指定します。<br>
+	要素品質についての詳細は、メッシュ修正 > 要素品質 > 自動チェック / 手動チェックを参照して下さい。
+		<ul>
+			<li>ストレッチ
+			<p>Tri/Quad/Tet/ヘキサ要素に対して、ストレッチをチェックします。</p>
+			</li>
+			<li>アスペクト比
+			<p>Tri/Quad/Tet/ヘキサ要素に対して、アスペクト比をチェックします。</p>
+			</li>
+			<li>ワーピング
+			<p>Quad要素に対して、四角形要素を2つの三角形に分け、その間に生じる角度の最大値をチェックします。</p>
+			</li>
+			<li>スキューネス
+			<p>Quad要素に対して、対辺の中点を結んだ2つの線のなす角度をチェックします。</p>
+			</li>
+			<li>エッジ長さ
+			<p>Tri/Quad/Tet/ヘキサ要素に対して、要素エッジ長をチェックします。</p>
+			</li>
+			<li>面積
+			<p>Tri/Quad要素に対して、要素面積をチェックします。</p>
+			</li>
+			<li>節点接続数
+			<p>Tri/Quad要素に対して、一つの節点に対して、その節点を含む要素の数をチェックします。</p>
+			</li>
+			<li>内角
+			<p>Tri/Quad要素に対して、節点周りの要素エッジ間角度の中で最も小さい値をチェックします。</p>
+			</li>
+			<li>ターパー
+			<p>Quad要素に対して、四角形要素内の3節点を結んだ三角形面積の平均値との最大差分をチェックします。</p>
+			</li>
+		</ul>
+	</p>
+	</li>
+	<li>適合した要素
+	<p>
+	計測方法で選択した品質が適用される要素の種類を表示します。
+	</p>
+	<li>自動
+	<p>
+	最適な要素品質となる位置に、自動的に移動させます。
+	</p>
+	</li>
+
+	<h3>-&nbsp操作手順（任意位置への手動移動）&nbsp-</h3>
+	<ol>
+	<li>評価する要素品質の種類を、計測方法で指定します。</li>
+	<li>一つの節点をドラッグします。</li>
+	<li>適用/OKボタンをクリックします。</li>
+	</ol>
+
+	<h3>-&nbsp操作手順（最適な要素品質となる位置への自動移動）&nbsp-</h3>
+	<ol>
+	<li>評価する要素品質の種類を、計測方法で指定します。</li>
+	<li>一つの節点をドラッグします。</li>
+	<li>自動ボタンをクリックします。</li>
+	</ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</li></div>
+</div>
+</body>
+
+</html>
+</head></html>

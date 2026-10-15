@@ -1,0 +1,340 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>品質確認方法の定義</title>
+
+<style type="text/css">
+<!--/* Link下線、非表示 */-->
+a.no-uline {text-decoration:none}
+</style>
+
+</html>
+</head>
+
+
+<body>
+<div class="page">
+	<h2>-&nbsp;品質確認方法の定義&nbsp;-</h2>
+<div class="contents">
+	<h4>&#9312;&nbsp;ストレッチ</h4>
+		<li>三角形/四角形/テトラ/ヘキサ要素に対して、以下の算出式によって求まる値をチェックします。</li>
+		<ul type="circle">
+			<li>三角形</li>
+			value =&nbsp;R&nbsp;&times;&nbsp;2&radic;3&nbsp;/&nbsp;maxSide
+			<li>テトラ</li>
+			value =&nbsp;(6&radic;6&nbsp;&times;&nbsp;V)&nbsp;/&nbsp;(&nbsp;S&times;&nbsp;maxSide)
+			<li>ヘキサ</li>
+			value =&nbsp;(minLen&nbsp;/&nbsp;maxLen)&nbsp;&times;&nbsp;&radic;3
+		</ul>
+			</p>
+
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;内接円半径
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxSide&nbsp;&nbsp;:&nbsp;&nbsp;最大要素エッジ長
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minSide&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;最小要素エッジ長
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;要素体積
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;要素表面積
+				</p>
+				</span>
+
+			<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_01.png" width="600">
+			<br>
+			<ul type="circle">
+				<li>四角形</li>
+			</ul>
+			valne =&nbsp;Max(Stretch1, streth2)<br><br>
+			Stretch1 = <img src="./Media/Mesh%20Cleanup_Metric_Quad_Stretch1.png" height="70"><br><br>
+			Stretch2 = <img src="./Media/Mesh%20Cleanup_Metric_Quad_Stretch2.png" height="70"><br><br>
+			dHs = <img src="./Media/Mesh%20Cleanup_Metric_Quad_dHs.png" height="40"><br><br>
+			ただし&ang;N1N2 &ge; 90&deg;もしくは&ang;N3N4 &ge; 90&deg;のとき、value = value -1とする。
+			<span style="font-size:0.9em;">
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S1-S4&nbsp;&nbsp;:&nbsp;&nbsp;要素エッジ長
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxDiag&nbsp;&nbsp;:&nbsp;&nbsp;最小対角線長
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minDiag&nbsp;&nbsp;:&nbsp;&nbsp;最大対角線長
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A1-A4&nbsp;&nbsp;:&nbsp;&nbsp;Quadを２つの三角形にmaxDiag,minDiag基準にそれぞれ分割して定義される三角形の面積
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N1-N4&nbsp;&nbsp;:&nbsp;&nbsp;A1-A4の法線
+				</p>
+				</span>
+
+			<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_19.png", width="600">
+			</ul>
+		<br>
+		</br>
+
+	<h4>&#9313;&nbsp;アスペクト&nbsp;比</h4>
+		<li>三角形/四角形/テトラ/ヘキサ要素に対して、以下の算出式によって求まる値をチェックします。</li>
+		<ul type="circle">
+			<li>三角形</li>
+		</ul>
+			<p>&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;(&nbsp;&radic;3&nbsp;&times;&nbsp;maxSide<sup>2</sup>)&nbsp;/&nbsp;(4&nbsp;&times;&nbsp;Area)
+		<ul type="circle">
+			<li>四角形</li>
+		</ul>
+			&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;maxMidLen&nbsp;/&nbsp;minMidLen
+			<ul type="circle">
+				<li>テトラ</li>
+			</ul>
+			&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;(S&nbsp;&times;&nbsp;maxSide)&nbsp;/&nbsp;(6&radic;6&nbsp;&times;&nbsp;V)
+			<ul type="circle">
+				<li>ヘキサ</li>
+			</ul>
+			&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;maxLen&nbsp;/&nbsp;minLen
+			</p>
+
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxSide&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;最大要素エッジ長
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;面積&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;要素面積
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxMidLen&nbsp;&nbsp;:&nbsp;&nbsp;最大対辺中点間距離
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minMidLen&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;最小対辺中点間距離
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;要素表面積
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;要素体積
+				</p>
+				</span>
+
+			<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_02.png" height="180">
+		<br>
+		</br>
+
+	<h4>&#9314;&nbsp;エッジの長さ</h4>
+		<li>三角形/四角形/テトラ/ヘキサ要素に対して、要素エッジ長をチェックします</li>
+		<br>
+		</br>
+
+	<h4>&#9315;&nbsp;面積</h4>
+		<li>三角形/四角形要素に対して、要素面積をチェックします。</li>
+		<br>
+		</br>
+
+	<h4>&#9316;&nbsp;接点接続数</h4>
+		<li>三角形/四角形要素に対して、一つの節点に対して、その節点を含む要素の数をチェックします。</li>
+		<br>
+		</br>
+
+	<h4>&#9317;&nbsp;内部角度</h4>
+		<li>節点周りの要素エッジ間角度の中で最も小さい値をチェックします。</li>
+		<br>
+		</br>
+
+		<h4>&#9318;&nbsp;三角形高さ</h4>
+		<li>四面体要素に対して、要素内の各三角形の面の高さを確認します。</li>
+		<br>
+		</br>
+
+	<h4>&#9319;&nbsp;節点&nbsp;FreeEdges</h4>
+		<li>三角形/四角形要素に対して、一つの節点につながっているフリーエッジの数をチェックします。</li>
+		<br>
+		</br>
+
+	<h4>&#9320;&nbsp;重複要素</h4>
+		<li>三角形/四角形要素に対して、重複要素の数をチェックします。</li>
+		<br>
+		</br>
+
+	<h4>&#9321;&nbsp;ワーピング</h4>
+		<li>四角形要素に対して、四角形要素を2つの三角形に分け、その間に生じる角度の最大値をチェックします。</li>
+			<p>&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;MAX&nbsp;(Angl&nbsp;&#44;&nbsp;Ang&nbsp;2)</p>
+
+		<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_09.png" height="180">
+		<br>
+		</br>
+
+	<h4>&#9322;&nbsp;スキュウネス</h4>
+		<li>四角形要素に対して、対辺の中点を結んだ2つの線のなす角度をチェックします。</li><br>
+
+		<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_10.png" height="180">
+
+		</br>
+
+	<h4>&#9323;&nbsp;テーパー</h4>
+		<li>四角形要素に対して、四角形要素内の3節点を結んだ三角形面積の平均値との最大差分をチェックします。</li>
+			<p>&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;MAX&nbsp;(aRatio&nbsp;<i>i</i>)&nbsp;&nbsp;&nbsp;&nbsp;<i>i</i>&nbsp;=&nbsp;1&#126;4
+			<br>&nbsp;&nbsp;&nbsp;aRatio&nbsp;<i>i</i>&nbsp;=&nbsp;ABS&nbsp;&#123;(&nbsp;triArea&nbsp;<i>i</i>&nbsp;-&nbsp;triAreaAvg)&nbsp;/&nbsp;triAreaAvg&#125;
+			</br>&nbsp;&nbsp;&nbsp;triAreaAvg&nbsp;=&nbsp;(triArea1&nbsp;+&nbsp;triArea2&nbsp;+&nbsp;triArea3&nbsp+&nbsp;triArea4)&nbsp/&nbsp;4
+			</p>
+
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;triArea&nbsp;<i>i</i>&nbsp;&nbsp;:&nbsp;&nbsp;Tri&nbsp;<i>i</i>&nbspの面積
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tri1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Node1&#44;&nbsp;2&#44;&nbsp;3からなる三角形
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tri2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Node3&#44;&nbsp;4&#44;&nbsp;1からなる三角形
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tri3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Node2&#44;&nbsp;3&#44;&nbsp;4からなる三角形
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tri4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;Node4&#44;&nbsp;1&#44;&nbsp;2からなる三角形
+				</p>
+				</span>
+
+		<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_11.png" height="180">
+		<br>
+		</br>
+
+	<h4>&#9324;&nbsp;体積</h4>
+		<li>テトラ/ヘキサ要素に対して、要素体積をチェックします。</li>
+		<br>
+		</br>
+
+	<h4>&#9325;&nbsp;ヤコビアンファクター</h4>
+		<li>テトラ要素に対して、以下の算出式によって求まる値をチェックします。
+		<br>&nbsp;&nbsp;&nbsp;中間節点が頂点を結ぶ線上にある場合、Jacob.Factorは1になります。
+		</li>
+
+		<p>&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;minJacDet&nbsp;/&nbsp;V</p>
+
+			<span style="font-size:0.9em;">
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minJacDet&nbsp;&nbsp;:&nbsp;&nbsp;各節点でのヤコビアン行列式の最小値
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;要素体積
+			</p>
+			</span>
+		<br>
+		</br>
+
+	<h4>&#9326;&nbsp;テットコラプス</h4>
+		<li>テトラ要素に対して、以下の算出式によって求まる値をチェックします。</li>
+		<p>&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;MIN&nbsp;(&nbsp;h&nbsp;<i>i</i>&nbsp;/&nbsp;maxSide&nbsp;<i>i</i>&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;<i>i</i>&nbsp;=&nbsp;1&#126;4</p>
+
+			<span style="font-size:0.9em;">
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h&nbsp;<i>i</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<i>i</i>&nbsp;番目の頂点から対向する面までの高さ
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxSide&nbsp;<i>i</i>&nbsp;&nbsp;:&nbsp;&nbsp;<i>i</i>&nbsp;番目の頂点に対向する面の最大要素エッジ長
+			</p>
+			</span>
+
+		<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_14.png" height="180">
+		<br>
+		</br>
+
+	<h4>&#9327;&nbsp;テットスキュー</h4>
+		<li>テトラ要素に対して、要素外接球半径から求まる正四面体の体積と要素体積の差分割合をチェックします。</li>
+			<p>&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;(&nbsp;Vr&nbsp;-&nbsp;V&nbsp;)&nbsp;/&nbsp;Vr
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vr&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;8&times;&nbsp;R<sup>3</sup>&nbsp;/&nbsp;9&radic;3</p>
+
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;要素体積
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;外接球半径
+				</p>
+				</span>
+
+		<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_15.png" height="180">
+		<br>
+		</br>
+
+	<h4>&#9328;&nbsp;不安定要素&nbsp;(テトラ/ヘキサおよび三角形＋四角形)</h4>
+		<li>隣接する要素と接続する(コーナー)節点数をチェックします。&nbsp;剛体運動が発生するような1(2)点接続の要素を検出するのに使用します。
+		<br>&nbsp;&nbsp;&nbsp;(ソリッド要素に関しては、検出後サーフェスモデルでの修正が推奨されます。)
+		</li>
+
+		<img src="./Media/Mesh%20Cleanup_Mesh%20Quality_Manual%20Check_Metric_16.png" height="180">
+		<br>
+		</br>
+
+	<h4>&#9329;&nbsp;時間間隔(LS-DYNA)&nbsp;(テトラ/ヘキサおよび三角形＋四角形)</a></h4>
+		<li>三角形/四角形要素に対して、クーラン条件における&Delta;tcをLS-DYNAの算式で確認します。閾値となる時間増分&Delta;tは「安全率x設定値」で計算されます。<br></li>
+		<p>
+		&nbsp;&nbsp;&Delta;tc＝Lc/c<br>
+		&nbsp;&nbsp;Lc = S/MAX(Lside)<br>
+		&nbsp;&nbsp;c = &radic;(E/(&rho;(1-&nu;&sup2)))
+		</p>
+				<span style="font-size:0.9em;">
+				<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lc	&nbsp;&nbsp;&nbsp;:&nbsp;要素の代表長さ<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lside	&nbsp;&nbsp;:&nbsp;&nbsp;要素エッジ長<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S		&nbsp;&nbsp;:&nbsp;&nbsp;要素表面積<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c		&nbsp;&nbsp;:&nbsp;&nbsp;応力伝播速度<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E		&nbsp;&nbsp;:&nbsp;&nbsp;ヤング率<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rho;	&nbsp;&nbsp;:&nbsp;&nbsp;密度<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nu; &nbsp;&nbsp;:&nbsp;&nbsp;ポアソン比<br>
+				</p>
+				</span>
+		<li>他の計測方法にはないGUI項目の説明をします。<br></li>
+		<p>
+		&nbsp;&nbsp;安全率		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&Delta;t = 安全率 x 設定値<br>
+		&nbsp;&nbsp;応力伝搬速度	&nbsp;&nbsp;:&nbsp;&nbsp;材料を選択すると、その材料の応力伝搬速度を確認できます。<br>
+		</p>
+		<br>
+		</br>
+
+	<h4>&#9330;&nbsp;時間間隔(Abaqus)&nbsp;(テトラ/ヘキサおよび三角形＋四角形)</a></h4>
+		<li>三角形/四角形/テトラ/ヘキサ要素に対して、クーラン条件における&Delta;tcをAbaqusの算式で確認します。閾値となる時間増分&Delta;tは「安全率x設定値」で計算されます。<br></li>
+		<p>
+		&nbsp;&nbsp;&Delta;tc＝lc/c<br>
+		&nbsp;&nbsp;L1 = S/MAX(Ldiag)	&nbsp;&nbsp;&nbsp;:&nbsp;三角形/四角形要素の場合<br>
+		&nbsp;&nbsp;L2 = MIN(Lside,Ldiag)	&nbsp;&nbsp;&nbsp;:&nbsp;三角形/四角形要素の場合<br>
+		&nbsp;&nbsp;Lc = MAX(L1,L2)	&nbsp;&nbsp;&nbsp;:&nbsp;三角形/四角形要素の場合<br>
+		&nbsp;&nbsp;Lc = 0.816MIN(Lside)	&nbsp;&nbsp;&nbsp;:&nbsp;テトラ１次要素の場合<br>
+		&nbsp;&nbsp;Lc = 0.264MIN(Lside)	&nbsp;&nbsp;&nbsp;:&nbsp;テトラ２次要素の場合<br>
+		&nbsp;&nbsp;Lc = V/MAX(S)	&nbsp;&nbsp;&nbsp;:&nbsp;ヘキサ要素の場合<br>
+		&nbsp;&nbsp;c = &radic;(E/(&rho;(1-ν&sup2)))	&nbsp;&nbsp;&nbsp;:&nbsp;三角形/四角形要素の場合<br>
+		&nbsp;&nbsp;c = &radic;(E(1-&nu;)/(&rho;(1+&nu;)(1-2&nu;)))	&nbsp;&nbsp;&nbsp;:&nbsp;テトラ/ヘキサ要素の場合
+		</p>
+				<span style="font-size:0.9em;">
+				<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lc	&nbsp;&nbsp;&nbsp;:&nbsp;要素の代表長さ<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lside	&nbsp;&nbsp;:&nbsp;&nbsp;要素エッジ長<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ldiag	&nbsp;&nbsp;:&nbsp;&nbsp;要素対角線長<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S		&nbsp;&nbsp;:&nbsp;&nbsp;要素表面積<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V		&nbsp;&nbsp;:&nbsp;&nbsp;要素体積<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c		&nbsp;&nbsp;:&nbsp;&nbsp;応力伝播速度<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E		&nbsp;&nbsp;:&nbsp;&nbsp;ヤング率<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rho;	&nbsp;&nbsp;:&nbsp;&nbsp;密度<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nu; &nbsp;&nbsp;:&nbsp;&nbsp;ポアソン比<br>
+				</p>
+				</span>
+		<li>他の計測方法にはないGUI項目の説明をします。<br></li>
+		<p>
+		&nbsp;&nbsp;安全率		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&Delta;t = 安全率 x 設定値<br>
+		&nbsp;&nbsp;対角線を含める	:&nbsp;&nbsp;ONの場合、要素の代表長さの計算で要素対角線長を含めます。<br>
+		&nbsp;&nbsp;応力伝搬速度	&nbsp;&nbsp;:&nbsp;&nbsp;材料を選択すると、その材料の応力伝搬速度を確認できます。<br>
+		</p>
+		<br>
+		</br>
+<!--	<h4>&#9328;&nbsp;CFL&nbsp;condition</h4>
+		<li>Tri/Quad/テトラ要素に対して、クーランン条件をチェックします。
+		</li>
+
+			<p>&nbsp;&nbsp;&nbsp;シェル要素の式は以下になります。</p>
+			<p>&nbsp;&nbsp;&nbsp;<i>&#9651;</i>t&nbsp;=&nbsp;L<sub>s</sub>&nbsp;/&nbsp;c
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;L<sub>s</sub>&nbsp;=&nbsp;[(1+<i>&beta;</i>)&nbsp;A<sub>s</sub>]&nbsp;/&nbsp;[<i>max</i>(L<sub>1</sub>,L<sub>2</sub>,L<sub>3</sub>,(1-<i>&beta;</i>)&times;L<sub>4</sub>)]
+			</br>&nbsp;&nbsp;&nbsp;&nbsp;<i>&beta;</i>&nbsp;=&nbsp;0&nbsp;&nbsp;(四辺形要素),&nbsp;1&nbsp;&nbsp;(三角形要素)
+			</p>
+
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A<sub>s</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;面積
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L<sup>i</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;シェル要素各辺の長さ&nbsp;&nbsp;(i=1,2,3,4)
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;音速
+				</p>
+				</span>
+
+		<div style="position:absolute; left:80px; Height:70">
+		<img src="./Media/Mesh Cleanup_Mesh Quality_Manual Check_Metric_17.png">
+		</div>
+		<br>
+		</br>
+		<br>
+		</br>
+			<p>&nbsp;&nbsp;&nbsp;ソリッド要素の式は以下になります。</p>
+			<p>&nbsp;&nbsp;&nbsp;<i>&#9651;</i>t&nbsp;=&nbsp;L<sub>e</sub>&nbsp;/&nbsp;c
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;L<sub>s</sub>&nbsp;=&nbsp;V<sub>e</sub>&nbsp;/&nbsp;A<sub>e</sub>&nbsp;<sub><i>max</i></sub>&nbsp;(8Nodeのソリッド要素)&nbsp;,&nbsp;最小高&nbsp;（4NodeのTETRA要素）
+			</p>
+
+				<span style="font-size:0.9em;">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V<sub>e</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;体積
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A<sub>e</sub>&nbsp;<sub><i>max</i></sub>&nbsp;&nbsp;:&nbsp;&nbsp;最大面の面積
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;音速
+				</p>
+				</span>
+
+		<div style="position:absolute; left:80px; Height:70">
+		<img src="./Media/Mesh Cleanup_Mesh Quality_Manual Check_Metric_18.png">-->
+		</div>
+		<br>
+		</br>
+		<br>
+		</br>
+	</div></div></body>
+</html>

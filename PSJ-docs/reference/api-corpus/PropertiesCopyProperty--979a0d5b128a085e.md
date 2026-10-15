@@ -1,0 +1,3 @@
+# PropertiesCopyProperty
+
+PropertiesCopyProperty PropertiesCopyProperty Description copy properties by translation Syntax PropertiesCopyProperty(String strPathSource,String strPathTarget,int[] keyTarget,int axis,Cursor crCoord,Vector transVec,double dMag,double dOffset,double dTol) Inputs String source file path String target file path int[] property key need copy int Axis[0:Arbitrary Axis; 1:X Axis; 2:Y Axis; 3:Z Axis; 4:2Nodes; 5:Edge] Cursor coordinate system Vector translate vector double magnitude double offset double tolerance Return Code 1 Succeeded 0 Failed Sample Code PropertiesCopyProperty("Test","Test",[1,2],1,1:11,,0.001,0.001,0.001)

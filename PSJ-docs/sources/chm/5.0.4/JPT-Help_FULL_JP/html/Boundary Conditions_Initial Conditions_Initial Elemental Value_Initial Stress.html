@@ -1,0 +1,104 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>初期応力一般</title>
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>初期応力一般</h2>
+<div class="contents">
+	<p>
+	シェル要素に対して初期応力を定義します。<br>
+	</p>
+
+	<img src="./Media/CommandDlg/Boundary%20Conditions_Initial%20Conditions_Initial%20Conditions_Initial%20Stress.png">
+
+      <h4>構造</h4>
+　　　<li>名前
+	<p>
+	初期応力定義の名称を入力します。<br>
+	</p>
+　　　</li>
+
+
+      <h4>値</h4>
+　　　<li>タイプ
+	<p>
+	定義方法を選択します。現在一般のみ。<br>
+	<br>
+	一般: 直接要素に対して初期応力値を入力します。<br>
+	</p>
+　　　</li>
+
+　　　<li>寸法
+	<p>
+	対応要素を選択します。(シェルのみ)
+	</p>
+　　　</li>
+
+
+　　　<li>座標系
+	<p>
+	応力の入力座標系を選択します。現在要素座標のみ。<br>
+	<br>
+	要素座標: 要素座標系で初期応力値を入力します。<br>
+	</p>
+　　　</li>
+
+　　　<li>XX, YY, ZZ
+	<p>
+	垂直およびせん断初期応力値を要素座標系で入力します。<br>
+	</p>
+　　　</li>
+
+　　　<li>入力単位系
+	<p>
+	入力単位系を指定します。<br>
+	</p>
+　　　</li>
+
+      <h4>テーブル</h4>
+　　　<li>テーブル選択
+	<p>
+	<a href="./Boundary%20Conditions_Misc_Field%20Data.html">フィールドデータ</a>で定義します。現在サポートされていません。<br>
+<br>
+<br>
+
+
+<h3>-&nbsp;操作手順&nbsp;-</h3>
+      <ol>
+　　　<li>要素もしくはフェースを選択します。</li><br>
+	<img src="./Media/Boundary%20Conditions_Initial%20Conditions_Initial%20Conditions_Initial%20Stress_1.png"><br>
+<br>
+　　　<li>要素座標系で初期応力値を入力し、適用(OK)ボタンをクリックして初期応力を定義します。<br>
+&nbsp;&nbsp;&nbsp;要素座標系はツール>座標系>要素座標などで確認します。</li><br>
+	<img src="./Media/Boundary%20Conditions_Initial%20Conditions_Initial%20Conditions_Initial%20Stress_2.png">
+      </ol>
+<br>
+<br>
+
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</li></div>
+</div>
+</body>
+
+</html>
+</head></html>

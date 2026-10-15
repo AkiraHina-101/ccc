@@ -1,0 +1,207 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>ソリッドボルトモデリング | 合わせ面</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>ソリッドボルトモデリング | 合わせ面</h2>
+	<div class="contents">
+	<p>
+	あらかじめ作成したソリッドボルトに対して、下記のオペレーションを自動で実行します。</br>
+	・ソリッドボルトの自動配置</br>
+	・座面のフェース分割</br>
+	・解析条件の設定</br>
+		&nbsp;&nbsp;&nbsp;SunShin向けプリテンション、接触</br>
+	ソリッドボルトモデリング > サイズ機能で、ソリッドボルトモデルを作成することができます。</br>
+	使用するソリッドボルトモデル（*.jth5）は、[ユーザープロファイル]\AppData\Roaming\TechnoStar\JPT***\DataBase\SolidBoltDB に置いてください。</br>	
+	※このフォルダは合わせ面ダイアログ起動時に作成されます。</p>
+
+	<p><img src="./Media/Connections_Bolt%20Modeling_SolidBolt%20Modeling_Mating%20face_3.PNG"width="800"></img> </p>
+	<p><img src="./Media/CommandDlg/Connections_Bolt%20Modeling_SolidBolt%20Modeling_Mating%20face.PNG"></img> </p>
+
+	<b>セレクションリスト</b></br>
+		パーツ(ヘッド)	　：ボルトヘッド部のパーツ</br>
+		パーツ(シャフト)　：ボルトシャフト部のパーツ</br>
+		エッジ(ヘッド)	　：ボルトヘッド部のエッジ(マニュアル配置)</br>
+		フェース(シャフト)：ボルトシャフト部のフェース(マニュアル配置)</br>
+		
+	<h4>合わせ面パラメータ</h4>
+		<li>間隙トレランス
+			<p>合わせ面の上部パーツと下部パーツ間の隙間トレランスを入力します。この隙間以下の合わせ面のボルト穴が検索されます。 </p>
+		</li>
+		
+		<li>角度トレランス
+			<p>上部パーツと下部パーツ間の合わせ面角度トレランス（度）を入力します。合わせ面の平面判定のためのパラメータで、通常は変更する必要ございません。 </p>
+		</li>
+		
+	<h4>ボルト穴パラメータ</h4>
+		<li>プリセットサイズ
+			<p>このメニューで選んだボルト穴サイズが、下の最小円範囲、及び最大円範囲に自動で入力されます。</br>
+			ボルト穴のプリセットサイズと最小最大のインデックスは「[ユーザープロファイル]\AppData\Roaming\TechnoStar\JPT***\DataBase\SolidBoltDB\Bolt_range_size_chart.xlsx」を参照しています。プリセットサイズを定義する最小最大値を変更したい場合は、このファイルを編集して下さい。
+</p>
+		</li>
+		
+		<li>最小円範囲
+			<p>検索するボルト穴の最小直径を入力します。</p>
+		</li>
+		
+		<li>最大円範囲
+			<p>検索するボルト穴の最大直径を入力します。</p>
+		</li>
+
+	<h4>座面パラメータ</h4>
+		<li>半径係数
+			<p>フェースを作成するボルト座面の半径係数を入力します。
+</p>
+		</li>
+	<h4>接触パラメーター</h4>
+		<li><b>コンタクトタイプ</b>
+			<p>&nbsp;&nbsp;&nbsp;コンタクトを設定する種類を選択します。</p>
+				<ul type="circle">
+					<span style="font-size:0.95em;">
+						<li><b>合わせ面</b>&nbsp;:&nbsp;滑り接触<br>
+						<li><b>ボルト穴</b>&nbsp;:&nbsp;固着<br>
+						<li><b>座面</b>&nbsp;:&nbsp;滑り接触</li><br>
+					</span>
+				</ul>			
+		</li>
+		<li><b>有効化</b>
+			<p>&nbsp;&nbsp;&nbsp;機能をアクティブにします。</p>
+		</li>
+		<li><b>接触距離範囲(ERROR)</b>
+			<p>&nbsp;&nbsp;&nbsp;ノードがボディに接触していると見なされる距離。</p>
+		</li>
+		<li><b>摩擦係数(FRIC)</b>
+			<p>&nbsp;&nbsp;&nbsp;摩擦係数。</p>
+		</li>
+		<li><b>干渉閉鎖距離(CINTERF)</b>
+			<p>&nbsp;&nbsp;&nbsp;ソルバーに2つのフェースが接触している判定距離を指示します。</p>
+		</li>
+		<li><b>接触面延伸距離(SLIDE)</b>
+			<p>&nbsp;&nbsp;&nbsp;接触面延伸距離を入力します。 ICOORD >= 2 でない限り、この入力は行わないでください。<br>
+			&nbsp;&nbsp;&nbsp;接触面延伸距離オプションを使用する場合、セグメント上をスライドする節点は、設定値よりも長い距離場合延伸がオフになります。</p>
+		</li>
+		<li><b>節点の座標修正（ICOORD)</b>
+			<p>&nbsp;&nbsp;&nbsp;なし：このオプションを無視します。<br>
+			<p>&nbsp;&nbsp;&nbsp;位置を修正：変形可能なボディと接触している節点の座標を変更して、応力のない初期接触が得られるようにします。<br>
+			<p>&nbsp;&nbsp;&nbsp;滑り出し遅れ：変形可能なボディの鋭いコーナーでの接線誤差許容値を拡張して、接触したセグメントからのスライドを遅延させます。<br>
+			<p>&nbsp;&nbsp;&nbsp;両方を有効化：位置を修正と滑り出し遅れの両方をアクティブにします。<br>
+		</li>
+		<li><b>固着タイプ(JGLUE)</b>
+			<p>&nbsp;&nbsp;&nbsp;このオプションは、glueオプションが呼び出された場合（JGLUE > 0）にのみ関係します。</p>
+			<p>&nbsp;&nbsp;&nbsp;ノードを分離しない場合は、ブランク状態にします。</p>
+			<p>&nbsp;&nbsp;&nbsp;最大残留力に基づいて標準の分離動作を呼び出すには、フルを選択します。</p>
+			<p>&nbsp;&nbsp;&nbsp;接着剤の破壊をアクティブにするには、滑り可能を選択します。</p>
+		</li>
+		<li><b>ペナルティファクタ(SFACT)</b>
+			<p>&nbsp;&nbsp;&nbsp;ペナルティスケール係数を定義します。</p>
+		</li>
+		<li><b>ペナルティファクタ(SFACT T)</b>
+			<p>&nbsp;&nbsp;&nbsp;セグメント間の接触解析に使用されるペナルティ係数（剛性）。プログラムは値を計算しますが、ユーザーは値を変更して収束を改善できます。</p>
+		</li>
+		<li><b>接触ダンピング(CDAMP)</b>
+			<p>&nbsp;&nbsp;&nbsp;ダンピング係数を入力します。</p>
+		</li>
+		<li><b>シェル要素フェース(スレーブ)</b>
+			<p>&nbsp;&nbsp;&nbsp;シェル要素面（スレーブ）には、次のオプションがあります。</p>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top＆BtmThk。 オフセット&nbsp;:&nbsp;上面と下面の両方が接触の説明に含まれ、厚さのオフセットが含まれます。<br>		
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/ Thk。 オフセット&nbsp;:&nbsp;接触の説明には底面のみが含まれ、厚さのオフセットが含まれます。<br>		
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/o Thk。 オフセット&nbsp;:&nbsp;接触の説明には底面のみが含まれ、シェルの厚さは無視されます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/ Thk。 オフセット&nbsp;:&nbsp;接触の説明には上面のみが含まれ、厚さのオフセットが含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/o Thk。 オフセット&nbsp;:&nbsp;接触の説明には上面のみが含まれ、シェルの厚さは無視されます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm w/o Thk。 オフセット&nbsp;:&nbsp;上面と下面の両方が接触の説明に含まれ、シェルの厚さは無視されます。<br>
+		</li>
+		<li><b>シェル要素フェース(マスター)</b>
+			<p>&nbsp;&nbsp;&nbsp;シェル要素面（マスター）には、次のオプションがあります。</p>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top＆BtmThk。 オフセット&nbsp;:&nbsp;上面と下面の両方が接触の説明に含まれ、厚さのオフセットが含まれます。<br>		
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/ Thk。 オフセット&nbsp;:&nbsp;接触の説明には底面のみが含まれ、厚さのオフセットが含まれます。<br>		
+	&nbsp;&nbsp;&nbsp;&nbsp;Btm w/o Thk。 オフセット&nbsp;:&nbsp;接触の説明には底面のみが含まれ、シェルの厚さは無視されます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/ Thk。 オフセット&nbsp;:&nbsp;接触の説明には上面のみが含まれ、厚さのオフセットが含まれます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top w/o Thk。 オフセット&nbsp;:&nbsp;接触の説明には上面のみが含まれ、シェルの厚さは無視されます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Top&Btm w/o Thk。 オフセット&nbsp;:&nbsp;上面と下面の両方が接触の説明に含まれ、シェルの厚さは無視されます。<br>		
+		</li>
+	<h4>色設定</h4>
+		<li><b>接触の色</b>
+			<p>&nbsp;&nbsp;&nbsp;接触対表示マーカー色を定義します。</p></b>
+			&nbsp;&nbsp;&nbsp;&nbsp;リセット: デフォルト色に初期化</li>
+	<h4>検索結果</h4>
+		<li>虫眼鏡ボタン
+			<p>オンにすると、プレビューをフォーカスします。 </p>
+		</li>
+		<li>検索
+			<p>ボルトペアの検索を実行します。 </p>
+		</li>
+		<li>チェックボックス
+			<p>	チェックが入っている箇所に、ソリッドボルトの自動配置を行います。</p>
+		</li>
+		<li>マスターパーツ
+			<p>	ボルトのヘッド部が設定されるパーツを選択します。</p>
+		</li>
+		<li>ボルトタイプ
+			<p>ボルトを選択します。</br>
+			（使用するソリッドボルトモデル（*.jth5）は、[ユーザープロファイル]\AppData\Roaming\TechnoStar\JPT***\DataBase\SolidBoltDB に置いてください。）	
+			</p>
+		</li>
+		<li>プリテンション
+			<p>使用するボルトにプリテンション設定がある場合、値を変更できます。現在はSunshineのみサポートしております。</p>
+		</li>
+		
+		<li>ショートカットメニュー
+			<p>リスト上で右クリックするとショートカットメニューが表示されます。</p>
+	&nbsp;&nbsp;&nbsp;&nbsp;コピー&nbsp;:&nbsp;各設定の特性セル内容をコピー(Ctrl+c)します。<br>		
+	&nbsp;&nbsp;&nbsp;&nbsp;貼付け&nbsp;:&nbsp;コピーしたセル内容を他のセルに貼付け(Ctrl+v)します。<br>		
+	&nbsp;&nbsp;&nbsp;&nbsp;最初に設定&nbsp;:&nbsp;ボルト番号の1番の場所を任意の場所に変更します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;逆順&nbsp;:&nbsp;ボルト番号付けの順番を反転させます<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;ポジションソート&nbsp;:&nbsp;ボルト番号の1番の場所を指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;挿入&nbsp;:&nbsp;自動検索で検索されなかった場合、手動でリストに追加します。※<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;削除&nbsp;:&nbsp;選択した項目が削除されます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;すべてクリアー&nbsp;:&nbsp;リストからすべて削除されます。<br>
+		</li>
+		</br>
+		<li>※手動での追加方法
+		<ol>
+		<li>ボルトヘッド側に設定されるカーブエッジを選択します。</br></li>
+	<p><img src="./Media/Connections_Bolt%20Modeling_SolidBolt%20Modeling_Mating%20face_1.PNG"width="300"></img> </p>
+		<li>ボルトシャフト部分のフェースを選択します。コンタクト設定する場合、ここで選択したフェースに設定されます。</br></li>
+	<p><img src="./Media/Connections_Bolt%20Modeling_SolidBolt%20Modeling_Mating%20face_2.PNG"width="300"></img> </p>
+		<li>「挿入」で追加します。リストに追加されます。</li>
+		</ol>
+		
+	<br></br>
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+		<li>あらかじめ、使用するソリッドボルトモデル（*.jth5）は、[ユーザープロファイル]\AppData\Roaming\TechnoStar\JPT***\DataBase\SolidBoltDB に置いてください。</li>
+		<li>締結穴パラメータを調整し、ヘッド側のパーツと、シャフト側のパーツをそれぞれ選択リストに選択します。</li>
+		<li>必要があれば座面、接触パラメーターを変更します。</li>
+		<li>検索ボタンをクリックします。</li>
+		<li>検索結果内のリストを確認し、必要があればボルトタイプやプリテンションを変更します。</li>
+		<li>適用もしくはOKボタンをクリックします。</li>
+<!--		<img src="./Media/Hex Modeling_Sweep_Linear_example.PNG"></img> -->
+	</ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

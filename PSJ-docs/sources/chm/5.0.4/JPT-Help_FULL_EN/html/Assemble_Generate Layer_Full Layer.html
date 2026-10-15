@@ -1,0 +1,80 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Full Layer</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Full Layer</h2>
+	<div class="contents">
+	<p>
+	Offset the entire surface mesh of the parts inwards for creating a layer (PRISM6 parts).
+	</p>
+	<p>
+	<img src="./Media/CommandDlg/Assemble_Generate%20Layer_Full%20Layer.png">
+	</p>
+	<p>
+	In this function the original parts are divided into layer parts and internal parts.<br>
+	This function is supported only by the mesh modelling of internal layers in PRISM6 by Tet4. Therefore, it has the following conditions:
+	<ul>
+	A. This function is valid for the surface mesh parts made of Tri3. It does not work properly if there is a mesh error, therefore confirmation and fixes are required in advance.<br>
+	B. It will conduct a solid meshing with Tet4 for internal parts.
+	</ul>
+	</p>
+
+	<h4>Parameters</h4>
+	<li>Operation
+	<p>Switch the type of operation.</p>
+	<ul>
+	<li>Make Layer
+	<p>Create a layer.</p>
+	</li>
+	</ul>
+	</li>
+
+	<li>Layer Width
+	<p>Enter the depth of the layer.</p>
+	</li>
+
+	<li>Layer Number
+	<p>Enter the number of layers.</p>
+	</li>
+
+	<li>Use Pyramid
+	<p>Create a pyramid element to tie the layer parts and the internal parts (for pyramid elements supporting solver).</p>
+	</li>
+
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+	<ol>
+	<li>&nbspSelect the parts to create a layer.</li>
+	<li>&nbspEnter the depth and number of layers.</li>
+	<li>&nbspIf necessary, set the other parameters.</li>
+	<li>&nbspClick Apply/OK button.</li>
+	<li>&nbspThe selected parts are divided into layer parts and internal parts. After this, run the solid meshing with Tet4 for internal parts.</li>
+	<p><img src="./Media/Assemble_Generate%20Layer_Full%20Layer_1.png"></p>
+	<p><img src="./Media/Assemble_Generate%20Layer_Full%20Layer_2.png"></p>
+	</ol>
+<!--<h3>-&nbspOperation Video&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>Edges</title>
+
+</style>
+
+</head>
+
+<body>
+<div class="page">
+	<h2>Edge</h2>
+<div class="contents">
+	<p>
+	Set the mesh size unit of the edge. Define the settings for the entire mesh creation process, before the mesh creation.<br>
+	Configuration of the mesh size will be applied.
+	</p>
+
+	<img src="./Media/CommandDlg/Meshing_Local%20Settings_Local%20Settings_Edge.png"></img>
+	</p>
+	<h4>Mesh Parameters</h4>
+ 　　 <li>Name
+	<p>
+	Set the mesh control name.
+	</p>
+	<h4>Freeze Mesh</h4>
+　　　</li>
+ 　　 <li>Freeze Mesh
+	<p>
+	When checked, it maintains the current mesh.
+	</p>
+	<h4>Mesh Size</h4>
+　　　</li>
+ 　　 <li>Mesh Size
+	<p>
+	Set the size of the element.
+	</p>
+　　　</li>
+ 　　 <li>Average
+	<p>
+	Set the average mesh size.
+	</p>
+　　　</li>
+ 　　 <li>Minimum
+	<p>Set the minimum mesh size.
+	</p>
+　　　</li>
+ 　　 <li>Maximum
+	<p>
+	Set the maximum mesh size.
+	</p>
+	<h4>Keep Entity</h4>
+　　　</li>
+ 　　 <li>Keep Entity
+	<p>
+	When checked, it preserves the shape of the face at the time of creating mesh.
+	</p>
+	<h4>Mesh Count</h4>
+　　　</li>
+ 　　 <li>Mesh Count
+	<p>
+	When checked, it specifies the number of divisions of the edge.
+	</p>
+　　　</li>
+ 　　 <li>Number of Divisions
+	<p>
+	Specify the number of divisions.
+	</p>
+　　　</li>
+ 　　 <li>Method
+	<p>
+	Specify how to divide.
+	</p>
+　　　</li>
+	<ul>
+ 　　 <li>Equal
+	<p>
+	Equally divided
+	</p>
+　　　</li>
+ 　　 <li>Bias
+	<p>
+	Biased division from the specified point (node) position (select a node as the starting point also) 
+	</p>
+　　　</li>
+	<ul>
+ 　　 <li>Bias-Center
+	<p>
+	Biased division with dense center area 
+	</p>
+　　　</li>
+ 　　 <li>Bias-Sides
+	<p>
+	Biased division with both dense sides 
+	</p>
+</u>
+
+	<img src="./Media/Meshing_LocalSettings_LocalSettings_Edge.PNG">
+	</p>
+　　　</li>
+	</ul>
+ 　　 <li>Bias Factor
+	<p>
+	Bias factor (equal ratio “r” or equal difference “d”) 
+	</p>
+　　　</li>
+ 　　 <li>Progression
+	<p>
+	Specify the sequence of numbers.
+	</p>
+　　　</li>
+	<ul>
+ 　　 <li>Geometric
+	<p>
+	Equal ratio (*r) bias
+	</p>
+　　　</li>
+ 　　 <li>Arithmetic
+	<p>
+	Equal difference (+d) bias  
+	</p>
+	</ul>
+　　　</li>
+	<h4>Geometry Approximation</h4>
+ 　　 <li>Geometry Approximation
+	<p>
+	When checked, you can make settings relating to the shape reproducibility. 
+	</p>
+　　　</li>
+ 　　 <li>Trim Angle
+	<p>
+	Specify the maximum facet angle for trimming. 
+	</p>
+　　　</li>
+	<h4>Advanced Option</h4>
+ 　　 <li>Local Mesh Preview
+	<p>
+	When checked, you can preview the selected edge mesh with a required Mesh count.<br>
+	Note: If a small mesh size is set for the model size, it may take time to display the mesh preview.
+	</p>
+　　　</li>
+ 　　 <li>Preview Color
+	<p>
+	Select the preview edge color from the color list. 
+	</p>
+　　　</li>
+
+
+<h3>-&nbspOperating Procedure&nbsp-</h3>
+      <ol>
+　　　<li>&nbspSelect the edge.</li>
+　　　<li>&nbspEnter each item of the mesh size.</li>
+　　　<li>&nbspClick Apply / OK button.</li>
+      </ol>
+
+<!--<h3>-&nbsp操作動画&nbsp-</h3>-->
+
+	</div>
+</div>
+</body>
+
+</html>

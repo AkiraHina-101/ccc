@@ -1,0 +1,109 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>接続 | 剛体要素　すべてのエンティティ間</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>接続 | 剛体要素　すべてのエンティティ間</h2>
+	<div class="contents">
+	<p>
+	一対多（マスター：スレーブ）のRBE2（剛体要素）を作成する機能です。<br>
+	＊マスター節点とスレーブ節点は、パーツ単位、フェース単位、エッジ単位、要素単位、節点単位での選択が可能です。
+	</p>
+	<p>
+	<img src="./Media/CommandDlg/Connections_Details_Rigid%20Elements_RBE2_one%20to%20many.png">
+	</p>
+	<p>
+	マスター節点と（接続範囲内の）スレーブ節点が接続されます。<br>
+	スレーブ自由度の２重結合を防ぐため、複数のマスター節点の接続範囲内にあるスレーブ節点は、一番近いマスター節点とだけ接続されます。
+	</p>
+
+	<img src="./Media/Connections_Details_Rigid%20Elements_RBE2_one%20to%20many_02.png">
+	<img src="./Media/Connections_Details_Rigid%20Elements_RBE2_one%20to%20many_01.png">
+
+	<h4>接続</h4>
+	<li>名前
+	<p>
+	登録される名前を入力します。
+	</p>
+	</li>
+
+	<h4>検索範囲</h4>
+	<li>すべて
+	<p>
+	接続範囲を無限として指定します。
+	</p>
+	</li>
+	<li>トレランス
+	<p>
+	接続範囲の半径Rを入力します。
+	</p>
+	</li>
+
+	<h4>参照自由度</h4>
+	<li>UX - RZ
+	<p>
+	従属自由度の成分を指定します。
+	</p>
+	</li>
+
+	<h4>解析座標系</h4>
+	<li>座標系
+	<p>
+	参照座標系を選択します。
+	</p>
+	</li>
+
+	<h4>Abaqus</h4>
+	<li>サーフェース定義出力
+	<p>	面の定義方法を選択します。</p>
+	<ul type="circle">
+		<span style="font-size:0.95em;">
+			<li><b>節点セット</b>&nbsp;:&nbsp;基準面として節点を指定します<br></li>
+			<li><b>要素セット</b>&nbsp;:&nbsp;基準面として要素を指定します。スレーブに要素を構成できないエンティティ（節点、エッジ）を選択していると、エラーが出力されます。</li>
+		</span>
+	</ul>
+	</li>
+
+	<h4>オプション</h4>
+	<li>主節点のみ接続
+	<p>
+	選択したエンティティの主節点（コーナー節点）のみに接続します。
+	</p>
+	</li>
+
+
+	<h3>-&nbsp操作手順&nbsp-</h3>
+	<ol>
+	<li>接続範囲を設定します。</li>
+	<li>マスター候補の節点を、パーツ、フェース、エッジ、要素、節点から選択します。</li>
+	<li>スレーブ候補の節点を、パーツ、フェース、エッジ、要素、節点から選択します。</li>
+	<li>パラメータを設定します。</li>
+	<li>適用/OKボタンをクリックします。</li>
+	</ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

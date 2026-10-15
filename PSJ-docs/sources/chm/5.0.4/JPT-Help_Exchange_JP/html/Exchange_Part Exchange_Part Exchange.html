@@ -1,0 +1,200 @@
+<html lang="en" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>エクスチェンジ</title>
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+	<h2>エクスチェンジ</h2>
+<div class="contents">
+	<p>
+	本機能は、旧パーツに付与された荷重境界条件およびグループ情報、材料情報を引き継いで新パーツに入れ替えができる機能です。</br>
+	ジオメトリベースで入れ替えするため、パーツやフェース、エッジに設定されている条件が対象です。
+	</p>
+	<p>
+	<img src="./Media/Exchange_Part%20Exchange_Part%20Exchange_1.png"  ></br>
+	</p>
+	<p>
+	<img src="./Media/CommandDlg/Exchange_Part%20Exchange_Part%20Exchange.png">
+	<img src="./Media/CommandDlg/Exchange_Part%20Exchange_Part%20Exchange_select.png"></br></br>
+	</p>
+	<p>
+	新規パーツに引き継がれる情報は編集することが可能です。
+	</p>
+	<p>
+	<img src="./Media/Exchange_Part%20Exchange_Part%20Exchange_2.png"></br>
+	</p>
+	<p>
+	簡易確認のため、オリジナル数と新規数の列で機能実行前後のエンティティ数を確認できます。<br><br>
+	さらに各荷重境界条件およびグループ情報、材料情報を編集する際には、Miniビューウィンドウが表示されます。<br>
+	miniビューにより、新旧パーツの付加情報の選択エンティティを比較しながら便利に編集することが可能です。3Dマウスおよび視点も同期されます。
+	</p>
+	<p>
+	<img src="./Media/Exchange_Part%20Exchange_Part%20Exchange_3.png"></br>
+	</p>
+
+	<p>
+	<b>選択リスト</b>
+	</p>
+	<p>
+	新しいパート: 置き換える新パーツを選択します。</br>
+	オリジナルパート:既存の旧パーツを選択します。</br>
+	パーツ削除: 新旧パーツとは別で、削除するパーツがある場合は選択します。</br>
+	</p>
+	<h3>交換情報</h3>
+	<h4>パラメータ</h4>
+	<li>新規パーツ
+	<p>
+	新規パーツを選択するとIDが表示されます。
+	</p>
+	</li>
+	<li>元のパーツ
+	<p>
+	元の旧パーツを選択するとIDが表示されます。
+	</p>
+	</li>
+	<li>パーツを削除
+	<p>
+	削除するパーツを選択するとIDが表示されます。
+	</p>
+	</li>
+	<h4>トレランス</h4>
+	<li>トレランス
+	<p>
+	LBCなどの各条件を引き継ぐ際の距離による閾値です。
+	</p>
+	</li>
+	<li>フェース重複率
+	<p>
+	LBCなどの各条件を引き継ぐ際の閾値で面積比新規パーツの面積/旧パーツの面積になります。
+	</p>
+	</li>
+	<h4>オプション</h4>
+	<li>微小フェース抑制
+	<p>LBCなどの各条件を引き継ぐ際、微小面を候補から除外します。</br>
+	</p>
+	</li>
+	<li>最大フェース幅
+	<p>上記除外微小面の最大フェース幅を指定します。
+	</p>
+	</li>
+	<h4>結果</h4>
+	<p>
+	結果表示ボタン: 引き継ぎ情報のマネージメントウィンドウを開きます。
+	<ul>
+	<li>
+	<p>
+	グループ: テーブルでのグループ情報表示のオンオフ.</br>
+	</p>
+	</li>
+	<li>
+	<p>
+	荷重と境界条件: テーブルでの荷重と境界条件情報表示のオンオフ</br>
+	</p>
+	</li>	
+	<li>
+	<p>
+	ローカルメッシュ設定 : テーブルでのローカルメッシュ設定情報表示のオンオフ</br>
+	</p>
+	</li>	
+	<li>
+	<p>
+	コンタクト: テーブルでのコンタクト情報表示のオンオフ</br>
+	</p>
+	</li>	
+	<li>
+	<p>
+	接続: テーブルでの接続要素情報表示のオンオフ</br>
+	</p>
+	</li>
+	<li>
+	<p>
+	プロパティ: テーブルでのプロパティ情報表示のオンオフ</br>
+	</p>
+	</li>	
+	</ul>
+	<ul>
+	<li>
+	<p>
+	名前[ID]: アイテムの名前とID</br>
+	</p>
+	</li>
+	<li>
+	<p>
+	オリジナル数: 新規パートに移動する前の、オリジナルパートでアイテムで選択されていたエンティティ数</br>
+	</p>
+	</li>	
+	<li>
+	<p>
+	新規数 : 新規パートに移動した後のアイテムで選択されているエンティティ数</br>
+	</p>
+	</li>	
+	<li>
+	<p>
+	修正: Miniビューウィンドウの表示。選択エンティティの変更</br>
+	</p>
+	</li>	
+	</ul>
+	</div>
+
+	<h3>-&nbsp　操作フロー&nbsp-</h3>
+	<ol>
+	<li>新規パーツを選択します。</li>
+	<li>元のパーツを選択します。</li>
+	<li>必要に応じてパラメータを変更します。</li>
+	<li>結果表示ボタンクリックすると、ダイアログが広がり引き継ぎ結果を編集することができるようになります。</li>
+	<li>各引き継がれる予定の条件を確認します。</li>
+	<li>確認する条件のEditボタンを押すと、Miniビューウィンドウが表示されるので旧パーツの選択エンティティがハイライトされるので新規パーツと比較しながら修正し、完了後Updateボタンを押します</li>
+	<li>Edit/Updateを必要数分繰り返します。</li>
+	<li>OKボタンを押すと入れ替えが実行されます。
+
+	</ol>
+
+	<h3>-&nbspOperating 操作フロー（編集作業詳細）&nbsp-</h3>
+	<ol>
+	<li>
+	結果表示ボタンクリックすると、ダイアログが広がり引き継ぎ結果を編集することができるようになります。
+	</li>
+	<li>
+	結果のエリアでテーブルに表示する各種引継ぎ対象の条件を指定します。下図ではすべての条件を表示します。
+	<li>
+	Editボタンを押して新旧パーツの引継ぎ状態をチェックします。
+	<img src="./Media/Exchange_Part%20Exchange_Part%20Exchange_4.png" width="1850"/>	
+	</li>
+	</br>
+	<li>
+	必要に応じて選択エンティティを編集します。
+	<img src="./Media/Exchange_Part%20Exchange_Part%20Exchange_5.png" width="1850"/>	
+	</li>
+	<li>
+	すべての編集作業が終わったらＯＫボタンを押します。
+	</li>
+	</ol>
+
+	<h3>-&nbsp注意事項&nbsp-</h3>
+	<ul>
+	<li>本コマンドの結果表示ボタンを押してからCancelもしくはOKボタンを押すまで、他のコマンドを立ち上げないでください。</li>
+	<li>新旧パーツの選択は結果表示ボタンをクリックする前に完了してください。</li>
+	<li>本コマンドでは新規パーツは一つのみサポートしてます。</li>
+	<li>ジオメトリベースで入れ替えるので、節点や要素に対して付加されているものは移行されません。新規パーツでは節点や要素に対する設定が外れますので、ご注意下さい。</li>
+	</ul>
+</div>
+
+</body>
+
+</html>

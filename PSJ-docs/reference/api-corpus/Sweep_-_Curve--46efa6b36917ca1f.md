@@ -1,0 +1,3 @@
+# Sweep - Curve
+
+Sweep - Curve Sweep - Curve Create solid mesh swept along the curve from surface meshes (Tri and Quad mesh). Curve Parameters Mesh Size Specify the element size to be created. -&nbspOperating Procedure (Constant section)&nbsp- &nbspSelect the surface to sweep. &nbspSelect the path. &nbspSpecify the element size. &nbspClick the Apply or OK button. * If you select and run an entity that contains 2nd element, a warning will be displayed. Convert to primary element and execute. -&nbspOperating Procedure (Not a constant section)&nbsp- &nbspSelect the surface to sweep. &nbspSelect the first path. &nbspSelect the second path. &nbspSpecify the element size. &nbspClick the Apply or OK button. -&nbsp操作動画&nbsp- &nbsp再生ボタンを押すと操作動画が再生されます。 -->

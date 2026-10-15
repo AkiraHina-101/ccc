@@ -1,0 +1,44 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>FindEntities</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>FindEntities</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Find for entity</p>
+<h4>Syntax</h4>
+<p>FindEntities(string strID/PartName/Coordinate, string strEntityType, bool bMatch)</p>
+<h4>Inputs</h4>
+<ol>
+
+<li> String<p>ID, Coordinate or Part Name*</p>
+           <p>*Entity ID of Part, Face, Edge, Vertex, 3D Element, 2D Element, 1D Element, Node, Group, Force, Pressure, Constraint, DoF Set, Centrifugal Force, Gravity, Connection, Contact or Coordinate</p>
+           <p>&ensp;Coordinate: "Position of X coordinate, Position of Y coordinate, Position of Z coordinate"</p>
+		   <p>&ensp;Part Name: String of part name</p></li>
+<li>String <p> Target entity name (ID/Coordinate/Part Name)*</p>
+           <p>*Entity ID name: Part, Face, Edge, Vertex, 3D Element, 2D Element, 1D Element, Node, Group, Force, Pressure, Constraint, DoF Set, Centrifugal Force, Gravity, Connection, Contact or Coordinate</p>
+		   <p>&ensp;Coordinate: Part, Face, Edge, 3D Element, 2D Element, 1D Element, Node</p>
+		   <p>&ensp;Part Name: Part</p></li>
+<li> Bool <p> Match bool flag True = 1, False = 0 </p></li>
+
+</ol>
+<h4>Return Code</h4>
+<li>The found cursor[*:*,*:*]<p>Succeeded</p></li>
+<li>FAILED<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>FindEntities("Cube_1","Part",0) or FindEntities("1","Part",0) or FindEntities("0.00555,0.01,0.005555","Part",0)</p>
+</div>
+</div>
+</body>
+</html>

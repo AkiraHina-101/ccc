@@ -1,0 +1,40 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>ASMAssembleFace</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>ASMAssembleFace</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Assemble multiple parts in a model</p>
+<h4>Syntax</h4>
+<p>ASMAssembleFace(int[] taBodyKey, int[] taFaceKey, double tolerance, bool fitEdge, bool meshSetting)</p>
+<h4>Inputs</h4> 
+<ol>
+
+<li>int[]<p>Part key cursor([Part ID])</p></li>
+<li>int[]<p>Face key cursor([Face ID])</p></li>
+<li>Double<p>Mating tolerance </p></li>
+<li>Bool<p>Imprint fit edge bool flag True = 1, False = 0</p></li>
+<li>Bool<p>N/A<p>Mesh setting bool flag True = 1, False = 0</p></li>
+
+</ol> 
+<h4>Return Code</h4>
+<li>1<p>Succeeded</p></li>
+<li>0<p>Failed</p></li>
+<h4>Sample Code</h4>
+<p>ASMAssembleFace([], [22, 47], 0.001, 0, 1)</p>
+</div>
+</div>
+</body>
+</html>

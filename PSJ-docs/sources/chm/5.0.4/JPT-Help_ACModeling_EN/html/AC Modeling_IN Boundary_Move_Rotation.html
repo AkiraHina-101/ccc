@@ -1,0 +1,91 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+		<link href="basic.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	</head>
+
+<title>IN Boundary | Limited Boundary | Rotation</title>
+
+<style type="text/css">
+<!--Link下線、非表示-->
+</style>
+
+</head>
+
+
+<body>
+<div class="page">
+	<h2>IN Boundary | Limited Boundary | Rotation</h2>
+<div class="contents">
+	<p>Rotates the limit plane of the infinite boundary.</p>
+
+	<img src="./Media/CommandDlg/AC_Modeling_Move_Rotation.png">
+	<h4>Rotation</h4>
+	<li><b>Coordinate system</b></li>
+		<p>&nbsp;&nbsp;&nbsp;Specify the coordinate system to reference.</p>	
+	</li>
+	<li><b>Rotation Axis</b></li>
+		<p>&nbsp;&nbsp;&nbsp;Specify the axis of rotation.</p>	
+			<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>X Axis</b>&nbsp;:&nbsp;Rotates around the X axis of the selected coordinate system.</li>
+					<li><b>Y Axis</b>&nbsp;:&nbsp;Rotates around the Y axis of the selected coordinate system.</li>
+					<li><b>Z Axis</b>&nbsp;:&nbsp;Rotates around the Z axis of the selected coordinate system.</li>
+					<li><b>Arbitrary Axis</b>&nbsp;:&nbsp;Rotates by an angle around the axis specified by the X, Y, and Z direction vectors.</li>
+					<li><b>2 Nodes</b>&nbsp;:&nbsp; Rotates by an angle around the axes of the two nodes directions selected from the screen.</li>
+					<li><b>Edge</b>&nbsp;:&nbsp;Rotates by an angle around the axis in the edge direction selected from the screen.</li>
+				</span>
+				</ul>
+	</li>
+	<li><b>Axis-X, Axis-Y, Axis-Z</b></li>
+		<p>&nbsp;&nbsp;&nbsp; Specify the X, Y, and Z coordinates of the center of rotation.</p>	
+	</li>
+	<li><b>Center</b></li>
+		<p>&nbsp;&nbsp;&nbsp;Specify the center position of rotation.</p>	
+	</li>
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>Part Center</b>&nbsp;:&nbsp;Make the center of Part the center of rotation.</li>
+					<li><b>Node</b>&nbsp;:&nbsp;Make the node selected from the screen the center of rotation.</li>
+					<li><b>Input</b>&nbsp;:&nbsp;Specify the center of rotation in Center-X, Center-Y, Center-Z.</li>
+				</span>
+				</ul>
+	<li><b>Angle</b></li>
+		<p>&nbsp;&nbsp;&nbsp;Specify the rotation angle.</p>	
+	</li>
+
+	
+	<h3>-&nbspOperating Procedure&nbsp-</h3>
+		<ol>
+			<li>&nbsp;Select Part.</li>
+			<li>&nbsp;To rotate around the existing coordinate system axis, select the existing coordinate system from the coordinate system and select X-axis, Y-axis, or Z-axis from the rotation axis.</li>
+			<li>&nbsp;To rotate in any direction, select any axis from the rotation axes and specify the direction vector in the X-axis, Y-axis, and Z-axis input boxes.</li>
+			<li>&nbsp;To rotate in the direction of the selected 2 nodes, select 2 nodes from the rotation axis and select 2 nodes from the screen.</li>
+			<li>&nbsp;To move in the direction of the selected edge, select the edge from the rotation axis and select the edge from the screen.</li>
+			<li>&nbsp;To make the center of the part the center of rotation, select the center of the part from the center.</li>
+			<li>&nbsp;To set the center of the Part to the node position, select the node from the center and pick the node from the screen.</li>
+			<li>&nbsp;To enter the center of Part directly, select Input from Center and specify the center of rotation in the Center-X, Center-Y, Center-Z input boxes.</li>
+			<li>&nbsp;Specify the rotation angle in angle input boxes.</li>
+			<li>&nbsp;Click the Apply/OK button. </li>
+		</ol>
+		
+<!--
+<h3>-&nbsp;操作動画&nbsp;-</h3>
+
+	<p>
+	<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>
+	&nbsp再生ボタンを押すと操作動画が再生されます。
+	</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

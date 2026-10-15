@@ -1,0 +1,196 @@
+<html lang="ja" >
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>FrontISTR-Solver - 線形弾性静解析</title>
+
+</meta>
+</head>
+
+<body>
+<div class="page">
+	<h2>FrontISTR-Solver - 線形弾性静解析</h2>
+<div class="contents">
+	<p>
+	FrontISTR-Solver - 線形弾性静解析用入力データを出力します。<br>
+	</p>
+
+    <h4>Analysis Setting</h4>
+
+	<img src="./Media/CommandDlg/Analysis_Analysis_FRONTISTR_linearElasticStaticAnalysis_1.png"></img>
+
+　　　<li>FrontISTR Job
+	<p>
+	ジョブ名: ジョブ名を入力します。ツリーにこの名称で出力設定が保存されます。<br>
+	ソルバーバージョン: 現在のバージョンは3（デフォルト)。<br>
+	解析タイプ: FrontISTR解析タイプ。<br>
+	現在線形弾性静解析のみがサポートされています。
+	
+	</p>
+　　　</li>
+　　　<li>解析設定
+	<p>
+	マトリクスソルバー方法: 解法を選択します。<br>
+	CG; BiCGSTAB,GMRES,GPBiCG,DIRECT,DIRECTmkl,MUMPS <br>
+	マトリクスソルバープレコンディショナ－: 解法を選択します。<br>
+	SSOR,SSOR(MCO),Diagonal Scaling,AMG,ILU(0),ILU(1),ILU(2)。<br>
+	出力反復数:出力反復数を選択します。<br>
+	YES: 出力反復数。<br>
+	NO: 反復数出力されない。<br>
+	出力経過時間: 出力経過時間を選択します。<br>
+	YES: 出力経過時間。<br>
+	NO: 経過時間出力されない。<br>
+	ベクターマシン用オーダー。<br>
+	対角スケーリング。<br>
+	MPC方法。<br>
+	反復数 :反復数を入力(デフォルト=20000)。<br>
+	Additive Schwartz反復数 : Additive Schwartz反復数を入力(デフォルト=2)。<br>
+	クリロフ部分空間数 :クリロフ部分空間数を入力。<br> 
+	対象色数:対象色数を入力。<br> 
+	閾値:収束の閾値を入力します(デフォルト=1e-6)。<br> 
+	SIGMA_DIAG: SIGMA_DIAGを入力します(デフォルト=1e-6)。<br> 
+	SIGMA: SIGMAを入力します。<br> 
+	</p>
+　　</li>
+　　<li>接触解析
+　　<p>
+	アルゴリズム: アルゴリズムを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Extended Lagrange Multiplier Method。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Lagrange Multiplier Method。<br>
+	</li>
+    <li>熱応力解析
+    <p>
+    熱解析ステップ数: 熱解析ステップ数を入力します。<br>
+    初期ステップ数: 初期ステップ数を入力します。<br>
+    熱解析結果ファイル名: 熱解析結果ファイル名を入力します。<br>
+    
+    <h4>Step Setting</h4>
+
+	<img src="./Media/CommandDlg/Analysis_Analysis_FRONTISTR_linearElasticStaticAnalysis_2.png"></img>
+  　　　<li>自動増分および出力時刻設定：自動増分に必要なパラメータを入力します。<br>
+	<img src="./Media/CommandDlg/Analysis_Analysis_FRONTISTR_linearElasticStaticAnalysis_9.png"></img><br>
+　	<br>&nbsp;&nbsp;&nbsp;&nbsp;名前: 名前を入力します。</br>
+　　	<br>&nbsp;&nbsp;&nbsp;&nbsp;減少条件: RS, NS_MAX, NS_SUM, NS_COUNT, N_Sの5つのパラメーターを入力します。</br>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;時間増分の増加: RL, NL_MAX, NL_SUM, NL_COUNT, N_Lの5つのパラメーターを入力します。</br>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;追加パラメータ: RC, N_Cの2つのパラメーターを入力します。</br>
+	</li>
+	<p>
+
+　　<li>出力時刻設定: 出力時刻に必要なパラメータを入力します。<br>
+	<img src="./Media/CommandDlg/Analysis_Analysis_FRONTISTR_linearElasticStaticAnalysis_10.png"></img><br>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;名前: 名前を入力します。</br>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;開始時間: 開始時間のON/OFFを選択します。</br>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;Type: STEP/TOTALを選択します。</br>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;時刻: 開始時間=OFF の場合は、時刻のみの入力で十分です。</br>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;開始時刻: 開始時間=ONにすると、開始時刻が入力できます。</br>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;ETIME: 開始時間=ONにすると、終了時間が入力できます。</br>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;時刻点の間隔: 開始時間=ONにすると、入力した間隔は増分と同じになります。</br>
+	</li>
+	<p>  
+　　　<li>ステップ解析
+　　<p>
+　　NAME: ステップ解析名を入力します。<br>
+　　TYPE: 解析のタイプを選択します。<br>
+　　&nbsp;&nbsp;&nbsp;&nbsp;STATIC。<br>
+　　&nbsp;&nbsp;&nbsp;&nbsp;VISCO。<br>
+　　CONVERG: 収束の閾値を入力します(デフォルト=1e-5)。<br> 
+　　SUBSTEPS: SUBSTEPSを入力します(デフォルト=10)。<br>
+　　最大反復数(MAXITER): 最大反復数を入力します。<br>
+　　DTIME: DTIMEを入力します。<br>
+　　ETIME: ETIMEを入力します。<br>
+　　&nbsp;&nbsp;&nbsp;&nbsp;ステップ作成: ボタンをクリックして解析ステップを作成します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;LBCマネージャ: 境界拘束条件やロードケースを設定するLBCマネージャダイアログを起動します。<br>
+	<p>
+	LBCマネージャダイアログ <br>
+	<img src="./Media/CommandDlg/Analysis_Analysis_FRONTISTR_linearElasticStaticAnalysis_3.png"></img>	
+	</p>
+	&nbsp;&nbsp;&nbsp;&nbsp;左に移動:選択したプロセスを左の列に移動します。<br>	
+	&nbsp;&nbsp;&nbsp;&nbsp;右に移動:選択したプロセスを右の列に移動します。<br>	
+    &nbsp;&nbsp;&nbsp;&nbsp;プロセス編集:プロセス設定内容を編集します。<br>	
+    &nbsp;&nbsp;&nbsp;&nbsp;プロセスを削除:プロセスを削除します。<br>		
+    &nbsp;&nbsp;&nbsp;&nbsp;アクティブ: 表示された条件を有効にします。<br>		
+	&nbsp;&nbsp;&nbsp;&nbsp;非アクティブ:表示された条件を無効にします。<br>	
+	</li>
+    <h4>Output Setting</h4>
+    <img src="./Media/CommandDlg/Analysis_Analysis_FRONTISTR_linearElasticStaticAnalysis_4.png"></img>
+	<p>
+	結果データ: 結果タイプを出力データに出力する場合に選択します。<br>
+	データ視覚化: 出力結果タイプは後処理で視覚化できます。<br>
+	モデル情報をログファイルに出力: 節点と要素はログファイルに出力されます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;  YES :節点と要素はログファイルに出力されます。 <br>
+　　&nbsp;&nbsp;&nbsp;&nbsp;NO : 節点と要素はログファイルに出力されません。<br>
+	視覚化ファイルタイプ: 視覚化ファイルタイプを選択します。<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;AVS <br>
+  	    &nbsp;&nbsp;&nbsp;&nbsp;BMP<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;VTK<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;COMPLETE_AVS<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;COMPLETE_REOPRDER_AVS<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;SEPARATE_COMPLETE_AVS<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;COMPLETE_MICROAVS<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;BIN_COMPLETE_AVS<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;FSTR_FEMAP_NEUTRAL<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;BIN_VTK<br>
+		
+	出力間隔:出力間隔を指定します。<br>
+	出力ファイル名:出力ファイル名を指定します。<br>
+    </li>
+	<h4>Option Setting</h4>
+    <img src="./Media/CommandDlg/Analysis_Analysis_FRONTISTR_linearElasticStaticAnalysis_7.png"></img>
+	<p>
+	グループマネージャー: 手動で作成したすべてのグループを管理します。 <br>
+	<img src="./Media/CommandDlg/Analysis_Analysis_FRONTISTR_linearElasticStaticAnalysis_8.png"></img><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Check All: すべてのグループを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Uncheck All: すべてのグループの選択を解除します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Reverse All Check Status: チェックしたすべてのグループのステータスを反転させます。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;出力タイプ: 節点グループ、要素グループ、サーフェスグループを選択します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;フィルター: 入力した名前により表示項目をフィルタリングします。<br>	
+	選択項目出力: エクスポートするファイルの種類を選択します。 <br>
+	&nbsp;&nbsp;&nbsp;&nbsp;.msh ファイル: ノード、要素、材料、選択されたグループを含む.mshファイルのみを出力します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;.cnt ファイル: .cntファイルと.msh ファイルを出力します。<br>
+    </li>
+    
+    <h4>Parallel Setting</h4>
+    <img src="./Media/CommandDlg/Analysis_Analysis_FRONTISTR_linearElasticStaticAnalysis_5.png"></img>
+	<p>
+	平行計算設定: 平行計算設定を指定します。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;OFF :平行計算設定は設定されません。<br>
+ 	&nbsp;&nbsp;&nbsp;&nbsp;ON  :平行計算設定を指定します。<br>
+ 	計算節点数: 計算節点数を入力します。<br>
+ 	計算節点数あたりのプロセッサ数: 計算節点数あたりのプロセッサ数を入力します。<br>
+ 	細分化レベル: 細分化レベルを入力します。<br>
+    <h4>Execution Setting</h4>
+    <img src="./Media/CommandDlg/Analysis_Analysis_FRONTISTR_linearElasticStaticAnalysis_6.png"></img> 	
+	<p>
+	直接実行: 直接実行を指定します。<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;OFF :直接実行は設定されません。<br>
+ 	&nbsp;&nbsp;&nbsp;&nbsp;ON  :直接実行を指定します。<br>	
+ 	単一コア計算 (平行計算設定= OFF) <br>
+ 	&nbsp;&nbsp;&nbsp;&nbsp;計算実行ファイルパス:計算実行ファイルパスを指定します。<br>	
+ 	&nbsp;&nbsp;&nbsp;&nbsp;計算実行ファイル	: 計算実行ファイルを指定します。<br>	
+  	平行コア計算 <br>
+  	MPI: MPI環境を指定します。<br> 
+ 	&nbsp;&nbsp;&nbsp;&nbsp;パス:パスを指定します。<br>	
+ 	&nbsp;&nbsp;&nbsp;&nbsp;Exeファイル	: Exeファイルを指定します。<br>	
+ 	&nbsp;&nbsp;&nbsp;&nbsp;オプション。<br>
+ 	FrontISTR: FrontISTR環境を指定します。<br> 
+ 	&nbsp;&nbsp;&nbsp;&nbsp;計算実行ファイルパス:計算実行ファイルパスを指定します。<br>	
+ 	&nbsp;&nbsp;&nbsp;&nbsp;エリア分割実行ファイル	: エリア分割実行ファイルを指定します。<br>	
+ 	&nbsp;&nbsp;&nbsp;&nbsp;計算実行ファイル: 計算実行ファイルを指定します。<br>	
+	
+
+<h3>-&nbsp;操作手順&nbsp;-</h3>
+	<ol>
+		<li>&nbsp;ジョブ名を指定します。</li>
+		<li>&nbsp;プロセスを作成でプロセスを作成します。デフォルトの時間刻みで解析を行う場合は、特に必要ありません。</li>
+		<li>&nbsp;LBCマネージャでプロセスに境界条件を割り当てます。</li>
+		<li>&nbsp;出力マネージャで出力項目を選択します。</li>
+		<li>&nbsp;適用/OKボタンをクリックします。</li>
+	</ol>

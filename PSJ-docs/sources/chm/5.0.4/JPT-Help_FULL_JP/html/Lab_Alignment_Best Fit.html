@@ -1,0 +1,73 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis">
+    <link href="basic.css" rel="stylesheet" type="text/css">
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<title>位置合わせ | ベストフィット</title>
+
+
+
+</head>
+
+<body>
+<div class="page">
+	<h2>位置合わせ | ベストフィット</h2>
+	<div class="contents">
+	<p>
+	選択したパーツ同士を形状の特徴をもとに位置合わせします。<br>
+	ICP(Iterative closest point)法を使用しています。
+	2つの点群同士の対応する点を見つけ、その誤差を最小にするように繰り返し計算する手法です。
+	</p>
+
+	<img src="./Media/CommandDlg/Lab_Alignment_BestFit.png"><img src="./Media/CommandDlg/Lab_Alignment_BestFit_List.png">
+
+	<h4>パラメーター</h4>
+	<li>エラー
+	<p>節点間の距離の差の合計値です。この値以内になるまで計算を繰り返します。
+	</li>
+	<li>最大サイクル数
+	<p>マトリックス計算の繰り返し数です。大きすぎると計算に時間がかかりますが、小さすぎると十分に値が収束せず、位置合わせが中途半端になる可能性があります。１以上を指定します。
+	</li>
+	<li>アルゴリズム
+	<p>"点から点へ"のみ選択可能です。選択したフェース/パーツ内に含まれる節点の集合を定義し、静的ターゲット・動的ターゲットそれぞれの点集合より算出される形状同士ができるだけ一致するように、動的ターゲット側のパーツを移動させます。
+	</li>
+	</li>
+	<h3>-&nbsp操作手順（パーツ選択）&nbsp-</h3>
+	<ol>
+		<li>選択リストの「静的ターゲット」をクリックし、移動先のパーツを選択します。</li>
+	<img src="./Media/Lab_BestFit_1.png" width="450">	<img src="./Media/Lab_BestFit_1_list.png">	
+	<li>選択リストの「動的ターゲット」をクリックし、移動させたいパーツを選択します。</li>
+	<img src="./Media/Lab_BestFit_2.png" width="450">	<img src="./Media/Lab_BestFit_2_list.png">	
+	<li>適用またはOKボタンで機能が実行されます。形状の特徴に沿って、近い位置まで移動します。</li>
+	<img src="./Media/Lab_BestFit_3.png" width="450">	
+	<br>
+	</ol>
+	<h3>-&nbsp操作手順（フェース選択）&nbsp-</h3>
+	<ol>
+		<li>選択リストの「静的ターゲット」をクリックし、移動先のパーツ上のフェースを選択します。</li>
+	<img src="./Media/Lab_BestFit_4.png" width="450">	<img src="./Media/Lab_BestFit_4_list.png">	
+	<li>選択リストの「動的ターゲット」をクリックし、移動させたいパーツ上のフェースを選択します。</li>
+	<img src="./Media/Lab_BestFit_5.png" width="450">	<img src="./Media/Lab_BestFit_5_list.png">	
+	<li>適用またはOKボタンで機能が実行されます。形状の特徴に沿って、近い位置まで移動します。</li>
+	<img src="./Media/Lab_BestFit_6.png" width="450">	
+	<br>
+	</ol>
+<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>
+</head></html>

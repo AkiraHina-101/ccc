@@ -1,0 +1,86 @@
+<html lang="ja">
+
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<link href="basic.css" rel="stylesheet" type="text/css">
+		<script language="javascript" src="script/util.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	</head>
+
+<title>Local Remesh</title>
+
+<style type="text/css">
+
+</style>
+
+</html></head>
+
+
+<body>
+<div class="page">
+	<h2>Local Remesh</h2>
+<div class="contents">
+	<p>三角形要素・四角形要素を2分割または4分割にリメッシュします。</p>
+
+	<img src="./Media/CommandDlg/Meshing_Local%20Meshing_TriQuad%20S%20Div.png">
+	
+	<h4>サイズ減少</h4>
+		<li><b>タイプ</b>
+			<p>&nbsp;&nbsp;&nbsp;要素の分割数を選択します。</p>
+				<ul type="circle">
+				<span style="font-size:0.95em;">
+					<li><b>1/2</b>&nbsp;:&nbsp;選択した要素を2分割にリメッシュします。</li>
+					<li><b>1/4</b>&nbsp;:&nbsp;選択した要素を4分割にリメッシュします。</li>
+				</span>
+				</ul>
+		</li>
+	
+	<h4>デフォルト設定</h4>
+		<span style="font-size:1.15em;">
+		<p>:&nbsp;部分 リメッシュ設定をデフォルトに保存します。</p>
+		</span>
+		<br>
+		
+		<li><b>デフオルト保存</b>
+			<p>&nbsp;&nbsp;&nbsp;各入力項目がデフォルトになります。</p>
+		</li>
+
+	<h4>微小フェースのマージ</h4>
+		<li><b>微小フェースのマージ</b>
+			<p>&nbsp;&nbsp;&nbsp;Mesh作成と同時に微小フェースを修正できます。</p>
+		</li>
+		<li><b>最小フェース幅</b>
+			<p>&nbsp;&nbsp;&nbsp;対象のフェースの最少幅を指定します。</p>
+		</li>
+		<li><b>最大フェース幅</b>
+			<p>&nbsp;&nbsp;&nbsp;対象のフェースの最大幅を指定します。</p>
+		</li>
+
+	<h4>高速モード</h4>
+		<li><b>高速モード</b>
+			<p>&nbsp;&nbsp;&nbsp;チェックを入れた場合に、Remeshing後のTopology再構築をオフにし、リメッシュを高速化します。</p>
+		</li>
+	</br>
+	
+	<h3>-&nbsp;操作手順&nbsp;-</h3>
+		<ol>
+		<li>&nbsp;要素分割数を指定します。</li>
+		<li>&nbsp;三角形または四角形要素を選択します。</li>
+		<li>&nbsp;適用/OKボタンをクリックします。</li>
+		</ol>
+
+	<!--<h3>-&nbsp操作動画&nbsp-</h3>
+
+<p>
+<img src="./media/play_movie.gif" alt="Play Movie" align="middle" onclick="popupAVI('./media/CreateEntity_Face_Edges.wmv',this.offsetLeft,this.offsetbottom,952,716)"/>&nbsp再生ボタンを押すと操作動画が再生されます。
+</p>
+-->
+	</div>
+</div>
+</body>
+
+</html>

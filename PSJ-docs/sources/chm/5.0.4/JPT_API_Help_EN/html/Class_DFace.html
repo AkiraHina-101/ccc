@@ -1,0 +1,86 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+       <script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>DFace</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>DFace</h2>
+	<div class="contents">
+<h4>Description</h4>
+	<p>Face item class.</p>
+<h4>Properties</h4>
+<table class="commontable">
+	<tr><th>Attribute</th><th>Description</th></tr>
+	<tr>
+		<td>typeID</td>
+		<td>
+			<p>Item type ID (=6). The DItemType.</p>
+			<p>#Get the integer value of Entity ItemType. The return value is int(DItemw::GetItemTypeInt).</p>
+		</td>
+	</tr>	
+	<tr>
+		<td>key</td>
+		<td>
+			<p>The internal ID of the item. Unique ID within each TypeID.</p>
+			<p>Cannot be changed by the user.</p>
+			<p>#Get the internal Key of Entity. The return value is Id (int).</p>
+		</td>
+	</tr>
+	<tr>
+		<td>id</td>
+		<td>
+			<p>The external ID of the item. </p>
+			<p>It can be duplicated within each TypeID, but it is not recommended.</p>
+			<p>Some entity IDs can be changed with the renumber function.</p>
+			<p>#Get the external ID of Entity. The return value is Id (int).</p>
+		</td>
+	</tr>
+	<tr>
+		<td>edges</td>
+		<td>
+			<p>#Get Edge information set for Face. The return value is a DEdgeW array.</p>
+		</td>
+	</tr>
+	<tr>
+		<td>elems</td>
+		<td>
+			<p>Nodes (array of ElemVector class) included in the item.</p>
+			<p>#Get the element information set in Face. Get the element information set in Face.</p>
+		</td>
+	</tr>
+	<tr>
+		<td>nodes</td>
+		<td>
+			<p>Nodes included in the item (Array of NodeVector class).</p>
+			<p>#Get the node information set for Face. The return value is a DNodeW array.</p>
+		</td>
+	</tr>
+	<tr>
+		<td>color</td>
+		<td>
+          <p>Item color information.</p>
+		</td>
+	</tr>
+<!--<tr>
+		<td>colorMesh</td>
+		<td>
+			<p></p>
+			<p></p>
+		</td>
+	</tr>
+-->
+</table>
+<br>
+</div>
+</div>
+</body>
+</html>

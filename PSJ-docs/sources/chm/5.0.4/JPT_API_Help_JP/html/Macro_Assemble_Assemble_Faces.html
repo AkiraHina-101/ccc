@@ -1,0 +1,38 @@
+<html lang="ja" >
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<link href="basic.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="script/util.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Assemble_Faces</title>
+</style>
+</head>
+<body>
+<div class="page">
+<h2>Assemble_Faces</h2>
+<div class="contents">
+<h4>Description</h4>
+<p>Create assemble faces</p>
+<h4>Syntax</h4>
+<p>Assemble_Faces([id_mating_faces_list], double tol,  int at_pos, double snap_tol, bool fit_edge)</p>
+<h4>Inputs</h4>
+<ol>
+<li>int[]<p>List id mating faces. Not empty</p></li>
+<li>doube<p>Tolerance to find mating faces</p></li>
+<li>int<p>Connect position: 0 is mid-position, 1 is master position</p></li>
+<li>double<p>Snap tolerance to boundary edges</p></li>
+<li>bool<p>Fit edge: to keep circle edge shape: flag 0 : false, 1 : true</p></li>
+</ol>
+<h4>Return Code</h4>
+<li>1<p>Succeeded, id[] list mating faces, id[] list new shared faces</p></li>
+<li>0<p>Failed, []</p></li>
+<h4>Sample Code</h4>
+<p>Assemble_Faces([24, 49], 0.00022232, 1, 5e-05, 0)</p>
+</div>
+</div>
+</body>
+</html>
